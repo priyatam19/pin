@@ -1,0 +1,5 @@
+# environment variables:
+AFL_KILL_SIGNAL=9
+AFL_USE_ASAN=1
+# command line:
+'afl-fuzz' '-i' './afl_in' '-o' './afl_out3' '-m' 'none' '--' './instrumented_binary'
