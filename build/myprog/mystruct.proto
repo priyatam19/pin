@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+message MyStruct {
+  int32 id = 1;
+  float score = 2;
+  string name = 3;
+  repeated double values = 4;
+  SubStruct1 sub = 5;
+}
+
+message SubStruct1 {
+  int32 code = 1;
+  string desc = 2;
+}

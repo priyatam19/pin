@@ -1,5 +1,0 @@
-syntax = "proto3";
-
-message Input {
-  string s = 1;
-}
