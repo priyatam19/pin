@@ -1,0 +1,6 @@
+syntax = "proto3";
+
+message Input {
+  int32 argc = 1;
+  repeated None argv = 2;
+}

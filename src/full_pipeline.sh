@@ -26,19 +26,23 @@ cd "$BUILD_DIR"
 # Define relative paths back to project root
 ROOT_DIR="../.."
 STRIPPED="tmp_structs.c"
-STRUCTGEN="$ROOT_DIR/src/pycparser_generate_proto.py"  # Assuming src/ from restructure
-WRAPGEN="$ROOT_DIR/src/generate_wrapper_ast.py"  # Assuming src/
+STRUCTGEN="$ROOT_DIR/src/pycparser_generate_proto.py"
+WRAPGEN="$ROOT_DIR/src/generate_wrapper_ast.py"
 NANOPB_DIR="$ROOT_DIR/nanopb"
+FAKE_INC_DIR="$ROOT_DIR/utils/fake_headers"
 WRAPPER_SRC="main.c"
 ORIGINAL_OBJ="original.o"
+ORIGINAL_BIN="original_bin"
+HARNESS_SRC="test_original.c"
 
 # Clean up previous generated files in build dir
-rm -f *.proto *.pb.h *.pb.c *.py input.bin *.o main.c
+rm -f *.proto *.pb.h *.pb.c *.py input.bin *.o main.c original_bin *.log native_input.json native_input.txt test_original.c
+rm -rf __pycache__
 
-# Preprocess: Remove # lines and run cpp to strip comments
+# Preprocess: Remove # lines and run cpp with fake includes to strip comments and define standard types
 temp_file="temp_no_pp.c"
 grep -v '^#' "$ROOT_DIR/$CFILE" > "$temp_file"
-cpp -nostdinc "$temp_file" > "$STRIPPED"
+cpp -nostdinc -I"$FAKE_INC_DIR" "$temp_file" > "$STRIPPED"
 rm "$temp_file"
 
 # Step 1: Generate .proto from stripped file
@@ -60,11 +64,12 @@ fi
 # Step 3: Generate Python input bindings and input.bin
 protoc --python_out=. "$PROTOFILE"
 
-# Generate dynamic random input script
+# Generate dynamic random input script - updated to output native_input.json and convert to native_input.txt (e.g., space-separated for args or stdin)
 cat > gen_input.py <<EOF
 import ${PROTO_BASE_LOWER}_pb2 as pb2
 import random
 from google.protobuf.descriptor import FieldDescriptor
+import json
 
 def fill_random(msg):
     for field in msg.DESCRIPTOR.fields:
@@ -112,13 +117,35 @@ fill_random(m)
 with open("input.bin", "wb") as f:
     f.write(m.SerializeToString())
 print("Generated message:", str(m))
+
+# Output native JSON
+native_dict = {}
+for field in m.DESCRIPTOR.fields:
+    value = getattr(m, field.name)
+    if field.label == FieldDescriptor.LABEL_REPEATED:
+        native_dict[field.name] = list(value)
+    elif field.type == FieldDescriptor.TYPE_MESSAGE:
+        native_dict[field.name] = str(value)  # Or recursive
+    else:
+        native_dict[field.name] = value
+with open("native_input.json", "w") as f:
+    json.dump(native_dict, f)
+print("Native input saved to native_input.json")
+
+# Convert to native_input.txt (e.g., space-separated for args or newline for stdin)
+with open("native_input.txt", "w") as f:
+    for k, v in native_dict.items():
+        if isinstance(v, list):
+            f.write(' '.join(map(str, v)) + '\\n')
+        else:
+            f.write(str(v) + '\\n')
 EOF
 
 python3 gen_input.py
 
 # Step 4: Generate wrapper (main.c)
 echo "Generating wrapper..."
-python3 "$WRAPGEN" "$STRIPPED" $LOGIC_FUNC $PROTO_BASE $PROTO_BASE  # Pass PROTO_BASE for both to fix casing
+python3 "$WRAPGEN" "$STRIPPED" $LOGIC_FUNC $PROTO_BASE $PROTO_BASE
 
 # Step 5: Generate nanopb serialization code
 echo "Generating nanopb files..."
@@ -126,8 +153,18 @@ protoc --nanopb_out=. "$PROTOFILE"
 
 # Step 6: Compile everything - original as object to avoid duplicates
 echo "Compiling original as object..."
-gcc -c "$ROOT_DIR/$CFILE" -o "$ORIGINAL_OBJ" -I"$NANOPB_DIR" 
+gcc -c "$ROOT_DIR/$CFILE" -o "$ORIGINAL_OBJ" -I"$NANOPB_DIR"
 
+# Always rename original main symbol to avoid conflicts
+objcopy --redefine-sym main=pin_original_main "$ORIGINAL_OBJ" || true
+
+# Compile original binary for comparison (if main exists)
+echo "Compiling original binary for comparison..."
+gcc "$ROOT_DIR/$CFILE" -o "$ORIGINAL_BIN" -I"$NANOPB_DIR" || echo "Original has no main, skipping original_bin compilation."
+
+# If non-main, generate harness if needed (optional, skip for now)
+
+# Step 7: Compile the normalized binary
 echo "Compiling all sources..."
 gcc -o pin_test \
     "$ORIGINAL_OBJ" "$WRAPPER_SRC" "${PROTO_BASE_LOWER}.pb.c" \
@@ -136,19 +173,36 @@ gcc -o pin_test \
 
 echo "Build complete: ./pin_test"
 
-# Step 7: Run if input.bin exists and capture output
+# Step 8: Run normalized
 if [ -f input.bin ]; then
-    echo "Running binary with input.bin..."
-    ./pin_test input.bin > output.log 2>&1
+    echo "Running normalized binary with input.bin..."
+    ./pin_test input.bin > output_normalized.log 2>&1
 else
-    echo "No input.bin found, skipping run." > output.log
+    echo "No input.bin found, skipping normalized run." > output_normalized.log
+fi
+
+# Step 9: Run original with native input
+if [ -f "$ORIGINAL_BIN" ] && [ -f native_input.txt ]; then
+    echo "Running original binary with native input..."
+    ./$ORIGINAL_BIN < native_input.txt > output_original.log 2>&1  # For stdin; for argv, ./$ORIGINAL_BIN $(cat native_input.txt)
+else
+    echo "No original_bin or native_input.txt, skipping original run." > output_original.log
+fi
+
+# Step 10: Compare outputs
+echo "Comparing outputs..."
+if diff output_original.log output_normalized.log > comparison.log; then
+    echo "Outputs match" >> comparison.log
+else
+    echo "Outputs differ" >> comparison.log
 fi
 
 # Store results (move generated files to results dir)
-mv pin_test input.bin output.log *.proto *.pb.h *.pb.c main.c "$ROOT_DIR/$RESULTS_DIR/" || true
+mv pin_test original_bin input.bin output_normalized.log output_original.log comparison.log *.proto *.pb.h *.pb.c main.c native_input.json native_input.txt "$ROOT_DIR/$RESULTS_DIR/" || true
 
 # Clean up temporary files in build dir
 rm -f "$STRIPPED" gen_input.py *.py *.o
+rm -rf __pycache__
 
 # Return to project root
 cd "$ROOT_DIR"

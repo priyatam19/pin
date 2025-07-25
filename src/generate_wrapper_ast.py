@@ -124,7 +124,7 @@ def generate_wrapper(filename, logic_func, pb_base, mainstruct=None):
     structname = pb_base
     
     is_main = logic_func == "main"
-    call_func_name = "original_main" if is_main else logic_func
+    call_func_name = "pin_original_main" if is_main else logic_func
     # For main, pass argc, argv
     call_str = f"{call_func_name}(argc, argv)" if is_main and len(params) > 0 else f"{call_func_name}({', '.join(call_args)})"
     
@@ -160,7 +160,7 @@ def generate_wrapper(filename, logic_func, pb_base, mainstruct=None):
         call_line = f"{call_str};\n    return 0;"
     
     # Extern declaration
-    extern_decl = f"extern {return_type} {logic_func}({param_sig});"
+    extern_decl = f"extern {return_type} {logic_func}({param_sig});" if not is_main else f"extern {return_type} pin_original_main({param_sig});"
     
     wrapper = f"""\
 #include <stdio.h>

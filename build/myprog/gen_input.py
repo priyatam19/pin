@@ -1,6 +1,7 @@
 import mystruct_pb2 as pb2
 import random
 from google.protobuf.descriptor import FieldDescriptor
+import json  # For native output
 
 def fill_random(msg):
     for field in msg.DESCRIPTOR.fields:
@@ -48,3 +49,17 @@ fill_random(m)
 with open("input.bin", "wb") as f:
     f.write(m.SerializeToString())
 print("Generated message:", str(m))
+
+# Output native JSON for original input
+native_dict = {}
+for field in m.DESCRIPTOR.fields:
+    value = getattr(m, field.name)
+    if field.label == FieldDescriptor.LABEL_REPEATED:
+        native_dict[field.name] = list(value)
+    elif field.type == FieldDescriptor.TYPE_MESSAGE:
+        native_dict[field.name] = str(value)  # Or recursive dict
+    else:
+        native_dict[field.name] = value
+with open("native_input.json", "w") as f:
+    json.dump(native_dict, f)
+print("Native input saved to native_input.json")
