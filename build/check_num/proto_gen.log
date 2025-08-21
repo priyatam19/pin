@@ -1,0 +1,36 @@
+DEBUG: Starting main with file tmp_structs.c, func checkNum, parser pycparser, headers ../../
+DEBUG: Parsing file tmp_structs.c with pycparser
+DEBUG: Found function checkNum with params: ['N']
+DEBUG: Found called function checkNum
+DEBUG: Pycparser referenced structs: set(), called funcs: {'checkNum'}
+DEBUG: Pycparser function params: [('int', 'N')]
+DEBUG: Found function checkNum with params: ['N']
+DEBUG: Found called function checkNum
+DEBUG: Mapping type for decl: Decl(name='N',
+     quals=[
+           ],
+     align=[
+           ],
+     storage=[
+             ],
+     funcspec=[
+              ],
+     type=TypeDecl(declname='N',
+                   quals=[
+                         ],
+                   align=None,
+                   type=IdentifierType(names=['int'
+                                             ]
+                                       )
+                   ),
+     init=None,
+     bitsize=None
+     )
+Wrote proto to input.proto:
+
+syntax = "proto3";
+
+message Input {
+  int32 N = 1;
+}
+

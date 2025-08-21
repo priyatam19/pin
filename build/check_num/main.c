@@ -7,7 +7,7 @@
 
 #define MAXLEN 128
 
-extern int bit_shift_main();
+extern int checkNum(int N);
 
 int main(int argc, char *argv[]) {
     if (argc != 2) {
@@ -37,7 +37,7 @@ int main(int argc, char *argv[]) {
     }
     free(buf);
 
-    int result = bit_shift_main(input.shift);
+    int result = checkNum(input.N);
     printf("Output: %d\n", result);
     return result;
 }
