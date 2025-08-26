@@ -17,9 +17,20 @@ Author: PIN Development Team
 """
 
 import sys
-from pycparser import c_parser, c_ast
 import os
-from clang.cindex import Index, CursorKind
+
+# Conditional imports based on parser availability
+try:
+    from pycparser import c_parser, c_ast
+    PYCPARSER_AVAILABLE = True
+except ImportError:
+    PYCPARSER_AVAILABLE = False
+
+try:
+    from clang.cindex import Index, CursorKind
+    LIBCLANG_AVAILABLE = True
+except ImportError:
+    LIBCLANG_AVAILABLE = False
 
 # Default buffer size for string fields when size cannot be determined
 MAXLEN_DEFAULT = 128
@@ -54,6 +65,7 @@ def get_string_buf_size(decl, parser="pycparser"):
     return MAXLEN_DEFAULT
 
 def generate_decode_callback(bufname, buflen):
+    """Generate nanopb callback function for string field decoding"""
     return f"""
 bool decode_{bufname}(pb_istream_t *stream, const pb_field_t *field, void **arg) {{
     char *buffer = (char *)(*arg);
@@ -61,6 +73,122 @@ bool decode_{bufname}(pb_istream_t *stream, const pb_field_t *field, void **arg)
     if (!pb_read(stream, (pb_byte_t*)buffer, len)) return false;
     buffer[len] = '\\0';
     return true;
+}}
+"""
+
+def generate_cli_wrapper(logic_func, return_type="int"):
+    """
+    Generate wrapper code for CLI main functions that accept argc/argv.
+    
+    Args:
+        logic_func (str): Name of the original function (usually "main")
+        return_type (str): Return type of the function
+        
+    Returns:
+        str: Complete C wrapper code for CLI programs
+    """
+    return f"""#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <pb.h>
+#include <pb_decode.h>
+#include "cliargs.pb.h"
+
+#define MAX_ARGS 256
+#define MAX_ARG_LEN 1024
+
+// Structure to track argv decoding state
+typedef struct {{
+    char **argv;
+    int argc;
+    int capacity;
+}} argv_context_t;
+
+// Callback for decoding repeated string args
+bool decode_args(pb_istream_t *stream, const pb_field_t *field, void **arg) {{
+    argv_context_t *ctx = (argv_context_t *)(*arg);
+    
+    // Allocate argv array on first call
+    if (ctx->argv == NULL) {{
+        ctx->argv = malloc(MAX_ARGS * sizeof(char*));
+        ctx->argc = 0;
+        ctx->capacity = MAX_ARGS;
+    }}
+    
+    // Reallocate if needed
+    if (ctx->argc >= ctx->capacity) {{
+        ctx->capacity *= 2;
+        ctx->argv = realloc(ctx->argv, ctx->capacity * sizeof(char*));
+    }}
+    
+    // Allocate space for this argument
+    char *arg_buf = malloc(MAX_ARG_LEN);
+    size_t len = stream->bytes_left < (MAX_ARG_LEN - 1) ? stream->bytes_left : (MAX_ARG_LEN - 1);
+    
+    if (!pb_read(stream, (pb_byte_t*)arg_buf, len)) {{
+        free(arg_buf);
+        return false;
+    }}
+    arg_buf[len] = '\\0';
+    
+    // Store argument
+    ctx->argv[ctx->argc++] = arg_buf;
+    
+    return true;
+}}
+
+extern {return_type} pin_original_{logic_func}(int argc, char **argv);
+
+int main(int argc_wrapper, char **argv_wrapper) {{
+    if (argc_wrapper != 2) {{
+        fprintf(stderr, "Usage: %s input.bin\\n", argv_wrapper[0]);
+        return 1;
+    }}
+
+    FILE *f = fopen(argv_wrapper[1], "rb");
+    if (!f) {{ perror("fopen"); return 1; }}
+    
+    fseek(f, 0, SEEK_END);
+    long len = ftell(f);
+    rewind(f);
+
+    uint8_t *buf = malloc(len);
+    if (!buf) {{ perror("malloc"); fclose(f); return 1; }}
+    fread(buf, 1, len, f);
+    fclose(f);
+
+    CliArgs cli_args = CliArgs_init_zero;
+    argv_context_t ctx = {{NULL, 0, 0}};
+    
+    // Set up callback for args decoding
+    cli_args.args.funcs.decode = &decode_args;
+    cli_args.args.arg = &ctx;
+
+    pb_istream_t stream = pb_istream_from_buffer(buf, len);
+    if (!pb_decode(&stream, CliArgs_fields, &cli_args)) {{
+        fprintf(stderr, "pb_decode failed: %s\\n", PB_GET_ERROR(&stream));
+        free(buf);
+        return 1;
+    }}
+    free(buf);
+    
+    printf("Calling {logic_func} with argc=%d argv=[", ctx.argc);
+    for (int i = 0; i < ctx.argc; i++) {{
+        printf("\\\"%s\\\"", ctx.argv[i]);
+        if (i < ctx.argc - 1) printf(", ");
+    }}
+    printf("]\\n");
+
+    {return_type} result = pin_original_{logic_func}(ctx.argc, ctx.argv);
+    
+    // Cleanup
+    for (int i = 0; i < ctx.argc; i++) {{
+        free(ctx.argv[i]);
+    }}
+    free(ctx.argv);
+    
+    printf("Output: %d\\n", result);
+    return result;
 }}
 """
 
@@ -162,26 +290,52 @@ def parse_with_libclang(filename, headers_dir=""):
             elif '(unnamed' in name or 'anonymous' in name:
                 anonymous_counter += 1 
                 name = f"AnonymousStruct{anonymous_counter}"
-            if name and name not in ['mg_mgr', 'mg_connection', 'mg_addr', 'mg_iobuf', 'mg_dns', 'mg_timer']:
+            if name:
                 fields = [(field.type.spelling, field.spelling) for field in cursor.get_children() if field.kind == CursorKind.FIELD_DECL]
                 structs.append((name, fields))
                 print(f"DEBUG: Wrapper parse found struct {name} with fields {fields}")
     return structs
 
-class FuncFinder(c_ast.NodeVisitor):
-    def __init__(self, func_name):
-        self.func_name = func_name
-        self.params = None
-        self.called_funcs = set()
-        self.handler_func = None
-        self.handler_struct = None
-    def visit_FuncDef(self, node):
-        if node.decl.name == self.func_name:
-            self.params = node.decl.type.args.params if node.decl.type.args else []
-        if node.body:
-            for item in node.body.block_items or []:
-                if isinstance(item, c_ast.FuncCall) and item.name.name:
-                    self.called_funcs.add(item.name.name)
+# Pycparser-specific classes
+if PYCPARSER_AVAILABLE:
+    class FuncFinder(c_ast.NodeVisitor):
+        def __init__(self, func_name):
+            self.func_name = func_name
+            self.params = None
+            self.called_funcs = set()
+            self.handler_func = None
+            self.handler_struct = None
+        def visit_FuncDef(self, node):
+            if node.decl.name == self.func_name:
+                self.params = node.decl.type.args.params if node.decl.type.args else []
+            if node.body:
+                for item in node.body.block_items or []:
+                    if isinstance(item, c_ast.FuncCall) and item.name.name:
+                        self.called_funcs.add(item.name.name)
+
+def is_cli_main_function(func_params, parser="pycparser"):
+    """Check if function parameters match CLI main signature: int main(int argc, char **argv)"""
+    if len(func_params) != 2:
+        return False
+        
+    if parser == "pycparser":
+        param1, param2 = func_params
+        # Check for int argc, char **argv
+        if (hasattr(param1.type, 'type') and 
+            hasattr(param1.type.type, 'names') and 
+            param1.type.type.names == ['int'] and
+            param1.name == 'argc'):
+            if (param2.name == 'argv' and 
+                isinstance(param2.type, c_ast.PtrDecl)):
+                return True
+    else:  # libclang
+        param1_type, param1_name = func_params[0]
+        param2_type, param2_name = func_params[1]
+        if (param1_name == 'argc' and param1_type.strip() == 'int' and
+            param2_name == 'argv' and 
+            (param2_type.strip() == 'char **' or param2_type.strip() == 'char *[]')):
+            return True
+    return False
 
 def generate_wrapper(filename, logic_func, pb_base, mainstruct=None, parser="pycparser", headers_dir=""):
     if parser == "pycparser":
@@ -198,6 +352,15 @@ def generate_wrapper(filename, logic_func, pb_base, mainstruct=None, parser="pyc
         params = finder.params or []
         return_type = 'int'  # Default, as we can't reliably get return type
         param_sig = ", ".join(f"{get_type_str(p.type, parser)} {p.name}" for p in params) if params else ""
+        
+        # Check if this is a CLI main function
+        if is_cli_main_function(params, parser):
+            print("DEBUG: CLI main function detected, generating CLI wrapper")
+            wrapper_code = generate_cli_wrapper(logic_func, return_type)
+            with open('main.c', 'w') as f:
+                f.write(wrapper_code)
+            print("Generated main.c for CLI wrapper.")
+            return
         structs = []
         for ext in ast.ext:
             if isinstance(ext, c_ast.Typedef) and isinstance(ext.type.type, c_ast.Struct):
@@ -231,6 +394,15 @@ def generate_wrapper(filename, logic_func, pb_base, mainstruct=None, parser="pyc
                 params = [(param.type.spelling, param.spelling) for param in cursor.get_arguments()]
                 return_type = cursor.result_type.spelling
                 param_sig = ", ".join(f"{t} {n}" for t, n in params)
+                
+                # Check if this is a CLI main function
+                if is_cli_main_function(params, parser):
+                    print("DEBUG: CLI main function detected, generating CLI wrapper")
+                    wrapper_code = generate_cli_wrapper(logic_func, return_type)
+                    with open('main.c', 'w') as f:
+                        f.write(wrapper_code)
+                    print("Generated main.c for CLI wrapper.")
+                    return
                 for child in cursor.walk_preorder():
                     if child.kind == CursorKind.CALL_EXPR:
                         for c in tu.cursor.walk_preorder():

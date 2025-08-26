@@ -60,12 +60,15 @@ grep -v '^#' "$ROOT_DIR/$CFILE" > "$temp_file"
 # Add user headers if specified and check existence
 if [ -n "$HEADERS_DIR" ]; then
     if [ -d "$ROOT_DIR/$HEADERS_DIR" ]; then
-        HEADER_PATH="$ROOT_DIR/$HEADERS_DIR/mongoose.h"
-        if [ -f "$HEADER_PATH" ]; then
-            sed -i '1i #include "mongoose.h"\n' "$temp_file"
-        else
-            echo "Error: mongoose.h not found in $ROOT_DIR/$HEADERS_DIR"
-            exit 1
+        # Only include mongoose.h for mqtt.c
+        if [[ "$(basename "$CFILE")" == "mqtt.c" ]]; then
+            HEADER_PATH="$ROOT_DIR/$HEADERS_DIR/mongoose.h"
+            if [ -f "$HEADER_PATH" ]; then
+                sed -i '1i #include "mongoose.h"\n' "$temp_file"
+            else
+                echo "Error: mongoose.h not found in $ROOT_DIR/$HEADERS_DIR for mqtt.c"
+                exit 1
+            fi
         fi
     else
         echo "Error: --headers-dir=$HEADERS_DIR is not a valid directory"
@@ -188,6 +191,12 @@ protoc --nanopb_out=. "$PROTOFILE" || {
 }
 
 # Step 6: Compile everything - original as object to avoid duplicates
+echo "Compiling coreutils stubs..."
+gcc -c "$ROOT_DIR/utils/coreutils_headers/coreutils_stubs.c" -o "coreutils_stubs.o" -I"$ROOT_DIR/$HEADERS_DIR" -D__THROW= -D__BEGIN_DECLS= -D__END_DECLS= -D"__attribute__(x)=" || {
+    echo "Error: Compilation of coreutils stubs failed"
+    exit 1
+}
+
 echo "Compiling original as object..."
 gcc -c "$ROOT_DIR/$CFILE" -o "$ORIGINAL_OBJ" -I"$NANOPB_DIR" -I"$ROOT_DIR/$HEADERS_DIR" -D__THROW= -D__BEGIN_DECLS= -D__END_DECLS= -D"__attribute__(x)=" || {
     echo "Error: Compilation of original object failed"
@@ -199,13 +208,14 @@ objcopy --redefine-sym main=pin_original_main "$ORIGINAL_OBJ" || true
 
 # Compile original binary for comparison (if main exists)
 echo "Compiling original binary for comparison..."
-gcc "$ROOT_DIR/$CFILE" -o "$ORIGINAL_BIN" -I"$NANOPB_DIR" -I"$ROOT_DIR/$HEADERS_DIR" -D__THROW= -D__BEGIN_DECLS= -D__END_DECLS= -D"__attribute__(x)=" || echo "Original has no main, skipping original_bin compilation."
+gcc "$ROOT_DIR/$CFILE" "coreutils_stubs.o" -o "$ORIGINAL_BIN" -I"$NANOPB_DIR" -I"$ROOT_DIR/$HEADERS_DIR" -D__THROW= -D__BEGIN_DECLS= -D__END_DECLS= -D"__attribute__(x)=" || echo "Original has no main, skipping original_bin compilation."
 
 # Step 7: Compile the normalized binary
 echo "Compiling all sources..."
 gcc -o pin_test \
     "$ORIGINAL_OBJ" "$WRAPPER_SRC" "${PROTO_BASE_LOWER}.pb.c" \
     "$NANOPB_DIR/pb_decode.c" "$NANOPB_DIR/pb_common.c" \
+    "coreutils_stubs.o" \
     -I"$NANOPB_DIR" -I"$ROOT_DIR/$HEADERS_DIR" -D__THROW= -D__BEGIN_DECLS= -D__END_DECLS= -D"__attribute__(x)=" || {
     echo "Error: Compilation of normalized binary failed"
     exit 1

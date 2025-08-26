@@ -16,10 +16,21 @@ Author: PIN Development Team
 """
 
 import sys
-from pycparser import c_parser, c_ast
 import re
 import os
-from clang.cindex import Index, CursorKind
+
+# Conditional imports based on parser selection
+try:
+    from pycparser import c_parser, c_ast
+    PYCPARSER_AVAILABLE = True
+except ImportError:
+    PYCPARSER_AVAILABLE = False
+
+try:
+    from clang.cindex import Index, CursorKind
+    LIBCLANG_AVAILABLE = True
+except ImportError:
+    LIBCLANG_AVAILABLE = False
 
 # Mapping from C primitive types to Protocol Buffer types
 TYPE_MAP = {
@@ -166,33 +177,37 @@ def struct_to_proto(structname, fields):
     lines.append("}\n")
     return "\n".join(lines)
 
-class FuncFinder(c_ast.NodeVisitor):
-    def __init__(self, func_name):
-        self.func_name = func_name
-        self.params = None
-        self.referenced_structs = set()
-        self.called_funcs = set()
-    def visit_FuncDef(self, node):
-        if node.decl.name == self.func_name:
-            self.params = node.decl.type.args.params if node.decl.type.args else []
-            print(f"DEBUG: Found function {self.func_name} with params: {[p.name for p in self.params]}")
-            for param in self.params:
-                if isinstance(param.type, c_ast.TypeDecl) and isinstance(param.type.type, c_ast.Struct):
-                    self.referenced_structs.add(param.type.type.name)
-                elif isinstance(param.type, c_ast.PtrDecl) and isinstance(param.type.type.type, c_ast.Struct):
-                    self.referenced_structs.add(param.type.type.type.name)
-        if node.body:
-            for item in node.body.block_items or []:
-                if isinstance(item, c_ast.FuncCall) and item.name.name:
-                    self.called_funcs.add(item.name.name)
-                    print(f"DEBUG: Found called function {item.name.name}")
-    def visit_Decl(self, node):
-        if isinstance(node.type, c_ast.TypeDecl) and isinstance(node.type.type, c_ast.Struct):
-            self.referenced_structs.add(node.type.type.name)
-            print(f"DEBUG: Found struct decl {node.type.type.name}")
-        elif isinstance(node.type, c_ast.PtrDecl) and isinstance(node.type.type.type, c_ast.Struct):
-            self.referenced_structs.add(node.type.type.type.name)
-            print(f"DEBUG: Found struct ptr decl {node.type.type.type.name}")
+# Pycparser-specific classes and functions
+if PYCPARSER_AVAILABLE:
+    class FuncFinder(c_ast.NodeVisitor):
+        def __init__(self, func_name):
+            self.func_name = func_name
+            self.params = None
+            self.referenced_structs = set()
+            self.called_funcs = set()
+            
+        def visit_FuncDef(self, node):
+            if node.decl.name == self.func_name:
+                self.params = node.decl.type.args.params if node.decl.type.args else []
+                print(f"DEBUG: Found function {self.func_name} with params: {[p.name for p in self.params]}")
+                for param in self.params:
+                    if isinstance(param.type, c_ast.TypeDecl) and isinstance(param.type.type, c_ast.Struct):
+                        self.referenced_structs.add(param.type.type.name)
+                    elif isinstance(param.type, c_ast.PtrDecl) and isinstance(param.type.type.type, c_ast.Struct):
+                        self.referenced_structs.add(param.type.type.type.name)
+            if node.body:
+                for item in node.body.block_items or []:
+                    if isinstance(item, c_ast.FuncCall) and item.name.name:
+                        self.called_funcs.add(item.name.name)
+                        print(f"DEBUG: Found called function {item.name.name}")
+                        
+        def visit_Decl(self, node):
+            if isinstance(node.type, c_ast.TypeDecl) and isinstance(node.type.type, c_ast.Struct):
+                self.referenced_structs.add(node.type.type.name)
+                print(f"DEBUG: Found struct decl {node.type.type.name}")
+            elif isinstance(node.type, c_ast.PtrDecl) and isinstance(node.type.type.type, c_ast.Struct):
+                self.referenced_structs.add(node.type.type.type.name)
+                print(f"DEBUG: Found struct ptr decl {node.type.type.type.name}")
 
 def map_libclang_type(type_spelling):
     """
@@ -208,6 +223,9 @@ def map_libclang_type(type_spelling):
         str: Protocol Buffer field type
     """
     type_str = type_spelling.strip()
+    
+    # Remove common qualifiers that don't affect protobuf mapping
+    type_str = type_str.replace('const ', '').replace('volatile ', '').replace('restrict ', '').strip()
     
     # Handle arrays - convert C arrays to Protocol Buffer repeated fields
     if '[' in type_str and ']' in type_str:
@@ -253,6 +271,72 @@ def sanitize_struct_name(name):
         name = 'Struct_' + name
     return name
 
+def is_cli_main_function(func_params, parser="pycparser"):
+    """
+    Detect if function parameters match CLI main signature: int main(int argc, char **argv)
+    
+    Args:
+        func_params: Function parameters (list of AST nodes or tuples)
+        parser: Parser type ("pycparser" or "libclang")
+        
+    Returns:
+        bool: True if this looks like a CLI main function
+    """
+    if len(func_params) != 2:
+        return False
+        
+    if parser == "pycparser":
+        # Check for: int argc, char **argv or char *argv[]
+        param1, param2 = func_params
+        
+        # First param should be int argc
+        if (isinstance(param1.type, c_ast.TypeDecl) and 
+            hasattr(param1.type.type, 'names') and 
+            param1.type.type.names == ['int'] and
+            param1.name == 'argc'):
+            
+            # Second param should be char **argv or char *argv[]
+            if (param2.name == 'argv' and 
+                isinstance(param2.type, c_ast.PtrDecl)):
+                # Check for char **argv (ptr to ptr to char)
+                if (isinstance(param2.type.type, c_ast.PtrDecl) and
+                    isinstance(param2.type.type.type, c_ast.TypeDecl) and
+                    hasattr(param2.type.type.type.type, 'names') and
+                    param2.type.type.type.type.names == ['char']):
+                    return True
+                # Check for char *argv[] (array of ptr to char)  
+                if (isinstance(param2.type.type, c_ast.ArrayDecl) and
+                    isinstance(param2.type.type.type, c_ast.TypeDecl) and
+                    hasattr(param2.type.type.type.type, 'names') and
+                    param2.type.type.type.type.names == ['char']):
+                    return True
+                    
+    else:  # libclang
+        # Check parameter type strings
+        param1_type, param1_name = func_params[0]
+        param2_type, param2_name = func_params[1]
+        
+        if (param1_name == 'argc' and param1_type.strip() == 'int' and
+            param2_name == 'argv' and 
+            (param2_type.strip() == 'char **' or param2_type.strip() == 'char *[]')):
+            return True
+            
+    return False
+
+def generate_cli_proto():
+    """
+    Generate Protocol Buffer schema for CLI arguments (argc/argv).
+    
+    Returns:
+        str: CLI protobuf schema content
+    """
+    return """syntax = "proto3";
+
+message CliArgs {
+  repeated string args = 1;  // argv[0], argv[1], ..., argv[argc-1]
+}
+"""
+
 def parse_with_libclang(filename, headers_dir="", target_func="main"):
     print(f"DEBUG: Parsing file {filename} with libclang")
     index = Index.create()
@@ -272,7 +356,15 @@ def parse_with_libclang(filename, headers_dir="", target_func="main"):
         if cursor.kind == CursorKind.FUNCTION_DECL:
             if cursor.spelling == target_func:
                 print(f"DEBUG: Found target function {cursor.spelling}")
-                for param in cursor.get_arguments():
+                func_args = list(cursor.get_arguments())
+                print(f"DEBUG: Function has {len(func_args)} arguments")
+                
+                # If function has no arguments or only void, return empty structs
+                if len(func_args) == 0:
+                    print(f"DEBUG: Function {target_func} has no parameters, returning empty structs")
+                    return [], []
+                
+                for param in func_args:
                     type_name = param.type.spelling
                     print(f"DEBUG: Param type: {type_name}")
                     if type_name.startswith('struct '):
@@ -294,17 +386,26 @@ def parse_with_libclang(filename, headers_dir="", target_func="main"):
                             referenced_structs.add(struct_name)
                             print(f"DEBUG: Added referenced struct {struct_name} from called func")
     
-    # Collect structs
+    # Collect structs - only from main file and headers_dir
     print(f"DEBUG: Collecting structs from {filename}")
+    import os
+    main_file = os.path.abspath(filename)
     for cursor in tu.cursor.walk_preorder():
-        if cursor.kind == CursorKind.STRUCT_DECL:
-            name = cursor.spelling
-            print(f"DEBUG: Found struct {name}")
-            clean_name = sanitize_struct_name(name)
-            if clean_name and clean_name not in STANDARD_TYPE_NAMES and not clean_name.startswith('__'):
-                fields = [(map_libclang_type(field.type.spelling), field.spelling) for field in cursor.get_children() if field.kind == CursorKind.FIELD_DECL]
-                structs.append((clean_name, fields))
-                print(f"DEBUG: Added struct {clean_name} with fields {fields}")
+        if cursor.kind == CursorKind.STRUCT_DECL and cursor.location.file:
+            cursor_file = str(cursor.location.file)
+            # Only include structs from main file or headers_dir
+            if cursor_file == main_file or (headers_dir and headers_dir in cursor_file):
+                name = cursor.spelling
+                print(f"DEBUG: Found struct {name} in {cursor_file}")
+                clean_name = sanitize_struct_name(name)
+                if clean_name and clean_name not in STANDARD_TYPE_NAMES and not clean_name.startswith('__'):
+                    fields = [(map_libclang_type(field.type.spelling), field.spelling) for field in cursor.get_children() if field.kind == CursorKind.FIELD_DECL]
+                    structs.append((clean_name, fields))
+                    print(f"DEBUG: Added struct {clean_name} with fields {fields}")
+                else:
+                    print(f"DEBUG: Skipped struct {name} (filtered out)")
+            else:
+                print(f"DEBUG: Skipped struct {cursor.spelling} from {cursor_file} (not in main file or headers dir)")
     
     # Parse headers
     if headers_dir:
@@ -345,6 +446,7 @@ def main(filename, logic_func, parser="pycparser", headers_dir=""):
     called_funcs = set()
     primary_input_struct = None
     func_params = []
+    is_cli_main = False  # Initialize CLI detection flag
     
     if parser == "pycparser":
         print(f"DEBUG: Parsing file {filename} with pycparser")
@@ -402,9 +504,18 @@ def main(filename, logic_func, parser="pycparser", headers_dir=""):
                         break
         func_params = finder.params or []
         print(f"DEBUG: Pycparser function params: {[(get_type_str(p.type, 'pycparser'), p.name) for p in func_params if p.name]}")
+        
+        # Check if this is a CLI main function
+        is_cli_main = is_cli_main_function(func_params, parser)
+        print(f"DEBUG: CLI main function detected: {is_cli_main}")
     
     elif parser == "libclang":
         structs, func_params = parse_with_libclang(filename, headers_dir, logic_func)
+        
+        # Check if this is a CLI main function
+        is_cli_main = is_cli_main_function(func_params, parser)
+        print(f"DEBUG: CLI main function detected: {is_cli_main}")
+        
         # Find primary input struct
         index = Index.create()
         args = ['-I' + headers_dir] if headers_dir else []
@@ -432,6 +543,42 @@ def main(filename, logic_func, parser="pycparser", headers_dir=""):
     all_structs = []
     emitted = set()
     top_structname = "Input"
+    
+    # Handle CLI main functions specially
+    if is_cli_main:
+        print("DEBUG: Generating CLI protobuf schema")
+        proto_content = generate_cli_proto()
+        proto_filename = "cliargs.proto"
+        print(f"Wrote proto to {proto_filename}:")
+        print(proto_content)
+        
+        with open(proto_filename, 'w') as f:
+            f.write(proto_content)
+            
+        # Generate CLI test input
+        test_args = ["./program", "--help", "test.txt"]  # Example CLI args
+        print(f"Generated CLI args: {test_args}")
+        
+        # Create input generation script
+        gen_script = f'''#!/usr/bin/env python3
+import cliargs_pb2
+import sys
+
+# Create CLI args message
+cli_args = cliargs_pb2.CliArgs()
+cli_args.args.extend({test_args})
+
+# Serialize to binary
+with open("input.bin", "wb") as f:
+    f.write(cli_args.SerializeToString())
+
+print("Generated input.bin with CLI args:", {test_args})
+'''
+        
+        with open('gen_input.py', 'w') as f:
+            f.write(gen_script)
+            
+        return  # Early return for CLI case
     
     if structs:
         referenced_structs = set([name for name, _ in structs])
@@ -503,4 +650,13 @@ if __name__ == "__main__":
     if len(sys.argv) < 3:
         print("Usage: python pycparser_generate_proto.py <cfile> <logic_func> [--parser=<pycparser|libclang>] [--headers-dir=<dir>]")
         sys.exit(1)
+    
+    # Check parser availability
+    if parser == "pycparser" and not PYCPARSER_AVAILABLE:
+        print("Error: pycparser is not installed. Please install with: pip install pycparser")
+        sys.exit(1)
+    elif parser == "libclang" and not LIBCLANG_AVAILABLE:
+        print("Error: libclang is not available. Please install with: pip install libclang")
+        sys.exit(1)
+    
     main(sys.argv[1], sys.argv[2], parser, headers_dir)
