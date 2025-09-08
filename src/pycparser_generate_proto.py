@@ -37,14 +37,54 @@ TYPE_MAP = {
     'int': 'int32',
     'int32_t': 'int32', 
     'long': 'int64',
+    'long long': 'int64',
+    'long long int': 'int64',
+    'short': 'int32',
+    'short int': 'int32',
+    'unsigned': 'uint32',
+    'unsigned int': 'uint32',
+    'unsigned long': 'uint64',
+    'unsigned long long': 'uint64',
+    'unsigned short': 'uint32',
+    'signed': 'int32',
+    'signed int': 'int32',
+    'signed long': 'int64',
+    'signed short': 'int32',
     'float': 'float',
     'double': 'double',
+    'long double': 'double',
     'bool': 'bool',
+    '_Bool': 'bool',
     'char': 'string',  # Single char becomes string for simplicity
+    'signed char': 'int32',
+    'unsigned char': 'uint32',
     'uint8_t': 'uint32',
     'uint16_t': 'uint32', 
     'uint32_t': 'uint32',
+    'uint64_t': 'uint64',
+    'int8_t': 'int32',
+    'int16_t': 'int32',
+    'int64_t': 'int64',
     'size_t': 'uint64',
+    'ssize_t': 'int64',
+    'ptrdiff_t': 'int64',
+    'intptr_t': 'int64',
+    'uintptr_t': 'uint64',
+    'off_t': 'int64',
+    'time_t': 'int64',
+    'clock_t': 'int64',
+    'pid_t': 'int32',
+    'uid_t': 'uint32',
+    'gid_t': 'uint32',
+    'mode_t': 'uint32',
+    'dev_t': 'uint64',
+    'ino_t': 'uint64',
+    'nlink_t': 'uint64',
+    'blksize_t': 'int64',
+    'blkcnt_t': 'int64',
+    'void': 'bytes',
+    'FILE': 'bytes',
+    'DIR': 'bytes',
 }
 
 # Standard system types that should be treated as opaque bytes rather than parsed
@@ -55,7 +95,12 @@ STANDARD_TYPE_NAMES = set([
     'MirDisplayConfig', 'xcb_connection_t', 'mg_mgr', 'mg_connection',
     'mg_addr', 'mg_iobuf', 'mg_dns', 'mg_timer', 'mg_dns_header',
     'mg_dns_rr', 'mg_tcpip_driver_imxrt1020_data', 'mg_tcpip_driver_stm32_data',
-    'mg_tcpip_driver_stm32h_data', 'mg_tcpip_driver_tm4c_data'
+    'mg_tcpip_driver_stm32h_data', 'mg_tcpip_driver_tm4c_data',
+    'stat', 'option', 'timeval', 'timezone', 'rusage', 'rlimit',
+    'sigaction', 'sigset_t', 'stack_t', 'ucontext_t', 'sigevent',
+    'pthread_t', 'pthread_attr_t', 'pthread_mutex_t', 'pthread_cond_t',
+    'sem_t', 'regex_t', 'regmatch_t', 'wordexp_t', 'glob_t',
+    'div_t', 'ldiv_t', 'lldiv_t', 'imaxdiv_t', 'mbstate_t', 'wctrans_t', 'wctype_t'
 ])
 
 def map_type(decl, structs, depth=0, parent_field=''):
@@ -77,6 +122,12 @@ def map_type(decl, structs, depth=0, parent_field=''):
     print(f"DEBUG: Mapping type for decl: {decl}")
     if isinstance(decl, tuple):  # libclang: (type_name, field_name)
         type_name = decl[0].strip()
+        
+        # Handle union types - convert to bytes
+        if type_name.startswith('union '):
+            print(f"DEBUG: Converting union {type_name} to bytes")
+            return 'bytes'
+            
         if type_name.startswith('struct '):
             struct_name = type_name[7:].split('[')[0].split('*')[0].strip()
             if struct_name in STANDARD_TYPE_NAMES:
@@ -87,48 +138,76 @@ def map_type(decl, structs, depth=0, parent_field=''):
             base = type_name.replace('[]', '').strip()
             if base == 'char':
                 return 'string'
-            return f'repeated {TYPE_MAP.get(base, base)}'
+            mapped_base = TYPE_MAP.get(base, 'bytes')
+            if mapped_base == 'bytes':
+                return 'bytes'
+            return f'repeated {mapped_base}'
         if '*' in type_name:
             base = type_name.replace('*', '').strip()
             if base == 'char':
                 return 'string'
-            if base in TYPE_MAP:
-                return f'optional {TYPE_MAP[base]}'
+            mapped_base = TYPE_MAP.get(base)
+            if mapped_base:
+                return f'optional {mapped_base}'
             return 'bytes'
-        return TYPE_MAP.get(type_name, type_name)
+        
+        # Check direct mapping first
+        mapped_type = TYPE_MAP.get(type_name)
+        if mapped_type:
+            return mapped_type
+        
+        # For unmapped types, use bytes as fallback
+        print(f"DEBUG: Unmapped type {type_name}, using bytes")
+        return 'bytes'
+        
     # pycparser logic
     if isinstance(decl.type, c_ast.ArrayDecl):
         t = decl.type
-        base = t.type.type.names[0] if hasattr(t.type.type, 'names') else None
+        if hasattr(t.type, 'type') and hasattr(t.type.type, 'names'):
+            base = ' '.join(t.type.type.names)
+        else:
+            base = 'unknown'
         if base == 'char':
             return 'string'
-        elif base in TYPE_MAP:
-            return f'repeated {TYPE_MAP[base]}'
-        else:
-            return f'repeated {base}'
+        mapped_base = TYPE_MAP.get(base, 'bytes')
+        if mapped_base == 'bytes':
+            return 'bytes'
+        return f'repeated {mapped_base}'
     elif isinstance(decl.type, c_ast.PtrDecl):
         t = decl.type
         if hasattr(t.type, 'type') and hasattr(t.type.type, 'names'):
-            base = t.type.type.names[0]
+            base = ' '.join(t.type.type.names)
             if base == 'char':
                 return 'string'
-            elif base in TYPE_MAP:
-                return f'optional {TYPE_MAP[base]}'
+            mapped_base = TYPE_MAP.get(base)
+            if mapped_base:
+                return f'optional {mapped_base}'
         return 'bytes'
     elif isinstance(decl.type, c_ast.TypeDecl):
         t = decl.type
         if isinstance(t.type, c_ast.IdentifierType):
-            name = t.type.names[0]
-            return TYPE_MAP.get(name, name)
+            name = ' '.join(t.type.names)
+            mapped_type = TYPE_MAP.get(name)
+            if mapped_type:
+                return mapped_type
+            print(f"DEBUG: Unmapped identifier type {name}, using bytes")
+            return 'bytes'
         elif isinstance(t.type, c_ast.Struct):
             structname = t.type.name or f'{parent_field.capitalize()}Struct{depth}' if parent_field else f'AnonymousStruct{depth}'
             structs.append((structname, t.type))
             return structname
+        elif isinstance(t.type, c_ast.Union):
+            print(f"DEBUG: Converting union to bytes")
+            return 'bytes'
     elif isinstance(decl.type, c_ast.Struct):
         structname = decl.type.name or f'{parent_field.capitalize()}Struct{depth}' if parent_field else f'AnonymousStruct{depth}'
-        structs.append((structname, t.type))
+        structs.append((structname, decl.type))
         return structname
+    elif isinstance(decl.type, c_ast.Union):
+        print(f"DEBUG: Converting union to bytes")
+        return 'bytes'
     else:
+        print(f"DEBUG: Unknown type {type(decl.type)}, using bytes")
         return 'bytes'
 
 def get_fields(decls, structs, depth=0, parent_field=''):
@@ -227,25 +306,30 @@ def map_libclang_type(type_spelling):
     # Remove common qualifiers that don't affect protobuf mapping
     type_str = type_str.replace('const ', '').replace('volatile ', '').replace('restrict ', '').strip()
     
+    # Handle union types - convert to bytes
+    if type_str.startswith('union '):
+        print(f"DEBUG: Converting union {type_str} to bytes")
+        return 'bytes'
+    
     # Handle arrays - convert C arrays to Protocol Buffer repeated fields
     if '[' in type_str and ']' in type_str:
         base_type = type_str.split('[')[0].strip()
         if base_type == 'char':
             return 'string'  # char arrays become strings
-        elif base_type in TYPE_MAP:
-            return f'repeated {TYPE_MAP[base_type]}'
-        else:
-            return f'repeated {base_type}'
+        mapped_base = TYPE_MAP.get(base_type, 'bytes')
+        if mapped_base == 'bytes':
+            return 'bytes'
+        return f'repeated {mapped_base}'
     
     # Handle pointers - special case for char* as strings
     if type_str.endswith('*'):
         base_type = type_str.rstrip('*').strip()
         if base_type == 'char':
             return 'string'  # char* becomes string
-        elif base_type in TYPE_MAP:
-            return TYPE_MAP[base_type]
-        else:
-            return base_type
+        mapped_base = TYPE_MAP.get(base_type)
+        if mapped_base:
+            return mapped_base
+        return 'bytes'
     
     # Handle struct types
     if type_str.startswith('struct '):
@@ -253,13 +337,18 @@ def map_libclang_type(type_spelling):
         # Clean up anonymous struct names
         if '(unnamed' in struct_name or 'anonymous' in struct_name:
             return 'AnonymousStruct'
+        if struct_name in STANDARD_TYPE_NAMES:
+            return 'bytes'
         return struct_name
     
-    # Handle basic types
-    if type_str in TYPE_MAP:
-        return TYPE_MAP[type_str]
+    # Handle basic types - check TYPE_MAP first
+    mapped_type = TYPE_MAP.get(type_str)
+    if mapped_type:
+        return mapped_type
     
-    return type_str
+    # For unmapped types, use bytes as fallback
+    print(f"DEBUG: Unmapped type {type_str}, using bytes")
+    return 'bytes'
 
 def sanitize_struct_name(name):
     """Clean up struct names to be valid protobuf identifiers"""
@@ -393,8 +482,12 @@ def parse_with_libclang(filename, headers_dir="", target_func="main"):
     for cursor in tu.cursor.walk_preorder():
         if cursor.kind == CursorKind.STRUCT_DECL and cursor.location.file:
             cursor_file = str(cursor.location.file)
-            # Only include structs from main file or headers_dir
-            if cursor_file == main_file or (headers_dir and headers_dir in cursor_file):
+            # Include structs from main file, headers_dir, or tmp_structs.c files
+            is_main_file = cursor_file == main_file or cursor_file.endswith(os.path.basename(filename))
+            is_header_file = headers_dir and headers_dir in cursor_file
+            is_temp_file = 'tmp_structs.c' in cursor_file or 'temp_no_pp.c' in cursor_file
+            
+            if is_main_file or is_header_file or is_temp_file:
                 name = cursor.spelling
                 print(f"DEBUG: Found struct {name} in {cursor_file}")
                 clean_name = sanitize_struct_name(name)

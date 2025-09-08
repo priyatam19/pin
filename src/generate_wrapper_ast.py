@@ -76,18 +76,24 @@ bool decode_{bufname}(pb_istream_t *stream, const pb_field_t *field, void **arg)
 }}
 """
 
-def generate_cli_wrapper(logic_func, return_type="int"):
+def generate_cli_wrapper(logic_func, return_type="int", cfile=""):
     """
     Generate wrapper code for CLI main functions that accept argc/argv.
     
     Args:
         logic_func (str): Name of the original function (usually "main")
         return_type (str): Return type of the function
+        cfile (str): Path to the C file being processed
         
     Returns:
         str: Complete C wrapper code for CLI programs
     """
-    return f"""#include <stdio.h>
+    # Detect if this is a coreutils program and add config.h
+    config_include = ""
+    if "coreutils" in cfile:
+        config_include = "#include <config.h>\n"
+    
+    return f"""{config_include}#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <pb.h>
@@ -337,7 +343,7 @@ def is_cli_main_function(func_params, parser="pycparser"):
             return True
     return False
 
-def generate_wrapper(filename, logic_func, pb_base, mainstruct=None, parser="pycparser", headers_dir=""):
+def generate_wrapper(filename, logic_func, pb_base, mainstruct=None, parser="pycparser", headers_dir="", original_file=None):
     if parser == "pycparser":
         with open(filename) as f:
             src = f.read()
@@ -356,7 +362,7 @@ def generate_wrapper(filename, logic_func, pb_base, mainstruct=None, parser="pyc
         # Check if this is a CLI main function
         if is_cli_main_function(params, parser):
             print("DEBUG: CLI main function detected, generating CLI wrapper")
-            wrapper_code = generate_cli_wrapper(logic_func, return_type)
+            wrapper_code = generate_cli_wrapper(logic_func, return_type, filename)
             with open('main.c', 'w') as f:
                 f.write(wrapper_code)
             print("Generated main.c for CLI wrapper.")
@@ -365,20 +371,55 @@ def generate_wrapper(filename, logic_func, pb_base, mainstruct=None, parser="pyc
         for ext in ast.ext:
             if isinstance(ext, c_ast.Typedef) and isinstance(ext.type.type, c_ast.Struct):
                 structs.append((ext.name, ext.type.type))
-        # Find handler function with struct param
+        # Find target function and detect its signature
         handler_func = None
         handler_struct = None
-        for func in finder.called_funcs:
-            for ext in ast.ext:
-                if isinstance(ext, c_ast.FuncDef) and ext.decl.name == func:
-                    params = ext.decl.type.args.params if ext.decl.type.args else []
-                    for param in params:
-                        if isinstance(param.type, c_ast.PtrDecl) and isinstance(param.type.type.type, c_ast.Struct):
-                            handler_func = ext.decl.name
-                            handler_struct = param.type.type.type.name
-                            break
-                    if handler_struct:
+        handler_func_params = []
+        handler_return_type = "int"
+        
+        # Look for the target function first
+        for ext in ast.ext:
+            if isinstance(ext, c_ast.FuncDef) and ext.decl.name == logic_func:
+                params = ext.decl.type.args.params if ext.decl.type.args else []
+                handler_func = ext.decl.name
+                handler_return_type = get_type_str(ext.decl.type.type, parser) if ext.decl.type.type else "int"
+                
+                # Get actual function parameters
+                func_params = []
+                for param in params:
+                    param_type = get_type_str(param.type, parser)
+                    param_name = param.name or f"arg{len(func_params)}"
+                    func_params.append((param_type, param_name))
+                handler_func_params = func_params
+                
+                # Find first struct parameter
+                for param in params:
+                    if isinstance(param.type, c_ast.PtrDecl) and isinstance(param.type.type.type, c_ast.Struct):
+                        handler_struct = param.type.type.type.name
                         break
+                    elif isinstance(param.type, c_ast.TypeDecl) and isinstance(param.type.type, c_ast.Struct):
+                        handler_struct = param.type.type.name
+                        break
+                
+                # Create proper function signature
+                param_list = ", ".join(f"{t}" for t, n in func_params)
+                handler_func_signature = f"{handler_return_type} {handler_func}({param_list})"
+                print(f"DEBUG: Found pycparser handler function: {handler_func_signature}")
+                break
+        
+        # Fallback: Find handler function with struct param in called functions
+        if not handler_func:
+            for func in finder.called_funcs:
+                for ext in ast.ext:
+                    if isinstance(ext, c_ast.FuncDef) and ext.decl.name == func:
+                        params = ext.decl.type.args.params if ext.decl.type.args else []
+                        for param in params:
+                            if isinstance(param.type, c_ast.PtrDecl) and isinstance(param.type.type.type, c_ast.Struct):
+                                handler_func = ext.decl.name
+                                handler_struct = param.type.type.type.name
+                                break
+                        if handler_struct:
+                            break
     else:
         index = Index.create()
         args = ['-I' + headers_dir] if headers_dir else []
@@ -389,6 +430,10 @@ def generate_wrapper(filename, logic_func, pb_base, mainstruct=None, parser="pyc
         structs = parse_with_libclang(filename, headers_dir)
         handler_func = None
         handler_struct = None
+        handler_func_signature = None
+        handler_func_params = []
+        handler_return_type = "void"
+        
         for cursor in tu.cursor.walk_preorder():
             if cursor.kind == CursorKind.FUNCTION_DECL and cursor.spelling == logic_func:
                 params = [(param.type.spelling, param.spelling) for param in cursor.get_arguments()]
@@ -398,20 +443,34 @@ def generate_wrapper(filename, logic_func, pb_base, mainstruct=None, parser="pyc
                 # Check if this is a CLI main function
                 if is_cli_main_function(params, parser):
                     print("DEBUG: CLI main function detected, generating CLI wrapper")
-                    wrapper_code = generate_cli_wrapper(logic_func, return_type)
+                    wrapper_code = generate_cli_wrapper(logic_func, return_type, filename)
                     with open('main.c', 'w') as f:
                         f.write(wrapper_code)
                     print("Generated main.c for CLI wrapper.")
                     return
+                    
+                # Extract function calls to find handler functions
                 for child in cursor.walk_preorder():
                     if child.kind == CursorKind.CALL_EXPR:
+                        # Find the function declaration for this call
                         for c in tu.cursor.walk_preorder():
                             if c.kind == CursorKind.FUNCTION_DECL and c.spelling == child.spelling:
+                                # Extract actual function signature
+                                func_params = [(param.type.spelling, param.spelling) for param in c.get_arguments()]
+                                func_return_type = c.result_type.spelling
+                                
+                                # Check if any parameter is a struct (potential handler)
                                 for param in c.get_arguments():
                                     type_name = param.type.spelling
                                     if type_name.startswith('struct '):
                                         handler_struct = type_name[7:].split('[')[0].split('*')[0].strip()
                                         handler_func = c.spelling
+                                        handler_func_params = func_params
+                                        handler_return_type = func_return_type
+                                        # Create proper function signature
+                                        param_list = ", ".join(f"{t}" for t, n in func_params)
+                                        handler_func_signature = f"{func_return_type} {handler_func}({param_list})"
+                                        print(f"DEBUG: Found handler function: {handler_func_signature}")
                                         break
                         if handler_struct:
                             break
@@ -433,8 +492,17 @@ def generate_wrapper(filename, logic_func, pb_base, mainstruct=None, parser="pyc
             sys.exit(1)
         struct = matches[0]
         buf_assignments, _, buf_call_args = walk_decls(struct if isinstance(struct, list) else struct.decls or [], "", callbacks, structs, None, parser=parser)
-        call_args = ["&dummy", "&input.input"] + buf_call_args
+        
+        # Generate correct function call arguments based on actual signature
+        if len(handler_func_params) == 1:
+            # Single parameter: mg_mgr_init(struct mg_mgr *)
+            call_args = ["&dummy"]
+        else:
+            # Multiple parameters: preserve original logic but fix it
+            call_args = ["&dummy"] + buf_call_args
+            
         call_str = f"{handler_func}({', '.join(call_args)})"
+        print(f"DEBUG: Generated function call: {call_str}")
         
         cb_code = ""
         buf_decls = ""
@@ -442,8 +510,14 @@ def generate_wrapper(filename, logic_func, pb_base, mainstruct=None, parser="pyc
             cb_code += generate_decode_callback(bufname, buflen)
             buf_decls += f"    char {bufname}_buf[{buflen}];\n"
         
+        # Detect if this is a coreutils program and add config.h
+        config_include = ""
+        file_to_check = original_file if original_file else filename
+        if "coreutils" in file_to_check:
+            config_include = "#include <config.h>\n"
+        
         wrapper = f"""\
-#include <stdio.h>
+{config_include}#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <pb.h>
@@ -452,7 +526,7 @@ def generate_wrapper(filename, logic_func, pb_base, mainstruct=None, parser="pyc
 
 #define MAXLEN {MAXLEN_DEFAULT}
 {cb_code}
-extern void {handler_func}(struct {handler_struct} *, struct {handler_struct} *);
+extern {handler_return_type} {handler_func}({", ".join(t for t, n in handler_func_params)});
 
 int main(int argc, char *argv[]) {{
     if (argc != 2) {{
@@ -483,7 +557,7 @@ int main(int argc, char *argv[]) {{
     free(buf);
 
     struct {handler_struct} dummy = {{0}};
-    {handler_func}(&dummy, &input.input);
+    {call_str};
     return 0;
 }}
 """
@@ -517,8 +591,14 @@ int main(int argc, char *argv[]) {{
         
         extern_decl = f"extern {return_type} {logic_func}({param_sig});" if not is_main else f"extern {return_type} pin_original_main({param_sig});"
         
+        # Detect if this is a coreutils program and add config.h
+        config_include = ""
+        file_to_check = original_file if original_file else filename
+        if "coreutils" in file_to_check:
+            config_include = "#include <config.h>\n"
+        
         wrapper = f"""\
-#include <stdio.h>
+{config_include}#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <pb.h>  
@@ -563,17 +643,20 @@ int main(int argc, char *argv[]) {{
     
     with open("main.c", "w") as f:
         f.write(wrapper)
-    print("Generated main.c for wrapper.")
+    print("Generated main.c for wrapper.", file=sys.stderr)
 
 if __name__ == "__main__":
     parser = "pycparser"
     headers_dir = ""
+    original_file = None
     if len(sys.argv) > 3:
         for arg in sys.argv[3:]:
             if arg.startswith("--parser="):
                 parser = arg.split("=")[1]
             elif arg.startswith("--headers-dir="):
                 headers_dir = arg.split("=")[1]
+            elif arg.startswith("--original-file="):
+                original_file = arg.split("=")[1]
     if len(sys.argv) < 4:
         print("Usage: python generate_wrapper_ast.py <cfile> <logic_func> <pb_base> [--parser=<pycparser|libclang>] [--headers-dir=<dir>]")
         sys.exit(1)
@@ -583,5 +666,6 @@ if __name__ == "__main__":
         sys.argv[3],
         sys.argv[4] if len(sys.argv) > 4 else None,
         parser,
-        headers_dir
+        headers_dir,
+        original_file
     )

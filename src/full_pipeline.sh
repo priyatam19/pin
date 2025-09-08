@@ -177,7 +177,7 @@ python3 gen_input.py || {
 
 # Step 4: Generate wrapper (main.c)
 echo "Generating wrapper..."
-python3 "$WRAPGEN" "$STRIPPED" "$LOGIC_FUNC" "$PROTO_BASE" "$PROTO_BASE" --parser="$PARSER" --headers-dir="$ROOT_DIR/$HEADERS_DIR" > wrap_gen.log 2>&1 || {
+python3 "$WRAPGEN" "$STRIPPED" "$LOGIC_FUNC" "$PROTO_BASE" "$PROTO_BASE" --parser="$PARSER" --headers-dir="$ROOT_DIR/$HEADERS_DIR" --original-file="$ROOT_DIR/$CFILE" > wrap_gen.log 2>&1 || {
     echo "Error: Wrapper generation failed. See wrap_gen.log for details."
     cat wrap_gen.log
     exit 1
@@ -198,7 +198,16 @@ gcc -c "$ROOT_DIR/utils/coreutils_headers/coreutils_stubs.c" -o "coreutils_stubs
 }
 
 echo "Compiling original as object..."
-gcc -c "$ROOT_DIR/$CFILE" -o "$ORIGINAL_OBJ" -I"$NANOPB_DIR" -I"$ROOT_DIR/$HEADERS_DIR" -D__THROW= -D__BEGIN_DECLS= -D__END_DECLS= -D"__attribute__(x)=" || {
+
+# Detect if this is a coreutils program and add appropriate include paths
+COREUTILS_INCLUDES=""
+if [[ "$CFILE" == *"coreutils"* ]]; then
+    COREUTILS_BASE=$(dirname $(dirname "$ROOT_DIR/$CFILE"))  # Get the coreutils-x.y directory  
+    COREUTILS_INCLUDES="-I$COREUTILS_BASE/lib -I$COREUTILS_BASE/src"
+    echo "Detected coreutils program, adding include paths: $COREUTILS_INCLUDES"
+fi
+
+gcc -c "$ROOT_DIR/$CFILE" -o "$ORIGINAL_OBJ" -I"$NANOPB_DIR" -I"$ROOT_DIR/$HEADERS_DIR" $COREUTILS_INCLUDES -D__THROW= -D__BEGIN_DECLS= -D__END_DECLS= -D"__attribute__(x)=" -D"__builtin_va_arg_pack()=0" || {
     echo "Error: Compilation of original object failed"
     exit 1
 }
@@ -208,16 +217,38 @@ objcopy --redefine-sym main=pin_original_main "$ORIGINAL_OBJ" || true
 
 # Compile original binary for comparison (if main exists)
 echo "Compiling original binary for comparison..."
-gcc "$ROOT_DIR/$CFILE" "coreutils_stubs.o" -o "$ORIGINAL_BIN" -I"$NANOPB_DIR" -I"$ROOT_DIR/$HEADERS_DIR" -D__THROW= -D__BEGIN_DECLS= -D__END_DECLS= -D"__attribute__(x)=" || echo "Original has no main, skipping original_bin compilation."
+gcc "$ROOT_DIR/$CFILE" "coreutils_stubs.o" -o "$ORIGINAL_BIN" -I"$NANOPB_DIR" -I"$ROOT_DIR/$HEADERS_DIR" $COREUTILS_INCLUDES -D__THROW= -D__BEGIN_DECLS= -D__END_DECLS= -D"__attribute__(x)=" -D"__builtin_va_arg_pack()=0" || echo "Original has no main, skipping original_bin compilation."
 
-# Step 7: Compile the normalized binary
-echo "Compiling all sources..."
+# Step 7: Compile nanopb files separately (without coreutils headers)
+echo "Compiling nanopb files..."
+gcc -c "$NANOPB_DIR/pb_decode.c" -o "pb_decode.o" -I"$NANOPB_DIR" || {
+    echo "Error: Compilation of pb_decode.c failed"
+    exit 1
+}
+gcc -c "$NANOPB_DIR/pb_common.c" -o "pb_common.o" -I"$NANOPB_DIR" || {
+    echo "Error: Compilation of pb_common.c failed"
+    exit 1
+}
+
+# Step 8: Compile wrapper and protobuf files (with coreutils headers for wrapper)
+echo "Compiling wrapper and protobuf files..."
+gcc -c "$WRAPPER_SRC" -o "wrapper.o" -I"$NANOPB_DIR" -I"$ROOT_DIR/$HEADERS_DIR" $COREUTILS_INCLUDES -D__THROW= -D__BEGIN_DECLS= -D__END_DECLS= -D"__attribute__(x)=" -D"__builtin_va_arg_pack()=0" || {
+    echo "Error: Compilation of wrapper failed"
+    exit 1
+}
+gcc -c "${PROTO_BASE_LOWER}.pb.c" -o "proto.o" -I"$NANOPB_DIR" || {
+    echo "Error: Compilation of protobuf file failed"
+    exit 1
+}
+
+# Step 9: Link everything together
+echo "Linking all objects..."
 gcc -o pin_test \
-    "$ORIGINAL_OBJ" "$WRAPPER_SRC" "${PROTO_BASE_LOWER}.pb.c" \
-    "$NANOPB_DIR/pb_decode.c" "$NANOPB_DIR/pb_common.c" \
+    "$ORIGINAL_OBJ" "wrapper.o" "proto.o" \
+    "pb_decode.o" "pb_common.o" \
     "coreutils_stubs.o" \
-    -I"$NANOPB_DIR" -I"$ROOT_DIR/$HEADERS_DIR" -D__THROW= -D__BEGIN_DECLS= -D__END_DECLS= -D"__attribute__(x)=" || {
-    echo "Error: Compilation of normalized binary failed"
+    -I"$NANOPB_DIR" -I"$ROOT_DIR/$HEADERS_DIR" $COREUTILS_INCLUDES || {
+    echo "Error: Linking failed"
     exit 1
 }
 
