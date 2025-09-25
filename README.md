@@ -29,19 +29,23 @@ Program analysis is complicated by diverse input interfaces (e.g., integers, str
 - **String Buffer Handling**: Advanced nanopb callback system for complex string field deserialization
 - **Pipeline Automation**: Full build process from C file to normalized executable, with random input generation for testing.
 - **Differential Testing**: Automated comparison between original and normalized program outputs
+- **Differential Fuzzing Pipeline**: Stage A libFuzzer harness plus Stage B replay scripts triage normalized vs reference executions.
+- **Containerized Environment**: Dockerfile reproduces the full toolchain with pinned dependencies and auto-populated nanopb sources.
 - **Extensibility**: Modular for future additions like pointers (as optional/repeated), enums (Protobuf enums), unions (oneof).
 - **Output Preservation**: Normalized binary produces equivalent outputs (e.g., printf) for equivalent inputs.
 
 ## Installation
 
 ### Prerequisites
-- Python 3.8+ with required packages:
+- Python 3.8+ with required packages (pinned in the Docker image):
   - `pip install pycparser` for C AST parsing
   - `pip install libclang` for alternative parsing backend
+  - `pip install protobuf==3.20.3 nanopb==0.4.7` to match Ubuntu 22.04's `libprotoc 3.12`.
 - Protobuf compiler (`protoc`): Install via package manager (e.g., `apt install protobuf-compiler` on Ubuntu).
-- Nanopb: Included as a submodule; run `git submodule update --init`.
-- GCC for compilation.
+- Nanopb runtime sources: Initialize the `nanopb/` submodule or copy the release from `/opt/nanopb` when using Docker.
+- GCC/Clang toolchain for compilation.
 - (Optional) Fake libc headers for pycparser: Clone https://github.com/eliben/pycparser/tree/master/utils/fake_libc_include into the project root.
+- (Optional) Docker: build the provided `pin-dev` image for a turnkey environment.
 
 ### Setup
 1. Clone the repository:
@@ -57,47 +61,61 @@ Program analysis is complicated by diverse input interfaces (e.g., integers, str
    pip install pycparser
    ```
 
+### Containerized Setup (Recommended)
+1. Build the image once: `docker build -t pin-dev .`
+2. Start a reusable container with your workspace mounted: `docker run -d --name pin-dev-container -v "$(pwd)":/workspace pin-dev tail -f /dev/null`
+3. Open a shell whenever you need it: `docker exec -it pin-dev-container bash` (or create an alias).
+   - The entrypoint auto-populates `/workspace/nanopb` from `/opt/nanopb`; set `PIN_AUTO_POPULATE_NANOPB=0` to skip this copy.
+   - Restart with `docker start -ai pin-dev-container` to resume work without rebuilding.
+
+
 ## Usage
 
-Run the pipeline script to normalize a C program:
+Run the differential pipeline to fuzz and replay normalized inputs:
 
 ```
-./src/full_pipeline.sh <path_to_c_file> [function_name] [--parser=<pycparser|libclang>] [--headers-dir=<dir>]
+./src/pin_diff.sh <path_to_c_file> <function_name> [--headers-dir=<dir>] [--fuzz-seconds=<n>] [--replay-dir=<dir>] [--fuzz-flags="..."]
 ```
 
 **Parameters:**
-- `<path_to_c_file>`: Relative path to the C file (e.g., examples/myprog.c).
-- `[function_name]`: Optional; the function to normalize (defaults to "main"). For whole-program normalization, use "main".
-- `[--parser=<backend>]`: Parser backend to use ("pycparser" or "libclang"). Defaults to pycparser.
-- `[--headers-dir=<dir>]`: Directory containing custom header files for complex programs.
+- `<path_to_c_file>`: Target C source file (e.g., `examples/check_num.c`).
+- `<function_name>`: Entry function to normalize and exercise (e.g., `checkNum`).
+- `[--headers-dir=<dir>]`: Additional include directory for preprocessing (fake headers, vendor headers, etc.).
+- `[--fuzz-seconds=<n>]`: Optional Stage A libFuzzer duration (in seconds). Omit or set to `0` to skip fuzzing and run Stage B replay only.
+- `[--replay-dir=<dir>]`: Override corpus directory used for Stage B differential replay (defaults to the Stage A corpus).
+- `[--fuzz-flags="..."]`: Extra libFuzzer flags appended during Stage A discovery.
 
 ### Example Commands
-- Normalize a simple function with pycparser:
+- Fuzz `checkNum` for 60 s and replay discoveries:
   ```
-  ./src/full_pipeline.sh examples/check_num.c checkNum
+  ./src/pin_diff.sh examples/check_num.c checkNum --fuzz-seconds=60
   ```
-- Normalize a complex struct function with libclang:
+- Replay an existing corpus without fuzzing:
   ```
-  ./src/full_pipeline.sh examples/myprog.c P --parser=libclang
+  ./src/pin_diff.sh examples/check_num.c checkNum --fuzz-seconds=0 --replay-dir=results/check_num_diff/stage_b
   ```
-- Normalize with custom headers:
+- Provide custom headers while fuzzing `mqtt`:
   ```
-  ./src/full_pipeline.sh examples/mqtt.c main --parser=libclang --headers-dir=utils/user_headers
+  ./src/pin_diff.sh examples/mqtt.c main --headers-dir=utils/user_headers --fuzz-seconds=120
   ```
 
+> **Legacy Workflow**: `full_pipeline.sh` still exists for single-run normalization and differential comparison.
+> It reuses the same proto/wrapper generators but stops after building `pin_test`. For thorough fuzzing and replay, prefer `pin_diff.sh`.
+
 ### Output
-- Build artifacts in `build/<example_name>/` (temporary).
-- Results (normalized binary `pin_test`, input.bin, output.log, .proto, .pb.c/h, main.c) in `results/<example_name>/`.
-- Run the normalized binary manually: `./results/<example_name>/pin_test <serialized_input.bin>`.
+- Stage A: fuzz harness, corpus, and artifacts under `build/<example_name>_diff/`.
+- Stage B: replay logs (`replay_summary.txt`, per-input stdout/stderr) in `results/<example_name>_diff/stage_b/`.
+- Standalone binaries (`normalized_bin`, `reference_bin`, `fuzz_bytes`) reside in the build directory for local repro.
 
 ## Project Structure
 
-- `src/`: Core scripts (full_pipeline.sh, pycparser_generate_proto.py, generate_wrapper_ast.py).
+- `src/`: Core scripts (`pin_diff.sh`, `full_pipeline.sh`, proto/wrapper generators).
 - `examples/`: Sample C programs (e.g., check_num.c, myprog.c, basename.c).
 - `nanopb/`: Submodule for lightweight Protobuf.
 - `build/`: Per-example build directories (temporary).
-- `results/`: Per-example output directories with normalized binaries and artifacts.
+- `results/`: Per-example output directories with normalized binaries and artifacts (see `<example>_diff/` for differential runs).
 - `fake_libc_include/`: Fake headers for pycparser to handle standard types.
+- `Dockerfile`: Reproducible build environment with pinned dependencies and nanopb bootstrap.
 - `README.md`: This file.
 - `PIN_Proposal.pdf`: Original project proposal.
 
@@ -119,6 +137,8 @@ Run the pipeline script to normalize a C program:
 - **Anonymous Struct Support**: Proper handling and naming of anonymous/unnamed structs
 - **Complex Nested Structs**: Full support for arbitrarily nested struct hierarchies
 - **Comprehensive Type Mapping**: C primitive types correctly mapped to Protocol Buffer equivalents
+- **Differential Harness MVP**: Stage A libFuzzer discovery with automated Stage B replay and logging for normalized vs reference binaries
+- **Reproducible Container Image**: Dockerfile with pinned protobuf/nanopb versions and auto-populated nanopb checkout
 
 ### 🔄 **Current Limitations**
 - **Coreutils Programs**: Limited support for complex programs like basename.c, cat.c due to:
@@ -129,31 +149,29 @@ Run the pipeline script to normalize a C program:
 - **Enums/Unions**: Not yet mapped (enums to Protobuf enums, unions to oneof)
 - **Global Variables**: Not handled in current implementation
 - **Complex Memory**: No deep copy for pointers or cycles
+- **Fuzz Replay Robustness**: Stage B exit status still surfaces protobuf decode failures and needs triage automation.
 
 ## Development Roadmap
 
-### Phase 2: Core Extensions (September 2025)
-1. **Pointer Support**: Map simple pointers (e.g., int*) to optional fields, struct* to nested optional messages. Use nanopb callbacks for dynamic allocation and null handling. **Status**: Planning
-2. **Enums and Unions**: Map C enums to Protobuf enums, unions to oneof. Extend parser for variant types. **Status**: Design phase
-3. **CLI Normalization (argc/argv)**: Special-case main signatures; map argv to repeated string, argc as implicit length. Allocate char** in decoder. **Critical for coreutils support**. **Status**: High priority
+### September 2025 – Stability & Automation
+1. **Stage B Resilience**: Treat protobuf decode failures as triaged findings instead of hard exits; emit machine-readable replay logs.
+2. **Corpus Management**: Auto-archive/prune corpora per target, attach metadata (coverage, discovery timestamps).
+3. **Turnkey Environment**: Publish prebuilt images and lockfiles so CI/teammates inherit the working toolchain.
 
-### Phase 3: Coreutils & Real-World Support (October 2025)
-4. **Comprehensive Header System**: Build extensive fake header system for GNU libc compatibility
-   - Support for complex system includes like `<config.h>`, `<getopt.h>`
-   - Custom type definitions (`idx_t`, `ptrdiff_t`, etc.)
-   - Conditional compilation support
-5. **Advanced Preprocessing**: Enhanced C preprocessing pipeline to handle complex build systems
-6. **GNU Utilities Testing**: Validate with coreutils programs (basename, cat, grep, etc.)
+### October 2025 – Richer Input Modeling
+4. **Pointer Semantics**: Map scalar pointers to optional/repeated fields and struct pointers to nested messages with nanopb callbacks.
+5. **CLI Normalization**: Model `argc/argv` for main-style entry points, including UTF-8 argv decoding and environment stubs.
+6. **Enums & Unions**: Emit Protobuf enums/oneofs with codegen for safe dispatch in the wrapper.
 
-### Phase 4: Analysis Integration (November 2025)
-7. **Fuzzer Integration**: Hook into AFL/libFuzzer with byte inputs; generate seed corpora from schemas. Add enhanced differential testing capabilities.
-8. **Performance Optimization**: Minimize deserialization overhead and memory usage
-9. **Benchmarks & Evaluation**: Performance metrics using FuzzBench/Magma test suites
+### November 2025 – Real-World Targets
+7. **Header Toolkit**: Ship a curated fake header set for GNU/libc-heavy codebases and automate preprocessing hints.
+8. **Coreutils Coverage**: Graduate tranche of coreutils demos (basename, cat, grep) through end-to-end differential replay.
+9. **Scalability**: Parallelize normalization builds and fuzz sessions across multiple targets.
 
-### Phase 5: Advanced Features (December 2025)
-10. **Function Decomposer Integration**: Modular analysis of large codebases with per-function normalization
-11. **Static Analysis Integration**: Compatibility with verification and symbolic execution tools
-12. **Language Extensions**: Support for C++ constructs and modern C features
+### By December 17, 2025 – Ecosystem & Deliverables
+10. **Fuzzer Integrations**: Wire AFL, libFuzzer, and custom engines into a shared corpus exchange service.
+11. **Differential Diagnostics**: Generate minimal counterexamples and human-readable triage bundles when normalized vs reference diverge.
+12. **Static/Hybrid Analysis**: Expose structured inputs to symbolic execution and verification frameworks via stable APIs.
 
 Contributions welcome—open issues/PRs for bugs or features.
 
