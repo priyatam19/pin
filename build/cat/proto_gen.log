@@ -1,0 +1,3 @@
+DEBUG: Starting main with file tmp_structs.c, func main, parser pycparser, headers ../../
+DEBUG: Parsing file tmp_structs.c with pycparser
+DEBUG: Pycparser parsing failed: temp_no_pp.c:30:21: before: "Torbjorn Granlund"

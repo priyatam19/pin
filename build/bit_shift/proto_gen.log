@@ -1,0 +1,15 @@
+DEBUG: Starting main with file tmp_structs.c, func bit_shift_main, parser pycparser, headers ../../
+DEBUG: Parsing file tmp_structs.c with pycparser
+DEBUG: Found called function bit_shift_013_func_001
+DEBUG: Found function bit_shift_main with params: []
+DEBUG: Pycparser referenced structs: set(), called funcs: {'bit_shift_013_func_001'}
+DEBUG: Pycparser function params: []
+DEBUG: Found called function bit_shift_013_func_001
+DEBUG: Found function bit_shift_main with params: []
+Wrote proto to input.proto:
+
+syntax = "proto3";
+
+message Input {
+}
+

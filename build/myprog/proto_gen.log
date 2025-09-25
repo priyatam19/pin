@@ -1,0 +1,236 @@
+DEBUG: Starting main with file tmp_structs.c, func P, parser pycparser, headers ../../
+DEBUG: Parsing file tmp_structs.c with pycparser
+DEBUG: Found struct decl None
+DEBUG: Found function P with params: ['input', 'name_buf', 'sub_desc_buf']
+DEBUG: Found called function printf
+DEBUG: Found called function printf
+DEBUG: Found called function printf
+DEBUG: Found called function printf
+DEBUG: Found called function printf
+DEBUG: Found called function printf
+DEBUG: Found called function printf
+DEBUG: Pycparser referenced structs: {None}, called funcs: {'printf'}
+DEBUG: Added pycparser struct MyStruct
+DEBUG: Pycparser function params: [('const MyStruct*', 'input'), ('const char*', 'name_buf'), ('const char*', 'sub_desc_buf')]
+DEBUG: Mapping type for decl: Decl(name='id',
+     quals=[
+           ],
+     align=[
+           ],
+     storage=[
+             ],
+     funcspec=[
+              ],
+     type=TypeDecl(declname='id',
+                   quals=[
+                         ],
+                   align=None,
+                   type=IdentifierType(names=['int'
+                                             ]
+                                       )
+                   ),
+     init=None,
+     bitsize=None
+     )
+DEBUG: Mapping type for decl: Decl(name='score',
+     quals=[
+           ],
+     align=[
+           ],
+     storage=[
+             ],
+     funcspec=[
+              ],
+     type=TypeDecl(declname='score',
+                   quals=[
+                         ],
+                   align=None,
+                   type=IdentifierType(names=['float'
+                                             ]
+                                       )
+                   ),
+     init=None,
+     bitsize=None
+     )
+DEBUG: Mapping type for decl: Decl(name='name',
+     quals=[
+           ],
+     align=[
+           ],
+     storage=[
+             ],
+     funcspec=[
+              ],
+     type=ArrayDecl(type=TypeDecl(declname='name',
+                                  quals=[
+                                        ],
+                                  align=None,
+                                  type=IdentifierType(names=['char'
+                                                            ]
+                                                      )
+                                  ),
+                    dim=Constant(type='int',
+                                 value='32'
+                                 ),
+                    dim_quals=[
+                              ]
+                    ),
+     init=None,
+     bitsize=None
+     )
+DEBUG: Mapping type for decl: Decl(name='values',
+     quals=[
+           ],
+     align=[
+           ],
+     storage=[
+             ],
+     funcspec=[
+              ],
+     type=ArrayDecl(type=TypeDecl(declname='values',
+                                  quals=[
+                                        ],
+                                  align=None,
+                                  type=IdentifierType(names=['double'
+                                                            ]
+                                                      )
+                                  ),
+                    dim=Constant(type='int',
+                                 value='3'
+                                 ),
+                    dim_quals=[
+                              ]
+                    ),
+     init=None,
+     bitsize=None
+     )
+DEBUG: Mapping type for decl: Decl(name='sub',
+     quals=[
+           ],
+     align=[
+           ],
+     storage=[
+             ],
+     funcspec=[
+              ],
+     type=TypeDecl(declname='sub',
+                   quals=[
+                         ],
+                   align=None,
+                   type=Struct(name=None,
+                               decls=[Decl(name='code',
+                                           quals=[
+                                                 ],
+                                           align=[
+                                                 ],
+                                           storage=[
+                                                   ],
+                                           funcspec=[
+                                                    ],
+                                           type=TypeDecl(declname='code',
+                                                         quals=[
+                                                               ],
+                                                         align=None,
+                                                         type=IdentifierType(names=['int'
+                                                                                   ]
+                                                                             )
+                                                         ),
+                                           init=None,
+                                           bitsize=None
+                                           ),
+                                      Decl(name='desc',
+                                           quals=[
+                                                 ],
+                                           align=[
+                                                 ],
+                                           storage=[
+                                                   ],
+                                           funcspec=[
+                                                    ],
+                                           type=ArrayDecl(type=TypeDecl(declname='desc',
+                                                                        quals=[
+                                                                              ],
+                                                                        align=None,
+                                                                        type=IdentifierType(names=['char'
+                                                                                                  ]
+                                                                                            )
+                                                                        ),
+                                                          dim=Constant(type='int',
+                                                                       value='16'
+                                                                       ),
+                                                          dim_quals=[
+                                                                    ]
+                                                          ),
+                                           init=None,
+                                           bitsize=None
+                                           )
+                                     ]
+                               )
+                   ),
+     init=None,
+     bitsize=None
+     )
+DEBUG: Mapping type for decl: Decl(name='code',
+     quals=[
+           ],
+     align=[
+           ],
+     storage=[
+             ],
+     funcspec=[
+              ],
+     type=TypeDecl(declname='code',
+                   quals=[
+                         ],
+                   align=None,
+                   type=IdentifierType(names=['int'
+                                             ]
+                                       )
+                   ),
+     init=None,
+     bitsize=None
+     )
+DEBUG: Mapping type for decl: Decl(name='desc',
+     quals=[
+           ],
+     align=[
+           ],
+     storage=[
+             ],
+     funcspec=[
+              ],
+     type=ArrayDecl(type=TypeDecl(declname='desc',
+                                  quals=[
+                                        ],
+                                  align=None,
+                                  type=IdentifierType(names=['char'
+                                                            ]
+                                                      )
+                                  ),
+                    dim=Constant(type='int',
+                                 value='16'
+                                 ),
+                    dim_quals=[
+                              ]
+                    ),
+     init=None,
+     bitsize=None
+     )
+DEBUG: No primary input struct, using MyStruct
+Wrote proto to mystruct.proto:
+
+syntax = "proto3";
+
+message MyStruct {
+  int32 id = 1;
+  float score = 2;
+  string name = 3;
+  repeated double values = 4;
+  SubStruct1 sub = 5;
+}
+
+message SubStruct1 {
+  int32 code = 1;
+  string desc = 2;
+}
+

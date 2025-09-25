@@ -8,7 +8,7 @@
 
 PIN (Program Input Normalization) is a tool designed to standardize the input interfaces of arbitrary C programs by transforming them to accept serialized byte inputs using Google Protocol Buffers (Protobuf). This enables uniform program analysis, optimization, and testing (e.g., fuzzing) across diverse input types, ranging from primitives (integers, floats) to complex structures (structs, pointers, arrays).
 
-The project addresses the challenge of varying input spaces in program analysis by constructing a decoder function that maps bytes to the program's native input space, preserving semantics. As of July 23, 2025, PIN supports basic primitives, structs, nested/anonymous structs, strings, and arrays, with ongoing extensions for pointers, enums, unions, and real-world CLI programs.
+The project addresses the challenge of varying input spaces in program analysis by constructing a decoder function that maps bytes to the program's native input space, preserving semantics. As of August 19, 2025, PIN supports basic primitives, structs, nested/anonymous structs, strings, and arrays with both pycparser and libclang parsing backends. Recent improvements include enhanced string buffer handling and robust support for complex nested structs.
 
 This tool is inspired by optimization-based program analysis techniques and aims to simplify pipelines for verification, fuzzing, and benchmarking. It is built with pycparser for C parsing, nanopb for lightweight Protobuf in C, and automated pipelines for end-to-end normalization.
 
@@ -20,19 +20,24 @@ Program analysis is complicated by diverse input interfaces (e.g., integers, str
 
 - **Automatic Schema Generation**: Parses C code to extract input structs or function parameters, generating corresponding .proto files.
 - **Decoder Composition**: Wraps the original program with nanopb-based deserialization to handle byte inputs.
+- **Dual Parser Support**: Both pycparser and libclang backends for robust C code parsing
 - **Support for Input Types**:
   - Primitives: int, float, double, bool.
-  - Strings: char[] or char* as Protobuf strings.
+  - Strings: char[] or char* as Protobuf strings with proper buffer management.
   - Arrays: Fixed-length as repeated fields.
-  - Structs: Nested and anonymous structs as messages.
+  - Structs: Nested and anonymous structs as messages with cleaned naming.
+- **String Buffer Handling**: Advanced nanopb callback system for complex string field deserialization
 - **Pipeline Automation**: Full build process from C file to normalized executable, with random input generation for testing.
+- **Differential Testing**: Automated comparison between original and normalized program outputs
 - **Extensibility**: Modular for future additions like pointers (as optional/repeated), enums (Protobuf enums), unions (oneof).
 - **Output Preservation**: Normalized binary produces equivalent outputs (e.g., printf) for equivalent inputs.
 
 ## Installation
 
 ### Prerequisites
-- Python 3.8+ with pycparser (`pip install pycparser`).
+- Python 3.8+ with required packages:
+  - `pip install pycparser` for C AST parsing
+  - `pip install libclang` for alternative parsing backend
 - Protobuf compiler (`protoc`): Install via package manager (e.g., `apt install protobuf-compiler` on Ubuntu).
 - Nanopb: Included as a submodule; run `git submodule update --init`.
 - GCC for compilation.
@@ -57,20 +62,27 @@ Program analysis is complicated by diverse input interfaces (e.g., integers, str
 Run the pipeline script to normalize a C program:
 
 ```
-./src/full_pipeline.sh <path_to_c_file> [function_name]
+./src/full_pipeline.sh <path_to_c_file> [function_name] [--parser=<pycparser|libclang>] [--headers-dir=<dir>]
 ```
 
+**Parameters:**
 - `<path_to_c_file>`: Relative path to the C file (e.g., examples/myprog.c).
 - `[function_name]`: Optional; the function to normalize (defaults to "main"). For whole-program normalization, use "main".
+- `[--parser=<backend>]`: Parser backend to use ("pycparser" or "libclang"). Defaults to pycparser.
+- `[--headers-dir=<dir>]`: Directory containing custom header files for complex programs.
 
 ### Example Commands
-- Normalize a simple function:
+- Normalize a simple function with pycparser:
   ```
   ./src/full_pipeline.sh examples/check_num.c checkNum
   ```
-- Normalize the main entry point:
+- Normalize a complex struct function with libclang:
   ```
-  ./src/full_pipeline.sh examples/basename.c main
+  ./src/full_pipeline.sh examples/myprog.c P --parser=libclang
+  ```
+- Normalize with custom headers:
+  ```
+  ./src/full_pipeline.sh examples/mqtt.c main --parser=libclang --headers-dir=utils/user_headers
   ```
 
 ### Output
@@ -99,25 +111,49 @@ Run the pipeline script to normalize a C program:
 6. **Compilation & Execution**: Compile original as object, link with wrapper and nanopb to produce pin_test, run with random input.
 7. **Run & Results**: Execute with random input, store outputs.
 
-## Limitations
+## Current Status & Limitations
 
-- Pointers: Basic fallback to bytes; full support (optional, repeated, allocation) in progress.
-- Enums/Unions: Not yet mapped (enums to Protobuf enums, unions to oneof).
-- CLI Args (argc/argv): Fallback to bytes; repeated string extension planned.
-- Globals/Non-Function Inputs: Not handled.
-- Complex Memory: No deep copy for pointers or cycles.
+### ✅ **Completed Features**
+- **Enhanced String Buffer Handling**: Fixed libclang parsing for complex nested structs with string fields
+- **Dual Parser Support**: Both pycparser and libclang backends work correctly with proper type mapping
+- **Anonymous Struct Support**: Proper handling and naming of anonymous/unnamed structs
+- **Complex Nested Structs**: Full support for arbitrarily nested struct hierarchies
+- **Comprehensive Type Mapping**: C primitive types correctly mapped to Protocol Buffer equivalents
 
-## Future Work
+### 🔄 **Current Limitations**
+- **Coreutils Programs**: Limited support for complex programs like basename.c, cat.c due to:
+  - argc/argv normalization not implemented
+  - Missing comprehensive GNU libc header system
+  - Complex dependency chains and conditional compilation
+- **Pointers**: Basic fallback to bytes; full support (optional, repeated, allocation) in progress
+- **Enums/Unions**: Not yet mapped (enums to Protobuf enums, unions to oneof)
+- **Global Variables**: Not handled in current implementation
+- **Complex Memory**: No deep copy for pointers or cycles
 
-Based on the project roadmap (as of July 23, 2025), the following enhancements are prioritized:
+## Development Roadmap
 
-1. **Pointer Support (Phase 2)**: Map simple pointers (e.g., int*) to optional fields, struct* to nested optional messages. Use nanopb callbacks for dynamic allocation and null handling. Complexity: Medium; Target: August 15, 2025.
-2. **Enums and Unions (Phase 2)**: Map C enums to Protobuf enums, unions to oneof. Extend parser for variant types. Target: August 20, 2025.
-3. **CLI Normalization (argc/argv)**: Special-case main signatures; map argv to repeated string, argc as implicit length. Allocate char** in decoder. Useful for coreutils-like programs. Target: September 1, 2025.
-4. **Fuzzer Integration (Phase 4)**: Hook into AFL/libFuzzer with byte inputs; generate seed corpora from schemas. Add differential testing (original vs. normalized outputs). Target: September 15, 2025.
-5. **Benchmarks & Report**: Add performance metrics (decode time, overhead) and fuzzing efficacy (coverage, bugs) using FuzzBench/Magma. Update success criteria with demos. Target: September 30, 2025.
-6. **Error Handling & Docs**: Robust logging for decode failures; expand README with real-world examples (e.g., basename.c fuzzing). Target: Ongoing.
-7. **Integration with Function Decomposer**: Integrate PIN with the Function Decomposer tool (Clang-based refactoring for modularizing C code into per-function files and shared headers). The pipeline will first decompose the code, generate metadata.json, then normalize inputs for each modular component using metadata to target functions/types. This creates navigable, input-normalized code for large codebases, enabling uniform analysis (e.g., fuzzing isolated functions). Modes: Modular (decompose + normalize per function), Full (normalize originals), Hybrid (selective). Target: October 15, 2025.
+### Phase 2: Core Extensions (September 2025)
+1. **Pointer Support**: Map simple pointers (e.g., int*) to optional fields, struct* to nested optional messages. Use nanopb callbacks for dynamic allocation and null handling. **Status**: Planning
+2. **Enums and Unions**: Map C enums to Protobuf enums, unions to oneof. Extend parser for variant types. **Status**: Design phase
+3. **CLI Normalization (argc/argv)**: Special-case main signatures; map argv to repeated string, argc as implicit length. Allocate char** in decoder. **Critical for coreutils support**. **Status**: High priority
+
+### Phase 3: Coreutils & Real-World Support (October 2025)
+4. **Comprehensive Header System**: Build extensive fake header system for GNU libc compatibility
+   - Support for complex system includes like `<config.h>`, `<getopt.h>`
+   - Custom type definitions (`idx_t`, `ptrdiff_t`, etc.)
+   - Conditional compilation support
+5. **Advanced Preprocessing**: Enhanced C preprocessing pipeline to handle complex build systems
+6. **GNU Utilities Testing**: Validate with coreutils programs (basename, cat, grep, etc.)
+
+### Phase 4: Analysis Integration (November 2025)
+7. **Fuzzer Integration**: Hook into AFL/libFuzzer with byte inputs; generate seed corpora from schemas. Add enhanced differential testing capabilities.
+8. **Performance Optimization**: Minimize deserialization overhead and memory usage
+9. **Benchmarks & Evaluation**: Performance metrics using FuzzBench/Magma test suites
+
+### Phase 5: Advanced Features (December 2025)
+10. **Function Decomposer Integration**: Modular analysis of large codebases with per-function normalization
+11. **Static Analysis Integration**: Compatibility with verification and symbolic execution tools
+12. **Language Extensions**: Support for C++ constructs and modern C features
 
 Contributions welcome—open issues/PRs for bugs or features.
 
