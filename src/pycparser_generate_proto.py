@@ -732,7 +732,8 @@ print("Generated input.bin with CLI args:", {test_args})
     print(proto_str)
 
 if __name__ == "__main__":
-    parser = "pycparser"
+    # Default to libclang for broader C/C++ support
+    parser = "libclang"
     headers_dir = ""
     if len(sys.argv) > 3:
         for arg in sys.argv[3:]:
@@ -744,12 +745,15 @@ if __name__ == "__main__":
         print("Usage: python pycparser_generate_proto.py <cfile> <logic_func> [--parser=<pycparser|libclang>] [--headers-dir=<dir>]")
         sys.exit(1)
     
-    # Check parser availability
+    # Check parser availability; fall back if needed
     if parser == "pycparser" and not PYCPARSER_AVAILABLE:
         print("Error: pycparser is not installed. Please install with: pip install pycparser")
         sys.exit(1)
     elif parser == "libclang" and not LIBCLANG_AVAILABLE:
-        print("Error: libclang is not available. Please install with: pip install libclang")
-        sys.exit(1)
+        print("Warning: libclang Python bindings not available; falling back to pycparser")
+        parser = "pycparser"
+        if not PYCPARSER_AVAILABLE:
+            print("Error: Neither libclang nor pycparser available. Install one: pip install libclang or pip install pycparser")
+            sys.exit(1)
     
     main(sys.argv[1], sys.argv[2], parser, headers_dir)

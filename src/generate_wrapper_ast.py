@@ -18,6 +18,7 @@ Author: PIN Development Team
 
 import sys
 import os
+import re
 
 # Conditional imports based on parser availability
 try:
@@ -243,7 +244,7 @@ def walk_decls(decls, prefix, callbacks, structs, ast, cpath='input', depth=0, i
             (isinstance(field.type, c_ast.ArrayDecl) and getattr(field.type.type.type, 'names', [None])[0] == 'char') or
             (is_ptr and getattr(field.type.type.type, 'names', [None])[0] == 'char')
         )) or (parser == "libclang" and (
-            'char[' in field[0] or field[0] == 'char *'
+            'char[' in field[0] or 'char *' in field[0]
         )):
             buflen = get_string_buf_size(field, parser)
             callbacks.append((fieldname, buflen, fieldcpath))
@@ -528,6 +529,20 @@ def generate_wrapper(filename, logic_func, pb_base, mainstruct=None, parser="pyc
 {cb_code}
 extern {handler_return_type} {handler_func}({", ".join(t for t, n in handler_func_params)});
 
+// Decode from in-memory buffer and call target (for fuzzers)
+int pin_wrapper_entry(const uint8_t *data, size_t len) {{
+    {structname} input = {structname}_init_zero;
+{buf_decls}
+{buf_assignments}
+    pb_istream_t stream = pb_istream_from_buffer(data, len);
+    if (!pb_decode(&stream, {structname}_fields, &input)) {{
+        return 1;
+    }}
+    struct {handler_struct} dummy = {{0}};
+    {call_str};
+    return 0;
+}}
+#ifndef PIN_WRAPPER_NO_MAIN
 int main(int argc, char *argv[]) {{
     if (argc != 2) {{
         fprintf(stderr, "Usage: %s input.bin\\n", argv[0]);
@@ -556,10 +571,10 @@ int main(int argc, char *argv[]) {{
     }}
     free(buf);
 
-    struct {handler_struct} dummy = {{0}};
-    {call_str};
+    (void)pin_wrapper_entry(buf, (size_t)len);
     return 0;
 }}
+#endif
 """
     else:
         if structs and mainstruct:
@@ -577,6 +592,34 @@ int main(int argc, char *argv[]) {{
             else:
                 buf_assignments, call_args, buf_call_args = walk_decls(params, "", callbacks, structs, None, is_param_mode=True, parser=parser)
                 call_str = f"{call_func_name}({', '.join(call_args)})"
+
+        callback_paths = {cpath for _, _, cpath in callbacks}
+        callback_buf_names = {f"{name}_buf": cpath for name, _, cpath in callbacks}
+
+        def make_cpp_call_expr(expr: str) -> str:
+            if "&input" in expr or "*input" in expr:
+                raise RuntimeError("C++ reference runner does not yet support pointer arguments derived from 'input'")
+
+            for buf_name, cpath in callback_buf_names.items():
+                accessor = cpath.split('.')[-1]
+                camel = accessor[0].lower() + accessor[1:]
+                expr = expr.replace(buf_name, f"msg.{camel}().c_str()")
+
+            def repl(match):
+                field_path = f"input.{match.group(1)}"
+                field = match.group(1)
+                accessor = field[0].lower() + field[1:]
+                call = f"msg.{accessor}()"
+                if field_path in callback_paths:
+                    call += ".c_str()"
+                return call
+
+            transformed = re.sub(r"input\.([A-Za-z0-9_]+)", repl, expr)
+            if "input" in transformed:
+                raise RuntimeError("C++ reference runner could not translate all arguments")
+            return transformed
+
+        call_str_cpp = make_cpp_call_expr(call_str)
         
         cb_code = ""
         buf_decls = ""
@@ -590,6 +633,7 @@ int main(int argc, char *argv[]) {{
             call_line = f"{call_str};\n    return 0;"
         
         extern_decl = f"extern {return_type} {logic_func}({param_sig});" if not is_main else f"extern {return_type} pin_original_main({param_sig});"
+        extern_decl_cpp = extern_decl.replace("extern", "extern \"C\"")
         
         # Detect if this is a coreutils program and add config.h
         config_include = ""
@@ -609,6 +653,20 @@ int main(int argc, char *argv[]) {{
 {cb_code}
 {extern_decl}
 
+// Decode from in-memory buffer and call target (for fuzzers)
+int pin_wrapper_entry(const uint8_t *data, size_t len) {{
+    {structname} input = {structname}_init_zero;
+{buf_decls}
+{buf_assignments}
+    pb_istream_t stream = pb_istream_from_buffer(data, len);
+    if (!pb_decode(&stream, {structname}_fields, &input)) {{
+        return 1;
+    }}
+    {call_str};
+    return 0;
+}}
+
+#ifndef PIN_WRAPPER_NO_MAIN
 int main(int argc, char *argv[]) {{
     if (argc != 2) {{
         fprintf(stderr, "Usage: %s input.bin\\n", argv[0]);
@@ -626,24 +684,62 @@ int main(int argc, char *argv[]) {{
     fread(buf, 1, len, f);
     fclose(f);
 
-    {structname} input = {structname}_init_zero;
-{buf_decls}
-{buf_assignments}
-    pb_istream_t stream = pb_istream_from_buffer(buf, len);
-    if (!pb_decode(&stream, {structname}_fields, &input)) {{
-        fprintf(stderr, "pb_decode failed: %s\\n", PB_GET_ERROR(&stream));
-        free(buf);
-        return 1;
-    }}
+    int rc = pin_wrapper_entry(buf, (size_t)len);
     free(buf);
-
-    {call_line}
+    return rc;
 }}
+#endif
 """
     
     with open("main.c", "w") as f:
         f.write(wrapper)
     print("Generated main.c for wrapper.", file=sys.stderr)
+
+    reference_template = f"""\
+#include <cstdint>
+#include <cstdio>
+#include <cstdlib>
+#include <fstream>
+#include <vector>
+
+#include <google/protobuf/stubs/common.h>
+#include "cpp_proto/{pb_base.lower()}.pb.h"
+
+{extern_decl_cpp}
+
+int pin_reference_entry(const uint8_t *data, size_t len) {{
+    {pb_base} msg;
+    if (!msg.ParseFromArray(data, static_cast<int>(len))) {{
+        return 1;
+    }}
+    {call_str_cpp};
+    return 0;
+}}
+
+int main(int argc, char *argv[]) {{
+    if (argc != 2) {{
+        std::fprintf(stderr, "Usage: %s input.bin\\n", argv[0]);
+        return 1;
+    }}
+
+    GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+    std::ifstream ifs(argv[1], std::ios::binary);
+    if (!ifs) {{
+        std::perror("ifstream");
+        return 1;
+    }}
+    std::vector<uint8_t> buffer((std::istreambuf_iterator<char>(ifs)), std::istreambuf_iterator<char>());
+
+    int rc = pin_reference_entry(buffer.data(), buffer.size());
+    ::google::protobuf::ShutdownProtobufLibrary();
+    return rc;
+}}
+"""
+
+    with open("reference_runner.cc", "w") as f:
+        f.write(reference_template)
+    print("Generated reference_runner.cc.", file=sys.stderr)
 
 if __name__ == "__main__":
     parser = "pycparser"
