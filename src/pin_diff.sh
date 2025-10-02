@@ -7,9 +7,9 @@
 #          pin_wrapper_entry(data, size) to discover interesting serialized
 #          protobuf inputs and grow a corpus.
 #
-# Stage B (TODO): Differential replay of saved corpus comparing outputs of
-#   - normalized path (wrapper main reading bytes)
-#   - reference path (C++ protobuf decode + direct call)
+# Stage B: Differential replay of saved corpus comparing outputs of
+#   - normalized binary (nanopb wrapper reading bytes)
+#   - original replay binary (C++ protobuf decode calling original code)
 #
 set -euo pipefail
 
@@ -41,23 +41,78 @@ BUILD_DIR="$ROOT_DIR/build/${EXAMPLE_NAME}_diff"
 RESULTS_DIR="$ROOT_DIR/results/${EXAMPLE_NAME}_diff"
 NANOPB_DIR="$ROOT_DIR/nanopb"
 FAKE_INC_DIR="$ROOT_DIR/utils/fake_headers"
+ORIGINAL_SRC="$ROOT_DIR/$CFILE"
+HEADERS_ABS=""
+if [[ -n "$HEADERS_DIR" ]]; then
+  HEADERS_ABS="$ROOT_DIR/$HEADERS_DIR"
+fi
+
+prepare_pycparser_source() {
+  local source_path="$1"
+  local output_path="$2"
+
+  grep -v '^#' "$source_path" > "$output_path"
+
+  local cpp_args=(cpp "-I$FAKE_INC_DIR")
+  if [[ -n "$HEADERS_ABS" ]]; then
+    cpp_args+=("-I$HEADERS_ABS")
+  fi
+  cpp_args+=(-D__THROW= -D__BEGIN_DECLS= -D__END_DECLS= "-D__attribute__(x)=" "$output_path")
+
+  "${cpp_args[@]}" > "$output_path.pp" 2> cpp_errors.log || true
+  if [[ -s "$output_path.pp" ]]; then
+    mv "$output_path.pp" "$output_path"
+  fi
+}
+
+run_proto_generation() {
+  local parser="$1"
+  local source_path="$2"
+
+  find . -maxdepth 1 -name '*.proto' -delete 2>/dev/null || true
+
+  local cmd=(python3 "$ROOT_DIR/src/pycparser_generate_proto.py" "$source_path" "$FUNC" "--parser=$parser")
+  if [[ -n "$HEADERS_ABS" ]]; then
+    cmd+=("--headers-dir=$HEADERS_ABS")
+  fi
+
+  set +e
+  "${cmd[@]}" > proto_gen.log 2>&1
+  PROTO_STATUS=$?
+  set -e
+
+  shopt -s nullglob
+  PROTO_FILES=(*.proto)
+  shopt -u nullglob
+}
 
 mkdir -p "$BUILD_DIR/corpus" "$RESULTS_DIR"
 cd "$BUILD_DIR"
 
-echo "[+] Preprocess target"
-STRIPPED="tmp_structs.c"
-grep -v '^#' "$ROOT_DIR/$CFILE" > "$STRIPPED"
-cpp -I"$FAKE_INC_DIR" -I"$ROOT_DIR/$HEADERS_DIR" -D__THROW= -D__BEGIN_DECLS= -D__END_DECLS= -D"__attribute__(x)=" "$STRIPPED" > "$STRIPPED.pp" 2> cpp_errors.log || true
-if [[ -s "$STRIPPED.pp" ]]; then mv "$STRIPPED.pp" "$STRIPPED"; fi
+echo "[+] Generate .proto (libclang parser)"
+PARSER_USED="libclang"
+PARSE_INPUT="$ORIGINAL_SRC"
+run_proto_generation "$PARSER_USED" "$PARSE_INPUT"
 
-echo "[+] Generate .proto (libclang default; fallback to pycparser)"
-python3 "$ROOT_DIR/src/pycparser_generate_proto.py" "$STRIPPED" "$FUNC" --parser=libclang --headers-dir="$ROOT_DIR/$HEADERS_DIR" > proto_gen.log 2>&1 || true
-
-PROTOFILE=$(ls *.proto 2>/dev/null || true)
-if [[ -z "$PROTOFILE" ]]; then
-  echo "[-] Proto generation failed. See proto_gen.log"
+if (( PROTO_STATUS != 0 || ${#PROTO_FILES[@]} == 0 )); then
+  echo "[-] Proto generation failed (libclang). See proto_gen.log"
   exit 2
+fi
+# if (( PROTO_STATUS != 0 || ${#PROTO_FILES[@]} == 0 )); then
+#   echo "[i] libclang proto generation failed, attempting pycparser fallback"
+#   PARSER_USED="pycparser"
+#   PARSE_INPUT="tmp_structs.c"
+#   prepare_pycparser_source "$ORIGINAL_SRC" "$PARSE_INPUT"
+#   run_proto_generation "$PARSER_USED" "$PARSE_INPUT"
+#   if (( PROTO_STATUS != 0 || ${#PROTO_FILES[@]} == 0 )); then
+#     echo "[-] Proto generation failed. See proto_gen.log"
+#     exit 2
+#   fi
+# fi
+if [[ -f input.proto ]]; then
+  PROTOFILE="input.proto"
+else
+  PROTOFILE="${PROTO_FILES[0]}"
 fi
 PROTO_BASE=$(awk '/^message /{print $2; exit}' "$PROTOFILE")
 [[ -z "$PROTO_BASE" ]] && PROTO_BASE=Input
@@ -68,7 +123,7 @@ CPP_PROTO_DIR="cpp_proto"
 PY_PROTO_DIR="py_proto"
 mkdir -p "$CPP_PROTO_DIR" "$PY_PROTO_DIR"
 
-echo "[+] Generate C++ protobuf (for future differential replay)"
+echo "[+] Generate C++ protobuf (for original replay)"
 protoc --cpp_out="$CPP_PROTO_DIR" "$PROTOFILE"
 
 echo "[+] Generate Python protobuf helpers"
@@ -94,16 +149,30 @@ if [[ "$FUNC" == "process_command" ]]; then
   python3 "$ROOT_DIR/src/enhanced_wrapper_generator.py" "$PROTOFILE" "$FUNC" "$PROTO_BASE" > wrap_gen.log 2>&1 || {
     echo "[-] Enhanced wrapper generation failed. See wrap_gen.log"; exit 4; }
 else
-  python3 "$ROOT_DIR/src/generate_wrapper_ast.py" "$STRIPPED" "$FUNC" "$PROTO_BASE" "$PROTO_BASE" --parser=libclang --headers-dir="$ROOT_DIR/$HEADERS_DIR" --original-file="$ROOT_DIR/$CFILE" > wrap_gen.log 2>&1 || {
-    echo "[-] Wrapper generation failed. See wrap_gen.log"; exit 4; }
+  WRAPPER_CMD=(python3 "$ROOT_DIR/src/generate_wrapper_ast.py" "$PARSE_INPUT" "$FUNC" "$PROTO_BASE" "$PROTO_BASE" "--parser=$PARSER_USED")
+  if [[ -n "$HEADERS_ABS" ]]; then
+    WRAPPER_CMD+=("--headers-dir=$HEADERS_ABS")
+  fi
+  set +e
+  "${WRAPPER_CMD[@]}" > wrap_gen.log 2>&1
+  WRAP_STATUS=$?
+  set -e
+  if (( WRAP_STATUS != 0 )); then
+    echo "[-] Wrapper generation failed. See wrap_gen.log"
+    exit 4
+  fi
 fi
 
 echo "[+] Compile original object (instrumented) and plain object"
-CLANG_INC_EXTRA="-I\"$ROOT_DIR/examples\""
-clang -fsanitize=fuzzer-no-link -c "$ROOT_DIR/$CFILE" -I"$ROOT_DIR/$HEADERS_DIR" $CLANG_INC_EXTRA -O2 -o original.o || {
+CLANG_INCLUDE_ARGS=()
+if [[ -n "$HEADERS_ABS" ]]; then
+  CLANG_INCLUDE_ARGS+=(-I"$HEADERS_ABS")
+fi
+CLANG_INCLUDE_ARGS+=(-I"$ROOT_DIR/examples")
+clang -fsanitize=fuzzer-no-link -c "$ORIGINAL_SRC" "${CLANG_INCLUDE_ARGS[@]}" -O2 -o original.o || {
   echo "[-] Failed compiling original"; exit 5; }
 objcopy --redefine-sym main=pin_original_main original.o || true
-clang -fPIC -c "$ROOT_DIR/$CFILE" -I"$ROOT_DIR/$HEADERS_DIR" $CLANG_INC_EXTRA -O2 -o original_plain.o || {
+clang -fPIC -c "$ORIGINAL_SRC" "${CLANG_INCLUDE_ARGS[@]}" -O2 -o original_plain.o || {
   echo "[-] Failed compiling original (plain)"; exit 5; }
 objcopy --redefine-sym main=pin_original_main original_plain.o || true
 
@@ -133,13 +202,13 @@ for cc in "$CPP_PROTO_DIR"/*.cc; do
   CPP_OBJS+=("$obj")
 done
 
-echo "[+] Compile reference runner"
+echo "[+] Compile reference runner (protobuf decode)"
 clang++ -std=c++17 -I"$CPP_PROTO_DIR" -O2 -c reference_runner.cc -o reference_runner.o
 
 PROTOBUF_LIBS=$(pkg-config --libs protobuf 2>/dev/null || echo "-lprotobuf -pthread")
 
-clang++ -std=c++17 -O2 -o reference_bin reference_runner.o "${CPP_OBJS[@]}" original_plain.o $CJSON_OBJ $PROTOBUF_LIBS || {
-  echo "[-] Failed linking reference_bin"; exit 6; }
+clang++ -std=c++17 -O2 -o original_replay_bin reference_runner.o "${CPP_OBJS[@]}" original_plain.o $CJSON_OBJ $PROTOBUF_LIBS || {
+  echo "[-] Failed linking original_replay_bin"; exit 6; }
 
 echo "[+] Build normalized standalone runner (reads bytes file)"
 clang -I"$NANOPB_DIR" -O2 -o normalized_bin main.c pb_decode.o pb_common.o input.nanopb.o original_plain.o $CJSON_OBJ || {
@@ -204,21 +273,24 @@ else
       base=$(basename "$input_path")
       norm_out="$STAGE_B_DIR/${base}.normalized.out"
       norm_err="$STAGE_B_DIR/${base}.normalized.err"
-      ref_out="$STAGE_B_DIR/${base}.reference.out"
-      ref_err="$STAGE_B_DIR/${base}.reference.err"
+      orig_out="$STAGE_B_DIR/${base}.original.out"
+      orig_err="$STAGE_B_DIR/${base}.original.err"
 
+      set +e
       ./normalized_bin "$input_path" >"$norm_out" 2>"$norm_err"
       norm_rc=$?
-      ./reference_bin "$input_path" >"$ref_out" 2>"$ref_err"
-      ref_rc=$?
+      ./original_replay_bin "$input_path" >"$orig_out" 2>"$orig_err"
+      orig_rc=$?
+      set -e
 
       status="match"
-      if ! cmp -s "$norm_out" "$ref_out" || ! cmp -s "$norm_err" "$ref_err" || [[ $norm_rc -ne $ref_rc ]]; then
+      if ! cmp -s "$norm_out" "$orig_out" || ! cmp -s "$norm_err" "$orig_err" || [[ $norm_rc -ne $orig_rc ]]; then
         status="DIFF"
       fi
-      printf "%s\tRC(norm=%d, ref=%d)\n" "$base:$status" "$norm_rc" "$ref_rc" >> "$REPORT"
+      printf "%s\tRC(norm=%d, orig=%d)\n" "$base:$status" "$norm_rc" "$orig_rc" >> "$REPORT"
 
-      DECODED_JSON=$(PY_PROTO_DIR="$PY_PROTO_DIR" PROTO="$PROTO_BASE" MODULE="$PROTO_MODULE" INPUT_PATH="$input_path" python3 - <<'PY'
+      set +e
+      DECODED_JSON=$(PY_PROTO_DIR="$PY_PROTO_DIR" PROTO="$PROTO_BASE" MODULE="$PROTO_MODULE" INPUT_PATH="$input_path" python3 - <<'PY' 2>&1
 import json
 import os
 import sys
@@ -257,6 +329,11 @@ def message_to_dict(message):
 print(json.dumps(message_to_dict(msg), sort_keys=True))
 PY
 )
+      DECODE_STATUS=$?
+      set -e
+      if (( DECODE_STATUS != 0 )); then
+        DECODED_JSON="{\"error\": \"decode failed (rc=$DECODE_STATUS)\"}"
+      fi
 
       {
         printf "=== %s ===\n" "$base"
@@ -265,10 +342,10 @@ PY
         cat "$norm_out"
         printf "[normalized stderr]\n"
         cat "$norm_err"
-        printf "[reference rc=%d stdout]\n" "$ref_rc"
-        cat "$ref_out"
-        printf "[reference stderr]\n"
-        cat "$ref_err"
+        printf "[original rc=%d stdout]\n" "$orig_rc"
+        cat "$orig_out"
+        printf "[original stderr]\n"
+        cat "$orig_err"
         printf "\n"
       } >> "$OUTPUT_LOG"
     done
@@ -280,5 +357,5 @@ fi
 
 echo "[+] Ready. Next steps:"
 echo "    1) Stage A (discovery): cd $BUILD_DIR && ./fuzz_bytes corpus -max_total_time=60 -use_value_profile=1"
-echo "    2) Stage B (replay): add inputs under $REPLAY_INPUT_DIR and rerun to compare normalized vs reference outputs"
+echo "    2) Stage B (replay): add inputs under $REPLAY_INPUT_DIR and rerun to compare normalized vs original outputs"
 echo "       Replay artifacts stored under $STAGE_B_DIR"

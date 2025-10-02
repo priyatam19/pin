@@ -1,0 +1,15 @@
+DEBUG: Starting main with file /workspace/examples/single_char_mode.c, func evaluate_sensor, parser libclang, headers 
+DEBUG: Parsing file /workspace/examples/single_char_mode.c with libclang
+DEBUG: Libclang args: []
+Traceback (most recent call last):
+  File "/workspace/src/pycparser_generate_proto.py", line 763, in <module>
+    main(sys.argv[1], sys.argv[2], parser, headers_dir)
+  File "/workspace/src/pycparser_generate_proto.py", line 610, in main
+    structs, func_params = parse_with_libclang(filename, headers_dir, logic_func)
+  File "/workspace/src/pycparser_generate_proto.py", line 438, in parse_with_libclang
+    tu = index.parse(filename, args=args)
+  File "/usr/lib/python3/dist-packages/clang/cindex.py", line 2722, in parse
+    return TranslationUnit.from_source(path, args, unsaved_files, options,
+  File "/usr/lib/python3/dist-packages/clang/cindex.py", line 2837, in from_source
+    raise TranslationUnitLoadError("Error parsing translation unit.")
+clang.cindex.TranslationUnitLoadError: Error parsing translation unit.

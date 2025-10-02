@@ -1,0 +1,2362 @@
+=== 0092974eb52c71afebb98e497a4c77b24a4c8549 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 02078e328a1f8bd8a754dafa739065ced7fd65ad ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 04054d97a1a744d1bcb6de99a0792ee46b1f02bc ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 053839c25a21796c63e24b30b13b6f3df42fe9fe ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary:	
+ secondary:	#
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 05a79f06cf3f67f726dae68d18a2290f6c9a50c9 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+
+=== 0879c51573c54eb2b02fc0ec4d56701f760981da ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary: secondary:/
+primary-empty
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 09d2af8dd22201dd8d48e5dcfcaed281ff9422c7 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 0ac33804e20ef72b1409bfe911bc26264e957c01 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 0bc7090d0938225dbfca7a42150c640b97c6ab08 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.secondary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== 0c1718e09ff4d5f934a9d444270445592de6248b ===
+[input decoded]
+{"primary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012", "secondary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u001a\u0012\u0012\u0012"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+[original stderr]
+
+=== 0c3c47262d16301a49b164ab9605ffe63be2ffb7 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 0d2c02bf03c6d01595922a654b937a036e87708e ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== 0e30950823c752b23b0a155c18e329ab64f7d38b ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 10f8c81105c4b2215bd94329c7dc45f325bc7506 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 1153253c30afb34f48e4123c74417c558e422684 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 13617da7da0965e2d88daaf4ed261f725d4c3e32 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary:~ secondary:
+secondary-empty
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 16959a09fc309f7d51f00dc98a216d1637df07b5 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.secondary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== 17fd7560390eeccdc15b231e68991976c468ef4d ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 18b03ba3b894c72b60349930eb7576f658a94b2b ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 192eacc253b6c9ce3d3f6f6f1d1694e5863edaac ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 1b6e8beff43ae4763b2fc5de23467dcca6f2202a ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== 1bd40d6ffa7ecd58cd0724ef6abf1f8c96b88352 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 1c092f8921798ab3e07b30c268f336ccf9962816 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 1c2fd2d893949003c092faf442aa3179b218a4d1 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary:
+	 secondary::#
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 1db5bb391c3b0bfa54fc1a694c3e8ebb224037a6 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 1fc978472998baa68d82eee43a500001213c7371 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== 1fd7cf3c0122ae1a257fcd2fb73790ecbc3b7e4a ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.secondary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== 2083f186bae4fe51231190342e508a64233d5aa8 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 20cba6e567c494ac01e578a94cfde87139d55c03 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 222557ef9b66b9abd12ebb4cb30ea6471548db6d ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 23266b18e4d390e60482072a06a1642b7801d622 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== 23b38354ecf693a582520fd5ea0734b6a626d521 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 25421cc33c3f9d101ee4ec9014c2339694eaf8e6 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary:~ secondary:	#
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 259f6bda4dd7f8446b07973b836ccd021af71483 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 25e4679386430759c949e62d8c80072a338afaa9 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary: secondary:
+primary-empty
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 27edbe5cfc113e24e76c0e165efb9b83cae649f4 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary: secondary:-
+primary-empty
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 29a926c15a0ff505af7577febae99a6515744b97 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 2d5216269e58b9e42233b2768221802d2002c413 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== 2e5bbf011b797d3f9e03f42ba4561fb7374cda4c ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary:	 secondary:	#
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 2f85c02954d55c9b27fd1fc642ec3cd9ecc72203 ===
+[input decoded]
+{"primary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012", "secondary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u00122\u0012\u0016\u0012\u0012\u0012"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:2
+[original stderr]
+
+=== 30734163811321c1fccab04ad5103e3c21b4da1b ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.secondary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== 32a002475474acd5944afeeb1276fcb2c2661979 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 331b599175f54a75f1c1565ac084bb80cdb3cb94 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary:- secondary:
+secondary-empty
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 33ae0350e423bac2cefc833bfe2e9c156a80f596 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 33d110bb0c5f41f43874d3240cead2624d72ba05 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary:, secondary:
+secondary-empty
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 3689bf0407ae14f226143a7592b2da3a57589f50 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 378c477a261c99dea26bee803a132e19b40e5476 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 37974106cc95f92b65ced454f4a07c6fe99b59df ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 379875034bfd7f6376fc2f07b25de3cc5a8f35d3 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== 3af78bc44ad5bc001f362b4b69e66b081e15aa7f ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 3afab0bf734f047b544ea560eba618ef93af1861 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 3b5417089cd4331859e9af03e0993ea9acfcea50 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 3c475dfd0dc510d4ef72265b72d919da5b006f94 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 3dea9ba293f8dcaac6c44331dcf0242a4e4eefdf ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary: secondary:
+secondary-empty
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 3e7be738cebaf24720eb5ae770d08a0f8abb6427 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary:u
+ secondary:	#
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 431bf05908899d850059a662978b3a0481391200 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 43e77f15adc3ec0941a75f811ba6d8d8e49cb57f ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary:/ secondary:
+secondary-empty
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 469004c1dec745932f943f3c59d1109f2376b40e ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 473364a72ec0bfa51e97f980a4ae61d1cfd55e4e ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary:	=
+ secondary:	#
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 47ea90a3280cfd47b89df10a073ca83e27cc1d86 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 497d004dc265c2fee37a9663f1fd5ee7bd37635e ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== 4b8f3959ac3a391d99ef3ec87f9a3dadc25fced5 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== 4bd4523c24ea021558edb6fe661bd6cf3321df98 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 4e9ed469d59fda94a5c8002fd590c3da54fef345 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 502463dfbec076a1bd37230a93936afc66a5e66a ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== 50c7281fd2a3abfb9990db4c3dd55bdfc16e198c ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 51622542d2789d52323bbcd0ec9ab631cf51f97c ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 51af68159bae0e1c0695358ef1ffc6f25315896f ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 526590496e0caff097b910000f6b6be825f6f200 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 53e6edce7f9e3038ddba05c341f5cbfd2aeebdc7 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 53fe37edbb2744f4912f39a4765bf2f90d97a9d5 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 56e8bbdb6362a8e8f359407cdc7f1ec1a40a7536 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary: secondary:~
+primary-empty
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 585475ca590eea0e8b6952beece19f4ecf2758bf ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== 5aeb0d92e50c0deca7af2cbf77ed53bed579496a ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary:	 secondary:	#
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 5ce55288714c149a4d1e27d97bf1a67134301d6b ===
+[input decoded]
+{"primary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012", "secondary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0016\u0012\u0012\u0012"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+[original stderr]
+
+=== 5d19fddb66937a7f7a69f59276d094bd1c264db6 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary: secondary:
+secondary-empty
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 5d53b9b1129a127e059e3c89c5b7d5a78a97e14f ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.secondary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== 5da44a5736e547b34aa987c0f1e4465247b080cd ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 5dce06dbe30344711224fed3601f5369cb3ddc05 ===
+[input decoded]
+{"primary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012", "secondary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u00122\u0012\u0012\u0016\u0012\u0012\u0012\u0012"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:2
+[original stderr]
+
+=== 5e07cceddd9b12af5366cc556fc9cf71da70947d ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary:~ secondary:
+secondary-empty
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 61285d66352c21a024b39dd30e53c873bcc1bba0 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary:
+	 secondary:u#
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 6244b1017c9b095ba7183b51059fc4119c1b4de5 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 6260aad1142b355e9c95682d6355780c426fe64f ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== 63701c9b136f5db84b4f727daeda17c4d108678e ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== 63d6089e2ce2c48a8d64ebedc5935ecc83b6dfba ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 66fe65e27cae6f7e88dbfd03782ca23eca44c52c ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 6900585ce4dfa517d96ff63fd1f047dc842fe64c ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 697acaa7a22b1a48953613533ad714f2a0ac5dcf ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== 698263b61328bde5ff2045049478ac63b1a07bbf ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 6ca0722d963ac2f832f7510dbdd61023091d23bb ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary:	
+ secondary:	#
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 6e46398a093d2964aea2d869f567098629a9b469 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== 7009e0d5bbd4abb0cbdeb99d3c38d1d5f22cd16a ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 70480e21a212ad143e91eddbc0a07627774751c9 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 7097a46ccfefce556e8a22bd04da1eff6065ca1a ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 72d45ca86c6da85d55fe53b458bc9d23d4707157 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary:/ secondary:
+secondary-empty
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 72f3810ac9736c73a22ad1873bda0a2c9969c2c0 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 7300eb7833f4f30d49273c9a4fda9a1b759e8295 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary:
+	 secondary:#
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 74300b5b72396511af8734f9ab684767a6252562 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 7515dd74665af5f944115a6cf2bd6be96f82434e ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 75e1d5e43f39c0867637e8a80fc91ea4b6915d78 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 77e2d86862b9d74eb4d8fde13b77c477c99134c9 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 7b16eddef02379bc3f7ed9db6e6e1335a79eeb53 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 7f5379f1e89304b3f6be9a72a199f442da34e4b3 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.secondary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== 80d66ad235660febd408d1ef462c92a7b154ba3d ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 8254cc9fffd844b0805635dd098f070da94677e9 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary:	
+ secondary:	
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 8309d7a933dd0d017ac1914cc28d7ab8cd64d76a ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 87515028859db4a0ec67df3275f149260c5abbdb ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary: secondary:#
+primary-empty
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 8983c0bea97cda19b0f74ad32e7aef077ddbb172 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 8b8d7423aa8ef70d4bc91509a81ac13f086c15ea ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 8bf248a8db060ab96396d1d767e825b0ab9a11ca ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.secondary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== 8fd04c0eae0438279b92e0c023151aa18db3ec83 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 901aed3212ea6f3f48541c2d444eda69448612f2 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 91bca14e1bc238b77de986dd1e28aab18d479464 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary: secondary:
+primary-empty
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 92c35bb2b31b72d781f327a3db82945801aaa461 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== 932eab875fd17fa5b327c85b3e724d96887f3bc2 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== 940745ae1eb73ecd0a0f38a45d9f95f9f65e655a ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 947b12e78f8d6803e0f885c5d4a72c39a529900c ===
+[input decoded]
+{"primary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0010\u0012\u0012\u000b", "secondary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u000b\u0012\u0012\u0012"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+[original stderr]
+
+=== 94be4dca28b369bc13b0e472a5c897b8811d985a ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 95b1c867b52c2b51b282001687ff87b13c02fc62 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 98fe01045574a2d14562a96226b92393c1e6de71 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 993a10dacab4096c74e05cb9d085b149fa7da724 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 994b0e9f0ef13cc2891a88ae6ba931857cdc90d7 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== 9d33e5e4a5764cce64d90354e0d619146135e7b8 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== 9e5cafd7b71103ea1383528d25b57b8b6ca998fd ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== 9e667a7ee7813a5a97bb2eff6f19b726065a58ed ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.secondary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== 9fc85957d7fcacc7d0d2749def25b60cfefd0c83 ===
+[input decoded]
+{"primary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u000b", "secondary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u000b\u0012\u0012\u0012"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+[original stderr]
+
+=== a085de82c402fceaf23a76f06d56392c555aae14 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== a093c2171f3d72f25b50aba5479262cc35c4d1d8 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary: secondary:	
+primary-empty
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== a1ea676e42ea16d6f5afd74a26c8bcb7e5cbd89b ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== a3b954a039abc0e36e6b9ec2c3c49a9ccf786ec7 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== a3c0948418be86355a7f505cf11a6818709dd149 ===
+[input decoded]
+{"primary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012", "secondary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u00125\u0012\u0012\u0016\u0012\u0012\u0012\u0012"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:5
+[original stderr]
+
+=== a5e2b91c32b29eacaeb5cd91b42fc07575f7db55 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary: secondary:	
+primary-empty
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== a6bfb58aabcc7e928a811d2abe24f17f1e50ed3b ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== a74d3a65606054a809b24f6d0b6affe990db8a49 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== a75b049268c1ab4098b79af4246fab580ba2ead1 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== aa358453e3621c51cb491fdf57c4d872794d9834 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== ad00ad52812afe12415652a263df985b8e7bffe4 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== ae31870f61c3e16ef5260b860aabf5836bd98692 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== b002c8d53fadf6db5600970562ba71334b9e9dc3 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== b2aaf72c72c8d9edb69a9c6b17e1a3a5981da47e ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary: secondary:/
+primary-empty
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== b46767c947a7efe0f7d65ac57954a5e45f1ce38e ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== b79b4bb49b7aa9e5e5cc05785389f66e992b94c8 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== b7dc6c9e4900c6e9a34a917e2965cccebff8ff79 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== b87f652750d83f4448a169fd75d08c48ebb00d9b ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== b911a0c0457665f76001a4a3ccb9bd50536dfc5a ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== babd428809b52ffcd46f02cea79b99477bd799b5 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== baf3d49bfb6ddf0d2c511f7f3c330d45d7be71bb ===
+[input decoded]
+{"primary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u00122\u0012\u0012", "secondary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012|\u0012\u0012"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary:2 secondary:|
+[original stderr]
+
+=== bcc0657ee18e9611962c4a722512d7c03e4badf4 ===
+[input decoded]
+{"primary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u00120\u0012\u0012", "secondary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012|\u0012\u0012"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary:0 secondary:|
+[original stderr]
+
+=== bd5d93d09cceff22b0ede4c881b370e11175873c ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary: secondary:
+secondary-empty
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== be7da9287775f358b635e75d00d2386b69d3c6c3 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary: secondary:
+primary-empty
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== be8662000bd2275f8ea2738b5747e4af94be2d12 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== beab7e0e2cdb25dd0cfb2d3ba3a54194e5022f68 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== c0e01549c9c06e313e06d7215228ac2e5f78f4c5 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary:	 secondary:	%
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== c13130d225af43452bc085e6f7b789c49f0e68b3 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary:	6
+ secondary:	#
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== c15be32f96dad974e2a31e03eca000aa1301824b ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== c185d2832bc194e44aee27d72fc45c3f736edb39 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== c26abef9a0b284dda168b8b3371a382f473fa5cd ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary:	 secondary:	
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== c36db3f89de42be2b92faa885ca9c7e5739b0a80 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary:	
+ secondary:	~
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== c4967e41e96b50ba7160ca44413e79ccbdcc1a56 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== c4cdad5ba34254a33dd91100e2a1346e1604e604 ===
+[input decoded]
+{"primary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012", "secondary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u00124\u0012\u0012\u0016\u0012\u0012\u0012\u0012"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:4
+[original stderr]
+
+=== c60e5ef861382a45fdd30eafa2e65479144a03b1 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.secondary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== c8dbe0137fd921763fd050f3f08a76334774748a ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== ca9d6f5f52a576111e175066dda25d4d8c66a6c7 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== cb0568d19fe21d2844a200dca56d15fe0f7bc1ca ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== cd862d2434f740c397b9f782fa6e0ec36e75e93a ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== ce12711ead460043058ba9b95b99ec6f22aa7d1f ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== ce3901a345a98955a13deea56d3343cee6f10c38 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.secondary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== d19f5a49235219d84729befbedb10bcb84c96e8c ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== d26bd8797648928fef6677e1fa7501a7d2755bd8 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== d3b0da335a5d5ff17bdc1e1eb8979bb757c9ae90 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== d696ad1f2b7ec9b3e7ffd97b000b183a31395bad ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== d73b47daa1222825ed94179c9ef5fc396b2b69a3 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary: secondary:
+secondary-empty
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== d758853853b1d97742e0acffb9f268dfd88d8ca8 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== d8a1f7645d0830c4eee7c81d3df0eee9317dd447 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== da28a0333be96e4d52edfa0f7c51520cab69779c ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary:	!* secondary:	#
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== dae82d0ea461381014075e08c13b3fa6c465b01f ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== dbedc83e089c21efef9be011bdf390c426e0a63a ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary:	
+ secondary:	#
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== e0cafafc15792b83103274dc004f6b397ea43f56 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary:	
+ secondary:#
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== e4883b2a8f210c668b27e743eb7d6eed9f9b2aaa ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== e7035ef59b58f15b6ff3c237f11f06676de34297 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== e869f8769e60c36be19a5894d46ce7a19b52eb21 ===
+[input decoded]
+{"primary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u000b\u0012\u0012\u0012", "secondary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u00005\u0012\u0012"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+[original stderr]
+
+=== e8d5e59b05a737150b3a36a1503dda7c9b1e70aa ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== eb1c924c3f00a9778d69555e7e296888381a5304 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.secondary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== ebe9c97b49d73c6fc89e3e3191f4ac9da430a0f6 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary:	
+ secondary:	+
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== ec8d1f33b1129043347bfa5669622081b040c53c ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.secondary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== ec94d57527e0425fa2e3e2fa2197ed23f5fabae9 ===
+[input decoded]
+{"primary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012", "secondary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u00126\u0012\u0012\u0016\u0012\u0012\u0012\u0012"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:6
+[original stderr]
+
+=== eeffb72b0cf938a77f5db284d2b9b20d977e88c7 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.secondary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== ef16d42a39ec41b4b5c9f4f6becd49b4291716ce ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== ef3e0da184379ccf49d532acea3187fcadd5fac2 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== f042fff91205d355ad5e97ea7589eac05c440dca ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== f07195e0afa1152042c0c6ae3e130ea532ec476c ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== f5651bda0abd49640bc8f172e4b7b7d9c7619a63 ===
+[input decoded]
+{"primary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u000b!\u0012\u0012", "secondary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0000\u0000\u00005\u0012\u0012"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary:! secondary:
+[original stderr]
+
+=== f5aa35b1d8cf6327386e35626df852fdeafcbfd8 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== f5c4d81a2444f08477f95cb3e079b46d5916df32 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== f623f7571f305349be85dfc6c35f9ea2a37a08f1 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== f68bc831d136e3b463417471b2d23192af72b981 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== f70150dbb34a7f960666c6f97bb1f8fa802d5f96 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== f7a49adb7d9629ad5f2f641ad0433f70d180dfe0 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary:	=
+ secondary:	C#
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== f84256111f77b86b9af279fa6976badf86e594c1 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary:_
+ secondary:	+
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== fa64210838d05aef0ddc56aa1a5929b95ed50d28 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.secondary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== faeb407c918a8e26aef6274a1169c044981fdd56 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary:	Z secondary:	%
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== fce59a9c0fda0df6f062592333ef3d662ed0a3c3 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== fd4355dc66709479582c7913810b6610d701240c ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary: secondary:
+secondary-empty
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+
+=== fd60f0b46c38980dfc4226d5a7d31501b6e7c340 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[original stderr]
+

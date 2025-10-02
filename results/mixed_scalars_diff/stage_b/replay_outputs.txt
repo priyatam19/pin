@@ -1,0 +1,1458 @@
+=== 0038b311157874f0a3b43202d5d3b4fa9ab386a4 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 02a0a93905015463ccddbe910d6bc733ec5ff28e ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 02cd2b19c2417aea335e971e30d6d66f4f2d734e ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 02cfd05c985d233bad2a7df9fafa9c61436f525d ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 058879dd633a79042a1506d254a1c990ea0978e6 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 05af40a8243a9ab5c91c7f591e30c4fc52e5a844 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 07078ccf5090787baa25f9288e1a7701f9734c40 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 076f845468ebe957acf404d06a3b7fb71fce66c0 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 07f48367b15fc4ac2f458a58520c3d0b75cc68bf ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 0bb1e1dee312413985bdb78282ce4ca932187d94 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 0e6c1944b2a038cb72e56026d23dfa85a0b263c5 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 0e715c96f8928a9fc9752a3db3f3b4a0ae316431 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 0eb96a5f6c2a5d0bbc2856c3134e1cef4bfbe51a ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 13efd2c1611619521789f91e268870f8dca2d191 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 14a148405d91da27a0349e892bc1684d54e74746 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 14ea09dee6cd1403aa2ed243e59267c144c42bc4 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 165a0f9fc316c5b62687b3a6ea55eaba1311c713 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 1726ab95883c2661043614d73fd81669a752f2c2 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 19692f7adaaa8ea6a185e6eeb9823a6d604610f1 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 1bde013ee614354e78f03f06631b4c6d97dcdd8a ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 1cc4f6e47353a444e6e8fbcd9842e36985c7e3cb ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 1d06843f545aee8e4c325c91310fbbaaf1609bae ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 1d64615f5fe3d5b53b5c2a9eeaabadfdc9e2c646 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 1eae20539a536d3d990da13177f1791c71fc6d00 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 1ed807a7450aa4dbaa3ae5f7c8a06b93126d2388 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 1f5b121a8366886f43f38da83cbd6ebeaf2e6f20 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 1fff62e98216a031230854df996fb3c8678f2174 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 2010d000e8fb2a54c24ceb84b878e14911e74ee4 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 21a36cb82a7b3acca0b63f763705a76c32d14249 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 23729b85781863a36e42430c835c1f22b8b87c5b ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 23df249fe7444dbf404bcced57bdc2c8c801684f ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 251b5c723975eb7bb6f9a98fddd838524e289ca4 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 262f7a5922d4cd77e3fca1152e1b0ddc404a8f32 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+
+=== 2651815241352f150ca57d2c170ade4dc1d2f956 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 27bec28884ce735a8375aa8dbe795b91b054ef21 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 27dd14c8ac98240d144bca561f78a5dfe3f80e4a ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 29d47d54678cbfc65cf67fa9294ea177289ef554 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 29e2e0aa2efc82e67024fd0cd4ecec665181e648 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 2bc314ff7a3aeea64e107fc20882bbaefe4faa1b ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 2ff4fa94b1e20882ccfcf71019bb795041cf349c ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 35b155f04c6ce2ccb7cc095db3898be2c3f9275b ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 39fdbbc7fb297a9aa076536557833db0b816c0e7 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 43e411b4f0f1c6c4e1292f04d86a35b3d0a8e862 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 44ae712aa59c76421664ddbcd90448dd1ab61287 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 44ec55fbd00a5c00bd34c79ded1b6ee58625c436 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 455f3725400f7e0718f3b12afef87c11cc7be304 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 47842da47c5d57016e67bf9dbb9e00e1946599b1 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 47c9ade50f2c0272f6bdb33905343a1781efa71a ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 484983e87df862499ac1c3c51e3e41a40b8f300e ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 4bd73c7d226d95ef053fdb06fbf3bff3610a4954 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 4c1858bb68dc92c54917ca89c9b1950dfd747b84 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 4d0125b07c75747037b8a28b846ae8fa14136fd8 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 4e45260c6fcc61ecc6a6bb974774afeace32fbdb ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 4ea4e84e2360988c7e904da5cdd31da8159b4fdd ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 502f18057b4cf5d71ff1549fbf6fece7010325f2 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 50a615b00713133c1d27c20266784ad58ca78560 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 52111340ff2f0fcdbb0fa7acbdfdceb706fb9b63 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 52d10f04a90b52cb8044bc6e32f1f9185ba84417 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 5337c7acf040ed14d4b9ad4fae3e619caf5071de ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 552d38a00ef0ae82d1b87d9a878b89cb75195425 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 565fb6580b1114eebd3651141d4bef354f9806c3 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 58e3b24c0a63336b18b3e8e80384553655369a38 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 59c9a712aaddb18e29fda35af4d18ac91331e8d2 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 5c91a7e4c9535257e708c61f60b88b898b867098 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 5d1cea8684e411436299fb29c68d6dee46af7924 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 5e1c8ff367456f4df169882ae68548f3c5293e7b ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 60c79e75f9c2ea5f5aaf21ec2ad7d5b13d61f864 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+
+=== 62bc77e6e3a05f4c468182d5e94c2ef7976791f2 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 64334ec3c0e41d8b474f521e2fb3c38854ec6453 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 6498055048fbc52e1ebbbfbea51c26333417e325 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 68d8724c35b91dab1b728006d129cab30aaf84f5 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 6b0e284b59f06e5507281cc9194f6c570db1200b ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 72a86fa16ab3b99eec0b348ea35d42ffbee08f8f ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 73de03347c7d9da6e8a70c1e74c4868cb0b796c6 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 791796f2ca676484d625a2b6089bb17ed2b4b46c ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 7dfd82b0d52ca39331c3541dc00768326e7cc0c0 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 7eed9fd90161c3cec6018bafaef2e05b40ed1f42 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 80550d63a732b1c7ab67e65303c1549e420fd368 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 8091967acc37a69f4ca282908f046d2b90322d75 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 877fecb37d86bb6248f7970f27ed54fc6b2cadb7 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 8794f58357310ee55e23663eccc3c077537f6c84 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 89b635e10e820d7eb00631fb53066bd1949b8f50 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 8cfe6b510f1e896e7b29fe5dec4ec8b671358cec ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 8d715bc81b7f173d7c713d7cbdfcff95c1b2667d ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 903e7c2ab4692b092842bdf5fc31d6d5b1a73de9 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 91c8593aa563d99461fb93bb29e8d747d2e50ba0 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 93903b7ee3938343c886197f70fb1ef8df9428e1 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 93d64adda5bd51b9a7ffe854ca069ae735a1b8df ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 9479fe81232cac5f2c9e513f1b2e585fc0c223e5 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 9598a9705a1eb8cadf30bc3309a2c13e6256a183 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 45.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 95c0a23175c30227a90d1453fdffc133ad535550 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 9762567e09994da9e882bdeb787a4c2a1cb5ef1a ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 982913eadf800119cae829f89e67764b0dd52510 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 9bce83464730ecba4b13b9225fb1e6b0af1e23e4 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 9bfebcfec91d99a38155323814d09a0c0d551654 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== 9cb8989572a315fa57c4868a52c3f81eae90263f ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== a1a16735f1baf4fe438f48ebcc9ff60e4b60c630 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== a25cac48682e21e18d7a13c68d2be07b022522ac ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== a65257f2b9049e3e7fea5665f28becf9a834e5ec ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== a6dec26b3cbe755615eed3b9d8bcde09410d1385 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== a8ed86aa736c4d07c8c697a3a958c2e941991834 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== aceccc8d1f0947bc4216b4e995b9ec51dee2805e ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== ade17a6304df54eac4d430a01d2b9192b4692fd7 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== ae2e77a1ce381d29a2ac7596dac8c7471c0d368e ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== b202d5040e05d63f43ed19ba5432df7daa2f3bd8 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== b22a6e635ee476902220787f81c42e23b3b250a5 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== b3636cf344835f7dbd80629053108077b466bb4a ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== b4b0f021d5292b3a74252d6ae90842f7e47bc1f8 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== b590ed364030f295bf2fac289b31f37d5658855d ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== b6dda31bc132116c870e62d02cb04dcc61d5d758 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== b6f1efbf0e611ffca29e5a4236076be4b76e981e ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 75.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== b8cd581bfc0a53bfb3dd4499ea81cc1bf20ee917 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== ba0306353edf7ab320c5118ba1c6006802f59f7b ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== ba87822f28d47014fe2004fb220b8776aba072f3 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== bd4a274b255369252bb093dc09d0cca58aa51166 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== beda7a8e6d727c3cfd1e9a1f9c54a9d617234c84 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== c5ab291c71de2113807453703b8343ba93538424 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== c756f3bd585d5437dd0f4b95d6088776f3378e67 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== c87e98de49ea8ead706afd4cbcadbea12d7c207d ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== c9ba43d6a8bb4df99d7157c4b9e3b52811b1810f ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== cb4ccc850f4c0e7773099621df2c66c48e117912 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== cda3fbe243226e9799f8842c2200f7ab4511f75e ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== d149aa68e49588cfc6a36d742303cee3e2479a19 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== d25a84ef918897d53766b29dbad10a0acf211315 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== d2fe63bb15569d34e6567787b4e3e8f2d20229e7 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== d389c7f486381be01bebfa96f11c4375b914c88a ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== d4a1863e64ca9abeacf7648b800c42bedb820a00 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== d57eec7a80b17aa40e1bc7f1859c0820be259d6c ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== d8d4c1980bb1a4d363fd94433ca90abd7946e14f ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== d8f6c81d42f524986eb795225996a9fbd65fc8f4 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== dbdb478816564eb79d1396bafa6c42a373e1c5af ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== def338e29b672bc57d17bc9223207aecd4b58b12 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== df48af47d7f57806b12d6c547c3e3fd4dc72b251 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== df9ef6c4eb6b134092888ebb158fb80081779283 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== e079c691cfde2583e3f8bdb1e342013bdcd0460d ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== e0a2ca83701ed1a4d709a8e83d659ca3cab74e97 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== e395b663b2def4dbaf9aeba0a6cf29937d7a36e1 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== e444a579216da632a5370c1e67472d1a059259c7 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== e466e7d0fe80219368f8d58bd53d5e62e46df5eb ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== e4d059cac0cc8441fca7d22f9bcaba7d9b3a0a73 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== e59e9e30d7ed5a553c55bcf852efab629137dc21 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== e6684b91bc7ada7099520f777693a9e69bee6794 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== ec157767aa9e935cb16a51548cb5fd2d4a203d75 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 2.830954562990769e+21}
+[normalized rc=0 stdout]
+sensor 0 high (2830954562990769176576.00 > 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 high (2830954562990769176576.00 > 60.00)
+[original stderr]
+
+=== ed389eb1b7756c2719a832c33f454ec2d460a48e ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== f29ee15c7c16398a3ace37a9c85f5fc88c5b71d2 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== f30ed0318203c7606f961ad02aaee347a71a86ba ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== f3843b957bc863f18e4e72cab2fc1e8dbc16d7ee ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== f44441486cf4a1dd65c163460084c90b69186f9b ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== f4cc1d7488f931bb0e54950f47f96c887905a77c ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== f7185e0cf7f84c726e60c907e24f28954b68b8b3 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== fdfd0f0630bc5f3d7f94e4638bc6b1559844c843 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== feddeeb0d75bb1ef2e79e4bfe963bd34a1bcb363 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+
+=== feee00a292afae36bb6997cb6a7c8f366cad3876 ===
+[input decoded]
+{"mode": "", "sensor_id": 0, "temperature": 0.0}
+[normalized rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 normal (0.00 <= 60.00)
+[original stderr]
+

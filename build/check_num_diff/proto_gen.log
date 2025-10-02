@@ -1,0 +1,38 @@
+DEBUG: Starting main with file /workspace/examples/check_num.c, func checkNum, parser libclang, headers 
+DEBUG: Parsing file /workspace/examples/check_num.c with libclang
+DEBUG: Libclang args: []
+DEBUG: Scanning for function checkNum
+DEBUG: Found target function checkNum
+DEBUG: Function has 1 arguments
+DEBUG: Param type: int
+DEBUG: Found called function printf
+DEBUG: Found called function printf
+DEBUG: Found called function printf
+DEBUG: Collecting structs from /workspace/examples/check_num.c
+DEBUG: Skipped struct  from /usr/include/aarch64-linux-gnu/bits/types.h (not in main file or headers dir)
+DEBUG: Skipped struct  from /usr/include/aarch64-linux-gnu/bits/types.h (not in main file or headers dir)
+DEBUG: Skipped struct  from /usr/include/aarch64-linux-gnu/bits/types/__mbstate_t.h (not in main file or headers dir)
+DEBUG: Skipped struct  from /usr/include/aarch64-linux-gnu/bits/types/__mbstate_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos_t from /usr/include/aarch64-linux-gnu/bits/types/__fpos_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos_t from /usr/include/aarch64-linux-gnu/bits/types/__fpos_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos64_t from /usr/include/aarch64-linux-gnu/bits/types/__fpos64_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos64_t from /usr/include/aarch64-linux-gnu/bits/types/__fpos64_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/aarch64-linux-gnu/bits/types/__FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/aarch64-linux-gnu/bits/types/FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/aarch64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_marker from /usr/include/aarch64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_codecvt from /usr/include/aarch64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_wide_data from /usr/include/aarch64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/aarch64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Function checkNum params: [('int', 'N')]
+DEBUG: CLI main function detected: False
+DEBUG: Mapping type for decl: ('int', 'N')
+DEBUG: Using function params for Input: [('int32', 'N')]
+Wrote proto to input.proto:
+
+syntax = "proto3";
+
+message Input {
+  int32 N = 1;
+}
+

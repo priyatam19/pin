@@ -50,6 +50,10 @@ TYPE_MAP = {
     'signed int': 'int32',
     'signed long': 'int64',
     'signed short': 'int32',
+    'int32': 'int32',
+    'int64': 'int64',
+    'uint32': 'uint32',
+    'uint64': 'uint64',
     'float': 'float',
     'double': 'double',
     'long double': 'double',
@@ -85,6 +89,8 @@ TYPE_MAP = {
     'void': 'bytes',
     'FILE': 'bytes',
     'DIR': 'bytes',
+    'string': 'string',
+    'bytes': 'bytes',
 }
 
 # Standard system types that should be treated as opaque bytes rather than parsed
@@ -102,6 +108,13 @@ STANDARD_TYPE_NAMES = set([
     'sem_t', 'regex_t', 'regmatch_t', 'wordexp_t', 'glob_t',
     'div_t', 'ldiv_t', 'lldiv_t', 'imaxdiv_t', 'mbstate_t', 'wctrans_t', 'wctype_t'
 ])
+
+def strip_qualifiers(type_name):
+    """Remove common C qualifiers and normalize whitespace."""
+    if not type_name:
+        return type_name
+    cleaned = re.sub(r'\b(const|volatile|restrict)\b', '', type_name)
+    return ' '.join(cleaned.split())
 
 def map_type(decl, structs, depth=0, parent_field=''):
     """
@@ -121,7 +134,7 @@ def map_type(decl, structs, depth=0, parent_field=''):
     """
     print(f"DEBUG: Mapping type for decl: {decl}")
     if isinstance(decl, tuple):  # libclang: (type_name, field_name)
-        type_name = decl[0].strip()
+        type_name = strip_qualifiers(decl[0].strip())
         
         # Handle union types - convert to bytes
         if type_name.startswith('union '):
@@ -135,7 +148,7 @@ def map_type(decl, structs, depth=0, parent_field=''):
             structs.append((struct_name, []))
             return struct_name
         if '[]' in type_name:
-            base = type_name.replace('[]', '').strip()
+            base = strip_qualifiers(type_name.replace('[]', '').strip())
             if base == 'char':
                 return 'string'
             mapped_base = TYPE_MAP.get(base, 'bytes')
@@ -143,7 +156,7 @@ def map_type(decl, structs, depth=0, parent_field=''):
                 return 'bytes'
             return f'repeated {mapped_base}'
         if '*' in type_name:
-            base = type_name.replace('*', '').strip()
+            base = strip_qualifiers(type_name.replace('*', '').strip())
             if base == 'char':
                 return 'string'
             mapped_base = TYPE_MAP.get(base)
@@ -301,10 +314,7 @@ def map_libclang_type(type_spelling):
     Returns:
         str: Protocol Buffer field type
     """
-    type_str = type_spelling.strip()
-    
-    # Remove common qualifiers that don't affect protobuf mapping
-    type_str = type_str.replace('const ', '').replace('volatile ', '').replace('restrict ', '').strip()
+    type_str = strip_qualifiers(type_spelling.strip())
     
     # Handle union types - convert to bytes
     if type_str.startswith('union '):
@@ -313,7 +323,7 @@ def map_libclang_type(type_spelling):
     
     # Handle arrays - convert C arrays to Protocol Buffer repeated fields
     if '[' in type_str and ']' in type_str:
-        base_type = type_str.split('[')[0].strip()
+        base_type = strip_qualifiers(type_str.split('[')[0].strip())
         if base_type == 'char':
             return 'string'  # char arrays become strings
         mapped_base = TYPE_MAP.get(base_type, 'bytes')
@@ -323,7 +333,7 @@ def map_libclang_type(type_spelling):
     
     # Handle pointers - special case for char* as strings
     if type_str.endswith('*'):
-        base_type = type_str.rstrip('*').strip()
+        base_type = strip_qualifiers(type_str.rstrip('*').strip())
         if base_type == 'char':
             return 'string'  # char* becomes string
         mapped_base = TYPE_MAP.get(base_type)

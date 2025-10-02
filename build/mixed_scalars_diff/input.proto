@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+message Input {
+  int32 sensor_id = 1;
+  float temperature = 2;
+  string mode = 3;
+}

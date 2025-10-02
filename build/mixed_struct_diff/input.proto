@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+message Input {
+  int32 id = 1;
+  double reading = 2;
+  int32 flag0 = 3;
+  int32 flag1 = 4;
+  int32 flag2 = 5;
+  string note = 6;
+}

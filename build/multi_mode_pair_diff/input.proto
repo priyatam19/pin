@@ -1,0 +1,6 @@
+syntax = "proto3";
+
+message Input {
+  string primary = 1;
+  string secondary = 2;
+}

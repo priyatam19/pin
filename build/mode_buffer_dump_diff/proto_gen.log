@@ -1,0 +1,24 @@
+DEBUG: Starting main with file tmp_structs.c, func dump_mode_bytes, parser libclang, headers /workspace/
+DEBUG: Parsing file tmp_structs.c with libclang
+DEBUG: Libclang args: ['-I/workspace/']
+DEBUG: Scanning for function dump_mode_bytes
+DEBUG: Found target function dump_mode_bytes
+DEBUG: Function has 1 arguments
+DEBUG: Param type: const char *
+DEBUG: Found called function puts
+DEBUG: Found called function puts
+DEBUG: Found called function printf
+DEBUG: Collecting structs from tmp_structs.c
+DEBUG: Parsing headers in /workspace/
+DEBUG: Function dump_mode_bytes params: [('const char *', 'mode')]
+DEBUG: CLI main function detected: False
+DEBUG: Mapping type for decl: ('const char *', 'mode')
+DEBUG: Using function params for Input: [('string', 'mode')]
+Wrote proto to input.proto:
+
+syntax = "proto3";
+
+message Input {
+  string mode = 1;
+}
+

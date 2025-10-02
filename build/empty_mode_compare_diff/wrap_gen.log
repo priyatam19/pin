@@ -1,0 +1,4 @@
+Generated main.c for wrapper.
+Generated reference_runner.cc.
+DEBUG: walk_decls called with 1 fields, prefix='', depth=0, parser=libclang
+DEBUG: Processing field ('const char *', 'mode'), name=mode, is_struct=False, is_ptr=True

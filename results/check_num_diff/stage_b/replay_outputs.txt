@@ -1,0 +1,668 @@
+=== 0c3c47262d16301a49b164ab9605ffe63be2ffb7 ===
+[input decoded]
+{"N": 39}
+[normalized rc=0 stdout]
+Positive
+[normalized stderr]
+[original rc=0 stdout]
+Positive
+[original stderr]
+
+=== 14130630de964ef65c264ed0db6877307998b72b ===
+[input decoded]
+{"N": -65}
+[normalized rc=0 stdout]
+Negative
+[normalized stderr]
+[original rc=0 stdout]
+Negative
+[original stderr]
+
+=== 167f02cb88e8981514fa4762ab3adb0afead532e ===
+[input decoded]
+{"N": -38}
+[normalized rc=0 stdout]
+Negative
+[normalized stderr]
+[original rc=0 stdout]
+Negative
+[original stderr]
+
+=== 1a57d00f2a39c602138aa56a1b5c0204d9ce6bbc ===
+[input decoded]
+{"N": -9437761}
+[normalized rc=0 stdout]
+Negative
+[normalized stderr]
+[original rc=0 stdout]
+Negative
+[original stderr]
+
+=== 1db5bb391c3b0bfa54fc1a694c3e8ebb224037a6 ===
+[input decoded]
+{"N": 8}
+[normalized rc=0 stdout]
+Positive
+[normalized stderr]
+[original rc=0 stdout]
+Positive
+[original stderr]
+
+=== 20326c5e32b2db82d185592dd8064fdb42984c42 ===
+[input decoded]
+{"N": 14847}
+[normalized rc=0 stdout]
+Positive
+[normalized stderr]
+[original rc=0 stdout]
+Positive
+[original stderr]
+
+=== 268e144844872221d79bbcbe7fef0e4f90c37fde ===
+[input decoded]
+{"N": 147455}
+[normalized rc=0 stdout]
+Positive
+[normalized stderr]
+[original rc=0 stdout]
+Positive
+[original stderr]
+
+=== 2d494b612808654be4a61f96e24384530addd8af ===
+[input decoded]
+{"N": -10}
+[normalized rc=0 stdout]
+Negative
+[normalized stderr]
+[original rc=0 stdout]
+Negative
+[original stderr]
+
+=== 366fe6e199da7330cd2de40c3fce38db467f09cf ===
+[input decoded]
+{"N": 1589247}
+[normalized rc=0 stdout]
+Positive
+[normalized stderr]
+[original rc=0 stdout]
+Positive
+[original stderr]
+
+=== 37d610e92caf9c13efcc3e1999782fbd93347b2a ===
+[input decoded]
+{"N": -32769}
+[normalized rc=0 stdout]
+Negative
+[normalized stderr]
+[original rc=0 stdout]
+Negative
+[original stderr]
+
+=== 3fa2c6ce8c8f96fad01446a1502a8d9bf5651a94 ===
+[input decoded]
+{"N": -129}
+[normalized rc=0 stdout]
+Negative
+[normalized stderr]
+[original rc=0 stdout]
+Negative
+[original stderr]
+
+=== 4082cd4157a95e51883bd3f5fa640d27868a5044 ===
+[input decoded]
+{"N": 0}
+[normalized rc=0 stdout]
+Zeri
+[normalized stderr]
+[original rc=0 stdout]
+Zeri
+[original stderr]
+
+=== 41367d9238dacbf0fe37cc9f87c801ae7d4be21c ===
+[input decoded]
+{"N": 96}
+[normalized rc=0 stdout]
+Positive
+[normalized stderr]
+[original rc=0 stdout]
+Positive
+[original stderr]
+
+=== 41abc83de0c4fe5d38cbae95ba1c5b6516de0ed0 ===
+[input decoded]
+{"N": 16383}
+[normalized rc=0 stdout]
+Positive
+[normalized stderr]
+[original rc=0 stdout]
+Positive
+[original stderr]
+
+=== 43731c9f7a523cf01fe57dfd870e62890dfc8028 ===
+[input decoded]
+{"N": -1}
+[normalized rc=0 stdout]
+Negative
+[normalized stderr]
+[original rc=0 stdout]
+Negative
+[original stderr]
+
+=== 45a103efce86dfb8efe08c4b338eadb40482a161 ===
+[input decoded]
+{"N": 8071}
+[normalized rc=0 stdout]
+Positive
+[normalized stderr]
+[original rc=0 stdout]
+Positive
+[original stderr]
+
+=== 490a8ed48c37792cb6ec9ab5674c5a233dab4723 ===
+[input decoded]
+{"N": -13825}
+[normalized rc=0 stdout]
+Negative
+[normalized stderr]
+[original rc=0 stdout]
+Negative
+[original stderr]
+
+=== 4b2cbb3f281b0d43f52a66a111146cc27379c853 ===
+[input decoded]
+{"N": -16385}
+[normalized rc=0 stdout]
+Negative
+[normalized stderr]
+[original rc=0 stdout]
+Negative
+[original stderr]
+
+=== 4fe090c435a09468ed9a0ced0c14840f965ed321 ===
+[input decoded]
+{"N": 15623}
+[normalized rc=0 stdout]
+Positive
+[normalized stderr]
+[original rc=0 stdout]
+Positive
+[original stderr]
+
+=== 5142a9fbccecbb34ac0a94d8c7b9ba7d69600f4e ===
+[input decoded]
+{"N": -2049}
+[normalized rc=0 stdout]
+Negative
+[normalized stderr]
+[original rc=0 stdout]
+Negative
+[original stderr]
+
+=== 51af68159bae0e1c0695358ef1ffc6f25315896f ===
+[input decoded]
+{"N": 127}
+[normalized rc=0 stdout]
+Positive
+[normalized stderr]
+[original rc=0 stdout]
+Positive
+[original stderr]
+
+=== 528e67b8ea061a3f827ede9e17e818ccdd0ed943 ===
+[input decoded]
+{"N": -536903681}
+[normalized rc=0 stdout]
+Negative
+[normalized stderr]
+[original rc=0 stdout]
+Negative
+[original stderr]
+
+=== 5bb7b5ae1257c8171a5106b771d9f3adfae2ea99 ===
+[input decoded]
+{"N": 2097151}
+[normalized rc=0 stdout]
+Positive
+[normalized stderr]
+[original rc=0 stdout]
+Positive
+[original stderr]
+
+=== 647abeb1456108333b878a1167b5782226771ce8 ===
+[input decoded]
+{"N": 12287}
+[normalized rc=0 stdout]
+Positive
+[normalized stderr]
+[original rc=0 stdout]
+Positive
+[original stderr]
+
+=== 67601da9892aaa713074a42e046042c20a9c7033 ===
+[input decoded]
+{"N": -743086}
+[normalized rc=0 stdout]
+Negative
+[normalized stderr]
+[original rc=0 stdout]
+Negative
+[original stderr]
+
+=== 6e418db0613c94de8b73091af9a52610c62f784d ===
+[input decoded]
+{"N": 266338303}
+[normalized rc=0 stdout]
+Positive
+[normalized stderr]
+[original rc=0 stdout]
+Positive
+[original stderr]
+
+=== 70662b9517a8baf7fb755c71e9893b81d424eba3 ===
+[input decoded]
+{"N": 100663231}
+[normalized rc=0 stdout]
+Positive
+[normalized stderr]
+[original rc=0 stdout]
+Positive
+[original stderr]
+
+=== 73594a0663b2430659a262070707fb83387ad927 ===
+[input decoded]
+{"N": -743086}
+[normalized rc=0 stdout]
+Negative
+[normalized stderr]
+[original rc=0 stdout]
+Negative
+[original stderr]
+
+=== 7b09d7ea96651aa67f381c3489a236dd1f6600ac ===
+[input decoded]
+{"N": 5119}
+[normalized rc=0 stdout]
+Positive
+[normalized stderr]
+[original rc=0 stdout]
+Positive
+[original stderr]
+
+=== 87e6bdf3b59d3e18ecadb40f7ff32f11ff19b4ff ===
+[input decoded]
+{"N": -262209}
+[normalized rc=0 stdout]
+Negative
+[normalized stderr]
+[original rc=0 stdout]
+Negative
+[original stderr]
+
+=== 8b197b6e744eb5c58bb87e76891e1b807c4924f2 ===
+[input decoded]
+{"N": -269484097}
+[normalized rc=0 stdout]
+Negative
+[normalized stderr]
+[original rc=0 stdout]
+Negative
+[original stderr]
+
+=== 8d883f1577ca8c334b7c6d75ccb71209d71ced13 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+
+=== 903d2d06e26d1e47eaa708a4c121df73a753d4d9 ===
+[input decoded]
+{"N": 147391}
+[normalized rc=0 stdout]
+Positive
+[normalized stderr]
+[original rc=0 stdout]
+Positive
+[original stderr]
+
+=== 925239ac24792e3d11d2e39e2b82d4b19635a5ca ===
+[input decoded]
+{"N": -1879048193}
+[normalized rc=0 stdout]
+Negative
+[normalized stderr]
+[original rc=0 stdout]
+Negative
+[original stderr]
+
+=== 92fad945b513ea198b9025625725f1b3f885cfd0 ===
+[input decoded]
+{"N": -577}
+[normalized rc=0 stdout]
+Negative
+[normalized stderr]
+[original rc=0 stdout]
+Negative
+[original stderr]
+
+=== 944b518824050a22348b209c93a948b62ea10a7e ===
+[input decoded]
+{"N": 218103807}
+[normalized rc=0 stdout]
+Positive
+[normalized stderr]
+[original rc=0 stdout]
+Positive
+[original stderr]
+
+=== 9a0a92df2c6928ea9092c81a3d6f000487f3038d ===
+[input decoded]
+{"N": 769983}
+[normalized rc=0 stdout]
+Positive
+[normalized stderr]
+[original rc=0 stdout]
+Positive
+[original stderr]
+
+=== 9aa0362aa723f72e3249926c5d713bbbecb855c2 ===
+[input decoded]
+{"N": -1939118}
+[normalized rc=0 stdout]
+Negative
+[normalized stderr]
+[original rc=0 stdout]
+Negative
+[original stderr]
+
+=== 9b3bc1f6c8d5ccfee082b148b72c45ab87a57835 ===
+[input decoded]
+{"N": -147457}
+[normalized rc=0 stdout]
+Negative
+[normalized stderr]
+[original rc=0 stdout]
+Negative
+[original stderr]
+
+=== a00a0382edd57d2dbd9175388643d7acc05d9a3c ===
+[input decoded]
+{"N": -67108865}
+[normalized rc=0 stdout]
+Negative
+[normalized stderr]
+[original rc=0 stdout]
+Negative
+[original stderr]
+
+=== a30140a59e9b468f7dba2ad6278a0bba2c327d3c ===
+[input decoded]
+{"N": -17}
+[normalized rc=0 stdout]
+Negative
+[normalized stderr]
+[original rc=0 stdout]
+Negative
+[original stderr]
+
+=== ad9e9f518714a89c17fff8b767bb870ca54d9574 ===
+[input decoded]
+{"N": -134960814}
+[normalized rc=0 stdout]
+Negative
+[normalized stderr]
+[original rc=0 stdout]
+Negative
+[original stderr]
+
+=== ae0428173127aa9e7f8eafc21dce077afbe3deec ===
+[input decoded]
+{"N": 95}
+[normalized rc=0 stdout]
+Positive
+[normalized stderr]
+[original rc=0 stdout]
+Positive
+[original stderr]
+
+=== ae1eec2e498f6211ef1da19afa9b09247d5d8320 ===
+[input decoded]
+{"N": 54525951}
+[normalized rc=0 stdout]
+Positive
+[normalized stderr]
+[original rc=0 stdout]
+Positive
+[original stderr]
+
+=== b25dce5b2f99de26598b9ed7e21c20a5465d264c ===
+[input decoded]
+{"N": -5806}
+[normalized rc=0 stdout]
+Negative
+[normalized stderr]
+[original rc=0 stdout]
+Negative
+[original stderr]
+
+=== b40a19b5c218bea51dc36222ad4fbbe7877af1fd ===
+[input decoded]
+{"N": 100130806}
+[normalized rc=0 stdout]
+Positive
+[normalized stderr]
+[original rc=0 stdout]
+Positive
+[original stderr]
+
+=== ba27e60ba6fa36738312baf9b28f76adaf951385 ===
+[input decoded]
+{"N": -16385}
+[normalized rc=0 stdout]
+Negative
+[normalized stderr]
+[original rc=0 stdout]
+Negative
+[original stderr]
+
+=== bf31781116f895c3faa14aec305445f74e86ece1 ===
+[input decoded]
+{"N": -2}
+[normalized rc=0 stdout]
+Negative
+[normalized stderr]
+[original rc=0 stdout]
+Negative
+[original stderr]
+
+=== c15bfe4ed0014368988acbe16bac269dc9e19977 ===
+[input decoded]
+{"N": 81919999}
+[normalized rc=0 stdout]
+Positive
+[normalized stderr]
+[original rc=0 stdout]
+Positive
+[original stderr]
+
+=== c291b6b99b904ce86ab6638ae4580e87d278fa38 ===
+[input decoded]
+{"N": -16924673}
+[normalized rc=0 stdout]
+Negative
+[normalized stderr]
+[original rc=0 stdout]
+Negative
+[original stderr]
+
+=== c50d935aba19f8d3fba84b82d9a852b3d2a0677a ===
+[input decoded]
+{"N": -4198401}
+[normalized rc=0 stdout]
+Negative
+[normalized stderr]
+[original rc=0 stdout]
+Negative
+[original stderr]
+
+=== c95ce493a1599005d66f7e7dbd7b76dc97077b9a ===
+[input decoded]
+{"N": -72769}
+[normalized rc=0 stdout]
+Negative
+[normalized stderr]
+[original rc=0 stdout]
+Negative
+[original stderr]
+
+=== ca409975211795fb10cd518604177e7b795351c9 ===
+[input decoded]
+{"N": 94}
+[normalized rc=0 stdout]
+Positive
+[normalized stderr]
+[original rc=0 stdout]
+Positive
+[original stderr]
+
+=== cdd5c604ecbb767eaab19f39546cc80e67c8d544 ===
+[input decoded]
+{"N": -257}
+[normalized rc=0 stdout]
+Negative
+[normalized stderr]
+[original rc=0 stdout]
+Negative
+[original stderr]
+
+=== ce8f4d471c634b1cc0cf636ae7c023e4bd127bc4 ===
+[input decoded]
+{"N": -1025}
+[normalized rc=0 stdout]
+Negative
+[normalized stderr]
+[original rc=0 stdout]
+Negative
+[original stderr]
+
+=== d2cb1353f94bad0dd2f00f2b0e2112957a67fe74 ===
+[input decoded]
+{"N": 13691}
+[normalized rc=0 stdout]
+Positive
+[normalized stderr]
+[original rc=0 stdout]
+Positive
+[original stderr]
+
+=== d3cfb993a71bfe02adce7dddc3dbb3c55b82715b ===
+[input decoded]
+{"N": 81264639}
+[normalized rc=0 stdout]
+Positive
+[normalized stderr]
+[original rc=0 stdout]
+Positive
+[original stderr]
+
+=== d3f704b77a29699fc9ffff86bbb01c83c9744dc4 ===
+[input decoded]
+{"N": -2097217}
+[normalized rc=0 stdout]
+Negative
+[normalized stderr]
+[original rc=0 stdout]
+Negative
+[original stderr]
+
+=== da495b2969aa027d71086b58659eac83a4b87549 ===
+[input decoded]
+{"N": 655359}
+[normalized rc=0 stdout]
+Positive
+[normalized stderr]
+[original rc=0 stdout]
+Positive
+[original stderr]
+
+=== df5e013588310be3e890e35b01cac57df909f1af ===
+[input decoded]
+{"N": 1540095}
+[normalized rc=0 stdout]
+Positive
+[normalized stderr]
+[original rc=0 stdout]
+Positive
+[original stderr]
+
+=== e06be02419b5cd180eb4332b19dd11e390c1ae1a ===
+[input decoded]
+{"N": 2147483647}
+[normalized rc=0 stdout]
+Positive
+[normalized stderr]
+[original rc=0 stdout]
+Positive
+[original stderr]
+
+=== e76dc86d8e949a4fb64f457501c1818dabbcdde0 ===
+[input decoded]
+{"N": -1888485953}
+[normalized rc=0 stdout]
+Negative
+[normalized stderr]
+[original rc=0 stdout]
+Negative
+[original stderr]
+
+=== f20b30cf39157d7eb76c4d8258b1595d1b522b27 ===
+[input decoded]
+{"N": 1048575}
+[normalized rc=0 stdout]
+Positive
+[normalized stderr]
+[original rc=0 stdout]
+Positive
+[original stderr]
+
+=== f5392de97a131bc389fa0f567ab6c8e53289324a ===
+[input decoded]
+{"N": -5}
+[normalized rc=0 stdout]
+Negative
+[normalized stderr]
+[original rc=0 stdout]
+Negative
+[original stderr]
+
+=== f5f11e33f432e6ef5726798790a0305a6c177afc ===
+[input decoded]
+{"N": -4198401}
+[normalized rc=0 stdout]
+Negative
+[normalized stderr]
+[original rc=0 stdout]
+Negative
+[original stderr]
+
+=== f79cd243bde8e04f72f925c52ec5b453a0e5e349 ===
+[input decoded]
+{"N": 104}
+[normalized rc=0 stdout]
+Positive
+[normalized stderr]
+[original rc=0 stdout]
+Positive
+[original stderr]
+
+=== ff01cacab7dbd5b3457b0d1fb62b8a0c0613cb44 ===
+[input decoded]
+{"N": -33568961}
+[normalized rc=0 stdout]
+Negative
+[normalized stderr]
+[original rc=0 stdout]
+Negative
+[original stderr]
+

@@ -1,0 +1,102 @@
+=== 09d2af8dd22201dd8d48e5dcfcaed281ff9422c7 ===
+[input decoded]
+{"flag0": 0, "flag1": 0, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 underflow (0.00)
+[original stderr]
+
+=== 290942debeee92e96bd28a606d7eb043a7df47fd ===
+[input decoded]
+{"flag0": 0, "flag1": 8191, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
+[normalized rc=0 stdout]
+sensor 0 overload (4095.50)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 overload (4095.50)
+[original stderr]
+
+=== 3c29793ef5ce1b2121800d418471fa1629c02cbf ===
+[input decoded]
+{"flag0": 0, "flag1": 0, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 underflow (0.00)
+[original stderr]
+
+=== 631efa3896d21dc7016d0d096add0ecf2461ccf3 ===
+[input decoded]
+{"flag0": 0, "flag1": 0, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 underflow (0.00)
+[original stderr]
+
+=== 66739abf6904c92e6d1c87091eb5e4ab22ce7d21 ===
+[input decoded]
+{"flag0": 0, "flag1": 0, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 underflow (0.00)
+[original stderr]
+
+=== 73c663ba8bf2b28fb17291afa1f071398b0807fa ===
+[input decoded]
+{"flag0": 0, "flag1": 63, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
+[normalized rc=0 stdout]
+sensor 0 stable (31.50)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 stable (31.50)
+[original stderr]
+
+=== 8563345b080a1f4c1cce2e67f8581547f8c2839d ===
+[input decoded]
+{"flag0": 0, "flag1": 0, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 underflow (0.00)
+[original stderr]
+
+=== 8e40d454433c5319136099316336f12dfaf6f8fb ===
+[input decoded]
+{"flag0": 0, "flag1": 19, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
+[normalized rc=0 stdout]
+sensor 0 underflow (9.50)
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 underflow (9.50)
+[original stderr]
+
+=== 9326a846e7f5d0ee994abb6256f2e1ebcdb79848 ===
+[input decoded]
+{"flag0": 0, "flag1": 0, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 underflow (0.00)
+[original stderr]
+
+=== be828a9746910262cd9d436af0ea3de18519a497 ===
+[input decoded]
+{"flag0": 0, "flag1": 0, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 underflow (0.00)
+[original stderr]
+
+=== d9a28b259d6187282d514a4f987e51d8a71dcfa0 ===
+[input decoded]
+{"flag0": 0, "flag1": 0, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
+[normalized rc=1 stdout]
+[normalized stderr]
+[original rc=0 stdout]
+sensor 0 underflow (0.00)
+[original stderr]
+

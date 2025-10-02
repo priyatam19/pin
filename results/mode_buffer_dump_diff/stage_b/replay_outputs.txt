@@ -1,0 +1,26 @@
+=== 00f97b2f6c526ec0bc0a59163691cd210186ebbc ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x3f
+[1]=0x70
+[2]=0x70
+[3]=0x6e
+[4]=0x50
+[5]=0x70
+[6]=0x69
+[7]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x3f
+[1]=0x70
+[2]=0x70
+[3]=0x6e
+[4]=0x50
+[5]=0x70
+[6]=0x69
+[7]=0x00
+[original stderr]
+

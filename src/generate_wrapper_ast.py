@@ -70,10 +70,53 @@ def generate_decode_callback(bufname, buflen):
     return f"""
 bool decode_{bufname}(pb_istream_t *stream, const pb_field_t *field, void **arg) {{
     char *buffer = (char *)(*arg);
-    size_t len = stream->bytes_left < ({buflen} - 1) ? stream->bytes_left : ({buflen} - 1);
-    if (!pb_read(stream, (pb_byte_t*)buffer, len)) return false;
-    buffer[len] = '\\0';
-    return true;
+    memset(buffer, 0, {buflen});
+
+    pb_istream_t substream;
+    if (!pb_make_string_substream(stream, &substream)) {{
+        return false;
+    }}
+
+    size_t declared_len = substream.bytes_left;
+    size_t to_read = declared_len;
+    bool truncated = false;
+    if (to_read >= {buflen}) {{
+        truncated = true;
+        to_read = {buflen} - 1;
+    }}
+
+    bool ok = pb_read(&substream, (pb_byte_t*)buffer, to_read);
+    while (ok && substream.bytes_left > 0) {{
+        uint8_t scratch[32];
+        size_t chunk = substream.bytes_left < sizeof(scratch) ? substream.bytes_left : sizeof(scratch);
+        ok = pb_read(&substream, scratch, chunk);
+    }}
+
+    if (ok && truncated) {{
+        ok = false;
+    }}
+
+    if (ok && memchr(buffer, 0, to_read) != NULL) {{
+        ok = false;
+    }}
+
+    if (ok) {{
+#ifdef PB_VALIDATE_UTF8
+        ok = pb_validate_utf8(buffer);
+#else
+        const unsigned char *p = (const unsigned char *)buffer;
+        while (ok && *p) {{
+            unsigned char c = *p++;
+            if (c < 0x80) {{
+                continue;
+            }}
+            ok = false;
+        }}
+#endif
+    }}
+
+    pb_close_string_substream(stream, &substream);
+    return ok;
 }}
 """
 
@@ -99,6 +142,7 @@ def generate_cli_wrapper(logic_func, return_type="int", cfile=""):
 #include <string.h>
 #include <pb.h>
 #include <pb_decode.h>
+#include <pb_common.h>
 #include "cliargs.pb.h"
 
 #define MAX_ARGS 256
@@ -523,6 +567,7 @@ def generate_wrapper(filename, logic_func, pb_base, mainstruct=None, parser="pyc
 #include <string.h>
 #include <pb.h>
 #include <pb_decode.h>
+#include <pb_common.h>
 #include "{pb_base.lower()}.pb.h"
 
 #define MAXLEN {MAXLEN_DEFAULT}
@@ -577,14 +622,25 @@ int main(int argc, char *argv[]) {{
 #endif
 """
     else:
+        struct = None
         if structs and mainstruct:
             matches = [s for n, s in structs if n == mainstruct]
-            if not matches:
-                print(f"No struct '{mainstruct}' found.")
-                sys.exit(1)
-            struct = matches[0]
+            if matches:
+                struct = matches[0]
+        if struct is not None:
             buf_assignments, _, buf_call_args = walk_decls(struct if isinstance(struct, list) else struct.decls or [], "", callbacks, structs, None, parser=parser)
-            call_args = ["&input"] + buf_call_args
+
+            struct_arg = "&input"
+            if params:
+                for p_type, _ in params:
+                    # Normalize spacing and qualifiers for struct detection
+                    p_type_norm = p_type.replace("const ", "").replace("volatile ", "").strip()
+                    if p_type_norm.startswith("struct "):
+                        if "*" not in p_type_norm:
+                            struct_arg = "input"
+                        break
+
+            call_args = [struct_arg]
             call_str = f"{call_func_name}({', '.join(call_args)})"
         else:
             if is_main and not params:
@@ -647,6 +703,7 @@ int main(int argc, char *argv[]) {{
 #include <string.h>
 #include <pb.h>  
 #include <pb_decode.h>  
+#include <pb_common.h>  
 #include "{pb_base.lower()}.pb.h"
 
 #define MAXLEN {MAXLEN_DEFAULT}
