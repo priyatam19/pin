@@ -18,6 +18,8 @@ Author: PIN Development Team
 import sys
 import re
 import os
+from dataclasses import dataclass, field
+from typing import List, Optional
 
 # Conditional imports based on parser selection
 try:
@@ -109,12 +111,259 @@ STANDARD_TYPE_NAMES = set([
     'div_t', 'ldiv_t', 'lldiv_t', 'imaxdiv_t', 'mbstate_t', 'wctrans_t', 'wctype_t'
 ])
 
+POINTER_FIELD_METADATA = {}
+FUNC_PARAM_METADATA = {}
+KNOWN_STRUCTS = set()
+POINTER_HELPERS = {}
+CURRENT_FUNCTION = None
+
+
+@dataclass
+class PointerMetadata:
+    depth: int
+    base_type: str
+    qualifiers: List[str] = field(default_factory=list)
+    kind: str = "opaque_ptr"
+    proto_hint: Optional[str] = None
+    raw: str = ""
+    clean_base: Optional[str] = None
+    wrapper_name: Optional[str] = None
+    length_param: Optional[str] = None
+    length_type: Optional[str] = None
+    length_proto: Optional[str] = None
+
+    @property
+    def is_pointer(self):
+        return self.depth > 0
+
+
+@dataclass
+class TypeMetadata:
+    proto_type: str
+    pointer: Optional[PointerMetadata] = None
+
+
 def strip_qualifiers(type_name):
     """Remove common C qualifiers and normalize whitespace."""
     if not type_name:
         return type_name
     cleaned = re.sub(r'\b(const|volatile|restrict)\b', '', type_name)
     return ' '.join(cleaned.split())
+
+
+def extract_qualifiers(type_name):
+    if not type_name:
+        return []
+    qualifiers = []
+    for qualifier in ("const", "volatile", "restrict"):
+        if re.search(rf"\b{qualifier}\b", type_name):
+            qualifiers.append(qualifier)
+    return qualifiers
+
+
+def classify_pointer_kind(base_type, depth):
+    if depth > 1:
+        return 'pointer_chain'
+    if base_type == 'char':
+        return 'string_ptr'
+    if base_type.startswith('struct '):
+        return 'struct_ptr'
+    if base_type in TYPE_MAP:
+        return 'scalar_ptr'
+    if base_type == 'void':
+        return 'void_ptr'
+    return 'opaque_ptr'
+
+
+def normalize_pointer_proto(base_type, kind):
+    if kind == 'string_ptr':
+        return 'string'
+    if kind == 'scalar_ptr' and base_type in TYPE_MAP:
+        return TYPE_MAP[base_type]
+    if kind == 'void_ptr':
+        return 'bytes'
+    if kind == 'struct_ptr':
+        return base_type
+    if kind == 'pointer_chain':
+        return 'bytes'
+    return 'bytes'
+
+
+def to_pascal_case(name):
+    tokens = re.split(r'[^0-9a-zA-Z]+', name)
+    tokens = [t for t in tokens if t]
+    if not tokens:
+        return 'Value'
+    joined = ''.join(token[:1].upper() + token[1:] for token in tokens)
+    if joined and joined[0].isdigit():
+        joined = f'N{joined}'
+    return joined
+
+
+def is_integral_proto(proto_name):
+    if not proto_name:
+        return False
+    return proto_name in {
+        'int32', 'int64', 'sint32', 'sint64', 'uint32', 'uint64',
+        'fixed32', 'fixed64', 'sfixed32', 'sfixed64'
+    }
+
+
+def ensure_pointer_helper(pointer_meta):
+    if not pointer_meta or not pointer_meta.is_pointer:
+        return None
+    if pointer_meta.depth != 1:
+        return None
+
+    if pointer_meta.length_param and pointer_meta.kind == 'scalar_ptr':
+        base_proto = TYPE_MAP.get(pointer_meta.base_type)
+        if not base_proto:
+            return None
+        length_proto = pointer_meta.length_proto or 'uint32'
+        helper_key = ('scalar_slice', base_proto, length_proto)
+        if helper_key not in POINTER_HELPERS:
+            base_token = to_pascal_case(base_proto)
+            helper_name = f'{base_token}Slice'
+            POINTER_HELPERS[helper_key] = (
+                helper_name,
+                [(f'repeated {base_proto}', 'data'), (length_proto, 'length')]
+            )
+        else:
+            helper_name = POINTER_HELPERS[helper_key][0]
+        pointer_meta.wrapper_name = helper_name
+        pointer_meta.proto_hint = helper_name
+        return helper_name
+
+    if pointer_meta.kind == 'scalar_ptr':
+        base_proto = TYPE_MAP.get(pointer_meta.base_type)
+        if not base_proto:
+            return None
+        helper_key = ('scalar', base_proto)
+        if helper_key not in POINTER_HELPERS:
+            base_token = to_pascal_case(base_proto)
+            helper_name = f'{base_token}ScalarPtr'
+            POINTER_HELPERS[helper_key] = (
+                helper_name,
+                [('bool', 'has_value'), (base_proto, 'value')]
+            )
+        else:
+            helper_name = POINTER_HELPERS[helper_key][0]
+        pointer_meta.wrapper_name = helper_name
+        pointer_meta.proto_hint = helper_name
+        return helper_name
+
+    if pointer_meta.kind == 'struct_ptr':
+        clean_base = pointer_meta.clean_base
+        if not clean_base:
+            raw_base = pointer_meta.base_type[7:].strip() if pointer_meta.base_type.startswith('struct ') else pointer_meta.base_type
+            clean_base = sanitize_struct_name(raw_base)
+        if not clean_base or clean_base in STANDARD_TYPE_NAMES:
+            return None
+        if clean_base.startswith('AnonymousStruct'):
+            return None
+        helper_key = ('struct', clean_base)
+        if helper_key not in POINTER_HELPERS:
+            base_token = to_pascal_case(clean_base)
+            helper_name = f'{base_token}Ptr'
+            POINTER_HELPERS[helper_key] = (
+                helper_name,
+                [('bool', 'present'), (clean_base, 'value')]
+            )
+        else:
+            helper_name = POINTER_HELPERS[helper_key][0]
+        pointer_meta.wrapper_name = helper_name
+        pointer_meta.clean_base = clean_base
+        pointer_meta.proto_hint = helper_name
+        return helper_name
+
+    return None
+
+
+def analyze_pointer_spelling(type_spelling):
+    raw = type_spelling.strip()
+    qualifiers = extract_qualifiers(raw)
+    stripped = strip_qualifiers(raw)
+    depth = 0
+    base = stripped
+    while base.endswith('*'):
+        base = base[:-1]
+        depth += 1
+    base = base.strip()
+    if depth == 0:
+        return PointerMetadata(depth=0, base_type=base or stripped, qualifiers=qualifiers, kind='none', proto_hint=None, raw=raw)
+    kind = classify_pointer_kind(base, depth)
+    proto_hint = normalize_pointer_proto(base, kind)
+    return PointerMetadata(
+        depth=depth,
+        base_type=base,
+        qualifiers=qualifiers,
+        kind=kind,
+        proto_hint=proto_hint,
+        raw=raw,
+    )
+
+
+def map_libclang_metadata(type_spelling):
+    type_str = strip_qualifiers(type_spelling.strip())
+
+    # Handle union types - convert to bytes
+    if type_str.startswith('union '):
+        print(f"DEBUG: Converting union {type_str} to bytes")
+        return TypeMetadata(proto_type='bytes')
+
+    # Handle arrays - convert C arrays to Protocol Buffer repeated fields
+    if '[' in type_str and ']' in type_str:
+        base_type = strip_qualifiers(type_str.split('[')[0].strip())
+        if base_type == 'char':
+            return TypeMetadata(proto_type='string')
+        mapped_base = TYPE_MAP.get(base_type, 'bytes')
+        if mapped_base == 'bytes':
+            return TypeMetadata(proto_type='bytes')
+        return TypeMetadata(proto_type=f'repeated {mapped_base}')
+
+    # Handle pointers with structured metadata
+    if type_str.endswith('*'):
+        pointer_meta = analyze_pointer_spelling(type_spelling)
+        proto_hint = pointer_meta.proto_hint or 'bytes'
+        if pointer_meta.kind == 'struct_ptr':
+            struct_name = pointer_meta.base_type[7:].strip() if pointer_meta.base_type.startswith('struct ') else pointer_meta.base_type
+            clean_name = sanitize_struct_name(struct_name) if struct_name else struct_name
+            pointer_meta.clean_base = clean_name
+            proto_hint = 'bytes'
+            if clean_name in STANDARD_TYPE_NAMES:
+                proto_hint = 'bytes'
+        elif pointer_meta.kind == 'scalar_ptr':
+            proto_hint = TYPE_MAP.get(pointer_meta.base_type, 'bytes')
+        elif pointer_meta.kind == 'string_ptr':
+            proto_hint = 'string'
+        elif pointer_meta.kind == 'void_ptr':
+            proto_hint = 'bytes'
+        pointer_meta.proto_hint = proto_hint
+        return TypeMetadata(proto_type=proto_hint, pointer=pointer_meta)
+
+    # Handle struct types
+    if type_str.startswith('struct '):
+        struct_name = type_str[7:].strip()
+        if '(unnamed' in struct_name or 'anonymous' in struct_name:
+            return TypeMetadata(proto_type='AnonymousStruct')
+        if struct_name in STANDARD_TYPE_NAMES:
+            return TypeMetadata(proto_type='bytes')
+        return TypeMetadata(proto_type=struct_name)
+
+    clean_name = sanitize_struct_name(type_str)
+    if type_str in KNOWN_STRUCTS:
+        return TypeMetadata(proto_type=type_str)
+    if clean_name in KNOWN_STRUCTS:
+        return TypeMetadata(proto_type=clean_name)
+
+    # Handle basic types - check TYPE_MAP first
+    mapped_type = TYPE_MAP.get(type_str)
+    if mapped_type:
+        return TypeMetadata(proto_type=mapped_type)
+
+    print(f"DEBUG: Unmapped type {type_str}, using bytes")
+    return TypeMetadata(proto_type='bytes')
+
 
 def map_type(decl, structs, depth=0, parent_field=''):
     """
@@ -134,44 +383,22 @@ def map_type(decl, structs, depth=0, parent_field=''):
     """
     print(f"DEBUG: Mapping type for decl: {decl}")
     if isinstance(decl, tuple):  # libclang: (type_name, field_name)
-        type_name = strip_qualifiers(decl[0].strip())
-        
-        # Handle union types - convert to bytes
-        if type_name.startswith('union '):
-            print(f"DEBUG: Converting union {type_name} to bytes")
-            return 'bytes'
-            
-        if type_name.startswith('struct '):
-            struct_name = type_name[7:].split('[')[0].split('*')[0].strip()
-            if struct_name in STANDARD_TYPE_NAMES:
-                return 'bytes'
-            structs.append((struct_name, []))
-            return struct_name
-        if '[]' in type_name:
-            base = strip_qualifiers(type_name.replace('[]', '').strip())
-            if base == 'char':
-                return 'string'
-            mapped_base = TYPE_MAP.get(base, 'bytes')
-            if mapped_base == 'bytes':
-                return 'bytes'
-            return f'repeated {mapped_base}'
-        if '*' in type_name:
-            base = strip_qualifiers(type_name.replace('*', '').strip())
-            if base == 'char':
-                return 'string'
-            mapped_base = TYPE_MAP.get(base)
-            if mapped_base:
-                return f'optional {mapped_base}'
-            return 'bytes'
-        
-        # Check direct mapping first
-        mapped_type = TYPE_MAP.get(type_name)
-        if mapped_type:
-            return mapped_type
-        
-        # For unmapped types, use bytes as fallback
-        print(f"DEBUG: Unmapped type {type_name}, using bytes")
-        return 'bytes'
+        global CURRENT_FUNCTION
+        if CURRENT_FUNCTION and len(decl) > 1:
+            ptr_override = FUNC_PARAM_METADATA.get((CURRENT_FUNCTION, decl[1]))
+            if ptr_override and ptr_override.is_pointer:
+                helper_name = ensure_pointer_helper(ptr_override)
+                if helper_name:
+                    return helper_name
+                if ptr_override.proto_hint:
+                    return ptr_override.proto_hint
+        type_meta = map_libclang_metadata(decl[0])
+        resolved_type = type_meta.proto_type
+        if type_meta.pointer and type_meta.pointer.is_pointer:
+            helper_name = ensure_pointer_helper(type_meta.pointer)
+            if helper_name:
+                resolved_type = helper_name
+        return resolved_type
         
     # pycparser logic
     if isinstance(decl.type, c_ast.ArrayDecl):
@@ -207,6 +434,7 @@ def map_type(decl, structs, depth=0, parent_field=''):
             return 'bytes'
         elif isinstance(t.type, c_ast.Struct):
             structname = t.type.name or f'{parent_field.capitalize()}Struct{depth}' if parent_field else f'AnonymousStruct{depth}'
+            KNOWN_STRUCTS.add(structname)
             structs.append((structname, t.type))
             return structname
         elif isinstance(t.type, c_ast.Union):
@@ -214,6 +442,7 @@ def map_type(decl, structs, depth=0, parent_field=''):
             return 'bytes'
     elif isinstance(decl.type, c_ast.Struct):
         structname = decl.type.name or f'{parent_field.capitalize()}Struct{depth}' if parent_field else f'AnonymousStruct{depth}'
+        KNOWN_STRUCTS.add(structname)
         structs.append((structname, decl.type))
         return structname
     elif isinstance(decl.type, c_ast.Union):
@@ -302,63 +531,8 @@ if PYCPARSER_AVAILABLE:
                 print(f"DEBUG: Found struct ptr decl {node.type.type.type.name}")
 
 def map_libclang_type(type_spelling):
-    """
-    Map libclang type spelling to Protocol Buffer type.
-    
-    This is a specialized version of map_type() for libclang parsed types.
-    It handles the string format that libclang provides for type information.
-    
-    Args:
-        type_spelling (str): Raw type string from libclang (e.g., 'char[32]', 'int*')
-        
-    Returns:
-        str: Protocol Buffer field type
-    """
-    type_str = strip_qualifiers(type_spelling.strip())
-    
-    # Handle union types - convert to bytes
-    if type_str.startswith('union '):
-        print(f"DEBUG: Converting union {type_str} to bytes")
-        return 'bytes'
-    
-    # Handle arrays - convert C arrays to Protocol Buffer repeated fields
-    if '[' in type_str and ']' in type_str:
-        base_type = strip_qualifiers(type_str.split('[')[0].strip())
-        if base_type == 'char':
-            return 'string'  # char arrays become strings
-        mapped_base = TYPE_MAP.get(base_type, 'bytes')
-        if mapped_base == 'bytes':
-            return 'bytes'
-        return f'repeated {mapped_base}'
-    
-    # Handle pointers - special case for char* as strings
-    if type_str.endswith('*'):
-        base_type = strip_qualifiers(type_str.rstrip('*').strip())
-        if base_type == 'char':
-            return 'string'  # char* becomes string
-        mapped_base = TYPE_MAP.get(base_type)
-        if mapped_base:
-            return mapped_base
-        return 'bytes'
-    
-    # Handle struct types
-    if type_str.startswith('struct '):
-        struct_name = type_str[7:].strip()
-        # Clean up anonymous struct names
-        if '(unnamed' in struct_name or 'anonymous' in struct_name:
-            return 'AnonymousStruct'
-        if struct_name in STANDARD_TYPE_NAMES:
-            return 'bytes'
-        return struct_name
-    
-    # Handle basic types - check TYPE_MAP first
-    mapped_type = TYPE_MAP.get(type_str)
-    if mapped_type:
-        return mapped_type
-    
-    # For unmapped types, use bytes as fallback
-    print(f"DEBUG: Unmapped type {type_str}, using bytes")
-    return 'bytes'
+    """Backward-compatible wrapper that returns the proto type string."""
+    return map_libclang_metadata(type_spelling).proto_type
 
 def sanitize_struct_name(name):
     """Clean up struct names to be valid protobuf identifiers"""
@@ -465,9 +639,10 @@ def parse_with_libclang(filename, headers_dir="", target_func="main"):
                 
                 for param in func_args:
                     type_name = param.type.spelling
+                    clean_type = strip_qualifiers(type_name)
                     print(f"DEBUG: Param type: {type_name}")
-                    if type_name.startswith('struct '):
-                        struct_name = type_name[7:].split('[')[0].split('*')[0].strip()
+                    if clean_type.startswith('struct '):
+                        struct_name = clean_type[7:].split('[')[0].split('*')[0].strip()
                         if struct_name not in STANDARD_TYPE_NAMES and not struct_name.startswith('__'):
                             referenced_structs.add(struct_name)
                             print(f"DEBUG: Added referenced struct {struct_name}")
@@ -478,9 +653,10 @@ def parse_with_libclang(filename, headers_dir="", target_func="main"):
             elif cursor.spelling in called_funcs:
                 for param in cursor.get_arguments():
                     type_name = param.type.spelling
+                    clean_type = strip_qualifiers(type_name)
                     print(f"DEBUG: Called func {cursor.spelling} param type: {type_name}")
-                    if type_name.startswith('struct '):
-                        struct_name = type_name[7:].split('[')[0].split('*')[0].strip()
+                    if clean_type.startswith('struct '):
+                        struct_name = clean_type[7:].split('[')[0].split('*')[0].strip()
                         if struct_name not in STANDARD_TYPE_NAMES and not struct_name.startswith('__'):
                             referenced_structs.add(struct_name)
                             print(f"DEBUG: Added referenced struct {struct_name} from called func")
@@ -502,7 +678,21 @@ def parse_with_libclang(filename, headers_dir="", target_func="main"):
                 print(f"DEBUG: Found struct {name} in {cursor_file}")
                 clean_name = sanitize_struct_name(name)
                 if clean_name and clean_name not in STANDARD_TYPE_NAMES and not clean_name.startswith('__'):
-                    fields = [(map_libclang_type(field.type.spelling), field.spelling) for field in cursor.get_children() if field.kind == CursorKind.FIELD_DECL]
+                    fields = []
+                    for field in cursor.get_children():
+                        if field.kind != CursorKind.FIELD_DECL:
+                            continue
+                        field_meta = map_libclang_metadata(field.type.spelling)
+                        resolved_type = field_meta.proto_type
+                        if field_meta.pointer and field_meta.pointer.is_pointer:
+                            helper_name = ensure_pointer_helper(field_meta.pointer)
+                            if helper_name:
+                                resolved_type = helper_name
+                        fields.append((resolved_type, field.spelling))
+                        if field_meta.pointer and field_meta.pointer.is_pointer:
+                            POINTER_FIELD_METADATA[(clean_name, field.spelling)] = field_meta.pointer
+                            print(f"DEBUG: Recorded pointer metadata for {clean_name}.{field.spelling}: {field_meta.pointer}")
+                    KNOWN_STRUCTS.add(clean_name)
                     structs.append((clean_name, fields))
                     print(f"DEBUG: Added struct {clean_name} with fields {fields}")
                 else:
@@ -527,22 +717,92 @@ def parse_with_libclang(filename, headers_dir="", target_func="main"):
                         print(f"DEBUG: Found header struct {name}")
                         clean_name = sanitize_struct_name(name)
                         if clean_name and clean_name not in STANDARD_TYPE_NAMES and not clean_name.startswith('__'):
-                            fields = [(map_libclang_type(field.type.spelling), field.spelling) for field in cursor.get_children() if field.kind == CursorKind.FIELD_DECL]
+                            fields = []
+                            for field in cursor.get_children():
+                                if field.kind != CursorKind.FIELD_DECL:
+                                    continue
+                                field_meta = map_libclang_metadata(field.type.spelling)
+                                resolved_type = field_meta.proto_type
+                                if field_meta.pointer and field_meta.pointer.is_pointer:
+                                    helper_name = ensure_pointer_helper(field_meta.pointer)
+                                    if helper_name:
+                                        resolved_type = helper_name
+                                fields.append((resolved_type, field.spelling))
+                                if field_meta.pointer and field_meta.pointer.is_pointer:
+                                    POINTER_FIELD_METADATA[(clean_name, field.spelling)] = field_meta.pointer
+                                    print(f"DEBUG: Recorded pointer metadata for {clean_name}.{field.spelling}: {field_meta.pointer}")
+                            KNOWN_STRUCTS.add(clean_name)
                             structs.append((clean_name, fields))
                             print(f"DEBUG: Added header struct {clean_name} with fields {fields}")
     
     # Collect function parameters
     params = []
+    param_entries = []
     for cursor in tu.cursor.walk_preorder():
         if cursor.kind == CursorKind.FUNCTION_DECL and cursor.spelling == target_func:
-            params = [(param.type.spelling, param.spelling or f"param_{i}") for i, param in enumerate(cursor.get_arguments())]
+            for i, param in enumerate(cursor.get_arguments()):
+                param_name = param.spelling or f"param_{i}"
+                param_meta = map_libclang_metadata(param.type.spelling)
+                params.append((param.type.spelling, param_name))
+                param_entries.append((param.type.spelling, param_name, param_meta))
             print(f"DEBUG: Function {target_func} params: {params}")
             break
-    
+
+    # Detect pointer-length pairs using simple heuristics
+    size_like_names = {'len', 'length', 'size', 'count', 'num', 'n'}
+
+    def looks_like_length(name):
+        if not name:
+            return False
+        lowered = name.lower()
+        if lowered in size_like_names:
+            return True
+        tokens = []
+        for part in re.split(r'[_]', name):
+            tokens.extend([tok.lower() for tok in re.findall(r'[A-Za-z]+', part)])
+        if tokens:
+            if tokens[0] in size_like_names or tokens[-1] in size_like_names:
+                return True
+        if any(lowered.endswith('_' + suffix) for suffix in size_like_names):
+            return True
+        return False
+
+    for idx, (type_str, name, meta) in enumerate(param_entries):
+        ptr_meta = meta.pointer
+        if not ptr_meta or not ptr_meta.is_pointer:
+            continue
+        if ptr_meta.kind not in ('scalar_ptr', 'struct_ptr') or ptr_meta.depth != 1:
+            continue
+        if idx + 1 >= len(param_entries):
+            continue
+        next_type, next_name, next_meta = param_entries[idx + 1]
+        if next_meta.pointer and next_meta.pointer.is_pointer:
+            continue
+        if not looks_like_length(next_name):
+            continue
+        if not is_integral_proto(next_meta.proto_type):
+            continue
+        ptr_meta.length_param = next_name
+        ptr_meta.length_type = next_type
+        ptr_meta.length_proto = next_meta.proto_type
+        print(f"DEBUG: Detected length companion {next_name} for pointer {name}")
+
+    for type_str, name, meta in param_entries:
+        ptr_meta = meta.pointer
+        if ptr_meta and ptr_meta.is_pointer:
+            ensure_pointer_helper(ptr_meta)
+            FUNC_PARAM_METADATA[(target_func, name)] = ptr_meta
+            print(f"DEBUG: Recorded pointer metadata for param {target_func}.{name}: {ptr_meta}")
+
     return structs, params
 
 def main(filename, logic_func, parser="pycparser", headers_dir=""):
     print(f"DEBUG: Starting main with file {filename}, func {logic_func}, parser {parser}, headers {headers_dir}")
+    global CURRENT_FUNCTION
+    CURRENT_FUNCTION = logic_func
+    POINTER_FIELD_METADATA.clear()
+    FUNC_PARAM_METADATA.clear()
+    POINTER_HELPERS.clear()
     structs = []
     ast = None
     referenced_structs = set()
@@ -584,6 +844,7 @@ def main(filename, logic_func, parser="pycparser", headers_dir=""):
             if isinstance(ext, c_ast.Typedef) and isinstance(ext.type.type, c_ast.Struct):
                 name = ext.name
                 if name not in STANDARD_TYPE_NAMES and not name.startswith('__'):
+                    KNOWN_STRUCTS.add(name)
                     structs.append((name, ext.type.type))
                     print(f"DEBUG: Added pycparser struct {name}")
         
@@ -627,8 +888,9 @@ def main(filename, logic_func, parser="pycparser", headers_dir=""):
             if cursor.kind == CursorKind.FUNCTION_DECL and cursor.spelling == logic_func:
                 for param in cursor.get_arguments():
                     type_name = param.type.spelling
-                    if type_name.startswith('struct '):
-                        struct_name = type_name[7:].split('[')[0].split('*')[0].strip()
+                    clean_type = strip_qualifiers(type_name)
+                    if clean_type.startswith('struct '):
+                        struct_name = clean_type[7:].split('[')[0].split('*')[0].strip()
                         if struct_name not in STANDARD_TYPE_NAMES and not struct_name.startswith('__'):
                             primary_input_struct = struct_name
                             print(f"DEBUG: Primary input struct from libclang params: {primary_input_struct}")
@@ -636,8 +898,9 @@ def main(filename, logic_func, parser="pycparser", headers_dir=""):
             elif cursor.kind == CursorKind.FUNCTION_DECL and cursor.spelling in called_funcs:
                 for param in cursor.get_arguments():
                     type_name = param.type.spelling
-                    if type_name.startswith('struct '):
-                        struct_name = type_name[7:].split('[')[0].split('*')[0].strip()
+                    clean_type = strip_qualifiers(type_name)
+                    if clean_type.startswith('struct '):
+                        struct_name = clean_type[7:].split('[')[0].split('*')[0].strip()
                         if struct_name not in STANDARD_TYPE_NAMES and not struct_name.startswith('__'):
                             primary_input_struct = struct_name
                             print(f"DEBUG: Primary input struct from libclang called func: {primary_input_struct}")
@@ -729,6 +992,16 @@ print("Generated input.bin with CLI args:", {test_args})
             print(f"DEBUG: No structs or params found, generating empty Input message")
             all_structs.append(('Input', []))  # Empty Input for parameter-less functions
     
+    # Prepend pointer helper messages so they are available to referencing structs
+    input_fields = []
+    if func_params:
+        input_fields = get_fields([(t, n) for t, n in func_params], [], 0)
+    all_structs = [(top_structname, input_fields)] + [item for item in all_structs if item[0] != top_structname]
+
+    helper_structs = [(name, fields) for name, fields in POINTER_HELPERS.values()]
+    if helper_structs:
+        all_structs = helper_structs + all_structs
+
     # Proto output
     lines = ['syntax = "proto3";\n']
     for sname, fields in all_structs:
@@ -740,6 +1013,7 @@ print("Generated input.bin with CLI args:", {test_args})
         f.write(proto_str)
     print(f"Wrote proto to {out_file}:\n")
     print(proto_str)
+    CURRENT_FUNCTION = None
 
 if __name__ == "__main__":
     # Default to libclang for broader C/C++ support

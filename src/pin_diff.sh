@@ -21,30 +21,68 @@ HEADERS_DIR=""
 REPLAY_DIR=""
 FUZZ_SECONDS=0
 FUZZ_EXTRA_FLAGS=""
+REFERENCE_DECODER="cpp"
 for arg in "$@"; do
   case "$arg" in
     --headers-dir=*) HEADERS_DIR="${arg#*=}" ;;
     --replay-dir=*) REPLAY_DIR="${arg#*=}" ;;
     --fuzz-seconds=*) FUZZ_SECONDS="${arg#*=}" ;;
     --fuzz-flags=*) FUZZ_EXTRA_FLAGS="${arg#*=}" ;;
+    --reference-decoder=*) REFERENCE_DECODER="${arg#*=}" ;;
   esac
 done
 
+if [[ "$REFERENCE_DECODER" != "cpp" && "$REFERENCE_DECODER" != "nanopb" ]]; then
+  echo "[-] Unsupported reference decoder: $REFERENCE_DECODER (use cpp or nanopb)"
+  exit 1
+fi
+
 if [[ -z "$CFILE" || -z "$FUNC" ]]; then
-  echo "Usage: pin/src/pin_diff.sh <c_file> <function_name> [--headers-dir=DIR]"
+  echo "Usage: pin/src/pin_diff.sh <c_file> <function_name> [--headers-dir=DIR] [--replay-dir=DIR] [--fuzz-seconds=N] [--fuzz-flags=FLAGS] [--reference-decoder={cpp|nanopb}]"
   exit 1
 fi
 
 ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
-EXAMPLE_NAME=$(basename "$CFILE" .c)
+
+if [[ "$CFILE" = /* ]]; then
+  ORIGINAL_SRC="$CFILE"
+elif [[ -f "$ROOT_DIR/$CFILE" ]]; then
+  ORIGINAL_SRC="$ROOT_DIR/$CFILE"
+else
+  ORIGINAL_SRC="$(realpath -m "$CFILE" 2>/dev/null || echo "")"
+fi
+
+if [[ -z "$ORIGINAL_SRC" || ! -f "$ORIGINAL_SRC" ]]; then
+  echo "[-] Source file $CFILE not found"
+  exit 1
+fi
+
+EXAMPLE_NAME=$(basename "$ORIGINAL_SRC" .c)
 BUILD_DIR="$ROOT_DIR/build/${EXAMPLE_NAME}_diff"
 RESULTS_DIR="$ROOT_DIR/results/${EXAMPLE_NAME}_diff"
 NANOPB_DIR="$ROOT_DIR/nanopb"
 FAKE_INC_DIR="$ROOT_DIR/utils/fake_headers"
-ORIGINAL_SRC="$ROOT_DIR/$CFILE"
+
 HEADERS_ABS=""
 if [[ -n "$HEADERS_DIR" ]]; then
-  HEADERS_ABS="$ROOT_DIR/$HEADERS_DIR"
+  if [[ "$HEADERS_DIR" = /* ]]; then
+    HEADERS_ABS="$HEADERS_DIR"
+  elif [[ -d "$ROOT_DIR/$HEADERS_DIR" ]]; then
+    HEADERS_ABS="$ROOT_DIR/$HEADERS_DIR"
+  else
+    HEADERS_ABS="$(realpath -m "$HEADERS_DIR" 2>/dev/null || echo "")"
+  fi
+  if [[ -n "$HEADERS_ABS" && ! -d "$HEADERS_ABS" ]]; then
+    echo "[-] Headers directory $HEADERS_DIR not found"
+    exit 1
+  fi
+fi
+
+HEADERS_FLAG=()
+HEADERS_INCLUDES=()
+if [[ -n "$HEADERS_ABS" ]]; then
+  HEADERS_FLAG=("--headers-dir=$HEADERS_ABS")
+  HEADERS_INCLUDES=(-I"$HEADERS_ABS")
 fi
 
 prepare_pycparser_source() {
@@ -116,15 +154,29 @@ else
 fi
 PROTO_BASE=$(awk '/^message /{print $2; exit}' "$PROTOFILE")
 [[ -z "$PROTO_BASE" ]] && PROTO_BASE=Input
+if grep -q '^message Input ' "$PROTOFILE"; then
+  PROTO_BASE=Input
+fi
 PROTO_BASE_LOWER=$(echo "$PROTO_BASE" | tr '[:upper:]' '[:lower:]')
 if [[ "$PROTOFILE" != "${PROTO_BASE_LOWER}.proto" ]]; then mv "$PROTOFILE" "${PROTO_BASE_LOWER}.proto"; PROTOFILE="${PROTO_BASE_LOWER}.proto"; fi
 
 CPP_PROTO_DIR="cpp_proto"
 PY_PROTO_DIR="py_proto"
-mkdir -p "$CPP_PROTO_DIR" "$PY_PROTO_DIR"
+[[ "$REFERENCE_DECODER" == "cpp" ]] && mkdir -p "$CPP_PROTO_DIR"
+mkdir -p "$PY_PROTO_DIR"
 
-echo "[+] Generate C++ protobuf (for original replay)"
-protoc --cpp_out="$CPP_PROTO_DIR" "$PROTOFILE"
+# Clean previous generated protobuf artifacts to avoid stale helpers
+rm -f *.pb.c *.pb.h
+if [[ "$REFERENCE_DECODER" == "cpp" ]]; then
+  rm -f "$CPP_PROTO_DIR"/*.pb.cc "$CPP_PROTO_DIR"/*.pb.h
+fi
+
+if [[ "$REFERENCE_DECODER" == "cpp" ]]; then
+  echo "[+] Generate C++ protobuf (for original replay)"
+  protoc --cpp_out="$CPP_PROTO_DIR" "$PROTOFILE"
+else
+  echo "[i] Skipping C++ protobuf generation (reference decoder=$REFERENCE_DECODER)"
+fi
 
 echo "[+] Generate Python protobuf helpers"
 protoc --python_out="$PY_PROTO_DIR" "$PROTOFILE"
@@ -190,28 +242,96 @@ clang -c "$NANOPB_DIR/pb_common.c" -I"$NANOPB_DIR" -O2 -o pb_common.o
 clang -c "${PROTO_BASE_LOWER}.pb.c" -I"$NANOPB_DIR" -O2 -o input.nanopb.o
 
 echo "[+] Compile wrapper object (no main) for fuzz_bytes"
-clang -DPIN_WRAPPER_NO_MAIN -I"$NANOPB_DIR" -O2 -c main.c -o wrapper.o
+clang -DPIN_WRAPPER_NO_MAIN -I"$NANOPB_DIR" "${HEADERS_INCLUDES[@]}" -O2 -c main.c -o wrapper.o
 
 CJSON_OBJ=""; [[ -f cJSON.o ]] && CJSON_OBJ="cJSON.o"
 
-echo "[+] Compile C++ protobuf support"
-CPP_OBJS=()
-for cc in "$CPP_PROTO_DIR"/*.cc; do
-  obj="$(basename "$cc" .cc).o"
-  clang++ -std=c++17 -I"$CPP_PROTO_DIR" -O2 -c "$cc" -o "$obj"
-  CPP_OBJS+=("$obj")
-done
+REF_BIN=""
+REF_LABEL=""
 
-echo "[+] Compile reference runner (protobuf decode)"
-clang++ -std=c++17 -I"$CPP_PROTO_DIR" -O2 -c reference_runner.cc -o reference_runner.o
+if [[ "$REFERENCE_DECODER" == "cpp" ]]; then
+  echo "[+] Compile C++ protobuf support"
+  CPP_OBJS=()
+  for cc in "$CPP_PROTO_DIR"/*.cc; do
+    obj="$(basename "$cc" .cc).o"
+    clang++ -std=c++17 -I"$CPP_PROTO_DIR" -O2 -c "$cc" -o "$obj"
+    CPP_OBJS+=("$obj")
+  done
 
-PROTOBUF_LIBS=$(pkg-config --libs protobuf 2>/dev/null || echo "-lprotobuf -pthread")
+  echo "[+] Compile reference runner (protobuf decode)"
+  clang++ -std=c++17 -I"$CPP_PROTO_DIR" -O2 -c reference_runner.cc -o reference_runner.o
 
-clang++ -std=c++17 -O2 -o original_replay_bin reference_runner.o "${CPP_OBJS[@]}" original_plain.o $CJSON_OBJ $PROTOBUF_LIBS || {
-  echo "[-] Failed linking original_replay_bin"; exit 6; }
+  PROTOBUF_LIBS=$(pkg-config --libs protobuf 2>/dev/null || echo "-lprotobuf -pthread")
+
+  clang++ -std=c++17 -O2 -o original_replay_bin reference_runner.o "${CPP_OBJS[@]}" original_plain.o $CJSON_OBJ $PROTOBUF_LIBS || {
+    echo "[-] Failed linking original_replay_bin"; exit 6; }
+  REF_BIN="./original_replay_bin"
+  REF_LABEL="original"
+else
+  echo "[+] Build nanopb reference replay binary"
+  cat > reference_nanopb_main.c <<'EOF'
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+
+extern int pin_wrapper_entry(const uint8_t *data, size_t len);
+
+int main(int argc, char **argv) {
+    if (argc != 2) {
+        fprintf(stderr, "Usage: %s input.bin\n", argv[0]);
+        return 1;
+    }
+
+    FILE *f = fopen(argv[1], "rb");
+    if (!f) {
+        perror("fopen");
+        return 1;
+    }
+
+    if (fseek(f, 0, SEEK_END) != 0) {
+        perror("fseek");
+        fclose(f);
+        return 1;
+    }
+
+    long len = ftell(f);
+    if (len < 0) {
+        perror("ftell");
+        fclose(f);
+        return 1;
+    }
+    rewind(f);
+
+    uint8_t *buf = malloc((size_t)len);
+    if (!buf) {
+        perror("malloc");
+        fclose(f);
+        return 1;
+    }
+
+    size_t read_len = fread(buf, 1, (size_t)len, f);
+    if (read_len != (size_t)len) {
+        perror("fread");
+        free(buf);
+        fclose(f);
+        return 1;
+    }
+    fclose(f);
+
+    int rc = pin_wrapper_entry(buf, (size_t)len);
+    free(buf);
+    return rc;
+}
+EOF
+  clang -I"$NANOPB_DIR" "${HEADERS_INCLUDES[@]}" -O2 -o reference_nanopb_bin reference_nanopb_main.c wrapper.o pb_decode.o pb_common.o input.nanopb.o original_plain.o $CJSON_OBJ || {
+    echo "[-] Failed linking reference_nanopb_bin"; exit 6; }
+  rm -f reference_nanopb_main.c
+  REF_BIN="./reference_nanopb_bin"
+  REF_LABEL="reference_npb"
+fi
 
 echo "[+] Build normalized standalone runner (reads bytes file)"
-clang -I"$NANOPB_DIR" -O2 -o normalized_bin main.c pb_decode.o pb_common.o input.nanopb.o original_plain.o $CJSON_OBJ || {
+clang -I"$NANOPB_DIR" "${HEADERS_INCLUDES[@]}" -O2 -o normalized_bin main.c pb_decode.o pb_common.o input.nanopb.o original_plain.o $CJSON_OBJ || {
   echo "[-] Failed linking normalized_bin"; exit 6; }
 
 echo "[+] Build libFuzzer byte harness to call pin_wrapper_entry (Stage A)"
@@ -273,21 +393,21 @@ else
       base=$(basename "$input_path")
       norm_out="$STAGE_B_DIR/${base}.normalized.out"
       norm_err="$STAGE_B_DIR/${base}.normalized.err"
-      orig_out="$STAGE_B_DIR/${base}.original.out"
-      orig_err="$STAGE_B_DIR/${base}.original.err"
+      ref_out="$STAGE_B_DIR/${base}.${REF_LABEL}.out"
+      ref_err="$STAGE_B_DIR/${base}.${REF_LABEL}.err"
 
       set +e
       ./normalized_bin "$input_path" >"$norm_out" 2>"$norm_err"
       norm_rc=$?
-      ./original_replay_bin "$input_path" >"$orig_out" 2>"$orig_err"
-      orig_rc=$?
+      "$REF_BIN" "$input_path" >"$ref_out" 2>"$ref_err"
+      ref_rc=$?
       set -e
 
       status="match"
-      if ! cmp -s "$norm_out" "$orig_out" || ! cmp -s "$norm_err" "$orig_err" || [[ $norm_rc -ne $orig_rc ]]; then
+      if ! cmp -s "$norm_out" "$ref_out" || ! cmp -s "$norm_err" "$ref_err" || [[ $norm_rc -ne $ref_rc ]]; then
         status="DIFF"
       fi
-      printf "%s\tRC(norm=%d, orig=%d)\n" "$base:$status" "$norm_rc" "$orig_rc" >> "$REPORT"
+      printf "%s\tRC(norm=%d, ref=%d)\n" "$base:$status" "$norm_rc" "$ref_rc" >> "$REPORT"
 
       set +e
       DECODED_JSON=$(PY_PROTO_DIR="$PY_PROTO_DIR" PROTO="$PROTO_BASE" MODULE="$PROTO_MODULE" INPUT_PATH="$input_path" python3 - <<'PY' 2>&1
@@ -342,10 +462,10 @@ PY
         cat "$norm_out"
         printf "[normalized stderr]\n"
         cat "$norm_err"
-        printf "[original rc=%d stdout]\n" "$orig_rc"
-        cat "$orig_out"
-        printf "[original stderr]\n"
-        cat "$orig_err"
+        printf "[%s rc=%d stdout]\n" "$REF_LABEL" "$ref_rc"
+        cat "$ref_out"
+        printf "[%s stderr]\n" "$REF_LABEL"
+        cat "$ref_err"
         printf "\n"
       } >> "$OUTPUT_LOG"
     done

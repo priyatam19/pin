@@ -17,6 +17,9 @@
 
 set -e
 
+SCRIPT_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT_DIR="$(realpath "${SCRIPT_PATH}/..")"
+
 # Parse flags
 PARSER="pycparser"  # Default
 HEADERS_DIR=""
@@ -33,9 +36,47 @@ while [[ "$#" -gt 0 ]]; do
 done
 LOGIC_FUNC=${LOGIC_FUNC:-main}
 
-EXAMPLE_NAME=$(basename "$CFILE" .c)
-BUILD_DIR="build/$EXAMPLE_NAME"
-RESULTS_DIR="results/$EXAMPLE_NAME"
+if [[ -z "$CFILE" ]]; then
+    echo "Error: No C file provided"
+    exit 1
+fi
+
+if [[ "$CFILE" = /* ]]; then
+    SOURCE_FILE="$CFILE"
+elif [ -f "$ROOT_DIR/$CFILE" ]; then
+    SOURCE_FILE="$ROOT_DIR/$CFILE"
+else
+    SOURCE_FILE=$(realpath -m "$CFILE" 2>/dev/null || echo "")
+fi
+
+if [ -z "$SOURCE_FILE" ] || [ ! -f "$SOURCE_FILE" ]; then
+    echo "Error: Source file $CFILE not found"
+    exit 1
+fi
+
+EXAMPLE_NAME=$(basename "$SOURCE_FILE" .c)
+BUILD_DIR="$ROOT_DIR/build/$EXAMPLE_NAME"
+RESULTS_DIR="$ROOT_DIR/results/$EXAMPLE_NAME"
+
+if [ -n "$HEADERS_DIR" ]; then
+    if [[ "$HEADERS_DIR" = /* ]]; then
+        HEADERS_PATH="$HEADERS_DIR"
+    else
+        HEADERS_PATH="$ROOT_DIR/$HEADERS_DIR"
+    fi
+else
+    HEADERS_PATH=""
+fi
+
+HEADERS_FLAG=()
+if [ -n "$HEADERS_PATH" ]; then
+    HEADERS_FLAG=("--headers-dir=$HEADERS_PATH")
+fi
+
+HEADERS_INCLUDE=()
+if [ -n "$HEADERS_PATH" ]; then
+    HEADERS_INCLUDE+=(-I"$HEADERS_PATH")
+fi
 
 # Set compiler based on AFL mode
 if [ "$AFL_MODE" = "true" ]; then
@@ -52,7 +93,6 @@ mkdir -p "$BUILD_DIR" "$RESULTS_DIR"
 cd "$BUILD_DIR"
 
 # Define relative paths back to project root
-ROOT_DIR="../.."
 STRIPPED="tmp_structs.c"
 STRUCTGEN="$ROOT_DIR/src/pycparser_generate_proto.py"
 WRAPGEN="$ROOT_DIR/src/generate_wrapper_ast.py"
@@ -68,17 +108,17 @@ rm -rf __pycache__
 
 # Preprocess: Remove # lines and run cpp with fake includes and user headers
 temp_file="temp_no_pp.c"
-grep -v '^#' "$ROOT_DIR/$CFILE" > "$temp_file"
+grep -v '^#' "$SOURCE_FILE" > "$temp_file"
 # Add user headers if specified and check existence
-if [ -n "$HEADERS_DIR" ]; then
-    if [ -d "$ROOT_DIR/$HEADERS_DIR" ]; then
+if [ -n "$HEADERS_PATH" ]; then
+    if [ -d "$HEADERS_PATH" ]; then
         # Only include mongoose.h for mqtt.c
         if [[ "$(basename "$CFILE")" == "mqtt.c" ]]; then
-            HEADER_PATH="$ROOT_DIR/$HEADERS_DIR/mongoose.h"
+            HEADER_PATH="$HEADERS_PATH/mongoose.h"
             if [ -f "$HEADER_PATH" ]; then
                 sed -i '1i #include "mongoose.h"\n' "$temp_file"
             else
-                echo "Error: mongoose.h not found in $ROOT_DIR/$HEADERS_DIR for mqtt.c"
+                echo "Error: mongoose.h not found in $HEADERS_PATH for mqtt.c"
                 exit 1
             fi
         fi
@@ -87,7 +127,7 @@ if [ -n "$HEADERS_DIR" ]; then
         exit 1
     fi
 fi
-cpp -I"$FAKE_INC_DIR" -I"$ROOT_DIR/$HEADERS_DIR" -D__THROW= -D__BEGIN_DECLS= -D__END_DECLS= -D"__attribute__(x)=" "$temp_file" > "$STRIPPED" 2> cpp_errors.log || {
+cpp -I"$FAKE_INC_DIR" "${HEADERS_INCLUDE[@]}" -D__THROW= -D__BEGIN_DECLS= -D__END_DECLS= -D"__attribute__(x)=" "$temp_file" > "$STRIPPED" 2> cpp_errors.log || {
     echo "Preprocessing failed. See cpp_errors.log for details."
     cat cpp_errors.log
     exit 1
@@ -98,12 +138,12 @@ rm "$temp_file"
 echo "Generating enhanced .proto for function $LOGIC_FUNC..."
 if [ -f "$ROOT_DIR/src/enhanced_proto_generator.py" ]; then
     echo "Using enhanced function-aware proto generation..."
-    python3 "$ROOT_DIR/src/enhanced_proto_generator.py" "$ROOT_DIR/$CFILE" "$LOGIC_FUNC" > proto_gen.log 2>&1
+    python3 "$ROOT_DIR/src/enhanced_proto_generator.py" "$SOURCE_FILE" "$LOGIC_FUNC" > proto_gen.log 2>&1
     if [ $? -eq 0 ]; then
         echo "Enhanced proto generation successful"
     else
         echo "Enhanced proto generation failed, falling back to original method..."
-        python3 "$STRUCTGEN" "$STRIPPED" "$LOGIC_FUNC" --parser="$PARSER" --headers-dir="$ROOT_DIR/$HEADERS_DIR" > proto_gen.log 2>&1 || {
+        python3 "$STRUCTGEN" "$STRIPPED" "$LOGIC_FUNC" --parser="$PARSER" "${HEADERS_FLAG[@]}" > proto_gen.log 2>&1 || {
             echo "Error: Proto generation failed. See proto_gen.log for details."
             cat proto_gen.log
             exit 1
@@ -111,7 +151,7 @@ if [ -f "$ROOT_DIR/src/enhanced_proto_generator.py" ]; then
     fi
 else
     echo "Using original proto generation from $STRIPPED..."
-    python3 "$STRUCTGEN" "$STRIPPED" "$LOGIC_FUNC" --parser="$PARSER" --headers-dir="$ROOT_DIR/$HEADERS_DIR" > proto_gen.log 2>&1 || {
+    python3 "$STRUCTGEN" "$STRIPPED" "$LOGIC_FUNC" --parser="$PARSER" "${HEADERS_FLAG[@]}" > proto_gen.log 2>&1 || {
         echo "Error: Proto generation failed. See proto_gen.log for details."
         cat proto_gen.log
         exit 1
@@ -128,6 +168,9 @@ PROTO_BASE=$(awk '/^message /{print $2}' "$PROTOFILE" | head -n 1)
 if [ -z "$PROTO_BASE" ]; then
     PROTO_BASE="Input"
     echo "DEBUG: No message found in proto, defaulting to Input"
+fi
+if grep -q '^message Input ' "$PROTOFILE"; then
+    PROTO_BASE="Input"
 fi
 PROTO_BASE_LOWER=$(echo "$PROTO_BASE" | tr '[:upper:]' '[:lower:]')
 echo "Top-level message detected: $PROTO_BASE (filename: $PROTO_BASE_LOWER)"
@@ -210,7 +253,7 @@ if [ -f "proto_info.txt" ] && [ -f "$ROOT_DIR/src/enhanced_wrapper_generator.py"
     MESSAGE_NAME=$(grep "message_name:" proto_info.txt | cut -d' ' -f2)
     python3 "$ROOT_DIR/src/enhanced_wrapper_generator.py" "$PROTOFILE" "$LOGIC_FUNC" "$MESSAGE_NAME" > wrap_gen.log 2>&1 || {
         echo "Enhanced wrapper generation failed, falling back to original..."
-        python3 "$WRAPGEN" "$STRIPPED" "$LOGIC_FUNC" "$PROTO_BASE" "$PROTO_BASE" --parser="$PARSER" --headers-dir="$ROOT_DIR/$HEADERS_DIR" --original-file="$ROOT_DIR/$CFILE" > wrap_gen.log 2>&1 || {
+        python3 "$WRAPGEN" "$STRIPPED" "$LOGIC_FUNC" "$PROTO_BASE" "$PROTO_BASE" --parser="$PARSER" "${HEADERS_FLAG[@]}" --original-file="$SOURCE_FILE" > wrap_gen.log 2>&1 || {
             echo "Error: Wrapper generation failed. See wrap_gen.log for details."
             cat wrap_gen.log
             exit 1
@@ -218,7 +261,7 @@ if [ -f "proto_info.txt" ] && [ -f "$ROOT_DIR/src/enhanced_wrapper_generator.py"
     }
 else
     echo "Using original wrapper generation..."
-    python3 "$WRAPGEN" "$STRIPPED" "$LOGIC_FUNC" "$PROTO_BASE" "$PROTO_BASE" --parser="$PARSER" --headers-dir="$ROOT_DIR/$HEADERS_DIR" --original-file="$ROOT_DIR/$CFILE" > wrap_gen.log 2>&1 || {
+    python3 "$WRAPGEN" "$STRIPPED" "$LOGIC_FUNC" "$PROTO_BASE" "$PROTO_BASE" --parser="$PARSER" "${HEADERS_FLAG[@]}" --original-file="$SOURCE_FILE" > wrap_gen.log 2>&1 || {
         echo "Error: Wrapper generation failed. See wrap_gen.log for details."
         cat wrap_gen.log
         exit 1
@@ -236,7 +279,7 @@ protoc --nanopb_out=. "$PROTOFILE" || {
 COREUTILS_STUBS_OBJ=""
 if [[ "$CFILE" == *"coreutils"* ]]; then
     echo "Compiling coreutils stubs..."
-    $CC -c "$ROOT_DIR/utils/coreutils_headers/coreutils_stubs.c" -o "coreutils_stubs.o" -I"$ROOT_DIR/$HEADERS_DIR" -D__THROW= -D__BEGIN_DECLS= -D__END_DECLS= -D"__attribute__(x)=" || {
+    $CC -c "$ROOT_DIR/utils/coreutils_headers/coreutils_stubs.c" -o "coreutils_stubs.o" "${HEADERS_INCLUDE[@]}" -D__THROW= -D__BEGIN_DECLS= -D__END_DECLS= -D"__attribute__(x)=" || {
         echo "Error: Compilation of coreutils stubs failed"
         exit 1
     }
@@ -254,7 +297,7 @@ if [ -n "$LIBS" ]; then
         lib_name=$(basename "$lib_file" .c)
         lib_obj="${lib_name}.o"
         echo "Compiling $lib_file -> $lib_obj"
-        $CC -c "$ROOT_DIR/$lib_file" -o "$lib_obj" -I"$ROOT_DIR/$HEADERS_DIR" $COREUTILS_INCLUDES || {
+        $CC -c "$ROOT_DIR/$lib_file" -o "$lib_obj" "${HEADERS_INCLUDE[@]}" $COREUTILS_INCLUDES || {
             echo "Error: Compilation of $lib_file failed"
             exit 1
         }
@@ -267,12 +310,12 @@ echo "Compiling original as object..."
 # Detect if this is a coreutils program and add appropriate include paths
 COREUTILS_INCLUDES=""
 if [[ "$CFILE" == *"coreutils"* ]]; then
-    COREUTILS_BASE=$(dirname $(dirname "$ROOT_DIR/$CFILE"))  # Get the coreutils-x.y directory  
+    COREUTILS_BASE=$(dirname $(dirname "$SOURCE_FILE"))  # Get the coreutils-x.y directory  
     COREUTILS_INCLUDES="-I$COREUTILS_BASE/lib -I$COREUTILS_BASE/src"
     echo "Detected coreutils program, adding include paths: $COREUTILS_INCLUDES"
 fi
 
-$CC -c "$ROOT_DIR/$CFILE" -o "$ORIGINAL_OBJ" -I"$NANOPB_DIR" -I"$ROOT_DIR/$HEADERS_DIR" $COREUTILS_INCLUDES -D__THROW= -D__BEGIN_DECLS= -D__END_DECLS= -D"__attribute__(x)=" -D"__builtin_va_arg_pack()=0" || {
+$CC -c "$SOURCE_FILE" -o "$ORIGINAL_OBJ" -I"$NANOPB_DIR" "${HEADERS_INCLUDE[@]}" $COREUTILS_INCLUDES -D__THROW= -D__BEGIN_DECLS= -D__END_DECLS= -D"__attribute__(x)=" -D"__builtin_va_arg_pack()=0" || {
     echo "Error: Compilation of original object failed"
     exit 1
 }
@@ -282,7 +325,7 @@ objcopy --redefine-sym main=pin_original_main "$ORIGINAL_OBJ" || true
 
 # Compile original binary for comparison (if main exists)
 echo "Compiling original binary for comparison..."
-$CC "$ROOT_DIR/$CFILE" $COREUTILS_STUBS_OBJ $LIB_OBJECTS -o "$ORIGINAL_BIN" -I"$NANOPB_DIR" -I"$ROOT_DIR/$HEADERS_DIR" $COREUTILS_INCLUDES -D__THROW= -D__BEGIN_DECLS= -D__END_DECLS= -D"__attribute__(x)=" -D"__builtin_va_arg_pack()=0" || echo "Original has no main, skipping original_bin compilation."
+$CC "$SOURCE_FILE" $COREUTILS_STUBS_OBJ $LIB_OBJECTS -o "$ORIGINAL_BIN" -I"$NANOPB_DIR" "${HEADERS_INCLUDE[@]}" $COREUTILS_INCLUDES -D__THROW= -D__BEGIN_DECLS= -D__END_DECLS= -D"__attribute__(x)=" -D"__builtin_va_arg_pack()=0" || echo "Original has no main, skipping original_bin compilation."
 
 # Step 7: Compile nanopb files separately (without coreutils headers)
 echo "Compiling nanopb files..."
@@ -297,7 +340,7 @@ $CC -c "$NANOPB_DIR/pb_common.c" -o "pb_common.o" -I"$NANOPB_DIR" || {
 
 # Step 8: Compile wrapper and protobuf files (with coreutils headers for wrapper)
 echo "Compiling wrapper and protobuf files..."
-$CC -c "$WRAPPER_SRC" -o "wrapper.o" -I"$NANOPB_DIR" -I"$ROOT_DIR/$HEADERS_DIR" $COREUTILS_INCLUDES -D__THROW= -D__BEGIN_DECLS= -D__END_DECLS= -D"__attribute__(x)=" -D"__builtin_va_arg_pack()=0" || {
+$CC -c "$WRAPPER_SRC" -o "wrapper.o" -I"$NANOPB_DIR" "${HEADERS_INCLUDE[@]}" $COREUTILS_INCLUDES -D__THROW= -D__BEGIN_DECLS= -D__END_DECLS= -D"__attribute__(x)=" -D"__builtin_va_arg_pack()=0" || {
     echo "Error: Compilation of wrapper failed"
     exit 1
 }
@@ -317,7 +360,7 @@ if [ "$AFL_MODE" = "true" ]; then
         "$ORIGINAL_OBJ" "wrapper.o" "proto.o" \
         "pb_decode.o" "pb_common.o" \
         $COREUTILS_STUBS_OBJ $LIB_OBJECTS \
-        -I"$NANOPB_DIR" -I"$ROOT_DIR/$HEADERS_DIR" $COREUTILS_INCLUDES || {
+        -I"$NANOPB_DIR" "${HEADERS_INCLUDE[@]}" $COREUTILS_INCLUDES || {
         echo "Error: AFL linking failed"
         exit 1
     }
@@ -327,7 +370,7 @@ else
         "$ORIGINAL_OBJ" "wrapper.o" "proto.o" \
         "pb_decode.o" "pb_common.o" \
         $COREUTILS_STUBS_OBJ $LIB_OBJECTS \
-        -I"$NANOPB_DIR" -I"$ROOT_DIR/$HEADERS_DIR" $COREUTILS_INCLUDES || {
+        -I"$NANOPB_DIR" "${HEADERS_INCLUDE[@]}" $COREUTILS_INCLUDES || {
         echo "Error: Linking failed"
         exit 1
     }
@@ -360,7 +403,7 @@ else
 fi
 
 # Store results (move generated files to results dir)
-mv pin_test original_bin input.bin output_normalized.log output_original.log comparison.log *.proto *.pb.h *.pb.c main.c native_input.json native_input.txt "$ROOT_DIR/$RESULTS_DIR/" || true
+mv pin_test original_bin input.bin output_normalized.log output_original.log comparison.log *.proto *.pb.h *.pb.c main.c native_input.json native_input.txt "$RESULTS_DIR/" || true
 
 # Clean up temporary files in build dir
 rm -f "$STRIPPED" gen_input.py *.py *.o

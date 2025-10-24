@@ -20,6 +20,16 @@ import sys
 import os
 import re
 
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+if SCRIPT_DIR not in sys.path:
+    sys.path.append(SCRIPT_DIR)
+
+try:
+    from pycparser_generate_proto import analyze_pointer_spelling, map_libclang_metadata
+except ImportError:
+    analyze_pointer_spelling = None
+    map_libclang_metadata = None
+
 # Conditional imports based on parser availability
 try:
     from pycparser import c_parser, c_ast
@@ -70,53 +80,20 @@ def generate_decode_callback(bufname, buflen):
     return f"""
 bool decode_{bufname}(pb_istream_t *stream, const pb_field_t *field, void **arg) {{
     char *buffer = (char *)(*arg);
-    memset(buffer, 0, {buflen});
+    size_t len = stream->bytes_left;
+    if (len >= {buflen}) {{
+        if (!pb_read(stream, (pb_byte_t*)buffer, {buflen} - 1)) {{
+            return false;
+        }}
+        buffer[{buflen} - 1] = 0;
+        return true;
+    }}
 
-    pb_istream_t substream;
-    if (!pb_make_string_substream(stream, &substream)) {{
+    if (!pb_read(stream, (pb_byte_t*)buffer, len)) {{
         return false;
     }}
-
-    size_t declared_len = substream.bytes_left;
-    size_t to_read = declared_len;
-    bool truncated = false;
-    if (to_read >= {buflen}) {{
-        truncated = true;
-        to_read = {buflen} - 1;
-    }}
-
-    bool ok = pb_read(&substream, (pb_byte_t*)buffer, to_read);
-    while (ok && substream.bytes_left > 0) {{
-        uint8_t scratch[32];
-        size_t chunk = substream.bytes_left < sizeof(scratch) ? substream.bytes_left : sizeof(scratch);
-        ok = pb_read(&substream, scratch, chunk);
-    }}
-
-    if (ok && truncated) {{
-        ok = false;
-    }}
-
-    if (ok && memchr(buffer, 0, to_read) != NULL) {{
-        ok = false;
-    }}
-
-    if (ok) {{
-#ifdef PB_VALIDATE_UTF8
-        ok = pb_validate_utf8(buffer);
-#else
-        const unsigned char *p = (const unsigned char *)buffer;
-        while (ok && *p) {{
-            unsigned char c = *p++;
-            if (c < 0x80) {{
-                continue;
-            }}
-            ok = false;
-        }}
-#endif
-    }}
-
-    pb_close_string_substream(stream, &substream);
-    return ok;
+    buffer[len] = 0;
+    return true;
 }}
 """
 
@@ -269,14 +246,291 @@ def is_struct_type(decl, parser="pycparser"):
         return isinstance(t, c_ast.TypeDecl) and isinstance(t.type, c_ast.Struct)
     # For libclang, check if it's a struct type or one of our cleaned struct names
     type_str = decl[0].strip()
-    return (type_str.startswith('struct ') or 
-            type_str.startswith('AnonymousStruct') or 
+    return (type_str.startswith('struct ') or
+            type_str.startswith('AnonymousStruct') or
             type_str in ['MyStruct', 'SubStruct1', 'SubStruct2'])
 
-def walk_decls(decls, prefix, callbacks, structs, ast, cpath='input', depth=0, is_param_mode=False, parser="pycparser"):
-    buf_assignments = ""
+def sanitize_type_spaces(type_str):
+    return ' '.join(type_str.replace('*', ' * ').split())
+
+
+LENGTH_NAME_HINTS = ['len', 'length', 'size', 'count', 'num', 'n']
+
+
+def to_pascal_case_local(name):
+    tokens = re.split(r'[^0-9A-Za-z]+', name)
+    tokens = [t for t in tokens if t]
+    if not tokens:
+        return ''
+    joined = ''.join(token[:1].upper() + token[1:] for token in tokens)
+    if joined and joined[0].isdigit():
+        joined = 'N' + joined
+    return joined
+
+
+def make_slice_helper_code(helper_name, storage_type, proto_type):
+    proto = (proto_type or 'int32').lower()
+    decoder_lines = []
+    if proto in ('int32', 'uint32', 'bool'):
+        decoder_lines.append('uint64_t tmp = 0;')
+        decoder_lines.append('if (!pb_decode_varint(stream, &tmp)) {')
+        decoder_lines.append('    return false;')
+        decoder_lines.append('}')
+        if proto == 'int32':
+            decoder_lines.append(f'{storage_type} value = ({storage_type})((int32_t)tmp);')
+        elif proto == 'uint32':
+            decoder_lines.append(f'{storage_type} value = ({storage_type})((uint32_t)tmp);')
+        else:
+            decoder_lines.append(f'{storage_type} value = ({storage_type})(tmp != 0);')
+    elif proto in ('int64', 'uint64'):
+        decoder_lines.append('uint64_t tmp = 0;')
+        decoder_lines.append('if (!pb_decode_varint(stream, &tmp)) {')
+        decoder_lines.append('    return false;')
+        decoder_lines.append('}')
+        cast = 'int64_t' if proto == 'int64' else 'uint64_t'
+        decoder_lines.append(f'{storage_type} value = ({storage_type})(({cast})tmp);')
+    elif proto in ('sint32', 'sint64'):
+        cast = 'int32_t' if proto == 'sint32' else 'int64_t'
+        decoder_lines.append(f'{cast} tmp = 0;')
+        decoder_lines.append('if (!pb_decode_svarint(stream, &tmp)) {')
+        decoder_lines.append('    return false;')
+        decoder_lines.append('}')
+        decoder_lines.append(f'{storage_type} value = ({storage_type})tmp;')
+    elif proto == 'float':
+        decoder_lines.append('uint32_t raw = 0;')
+        decoder_lines.append('if (!pb_decode_fixed32(stream, &raw)) {')
+        decoder_lines.append('    return false;')
+        decoder_lines.append('}')
+        decoder_lines.append('union { uint32_t u; float f; } conv;')
+        decoder_lines.append('conv.u = raw;')
+        decoder_lines.append(f'{storage_type} value = ({storage_type})conv.f;')
+    elif proto == 'double':
+        decoder_lines.append('uint64_t raw = 0;')
+        decoder_lines.append('if (!pb_decode_fixed64(stream, &raw)) {')
+        decoder_lines.append('    return false;')
+        decoder_lines.append('}')
+        decoder_lines.append('union { uint64_t u; double d; } conv;')
+        decoder_lines.append('conv.u = raw;')
+        decoder_lines.append(f'{storage_type} value = ({storage_type})conv.d;')
+    else:
+        decoder_lines.append('(void)stream;')
+        decoder_lines.append('(void)field;')
+        decoder_lines.append('return false;')
+
+    decode_body = ''.join('        ' + line + '\n' for line in decoder_lines)
+    ctx_struct = f"{helper_name}_DecodeCtx"
+    decoder_name = f"decode_{helper_name}_data"
+
+    return (
+        f"typedef struct {ctx_struct} {{\n"
+        f"    {storage_type} *data;\n"
+        f"    size_t count;\n"
+        f"    size_t capacity;\n"
+        f"}} {ctx_struct};\n\n"
+        f"static bool {decoder_name}(pb_istream_t *stream, const pb_field_t *field, void **arg) {{\n"
+        f"    (void)field;\n"
+        f"    {ctx_struct} *ctx = ({ctx_struct}*)(*arg);\n"
+        f"    while (stream->bytes_left > 0) {{\n"
+        f"{decode_body}"
+        f"        if (ctx->count >= ctx->capacity) {{\n"
+        f"            size_t new_capacity = ctx->capacity ? ctx->capacity * 2 : 8;\n"
+        f"            {storage_type} *new_data = ({storage_type}*)realloc(ctx->data, new_capacity * sizeof({storage_type}));\n"
+        f"            if (!new_data) {{\n"
+        f"                return false;\n"
+        f"            }}\n"
+        f"            ctx->data = new_data;\n"
+        f"            ctx->capacity = new_capacity;\n"
+        f"        }}\n"
+        f"        ctx->data[ctx->count++] = value;\n"
+        f"    }}\n"
+        f"    return true;\n"
+        f"}}\n\n"
+    )
+
+PROTO_TO_C_TYPE = {
+    'int32': 'int32_t',
+    'uint32': 'uint32_t',
+    'sint32': 'int32_t',
+    'int64': 'int64_t',
+    'uint64': 'uint64_t',
+    'sint64': 'int64_t',
+    'bool': 'pb_bool_t',
+    'float': 'float',
+    'double': 'double'
+}
+
+
+def detect_pointer_params(params):
+    if not analyze_pointer_spelling:
+        return {}
+
+    pointer_map = {}
+    for idx, (type_str, name) in enumerate(params):
+        if not type_str or not name:
+            continue
+        meta = analyze_pointer_spelling(type_str)
+        if not meta or not getattr(meta, 'is_pointer', False):
+            continue
+        if meta.depth != 1:
+            continue
+        if meta.kind not in ('scalar_ptr', 'struct_ptr'):
+            continue
+
+        pointer_type = sanitize_type_spaces(type_str)
+        base_type = meta.base_type.strip() or 'int'
+        base_proto = None
+        if map_libclang_metadata:
+            try:
+                base_meta = map_libclang_metadata(meta.base_type)
+                base_proto = base_meta.proto_type
+            except Exception:
+                base_proto = None
+
+        length_name = None
+        length_type = None
+        length_proto = None
+        if idx + 1 < len(params):
+            next_type, next_name = params[idx + 1]
+            if next_name:
+                lowered = next_name.lower()
+                tokens = []
+                for part in re.split(r'[_]', next_name):
+                    tokens.extend([tok.lower() for tok in re.findall(r'[A-Za-z]+', part)])
+                is_hint = lowered in LENGTH_NAME_HINTS
+                if tokens:
+                    is_hint = is_hint or tokens[0] in LENGTH_NAME_HINTS or tokens[-1] in LENGTH_NAME_HINTS
+                if is_hint or any(lowered.endswith('_' + hint) for hint in LENGTH_NAME_HINTS):
+                    length_name = next_name
+                    length_type = next_type
+                    if map_libclang_metadata:
+                        try:
+                            length_meta = map_libclang_metadata(length_type)
+                            length_proto = length_meta.proto_type
+                        except Exception:
+                            length_proto = None
+
+        storage_type = base_type
+        if meta.kind == 'struct_ptr':
+            clean = meta.clean_base or sanitize_type_spaces(base_type).replace('struct ', '')
+            storage_type = clean
+
+        helper_name = getattr(meta, 'wrapper_name', None)
+        if not helper_name:
+            base_token_src = base_proto or base_type
+            base_token = to_pascal_case_local(base_token_src)
+            if meta.kind == 'scalar_ptr' and length_name and length_proto:
+                helper_name = f"{base_token}Slice"
+            elif meta.kind == 'scalar_ptr':
+                helper_name = f"{base_token}ScalarPtr"
+            elif meta.kind == 'struct_ptr':
+                clean = storage_type.replace('struct ', '')
+                helper_name = to_pascal_case_local(clean) + 'Ptr'
+
+        pointer_map[name] = {
+            'name': name,
+            'pointer_type': pointer_type,
+            'kind': meta.kind,
+            'base_type': base_type,
+            'storage_type': storage_type,
+            'qualifiers': meta.qualifiers or [],
+            'var_name': f"{name}_ptr",
+            'storage_var': f"{name}_storage",
+            'used': False,
+            'field_path': None,
+            'msg_accessor': None,
+            'msg_var': f"{name}_msg",
+            'is_slice': bool(length_name and length_proto),
+            'length_field': length_name,
+            'length_type': length_type,
+            'length_proto': length_proto,
+            'helper_name': helper_name,
+            'data_proto': base_proto,
+            'storage_ptr_type': f"{storage_type} *",
+            'presence_field': 'present' if meta.kind == 'struct_ptr' else 'has_value',
+        }
+
+    return pointer_map
+
+
+def build_cpp_pointer_setup(pointer_context):
+    if not pointer_context:
+        return ""
+
+    lines = []
+    for info in pointer_context.values():
+        if not info.get('used') or not info.get('field_path'):
+            continue
+        if info.get('is_slice'):
+            field_path = info['field_path']
+            if not field_path.startswith('input.'):
+                continue
+            accessor = field_path.split('.', 1)[1]
+            if not accessor:
+                continue
+            camel = accessor[0].lower() + accessor[1:]
+            msg_var = info.get('msg_var') or f"{accessor}_msg"
+            vec_var = f"{accessor}_vec"
+            len_var = info.get('length_var') or f"{accessor}_len"
+            storage_type = info['storage_type']
+            pointer_type = info['pointer_type']
+
+            lines.append(f"    std::vector<{storage_type}> {vec_var};\n")
+            lines.append(f"    {pointer_type} {info['var_name']} = nullptr;\n")
+            lines.append(f"    size_t {len_var} = 0;\n")
+            lines.append(f"    if (msg.has_{camel}()) {{\n")
+            lines.append(f"        const auto& {msg_var} = msg.{camel}();\n")
+            lines.append(f"        {len_var} = static_cast<size_t>({msg_var}.data_size());\n")
+            lines.append(f"        {vec_var}.reserve({len_var});\n")
+            lines.append(f"        for (int i = 0; i < {msg_var}.data_size(); ++i) {{\n")
+            lines.append(f"            {vec_var}.push_back({msg_var}.data(i));\n")
+            lines.append("        }\n")
+            lines.append(f"        if (!{vec_var}.empty()) {{\n")
+            lines.append(f"            {info['var_name']} = ({pointer_type}){vec_var}.data();\n")
+            lines.append("        }\n")
+            lines.append("    }\n")
+            info['cpp_vector_var'] = vec_var
+            info['length_var'] = len_var
+            continue
+        field_path = info['field_path']
+        if not field_path.startswith('input.'):
+            continue
+        accessor = field_path.split('.', 1)[1]
+        if not accessor:
+            continue
+        camel = accessor[0].lower() + accessor[1:]
+        msg_var = info.get('msg_var') or f"{accessor}_msg"
+        storage_var = info['storage_var']
+        storage_type = info['storage_type']
+        pointer_type = info['pointer_type']
+
+        lines.append(f"    const auto& {msg_var} = msg.{camel}();\n")
+
+        init_value = '0' if info['kind'] == 'scalar_ptr' else '{}'
+        lines.append(f"    {storage_type} {storage_var} = {init_value};\n")
+        lines.append(f"    {pointer_type} {info['var_name']} = nullptr;\n")
+        lines.append(f"    if ({msg_var}.has_value()) {{\n")
+        if info['kind'] == 'scalar_ptr':
+            lines.append(f"        {storage_var} = static_cast<{storage_type}>({msg_var}.value());\n")
+        else:
+            lines.append(f"        {storage_var} = {msg_var}.value();\n")
+        lines.append(f"        {info['var_name']} = &{storage_var};\n")
+        lines.append("    }\n")
+
+    return "".join(lines)
+
+
+def walk_decls(decls, prefix, callbacks, structs, ast, cpath='input', depth=0, is_param_mode=False, parser="pycparser", pointer_context=None, slice_helpers=None):
+    pre_decode_lines = []
     call_args = []
     buf_call_args = []
+    post_decode_lines = []
+    cleanup_lines = []
+    fail_cleanup_lines = []
+    length_aliases = {}
+    if pointer_context:
+        for info in pointer_context.values():
+            if info.get('is_slice') and info.get('length_field'):
+                length_aliases[info['length_field']] = info
     print(f"DEBUG: walk_decls called with {len(decls)} fields, prefix='{prefix}', depth={depth}, parser={parser}")
     for field in decls:
         fieldname = prefix + (field[1] if isinstance(field, tuple) else field.name or "field")
@@ -292,14 +546,80 @@ def walk_decls(decls, prefix, callbacks, structs, ast, cpath='input', depth=0, i
         )):
             buflen = get_string_buf_size(field, parser)
             callbacks.append((fieldname, buflen, fieldcpath))
-            buf_assignments += f"""
+            pre_decode_lines.append(f"""
     {fieldname}_buf[0] = '\\0';
     {fieldcpath}.arg = {fieldname}_buf;
     {fieldcpath}.funcs.decode = &decode_{fieldname};
-"""
+""")
             buf_call_args.append(f"{fieldname}_buf")
             if is_param_mode:
                 call_args.append(f"{fieldname}_buf")
+        elif is_param_mode and pointer_context and isinstance(field, tuple) and field[1] in pointer_context:
+            info = pointer_context[field[1]]
+            info['used'] = True
+            info['field_path'] = fieldcpath
+            accessor = field[1]
+            info['msg_accessor'] = accessor
+            var_name = info['var_name']
+            storage_var = info['storage_var']
+            storage_type = info['storage_type']
+            pointer_type = info['pointer_type']
+
+            if info.get('is_slice'):
+                helper_name = info.get('helper_name') or accessor.capitalize()
+                ctx_struct = f"{helper_name}_DecodeCtx"
+                decoder_name = f"decode_{helper_name}_data"
+                if slice_helpers is not None and helper_name not in slice_helpers:
+                    slice_helpers[helper_name] = make_slice_helper_code(
+                        helper_name,
+                        info['storage_type'],
+                        info.get('data_proto')
+                    )
+                ctx_var = f"{accessor}_ctx"
+                len_var = f"{accessor}_len"
+                info['ctx_var'] = ctx_var
+                info['length_var'] = len_var
+                info['slice_storage_var'] = info['storage_var']
+                pre_decode_lines.append(f"    {ctx_struct} {ctx_var} = {{NULL, 0, 0}};\n")
+                pre_decode_lines.append(f"    {fieldcpath}.data.funcs.decode = {decoder_name};\n")
+                pre_decode_lines.append(f"    {fieldcpath}.data.arg = &{ctx_var};\n")
+                post_decode_lines.append(f"    size_t {len_var} = {ctx_var}.count;\n")
+                post_decode_lines.append(f"    {info['storage_ptr_type']} {info['storage_var']} = {ctx_var}.data;\n")
+                post_decode_lines.append(f"    {ctx_var}.data = NULL;\n")
+                post_decode_lines.append(f"    {pointer_type} {var_name} = NULL;\n")
+                post_decode_lines.append(f"    if ({info['storage_var']} && {len_var} > 0) {{\n")
+                post_decode_lines.append(f"        {var_name} = ({pointer_type}){info['storage_var']};\n")
+                post_decode_lines.append("    }\n")
+                post_decode_lines.append(f"    input.has_{accessor} = ({len_var} > 0);\n")
+                length_proto_c = PROTO_TO_C_TYPE.get(info.get('length_proto'), 'int32_t')
+                post_decode_lines.append(f"    input.{accessor}.length = ({length_proto_c}){len_var};\n")
+                if info.get('length_field') and info.get('length_proto'):
+                    length_aliases[info['length_field']] = info
+                fail_cleanup_lines.append(f"    if ({ctx_var}.data) {{ free({ctx_var}.data); }}\n")
+                cleanup_lines.append(f"    if ({info['storage_var']}) {{ free({info['storage_var']}); }}\n")
+                call_args.append(var_name)
+                continue
+
+            if info['kind'] == 'scalar_ptr':
+                post_decode_lines.append(f"    {storage_type} {storage_var} = 0;\n")
+                post_decode_lines.append(f"    {pointer_type} {var_name} = NULL;\n")
+                post_decode_lines.append(f"    if ({fieldcpath}.has_value) {{\n")
+                post_decode_lines.append(f"        {storage_var} = ({storage_type})({fieldcpath}.value);\n")
+                post_decode_lines.append(f"        {var_name} = &{storage_var};\n")
+                post_decode_lines.append("    }\n")
+            elif info['kind'] == 'struct_ptr':
+                post_decode_lines.append(f"    {storage_type} {storage_var} = {{0}};\n")
+                post_decode_lines.append(f"    {pointer_type} {var_name} = NULL;\n")
+                presence = info.get('presence_field', 'has_value')
+                post_decode_lines.append(f"    if ({fieldcpath}.{presence}) {{\n")
+                post_decode_lines.append(f"        {storage_var} = {fieldcpath}.value;\n")
+                post_decode_lines.append(f"        {var_name} = ({pointer_type})&{storage_var};\n")
+                post_decode_lines.append("    }\n")
+            else:
+                call_args.append(fieldcpath)
+                continue
+
+            call_args.append(var_name)
         elif is_struct:
             if parser == "pycparser":
                 nested_struct = field.type.type.type if is_ptr else field.type.type
@@ -314,17 +634,28 @@ def walk_decls(decls, prefix, callbacks, structs, ast, cpath='input', depth=0, i
                     nested_decls = [f for n, f in structs if n.startswith('AnonymousStruct')]
                 nested_decls = nested_decls[0] if nested_decls else []
                 print(f"DEBUG: Looking for struct type '{struct_type}', found {len(nested_decls)} nested fields")
-            nested_assign, nested_call_args, nested_buf_call_args = walk_decls(
-                nested_decls, fieldname + "_", callbacks, structs, ast, fieldcpath, depth+1, is_param_mode, parser
+            nested_assign, nested_call_args, nested_buf_call_args, nested_post, nested_cleanup, nested_fail = walk_decls(
+                nested_decls, fieldname + "_", callbacks, structs, ast, fieldcpath, depth+1,
+                is_param_mode, parser, pointer_context, slice_helpers
             )
-            buf_assignments += nested_assign
+            pre_decode_lines.append(nested_assign)
             if is_param_mode:
                 call_args.append(f"&{fieldcpath}" if is_ptr else fieldcpath)
             buf_call_args.extend(nested_buf_call_args)
+            post_decode_lines.append(nested_post)
+            cleanup_lines.append(nested_cleanup)
+            fail_cleanup_lines.append(nested_fail)
         else:
             if is_param_mode:
-                call_args.append(f"{fieldcpath}")
-    return buf_assignments, call_args, buf_call_args
+                if isinstance(field, tuple) and field[1] in length_aliases:
+                    length_info = length_aliases[field[1]]
+                    cast_type = sanitize_type_spaces(length_info.get('length_type') or 'size_t')
+                    len_var = length_info.get('length_var') or f"{field[1]}_len"
+                    call_args.append(f"({cast_type}){len_var}")
+                    post_decode_lines.append(f"    {fieldcpath} = ({cast_type}){len_var};\n")
+                else:
+                    call_args.append(f"{fieldcpath}")
+    return "".join(pre_decode_lines), call_args, buf_call_args, "".join(post_decode_lines), "".join(cleanup_lines), "".join(fail_cleanup_lines)
 
 def parse_with_libclang(filename, headers_dir=""):
     index = Index.create()
@@ -478,12 +809,15 @@ def generate_wrapper(filename, logic_func, pb_base, mainstruct=None, parser="pyc
         handler_func_signature = None
         handler_func_params = []
         handler_return_type = "void"
-        
+        pointer_context = {}
+
         for cursor in tu.cursor.walk_preorder():
             if cursor.kind == CursorKind.FUNCTION_DECL and cursor.spelling == logic_func:
                 params = [(param.type.spelling, param.spelling) for param in cursor.get_arguments()]
                 return_type = cursor.result_type.spelling
                 param_sig = ", ".join(f"{t} {n}" for t, n in params)
+                pointer_context = detect_pointer_params(params)
+                print(f"DEBUG: pointer context {pointer_context}")
                 
                 # Check if this is a CLI main function
                 if is_cli_main_function(params, parser):
@@ -521,11 +855,17 @@ def generate_wrapper(filename, logic_func, pb_base, mainstruct=None, parser="pyc
                             break
     
     callbacks = []
-    buf_assignments = ""
+    slice_helpers = {}
+    fail_block = ""
+
+    def format_cleanup_block(code, indent=8):
+        if not code:
+            return ""
+        lines = [line.strip() for line in code.splitlines() if line.strip()]
+        return ''.join(' ' * indent + line + '\n' for line in lines)
     call_args = []
     buf_call_args = []
     structname = pb_base
-    
     is_main = logic_func == "main"
     call_func_name = "pin_original_main" if is_main else logic_func
     
@@ -536,7 +876,16 @@ def generate_wrapper(filename, logic_func, pb_base, mainstruct=None, parser="pyc
             print(f"No struct '{handler_struct}' found for handler '{handler_func}'.")
             sys.exit(1)
         struct = matches[0]
-        buf_assignments, _, buf_call_args = walk_decls(struct if isinstance(struct, list) else struct.decls or [], "", callbacks, structs, None, parser=parser)
+        pre_decode_code, _, buf_call_args, post_decode_code, cleanup_code, fail_cleanup_code = walk_decls(
+            struct if isinstance(struct, list) else struct.decls or [],
+            "",
+            callbacks,
+            structs,
+            None,
+            parser=parser,
+            pointer_context=pointer_context,
+            slice_helpers=slice_helpers,
+        )
         
         # Generate correct function call arguments based on actual signature
         if len(handler_func_params) == 1:
@@ -554,7 +903,10 @@ def generate_wrapper(filename, logic_func, pb_base, mainstruct=None, parser="pyc
         for bufname, buflen, _ in callbacks:
             cb_code += generate_decode_callback(bufname, buflen)
             buf_decls += f"    char {bufname}_buf[{buflen}];\n"
-        
+        helper_defs = ''.join(slice_helpers.values())
+        cb_code = helper_defs + cb_code
+        fail_block = format_cleanup_block(fail_cleanup_code)
+
         # Detect if this is a coreutils program and add config.h
         config_include = ""
         file_to_check = original_file if original_file else filename
@@ -578,13 +930,15 @@ extern {handler_return_type} {handler_func}({", ".join(t for t, n in handler_fun
 int pin_wrapper_entry(const uint8_t *data, size_t len) {{
     {structname} input = {structname}_init_zero;
 {buf_decls}
-{buf_assignments}
+{pre_decode_code}
     pb_istream_t stream = pb_istream_from_buffer(data, len);
     if (!pb_decode(&stream, {structname}_fields, &input)) {{
-        return 1;
+{fail_block}        return 1;
     }}
     struct {handler_struct} dummy = {{0}};
+{post_decode_code}
     {call_str};
+{cleanup_code}
     return 0;
 }}
 #ifndef PIN_WRAPPER_NO_MAIN
@@ -607,11 +961,11 @@ int main(int argc, char *argv[]) {{
 
     {structname} input = {structname}_init_zero;
 {buf_decls}
-{buf_assignments}
+{pre_decode_code}
     pb_istream_t stream = pb_istream_from_buffer(buf, len);
     if (!pb_decode(&stream, {structname}_fields, &input)) {{
         fprintf(stderr, "pb_decode failed: %s\\n", PB_GET_ERROR(&stream));
-        free(buf);
+{fail_block}        free(buf);
         return 1;
     }}
     free(buf);
@@ -627,8 +981,21 @@ int main(int argc, char *argv[]) {{
             matches = [s for n, s in structs if n == mainstruct]
             if matches:
                 struct = matches[0]
+        pre_decode_code = ""
+        post_decode_code = ""
+        cleanup_code = ""
+        fail_cleanup_code = ""
         if struct is not None:
-            buf_assignments, _, buf_call_args = walk_decls(struct if isinstance(struct, list) else struct.decls or [], "", callbacks, structs, None, parser=parser)
+            pre_decode_code, _, buf_call_args, post_decode_code, cleanup_code, fail_cleanup_code = walk_decls(
+                struct if isinstance(struct, list) else struct.decls or [],
+                "",
+                callbacks,
+                structs,
+                None,
+                parser=parser,
+                pointer_context=pointer_context,
+                slice_helpers=slice_helpers,
+            )
 
             struct_arg = "&input"
             if params:
@@ -644,18 +1011,29 @@ int main(int argc, char *argv[]) {{
             call_str = f"{call_func_name}({', '.join(call_args)})"
         else:
             if is_main and not params:
+                pre_decode_code = ""
+                post_decode_code = ""
+                cleanup_code = ""
+                fail_cleanup_code = ""
                 call_str = f"{call_func_name}()"
             else:
-                buf_assignments, call_args, buf_call_args = walk_decls(params, "", callbacks, structs, None, is_param_mode=True, parser=parser)
+                pre_decode_code, call_args, buf_call_args, post_decode_code, cleanup_code, fail_cleanup_code = walk_decls(
+                    params,
+                    "",
+                    callbacks,
+                    structs,
+                    None,
+                    is_param_mode=True,
+                    parser=parser,
+                    pointer_context=pointer_context,
+                    slice_helpers=slice_helpers,
+                )
                 call_str = f"{call_func_name}({', '.join(call_args)})"
 
         callback_paths = {cpath for _, _, cpath in callbacks}
         callback_buf_names = {f"{name}_buf": cpath for name, _, cpath in callbacks}
 
         def make_cpp_call_expr(expr: str) -> str:
-            if "&input" in expr or "*input" in expr:
-                raise RuntimeError("C++ reference runner does not yet support pointer arguments derived from 'input'")
-
             for buf_name, cpath in callback_buf_names.items():
                 accessor = cpath.split('.')[-1]
                 camel = accessor[0].lower() + accessor[1:]
@@ -676,13 +1054,17 @@ int main(int argc, char *argv[]) {{
             return transformed
 
         call_str_cpp = make_cpp_call_expr(call_str)
+        cpp_pointer_setup = build_cpp_pointer_setup(pointer_context)
         
         cb_code = ""
         buf_decls = ""
         for bufname, buflen, _ in callbacks:
             cb_code += generate_decode_callback(bufname, buflen)
             buf_decls += f"    char {bufname}_buf[{buflen}];\n"
-        
+        helper_defs = ''.join(slice_helpers.values())
+        cb_code = helper_defs + cb_code
+        fail_block = format_cleanup_block(fail_cleanup_code)
+
         if return_type != 'void':
             call_line = f"{return_type} result = {call_str};\n    printf(\"Output: %d\\n\", result);\n    return result;"
         else:
@@ -714,12 +1096,14 @@ int main(int argc, char *argv[]) {{
 int pin_wrapper_entry(const uint8_t *data, size_t len) {{
     {structname} input = {structname}_init_zero;
 {buf_decls}
-{buf_assignments}
+{pre_decode_code}
     pb_istream_t stream = pb_istream_from_buffer(data, len);
     if (!pb_decode(&stream, {structname}_fields, &input)) {{
-        return 1;
+{fail_block}        return 1;
     }}
+{post_decode_code}
     {call_str};
+{cleanup_code}
     return 0;
 }}
 
@@ -753,6 +1137,7 @@ int main(int argc, char *argv[]) {{
     print("Generated main.c for wrapper.", file=sys.stderr)
 
     reference_template = f"""\
+#include <cstddef>
 #include <cstdint>
 #include <cstdio>
 #include <cstdlib>
@@ -769,7 +1154,7 @@ int pin_reference_entry(const uint8_t *data, size_t len) {{
     if (!msg.ParseFromArray(data, static_cast<int>(len))) {{
         return 1;
     }}
-    {call_str_cpp};
+{cpp_pointer_setup}    {call_str_cpp};
     return 0;
 }}
 
