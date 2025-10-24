@@ -290,20 +290,12 @@ free(data);
 
 ## 📈 Metrics Dashboard
 
-### Code Statistics
-| Metric | Value |
-|--------|-------|
-| Files Changed | 3,761 |
-| Lines Added | 18,590 |
-| Lines Removed | 95 |
-| Net Growth | +18,495 |
-
 ### Component Breakdown
 | Component | LOC Added | Key Features |
 |-----------|-----------|--------------|
 | pycparser_generate_proto.py | +245 | Metadata, Classification, Helpers |
 | generate_wrapper_ast.py | +165 | Reconstruction, C++/C Bridge |
-| Test Fixtures | +30 | 3 Pointer Examples |
+| Test Fixtures | +30 | 9 Pointer Examples |
 
 ### Feature Completion
 ```
