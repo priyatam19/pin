@@ -6,6 +6,11 @@ Demonstrate PIN on real-world libtiff CVEs by:
 2. Validating EMI correctness via function-level normalization.
 3. Comparing time-to-crash/coverage before and after normalization.
 
+## Baseline Progress
+- [x] Cloned libtiff v4.0.6 and built with afl-cc.
+- [x] Added `harness/tiff_read_directory_harness.c` targeting `TIFFReadDirectory`.
+- [x] AFL++ sanity run (`-V 1`, seed=1) achieved ~4.47% coverage, 23 new queue entries, ~697µs exec time, no crashes yet.
+
 ## Tasks
 - Select libtiff CVEs with reachable function entry points (e.g., `TIFFReadDirectory`).
 - Automate libtiff build + reduced harness compilation.
