@@ -1,0 +1,45 @@
+PIN TODO – Current Focus And Next Actions
+========================================
+
+Context
+-------
+The normalization + EMI pipeline now generates wrappers for complex typedef’d pointers and links against a clean libtiff build. Fuzzing `TIFFReadDirectory` reaches the real code path but crashes immediately because the stubbed handle provider returns `NULL`. The focus shifts from framework plumbing to supplying concrete library state, tightening EMI reporting, and preparing the next benchmarks (libpng, curl, etc.).
+
+Open Challenges & Proposed Solutions
+------------------------------------
+
+1. External Handle Provisioning  
+   • Problem: Auto-generated weak stubs (`pin_acquire_handle_*`) return `NULL`, so library entry points that require initialized state crash before EMI checks.  
+   • Plan:  
+     - Implement real handle factories per benchmark (e.g., reuse `tiff_read_directory_harness.c` logic to open a TIFF, wire callbacks, return `TIFF*`).  
+     - Expose stub override hooks in `pin_diff.sh` so benchmarks can drop a `handle_glue.c` into the build.  
+     - Document the pattern once for libtiff; replicate for OpenSSL/cURL session structs later.
+
+2. EMI Diagnostics & Guard Telemetry  
+   • Problem: Stage B summaries only show `emi-reject` vs `match`; we need richer stats (reason counts, first-occurrence samples) to compare against raw AFL baselines.  
+   • Plan:  
+     - Extend wrapper to accumulate per-reason counters (length mismatch, null slice, guard stub reject, etc.).  
+     - Emit aggregated metrics at shutdown or via a JSON sidecar so fuzzing dashboards can read them.  
+     - Update Stage B replay to ingest and print those counters alongside replay summaries.
+
+3. Pointer Metadata Generalization  
+   • Achieved: typedef chasing + include injection works without hand-editing wrappers.  
+   • Remaining work:  
+     - Skip generating proto messages for external structs automatically (already suppressed) and ensure future benchmarks add alias hints where needed.  
+     - Add sanity check that warns when a struct pointer is marked external but no override function is linked (helps avoid the `NULL` crash loop).
+
+4. Benchmark Roadmap  
+   • libtiff: finish handle provider + EMI metrics, then rerun libFuzzer to measure time-to-crash vs AFL baseline.  
+   • libpng: identify function-level CVE reproducer (e.g., palette processing), confirm typedef coverage, and plan handle/state provisioning.  
+   • curl/OpenSSL: catalogue API entry points and note which require network/socket scaffolding before normalization.
+
+5. Tooling Enhancements  
+   • Provide a helper script to set `LD_LIBRARY_PATH` and launch `fuzz_bytes`/`normalized_bin` so the workflow is turnkey.  
+   • Add build-clean lib paths to repo docs (CLAUDE.md) so future runs point at the sanitized libraries instead of AFL-instrumented ones.
+
+Immediate Next Steps
+--------------------
+1. Implement `pin_acquire_handle_tif()` (and related release logic if needed) using the existing harness to return an initialized `TIFF*`.  
+2. Re-run `fuzz_bytes` for a short window, verify EMI guards trigger (instead of ASan crash), and log reject counts.  
+3. Capture baseline metrics (exec/s, first-crash time, coverage) and document them in `roadmap/libtiff-integration.md`.  
+4. Generalize the handle-provider pattern into a minimal README section for new benchmarks.

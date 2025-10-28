@@ -13,6 +13,8 @@
 #
 set -euo pipefail
 
+PIN_EMI_REJECT_RC=86
+
 CFILE=${1:-}
 FUNC=${2:-}
 shift 2 || true
@@ -22,6 +24,7 @@ REPLAY_DIR=""
 FUZZ_SECONDS=0
 FUZZ_EXTRA_FLAGS=""
 REFERENCE_DECODER="cpp"
+LIBS=""
 for arg in "$@"; do
   case "$arg" in
     --headers-dir=*) HEADERS_DIR="${arg#*=}" ;;
@@ -29,6 +32,7 @@ for arg in "$@"; do
     --fuzz-seconds=*) FUZZ_SECONDS="${arg#*=}" ;;
     --fuzz-flags=*) FUZZ_EXTRA_FLAGS="${arg#*=}" ;;
     --reference-decoder=*) REFERENCE_DECODER="${arg#*=}" ;;
+    --libs=*) LIBS="${arg#*=}" ;;
   esac
 done
 
@@ -228,14 +232,6 @@ clang -fPIC -c "$ORIGINAL_SRC" "${CLANG_INCLUDE_ARGS[@]}" -O2 -o original_plain.
   echo "[-] Failed compiling original (plain)"; exit 5; }
 objcopy --redefine-sym main=pin_original_main original_plain.o || true
 
-# Optional dependency: cJSON for json_parser_logic.c
-if [[ -f "$ROOT_DIR/examples/cJSON/cJSON.c" ]]; then
-  echo "[+] Compiling cJSON dependency"
-  clang -c "$ROOT_DIR/examples/cJSON/cJSON.c" -I"$ROOT_DIR/examples" -O2 -o cJSON.o || true
-else
-  echo "[i] cJSON sources not found; skipping"
-fi
-
 echo "[+] Compile nanopb runtime and wrapper"
 clang -c "$NANOPB_DIR/pb_decode.c" -I"$NANOPB_DIR" -O2 -o pb_decode.o
 clang -c "$NANOPB_DIR/pb_common.c" -I"$NANOPB_DIR" -O2 -o pb_common.o
@@ -243,8 +239,6 @@ clang -c "${PROTO_BASE_LOWER}.pb.c" -I"$NANOPB_DIR" -O2 -o input.nanopb.o
 
 echo "[+] Compile wrapper object (no main) for fuzz_bytes"
 clang -DPIN_WRAPPER_NO_MAIN -I"$NANOPB_DIR" "${HEADERS_INCLUDES[@]}" -O2 -c main.c -o wrapper.o
-
-CJSON_OBJ=""; [[ -f cJSON.o ]] && CJSON_OBJ="cJSON.o"
 
 REF_BIN=""
 REF_LABEL=""
@@ -254,16 +248,16 @@ if [[ "$REFERENCE_DECODER" == "cpp" ]]; then
   CPP_OBJS=()
   for cc in "$CPP_PROTO_DIR"/*.cc; do
     obj="$(basename "$cc" .cc).o"
-    clang++ -std=c++17 -I"$CPP_PROTO_DIR" -O2 -c "$cc" -o "$obj"
+    clang++ -std=c++17 -I"$CPP_PROTO_DIR" "${HEADERS_INCLUDES[@]}" -O2 -c "$cc" -o "$obj"
     CPP_OBJS+=("$obj")
   done
 
   echo "[+] Compile reference runner (protobuf decode)"
-  clang++ -std=c++17 -I"$CPP_PROTO_DIR" -O2 -c reference_runner.cc -o reference_runner.o
+  clang++ -std=c++17 -I"$CPP_PROTO_DIR" "${HEADERS_INCLUDES[@]}" -O2 -c reference_runner.cc -o reference_runner.o
 
   PROTOBUF_LIBS=$(pkg-config --libs protobuf 2>/dev/null || echo "-lprotobuf -pthread")
 
-  clang++ -std=c++17 -O2 -o original_replay_bin reference_runner.o "${CPP_OBJS[@]}" original_plain.o $CJSON_OBJ $PROTOBUF_LIBS || {
+  clang++ -std=c++17 -O2 -o original_replay_bin reference_runner.o "${CPP_OBJS[@]}" original_plain.o $PROTOBUF_LIBS $LIBS || {
     echo "[-] Failed linking original_replay_bin"; exit 6; }
   REF_BIN="./original_replay_bin"
   REF_LABEL="original"
@@ -323,7 +317,7 @@ int main(int argc, char **argv) {
     return rc;
 }
 EOF
-  clang -I"$NANOPB_DIR" "${HEADERS_INCLUDES[@]}" -O2 -o reference_nanopb_bin reference_nanopb_main.c wrapper.o pb_decode.o pb_common.o input.nanopb.o original_plain.o $CJSON_OBJ || {
+  clang -I"$NANOPB_DIR" "${HEADERS_INCLUDES[@]}" -O2 -o reference_nanopb_bin reference_nanopb_main.c wrapper.o pb_decode.o pb_common.o input.nanopb.o original_plain.o $LIBS || {
     echo "[-] Failed linking reference_nanopb_bin"; exit 6; }
   rm -f reference_nanopb_main.c
   REF_BIN="./reference_nanopb_bin"
@@ -331,7 +325,7 @@ EOF
 fi
 
 echo "[+] Build normalized standalone runner (reads bytes file)"
-clang -I"$NANOPB_DIR" "${HEADERS_INCLUDES[@]}" -O2 -o normalized_bin main.c pb_decode.o pb_common.o input.nanopb.o original_plain.o $CJSON_OBJ || {
+clang -I"$NANOPB_DIR" "${HEADERS_INCLUDES[@]}" -O2 -o normalized_bin main.c pb_decode.o pb_common.o input.nanopb.o original_plain.o $LIBS || {
   echo "[-] Failed linking normalized_bin"; exit 6; }
 
 echo "[+] Build libFuzzer byte harness to call pin_wrapper_entry (Stage A)"
@@ -348,11 +342,11 @@ clang++ -fsanitize=fuzzer,address -std=c++17 -I. -I"$NANOPB_DIR" -O2 -c bytes_fu
 
 echo "[+] Link fuzz_bytes"
 # clang++ -fsanitize=fuzzer,address -O2 \
-#   -o fuzz_bytes bytes_fuzz.o pb_decode.o pb_common.o input.nanopb.o original.o $CJSON_OBJ \
+#   -o fuzz_bytes bytes_fuzz.o pb_decode.o pb_common.o input.nanopb.o original.o \
 #   -lpthread
 clang++ -fsanitize=fuzzer,address -O2 \
-    -o fuzz_bytes bytes_fuzz.o wrapper.o pb_decode.o pb_common.o input.nanopb.o original.o $CJSON_OBJ \
-    -lpthread
+    -o fuzz_bytes bytes_fuzz.o wrapper.o pb_decode.o pb_common.o input.nanopb.o original.o \
+    -lpthread $LIBS
 
 if [[ "$FUZZ_SECONDS" != "0" ]]; then
   echo "[+] Stage A: libFuzzer discovery for ${FUZZ_SECONDS}s"
@@ -404,10 +398,19 @@ else
       set -e
 
       status="match"
-      if ! cmp -s "$norm_out" "$ref_out" || ! cmp -s "$norm_err" "$ref_err" || [[ $norm_rc -ne $ref_rc ]]; then
+      reason_note=""
+      if [[ $norm_rc -eq $PIN_EMI_REJECT_RC ]]; then
+        status="emi-reject"
+        reason_line=$(grep -m1 '\[PIN_EMI\]' "$norm_err" || true)
+        if [[ -n "$reason_line" ]]; then
+          reason_line=${reason_line//$'\r'/}
+          reason_line=${reason_line//$'\n'/}
+          reason_note=" reason=${reason_line}"
+        fi
+      elif ! cmp -s "$norm_out" "$ref_out" || ! cmp -s "$norm_err" "$ref_err" || [[ $norm_rc -ne $ref_rc ]]; then
         status="DIFF"
       fi
-      printf "%s\tRC(norm=%d, ref=%d)\n" "$base:$status" "$norm_rc" "$ref_rc" >> "$REPORT"
+      printf "%s\tRC(norm=%d, ref=%d)%s\n" "$base:$status" "$norm_rc" "$ref_rc" "$reason_note" >> "$REPORT"
 
       set +e
       DECODED_JSON=$(PY_PROTO_DIR="$PY_PROTO_DIR" PROTO="$PROTO_BASE" MODULE="$PROTO_MODULE" INPUT_PATH="$input_path" python3 - <<'PY' 2>&1

@@ -18,6 +18,7 @@ Author: PIN Development Team
 import sys
 import re
 import os
+import json
 from dataclasses import dataclass, field
 from typing import List, Optional
 
@@ -29,7 +30,7 @@ except ImportError:
     PYCPARSER_AVAILABLE = False
 
 try:
-    from clang.cindex import Index, CursorKind
+    from clang.cindex import Index, CursorKind, TypeKind
     LIBCLANG_AVAILABLE = True
 except ImportError:
     LIBCLANG_AVAILABLE = False
@@ -114,6 +115,8 @@ STANDARD_TYPE_NAMES = set([
 POINTER_FIELD_METADATA = {}
 FUNC_PARAM_METADATA = {}
 KNOWN_STRUCTS = set()
+TYPEDEF_ALIAS_MAP = {}
+CURRENT_HEADERS_DIR = ""
 POINTER_HELPERS = {}
 CURRENT_FUNCTION = None
 
@@ -131,6 +134,9 @@ class PointerMetadata:
     length_param: Optional[str] = None
     length_type: Optional[str] = None
     length_proto: Optional[str] = None
+    typedef_target: Optional[str] = None
+    include_header: Optional[str] = None
+    external: bool = False
 
     @property
     def is_pointer(self):
@@ -213,6 +219,8 @@ def ensure_pointer_helper(pointer_meta):
     if not pointer_meta or not pointer_meta.is_pointer:
         return None
     if pointer_meta.depth != 1:
+        return None
+    if getattr(pointer_meta, 'external', False):
         return None
 
     if pointer_meta.length_param and pointer_meta.kind == 'scalar_ptr':
@@ -324,6 +332,17 @@ def map_libclang_metadata(type_spelling):
     # Handle pointers with structured metadata
     if type_str.endswith('*'):
         pointer_meta = analyze_pointer_spelling(type_spelling)
+        alias_info = TYPEDEF_ALIAS_MAP.get(pointer_meta.base_type)
+        if not alias_info and pointer_meta.base_type.startswith('struct '):
+            alias_key = pointer_meta.base_type[7:].strip()
+            alias_info = TYPEDEF_ALIAS_MAP.get(alias_key)
+        if alias_info:
+            pointer_meta.typedef_target = pointer_meta.base_type
+            pointer_meta.base_type = f"struct {alias_info['struct']}"
+            pointer_meta.kind = 'struct_ptr'
+            pointer_meta.clean_base = alias_info['struct']
+            pointer_meta.include_header = alias_info.get('header')
+            pointer_meta.external = alias_info.get('external', False)
         proto_hint = pointer_meta.proto_hint or 'bytes'
         if pointer_meta.kind == 'struct_ptr':
             struct_name = pointer_meta.base_type[7:].strip() if pointer_meta.base_type.startswith('struct ') else pointer_meta.base_type
@@ -456,8 +475,13 @@ def get_fields(decls, structs, depth=0, parent_field=''):
     fields = []
     for i, decl in enumerate(decls):
         if isinstance(decl, tuple):
-            tname = map_type(decl, structs, depth+1, decl[1] or parent_field)
             fname = decl[1] or f"param_{i}"
+            if CURRENT_FUNCTION:
+                ptr_override = FUNC_PARAM_METADATA.get((CURRENT_FUNCTION, fname))
+                if ptr_override and getattr(ptr_override, 'include_header', None):
+                    print(f"DEBUG: Skipping external pointer param {fname} in proto fields")
+                    continue
+            tname = map_type(decl, structs, depth+1, decl[1] or parent_field)
             fields.append((tname, fname))
         else:
             tname = map_type(decl, structs, depth+1, decl.name or parent_field)
@@ -610,8 +634,46 @@ message CliArgs {
 }
 """
 
+def record_typedef_alias(cursor):
+    if cursor.kind != CursorKind.TYPEDEF_DECL:
+        return
+    try:
+        underlying = cursor.underlying_typedef_type
+    except AttributeError:
+        return
+    if not underlying:
+        return
+    canonical = underlying.get_canonical()
+    if not canonical or canonical.kind != TypeKind.RECORD:
+        return
+    spelling = canonical.spelling or ""
+    if not spelling.startswith('struct '):
+        return
+    struct_name = spelling[7:].strip()
+    struct_name = sanitize_struct_name(struct_name)
+    if not struct_name or struct_name.startswith('__'):
+        return
+    header = None
+    external = False
+    if cursor.location and cursor.location.file:
+        header_path = os.path.abspath(str(cursor.location.file))
+        headers_root = os.path.abspath(CURRENT_HEADERS_DIR) if CURRENT_HEADERS_DIR else None
+        if headers_root and header_path.startswith(headers_root):
+            external = True
+            header = os.path.relpath(header_path, headers_root)
+        else:
+            header = os.path.basename(header_path)
+    TYPEDEF_ALIAS_MAP[cursor.spelling] = {
+        "struct": struct_name,
+        "header": header,
+        "external": external,
+    }
+    KNOWN_STRUCTS.add(struct_name)
+
 def parse_with_libclang(filename, headers_dir="", target_func="main"):
     print(f"DEBUG: Parsing file {filename} with libclang")
+    global CURRENT_HEADERS_DIR
+    CURRENT_HEADERS_DIR = headers_dir or ""
     index = Index.create()
     args = ['-I' + headers_dir] if headers_dir else []
     print(f"DEBUG: Libclang args: {args}")
@@ -626,6 +688,7 @@ def parse_with_libclang(filename, headers_dir="", target_func="main"):
     # Find structs used in target function or called functions
     print(f"DEBUG: Scanning for function {target_func}")
     for cursor in tu.cursor.walk_preorder():
+        record_typedef_alias(cursor)
         if cursor.kind == CursorKind.FUNCTION_DECL:
             if cursor.spelling == target_func:
                 print(f"DEBUG: Found target function {cursor.spelling}")
@@ -673,11 +736,18 @@ def parse_with_libclang(filename, headers_dir="", target_func="main"):
             is_header_file = headers_dir and headers_dir in cursor_file
             is_temp_file = 'tmp_structs.c' in cursor_file or 'temp_no_pp.c' in cursor_file
             
-            if is_main_file or is_header_file or is_temp_file:
+            if is_header_file and not is_main_file and not is_temp_file:
+                print(f"DEBUG: Skipping header struct {cursor.spelling} from {cursor_file}")
+                continue
+            if is_main_file or is_temp_file:
                 name = cursor.spelling
                 print(f"DEBUG: Found struct {name} in {cursor_file}")
                 clean_name = sanitize_struct_name(name)
                 if clean_name and clean_name not in STANDARD_TYPE_NAMES and not clean_name.startswith('__'):
+                    alias_info = next((info for info in TYPEDEF_ALIAS_MAP.values() if info.get('struct') == clean_name and info.get('external')), None)
+                    if alias_info:
+                        print(f"DEBUG: Skipping external struct {clean_name}")
+                        continue
                     fields = []
                     for field in cursor.get_children():
                         if field.kind != CursorKind.FIELD_DECL:
@@ -712,28 +782,17 @@ def parse_with_libclang(filename, headers_dir="", target_func="main"):
                     print(f"DEBUG: Failed to parse header {h_path}")
                     continue
                 for cursor in h_tu.cursor.walk_preorder():
+                    record_typedef_alias(cursor)
                     if cursor.kind == CursorKind.STRUCT_DECL:
                         name = cursor.spelling
                         print(f"DEBUG: Found header struct {name}")
                         clean_name = sanitize_struct_name(name)
                         if clean_name and clean_name not in STANDARD_TYPE_NAMES and not clean_name.startswith('__'):
-                            fields = []
-                            for field in cursor.get_children():
-                                if field.kind != CursorKind.FIELD_DECL:
-                                    continue
-                                field_meta = map_libclang_metadata(field.type.spelling)
-                                resolved_type = field_meta.proto_type
-                                if field_meta.pointer and field_meta.pointer.is_pointer:
-                                    helper_name = ensure_pointer_helper(field_meta.pointer)
-                                    if helper_name:
-                                        resolved_type = helper_name
-                                fields.append((resolved_type, field.spelling))
-                                if field_meta.pointer and field_meta.pointer.is_pointer:
-                                    POINTER_FIELD_METADATA[(clean_name, field.spelling)] = field_meta.pointer
-                                    print(f"DEBUG: Recorded pointer metadata for {clean_name}.{field.spelling}: {field_meta.pointer}")
-                            KNOWN_STRUCTS.add(clean_name)
-                            structs.append((clean_name, fields))
-                            print(f"DEBUG: Added header struct {clean_name} with fields {fields}")
+                            alias_info = next((info for info in TYPEDEF_ALIAS_MAP.values() if info.get('struct') == clean_name and info.get('external')), None)
+                            if alias_info:
+                                print(f"DEBUG: Skipping external header struct {clean_name}")
+                                continue
+                            print(f"DEBUG: Skipping header struct {clean_name} to avoid duplication")
     
     # Collect function parameters
     params = []
@@ -803,7 +862,10 @@ def main(filename, logic_func, parser="pycparser", headers_dir=""):
     POINTER_FIELD_METADATA.clear()
     FUNC_PARAM_METADATA.clear()
     POINTER_HELPERS.clear()
+    TYPEDEF_ALIAS_MAP.clear()
     structs = []
+    global CURRENT_HEADERS_DIR
+    CURRENT_HEADERS_DIR = headers_dir or ""
     ast = None
     referenced_structs = set()
     called_funcs = set()
@@ -1011,6 +1073,11 @@ print("Generated input.bin with CLI args:", {test_args})
     out_file = top_structname.lower() + ".proto"
     with open(out_file, "w") as f:
         f.write(proto_str)
+    metadata = {
+        "typedef_aliases": TYPEDEF_ALIAS_MAP,
+    }
+    with open("pin_pointer_metadata.json", "w") as meta_file:
+        json.dump(metadata, meta_file, indent=2)
     print(f"Wrote proto to {out_file}:\n")
     print(proto_str)
     CURRENT_FUNCTION = None

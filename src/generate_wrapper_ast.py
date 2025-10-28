@@ -19,16 +19,33 @@ Author: PIN Development Team
 import sys
 import os
 import re
+import json
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 if SCRIPT_DIR not in sys.path:
     sys.path.append(SCRIPT_DIR)
 
 try:
+
     from pycparser_generate_proto import analyze_pointer_spelling, map_libclang_metadata
 except ImportError:
     analyze_pointer_spelling = None
     map_libclang_metadata = None
+
+
+def load_pointer_metadata():
+    metadata_path = os.path.join(os.getcwd(), "pin_pointer_metadata.json")
+    if os.path.exists(metadata_path):
+        try:
+            with open(metadata_path, "r") as meta_file:
+                data = json.load(meta_file)
+            return data.get("typedef_aliases", {}) or {}
+        except Exception as exc:
+            print(f"DEBUG: Failed to load pointer metadata: {exc}")
+            return {}
+    return {}
+
+TYPEDEF_ALIAS_MAP = load_pointer_metadata()
 
 # Conditional imports based on parser availability
 try:
@@ -360,10 +377,11 @@ PROTO_TO_C_TYPE = {
 }
 
 
-def detect_pointer_params(params):
+def detect_pointer_params(params, typedef_aliases=None):
     if not analyze_pointer_spelling:
         return {}
 
+    typedef_aliases = typedef_aliases or {}
     pointer_map = {}
     for idx, (type_str, name) in enumerate(params):
         if not type_str or not name:
@@ -373,6 +391,19 @@ def detect_pointer_params(params):
             continue
         if meta.depth != 1:
             continue
+        alias_info = None
+        if typedef_aliases:
+            alias_info = typedef_aliases.get(meta.base_type)
+            if not alias_info and meta.base_type.startswith('struct '):
+                alias_key = meta.base_type[7:].strip()
+                alias_info = typedef_aliases.get(alias_key)
+        external_handle = bool(alias_info and alias_info.get('external'))
+        if alias_info:
+            meta.kind = 'struct_ptr'
+            meta.clean_base = alias_info.get('struct', meta.clean_base)
+            if not meta.base_type.startswith('struct '):
+                meta.base_type = f"struct {meta.clean_base}"
+            meta.include_header = alias_info.get('header')
         if meta.kind not in ('scalar_ptr', 'struct_ptr'):
             continue
 
@@ -425,6 +456,8 @@ def detect_pointer_params(params):
             elif meta.kind == 'struct_ptr':
                 clean = storage_type.replace('struct ', '')
                 helper_name = to_pascal_case_local(clean) + 'Ptr'
+        if external_handle:
+            helper_name = None
 
         pointer_map[name] = {
             'name': name,
@@ -447,6 +480,11 @@ def detect_pointer_params(params):
             'data_proto': base_proto,
             'storage_ptr_type': f"{storage_type} *",
             'presence_field': 'present' if meta.kind == 'struct_ptr' else 'has_value',
+            'include_header': alias_info.get('header') if alias_info else None,
+            'typedef_target': getattr(meta, 'typedef_target', None),
+            'external_handle': external_handle,
+            'external_fn': f"pin_acquire_handle_{name}" if external_handle else None,
+            'external_call': f"pin_acquire_handle_{name}()" if external_handle else None,
         }
 
     return pointer_map
@@ -458,6 +496,8 @@ def build_cpp_pointer_setup(pointer_context):
 
     lines = []
     for info in pointer_context.values():
+        if info.get('external_handle'):
+            continue
         if not info.get('used') or not info.get('field_path'):
             continue
         if info.get('is_slice'):
@@ -526,6 +566,7 @@ def walk_decls(decls, prefix, callbacks, structs, ast, cpath='input', depth=0, i
     post_decode_lines = []
     cleanup_lines = []
     fail_cleanup_lines = []
+    emi_checks = []
     length_aliases = {}
     if pointer_context:
         for info in pointer_context.values():
@@ -557,6 +598,9 @@ def walk_decls(decls, prefix, callbacks, structs, ast, cpath='input', depth=0, i
         elif is_param_mode and pointer_context and isinstance(field, tuple) and field[1] in pointer_context:
             info = pointer_context[field[1]]
             info['used'] = True
+            if info.get('external_handle'):
+                call_args.append(info.get('external_call') or "NULL")
+                continue
             info['field_path'] = fieldcpath
             accessor = field[1]
             info['msg_accessor'] = accessor
@@ -564,7 +608,6 @@ def walk_decls(decls, prefix, callbacks, structs, ast, cpath='input', depth=0, i
             storage_var = info['storage_var']
             storage_type = info['storage_type']
             pointer_type = info['pointer_type']
-
             if info.get('is_slice'):
                 helper_name = info.get('helper_name') or accessor.capitalize()
                 ctx_struct = f"{helper_name}_DecodeCtx"
@@ -580,9 +623,15 @@ def walk_decls(decls, prefix, callbacks, structs, ast, cpath='input', depth=0, i
                 info['ctx_var'] = ctx_var
                 info['length_var'] = len_var
                 info['slice_storage_var'] = info['storage_var']
+                length_proto_c = PROTO_TO_C_TYPE.get(info.get('length_proto'), 'int32_t')
+                len_raw_var = f"{accessor}_length_raw"
+                info['length_c_type'] = length_proto_c
+                info['length_raw_var'] = len_raw_var
+                info['length_field_cpath'] = f"{fieldcpath}.length"
                 pre_decode_lines.append(f"    {ctx_struct} {ctx_var} = {{NULL, 0, 0}};\n")
                 pre_decode_lines.append(f"    {fieldcpath}.data.funcs.decode = {decoder_name};\n")
                 pre_decode_lines.append(f"    {fieldcpath}.data.arg = &{ctx_var};\n")
+                post_decode_lines.append(f"    {length_proto_c} {len_raw_var} = {fieldcpath}.length;\n")
                 post_decode_lines.append(f"    size_t {len_var} = {ctx_var}.count;\n")
                 post_decode_lines.append(f"    {info['storage_ptr_type']} {info['storage_var']} = {ctx_var}.data;\n")
                 post_decode_lines.append(f"    {ctx_var}.data = NULL;\n")
@@ -591,10 +640,19 @@ def walk_decls(decls, prefix, callbacks, structs, ast, cpath='input', depth=0, i
                 post_decode_lines.append(f"        {var_name} = ({pointer_type}){info['storage_var']};\n")
                 post_decode_lines.append("    }\n")
                 post_decode_lines.append(f"    input.has_{accessor} = ({len_var} > 0);\n")
-                length_proto_c = PROTO_TO_C_TYPE.get(info.get('length_proto'), 'int32_t')
                 post_decode_lines.append(f"    input.{accessor}.length = ({length_proto_c}){len_var};\n")
                 if info.get('length_field') and info.get('length_proto'):
                     length_aliases[info['length_field']] = info
+                emi_checks.append(f"    if ({len_var} > 0 && {var_name} == NULL) {{\n")
+                emi_checks.append("        emi_reason = PIN_EMI_REASON_NULL_SLICE;\n")
+                emi_checks.append(f"        emi_detail = \"{field[1]}\";\n")
+                emi_checks.append("        goto emi_reject;\n")
+                emi_checks.append("    }\n")
+                emi_checks.append(f"    if (({length_proto_c}){len_var} != {len_raw_var}) {{\n")
+                emi_checks.append("        emi_reason = PIN_EMI_REASON_LENGTH_MISMATCH;\n")
+                emi_checks.append(f"        emi_detail = \"{field[1]}\";\n")
+                emi_checks.append("        goto emi_reject;\n")
+                emi_checks.append("    }\n")
                 fail_cleanup_lines.append(f"    if ({ctx_var}.data) {{ free({ctx_var}.data); }}\n")
                 cleanup_lines.append(f"    if ({info['storage_var']}) {{ free({info['storage_var']}); }}\n")
                 call_args.append(var_name)
@@ -634,7 +692,7 @@ def walk_decls(decls, prefix, callbacks, structs, ast, cpath='input', depth=0, i
                     nested_decls = [f for n, f in structs if n.startswith('AnonymousStruct')]
                 nested_decls = nested_decls[0] if nested_decls else []
                 print(f"DEBUG: Looking for struct type '{struct_type}', found {len(nested_decls)} nested fields")
-            nested_assign, nested_call_args, nested_buf_call_args, nested_post, nested_cleanup, nested_fail = walk_decls(
+            nested_assign, nested_call_args, nested_buf_call_args, nested_post, nested_cleanup, nested_fail, nested_emi = walk_decls(
                 nested_decls, fieldname + "_", callbacks, structs, ast, fieldcpath, depth+1,
                 is_param_mode, parser, pointer_context, slice_helpers
             )
@@ -645,17 +703,23 @@ def walk_decls(decls, prefix, callbacks, structs, ast, cpath='input', depth=0, i
             post_decode_lines.append(nested_post)
             cleanup_lines.append(nested_cleanup)
             fail_cleanup_lines.append(nested_fail)
+            emi_checks.append(nested_emi)
         else:
             if is_param_mode:
                 if isinstance(field, tuple) and field[1] in length_aliases:
                     length_info = length_aliases[field[1]]
                     cast_type = sanitize_type_spaces(length_info.get('length_type') or 'size_t')
                     len_var = length_info.get('length_var') or f"{field[1]}_len"
+                    detail_name = length_info.get('length_field') or field[1]
+                    emi_checks.append(f"    if ({fieldcpath} != ({cast_type}){len_var}) {{\n")
+                    emi_checks.append("        emi_reason = PIN_EMI_REASON_LENGTH_MISMATCH;\n")
+                    emi_checks.append(f"        emi_detail = \"{detail_name}\";\n")
+                    emi_checks.append("        goto emi_reject;\n")
+                    emi_checks.append("    }\n")
                     call_args.append(f"({cast_type}){len_var}")
-                    post_decode_lines.append(f"    {fieldcpath} = ({cast_type}){len_var};\n")
                 else:
                     call_args.append(f"{fieldcpath}")
-    return "".join(pre_decode_lines), call_args, buf_call_args, "".join(post_decode_lines), "".join(cleanup_lines), "".join(fail_cleanup_lines)
+    return "".join(pre_decode_lines), call_args, buf_call_args, "".join(post_decode_lines), "".join(cleanup_lines), "".join(fail_cleanup_lines), "".join(emi_checks)
 
 def parse_with_libclang(filename, headers_dir=""):
     index = Index.create()
@@ -720,6 +784,9 @@ def is_cli_main_function(func_params, parser="pycparser"):
     return False
 
 def generate_wrapper(filename, logic_func, pb_base, mainstruct=None, parser="pycparser", headers_dir="", original_file=None):
+    pointer_context = {}
+    header_includes = ""
+    external_stub_defs = ""
     if parser == "pycparser":
         with open(filename) as f:
             src = f.read()
@@ -816,9 +883,23 @@ def generate_wrapper(filename, logic_func, pb_base, mainstruct=None, parser="pyc
                 params = [(param.type.spelling, param.spelling) for param in cursor.get_arguments()]
                 return_type = cursor.result_type.spelling
                 param_sig = ", ".join(f"{t} {n}" for t, n in params)
-                pointer_context = detect_pointer_params(params)
+                pointer_context = detect_pointer_params(params, TYPEDEF_ALIAS_MAP)
                 print(f"DEBUG: pointer context {pointer_context}")
-                
+                headers = sorted({info.get('include_header') for info in pointer_context.values() if info.get('include_header')})
+                if headers:
+                    header_includes = "".join(f'#include "{hdr}"\n' for hdr in headers)
+                stub_lines = []
+                seen_stubs = set()
+                for info in pointer_context.values():
+                    fn = info.get('external_fn')
+                    if info.get('external_handle') and fn and fn not in seen_stubs:
+                        seen_stubs.add(fn)
+                        pointer_type = info.get('pointer_type', 'void *')
+                        stub_lines.append(f'__attribute__((weak)) {pointer_type} {fn}(void) {{ return NULL; }}\n')
+                if stub_lines:
+                    external_stub_defs = "\n" + "".join(stub_lines) + "\n"
+                else:
+                    external_stub_defs = ""
                 # Check if this is a CLI main function
                 if is_cli_main_function(params, parser):
                     print("DEBUG: CLI main function detected, generating CLI wrapper")
@@ -876,7 +957,7 @@ def generate_wrapper(filename, logic_func, pb_base, mainstruct=None, parser="pyc
             print(f"No struct '{handler_struct}' found for handler '{handler_func}'.")
             sys.exit(1)
         struct = matches[0]
-        pre_decode_code, _, buf_call_args, post_decode_code, cleanup_code, fail_cleanup_code = walk_decls(
+        pre_decode_code, _, buf_call_args, post_decode_code, cleanup_code, fail_cleanup_code, emi_guard_code = walk_decls(
             struct if isinstance(struct, list) else struct.decls or [],
             "",
             callbacks,
@@ -921,14 +1002,34 @@ def generate_wrapper(filename, logic_func, pb_base, mainstruct=None, parser="pyc
 #include <pb_decode.h>
 #include <pb_common.h>
 #include "{pb_base.lower()}.pb.h"
-
+{header_includes}{external_stub_defs}
 #define MAXLEN {MAXLEN_DEFAULT}
+#define PIN_EMI_REJECT_RC 86
+
+typedef enum {{
+    PIN_EMI_REASON_OK = 0,
+    PIN_EMI_REASON_NULL_SLICE = 1,
+    PIN_EMI_REASON_LENGTH_MISMATCH = 2
+}} pin_emi_reason_t;
+
+static const char *pin_emi_reason_to_string(pin_emi_reason_t reason) {{
+    switch (reason) {{
+        case PIN_EMI_REASON_OK: return "ok";
+        case PIN_EMI_REASON_NULL_SLICE: return "null-pointer-with-length";
+        case PIN_EMI_REASON_LENGTH_MISMATCH: return "length-field-mismatch";
+        default: return "unknown";
+    }}
+}}
+
 {cb_code}
 extern {handler_return_type} {handler_func}({", ".join(t for t, n in handler_func_params)});
 
 // Decode from in-memory buffer and call target (for fuzzers)
 int pin_wrapper_entry(const uint8_t *data, size_t len) {{
     {structname} input = {structname}_init_zero;
+    int emi_rc = 0;
+    pin_emi_reason_t emi_reason = PIN_EMI_REASON_OK;
+    const char *emi_detail = NULL;
 {buf_decls}
 {pre_decode_code}
     pb_istream_t stream = pb_istream_from_buffer(data, len);
@@ -937,9 +1038,21 @@ int pin_wrapper_entry(const uint8_t *data, size_t len) {{
     }}
     struct {handler_struct} dummy = {{0}};
 {post_decode_code}
-    {call_str};
+{emi_guard_code}    {call_str};
+    goto emi_finish;
+
+emi_reject:
+    emi_rc = PIN_EMI_REJECT_RC;
+
+emi_finish:
 {cleanup_code}
-    return 0;
+    if (emi_rc == PIN_EMI_REJECT_RC) {{
+        fprintf(stderr, "[PIN_EMI] reject reason=%s%s%s\\n",
+                pin_emi_reason_to_string(emi_reason),
+                emi_detail ? " detail=" : "",
+                emi_detail ? emi_detail : "");
+    }}
+    return emi_rc;
 }}
 #ifndef PIN_WRAPPER_NO_MAIN
 int main(int argc, char *argv[]) {{
@@ -985,8 +1098,9 @@ int main(int argc, char *argv[]) {{
         post_decode_code = ""
         cleanup_code = ""
         fail_cleanup_code = ""
+        emi_guard_code = ""
         if struct is not None:
-            pre_decode_code, _, buf_call_args, post_decode_code, cleanup_code, fail_cleanup_code = walk_decls(
+            pre_decode_code, _, buf_call_args, post_decode_code, cleanup_code, fail_cleanup_code, emi_guard_code = walk_decls(
                 struct if isinstance(struct, list) else struct.decls or [],
                 "",
                 callbacks,
@@ -1017,7 +1131,7 @@ int main(int argc, char *argv[]) {{
                 fail_cleanup_code = ""
                 call_str = f"{call_func_name}()"
             else:
-                pre_decode_code, call_args, buf_call_args, post_decode_code, cleanup_code, fail_cleanup_code = walk_decls(
+                pre_decode_code, call_args, buf_call_args, post_decode_code, cleanup_code, fail_cleanup_code, emi_guard_code = walk_decls(
                     params,
                     "",
                     callbacks,
@@ -1087,14 +1201,34 @@ int main(int argc, char *argv[]) {{
 #include <pb_decode.h>  
 #include <pb_common.h>  
 #include "{pb_base.lower()}.pb.h"
-
+{header_includes}{external_stub_defs}
 #define MAXLEN {MAXLEN_DEFAULT}
+#define PIN_EMI_REJECT_RC 86
+
+typedef enum {{
+    PIN_EMI_REASON_OK = 0,
+    PIN_EMI_REASON_NULL_SLICE = 1,
+    PIN_EMI_REASON_LENGTH_MISMATCH = 2
+}} pin_emi_reason_t;
+
+static const char *pin_emi_reason_to_string(pin_emi_reason_t reason) {{
+    switch (reason) {{
+        case PIN_EMI_REASON_OK: return "ok";
+        case PIN_EMI_REASON_NULL_SLICE: return "null-pointer-with-length";
+        case PIN_EMI_REASON_LENGTH_MISMATCH: return "length-field-mismatch";
+        default: return "unknown";
+    }}
+}}
+
 {cb_code}
 {extern_decl}
 
 // Decode from in-memory buffer and call target (for fuzzers)
 int pin_wrapper_entry(const uint8_t *data, size_t len) {{
     {structname} input = {structname}_init_zero;
+    int emi_rc = 0;
+    pin_emi_reason_t emi_reason = PIN_EMI_REASON_OK;
+    const char *emi_detail = NULL;
 {buf_decls}
 {pre_decode_code}
     pb_istream_t stream = pb_istream_from_buffer(data, len);
@@ -1102,9 +1236,21 @@ int pin_wrapper_entry(const uint8_t *data, size_t len) {{
 {fail_block}        return 1;
     }}
 {post_decode_code}
-    {call_str};
+{emi_guard_code}    {call_str};
+    goto emi_finish;
+
+emi_reject:
+    emi_rc = PIN_EMI_REJECT_RC;
+
+emi_finish:
 {cleanup_code}
-    return 0;
+    if (emi_rc == PIN_EMI_REJECT_RC) {{
+        fprintf(stderr, "[PIN_EMI] reject reason=%s%s%s\\n",
+                pin_emi_reason_to_string(emi_reason),
+                emi_detail ? " detail=" : "",
+                emi_detail ? emi_detail : "");
+    }}
+    return emi_rc;
 }}
 
 #ifndef PIN_WRAPPER_NO_MAIN
@@ -1146,7 +1292,7 @@ int main(int argc, char *argv[]) {{
 
 #include <google/protobuf/stubs/common.h>
 #include "cpp_proto/{pb_base.lower()}.pb.h"
-
+{header_includes}{external_stub_defs}
 {extern_decl_cpp}
 
 int pin_reference_entry(const uint8_t *data, size_t len) {{
