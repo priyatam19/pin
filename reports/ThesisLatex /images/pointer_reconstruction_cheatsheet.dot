@@ -1,0 +1,74 @@
+digraph PointerReconstructionCheatsheet {
+    rankdir=LR;
+    splines=true;
+
+    graph [
+        fontname="Nunito",
+        bgcolor="#f6fbff",
+        label="Pointer Reconstruction Cheatsheet",
+        labelloc="t",
+        fontsize=22,
+        pad=0.6
+    ];
+
+    node [
+        fontname="Nunito",
+        style="rounded,filled",
+        shape=rectangle,
+        width=3.4,
+        height=1.4,
+        penwidth=2
+    ];
+
+    anchor [
+        label="Decoded message fields",
+        shape=parallelogram,
+        fillcolor="#dff9fb",
+        color="#22a6b3",
+        fontcolor="#0c2461",
+        width=2.8,
+        height=1.2
+    ];
+
+    scalar [
+        label="Scalar Helper\nstack slot + has_value\n→ pass pointer or NULL",
+        fillcolor="#ffbe76",
+        color="#e58e26",
+        fontcolor="#3b1d0f"
+    ];
+
+    slice [
+        label="Slice Helper\nmalloc(len) + cleanup tracker\n→ pointer & length args",
+        fillcolor="#ff7979",
+        color="#eb4d4b",
+        fontcolor="#4a1a1a"
+    ];
+
+    structp [
+        label="Struct Helper\nnested helper structs\n→ const qualifiers honored",
+        fillcolor="#badc58",
+        color="#6ab04c",
+        fontcolor="#1e272e"
+    ];
+
+    chain [
+        label="Pointer Chain\nopaque bytes (TODO)\n→ emit diagnostics",
+        fillcolor="#dff9fb",
+        color="#7ed6df",
+        fontcolor="#0a3d62"
+    ];
+
+    edge [
+        color="#273c75",
+        penwidth=2,
+        arrowsize=1.0,
+        fontname="Nunito"
+    ];
+
+    anchor -> scalar [label="nullable scalar"];
+    anchor -> slice [label="pointer + length"];
+    anchor -> structp [label="struct pointer"];
+    anchor -> chain [label="chain/void*"];
+
+    { rank=same; scalar; slice; structp; chain; }
+}

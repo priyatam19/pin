@@ -1,0 +1,58 @@
+digraph TypeMappingMatrix {
+    graph [
+        fontname="Lato",
+        bgcolor="#f3f9f7",
+        label="C → Protocol Buffers Mapping Overview",
+        labelloc="t",
+        fontsize=24,
+        pad=0.5
+    ];
+
+    node [
+        shape=plaintext,
+        fontname="Lato",
+        fontsize=16
+    ];
+
+    mapping [
+        label=<
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="10">
+                <TR>
+                    <TD BGCOLOR="#1b998b"><FONT COLOR="white"><B>C Category</B></FONT></TD>
+                    <TD BGCOLOR="#2d3047"><FONT COLOR="white"><B>Protocol Buffers Encoding</B></FONT></TD>
+                    <TD BGCOLOR="#fffd98"><FONT COLOR="#2d3047"><B>Pointer Metadata Note</B></FONT></TD>
+                </TR>
+                <TR>
+                    <TD BGCOLOR="#cde7d8">Primitive scalars<br/><FONT POINT-SIZE="12">(int, float, bool)</FONT></TD>
+                    <TD BGCOLOR="#d4f4dd">scalar fields<br/><FONT POINT-SIZE="12">int32, float, bool</FONT></TD>
+                    <TD BGCOLOR="#f9f7f1">Direct mapping, no metadata</TD>
+                </TR>
+                <TR>
+                    <TD BGCOLOR="#cfe0c3">Struct aggregates</TD>
+                    <TD BGCOLOR="#f6f0d5">nested messages<br/><FONT POINT-SIZE="12">field order preserved</FONT></TD>
+                    <TD BGCOLOR="#f9f7f1">Helper message emitted for pointers</TD>
+                </TR>
+                <TR>
+                    <TD BGCOLOR="#d7d0f5">Fixed arrays</TD>
+                    <TD BGCOLOR="#e5def5">repeated fields<br/><FONT POINT-SIZE="12">with size comment</FONT></TD>
+                    <TD BGCOLOR="#f9f7f1">Slice metadata if exposed as pointer+length</TD>
+                </TR>
+                <TR>
+                    <TD BGCOLOR="#f7caca">Pointers</TD>
+                    <TD BGCOLOR="#fde2e4">scalar helper, slice, or bytes</TD>
+                    <TD BGCOLOR="#fcd5ce"><B>Metadata Tag</B>: scalar | slice | struct | chain</TD>
+                </TR>
+                <TR>
+                    <TD BGCOLOR="#f9d8ff">Strings</TD>
+                    <TD BGCOLOR="#fbeaff">String field + callback</TD>
+                    <TD BGCOLOR="#f9f7f1">Length guard + UTF-8 callback</TD>
+                </TR>
+                <TR>
+                    <TD BGCOLOR="#f0efeb">Enums</TD>
+                    <TD BGCOLOR="#dee2ff">int32 + comment</TD>
+                    <TD BGCOLOR="#f9f7f1">TODO: typed enums</TD>
+                </TR>
+            </TABLE>
+        >
+    ];
+}

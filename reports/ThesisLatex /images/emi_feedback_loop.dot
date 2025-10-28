@@ -1,0 +1,46 @@
+digraph EMIFeedbackLoop {
+    rankdir=LR;
+    splines=spline;
+
+    graph [
+        fontname="Manrope",
+        bgcolor="#eef3ff",
+        label="Differential Testing with EMI Filter",
+        labelloc="t",
+        fontsize=22,
+        pad=0.6
+    ];
+
+    node [
+        fontname="Manrope",
+        shape=rectangle,
+        style="rounded,filled",
+        width=3.0,
+        height=1.1,
+        penwidth=2,
+        color="#264653",
+        fontcolor="#1d3557"
+    ];
+
+    generator [label="Proto Generators\n(random + seeded)", fillcolor="#a8dadc"];
+    normalized [label="Normalized Binary\n(PIN wrapper)", fillcolor="#f4a261"];
+    reference [label="Reference Runner\n(original semantics)", fillcolor="#e76f51"];
+    comparator [label="EMI Comparator\n(filter invalid decodes)", fillcolor="#2a9d8f"];
+    verdict [label="Verdict & Reports\n(coverage, diffs)", fillcolor="#457b9d"];
+
+    edge [
+        color="#1d3557",
+        penwidth=2,
+        arrowsize=1.0,
+        fontname="Manrope",
+        fontsize=12
+    ];
+
+    generator -> normalized [label="decoded inputs"];
+    generator -> reference [label="decoded inputs"];
+    normalized -> comparator [label="execution trace"];
+    reference -> comparator [label="execution trace"];
+    comparator -> verdict [label="valid disagreements"];
+    verdict -> generator [label="seed updates", style=dashed];
+    verdict -> normalized [label="instrument feedback", style=dashed];
+}

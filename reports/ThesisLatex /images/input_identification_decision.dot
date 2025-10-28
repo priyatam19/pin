@@ -1,0 +1,90 @@
+digraph InputIdentificationDecision {
+    rankdir=TB;
+    splines=polyline;
+
+    graph [
+        fontname="IBM Plex Sans",
+        bgcolor="#fdf6ff",
+        label="Input Identification Strategy",
+        labelloc="t",
+        fontsize=22,
+        pad=0.7
+    ];
+
+    node [
+        fontname="IBM Plex Sans",
+        width=2.8,
+        height=1.0,
+        style="filled",
+        color="#845ec2",
+        fontcolor="#2d006b"
+    ];
+
+    decision [
+        label="Target Provided?",
+        shape=diamond,
+        fillcolor="#d5c6ff",
+        fontsize=18
+    ];
+
+    main_signature [
+        label="Analyze main(argc, argv)",
+        shape=rectangle,
+        fillcolor="#f6f2ff"
+    ];
+
+    target_signature [
+        label="Inspect target\nfunction signature",
+        shape=rectangle,
+        fillcolor="#f6f2ff"
+    ];
+
+    enumerate_params [
+        label="Enumerate parameters\n(pointer/array/struct)?",
+        shape=diamond,
+        fillcolor="#d5c6ff"
+    ];
+
+    global_scan [
+        label="Scan globals\n(is config?)",
+        shape=diamond,
+        fillcolor="#d5c6ff"
+    ];
+
+    pointer_meta [
+        label="Attach pointer\nmetadata tags",
+        shape=rectangle,
+        fillcolor="#f8efff"
+    ];
+
+    record_struct [
+        label="Record struct layout\nand array bounds",
+        shape=rectangle,
+        fillcolor="#f8efff"
+    ];
+
+    register_input [
+        label="Register as input\ncandidate",
+        shape=octagon,
+        fillcolor="#ffc7f8",
+        color="#d65db1",
+        fontcolor="#4a0e2e",
+        width=2.6
+    ];
+
+    decision -> target_signature [label="Yes", fontname="IBM Plex Sans", color="#a178df"];
+    decision -> main_signature [label="No", fontname="IBM Plex Sans", color="#a178df"];
+
+    main_signature -> enumerate_params;
+    target_signature -> enumerate_params;
+
+    enumerate_params -> pointer_meta [label="Pointer", color="#a178df"];
+    enumerate_params -> record_struct [label="Struct/Array", color="#a178df"];
+
+    pointer_meta -> register_input;
+    record_struct -> register_input;
+
+    register_input -> global_scan [label="Augment context", color="#a178df"];
+    global_scan -> register_input [label="if config-like", color="#a178df"];
+    global_scan -> pointer_meta [label="pointer heuristics", color="#a178df", style=dashed];
+}

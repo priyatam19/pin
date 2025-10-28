@@ -1,0 +1,94 @@
+digraph ArchitectureFlow {
+    rankdir=LR;
+    splines=spline;
+
+    graph [
+        fontname="Montserrat",
+        bgcolor="#fff9f0",
+        label="System Architecture: Modular PIN Pipeline",
+        labelloc="t",
+        fontsize=22,
+        pad=0.6
+    ];
+
+    node [
+        fontname="Montserrat",
+        style="filled,rounded",
+        shape=rectangle,
+        width=2.8,
+        height=1.0,
+        penwidth=2,
+        color="#d35400",
+        fontcolor="#4d2600"
+    ];
+
+    edge [
+        color="#a04000",
+        penwidth=2,
+        arrowsize=1.1,
+        fontname="Montserrat",
+        fontcolor="#784212"
+    ];
+
+    subgraph cluster_ingest {
+        label="Ingest";
+        style="rounded";
+        color="#f6ddcc";
+        fontname="Montserrat";
+        fontsize=18;
+        bgcolor="#fdf2e9";
+
+        sources [label="Source Files"];
+        configs [label="Build Flags"];
+    }
+
+    subgraph cluster_analysis {
+        label="Static Analysis";
+        style="rounded";
+        color="#fadbd8";
+        fontname="Montserrat";
+        fontsize=18;
+        bgcolor="#fbeee6";
+
+        preprocess [label="Preprocess"];
+        parser [label="Parser Core"];
+        metadata [label="Pointer Metadata"];
+    }
+
+    subgraph cluster_codegen {
+        label="Code Generation";
+        style="rounded";
+        color="#f9e79f";
+        fontname="Montserrat";
+        fontsize=18;
+        bgcolor="#fef9e7";
+
+        proto [label="Proto Synthesizer"];
+        wrapper [label="Nanopb Wrapper"];
+        reference [label="C++ Runner"];
+    }
+
+    subgraph cluster_verification {
+        label="Verification & Feedback";
+        style="rounded";
+        color="#d4efdf";
+        fontname="Montserrat";
+        fontsize=18;
+        bgcolor="#ebf5fb";
+
+        harness [label="Generator Harness"];
+        emi [label="EMI Comparator"];
+        reports [label="Coverage & Reports"];
+    }
+
+    sources -> preprocess;
+    configs -> preprocess;
+    preprocess -> parser -> metadata -> proto -> wrapper;
+    metadata -> reference;
+    proto -> harness [label="schema artifacts"];
+    wrapper -> harness [label="normalized binary"];
+    reference -> emi [label="reference outputs"];
+    harness -> emi [label="decoded inputs"];
+    emi -> reports [label="validation results"];
+    reports -> metadata [label="feedback", style=dashed, color="#7d6608", arrowsize=0.9];
+}

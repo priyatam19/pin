@@ -1,0 +1,92 @@
+digraph PointerFixtureScorecard {
+    rankdir=LR;
+    splines=false;
+
+    graph [
+        fontname="Poppins",
+        bgcolor="#f8fff5",
+        label="Pointer Fixture Outcomes",
+        labelloc="t",
+        fontsize=22,
+        pad=0.7
+    ];
+
+    node [
+        fontname="Poppins",
+        shape=rectangle,
+        style="rounded,filled",
+        width=3.0,
+        height=1.0,
+        penwidth=2
+    ];
+
+    fixtures [label="Pointer Fixture Suite", shape=hexagon, fillcolor="#bbe1fa", color="#3282b8", fontcolor="#0f4c75", width=3.2, height=1.2];
+
+    subgraph cluster_pass {
+        label="Stage B: Pass";
+        fontname="Poppins Semibold";
+        fontsize=18;
+        bgcolor="#e8f8f5";
+        color="#1abc9c";
+        style="rounded";
+
+        scalar [label="Nullable Scalar\n(Int32ScalarPtr)", fillcolor="#abebc6", color="#1d8348", fontcolor="#0b5345"];
+        struct_ptr [label="Struct Pointer\n(SensorPtr)", fillcolor="#abebc6", color="#1d8348", fontcolor="#0b5345"];
+        slice [label="Pointer+Length\n(Int32Slice)", fillcolor="#abebc6", color="#1d8348", fontcolor="#0b5345"];
+        const_mix [label="Const Pointer Mix\n(shared helpers)", fillcolor="#abebc6", color="#1d8348", fontcolor="#0b5345"];
+        mixed [label="Mixed Pointer Signature", fillcolor="#abebc6", color="#1d8348", fontcolor="#0b5345"];
+        nested [label="Nested Struct Pointer", fillcolor="#abebc6", color="#1d8348", fontcolor="#0b5345"];
+    }
+
+    subgraph cluster_blocked {
+        label="Blocked";
+        fontname="Poppins Semibold";
+        fontsize=18;
+        bgcolor="#fdecea";
+        color="#e74c3c";
+        style="rounded";
+
+        voidp [label="void* Fixture\n(opaque bytes)", fillcolor="#f5b7b1", color="#c0392b", fontcolor="#641e16"];
+        chain [label="Pointer Chain Fixture\n(double pointer)", fillcolor="#f5b7b1", color="#c0392b", fontcolor="#641e16"];
+    }
+
+    subgraph cluster_pending {
+        label="Pending";
+        fontname="Poppins Semibold";
+        fontsize=18;
+        bgcolor="#fff5e6";
+        color="#f39c12";
+        style="rounded";
+
+        struct_slice [label="Struct Slice Fixture\n(array of structs)", fillcolor="#f9e79f", color="#d68910", fontcolor="#7d5100"];
+    }
+
+    edge [
+        color="#0f4c75",
+        penwidth=2,
+        arrowsize=1.0,
+        fontname="Poppins",
+        fontsize=12
+    ];
+
+    fixtures -> scalar;
+    fixtures -> struct_ptr;
+    fixtures -> slice;
+    fixtures -> const_mix;
+    fixtures -> mixed;
+    fixtures -> nested;
+    fixtures -> voidp;
+    fixtures -> chain;
+    fixtures -> struct_slice;
+
+    { rank=same; scalar; struct_ptr; slice; const_mix; mixed; nested; }
+    { rank=same; voidp; chain; struct_slice; }
+
+    legend [shape=plaintext, label=<
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="6">
+            <TR><TD BGCOLOR="#abebc6">Pass</TD><TD BGCOLOR="#f9e79f">Pending</TD><TD BGCOLOR="#f5b7b1">Blocked</TD></TR>
+        </TABLE>
+    >];
+
+    legend -> fixtures [style=dashed, arrowhead="none", color="#3282b8"];
+}

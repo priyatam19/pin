@@ -1,0 +1,78 @@
+digraph DualParserChoice {
+    rankdir=TB;
+    splines=true;
+
+    graph [
+        fontname="Source Sans Pro",
+        bgcolor="#f4f4fb",
+        label="Dual Parser Strategy",
+        labelloc="t",
+        fontsize=22,
+        pad=0.6
+    ];
+
+    node [
+        fontname="Source Sans Pro",
+        style="rounded,filled",
+        shape=rectangle,
+        width=2.6,
+        height=1.0,
+        penwidth=2
+    ];
+
+    choice [
+        label="Parser Selector\n(--parser=libclang|pycparser)",
+        fillcolor="#c9c9ff",
+        color="#5f5fce",
+        fontcolor="#25255a"
+    ];
+
+    subgraph cluster_pyc {
+        label="pycparser Path";
+        fontname="Source Sans Pro Semibold";
+        fontsize=18;
+        color="#bbdefb";
+        bgcolor="#e3f2fd";
+        style="rounded";
+
+        py_clean [label="Preprocess\n(strip includes)", fillcolor="#bbdefb", color="#1e88e5"];
+        py_fake [label="Inject\nfake headers", fillcolor="#90caf9", color="#1e88e5"];
+        py_ast [label="Python AST\nconstruction", fillcolor="#64b5f6", color="#1565c0"];
+    }
+
+    subgraph cluster_clang {
+        label="libclang Path";
+        fontname="Source Sans Pro Semibold";
+        fontsize=18;
+        color="#ffcdd2";
+        bgcolor="#ffebee";
+        style="rounded";
+
+        clang_compile [label="Invoke clang\nfront-end", fillcolor="#ffcdd2", color="#e53935"];
+        clang_ast [label="Typed AST\nw/ tooling API", fillcolor="#ef9a9a", color="#c62828"];
+        clang_diag [label="Rich diagnostics\n& includes", fillcolor="#e57373", color="#b71c1c"];
+    }
+
+    merge [
+        label="Unified Metadata\n(JSON schema)",
+        shape=hexagon,
+        fillcolor="#c8e6c9",
+        color="#2e7d32",
+        fontcolor="#1b5e20",
+        width=3.0,
+        height=1.2
+    ];
+
+    choice -> py_clean;
+    choice -> clang_compile;
+    py_clean -> py_fake -> py_ast -> merge;
+    clang_compile -> clang_ast -> clang_diag -> merge;
+
+    edge [
+        fontname="Source Sans Pro",
+        color="#6d6dac",
+        arrowsize=0.9
+    ];
+    py_ast -> merge [color="#1565c0", label="JSON export"];
+    clang_diag -> merge [color="#c62828", label="Clang tooling"];
+}

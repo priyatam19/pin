@@ -94,28 +94,42 @@
 	%now go ahead and start writing your thesis
 	\chapter{Introduction} \label{ch:introduction}
 	
-	Software testing and program verification remain among the most critical challenges in software engineering. Despite decades of research and significant advances in automated testing techniques, the process of generating meaningful test inputs for complex programs continues to be a labor-intensive and error-prone task. This challenge is particularly acute for programs written in C, where manual memory management, pointer arithmetic, and complex data structures create barriers to automated analysis and testing.
-	
-	Traditional approaches to program testing often require extensive manual effort to understand input formats, create test harnesses, and generate appropriate test data. This manual process not only limits the scalability of testing efforts but also introduces opportunities for human error and oversight. Moreover, the heterogeneous nature of input formats across different programs makes it difficult to apply systematic testing approaches uniformly.
-	
-	\section{Problem Statement} \label{se:problem_statement}
-	
-	The primary challenge addressed in this thesis is the lack of a unified approach for automatically normalizing diverse input formats in C programs to enable systematic testing and analysis. Current testing tools and frameworks typically require manual specification of input structures or operate on specific file formats, limiting their applicability and scalability.
-	
+		Software testing and program verification remain among the most critical challenges in software engineering. Despite decades of research and significant advances in automated testing techniques, the process of generating meaningful test inputs for complex programs continues to be a labor-intensive and error-prone task. This challenge is particularly acute for programs written in C, where manual memory management, pointer arithmetic, and complex data structures create barriers to automated analysis and testing.
+		
+		Traditional approaches to program testing often require extensive manual effort to understand input formats, create test harnesses, and generate appropriate test data. This manual process not only limits the scalability of testing efforts but also introduces opportunities for human error and oversight. Moreover, the heterogeneous nature of input formats across different programs makes it difficult to apply systematic testing approaches uniformly.
+		
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/input_landscape.png}
+    \caption{Contrasting the fragmented manual harnessing workflow with the normalized PIN-enabled flow underscores the thesis motivation.}
+    \label{fig:motivation_comparison}
+\end{figure}
+
+		\section{Problem Statement} \label{se:problem_statement}
+		
+		The primary challenge addressed in this thesis is the lack of a unified approach for automatically normalizing diverse input formats in C programs to enable systematic testing and analysis. Current testing tools and frameworks typically require manual specification of input structures or operate on specific file formats, limiting their applicability and scalability.
+		
 	Several specific problems contribute to this challenge:
 	
 	\textbf{Input Format Diversity}: C programs accept inputs in countless formats, from simple command-line arguments to complex binary protocols. Each format requires specialized knowledge and custom tooling for effective testing.
 	
 	\textbf{Manual Test Harness Creation}: Existing testing approaches often require manual creation of test harnesses and input generation logic, which is time-consuming and error-prone.
 	
-	\textbf{Limited Automation}: The lack of standardized input representation prevents the development of generic testing tools that can work across different programs without modification.
-	
-	\textbf{Analysis Integration Gaps}: Static analysis tools that extract program structure often cannot easily integrate with dynamic testing tools due to incompatible data representations.
-	
-	\section{Proposed Solution} \label{se:proposed_solution}
-	
-	This thesis presents PIN (Program Input Normalization), a novel tool that addresses these challenges by automatically transforming C programs to accept serialized inputs using Google Protocol Buffers. PIN bridges the gap between static program analysis and dynamic testing by providing a standardized input representation that enables systematic test generation and execution.
-	
+		\textbf{Limited Automation}: The lack of standardized input representation prevents the development of generic testing tools that can work across different programs without modification.
+		
+		\textbf{Analysis Integration Gaps}: Static analysis tools that extract program structure often cannot easily integrate with dynamic testing tools due to incompatible data representations.
+		
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{images/pain_points_radar.png}
+    \caption{Centralizing the challenge around fragmented C inputs while highlighting surrounding pain points helps frame the problem statement.}
+    \label{fig:problem_radar}
+\end{figure}
+
+		\section{Proposed Solution} \label{se:proposed_solution}
+		
+		This thesis presents PIN (Program Input Normalization), a novel tool that addresses these challenges by automatically transforming C programs to accept serialized inputs using Google Protocol Buffers. PIN bridges the gap between static program analysis and dynamic testing by providing a standardized input representation that enables systematic test generation and execution.
+		
 	The key innovation of PIN lies in its ability to automatically analyze C source code, extract input structure information, and generate the necessary infrastructure for input normalization without requiring manual intervention. This approach enables the creation of generic testing workflows that can be applied uniformly across different C programs.
 	
 	PIN's approach consists of several integrated components:
@@ -123,13 +137,20 @@
 	\begin{enumerate}
 		\item \textbf{Automated Structure Extraction}: PIN uses static analysis techniques with both pycparser and libclang backends to automatically extract input structure information from C source code.
 		
-		\item \textbf{Protocol Buffer Schema Generation}: The extracted structure information is automatically converted into Protocol Buffer schema definitions, providing a standardized serialization format.
+			\item \textbf{Protocol Buffer Schema Generation}: The extracted structure information is automatically converted into Protocol Buffer schema definitions, providing a standardized serialization format.
+			
+			\item \textbf{Wrapper Code Generation}: PIN generates wrapper code using nanopb that handles deserialization and calls the original program functions with properly formatted inputs.
+			
+			\item \textbf{Testing Infrastructure}: The normalized representation enables the creation of generic test input generators and automated testing workflows.
+		\end{enumerate}
 		
-		\item \textbf{Wrapper Code Generation}: PIN generates wrapper code using nanopb that handles deserialization and calls the original program functions with properly formatted inputs.
-		
-		\item \textbf{Testing Infrastructure}: The normalized representation enables the creation of generic test input generators and automated testing workflows.
-	\end{enumerate}
-	
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/pipeline_components_stack.png}
+    \caption{Stacked view of the four major PIN components and the artifacts they emit for subsequent stages.}
+    \label{fig:component_stack}
+\end{figure}
+
 	\section{Contributions} \label{se:contributions}
 	
 	This thesis makes several significant contributions to the field of automated software testing and program analysis:
@@ -244,33 +265,47 @@ The notion of comparing program behaviours only on a restricted input domain has
 	
 	This chapter presents the design and implementation of PIN (Program Input Normalization), detailing the architectural decisions, implementation strategies, and technical approaches used to achieve automated input normalization for C programs. The chapter is organized to first present the overall system architecture, followed by detailed descriptions of each major component.
 	
-	\section{System Architecture} \label{se:system_architecture}
-	
-	PIN is designed as a modular pipeline that transforms C programs through several distinct phases, each addressing a specific aspect of the input normalization process. The overall architecture consists of four main components:
-	
-	\begin{enumerate}
+		\section{System Architecture} \label{se:system_architecture}
+		
+		PIN is designed as a modular pipeline that transforms C programs through several distinct phases, each addressing a specific aspect of the input normalization process. The overall architecture consists of four main components:
+		
+		\begin{enumerate}
 		\item \textbf{Preprocessing and Parsing}: Prepares C source files and extracts abstract syntax tree (AST) representations using either pycparser or libclang backends.
 		\item \textbf{Structure Analysis}: Analyzes the AST to identify input-related structures and extract type information.
 		\item \textbf{Schema Generation}: Converts extracted structure information into Protocol Buffer schema definitions.
 		\item \textbf{Code Generation and Integration}: Creates wrapper code for input deserialization and integrates with the original program.
-	\end{enumerate}
-	
-	The modular design allows for flexibility in parser selection and extensibility for future enhancements. The pipeline is implemented as a shell script (\texttt{full\_pipeline.sh}) that orchestrates the execution of Python-based analysis tools.
-	
+		\end{enumerate}
+		
+		The modular design allows for flexibility in parser selection and extensibility for future enhancements. The pipeline is implemented as a shell script (\texttt{full\_pipeline.sh}) that orchestrates the execution of Python-based analysis tools.
+		
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.92\textwidth]{images/architecture_flow.png}
+    \caption{End-to-end architecture showing how preprocessing, static analysis, code generation, and verification stages interact.}
+    \label{fig:architecture_flow}
+\end{figure}
+
 	\section{Preprocessing and Parsing Strategy} \label{se:preprocessing_parsing}
 	
 	The preprocessing phase addresses the challenges of parsing real-world C code, which often contains complex preprocessor directives, external dependencies, and compiler-specific extensions.
 	
-	\subsection{Dual Parser Architecture}
-	
-	PIN implements a dual parser architecture supporting both pycparser \citep{pycparser2015} and libclang \citep{libclang2024} backends. This design decision was motivated by the complementary strengths of each approach:
-	
-	\textbf{Pycparser Backend}: Provides a pure Python implementation that is easy to extend and modify. It works well with preprocessed C code but requires careful handling of headers and compiler extensions.
-	
-	\textbf{Libclang Backend}: Leverages the production-quality Clang compiler infrastructure, providing robust handling of complex C constructs and comprehensive preprocessor support.
-	
-	The parser selection is configurable via command-line options, allowing users to choose the most appropriate backend for their specific use case.
-	
+		\subsection{Dual Parser Architecture}
+		
+		PIN implements a dual parser architecture supporting both pycparser \citep{pycparser2015} and libclang \citep{libclang2024} backends. This design decision was motivated by the complementary strengths of each approach:
+		
+		\textbf{Pycparser Backend}: Provides a pure Python implementation that is easy to extend and modify. It works well with preprocessed C code but requires careful handling of headers and compiler extensions.
+		
+		\textbf{Libclang Backend}: Leverages the production-quality Clang compiler infrastructure, providing robust handling of complex C constructs and comprehensive preprocessor support.
+		
+		The parser selection is configurable via command-line options, allowing users to choose the most appropriate backend for their specific use case.
+		
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{images/dual_parser_choice.png}
+    \caption{Selector-driven dual parser workflow highlighting preprocessing differences and convergence into shared metadata.}
+    \label{fig:dual_parser}
+\end{figure}
+
 	\subsection{Preprocessing Pipeline}
 	
 	The preprocessing pipeline addresses the challenge of preparing C source files for analysis:
@@ -297,6 +332,13 @@ The notion of comparing program behaviours only on a restricted input domain has
 	
 	\textbf{Global Variable Detection}: The system identifies global variables that serve as configuration parameters or input sources.
 	
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.82\textwidth]{images/input_identification_decision.png}
+    \caption{Decision flow for prioritizing target functions, main signatures, and configuration globals when registering inputs.}
+    \label{fig:input_identification}
+\end{figure}
+
 	\subsection{Type System Mapping}
 	
 	PIN implements a comprehensive mapping from C types to Protocol Buffer types, as detailed in Appendix~\ref{ase:type_mapping}. The mapping strategy handles:
@@ -310,6 +352,13 @@ The notion of comparing program behaviours only on a restricted input domain has
 \textbf{Pointer Types}: A dedicated pointer metadata layer classifies each pointer as a nullable scalar, slice (pointer+length), struct pointer, C string, or pointer chain. Scalar and struct pointers materialize as helper messages (e.g., \texttt{Int32ScalarPtr}, \texttt{SensorPtr}) with presence bits; slices capture both data and length; pointer chains currently fall back to opaque bytes but are logged for follow-up.
 	
 	\textbf{String Handling}: Character arrays and string pointers receive special treatment, using Protocol Buffer string types with nanopb callback functions for efficient memory management.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.88\textwidth]{images/type_mapping_matrix.png}
+    \caption{Matrix summarizing how C categories map into Protocol Buffer encodings and where pointer metadata is applied.}
+    \label{fig:type_mapping_matrix}
+\end{figure}
 	
 	\section{Protocol Buffer Schema Generation} \label{se:schema_generation}
 	
@@ -372,6 +421,13 @@ The pointer metadata introduced in Appendix~\ref{ase:type_mapping} drives code g
 \end{itemize}
 
 On the reference side, the C++ runner mirrors the same reconstruction using RAII containers (\texttt{std::unique\_ptr} for scalars/structs and \texttt{std::vector} for slices) to guarantee deterministic cleanup. Aligning both paths ensures that EMI comparisons surface real semantic mismatches instead of artefacts due to divergent memory handling.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/pointer_reconstruction_cheatsheet.png}
+    \caption{Quick reference for how decoded message fields map to pointer reconstruction templates across helper types.}
+    \label{fig:pointer_cheatsheet}
+\end{figure}
 	
 \section{End-to-End Pipeline Overview} \label{se:pipeline_overview}
 
@@ -425,14 +481,21 @@ The core validation approach uses differential testing, comparing the behavior o
 
 \subsection{Equivalence Modulo Input Validation Policy} \label{se:emi_policy}
 
-Fuzzing the normalized binary accepts arbitrary byte streams, many of which decode into semantically invalid parameter combinations (e.g., mismatched pointer/length pairs). To avoid conflating such artefacts with true semantic differences, we adopt \emph{equivalence modulo input validation} (EMI). An input is considered for comparison only if:
+	Fuzzing the normalized binary accepts arbitrary byte streams, many of which decode into semantically invalid parameter combinations (e.g., mismatched pointer/length pairs). To avoid conflating such artefacts with true semantic differences, we adopt \emph{equivalence modulo input validation} (EMI). An input is considered for comparison only if:
+	
+	\begin{enumerate}
+	    \item The Protocol Buffer message decodes successfully under nanopb; and
+	    \item The reconstructed arguments satisfy lightweight guards inferred from the original signature (non-null pointers when lengths are non-zero, enum ranges, etc.).
+	\end{enumerate}
+	
+	If an input violates these guards the run is classified as ``out of domain'' and excluded from the differential report. The Stage~B tool records both accepted and rejected cases so analysts can review the prevalence of invalid fuzz cases. EMI therefore frames PIN's guarantees as \emph{conditional}: whenever the precondition holds, normalized and original executions must agree.
 
-\begin{enumerate}
-    \item The Protocol Buffer message decodes successfully under nanopb; and
-    \item The reconstructed arguments satisfy lightweight guards inferred from the original signature (non-null pointers when lengths are non-zero, enum ranges, etc.).
-\end{enumerate}
-
-If an input violates these guards the run is classified as ``out of domain'' and excluded from the differential report. The Stage~B tool records both accepted and rejected cases so analysts can review the prevalence of invalid fuzz cases. EMI therefore frames PIN's guarantees as \emph{conditional}: whenever the precondition holds, normalized and original executions must agree.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{images/emi_feedback_loop.png}
+    \caption{Differential testing loop with EMI filter gating comparisons between normalized binaries and reference runners.}
+    \label{fig:emi_loop}
+\end{figure}
 	
 \subsection{Performance Measurement}
 
@@ -444,11 +507,11 @@ PIN includes instrumentation for measuring the performance impact of transformat
 
 \textbf{Code Size Impact}: Analyzes the increase in binary size due to nanopb integration and wrapper code.
 
-\subsection{Pointer Fixture Campaign}
-
-To stress-test the pointer strategy, we assembled nine focused fixtures covering nullable scalars, pointer/length slices, nested structs, repeated pointers, \texttt{void*}, and pointer chains. Table~\ref{tab:pointer_fixtures} summarizes the outcomes: eight fixtures complete Stage~B replay with EMI-enabled equivalence checks, while struct slices reveal the need for dedicated helper generation. These fixtures form a regression suite that now runs on every pipeline change.
-
-\begin{table}[htb]
+	\subsection{Pointer Fixture Campaign}
+	
+	To stress-test the pointer strategy, we assembled nine focused fixtures covering nullable scalars, pointer/length slices, nested structs, repeated pointers, \texttt{void*}, and pointer chains. Table~\ref{tab:pointer_fixtures} summarizes the outcomes: eight fixtures complete Stage~B replay with EMI-enabled equivalence checks, while struct slices reveal the need for dedicated helper generation. These fixtures form a regression suite that now runs on every pipeline change.
+	
+	\begin{table}[htb]
     \centering
     \small
     \caption{Pointer Fixture Outcomes with EMI Filtering}
@@ -464,11 +527,18 @@ To stress-test the pointer strategy, we assembled nine focused fixtures covering
         Void pointer example & \texttt{void*} & Build blocked & Wrapper still emits opaque bytes; pointer storage TODO. \\
         Double pointer example & Pointer chain & Build blocked & Needs pointer-chain passthrough in wrapper/reference path. \\
         Nested struct example & Struct with nested struct & Pass & Nested message mapping confirmed (fixture \nolinkurl{nested_struct_pointer_example.c}). \\
-        Struct slice example & Struct slice & Pending & Helper generation in progress for \nolinkurl{array_of_structs_example.c}. \\
-        \bottomrule
-    \end{tabularx}
-    \label{tab:pointer_fixtures}
-\end{table}
+	        Struct slice example & Struct slice & Pending & Helper generation in progress for \nolinkurl{array_of_structs_example.c}. \\
+	        \bottomrule
+	    \end{tabularx}
+	    \label{tab:pointer_fixtures}
+	\end{table}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.88\textwidth]{images/pointer_fixture_scorecard.png}
+    \caption{Visual scorecard reinforcing the table by clustering pointer fixtures into pass, pending, and blocked buckets.}
+    \label{fig:pointer_scorecard}
+\end{figure}
 	
 	\section{Implementation Challenges and Solutions} \label{se:implementation_challenges}
 	

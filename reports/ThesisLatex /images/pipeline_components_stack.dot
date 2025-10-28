@@ -1,0 +1,43 @@
+digraph PipelineComponentsStack {
+    rankdir=TB;
+    splines=spline;
+
+    graph [
+        fontname="Raleway",
+        bgcolor="#eef6fb",
+        label="PIN Components: From Inputs to Testing",
+        labelloc="t",
+        fontsize=22,
+        pad=0.6
+    ];
+
+    node [
+        fontname="Raleway SemiBold",
+        shape=record,
+        style="rounded, filled",
+        width=3.8,
+        height=1.0,
+        penwidth=2,
+        color="#1f618d",
+        fontcolor="#154360"
+    ];
+
+    pre [label="{ Preprocessing | strip headers | macro expand | fake stdlib }", fillcolor="#aed6f1"];
+    parse [label="{ Parsing | pycparser | libclang }", fillcolor="#85c1e9"];
+    analyze [label="{ Structure Analysis | signatures | globals | metadata }", fillcolor="#5dade2"];
+    proto [label="{ Schema Generation | unique messages | collision guards }", fillcolor="#2e86c1"];
+    wrappers [label="{ Wrapper Emission | nanopb glue | pointer rebuild }", fillcolor="#2874a6"];
+    testing [label="{ Testing Harness | generators | EMI checks | metrics }", fillcolor="#21618c"];
+
+    edge [
+        fontname="Raleway",
+        color="#1b4f72",
+        arrowsize=1.0,
+        penwidth=2.2
+    ];
+
+    pre -> parse -> analyze -> proto -> wrappers -> testing;
+
+    { rank=same; annotations [shape=plaintext, label="Artifacts: cleaned sources → AST → metadata → proto files → wrappers → reports", fontname="Raleway", fontsize=14, fontcolor="#1b4f72"]; }
+    testing -> annotations [style=dashed, arrowhead="none", color="#1b4f72"];
+}

@@ -1,0 +1,62 @@
+digraph InputLandscape {
+    graph [
+        fontname="Helvetica",
+        bgcolor="#f9f7f1",
+        label="Motivation: Manual vs. Normalized Inputs",
+        labelloc="t",
+        fontsize=24,
+        pad=0.5
+    ];
+
+    node [
+        fontname="Helvetica",
+        shape=rectangle,
+        style="rounded,filled",
+        fontcolor="#2c3e50",
+        color="#385170",
+        width=2.6,
+        height=0.8
+    ];
+
+    edge [
+        color="#7f8c8d",
+        penwidth=2,
+        arrowsize=0.9
+    ];
+
+    subgraph cluster_manual {
+        label="Before PIN: Manual Harnessing";
+        fontname="Helvetica";
+        fontsize=18;
+        style="rounded";
+        color="#c0392b33";
+        bgcolor="#fef5f4";
+
+        manual_inputs [label="Fragmented\nSpec Sheets", fillcolor="#f1948a"];
+        manual_parsers [label="Hand-Rolled\nParsers", fillcolor="#f5b7b1"];
+        manual_regressions [label="Brittle Scripts\nper Program", fillcolor="#f8c7be"];
+        manual_feedback [label="Ad-Hoc Feedback\nLoops", fillcolor="#fadbd8"];
+
+        manual_inputs -> manual_parsers -> manual_regressions -> manual_feedback;
+    }
+
+    subgraph cluster_pin {
+        label="After PIN: Normalized Flow";
+        fontname="Helvetica";
+        fontsize=18;
+        style="rounded";
+        color="#1abc9c33";
+        bgcolor="#ecf9f6";
+
+        schema [label="Schema Synthesis\n(proto)", fillcolor="#76d7c4"];
+        wrappers [label="Nanopb Wrapper\nEmission", fillcolor="#48c9b0"];
+        generators [label="Reusable Generators\n& Fuzzers", fillcolor="#1abc9c"];
+        analytics [label="Unified Analytics\n& EMI Checks", fillcolor="#17a589"];
+
+        schema -> wrappers -> generators -> analytics;
+    }
+
+    manual_feedback -> schema [label="Motivation for Automation", fontname="Helvetica", fontcolor="#7f8c8d"];
+    manual_inputs -> wrappers [style=dashed, color="#95a5a6", label="Protocol Buffer Contract", fontname="Helvetica"];
+    generators -> manual_parsers [style=dashed, color="#95a5a6", label="Legacy harness keepers", fontname="Helvetica"];
+}
