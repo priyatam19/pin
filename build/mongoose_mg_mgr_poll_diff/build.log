@@ -1,0 +1,33 @@
+[+] Generate .proto (libclang parser)
+[i] Skipping C++ protobuf generation (reference decoder=nanopb)
+[+] Generate Python protobuf helpers
+[+] Generate nanopb protobuf (for wrapper decode)
+[+] Generate wrapper with pin_wrapper_entry() and standalone main
+[+] Compile original object (instrumented) and plain object
+[+] Compile nanopb runtime and wrapper
+[+] Compile wrapper object (no main) for fuzz_bytes
+main.c:28:32: warning: declaration of 'struct mg_mgr' will not be visible outside of this function [-Wvisibility]
+extern void mg_mgr_poll(struct mg_mgr * mgr, int ms);
+                               ^
+main.c:42:5: error: use of undeclared identifier 'mg_mgr'
+    mg_mgr mgr_storage = {0};
+    ^
+main.c:43:49: error: use of undeclared identifier 'mgr_storage'
+    struct mg_mgr * mgr_ptr = (struct mg_mgr *)&mgr_storage;
+                                                ^
+main.c:44:19: error: no member named 'present' in 'struct pb_callback_s'
+    if (input.mgr.present) {
+        ~~~~~~~~~ ^
+main.c:45:9: error: use of undeclared identifier 'mgr_storage'
+        mgr_storage = input.mgr.value;
+        ^
+main.c:45:33: error: no member named 'value' in 'struct pb_callback_s'
+        mgr_storage = input.mgr.value;
+                      ~~~~~~~~~ ^
+main.c:48:17: warning: incompatible pointer types passing 'struct mg_mgr *' to parameter of type 'struct mg_mgr *' [-Wincompatible-pointer-types]
+    mg_mgr_poll(mgr_ptr, input.ms);
+                ^~~~~~~
+main.c:28:41: note: passing argument to parameter 'mgr' here
+extern void mg_mgr_poll(struct mg_mgr * mgr, int ms);
+                                        ^
+2 warnings and 5 errors generated.

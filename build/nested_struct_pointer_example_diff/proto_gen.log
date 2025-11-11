@@ -1,0 +1,49 @@
+DEBUG: Starting main with file /home/priyatam/pin/examples/pointers/nested_struct_pointer_example.c, func update_person, parser libclang, headers 
+DEBUG: Parsing file /home/priyatam/pin/examples/pointers/nested_struct_pointer_example.c with libclang
+DEBUG: Libclang args: []
+DEBUG: Scanning for function update_person
+DEBUG: Found target function update_person
+DEBUG: Function has 2 arguments
+DEBUG: Param type: struct Person *
+DEBUG: Added referenced struct Person
+DEBUG: Param type: int
+DEBUG: Collecting structs from /home/priyatam/pin/examples/pointers/nested_struct_pointer_example.c
+DEBUG: Found struct Address in /home/priyatam/pin/examples/pointers/nested_struct_pointer_example.c
+DEBUG: Added struct Address with fields [('int32', 'zip'), ('int32', 'street_number')]
+DEBUG: Found struct Person in /home/priyatam/pin/examples/pointers/nested_struct_pointer_example.c
+DEBUG: Added struct Person with fields [('int32', 'age'), ('Address', 'addr')]
+DEBUG: Function update_person params: [('struct Person *', 'person'), ('int', 'new_zip')]
+DEBUG: Recorded pointer metadata for param update_person.person: PointerMetadata(depth=1, base_type='struct Person', qualifiers=[], kind='struct_ptr', proto_hint='PersonPtr', raw='struct Person *', clean_base='Person', wrapper_name='PersonPtr', length_param=None, length_type=None, length_proto=None, typedef_target=None, include_header=None, external=False)
+DEBUG: CLI main function detected: False
+DEBUG: Primary input struct from libclang params: Person
+DEBUG: Mapping type for decl: ('int32', 'zip')
+DEBUG: Mapping type for decl: ('int32', 'street_number')
+DEBUG: Mapping type for decl: ('int32', 'age')
+DEBUG: Mapping type for decl: ('Address', 'addr')
+DEBUG: Added Input wrapper for Person
+DEBUG: Mapping type for decl: ('struct Person *', 'person')
+DEBUG: Mapping type for decl: ('int', 'new_zip')
+Wrote proto to input.proto:
+
+syntax = "proto3";
+
+message PersonPtr {
+  bool present = 1;
+  Person value = 2;
+}
+
+message Input {
+  PersonPtr person = 1;
+  int32 new_zip = 2;
+}
+
+message Address {
+  int32 zip = 1;
+  int32 street_number = 2;
+}
+
+message Person {
+  int32 age = 1;
+  Address addr = 2;
+}
+

@@ -1,0 +1,6 @@
+syntax = "proto3";
+
+message SimpleStruct {
+  bytes input = 1;
+  string msg_buf = 2;
+}

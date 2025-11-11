@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+message dynamic_buffer_overrun_s_005 {
+  int32 index = 1;
+}
+
+message dynamic_buffer_overrun_010_s_001 {
+  int32 a = 1;
+  int32 b = 2;
+  int32 c = 3;
+}
+
+message dynamic_buffer_overrun_011_s_001 {
+  int32 a = 1;
+  int32 b = 2;
+  bytes buf = 3;
+}

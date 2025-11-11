@@ -1,0 +1,59 @@
+{
+  "typedef_aliases": {
+    "__pthread_list_t": {
+      "struct": "Struct___pthread_internal_list",
+      "header": "thread-shared-types.h",
+      "external": false
+    },
+    "__pthread_slist_t": {
+      "struct": "Struct___pthread_internal_slist",
+      "header": "thread-shared-types.h",
+      "external": false
+    },
+    "DIR": {
+      "struct": "Struct___dirstream",
+      "header": "dirent.h",
+      "external": false
+    },
+    "sigevent_t": {
+      "struct": "sigevent",
+      "header": "sigevent_t.h",
+      "external": false
+    },
+    "stack_t": {
+      "struct": "AnonymousStruct",
+      "header": "stack_t.h",
+      "external": false
+    },
+    "ucontext_t": {
+      "struct": "ucontext_t",
+      "header": "ucontext.h",
+      "external": false
+    },
+    "__fpos_t": {
+      "struct": "Struct__G_fpos_t",
+      "header": "__fpos_t.h",
+      "external": false
+    },
+    "__fpos64_t": {
+      "struct": "Struct__G_fpos64_t",
+      "header": "__fpos64_t.h",
+      "external": false
+    },
+    "__FILE": {
+      "struct": "Struct__IO_FILE",
+      "header": "__FILE.h",
+      "external": false
+    },
+    "FILE": {
+      "struct": "Struct__IO_FILE",
+      "header": "FILE.h",
+      "external": false
+    },
+    "fpos_t": {
+      "struct": "Struct__G_fpos_t",
+      "header": "stdio.h",
+      "external": false
+    }
+  }
+}

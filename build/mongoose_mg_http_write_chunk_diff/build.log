@@ -1,0 +1,33 @@
+[+] Generate .proto (libclang parser)
+[i] Skipping C++ protobuf generation (reference decoder=nanopb)
+[+] Generate Python protobuf helpers
+[+] Generate nanopb protobuf (for wrapper decode)
+[+] Generate wrapper with pin_wrapper_entry() and standalone main
+[+] Compile original object (instrumented) and plain object
+[+] Compile nanopb runtime and wrapper
+[+] Compile wrapper object (no main) for fuzz_bytes
+main.c:46:40: warning: declaration of 'struct mg_connection' will not be visible outside of this function [-Wvisibility]
+extern void mg_http_write_chunk(struct mg_connection * c, const char * buf, size_t len);
+                                       ^
+main.c:65:5: error: use of undeclared identifier 'mg_connection'
+    mg_connection c_storage = {0};
+    ^
+main.c:66:61: error: use of undeclared identifier 'c_storage'
+    struct mg_connection * c_ptr = (struct mg_connection *)&c_storage;
+                                                            ^
+main.c:67:17: error: no member named 'present' in 'struct pb_callback_s'
+    if (input.c.present) {
+        ~~~~~~~ ^
+main.c:68:9: error: use of undeclared identifier 'c_storage'
+        c_storage = input.c.value;
+        ^
+main.c:68:29: error: no member named 'value' in 'struct pb_callback_s'
+        c_storage = input.c.value;
+                    ~~~~~~~ ^
+main.c:71:25: warning: incompatible pointer types passing 'struct mg_connection *' to parameter of type 'struct mg_connection *' [-Wincompatible-pointer-types]
+    mg_http_write_chunk(c_ptr, buf_buf, input.len);
+                        ^~~~~
+main.c:46:56: note: passing argument to parameter 'c' here
+extern void mg_http_write_chunk(struct mg_connection * c, const char * buf, size_t len);
+                                                       ^
+2 warnings and 5 errors generated.

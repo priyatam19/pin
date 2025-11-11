@@ -1,0 +1,2552 @@
+=== 00300b8a88b73f585b13b3f30eb4c0c6a0fc8f00 ===
+[input decoded]
+{"x": 21.996093751163272}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 00c0e81413f8b96948e11768a994a1493b0b6a28 ===
+[input decoded]
+{"x": 0.250000237639483}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 01071ddc45495fcbe1c6a1688dc1d65cbe755e1e ===
+[input decoded]
+{"x": -12.909706115489819}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 01a1d3dc9c64e25728b78348a0e6134147097564 ===
+[input decoded]
+{"x": 1.0727608389250364e-137}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 01ddcfaebc5f7b38598e910dacaf870c75d86e0e ===
+[input decoded]
+{"x": 710.4758600739435}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 032f891ac8e8af1fcc384393fdabbdbf375db245 ===
+[input decoded]
+{"x": -6.702778562216514e+307}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 03aafe58951842c1b61afe4003f4408893fb5923 ===
+[input decoded]
+{"x": 710.4758600739439}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 042e78058d86588cf800334c50af6a5039942c7c ===
+[input decoded]
+{"x": 710.4758600739417}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 047b94219038bc3315685681d80f800b8a72c320 ===
+[input decoded]
+{"x": 5.759097617238807e-112}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 05690207692525e6faf476d7994ae40b1af44c8b ===
+[input decoded]
+{"x": 21.988273605470596}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 07fbb89af7ff188d6d0fbca771a8591ae0358221 ===
+[input decoded]
+{"x": 646.0321370647966}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 0a02a4cdb62479fcc2fca9b1cd0f8172a2cddb5e ===
+[input decoded]
+{"x": 1.797460831803993e+308}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 0b30d4a2af9e9c728a7828eba312963771ed2c13 ===
+[input decoded]
+{"x": 710.4756842124616}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 0b5c0a2e8fc91279f392c5ab8c3b62a3a2692e91 ===
+[input decoded]
+{"x": 1.0337461403532405e-17}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 0bc9343515df054107fb3fa47b270cd318b478a3 ===
+[input decoded]
+{"x": 5.28455041395866e-308}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 0c063eaf67701edf2f3d0f0e2fafafdf34af1964 ===
+[input decoded]
+{"x": 0.17263793983119047}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 0ca28aa6beae296b95004dcc784d6b38f10dbb69 ===
+[input decoded]
+{"x": 0.344299554045733}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 0d1f18e9fe52d0396c9183f5c5fe876b01f9e5a8 ===
+[input decoded]
+{"x": 710.4758000834489}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 0db688be929c660c31c5a44586518212a6a2ed9d ===
+[input decoded]
+{"x": 710.4758592909345}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 0fb25fafaf9a7ca7d9466d48b0830651a4536385 ===
+[input decoded]
+{"x": 9.500000029809614}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 113b38825fca479f1af3f932bc763f341805af5b ===
+[input decoded]
+{"x": 0.3465733528209969}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 15babe98cfba8c274862ee574ebf51938cf7e8de ===
+[input decoded]
+{"x": 7.401872608170383e-07}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 17c99bc341d57080372d48c2a201120c0e694d69 ===
+[input decoded]
+{"x": 2.774539850216521e-17}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 18416dfdee9e103ee88672c192f2053f9eb3d713 ===
+[input decoded]
+{"x": -1.8258399138233452e+106}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 18e2f16d620dd6105011d6569b50a0cc45557a58 ===
+[input decoded]
+{"x": -1.1325655279167452e+306}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 19eff775f2959650eed8f52a3d864206852779e6 ===
+[input decoded]
+{"x": 0.34656735418766993}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 1cf9418522508ab02e9a9ea5ff2aa8e1e533fcdc ===
+[input decoded]
+{"x": 8.016673425103673e-292}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 1e41f823d8af015914582cb9c7ddc3ea8356a170 ===
+[input decoded]
+{"x": 709.7783379778219}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 1f7d94c4e7b0f4549781e2926000a92f0bbce976 ===
+[input decoded]
+{"x": 710.4757090075366}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 20fc3372c225421ab597ebf2394adfe2cbfec00e ===
+[input decoded]
+{"x": 2.6882723042031104e-24}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 2111e5a6d53eb735b6bc4f54cbf6531fdee174cb ===
+[input decoded]
+{"x": 5.284724420717864e-308}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 21422e9dc0051c846a0afd393bd16832eaf98d25 ===
+[input decoded]
+{"x": 2.7755561503878435e-17}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 21efa58c4f5dbcc0920c0d0e3b5894b9003ed571 ===
+[input decoded]
+{"x": 1.0841809759823073e-19}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 229940be88d45ed9ae09430771d868fa3ee0f680 ===
+[input decoded]
+{"x": 704.0044126957665}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 23740a6e66762a00cd6b12b337735991b431e658 ===
+[input decoded]
+{"x": 710.4758467224958}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 249be9c81c80a447334213da2830e43c24f2fa31 ===
+[input decoded]
+{"x": -12.910011289582203}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 2752225d6b68515d9e852a8c0b139226e4615a9d ===
+[input decoded]
+{"x": 2.7754001136705734e-17}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 275d9bf02beea71a2ce0bcbefa6cf328eb9645b9 ===
+[input decoded]
+{"x": 710.4758600739342}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 276d27a8723109341df9a154b1a21dbd4c401f1d ===
+[input decoded]
+{"x": 2.062618255615119}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 28e75de60231c15fae1f2d41b151dedff0a8e4c5 ===
+[input decoded]
+{"x": 710.4758000822482}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 2968fe1b2b038bc7cd7f1f6edc7f93c59c5e345e ===
+[input decoded]
+{"x": 710.4483413103144}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 29c122d9ab064d26345fb869594caa95ecce5899 ===
+[input decoded]
+{"x": 1.0272161743666281e-23}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 29c86bfac8e1f4ddb058aff72d69d5ca8266359e ===
+[input decoded]
+{"x": 0.3464257717132426}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 29f36369a33c6135cf8e256499ecafc4275a775c ===
+[input decoded]
+{"x": -7.841922717602726e+115}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 2a07d13d4120464903828da744a9fc3379dcfc4f ===
+[input decoded]
+{"x": 4.497107703214581e-140}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 2a1a7d657d654e7c571f4865c5f63f9d3718da6b ===
+[input decoded]
+{"x": 21.957023605470596}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 2b6ea9aa4cef63f4d5d90fa5961ce9748ea6002f ===
+[input decoded]
+{"x": -2.442075945536879e+304}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 2c6ce0b8561ca7c92836dad029c035a2e52932e5 ===
+[input decoded]
+{"x": 1.0748601752086511e-137}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 2c75849f6fa647fc2141d1b34c0102209f021b5f ===
+[input decoded]
+{"x": 1.7974736932349494e+308}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 2c85360802b1fc03e820ed6ffc2b67c69c8ee1fc ===
+[input decoded]
+{"x": 2.0743285158587875e+158}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 2cc077c7c8cb8c8cb4f6ae4c083b29e1902bfd92 ===
+[input decoded]
+{"x": 710.4758419485579}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 2e8bee767d535e051a9837181a15d8e7be1a1f32 ===
+[input decoded]
+{"x": 2.7755020266034373e-17}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 2ea3657f0b65c6dc0daad09a2cb015e09d0d1b21 ===
+[input decoded]
+{"x": 710.4758418964038}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 2f29963e12cffdd95f5b4b2b16b6e5ae5314ef60 ===
+[input decoded]
+{"x": 710.4758506175704}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 310b0d3d1e7bfc5317f488c3e77aa030923fc20e ===
+[input decoded]
+{"x": 1.7417346660121559e+308}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 34bc4b6562f7fa899b68e3085235f7b0f52d13cb ===
+[input decoded]
+{"x": 710.4758600739402}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 35746e906f2a4a39b419b5f344a61e2ce1e8c2d7 ===
+[input decoded]
+{"x": 3.1358181184643026e+158}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 36b0c9d8c357f6ecd37f4984ffedfcb8b0078372 ===
+[input decoded]
+{"x": -8.572068857490137e+303}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 36b5b4f6a4f983439c3a7b582c28322da7e29cfd ===
+[input decoded]
+{"x": 711.471679687501}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 38bd546001e322dc0cc771827739db0452fb661e ===
+[input decoded]
+{"x": 710.4758000834416}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 398118430813efeb216653581ad9b18b7e512175 ===
+[input decoded]
+{"x": 0.3465088664155471}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 39a7948c0208873d50681b39be89a4a9e59c9430 ===
+[input decoded]
+{"x": NaN}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 3a5bad562dfb724f609cabae50401cbffb4c08de ===
+[input decoded]
+{"x": 709.7148437501336}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 3b76873b174f53d9618e56273382f1b0d7008470 ===
+[input decoded]
+{"x": 2.032873903531495e-20}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 3c177c935794b8bf5274cdd64b99150ab3adda8a ===
+[input decoded]
+{"x": 1.7976802767667456e+308}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 3dbfbdcb70303662faeea3bca69d88d8d6f94b80 ===
+[input decoded]
+{"x": 710.4756816867732}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 3e253ea7d7292be554301371091bc5ff7b1e75d6 ===
+[input decoded]
+{"x": 710.3155288103144}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 3ecbd1e0e6f42acb7d9029af034ed702733406ec ===
+[input decoded]
+{"x": 710.4757090105851}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 3ef82244cb3e50a0b46e0d693f53735b302f3085 ===
+[input decoded]
+{"x": 709.7509775179497}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 3f77ba74b50f374623ce42b51ceaa54a5b82f645 ===
+[input decoded]
+{"x": 710.4061702360623}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 4005f4ea32dbd2de1fe5505faa0a1a9aee7d05f3 ===
+[input decoded]
+{"x": 2.3619883897510268e-24}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 414a44346c4c4b9fa28afb3326515f2897c9fa9e ===
+[input decoded]
+{"x": 710.4758600704072}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 418f29c0b539835552a3be01413f3f1d1cbe28fe ===
+[input decoded]
+{"x": -12.909355163340992}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 43330af4b6fcfa157213cf6324a769909aa5dc42 ===
+[input decoded]
+{"x": 22.000030517577244}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 44cf4dfe4b871ceba9c044758a0f36ca8ca60a3d ===
+[input decoded]
+{"x": 1.5240721152395877e+158}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 450477c9560845b731eef2d27836042ebf89e36b ===
+[input decoded]
+{"x": 1.7976768478660527e+308}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 465f0488da9749d37c2ded4285ab61d869e50b16 ===
+[input decoded]
+{"x": 1.7976481298265817e+308}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 471073df68a7ce200a2b5e78a0c09647d847018d ===
+[input decoded]
+{"x": -12.909643834254455}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 4800241b8c2a43158d6efde07d8c98c96a1a7023 ===
+[input decoded]
+{"x": -7.84168222684225e+115}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 4afa5486f6545ba82fdb8452a7fb3899bbbc42ee ===
+[input decoded]
+{"x": 710.4757090105925}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 4c05df1c575f88db0ff7c1dcbacdb61e78bde16e ===
+[input decoded]
+{"x": 710.4715999235342}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 4c1178b4c1791014ccff45e2cbc6fcc9c0a9bbaf ===
+[input decoded]
+{"x": 1.788511591909059e+308}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 4c8101065407f9d8e02bb10f7bd1eabc6b0988ce ===
+[input decoded]
+{"x": 0.010830428631181548}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 4caff0709326a7299560854432efb5832316471f ===
+[input decoded]
+{"x": 2.6883367381153298e-24}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 4d93288c1132b80c278d129ab62f13a2cfef85c0 ===
+[input decoded]
+{"x": 710.4758600739423}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 4e6f02852eba936812e464c7724900c92db95891 ===
+[input decoded]
+{"x": 2.7752307070811225e-17}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 4e9d42dd8f3b384a9aa7061b530a3782b8482499 ===
+[input decoded]
+{"x": 710.4758343191634}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 4ea2725f8ca68cd386abce67f40dddc82ae9a3ec ===
+[input decoded]
+{"x": 1.3381745256609867e+308}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 533477e8d70fbc4b924787be5cb21727b6d42989 ===
+[input decoded]
+{"x": 2.775550991414303e-17}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 53e758a865b882c331a402fdf3d58d2beea56fda ===
+[input decoded]
+{"x": 7.291493426702122e+221}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 547e77716b499da8dfb04ab594fe8c37693ed361 ===
+[input decoded]
+{"x": 2.5192678259745427e-139}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 54c2af21f0cebc9742d88ddc9b80f2030003457e ===
+[input decoded]
+{"x": 0.02830602228641513}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 55300df8ce353b0d529ca2cb8f6ada6c9f95e965 ===
+[input decoded]
+{"x": -1.776063180245146e+139}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 56a5450060dc572fa428c0e2b6928ab1847f7866 ===
+[input decoded]
+{"x": -4.375449519829681e+23}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 57e8f0603bcadbdf42f2546810de34e5ea6f6c00 ===
+[input decoded]
+{"x": 21.998046204214035}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 5823fe9e53c61171b5d1b63bae4bd669991c9e2f ===
+[input decoded]
+{"x": -6.978349145812679e+307}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 582f0a323140085533da3b765c1a0158d692aa4a ===
+[input decoded]
+{"x": 6.977536141327694e+307}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 58ffc2912641fe574359fbb1b099b00a21f4bf76 ===
+[input decoded]
+{"x": 0.3465609550548836}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 5b321d1efdf8d6e0b9904d84b5be35a48d258e5d ===
+[input decoded]
+{"x": 710.4758000823059}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 5b32dfb1783ac1050ebb9030773f4cfb4097c1b3 ===
+[input decoded]
+{"x": 710.4758000822484}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 5c04696494098e39c0d1cc61d8ada415f7cbf03b ===
+[input decoded]
+{"x": 8.086349223671341e-174}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 5cbbbabe33f487b8034fd143eab4a938339b46d8 ===
+[input decoded]
+{"x": 2.3780795806348147e-24}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 5d8d002e5bc12539ed64299e0382b56a6c95485d ===
+[input decoded]
+{"x": 711.346679687501}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 5da4730bd9f3ab198d29f243c4a854391cf22200 ===
+[input decoded]
+{"x": 710.4757090105924}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 5e3751f439f818b67329f1b29975f2ee31b813cf ===
+[input decoded]
+{"x": 1.9100084114483e-310}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 5ec2ea49a0c72d9b93c6043e97d10235d1f3579b ===
+[input decoded]
+{"x": 21.999793966309}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 5edfa6309395992168d5a208a549afd1f54d402d ===
+[input decoded]
+{"x": 0.346572837029314}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 5f3cc52eb25b401457bbd195675d0d236eb4fcaa ===
+[input decoded]
+{"x": -1.6706887417607346e+111}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 5fc12ef7e83c9752c3e0ef7d6568173f9b5ab343 ===
+[input decoded]
+{"x": 4.5767114681873503e-246}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 60566dea384977f5e963fe585637437e81c60fd8 ===
+[input decoded]
+{"x": -5.109976053568425e+294}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 60578c21e50fdb7a0e360962c7ff8b0386ac677d ===
+[input decoded]
+{"x": 21.746086105470596}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 61592122f89a1c0f01e6033d73daf5a461204167 ===
+[input decoded]
+{"x": 2.495976887945993e+280}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 622b3d4e3a6655a9f4bf18ab6e5a904d4cb19fdb ===
+[input decoded]
+{"x": 710.473730469995}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 628a1a828b571fb9aec701e4e117257ab34f211a ===
+[input decoded]
+{"x": 710.4758600738469}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 62cad0f08b36e961f9d466e49c233c4a94bd2c49 ===
+[input decoded]
+{"x": 543.8754868358078}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 6411aee45044976f3ec2a7b76f53a82f9ea49a4d ===
+[input decoded]
+{"x": 5.877471754111438e-39}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 64f7df21d451d9e88231082dd5be6d4f62c7ca48 ===
+[input decoded]
+{"x": 0.007808927446603783}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 659c637b1dbec636afabd7861b1710eb6f4fb336 ===
+[input decoded]
+{"x": -7.8803863297603955e+115}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 65c269c79bef32350f3c1c03f9b145e7f3190b41 ===
+[input decoded]
+{"x": -6.16658036881926e+303}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 65ddb5a8beb988180a57c330dfef37f718ae2c10 ===
+[input decoded]
+{"x": -2.9740325934680337e+284}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 674ca4c9b62c5082f90378e38cca81e239290c1e ===
+[input decoded]
+{"x": 710.475693749263}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 67827f414f0788d8b277c450db28caad6478cf34 ===
+[input decoded]
+{"x": -0.20312476158142773}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 67f766e92b9b0e1e530d53ac378957e6bcd5ca66 ===
+[input decoded]
+{"x": 1.4606256703987169e+308}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 6834a6f9894abfefdeadaef6616c7d881bcd852c ===
+[input decoded]
+{"x": 710.4758486298522}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 688e070790a160120d9fa820428db76e91cb3db8 ===
+[input decoded]
+{"x": 708.781738281251}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 6a809dc8b074fb109d2c4e86c913a69f2b48323d ===
+[input decoded]
+{"x": -1.132574903617058e+306}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 6ae4fd08f78dab2149136570fdc9796d457fac3e ===
+[input decoded]
+{"x": 710.4758272636091}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 6bc33bc4886bad66fc3818f5c849a63877e54aef ===
+[input decoded]
+{"x": 3.646298943399539e-62}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 6caf9d343cd18d5ac2e1281f92343a54aae17aeb ===
+[input decoded]
+{"x": 1.7915512041118564e-18}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 6ddb1912fcbd6f4f5c27f9efa6b3d659f39f0dc2 ===
+[input decoded]
+{"x": 709.7827145399652}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 6efa08cc61113a811703681c0efadb711ccdb0b6 ===
+[input decoded]
+{"x": 710.475860073944}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 6f9d19defcbbcd686856233c62945cff8265356b ===
+[input decoded]
+{"x": 2.7755469433796995e-17}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 715d8f6943c72a334e8d83b221c49cdcb59c9185 ===
+[input decoded]
+{"x": 0.3463037014007426}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 720157955b7deec85912f60b978947a40167cdf1 ===
+[input decoded]
+{"x": -2.681560946654416e+154}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 7536ba2c5835d393f6e56aa97c06edf5b01dd6bc ===
+[input decoded]
+{"x": 2.549380217140618e-102}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 766a71f921707610c2c1f27d0535723125011ca3 ===
+[input decoded]
+{"x": 710.475683594995}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 76f23740f48078f3042b21c424aec1ef5d62d196 ===
+[input decoded]
+{"x": 5.919495541022061e-112}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 778190259687b6fb36fad876e6f6e2abefd411b2 ===
+[input decoded]
+{"x": -1.5167866426586941e+308}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 78d5d8992f715c955f90a296039e03d056918c26 ===
+[input decoded]
+{"x": 710.4758600439047}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 790264c7d7f7cc3e858e37a1b191299bb32eecd0 ===
+[input decoded]
+{"x": 705.8746004123605}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 791e47facada14ff4629ba266e75f7222786ee21 ===
+[input decoded]
+{"x": 710.4657267969885}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 7948a65c20417d52c2dc4901407a2adf959392e5 ===
+[input decoded]
+{"x": 3.020510970746297e+158}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 796ef9f79ed5786d62dcca9e96574305a2e3d798 ===
+[input decoded]
+{"x": 0.34652853012157436}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 79c77e9024855ad4a751ecac382eb036825a59ed ===
+[input decoded]
+{"x": 710.4758600739437}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 79f158d5c0b556809ce7d86472756a8561cad541 ===
+[input decoded]
+{"x": 1.4827962945881618e+159}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 7a21035cc0191132d6d770c3ff4f1e1aa73ce11e ===
+[input decoded]
+{"x": 710.4758419040584}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 7c24411eddc0ef00264a51e2c1f852b0c6e845ae ===
+[input decoded]
+{"x": -1.1330975812311449e+306}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 7c6a891ca9c2f6d8fce8989131fa24d1277e6efd ===
+[input decoded]
+{"x": 21.9996718959965}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 7d4a96c8641282c9a024709cf8f8e5c90da5fc0f ===
+[input decoded]
+{"x": 1.7305871433689253e+308}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 7ed25eb8a5e178d6ea1baa5717fbad45665750a3 ===
+[input decoded]
+{"x": 0.3465738296323058}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 7f9bba0cdf54d26d3d29a983994d30abd4206c56 ===
+[input decoded]
+{"x": 16.000030517577244}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 81fb187f10748fad955bafeb085058573a90cd2d ===
+[input decoded]
+{"x": -1.132576243002817e+306}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 822eac3e05e802cc55cf2420eea2d7ab1d784c15 ===
+[input decoded]
+{"x": 641.1250181645165}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 83d65cd147cf7e7ed9e770859a8deb2671544e75 ===
+[input decoded]
+{"x": -4.2416101925319517e+307}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 8463ac81f7b0fb83dd82eeb7e872928e28a3a6ec ===
+[input decoded]
+{"x": 2.8888956526324903e-33}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 8496f88fcc7abbabcb3b1e354c3e2fb4fba7b5d9 ===
+[input decoded]
+{"x": -1.1331833019197198e+306}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 84a563b559e4901bc9d097809ec9edb5b810464d ===
+[input decoded]
+{"x": 1.797583616637269e+308}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 84cde4661f723d8023d8136fba5cf500aa39f731 ===
+[input decoded]
+{"x": 6.2783723448766035e+299}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 8513abed9b00b8294715d2e454a0a29fa351264f ===
+[input decoded]
+{"x": 2.5966642029823268e-17}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 867f5e2be788b300fedfaf161fa32539a122674c ===
+[input decoded]
+{"x": -1.3682629159362852e+306}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 878fad34c9b59d71ca9038ff299f99ce2ad7df5a ===
+[input decoded]
+{"x": 710.4758562585482}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 87c925f9ee01dba3e7c1c7652b8beb86f7f0c1e2 ===
+[input decoded]
+{"x": 1.7941818396639069e+308}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 87fb82155327e23889ac25531bf7860fb0aebebe ===
+[input decoded]
+{"x": 464.0039148333022}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 881361d670cab1c5be0fe9883a3cfc97e81eda02 ===
+[input decoded]
+{"x": 2.7755575312915402e-17}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 8a00673e34554304f9a1346f22b031b496e7b346 ===
+[input decoded]
+{"x": -0.21093773840402136}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 8a79faccd7a94af3eb687bbad962f6c3384e4d64 ===
+[input decoded]
+{"x": 5.9357383687529205e-112}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 8a92660d8767b4672d455e83fa87fdbdea0daf3f ===
+[input decoded]
+{"x": -0.20312488079071728}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 8c2aaa513d69da81d2eb260b78d78700b07e64f7 ===
+[input decoded]
+{"x": 1.799275409030824e+155}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 8c57c15a195b5bcd9ee510a1008243e2eaa55ffe ===
+[input decoded]
+{"x": 0.34657168389094317}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 8cdbcf255fa62d2f0299c72c6a943081c7fb1226 ===
+[input decoded]
+{"x": 1.2756676009216218e-23}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 8d4b2a43d16919388087d080cd21363ef454bf17 ===
+[input decoded]
+{"x": 710.4758419040581}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 8ef14cd643bd23b6f7e343483a496f20c69f4912 ===
+[input decoded]
+{"x": 710.4758600732455}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 8f8393b5be657e38917c2a875f3b7e66d89d3d23 ===
+[input decoded]
+{"x": 2.5192043426617053e-139}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 8fd27c48e8bcba5b36ca40cac75e64f09a010a9e ===
+[input decoded]
+{"x": 710.4758600136408}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 8fda7a0ef1557266f5968f8409e010390b1fd1bb ===
+[input decoded]
+{"x": 710.475860541497}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 909a56f8b492a499c05f5f1dd4b82d46b0dd621c ===
+[input decoded]
+{"x": 5.557252337043131e-308}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 9298bf0c3a588aff1c9058f7bb8415c69edd3c09 ===
+[input decoded]
+{"x": 1.9620194217177888e-20}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 92e5b08f367ca619ac49a190200665f5d4348296 ===
+[input decoded]
+{"x": 2.70169628844186e-17}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 934b1966dbe566da4e6c2ad81060a51676e47982 ===
+[input decoded]
+{"x": 710.4757437256769}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 937d03b89af6d3f697cdb60851000a7590c62411 ===
+[input decoded]
+{"x": 2.7701365505800075e-17}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 944ffda7d241f96adc2b70bbfd0e038492d5a5a0 ===
+[input decoded]
+{"x": 710.4758000822477}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 9453604862860ae83595c1375c3dc0ce834cb6f1 ===
+[input decoded]
+{"x": 709.781738281251}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 95617645612cf6aa17618f89c1f2ef7cd2fdf090 ===
+[input decoded]
+{"x": NaN}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 970db4ff24f4276876800a876a4aad38016f0bdf ===
+[input decoded]
+{"x": 21.9999160366215}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 9737174a61a4f802e41580b610984d4ee13d31df ===
+[input decoded]
+{"x": 0.3465728759838387}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 9813ccca8b440e2a4071e8cfa80f8ff9e1068651 ===
+[input decoded]
+{"x": 21.80547370004932}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 989e974e4d89d3f609f26198d2a95ae1d54a1c15 ===
+[input decoded]
+{"x": 21.93748502398374}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 999cb76828d0766f7010ddb02e61aed344ce2437 ===
+[input decoded]
+{"x": 2.225073859839175e-308}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 9a92395958b461aaf8df85ddafa43f4095788c73 ===
+[input decoded]
+{"x": 710.0321370647966}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 9c6fff854d6047c928bc0d2b0de7f284c8aaab02 ===
+[input decoded]
+{"x": 1.0842021724542577e-19}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 9ea77f51d18a495ac2e3482162c64a2d709d7299 ===
+[input decoded]
+{"x": 6.052201637854316e-306}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== a147565743d4d69686edaa404887f31248794f04 ===
+[input decoded]
+{"x": 2.535668922832032e-139}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== a1b20424cb5a8519bea1a36ba836641205259ccb ===
+[input decoded]
+{"x": -1.133210759327779e+306}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== a21d1de02075c39f3fcbb722b4eae1da75b2f2db ===
+[input decoded]
+{"x": 710.4757090075365}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== a23b322765c21d7f77747bfdfc27736cf1f72d11 ===
+[input decoded]
+{"x": 0.0}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== a300fd7d8369269efe085cb61b43a5d8c3a96473 ===
+[input decoded]
+{"x": 710.4758599511943}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== a351969c342b336882a711ad7455563c82ba3353 ===
+[input decoded]
+{"x": 1.797688848579334e+308}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== a3cc4f8f13b9e31cba8e2ee05c4bf7951072a457 ===
+[input decoded]
+{"x": 7.191523764049638e-06}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== a54ac43128ba08c81ec2613758dd2526790963c8 ===
+[input decoded]
+{"x": -1.1332268528896616e+306}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== a7cb0773c5ab6c6b2bc5104b4401532e335d0218 ===
+[input decoded]
+{"x": 710.4758600737398}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== a816bb37c1fc10ae67fa6e0bc32569ea1af38f91 ===
+[input decoded]
+{"x": 21.000030517577244}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== a830aec22e65bed8ee9a3d4af8b1f7128033355b ===
+[input decoded]
+{"x": 18.000030517577244}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== ac8039b0cd2cb71e669ba96ce23760a14f5feda8 ===
+[input decoded]
+{"x": -1.1332060714776225e+306}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== ad13919e0a725c18bc5512630ddfed9eab9aeea3 ===
+[input decoded]
+{"x": 696.440430033952}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== ad2c71d295a0262b38417fb5c3697e43997e0f1a ===
+[input decoded]
+{"x": 710.4759798512089}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== ade372364ba07249435a7094e47d431c2ab40c88 ===
+[input decoded]
+{"x": 8.708721830425081e+257}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== ade77a71eb03a0419689f3cbf9e4cfc74512356f ===
+[input decoded]
+{"x": 0.34124755789252936}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== adec7771b28bb054b56e1b1981fe9d034fd3820e ===
+[input decoded]
+{"x": 0.010830413730020354}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== ae768dc3891b7510f8e6ad692bc8be39f3898a0c ===
+[input decoded]
+{"x": -7.840151520141798e+115}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== af67fab42013a38d630cf55ee41be757d96f24e6 ===
+[input decoded]
+{"x": 3.403512467994062e+280}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== af9588b8311428c1f527dda30cf8065b3986c183 ===
+[input decoded]
+{"x": 2.0732558912243921e+158}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== afd1eabd4e43cfa57179e6e2ef75e37574ef5995 ===
+[input decoded]
+{"x": 2.0762471601892847e-17}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== b02da90d081d72d73e6f436a0401fc52c2c790db ===
+[input decoded]
+{"x": 710.4756842125198}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== b0446bc2d50db8a09c7a62ea36f9151fc492e7b6 ===
+[input decoded]
+{"x": 2.7752186606979218e-17}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== b07357b10606dda77c2c02152866fc48c00244c8 ===
+[input decoded]
+{"x": 710.4758582469649}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== b5a86efa098161f14caf80937fd3833e1f0b350f ===
+[input decoded]
+{"x": 0.3320210369674894}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== b678a8687469b757bbcb44f26130e57c3fce9a3b ===
+[input decoded]
+{"x": 3.3262170547040033e-111}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== b688cad031b8a5a9d0f71c8c1fa7a66bb4ec7598 ===
+[input decoded]
+{"x": 29.253845214858334}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== b68faef317224c355053728fcca0994ffbfcf43a ===
+[input decoded]
+{"x": 2.7542123311716267e-17}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== b6de1737250e13ecd40209b866316922b2751f58 ===
+[input decoded]
+{"x": 710.4756817165755}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== b6ee76b19883b2825050eb0c594f8a9eb42992ad ===
+[input decoded]
+{"x": 3.14900522774612e-139}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== b7c92147dc66d9654ff9ac27b16f29dd76bf5b20 ===
+[input decoded]
+{"x": 1.2143251865180758e-139}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== b7e151868ab076e06f7d29b8bdc7ff663c8227ff ===
+[input decoded]
+{"x": 2.0945430718499776e-17}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== b919370ceb8521381d20e254a02c14344a540aeb ===
+[input decoded]
+{"x": 0.34608340264094317}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== b9504a3d90ece364f3dd6cc42c81680a055d8e3f ===
+[input decoded]
+{"x": 1.7946200481846216e+308}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== ba5893ef7e068f4b217af953185bdcd2777d8322 ===
+[input decoded]
+{"x": 2.7755363856187537e-17}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== ba6ed7643cae1809d081ac697fec20652bd455e3 ===
+[input decoded]
+{"x": 710.4742193687698}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== ba964616877e7c130e78b60f10e75ab2a025a150 ===
+[input decoded]
+{"x": 710.4758600583443}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== baea7399006b655c43825a70858a1719d370a0b9 ===
+[input decoded]
+{"x": 20.000030517577244}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== bb0da1e903e120a5871897fa1b9337af0674ddf8 ===
+[input decoded]
+{"x": 0.35932974416998786}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== bc8e1b152f11c0f425b8e7812d28a05850011dae ===
+[input decoded]
+{"x": 710.4758600690836}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== bd4791ada8a592272c3117e3d395910d6c23da33 ===
+[input decoded]
+{"x": 1.797692277655431e+308}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== bdcde7a8709a8a189a85ee2566ed2f1d671dd0d1 ===
+[input decoded]
+{"x": -1.6291452561979524e+308}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== bf6cf097c481605cec97ce6c8f74544598dcb380 ===
+[input decoded]
+{"x": 710.4758600662892}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== c10b283f232cee6f1a6baf27ef0cb4df0902a05f ===
+[input decoded]
+{"x": 9.9829716466995e-24}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== c1a43daab720bfd00e72203641f16acf26af749e ===
+[input decoded]
+{"x": 0.3619287014007566}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== c31ac554ac53c535f49b95154e29b0b14753c2d3 ===
+[input decoded]
+{"x": 2.5336171872168874e-139}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== c3d455595db4a3f28851084b05a6aed36916b3a1 ===
+[input decoded]
+{"x": 710.4758577808964}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== c3f9129c350e804256c7e4545a43f50de6a6e15a ===
+[input decoded]
+{"x": -1.1322320208627585e+306}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== c4f554bd895c5d316827f29bf9d0a7893b639428 ===
+[input decoded]
+{"x": 21.972656251163272}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== c737eadcd0b379da331630fab626f765f8322cf4 ===
+[input decoded]
+{"x": 9.999969482429167}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== c7582a75eb4b281a300d753f7ce17fd99b8080e1 ===
+[input decoded]
+{"x": 710.4758467225035}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== c7e06d7affe31a681d773e3cc6ddd55259deee63 ===
+[input decoded]
+{"x": 710.4758600739051}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== c829dad1dbb3953cdd263387d354f32aa6296367 ===
+[input decoded]
+{"x": 709.6274423655996}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== c8435a129b1268cda3e595d217e879fbe3575e7b ===
+[input decoded]
+{"x": 966.475693749263}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== ca738c65622e6b3595028e9d4ac6ce91124d4ec8 ===
+[input decoded]
+{"x": 6.731963920329129e-19}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== cc3d926e79f4684eb713df0cd2ed32fac1951663 ===
+[input decoded]
+{"x": 0.31249999999697775}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== ccd96eae7dc51d2d22cf4d05271a2332e2bdab57 ===
+[input decoded]
+{"x": 2.5336201402894528e-139}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== cd400bc02f381b8a85ecfd6ed4eb717437fa9084 ===
+[input decoded]
+{"x": -3.689800026826156e+19}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== cd7b3a99593e3638348c35555f363d8067365a89 ===
+[input decoded]
+{"x": 0.33067870139802813}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== cef5adcdbd031c02416716976b9f305befaec4a8 ===
+[input decoded]
+{"x": 1.7875978093765657e+308}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== d07784830720fb136e654ac60de8d78139104c0f ===
+[input decoded]
+{"x": 1.0002024197700604e+242}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== d0ef8c7d622075c3b51478baaff0b20a79418d28 ===
+[input decoded]
+{"x": 710.475859753569}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== d24f3ab8fa2f7e6f38ab8e73c65f661e41c6e40d ===
+[input decoded]
+{"x": 2.618009433396863e-17}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== d3b4445e5b277501fb22a51c78cb467d32a1905a ===
+[input decoded]
+{"x": 1.7976914201999912e+308}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== d3cf0c07b8615da1c8d2d6a093e53fa613540835 ===
+[input decoded]
+{"x": -2.4420717599563824e+304}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== d5138ca68aa02858defc86e325cbc7a3cb6e8e9a ===
+[input decoded]
+{"x": -2.466632147527704e+304}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== d573a073eb8ed4da404bdef18170401504fb558c ===
+[input decoded]
+{"x": 21.9989394741215}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== d59546e89c8869b6a8773889fd0f3e7550faa832 ===
+[input decoded]
+{"x": 6.151884204000503e-304}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== d71366c34763e312389626792ea6b798a2b8facd ===
+[input decoded]
+{"x": -7.841956536615918e+115}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== d7b6d9a850ff25405ca2d061ab9876cda78cf263 ===
+[input decoded]
+{"x": 710.4405288103144}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== d7bbde2fefcc0dbe67de99ebd8c869a765b1ecb1 ===
+[input decoded]
+{"x": 1.7970346634587024e+308}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== d8478d557640072ad1cefd20e17521ac6c96f042 ===
+[input decoded]
+{"x": 1.7976922775899961e+308}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== da02220b562d721f829bfe84e94390fd348bc47d ===
+[input decoded]
+{"x": 6.9665121817388e-310}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== da77b1df130064bb12473773e02a8879bbeda1c4 ===
+[input decoded]
+{"x": 5.075883674631299e-116}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== daa22893410221c572f32042eb4bd3cc72dec46f ===
+[input decoded]
+{"x": 2.773863407982315e-17}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== db156131fd119fc1066ec59ae733833a4286f28e ===
+[input decoded]
+{"x": 710.4755849820494}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== dc09ca8221a576650fb38952f18898d86c049fbc ===
+[input decoded]
+{"x": -709.2817382812515}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== dd211565d70f947fa66402c0ca0c75fb924546a4 ===
+[input decoded]
+{"x": 3.038745589051518e+158}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== dd49ee9e4c7ee403a0ae536e016f80ef76fcec56 ===
+[input decoded]
+{"x": 709.8149423655996}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== ddc2d677a8f4b9b87a8ccff1078e869425738507 ===
+[input decoded]
+{"x": 709.7797861110594}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== de5a50cb76d7e4b4ffa4a4896b846951f34ec402 ===
+[input decoded]
+{"x": 710.475842522086}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== de60f0aa49de6792683929f6ff31c7d0b0ceb687 ===
+[input decoded]
+{"x": 709.845703125001}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== df10ed70a2b13f349c3905263d14812207cb2112 ===
+[input decoded]
+{"x": 709.7690439241997}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== df4c7dbdf7657b884eeee8e6e70acc1b874da98f ===
+[input decoded]
+{"x": 710.4758419038544}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== dfd0a961020e4588e263be458a8eba3978d25026 ===
+[input decoded]
+{"x": 3.0386785500118685e+158}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== e0453e8580bc3a93ace71bac17759d1fcbae01bc ===
+[input decoded]
+{"x": 709.345703125001}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== e05a64292e1fa583acc16f1c37463444b019622a ===
+[input decoded]
+{"x": 688.7500886973867}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== e060fe0369b7f3dfad875a0a7591abdcd948d076 ===
+[input decoded]
+{"x": -12.908210754161694}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== e1f9add1ef1996b6c51606ece3c334d538c9b526 ===
+[input decoded]
+{"x": 2.4110457154047394e-115}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== e2473c0ed8b4df6675cd11feb4787530853e0b80 ===
+[input decoded]
+{"x": 2.770814176937811e-17}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== e3024389179603b44ffd2d0c61c17161ee1be0d9 ===
+[input decoded]
+{"x": -8.909767970631009e+303}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== e3313acee53b5994b318cdc949bd8f950dc887dc ===
+[input decoded]
+{"x": 21.999969482420994}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== e413f763b639751ce7339080118fa27cfafc793e ===
+[input decoded]
+{"x": 709.7524423655996}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== e4f1aed3d7e7ccfcf9a60a3d4d98db8a6b92f454 ===
+[input decoded]
+{"x": 2.5336185386229766e-139}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== e5b96740ba5bb27edd1b802c18d0c971ad2b4984 ===
+[input decoded]
+{"x": 0.3443147001608222}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== e60fd1d38ca5be93cddb4d8df55174f59d736bbb ===
+[input decoded]
+{"x": 21.99998474121548}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== e7567a8f990e3df7d9d3e17f68b245727758a4c2 ===
+[input decoded]
+{"x": 710.4758600728089}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== e771f1a246eca1ccef3902d024aeaef2a7aa692d ===
+[input decoded]
+{"x": 710.4758000822557}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== e7c784f7a2dd48678f6b0baf7610ef68b4a56ed7 ===
+[input decoded]
+{"x": 2.5336107805509828e-139}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== e8018ff9b7aac8d5685c6f388a97f5bf2c37308a ===
+[input decoded]
+{"x": 1.782770701600816e+308}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== e94c23991d5e21d2d04cd308dbb843fc2cfb2814 ===
+[input decoded]
+{"x": 248.00110317394163}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== ea1359670b54b816ee831fe89a278a41da59fbe9 ===
+[input decoded]
+{"x": 0.3465576190502025}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== ea26abc62c4a42f2be93d80f2b596fc9000c3cca ===
+[input decoded]
+{"x": 2.0328779921777644e-20}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== ebf57bac036982038fbc7bf95c8549e54adc4873 ===
+[input decoded]
+{"x": 710.4757614076733}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== ec57fa5e7a7fa80261bee1669e4330f75e3edc0c ===
+[input decoded]
+{"x": -8.847982328710464e+303}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== ed30886c8cbc81c6d7e61cfc7af0f19fcfb23a2c ===
+[input decoded]
+{"x": 12.06866455078125}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== ed4754e854d4f9638dfa67be60fa300a9ca7bc70 ===
+[input decoded]
+{"x": -1.2774940133921062e+294}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== eeefd5478243ecca71b895fd89a3a9696908b6c0 ===
+[input decoded]
+{"x": 2.5336091788845066e-139}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== f11fa1f8a34835c6e45e1970ec365f548a9c803a ===
+[input decoded]
+{"x": 709.7812500001336}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== f1e1ad389f516f1cbb1e8adc04e91f864115a76a ===
+[input decoded]
+{"x": 2.7755608392660686e-17}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== f2c03bd69e776b11a34e04a278d15dd8645dddef ===
+[input decoded]
+{"x": 710.4758600737107}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== f3865c761053eef044dbf18fd83654762914a2e6 ===
+[input decoded]
+{"x": 2.775557923500952e-17}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== f3a0e280252cdd50b9c1364b7dad864f807a847c ===
+[input decoded]
+{"x": 3.7862299937699185e-270}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== f3ca29d19ef6b54fe821cd9569f10157cef3c78a ===
+[input decoded]
+{"x": 9.730438232429167}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== f5822761f7a9a71298e59c1bc99f577c586a62f5 ===
+[input decoded]
+{"x": 106.0037841796838}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== f6bd9c360dd8aef7ce63f77bcc1ac310272d7ef7 ===
+[input decoded]
+{"x": 22.000000596045567}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== f7a667b361b7c94969766055f7feccd9d1b948d8 ===
+[input decoded]
+{"x": 1.796814497804424e+308}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== f8a0bd3a943cdc1bb4ccdfd1dd53834fc8f0ab91 ===
+[input decoded]
+{"x": 705.1250181645165}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== f8a40564a5302b65e5a7f13ef966068f44ef366c ===
+[input decoded]
+{"x": -12.9086647033692}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== f90bc817df3f984cbdd2720c858280c88965e96b ===
+[input decoded]
+{"x": 2.891356487566556e-09}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== f98ccd4779ff0a0050e2aeeae1d30ae60dc31e9c ===
+[input decoded]
+{"x": 0.345276116545733}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== f9b6d495c2cabdcab4d759350cfa2b9997009b32 ===
+[input decoded]
+{"x": 709.7500009554497}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== facbd0e683eec66e42f713df9a7f1e6b225d522f ===
+[input decoded]
+{"x": 543.9065059293368}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== fc02b092f330c75223de76318a2690e15969c66f ===
+[input decoded]
+{"x": -1.1330768207518807e+306}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== fc6fff5d368ace756ca1385e0245bbb82a2e53d4 ===
+[input decoded]
+{"x": 710.4758600739204}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== fc7317a8119bdb5dc3df72b19cf71a2dc94d0b48 ===
+[input decoded]
+{"x": 21.999511659146247}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== fda29b57fcc61eabed4665346c4ef3da8c8b39bf ===
+[input decoded]
+{"x": 2.749130133488101e-17}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== ff7e8389ed3c455db1376d73a574481e97ee8036 ===
+[input decoded]
+{"x": 4.199186054619522e-140}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+

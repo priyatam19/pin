@@ -36,6 +36,13 @@ except ImportError:
     LIBCLANG_AVAILABLE = False
 
 # Mapping from C primitive types to Protocol Buffer types
+FORCE_INTERNAL_TYPEDEFS = set(
+    filter(
+        None,
+        [name.strip() for name in os.environ.get("PIN_FORCE_INTERNAL_TYPES", "").split(",")]
+    )
+)
+
 TYPE_MAP = {
     'int': 'int32',
     'int32_t': 'int32', 
@@ -55,6 +62,8 @@ TYPE_MAP = {
     'signed short': 'int32',
     'int32': 'int32',
     'int64': 'int64',
+    'uint8': 'uint32',
+    'uint16': 'uint32',
     'uint32': 'uint32',
     'uint64': 'uint64',
     'float': 'float',
@@ -77,6 +86,7 @@ TYPE_MAP = {
     'ptrdiff_t': 'int64',
     'intptr_t': 'int64',
     'uintptr_t': 'uint64',
+    'tmsize_t': 'int64',
     'off_t': 'int64',
     'time_t': 'int64',
     'clock_t': 'int64',
@@ -119,6 +129,7 @@ TYPEDEF_ALIAS_MAP = {}
 CURRENT_HEADERS_DIR = ""
 POINTER_HELPERS = {}
 CURRENT_FUNCTION = None
+OPAQUE_STRUCTS = set()
 
 
 @dataclass
@@ -269,16 +280,26 @@ def ensure_pointer_helper(pointer_meta):
             return None
         if clean_base.startswith('AnonymousStruct'):
             return None
+        if clean_base not in KNOWN_STRUCTS:
+            OPAQUE_STRUCTS.add(clean_base)
         helper_key = ('struct', clean_base)
         if helper_key not in POINTER_HELPERS:
             base_token = to_pascal_case(clean_base)
             helper_name = f'{base_token}Ptr'
+            value_type = clean_base if clean_base in KNOWN_STRUCTS else 'bytes'
             POINTER_HELPERS[helper_key] = (
                 helper_name,
-                [('bool', 'present'), (clean_base, 'value')]
+                [('bool', 'present'), (value_type, 'value')]
             )
         else:
             helper_name = POINTER_HELPERS[helper_key][0]
+            if clean_base in KNOWN_STRUCTS:
+                name, fields = POINTER_HELPERS[helper_key]
+                if fields[1][0] == 'bytes':
+                    POINTER_HELPERS[helper_key] = (
+                        name,
+                        [('bool', 'present'), (clean_base, 'value')]
+                    )
         pointer_meta.wrapper_name = helper_name
         pointer_meta.clean_base = clean_base
         pointer_meta.proto_hint = helper_name
@@ -663,6 +684,8 @@ def record_typedef_alias(cursor):
             header = os.path.relpath(header_path, headers_root)
         else:
             header = os.path.basename(header_path)
+    if cursor.spelling in FORCE_INTERNAL_TYPEDEFS:
+        external = False
     TYPEDEF_ALIAS_MAP[cursor.spelling] = {
         "struct": struct_name,
         "header": header,
@@ -691,6 +714,8 @@ def parse_with_libclang(filename, headers_dir="", target_func="main"):
         record_typedef_alias(cursor)
         if cursor.kind == CursorKind.FUNCTION_DECL:
             if cursor.spelling == target_func:
+                if not cursor.is_definition():
+                    continue
                 print(f"DEBUG: Found target function {cursor.spelling}")
                 func_args = list(cursor.get_arguments())
                 print(f"DEBUG: Function has {len(func_args)} arguments")
@@ -735,14 +760,15 @@ def parse_with_libclang(filename, headers_dir="", target_func="main"):
             is_main_file = cursor_file == main_file or cursor_file.endswith(os.path.basename(filename))
             is_header_file = headers_dir and headers_dir in cursor_file
             is_temp_file = 'tmp_structs.c' in cursor_file or 'temp_no_pp.c' in cursor_file
-            
-            if is_header_file and not is_main_file and not is_temp_file:
+
+            name = cursor.spelling
+            clean_name = sanitize_struct_name(name)
+
+            if is_header_file and not is_main_file and not is_temp_file and (clean_name not in referenced_structs):
                 print(f"DEBUG: Skipping header struct {cursor.spelling} from {cursor_file}")
                 continue
-            if is_main_file or is_temp_file:
-                name = cursor.spelling
+            if (is_main_file or is_temp_file or (is_header_file and clean_name in referenced_structs)):
                 print(f"DEBUG: Found struct {name} in {cursor_file}")
-                clean_name = sanitize_struct_name(name)
                 if clean_name and clean_name not in STANDARD_TYPE_NAMES and not clean_name.startswith('__'):
                     alias_info = next((info for info in TYPEDEF_ALIAS_MAP.values() if info.get('struct') == clean_name and info.get('external')), None)
                     if alias_info:
@@ -799,6 +825,8 @@ def parse_with_libclang(filename, headers_dir="", target_func="main"):
     param_entries = []
     for cursor in tu.cursor.walk_preorder():
         if cursor.kind == CursorKind.FUNCTION_DECL and cursor.spelling == target_func:
+            if not cursor.is_definition():
+                continue
             for i, param in enumerate(cursor.get_arguments()):
                 param_name = param.spelling or f"param_{i}"
                 param_meta = map_libclang_metadata(param.type.spelling)
@@ -863,6 +891,7 @@ def main(filename, logic_func, parser="pycparser", headers_dir=""):
     FUNC_PARAM_METADATA.clear()
     POINTER_HELPERS.clear()
     TYPEDEF_ALIAS_MAP.clear()
+    OPAQUE_STRUCTS.clear()
     structs = []
     global CURRENT_HEADERS_DIR
     CURRENT_HEADERS_DIR = headers_dir or ""
@@ -1023,11 +1052,7 @@ print("Generated input.bin with CLI args:", {test_args})
             all_structs.append((sname, fields))
             emitted.add(sname)
         if primary_input_struct and primary_input_struct in emitted:
-            all_structs.append(('Input', [(primary_input_struct, 'input')]))
-            print(f"DEBUG: Added Input wrapper for {primary_input_struct}")
-        else:
-            top_structname = filtered_structs[-1][0] if filtered_structs else "Input"
-            print(f"DEBUG: No primary input struct, using {top_structname}")
+            print(f"DEBUG: Primary input struct {primary_input_struct} available for wrapper")
     else:
         if parser == "pycparser":
             finder = FuncFinder(logic_func)
@@ -1056,13 +1081,23 @@ print("Generated input.bin with CLI args:", {test_args})
     
     # Prepend pointer helper messages so they are available to referencing structs
     input_fields = []
-    if func_params:
+    if primary_input_struct and any(sname == primary_input_struct for sname, _ in all_structs):
+        input_fields = [(primary_input_struct, 'input')]
+    elif func_params:
         input_fields = get_fields([(t, n) for t, n in func_params], [], 0)
     all_structs = [(top_structname, input_fields)] + [item for item in all_structs if item[0] != top_structname]
 
     helper_structs = [(name, fields) for name, fields in POINTER_HELPERS.values()]
     if helper_structs:
-        all_structs = helper_structs + all_structs
+        if all_structs:
+            all_structs = [all_structs[0]] + helper_structs + all_structs[1:]
+        else:
+            all_structs = helper_structs
+
+    existing_names = {name for name, _ in all_structs}
+    for opaque_name in sorted(OPAQUE_STRUCTS):
+        if opaque_name not in existing_names and opaque_name not in STANDARD_TYPE_NAMES:
+            all_structs.append((opaque_name, [('bytes', 'raw')]))
 
     # Proto output
     lines = ['syntax = "proto3";\n']

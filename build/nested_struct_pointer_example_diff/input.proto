@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+message PersonPtr {
+  bool present = 1;
+  Person value = 2;
+}
+
+message Input {
+  PersonPtr person = 1;
+  int32 new_zip = 2;
+}
+
+message Address {
+  int32 zip = 1;
+  int32 street_number = 2;
+}
+
+message Person {
+  int32 age = 1;
+  Address addr = 2;
+}

@@ -1,0 +1,48 @@
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 1066707336
+INFO: Loaded 1 modules   (2668 inline 8-bit counters): 2668 [0x5614cde24878, 0x5614cde252e4), 
+INFO: Loaded 1 PC tables (2668 PCs): 2668 [0x5614cde252e8,0x5614cde2f9a8), 
+INFO:        0 files found in corpus
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 4096 bytes
+INFO: A corpus is not provided, starting from an empty corpus
+#2	INITED cov: 1 ft: 1 corp: 1/1b exec/s: 0 rss: 34Mb
+	NEW_FUNC[1/1]: 0x5614cddc9b30 in mg_crc32 (/home/priyatam/pin/build/mongoose_mg_crc32_diff/fuzz_bytes+0x150b30) (BuildId: e016668e27114a9218e32855097d791761c25b5c)
+#56	NEW    cov: 3 ft: 5 corp: 2/3b lim: 4 exec/s: 0 rss: 35Mb L: 2/2 MS: 4 ChangeBit-ChangeByte-ChangeBinInt-CrossOver-
+#1073	NEW    cov: 5 ft: 9 corp: 3/11b lim: 11 exec/s: 0 rss: 35Mb L: 8/8 MS: 2 CopyPart-InsertRepeatedBytes-
+#1079	NEW    cov: 5 ft: 10 corp: 4/19b lim: 11 exec/s: 0 rss: 35Mb L: 8/8 MS: 1 CopyPart-
+#1080	NEW    cov: 5 ft: 11 corp: 5/27b lim: 11 exec/s: 0 rss: 35Mb L: 8/8 MS: 1 ChangeByte-
+#1100	NEW    cov: 5 ft: 12 corp: 6/37b lim: 11 exec/s: 0 rss: 35Mb L: 10/10 MS: 5 CopyPart-CrossOver-CrossOver-ShuffleBytes-ChangeByte-
+#1127	REDUCE cov: 5 ft: 12 corp: 6/35b lim: 11 exec/s: 0 rss: 35Mb L: 8/8 MS: 2 ChangeBit-EraseBytes-
+#1158	NEW    cov: 5 ft: 14 corp: 7/43b lim: 11 exec/s: 0 rss: 35Mb L: 8/8 MS: 1 ChangeBit-
+#1166	REDUCE cov: 5 ft: 15 corp: 8/45b lim: 11 exec/s: 0 rss: 35Mb L: 2/8 MS: 3 EraseBytes-CrossOver-EraseBytes-
+#1193	REDUCE cov: 5 ft: 15 corp: 8/43b lim: 11 exec/s: 0 rss: 35Mb L: 6/8 MS: 2 EraseBytes-EraseBytes-
+#1393	REDUCE cov: 5 ft: 15 corp: 8/41b lim: 11 exec/s: 0 rss: 35Mb L: 6/8 MS: 5 ShuffleBytes-ShuffleBytes-ChangeBinInt-EraseBytes-EraseBytes-
+#1489	REDUCE cov: 5 ft: 16 corp: 9/48b lim: 11 exec/s: 0 rss: 35Mb L: 7/8 MS: 1 InsertByte-
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==2939209==ERROR: AddressSanitizer: stack-overflow on address 0x7ffc18110000 (pc 0x5614cddc9b8b bp 0x7ffc1810d000 sp 0x7ffc1810cf10 T0)
+    #0 0x5614cddc9b8b in mg_crc32 (/home/priyatam/pin/build/mongoose_mg_crc32_diff/fuzz_bytes+0x150b8b) (BuildId: e016668e27114a9218e32855097d791761c25b5c)
+    #1 0x5614cdda623d in pin_wrapper_entry (/home/priyatam/pin/build/mongoose_mg_crc32_diff/fuzz_bytes+0x12d23d) (BuildId: e016668e27114a9218e32855097d791761c25b5c)
+    #2 0x5614cdda60e8 in LLVMFuzzerTestOneInput (/home/priyatam/pin/build/mongoose_mg_crc32_diff/fuzz_bytes+0x12d0e8) (BuildId: e016668e27114a9218e32855097d791761c25b5c)
+    #3 0x5614cdccc413 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) (/home/priyatam/pin/build/mongoose_mg_crc32_diff/fuzz_bytes+0x53413) (BuildId: e016668e27114a9218e32855097d791761c25b5c)
+    #4 0x5614cdccbb39 in fuzzer::Fuzzer::RunOne(unsigned char const*, unsigned long, bool, fuzzer::InputInfo*, bool, bool*) (/home/priyatam/pin/build/mongoose_mg_crc32_diff/fuzz_bytes+0x52b39) (BuildId: e016668e27114a9218e32855097d791761c25b5c)
+    #5 0x5614cdccd299 in fuzzer::Fuzzer::MutateAndTestOne() (/home/priyatam/pin/build/mongoose_mg_crc32_diff/fuzz_bytes+0x54299) (BuildId: e016668e27114a9218e32855097d791761c25b5c)
+    #6 0x5614cdccde15 in fuzzer::Fuzzer::Loop(std::vector<fuzzer::SizedFile, std::allocator<fuzzer::SizedFile> >&) (/home/priyatam/pin/build/mongoose_mg_crc32_diff/fuzz_bytes+0x54e15) (BuildId: e016668e27114a9218e32855097d791761c25b5c)
+    #7 0x5614cdcbc282 in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) (/home/priyatam/pin/build/mongoose_mg_crc32_diff/fuzz_bytes+0x43282) (BuildId: e016668e27114a9218e32855097d791761c25b5c)
+    #8 0x5614cdce5f92 in main (/home/priyatam/pin/build/mongoose_mg_crc32_diff/fuzz_bytes+0x6cf92) (BuildId: e016668e27114a9218e32855097d791761c25b5c)
+    #9 0x7f2a87b66249 in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #10 0x7f2a87b66304 in __libc_start_main csu/../csu/libc-start.c:360:3
+    #11 0x5614cdcb0ab0 in _start (/home/priyatam/pin/build/mongoose_mg_crc32_diff/fuzz_bytes+0x37ab0) (BuildId: e016668e27114a9218e32855097d791761c25b5c)
+
+SUMMARY: AddressSanitizer: stack-overflow (/home/priyatam/pin/build/mongoose_mg_crc32_diff/fuzz_bytes+0x150b8b) (BuildId: e016668e27114a9218e32855097d791761c25b5c) in mg_crc32
+==2939209==ABORTING
+MS: 1 InsertRepeatedBytes-; base unit: 7260a2b85a23810ab993184bbd59bbd797c74d09
+0x18,0xa,0x18,0x18,0x18,0xff,0xff,0xff,0xe5,0x3a,
+\030\012\030\030\030\377\377\377\345:
+artifact_prefix='./'; Test unit written to ./crash-fd1048b54b64b1148aac5369b49154b05db92069
+Base64: GAoYGBj////lOg==
+stat::number_of_executed_units: 1545
+stat::average_exec_per_sec:     0
+stat::new_units_added:          11
+stat::slowest_unit_time_sec:    0
+stat::peak_rss_mb:              36

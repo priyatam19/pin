@@ -1,0 +1,16 @@
+DEBUG: Starting main with file /home/priyatam/pin/examples/itc-benchmarks/02.wo_Defects/deletion_of_data_structure_sentinel.c, func deletion_of_data_structure_sentinel_main, parser libclang, headers /home/priyatam/pin/examples/itc-benchmarks/include
+DEBUG: Parsing file /home/priyatam/pin/examples/itc-benchmarks/02.wo_Defects/deletion_of_data_structure_sentinel.c with libclang
+DEBUG: Libclang args: ['-I/home/priyatam/pin/examples/itc-benchmarks/include']
+DEBUG: Scanning for function deletion_of_data_structure_sentinel_main
+DEBUG: Found target function deletion_of_data_structure_sentinel_main
+DEBUG: Function has 0 arguments
+DEBUG: Function deletion_of_data_structure_sentinel_main has no parameters, returning empty structs
+DEBUG: CLI main function detected: False
+DEBUG: No structs or params found, generating empty Input message
+Wrote proto to input.proto:
+
+syntax = "proto3";
+
+message Input {
+}
+

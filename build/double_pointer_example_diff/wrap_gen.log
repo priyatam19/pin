@@ -1,0 +1,8 @@
+Generated main.c for wrapper.
+Generated reference_runner.cc.
+DEBUG: Wrapper parse found struct Config with fields [('int', 'timeout'), ('int', 'retries')]
+DEBUG: pointer context {}
+DEBUG: walk_decls called with 1 fields, prefix='', depth=0, parser=libclang
+DEBUG: Processing field ('struct Config **', 'out_config'), name=out_config, is_struct=True, is_ptr=True
+DEBUG: Looking for struct type 'Config **', found 0 nested fields
+DEBUG: walk_decls called with 0 fields, prefix='out_config_', depth=1, parser=libclang

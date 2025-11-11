@@ -1,0 +1,20 @@
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Contrasting the fragmented manual harnessing workflow with the normalized PIN-enabled flow underscores the thesis motivation.\relax }}{2}{figure.caption.6}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Centralizing the challenge around fragmented C inputs while highlighting surrounding pain points helps frame the problem statement.\relax }}{4}{figure.caption.7}%
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Stacked view of the four major PIN components and the artifacts they emit for subsequent stages.\relax }}{6}{figure.caption.8}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces End-to-end architecture showing how preprocessing, static analysis, code generation, and verification stages interact.\relax }}{16}{figure.caption.9}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Selector-driven dual parser workflow highlighting preprocessing differences and convergence into shared metadata.\relax }}{18}{figure.caption.10}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Decision flow for prioritizing target functions, main signatures, and configuration globals when registering inputs.\relax }}{20}{figure.caption.11}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Matrix summarizing how C categories map into Protocol Buffer encodings and where pointer metadata is applied.\relax }}{21}{figure.caption.12}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Quick reference for how decoded message fields map to pointer reconstruction templates across helper types.\relax }}{25}{figure.caption.13}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces PIN pipeline with pointer metadata and dual decoder paths. Stage\nobreakspace {}B differential replay applies an equivalence-modulo-input-validation (EMI) filter before comparing normalized and reference executions.\relax }}{32}{figure.caption.14}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Differential testing loop with EMI filter gating comparisons between normalized binaries and reference runners.\relax }}{33}{figure.caption.15}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Visual scorecard reinforcing the table by clustering pointer fixtures into pass, pending, and blocked buckets.\relax }}{34}{figure.caption.17}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }

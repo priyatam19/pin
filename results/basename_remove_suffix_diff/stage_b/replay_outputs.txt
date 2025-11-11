@@ -1,0 +1,176 @@
+=== 005958ae61bd6f15e19fc92e1160b544ab1f40e8 ===
+[input decoded]
+{"name": "", "suffix": ""}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 112ea6e53068b63db864001842e5231a8f917272 ===
+[input decoded]
+{"name": "", "suffix": ""}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 2e42967352807b55a930ddc7c1d7653b5e25d119 ===
+[input decoded]
+{"name": "", "suffix": ""}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 53d0a314be74228dfd6fb838e38a01348697755c ===
+[input decoded]
+{"name": "", "suffix": ""}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 5e6240517df11c2cc3fde806f96be972aafe41ae ===
+[input decoded]
+{"name": "", "suffix": ""}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 86a6dd830cec4aeba832a7bf73da755dcbc2f6ee ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+
+=== a3040b2874eef9832e04e935bc07af6a2f5b13a8 ===
+[input decoded]
+{"name": "", "suffix": ""}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== bcac9d1d8eab3713ae489224d0130c9468e7a0e3 ===
+[input decoded]
+{"name": "", "suffix": ""}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== c573146e31ada14599ad9dc2cfdc2bbd59010e3a ===
+[input decoded]
+{"name": "", "suffix": ""}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== da4b9237bacccdf19c0760cab7aec4a8359010b0 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+
+=== seed_publish_valid.bin ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+
+=== seed_subscribe_valid.bin ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+
+=== seed_v1_0.bin ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+
+=== seed_v1_1.bin ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+
+=== seed_v1_2.bin ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+
+=== seed_v1_3.bin ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+
+=== seed_v1_4.bin ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+
+=== seed_v2_5.bin ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+
+=== seed_v2_6.bin ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+
+=== seed_v2_7.bin ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+
+=== seed_v2_8.bin ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+
+=== seed_v2_9.bin ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+

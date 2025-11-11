@@ -1,0 +1,8 @@
+=== f2555d77c59327985b62370270a9e874d606b0c8 ===
+[input decoded]
+{"p1": {"present": false, "value": {"x": 0.0, "y": 0.0}}, "p2": {"present": false, "value": {"x": 0.0, "y": 0.0}}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+

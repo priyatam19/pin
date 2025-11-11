@@ -1,0 +1,16 @@
+=== 900229d109e2354708da1b4fe903c1ef0e741ab8 ===
+[input decoded]
+{"new_zip": 0, "person": {"present": false, "value": {"addr": {"street_number": 0, "zip": 0}, "age": 0}}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== ee536e654b758e720bb11b374e1cc8366dfda8b7 ===
+[input decoded]
+{"new_zip": 0, "person": {"present": true, "value": {"addr": {"street_number": 0, "zip": 0}, "age": 0}}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+

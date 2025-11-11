@@ -1,6 +1,6 @@
-DEBUG: Starting main with file tmp_structs.c, func dump_mode_bytes, parser libclang, headers /workspace/
-DEBUG: Parsing file tmp_structs.c with libclang
-DEBUG: Libclang args: ['-I/workspace/']
+DEBUG: Starting main with file /home/priyatam/pin/examples/simple_benchs/mode_buffer_dump.c, func dump_mode_bytes, parser libclang, headers 
+DEBUG: Parsing file /home/priyatam/pin/examples/simple_benchs/mode_buffer_dump.c with libclang
+DEBUG: Libclang args: []
 DEBUG: Scanning for function dump_mode_bytes
 DEBUG: Found target function dump_mode_bytes
 DEBUG: Function has 1 arguments
@@ -8,12 +8,28 @@ DEBUG: Param type: const char *
 DEBUG: Found called function puts
 DEBUG: Found called function puts
 DEBUG: Found called function printf
-DEBUG: Collecting structs from tmp_structs.c
-DEBUG: Parsing headers in /workspace/
+DEBUG: Collecting structs from /home/priyatam/pin/examples/simple_benchs/mode_buffer_dump.c
+DEBUG: Skipped struct __fsid_t from /usr/include/x86_64-linux-gnu/bits/types.h (not in main file or headers dir)
+DEBUG: Skipped struct __fsid_t from /usr/include/x86_64-linux-gnu/bits/types.h (not in main file or headers dir)
+DEBUG: Skipped struct __mbstate_t from /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h (not in main file or headers dir)
+DEBUG: Skipped struct __mbstate_t from /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos64_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos64_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/__FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_marker from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_codecvt from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_wide_data from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
 DEBUG: Function dump_mode_bytes params: [('const char *', 'mode')]
+DEBUG: Recorded pointer metadata for param dump_mode_bytes.mode: PointerMetadata(depth=1, base_type='char', qualifiers=['const'], kind='string_ptr', proto_hint='string', raw='const char *', clean_base=None, wrapper_name=None, length_param=None, length_type=None, length_proto=None, typedef_target=None, include_header=None, external=False)
 DEBUG: CLI main function detected: False
 DEBUG: Mapping type for decl: ('const char *', 'mode')
 DEBUG: Using function params for Input: [('string', 'mode')]
+DEBUG: Mapping type for decl: ('const char *', 'mode')
 Wrote proto to input.proto:
 
 syntax = "proto3";

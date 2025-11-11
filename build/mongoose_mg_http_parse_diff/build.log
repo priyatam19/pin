@@ -1,0 +1,27 @@
+[+] Generate .proto (libclang parser)
+[i] Skipping C++ protobuf generation (reference decoder=nanopb)
+[+] Generate Python protobuf helpers
+[+] Generate nanopb protobuf (for wrapper decode)
+[+] Generate wrapper with pin_wrapper_entry() and standalone main
+[+] Compile original object (instrumented) and plain object
+[+] Compile nanopb runtime and wrapper
+[+] Compile wrapper object (no main) for fuzz_bytes
+main.c:46:61: warning: declaration of 'struct mg_http_message' will not be visible outside of this function [-Wvisibility]
+extern int mg_http_parse(const char * s, size_t len, struct mg_http_message * hm);
+                                                            ^
+main.c:58:11: error: no member named 's' in 'struct _Input'
+    input.s.arg = s_buf;
+    ~~~~~ ^
+main.c:59:11: error: no member named 's' in 'struct _Input'
+    input.s.funcs.decode = &decode_s;
+    ~~~~~ ^
+main.c:67:15: error: no member named 'hm' in 'struct _Input'
+    if (input.hm.present) {
+        ~~~~~ ^
+main.c:68:28: error: no member named 'hm' in 'struct _Input'
+        hm_storage = input.hm.value;
+                     ~~~~~ ^
+main.c:71:32: error: no member named 'len' in 'struct _Input'
+    mg_http_parse(s_buf, input.len, hm_ptr);
+                         ~~~~~ ^
+1 warning and 5 errors generated.

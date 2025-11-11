@@ -1,0 +1,39 @@
+[+] Generate .proto (libclang parser)
+[i] Skipping C++ protobuf generation (reference decoder=nanopb)
+[+] Generate Python protobuf helpers
+[+] Generate nanopb protobuf (for wrapper decode)
+[+] Generate wrapper with pin_wrapper_entry() and standalone main
+[+] Compile original object (instrumented) and plain object
+[+] Compile nanopb runtime and wrapper
+[+] Compile wrapper object (no main) for fuzz_bytes
+main.c:49:35: error: use of undeclared identifier 'value'
+        ctx->data[ctx->count++] = value;
+                                  ^
+main.c:55:33: warning: declaration of 'struct mg_queue' will not be visible outside of this function [-Wvisibility]
+extern void mg_queue_del(struct mg_queue * q, size_t len);
+                                ^
+main.c:65:11: error: no member named 'q' in 'struct _Input'
+    input.q.data.funcs.decode = decode_MgQueuePtr_data;
+    ~~~~~ ^
+main.c:66:11: error: no member named 'q' in 'struct _Input'
+    input.q.data.arg = &q_ctx;
+    ~~~~~ ^
+main.c:73:35: error: no member named 'q' in 'struct _Input'
+    uint64_t q_length_raw = input.q.length;
+                            ~~~~~ ^
+main.c:81:11: error: no member named 'has_q' in 'struct _Input'
+    input.has_q = (q_len > 0);
+    ~~~~~ ^
+main.c:82:11: error: no member named 'q' in 'struct _Input'
+    input.q.length = (uint64_t)q_len;
+    ~~~~~ ^
+main.c:94:15: error: no member named 'len' in 'struct _Input'
+    if (input.len != (size_t)q_len) {
+        ~~~~~ ^
+main.c:99:18: warning: incompatible pointer types passing 'struct mg_queue *' to parameter of type 'struct mg_queue *' [-Wincompatible-pointer-types]
+    mg_queue_del(q_ptr, (size_t)q_len);
+                 ^~~~~
+main.c:55:44: note: passing argument to parameter 'q' here
+extern void mg_queue_del(struct mg_queue * q, size_t len);
+                                           ^
+2 warnings and 7 errors generated.

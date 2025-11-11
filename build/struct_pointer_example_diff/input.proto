@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+message SensorPtr {
+  bool present = 1;
+  Sensor value = 2;
+}
+
+message Input {
+  SensorPtr sensor = 1;
+}
+
+message Sensor {
+  int32 id = 1;
+  double reading = 2;
+}

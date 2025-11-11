@@ -1,0 +1,47 @@
+#include <cstddef>
+#include <cstdint>
+#include <cstdio>
+#include <cstdlib>
+#include <fstream>
+#include <vector>
+
+#include <google/protobuf/stubs/common.h>
+#include "cpp_proto/input.pb.h"
+
+extern "C" int mg_http_parse(const char * s, size_t len, struct mg_http_message * hm);
+
+int pin_reference_entry(const uint8_t *data, size_t len) {
+    Input msg;
+    if (!msg.ParseFromArray(data, static_cast<int>(len))) {
+        return 1;
+    }
+    const auto& hm_msg = msg.hm();
+    mg_http_message hm_storage = {};
+    struct mg_http_message * hm_ptr = nullptr;
+    if (hm_msg.has_value()) {
+        hm_storage = hm_msg.value();
+        hm_ptr = &hm_storage;
+    }
+    mg_http_parse(msg.s().c_str(), msg.len(), hm_ptr);
+    return 0;
+}
+
+int main(int argc, char *argv[]) {
+    if (argc != 2) {
+        std::fprintf(stderr, "Usage: %s input.bin\n", argv[0]);
+        return 1;
+    }
+
+    GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+    std::ifstream ifs(argv[1], std::ios::binary);
+    if (!ifs) {
+        std::perror("ifstream");
+        return 1;
+    }
+    std::vector<uint8_t> buffer((std::istreambuf_iterator<char>(ifs)), std::istreambuf_iterator<char>());
+
+    int rc = pin_reference_entry(buffer.data(), buffer.size());
+    ::google::protobuf::ShutdownProtobufLibrary();
+    return rc;
+}

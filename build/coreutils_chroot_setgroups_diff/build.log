@@ -1,0 +1,23 @@
+[+] Generate .proto (libclang parser)
+[i] Skipping C++ protobuf generation (reference decoder=nanopb)
+[+] Generate Python protobuf helpers
+[+] Generate nanopb protobuf (for wrapper decode)
+[+] Generate wrapper with pin_wrapper_entry() and standalone main
+[+] Compile original object (instrumented) and plain object
+/home/priyatam/pin/examples/coreutils/chroot_setgroups.c:8:25: error: unknown type name 'MAYBE_UNUSED'
+setgroups (size_t size, MAYBE_UNUSED gid_t const *list){
+                        ^
+/home/priyatam/pin/examples/coreutils/chroot_setgroups.c:8:44: error: expected ')'
+setgroups (size_t size, MAYBE_UNUSED gid_t const *list){
+                                           ^
+/home/priyatam/pin/examples/coreutils/chroot_setgroups.c:8:11: note: to match this '('
+setgroups (size_t size, MAYBE_UNUSED gid_t const *list){
+          ^
+/home/priyatam/pin/examples/coreutils/chroot_setgroups.c:18:7: error: use of undeclared identifier 'errno'
+      errno = ENOTSUP;
+      ^
+/home/priyatam/pin/examples/coreutils/chroot_setgroups.c:18:15: error: use of undeclared identifier 'ENOTSUP'
+      errno = ENOTSUP;
+              ^
+4 errors generated.
+[-] Failed compiling original

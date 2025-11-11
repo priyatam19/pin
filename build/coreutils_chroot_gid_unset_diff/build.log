@@ -1,0 +1,17 @@
+[+] Generate .proto (libclang parser)
+[i] Skipping C++ protobuf generation (reference decoder=nanopb)
+[+] Generate Python protobuf helpers
+[+] Generate nanopb protobuf (for wrapper decode)
+[+] Generate wrapper with pin_wrapper_entry() and standalone main
+[+] Compile original object (instrumented) and plain object
+/home/priyatam/pin/examples/coreutils/chroot_gid_unset.c:7:8: error: unknown type name 'bool'
+inline bool gid_unset (gid_t gid){ return gid == (gid_t) -1; }
+       ^
+/home/priyatam/pin/examples/coreutils/chroot_gid_unset.c:7:24: error: unknown type name 'gid_t'
+inline bool gid_unset (gid_t gid){ return gid == (gid_t) -1; }
+                       ^
+/home/priyatam/pin/examples/coreutils/chroot_gid_unset.c:7:51: error: use of undeclared identifier 'gid_t'
+inline bool gid_unset (gid_t gid){ return gid == (gid_t) -1; }
+                                                  ^
+3 errors generated.
+[-] Failed compiling original

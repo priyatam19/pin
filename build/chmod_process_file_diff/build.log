@@ -1,0 +1,87 @@
+[+] Generate .proto (libclang parser)
+[i] Skipping C++ protobuf generation (reference decoder=nanopb)
+[+] Generate Python protobuf helpers
+[+] Generate nanopb protobuf (for wrapper decode)
+[+] Generate wrapper with pin_wrapper_entry() and standalone main
+[+] Compile original object (instrumented) and plain object
+/home/priyatam/pin/examples/coreutils/chmod_process_file.c:6:1: error: unknown type name 'bool'
+bool
+^
+/home/priyatam/pin/examples/coreutils/chmod_process_file.c:7:15: error: unknown type name 'FTS'
+process_file (FTS *fts, FTSENT *ent){
+              ^
+/home/priyatam/pin/examples/coreutils/chmod_process_file.c:7:25: error: unknown type name 'FTSENT'
+process_file (FTS *fts, FTSENT *ent){
+                        ^
+/home/priyatam/pin/examples/coreutils/chmod_process_file.c:11:24: error: variable has incomplete type 'struct change_status'
+  struct change_status ch = {0};
+                       ^
+/home/priyatam/pin/examples/coreutils/chmod_process_file.c:11:10: note: forward declaration of 'struct change_status'
+  struct change_status ch = {0};
+         ^
+/home/priyatam/pin/examples/coreutils/chmod_process_file.c:12:15: error: use of undeclared identifier 'CH_NO_STAT'
+  ch.status = CH_NO_STAT;
+              ^
+/home/priyatam/pin/examples/coreutils/chmod_process_file.c:13:15: error: variable has incomplete type 'struct stat'
+  struct stat stat_buf;
+              ^
+/home/priyatam/pin/examples/coreutils/chmod_process_file.c:10:16: note: forward declaration of 'struct stat'
+  const struct stat *file_stats = ent->fts_statp;
+               ^
+/home/priyatam/pin/examples/coreutils/chmod_process_file.c:17:10: error: use of undeclared identifier 'FTS_DP'
+    case FTS_DP:
+         ^
+/home/priyatam/pin/examples/coreutils/chmod_process_file.c:18:14: error: use of undeclared identifier 'true'
+      return true;
+             ^
+/home/priyatam/pin/examples/coreutils/chmod_process_file.c:20:10: error: use of undeclared identifier 'FTS_NS'
+    case FTS_NS:
+         ^
+/home/priyatam/pin/examples/coreutils/chmod_process_file.c:31:11: warning: implicit declaration of function 'fts_set' is invalid in C99 [-Wimplicit-function-declaration]
+          fts_set (fts, ent, FTS_AGAIN);
+          ^
+/home/priyatam/pin/examples/coreutils/chmod_process_file.c:31:30: error: use of undeclared identifier 'FTS_AGAIN'
+          fts_set (fts, ent, FTS_AGAIN);
+                             ^
+/home/priyatam/pin/examples/coreutils/chmod_process_file.c:32:18: error: use of undeclared identifier 'true'
+          return true;
+                 ^
+/home/priyatam/pin/examples/coreutils/chmod_process_file.c:34:13: error: use of undeclared identifier 'force_silent'
+      if (! force_silent)
+            ^
+/home/priyatam/pin/examples/coreutils/chmod_process_file.c:35:9: warning: implicit declaration of function 'error' is invalid in C99 [-Wimplicit-function-declaration]
+        error (0, ent->fts_errno, _("cannot access %s"),
+        ^
+/home/priyatam/pin/examples/coreutils/chmod_process_file.c:35:35: warning: implicit declaration of function '_' is invalid in C99 [-Wimplicit-function-declaration]
+        error (0, ent->fts_errno, _("cannot access %s"),
+                                  ^
+/home/priyatam/pin/examples/coreutils/chmod_process_file.c:36:16: warning: implicit declaration of function 'quoteaf' is invalid in C99 [-Wimplicit-function-declaration]
+               quoteaf (file_full_name));
+               ^
+/home/priyatam/pin/examples/coreutils/chmod_process_file.c:39:10: error: use of undeclared identifier 'FTS_ERR'
+    case FTS_ERR:
+         ^
+/home/priyatam/pin/examples/coreutils/chmod_process_file.c:40:13: error: use of undeclared identifier 'force_silent'
+      if (! force_silent)
+            ^
+/home/priyatam/pin/examples/coreutils/chmod_process_file.c:41:41: warning: implicit declaration of function 'quotef' is invalid in C99 [-Wimplicit-function-declaration]
+        error (0, ent->fts_errno, "%s", quotef (file_full_name));
+                                        ^
+/home/priyatam/pin/examples/coreutils/chmod_process_file.c:44:10: error: use of undeclared identifier 'FTS_DNR'
+    case FTS_DNR:
+         ^
+/home/priyatam/pin/examples/coreutils/chmod_process_file.c:45:13: error: use of undeclared identifier 'force_silent'
+      if (! force_silent)
+            ^
+/home/priyatam/pin/examples/coreutils/chmod_process_file.c:50:10: error: use of undeclared identifier 'FTS_SLNONE'
+    case FTS_SLNONE:
+         ^
+/home/priyatam/pin/examples/coreutils/chmod_process_file.c:51:11: error: use of undeclared identifier 'dereference'
+      if (dereference)
+          ^
+/home/priyatam/pin/examples/coreutils/chmod_process_file.c:53:17: error: use of undeclared identifier 'force_silent'
+          if (! force_silent)
+                ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+5 warnings and 20 errors generated.
+[-] Failed compiling original

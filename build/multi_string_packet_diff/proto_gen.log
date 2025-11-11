@@ -1,33 +1,30 @@
-DEBUG: Starting main with file /workspace/examples/multi_string_packet.c, func inspect_packet, parser libclang, headers 
-DEBUG: Parsing file /workspace/examples/multi_string_packet.c with libclang
+DEBUG: Starting main with file /home/priyatam/pin/examples/simple_benchs/multi_string_packet.c, func inspect_packet, parser libclang, headers 
+DEBUG: Parsing file /home/priyatam/pin/examples/simple_benchs/multi_string_packet.c with libclang
 DEBUG: Libclang args: []
 DEBUG: Scanning for function inspect_packet
 DEBUG: Found target function inspect_packet
 DEBUG: Function has 1 arguments
 DEBUG: Param type: struct NotePacket
 DEBUG: Added referenced struct NotePacket
-DEBUG: Found called function strlen
-DEBUG: Found called function strlen
-DEBUG: Found called function printf
-DEBUG: Collecting structs from /workspace/examples/multi_string_packet.c
-DEBUG: Skipped struct  from /usr/include/aarch64-linux-gnu/bits/types.h (not in main file or headers dir)
-DEBUG: Skipped struct  from /usr/include/aarch64-linux-gnu/bits/types.h (not in main file or headers dir)
-DEBUG: Skipped struct  from /usr/include/aarch64-linux-gnu/bits/types/__mbstate_t.h (not in main file or headers dir)
-DEBUG: Skipped struct  from /usr/include/aarch64-linux-gnu/bits/types/__mbstate_t.h (not in main file or headers dir)
-DEBUG: Skipped struct _G_fpos_t from /usr/include/aarch64-linux-gnu/bits/types/__fpos_t.h (not in main file or headers dir)
-DEBUG: Skipped struct _G_fpos_t from /usr/include/aarch64-linux-gnu/bits/types/__fpos_t.h (not in main file or headers dir)
-DEBUG: Skipped struct _G_fpos64_t from /usr/include/aarch64-linux-gnu/bits/types/__fpos64_t.h (not in main file or headers dir)
-DEBUG: Skipped struct _G_fpos64_t from /usr/include/aarch64-linux-gnu/bits/types/__fpos64_t.h (not in main file or headers dir)
-DEBUG: Skipped struct _IO_FILE from /usr/include/aarch64-linux-gnu/bits/types/__FILE.h (not in main file or headers dir)
-DEBUG: Skipped struct _IO_FILE from /usr/include/aarch64-linux-gnu/bits/types/FILE.h (not in main file or headers dir)
-DEBUG: Skipped struct _IO_FILE from /usr/include/aarch64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
-DEBUG: Skipped struct _IO_marker from /usr/include/aarch64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
-DEBUG: Skipped struct _IO_codecvt from /usr/include/aarch64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
-DEBUG: Skipped struct _IO_wide_data from /usr/include/aarch64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
-DEBUG: Skipped struct _IO_FILE from /usr/include/aarch64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
-DEBUG: Skipped struct __locale_struct from /usr/include/aarch64-linux-gnu/bits/types/__locale_t.h (not in main file or headers dir)
-DEBUG: Skipped struct __locale_data from /usr/include/aarch64-linux-gnu/bits/types/__locale_t.h (not in main file or headers dir)
-DEBUG: Found struct NotePacket in /workspace/examples/multi_string_packet.c
+DEBUG: Collecting structs from /home/priyatam/pin/examples/simple_benchs/multi_string_packet.c
+DEBUG: Skipped struct __fsid_t from /usr/include/x86_64-linux-gnu/bits/types.h (not in main file or headers dir)
+DEBUG: Skipped struct __fsid_t from /usr/include/x86_64-linux-gnu/bits/types.h (not in main file or headers dir)
+DEBUG: Skipped struct __mbstate_t from /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h (not in main file or headers dir)
+DEBUG: Skipped struct __mbstate_t from /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos64_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos64_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/__FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_marker from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_codecvt from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_wide_data from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct __locale_struct from /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h (not in main file or headers dir)
+DEBUG: Skipped struct __locale_data from /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h (not in main file or headers dir)
+DEBUG: Found struct NotePacket in /home/priyatam/pin/examples/simple_benchs/multi_string_packet.c
 DEBUG: Added struct NotePacket with fields [('int32', 'id'), ('string', 'primary'), ('string', 'secondary')]
 DEBUG: Function inspect_packet params: [('struct NotePacket', 'pkt')]
 DEBUG: CLI main function detected: False
@@ -36,17 +33,18 @@ DEBUG: Mapping type for decl: ('int32', 'id')
 DEBUG: Mapping type for decl: ('string', 'primary')
 DEBUG: Mapping type for decl: ('string', 'secondary')
 DEBUG: Added Input wrapper for NotePacket
+DEBUG: Mapping type for decl: ('struct NotePacket', 'pkt')
 Wrote proto to input.proto:
 
 syntax = "proto3";
+
+message Input {
+  NotePacket pkt = 1;
+}
 
 message NotePacket {
   int32 id = 1;
   string primary = 2;
   string secondary = 3;
-}
-
-message Input {
-  NotePacket input = 1;
 }
 

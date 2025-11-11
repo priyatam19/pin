@@ -1,0 +1,47 @@
+DEBUG: Starting main with file /home/priyatam/pin/examples/pointers/multiple_pointers_example.c, func process_data, parser libclang, headers 
+DEBUG: Parsing file /home/priyatam/pin/examples/pointers/multiple_pointers_example.c with libclang
+DEBUG: Libclang args: []
+DEBUG: Scanning for function process_data
+DEBUG: Found target function process_data
+DEBUG: Function has 4 arguments
+DEBUG: Param type: int *
+DEBUG: Param type: const float *
+DEBUG: Param type: int
+DEBUG: Param type: const char *
+DEBUG: Collecting structs from /home/priyatam/pin/examples/pointers/multiple_pointers_example.c
+DEBUG: Function process_data params: [('int *', 'error_code'), ('const float *', 'readings'), ('int', 'num_readings'), ('const char *', 'label')]
+DEBUG: Detected length companion num_readings for pointer readings
+DEBUG: Recorded pointer metadata for param process_data.error_code: PointerMetadata(depth=1, base_type='int', qualifiers=[], kind='scalar_ptr', proto_hint='Int32ScalarPtr', raw='int *', clean_base=None, wrapper_name='Int32ScalarPtr', length_param=None, length_type=None, length_proto=None, typedef_target=None, include_header=None, external=False)
+DEBUG: Recorded pointer metadata for param process_data.readings: PointerMetadata(depth=1, base_type='float', qualifiers=['const'], kind='scalar_ptr', proto_hint='FloatSlice', raw='const float *', clean_base=None, wrapper_name='FloatSlice', length_param='num_readings', length_type='int', length_proto='int32', typedef_target=None, include_header=None, external=False)
+DEBUG: Recorded pointer metadata for param process_data.label: PointerMetadata(depth=1, base_type='char', qualifiers=['const'], kind='string_ptr', proto_hint='string', raw='const char *', clean_base=None, wrapper_name=None, length_param=None, length_type=None, length_proto=None, typedef_target=None, include_header=None, external=False)
+DEBUG: CLI main function detected: False
+DEBUG: Mapping type for decl: ('int *', 'error_code')
+DEBUG: Mapping type for decl: ('const float *', 'readings')
+DEBUG: Mapping type for decl: ('int', 'num_readings')
+DEBUG: Mapping type for decl: ('const char *', 'label')
+DEBUG: Using function params for Input: [('Int32ScalarPtr', 'error_code'), ('FloatSlice', 'readings'), ('int32', 'num_readings'), ('string', 'label')]
+DEBUG: Mapping type for decl: ('int *', 'error_code')
+DEBUG: Mapping type for decl: ('const float *', 'readings')
+DEBUG: Mapping type for decl: ('int', 'num_readings')
+DEBUG: Mapping type for decl: ('const char *', 'label')
+Wrote proto to input.proto:
+
+syntax = "proto3";
+
+message Int32ScalarPtr {
+  bool has_value = 1;
+  int32 value = 2;
+}
+
+message FloatSlice {
+  repeated float data = 1;
+  int32 length = 2;
+}
+
+message Input {
+  Int32ScalarPtr error_code = 1;
+  FloatSlice readings = 2;
+  int32 num_readings = 3;
+  string label = 4;
+}
+

@@ -16,6 +16,13 @@ This tool is inspired by optimization-based program analysis techniques and aims
 
 Program analysis is complicated by diverse input interfaces (e.g., integers, strings, pointers, hybrids). PIN transforms any C program to accept inputs from a uniform domain (bytes), enabling standardized techniques like coverage-guided fuzzing or optimization solvers. This homogeneity drastically simplifies analysis, as highlighted in the project proposal.
 
+## Recent Updates (October 2025)
+
+- **Phase 1 evaluation artifacts**: Detailed experiment logs and dashboards for cJSON, FDLibM, and Mongoose now live in `reports/PHASE1_EXPERIMENT_RESULTS.md`, `reports/PHASE1_ACTUAL_RESULTS.md`, `reports/cJSON_PHASE1_RESULTS.md`, and `reports/cJSON_PIN_SUCCESS_ANALYSIS.md`, with matching coverage tables in `examples/mongoose_top30_coverage*.{csv,xls}` and imagery such as `reports/fdlibm_coverme_coverage.png`.
+- **PIN vs AFL research trail**: The end-to-end hypothesis write-up (`reports/HYPOTHESIS_TESTING_SUMMARY.md`) plus the supporting analysis/solution guides (`reports/PIN_AFL_HYPOTHESIS_ANALYSIS.md`, `reports/PIN_AFL_SOLUTION_GUIDE.md`) and pointer design notes (`reports/POINTER_IMPLEMENTATION_ANALYSIS.md`, `reports/POINTER_TESTING_ANALYSIS.md`, `reports/POINTER_UPDATES_ANALYSIS.md`, `reports/ptr_mgmt.md`) capture the latest lessons learned.
+- **Automation scripts**: A new `scripts/` directory (see `scripts/README.md`) adds utilities such as `scripts/test_nanopb_decoder_fix.sh`, `scripts/test_coreutils_suite.sh`, `scripts/test_coreutils_100.sh`, and `scripts/fix_libfuzzer_crashes.sh`, along with companion experiment drivers like `examples/mongoose_coverage_test.sh` and `examples/fdlibm/run_top20.sh`.
+- **Container refresh**: The Docker assets moved under `docker/Dockerfile`, which now ships the nanopb checkout in `/opt/nanopb` and an entrypoint that auto-populates `./nanopb` inside the workspace.
+
 ## Features
 
 - **Automatic Schema Generation**: Parses C code to extract input structs or function parameters, generating corresponding .proto files.
@@ -62,10 +69,10 @@ Program analysis is complicated by diverse input interfaces (e.g., integers, str
    ```
 
 ### Containerized Setup (Recommended)
-1. Build the image once: `docker build -t pin-dev .`
+1. Build the image once: `docker build -t pin-dev -f docker/Dockerfile .`
 2. Start a reusable container with your workspace mounted: `docker run -d --name pin-dev-container -v "$(pwd)":/workspace pin-dev tail -f /dev/null`
 3. Open a shell whenever you need it: `docker exec -it pin-dev-container bash` (or create an alias).
-   - The entrypoint auto-populates `/workspace/nanopb` from `/opt/nanopb`; set `PIN_AUTO_POPULATE_NANOPB=0` to skip this copy.
+   - The entrypoint auto-populates `/workspace/nanopb` from `/opt/nanopb`; set `PIN_AUTO_POPULATE_NANOPB=0` (or change `PIN_WORKSPACE_DIR`) to skip/redirect this copy.
    - Restart with `docker start -ai pin-dev-container` to resume work without rebuilding.
 
 
@@ -128,6 +135,13 @@ Run the differential pipeline to fuzz and replay normalized inputs:
 5. **Nanopb Code Gen**: Generate .pb.c/h for serialization/deserialization.
 6. **Compilation & Execution**: Compile original as object, link with wrapper and nanopb to produce pin_test, run with random input.
 7. **Run & Results**: Execute with random input, store outputs.
+
+## Utility Scripts & Experiment Automation
+
+- `scripts/README.md` indexes the helper scripts and the experiments they reproduce.
+- `scripts/test_nanopb_decoder_fix.sh` contrasts the default C++ protobuf decoder with nanopb to illustrate DIFF reductions.
+- `scripts/test_coreutils_suite.sh` and `scripts/test_coreutils_100.sh` drive large batches of normalization/fuzzing runs across curated Coreutils targets.
+- `scripts/fix_libfuzzer_crashes.sh` plus `examples/mongoose_coverage_test.sh` and `examples/fdlibm/run_top20.sh` provide repeatable fuzz triage flows (see `examples/mongoose_coverage_detailed.log` for sample coverage output).
 
 ## Current Status & Limitations
 

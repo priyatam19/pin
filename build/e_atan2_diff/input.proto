@@ -1,0 +1,6 @@
+syntax = "proto3";
+
+message Input {
+  double y = 1;
+  double x = 2;
+}

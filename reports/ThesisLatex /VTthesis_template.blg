@@ -1,0 +1,60 @@
+This is BibTeX, Version 0.99d (TeX Live 2022/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: VTthesis_template.aux
+The style file: IEEEtranN.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: pin_references.bib
+-- IEEEtranN.bst version 1.14 (2015/08/26) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+** Natbib version - not for normal IEEE work.
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+
+Done.
+You've used 23 entries,
+            4855 wiz_defined-function locations,
+            1077 strings with 12790 characters,
+and the built_in function-call counts, 21922 in all, are:
+= -- 1825
+> -- 693
+< -- 155
++ -- 346
+- -- 152
+* -- 1216
+:= -- 3181
+add.period$ -- 59
+call.type$ -- 23
+change.case$ -- 48
+chr.to.int$ -- 404
+cite$ -- 23
+duplicate$ -- 1420
+empty$ -- 1727
+format.name$ -- 194
+if$ -- 5021
+int.to.chr$ -- 1
+int.to.str$ -- 24
+missing$ -- 228
+newline$ -- 93
+num.names$ -- 69
+pop$ -- 636
+preamble$ -- 1
+purify$ -- 23
+quote$ -- 2
+skip$ -- 1594
+stack$ -- 0
+substring$ -- 960
+swap$ -- 1034
+text.length$ -- 21
+text.prefix$ -- 0
+top$ -- 6
+type$ -- 357
+warning$ -- 0
+while$ -- 110
+width$ -- 0
+write$ -- 276

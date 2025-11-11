@@ -1,0 +1,79 @@
+DEBUG: Starting main with file /home/priyatam/pin/examples/simple_benchs/myprog.c, func P, parser libclang, headers 
+DEBUG: Parsing file /home/priyatam/pin/examples/simple_benchs/myprog.c with libclang
+DEBUG: Libclang args: []
+DEBUG: Scanning for function P
+DEBUG: Found target function P
+DEBUG: Function has 3 arguments
+DEBUG: Param type: const MyStruct *
+DEBUG: Param type: const char *
+DEBUG: Param type: const char *
+DEBUG: Found called function printf
+DEBUG: Found called function printf
+DEBUG: Found called function printf
+DEBUG: Found called function printf
+DEBUG: Found called function printf
+DEBUG: Found called function printf
+DEBUG: Found called function printf
+DEBUG: Collecting structs from /home/priyatam/pin/examples/simple_benchs/myprog.c
+DEBUG: Found struct MyStruct in /home/priyatam/pin/examples/simple_benchs/myprog.c
+DEBUG: Added struct MyStruct with fields [('int32', 'id'), ('float', 'score'), ('string', 'name'), ('repeated double', 'values'), ('AnonymousStruct', 'sub')]
+DEBUG: Found struct struct (unnamed at /home/priyatam/pin/examples/simple_benchs/myprog.c:6:5) in /home/priyatam/pin/examples/simple_benchs/myprog.c
+DEBUG: Added struct AnonymousStruct with fields [('int32', 'code'), ('string', 'desc')]
+DEBUG: Found struct struct (unnamed at /home/priyatam/pin/examples/simple_benchs/myprog.c:6:5) in /home/priyatam/pin/examples/simple_benchs/myprog.c
+DEBUG: Added struct AnonymousStruct with fields [('int32', 'code'), ('string', 'desc')]
+DEBUG: Found struct MyStruct in /home/priyatam/pin/examples/simple_benchs/myprog.c
+DEBUG: Added struct MyStruct with fields [('int32', 'id'), ('float', 'score'), ('string', 'name'), ('repeated double', 'values'), ('AnonymousStruct', 'sub')]
+DEBUG: Found struct struct (unnamed at /home/priyatam/pin/examples/simple_benchs/myprog.c:6:5) in /home/priyatam/pin/examples/simple_benchs/myprog.c
+DEBUG: Added struct AnonymousStruct with fields [('int32', 'code'), ('string', 'desc')]
+DEBUG: Found struct struct (unnamed at /home/priyatam/pin/examples/simple_benchs/myprog.c:6:5) in /home/priyatam/pin/examples/simple_benchs/myprog.c
+DEBUG: Added struct AnonymousStruct with fields [('int32', 'code'), ('string', 'desc')]
+DEBUG: Skipped struct __fsid_t from /usr/include/x86_64-linux-gnu/bits/types.h (not in main file or headers dir)
+DEBUG: Skipped struct __fsid_t from /usr/include/x86_64-linux-gnu/bits/types.h (not in main file or headers dir)
+DEBUG: Skipped struct __mbstate_t from /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h (not in main file or headers dir)
+DEBUG: Skipped struct __mbstate_t from /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos64_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos64_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/__FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_marker from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_codecvt from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_wide_data from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Function P params: [('const MyStruct *', 'input'), ('const char *', 'name_buf'), ('const char *', 'sub_desc_buf')]
+DEBUG: Recorded pointer metadata for param P.input: PointerMetadata(depth=1, base_type='MyStruct', qualifiers=['const'], kind='opaque_ptr', proto_hint='bytes', raw='const MyStruct *', clean_base=None, wrapper_name=None, length_param=None, length_type=None, length_proto=None, typedef_target=None, include_header=None, external=False)
+DEBUG: Recorded pointer metadata for param P.name_buf: PointerMetadata(depth=1, base_type='char', qualifiers=['const'], kind='string_ptr', proto_hint='string', raw='const char *', clean_base=None, wrapper_name=None, length_param=None, length_type=None, length_proto=None, typedef_target=None, include_header=None, external=False)
+DEBUG: Recorded pointer metadata for param P.sub_desc_buf: PointerMetadata(depth=1, base_type='char', qualifiers=['const'], kind='string_ptr', proto_hint='string', raw='const char *', clean_base=None, wrapper_name=None, length_param=None, length_type=None, length_proto=None, typedef_target=None, include_header=None, external=False)
+DEBUG: CLI main function detected: False
+DEBUG: Mapping type for decl: ('int32', 'id')
+DEBUG: Mapping type for decl: ('float', 'score')
+DEBUG: Mapping type for decl: ('string', 'name')
+DEBUG: Mapping type for decl: ('repeated double', 'values')
+DEBUG: Unmapped type repeated double, using bytes
+DEBUG: Mapping type for decl: ('AnonymousStruct', 'sub')
+DEBUG: Mapping type for decl: ('int32', 'code')
+DEBUG: Mapping type for decl: ('string', 'desc')
+DEBUG: No primary input struct, using AnonymousStruct
+DEBUG: Mapping type for decl: ('const MyStruct *', 'input')
+DEBUG: Mapping type for decl: ('const char *', 'name_buf')
+DEBUG: Mapping type for decl: ('const char *', 'sub_desc_buf')
+Wrote proto to anonymousstruct.proto:
+
+syntax = "proto3";
+
+message AnonymousStruct {
+  bytes input = 1;
+  string name_buf = 2;
+  string sub_desc_buf = 3;
+}
+
+message MyStruct {
+  int32 id = 1;
+  float score = 2;
+  string name = 3;
+  bytes values = 4;
+  AnonymousStruct sub = 5;
+}
+

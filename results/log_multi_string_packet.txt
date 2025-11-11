@@ -1,0 +1,18 @@
+[+] Generate .proto (libclang parser)
+[+] Generate C++ protobuf (for original replay)
+[+] Generate Python protobuf helpers
+[+] Generate nanopb protobuf (for wrapper decode)
+[+] Generate wrapper with pin_wrapper_entry() and standalone main
+[+] Compile original object (instrumented) and plain object
+[+] Compile nanopb runtime and wrapper
+[+] Compile wrapper object (no main) for fuzz_bytes
+main.c:64:34: warning: declaration of 'struct NotePacket' will not be visible outside of this function [-Wvisibility]
+extern int inspect_packet(struct NotePacket pkt);
+                                 ^
+main.c:89:20: error: argument type 'struct NotePacket' is incomplete
+    inspect_packet(input.pkt);
+                   ^~~~~~~~~
+main.c:64:34: note: forward declaration of 'struct NotePacket'
+extern int inspect_packet(struct NotePacket pkt);
+                                 ^
+1 warning and 1 error generated.

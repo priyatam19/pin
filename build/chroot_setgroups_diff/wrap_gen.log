@@ -1,0 +1,23 @@
+Generated main.c for wrapper.
+Generated reference_runner.cc.
+DEBUG: Wrapper parse found struct __fsid_t with fields [('int[2]', '__val')]
+DEBUG: Wrapper parse found struct __fsid_t with fields [('int[2]', '__val')]
+DEBUG: Wrapper parse found struct __locale_struct with fields [('struct __locale_data *[13]', '__locales'), ('const unsigned short *', '__ctype_b'), ('const int *', '__ctype_tolower'), ('const int *', '__ctype_toupper'), ('const char *[13]', '__names')]
+DEBUG: Wrapper parse found struct __locale_data with fields []
+DEBUG: Wrapper parse found struct __mbstate_t with fields [('int', '__count'), ('union (unnamed union at /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:16:3)', '__value')]
+DEBUG: Wrapper parse found struct __mbstate_t with fields [('int', '__count'), ('union (unnamed union at /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:16:3)', '__value')]
+DEBUG: Wrapper parse found struct _G_fpos_t with fields [('__off_t', '__pos'), ('__mbstate_t', '__state')]
+DEBUG: Wrapper parse found struct _G_fpos_t with fields [('__off_t', '__pos'), ('__mbstate_t', '__state')]
+DEBUG: Wrapper parse found struct _G_fpos64_t with fields [('__off64_t', '__pos'), ('__mbstate_t', '__state')]
+DEBUG: Wrapper parse found struct _G_fpos64_t with fields [('__off64_t', '__pos'), ('__mbstate_t', '__state')]
+DEBUG: Wrapper parse found struct _IO_FILE with fields []
+DEBUG: Wrapper parse found struct _IO_FILE with fields []
+DEBUG: Wrapper parse found struct _IO_FILE with fields []
+DEBUG: Wrapper parse found struct _IO_marker with fields []
+DEBUG: Wrapper parse found struct _IO_codecvt with fields []
+DEBUG: Wrapper parse found struct _IO_wide_data with fields []
+DEBUG: Wrapper parse found struct _IO_FILE with fields [('int', '_flags'), ('char *', '_IO_read_ptr'), ('char *', '_IO_read_end'), ('char *', '_IO_read_base'), ('char *', '_IO_write_base'), ('char *', '_IO_write_ptr'), ('char *', '_IO_write_end'), ('char *', '_IO_buf_base'), ('char *', '_IO_buf_end'), ('char *', '_IO_save_base'), ('char *', '_IO_backup_base'), ('char *', '_IO_save_end'), ('struct _IO_marker *', '_markers'), ('struct _IO_FILE *', '_chain'), ('int', '_fileno'), ('int', '_flags2'), ('__off_t', '_old_offset'), ('unsigned short', '_cur_column'), ('signed char', '_vtable_offset'), ('char[1]', '_shortbuf'), ('_IO_lock_t *', '_lock'), ('__off64_t', '_offset'), ('struct _IO_codecvt *', '_codecvt'), ('struct _IO_wide_data *', '_wide_data'), ('struct _IO_FILE *', '_freeres_list'), ('void *', '_freeres_buf'), ('int', '__pad5'), ('int', '_mode'), ('char', '_unused2')]
+DEBUG: pointer context {}
+DEBUG: walk_decls called with 2 fields, prefix='', depth=0, parser=libclang
+DEBUG: Processing field ('int', 'size'), name=size, is_struct=False, is_ptr=False
+DEBUG: Processing field ('int', 'gid_t'), name=gid_t, is_struct=False, is_ptr=False

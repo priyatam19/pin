@@ -1,0 +1,27 @@
+[+] Generate .proto (libclang parser)
+[+] Generate C++ protobuf (for original replay)
+[+] Generate Python protobuf helpers
+[+] Generate nanopb protobuf (for wrapper decode)
+[+] Generate wrapper with pin_wrapper_entry() and standalone main
+[+] Compile original object (instrumented) and plain object
+[+] Compile nanopb runtime and wrapper
+[+] Compile wrapper object (no main) for fuzz_bytes
+main.c:28:30: warning: declaration of 'struct Config' will not be visible outside of this function [-Wvisibility]
+extern int get_config(struct Config ** out_config);
+                             ^
+main.c:43:16: warning: incompatible pointer types passing 'pb_callback_t *' (aka 'struct pb_callback_s *') to parameter of type 'struct Config **' [-Wincompatible-pointer-types]
+    get_config(&input.out_config);
+               ^~~~~~~~~~~~~~~~~
+main.c:28:40: note: passing argument to parameter 'out_config' here
+extern int get_config(struct Config ** out_config);
+                                       ^
+2 warnings generated.
+[+] Compile C++ protobuf support
+[+] Compile reference runner (protobuf decode)
+reference_runner.cc:18:5: error: no matching function for call to 'get_config'
+    get_config(&msg.out_config());
+    ^~~~~~~~~~
+reference_runner.cc:11:16: note: candidate function not viable: no known conversion from 'const std::string *' (aka 'const basic_string<char> *') to 'struct Config **' for 1st argument
+extern "C" int get_config(struct Config ** out_config);
+               ^
+1 error generated.

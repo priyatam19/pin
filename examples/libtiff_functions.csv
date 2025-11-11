@@ -1,0 +1,171 @@
+rank,name,score,return_type,param_count,params,reasons
+1,LogL10toY,5.0,double,1,int,Scalar-heavy signature
+2,LogL16toY,5.0,double,1,int,Scalar-heavy signature
+3,TIFFDataWidth,5.0,int,1,TIFFDataType,Scalar-heavy signature
+4,TIFFFindCODEC,5.0,const TIFFCodec*,1,uint16,Scalar-heavy signature
+5,TIFFGetBitRevTable,5.0,const unsigned char*,1,int,Scalar-heavy signature
+6,TIFFIsCODECConfigured,5.0,int,1,uint16,Scalar-heavy signature
+7,_TIFFmalloc,5.0,void*,1,tmsize_t s,Scalar-heavy signature
+8,LogL10fromY,5.0,int,2,double | int,Scalar-heavy signature
+9,LogL16fromY,5.0,int,2,double | int,Scalar-heavy signature
+10,uv_encode,5.0,int,3,double | double | int,Scalar-heavy signature
+11,TIFFReverseBits,4.5,void,2,uint8* cp | tmsize_t n,String/buffer pointer
+12,TIFFSwabArrayOfTriples,4.5,void,2,uint8* tp | tmsize_t n,String/buffer pointer
+13,TIFFGetConfiguredCODECs,4.0,TIFFCodec*,0,,No parameters (easy harness)
+14,TIFFGetVersion,4.0,const char*,0,,No parameters (easy harness)
+15,TIFFFieldDataType,4.0,TIFFDataType,1,const TIFFField*,Raw pointer
+16,TIFFFieldName,4.0,const char*,1,const TIFFField*,Raw pointer
+17,TIFFFieldPassCount,4.0,int,1,const TIFFField*,Raw pointer
+18,TIFFFieldReadCount,4.0,int,1,const TIFFField*,Raw pointer
+19,TIFFFieldTag,4.0,uint32,1,const TIFFField*,Raw pointer
+20,TIFFFieldWriteCount,4.0,int,1,const TIFFField*,Raw pointer
+21,TIFFSwabDouble,4.0,void,1,double*,Raw pointer
+22,TIFFSwabFloat,4.0,void,1,float*,Raw pointer
+23,TIFFSwabLong,4.0,void,1,uint32*,Raw pointer
+24,TIFFSwabLong8,4.0,void,1,uint64*,Raw pointer
+25,TIFFSwabShort,4.0,void,1,uint16*,Raw pointer
+26,TIFFUnRegisterCODEC,4.0,void,1,TIFFCodec*,Raw pointer
+27,_TIFFfree,4.0,void,1,void* p,Raw pointer
+28,LogLuv24fromXYZ,4.0,uint32,2,float* | int,Raw pointer
+29,LogLuv24toXYZ,4.0,void,2,uint32 | float*,Raw pointer
+30,LogLuv32fromXYZ,4.0,uint32,2,float* | int,Raw pointer
+31,LogLuv32toXYZ,4.0,void,2,uint32 | float*,Raw pointer
+32,TIFFOpen,4.0,TIFF*,2,const char* | const char*,String/buffer pointer
+33,TIFFOpenW,4.0,TIFF*,2,const wchar_t* | const char*,String/buffer pointer
+34,TIFFSwabArrayOfDouble,4.0,void,2,double* dp | tmsize_t n,Raw pointer
+35,TIFFSwabArrayOfFloat,4.0,void,2,float* fp | tmsize_t n,Raw pointer
+36,TIFFSwabArrayOfLong,4.0,void,2,uint32* lp | tmsize_t n,Raw pointer
+37,TIFFSwabArrayOfLong8,4.0,void,2,uint64* lp | tmsize_t n,Raw pointer
+38,TIFFSwabArrayOfShort,4.0,void,2,uint16* wp | tmsize_t n,Raw pointer
+39,_TIFFrealloc,4.0,void*,2,void* p | tmsize_t s,Raw pointer
+40,TIFFFdOpen,4.0,TIFF*,3,int | const char* | const char*,String/buffer pointer
+41,TIFFRegisterCODEC,4.0,TIFFCodec*,3,uint16 | const char* | TIFFInitMethod,String/buffer pointer; Custom scalar type
+42,_TIFFmemset,4.0,void,3,void* p | int v | tmsize_t c,Raw pointer
+43,XYZtoRGB24,3.5,void,2,float* | uint8*,Raw pointer; String/buffer pointer
+44,TIFFCheckpointDirectory,3.0,int,1,TIFF *,Requires TIFF* handle
+45,TIFFCleanup,3.0,void,1,TIFF* tif,Requires TIFF* handle
+46,TIFFClientdata,3.0,thandle_t,1,TIFF*,Requires TIFF* handle
+47,TIFFClose,3.0,void,1,TIFF* tif,Requires TIFF* handle
+48,TIFFCreateDirectory,3.0,int,1,TIFF*,Requires TIFF* handle
+49,TIFFCreateEXIFDirectory,3.0,int,1,TIFF*,Requires TIFF* handle
+50,TIFFCurrentDirOffset,3.0,uint64,1,TIFF*,Requires TIFF* handle
+51,TIFFCurrentDirectory,3.0,uint16,1,TIFF*,Requires TIFF* handle
+52,TIFFCurrentRow,3.0,uint32,1,TIFF*,Requires TIFF* handle
+53,TIFFCurrentStrip,3.0,uint32,1,TIFF*,Requires TIFF* handle
+54,TIFFCurrentTile,3.0,uint32,1,TIFF* tif,Requires TIFF* handle
+55,TIFFFileName,3.0,const char*,1,TIFF*,Requires TIFF* handle
+56,TIFFFileno,3.0,int,1,TIFF*,Requires TIFF* handle
+57,TIFFFlush,3.0,int,1,TIFF* tif,Requires TIFF* handle
+58,TIFFFlushData,3.0,int,1,TIFF* tif,Requires TIFF* handle
+59,TIFFFreeDirectory,3.0,void,1,TIFF*,Requires TIFF* handle
+60,TIFFGetCloseProc,3.0,TIFFCloseProc,1,TIFF*,Requires TIFF* handle
+61,TIFFGetMapFileProc,3.0,TIFFMapFileProc,1,TIFF*,Requires TIFF* handle
+62,TIFFGetMode,3.0,int,1,TIFF*,Requires TIFF* handle
+63,TIFFGetReadProc,3.0,TIFFReadWriteProc,1,TIFF*,Requires TIFF* handle
+64,TIFFGetSeekProc,3.0,TIFFSeekProc,1,TIFF*,Requires TIFF* handle
+65,TIFFGetSizeProc,3.0,TIFFSizeProc,1,TIFF*,Requires TIFF* handle
+66,TIFFGetTagListCount,3.0,int,1,TIFF *,Requires TIFF* handle
+67,TIFFGetUnmapFileProc,3.0,TIFFUnmapFileProc,1,TIFF*,Requires TIFF* handle
+68,TIFFGetWriteProc,3.0,TIFFReadWriteProc,1,TIFF*,Requires TIFF* handle
+69,TIFFIsBigEndian,3.0,int,1,TIFF*,Requires TIFF* handle
+70,TIFFIsByteSwapped,3.0,int,1,TIFF*,Requires TIFF* handle
+71,TIFFIsMSB2LSB,3.0,int,1,TIFF*,Requires TIFF* handle
+72,TIFFIsTiled,3.0,int,1,TIFF*,Requires TIFF* handle
+73,TIFFIsUpSampled,3.0,int,1,TIFF*,Requires TIFF* handle
+74,TIFFLastDirectory,3.0,int,1,TIFF*,Requires TIFF* handle
+75,TIFFNumberOfDirectories,3.0,uint16,1,TIFF*,Requires TIFF* handle
+76,TIFFNumberOfStrips,3.0,uint32,1,TIFF*,Requires TIFF* handle
+77,TIFFNumberOfTiles,3.0,uint32,1,TIFF*,Requires TIFF* handle
+78,TIFFRasterScanlineSize,3.0,tmsize_t,1,TIFF* tif,Requires TIFF* handle
+79,TIFFRasterScanlineSize64,3.0,uint64,1,TIFF* tif,Requires TIFF* handle
+80,TIFFReadDirectory,3.0,int,1,TIFF* tif,Requires TIFF* handle
+81,TIFFRewriteDirectory,3.0,int,1,TIFF *,Requires TIFF* handle
+82,TIFFScanlineSize,3.0,tmsize_t,1,TIFF* tif,Requires TIFF* handle
+83,TIFFScanlineSize64,3.0,uint64,1,TIFF* tif,Requires TIFF* handle
+84,TIFFSetupStrips,3.0,int,1,TIFF *,Requires TIFF* handle
+85,TIFFStripSize,3.0,tmsize_t,1,TIFF* tif,Requires TIFF* handle
+86,TIFFStripSize64,3.0,uint64,1,TIFF* tif,Requires TIFF* handle
+87,TIFFTileRowSize,3.0,tmsize_t,1,TIFF* tif,Requires TIFF* handle
+88,TIFFTileRowSize64,3.0,uint64,1,TIFF* tif,Requires TIFF* handle
+89,TIFFTileSize,3.0,tmsize_t,1,TIFF* tif,Requires TIFF* handle
+90,TIFFTileSize64,3.0,uint64,1,TIFF* tif,Requires TIFF* handle
+91,TIFFWriteDirectory,3.0,int,1,TIFF *,Requires TIFF* handle
+92,TIFFDefaultStripSize,3.0,uint32,2,TIFF* tif | uint32 request,Requires TIFF* handle
+93,TIFFFieldWithTag,3.0,const TIFFField*,2,TIFF* | uint32,Requires TIFF* handle
+94,TIFFGetTagListEntry,3.0,uint32,2,TIFF * | int tag_index,Requires TIFF* handle
+95,TIFFRGBAImageOK,3.0,int,2,TIFF* | char [1024],Requires TIFF* handle
+96,TIFFRawStripSize,3.0,tmsize_t,2,TIFF* tif | uint32 strip,Requires TIFF* handle
+97,TIFFRawStripSize64,3.0,uint64,2,TIFF* tif | uint32 strip,Requires TIFF* handle
+98,TIFFReadEXIFDirectory,3.0,int,2,TIFF* tif | toff_t diroff,Requires TIFF* handle
+99,TIFFSetDirectory,3.0,int,2,TIFF* | uint16,Requires TIFF* handle
+100,TIFFSetFileno,3.0,int,2,TIFF* | int,Requires TIFF* handle
+101,TIFFSetMode,3.0,int,2,TIFF* | int,Requires TIFF* handle
+102,TIFFSetSubDirectory,3.0,int,2,TIFF* | uint64,Requires TIFF* handle
+103,TIFFSetWriteOffset,3.0,void,2,TIFF* tif | toff_t off,Requires TIFF* handle
+104,TIFFUnlinkDirectory,3.0,int,2,TIFF* | uint16,Requires TIFF* handle
+105,TIFFUnsetField,3.0,int,2,TIFF* | uint32,Requires TIFF* handle
+106,TIFFVStripSize,3.0,tmsize_t,2,TIFF* tif | uint32 nrows,Requires TIFF* handle
+107,TIFFVStripSize64,3.0,uint64,2,TIFF* tif | uint32 nrows,Requires TIFF* handle
+108,TIFFVTileSize,3.0,tmsize_t,2,TIFF* tif | uint32 nrows,Requires TIFF* handle
+109,TIFFVTileSize64,3.0,uint64,2,TIFF* tif | uint32 nrows,Requires TIFF* handle
+110,TIFFComputeStrip,3.0,uint32,3,TIFF* | uint32 | uint16,Requires TIFF* handle
+111,TIFFFindField,3.0,const TIFFField*,3,TIFF * | uint32 | TIFFDataType,Requires TIFF* handle
+112,_TIFFmemcmp,3.0,int,3,const void* p1 | const void* p2 | tmsize_t c,Raw pointer
+113,_TIFFmemcpy,3.0,void,3,void* d | const void* s | tmsize_t c,Raw pointer
+114,uv_decode,3.0,int,3,double* | double* | int,Raw pointer
+115,TIFFCheckTile,3.0,int,5,TIFF* tif | uint32 x | uint32 y | uint32 z | uint16 s,Requires TIFF* handle
+116,TIFFComputeTile,3.0,uint32,5,TIFF* tif | uint32 x | uint32 y | uint32 z | uint16 s,Requires TIFF* handle
+117,TIFFRGBAImageEnd,2.5,void,1,TIFFRGBAImage*,Callback parameter
+118,TIFFSetErrorHandler,2.5,TIFFErrorHandler,1,TIFFErrorHandler,Callback parameter
+119,TIFFSetErrorHandlerExt,2.5,TIFFErrorHandlerExt,1,TIFFErrorHandlerExt,Callback parameter
+120,TIFFSetTagExtender,2.5,TIFFExtendProc,1,TIFFExtendProc,Callback parameter
+121,TIFFSetWarningHandler,2.5,TIFFErrorHandler,1,TIFFErrorHandler,Callback parameter
+122,TIFFSetWarningHandlerExt,2.5,TIFFErrorHandlerExt,1,TIFFErrorHandlerExt,Callback parameter
+123,TIFFFieldWithName,2.5,const TIFFField*,2,TIFF* | const char *,Requires TIFF* handle; String/buffer pointer
+124,TIFFSetClientdata,2.5,thandle_t,2,TIFF* | thandle_t,Requires TIFF* handle; Custom scalar type
+125,TIFFSetFileName,2.5,const char*,2,TIFF* | const char *,Requires TIFF* handle; String/buffer pointer
+126,TIFFMergeFieldInfo,2.5,int,3,TIFF* | const TIFFFieldInfo[] | uint32,Requires TIFF* handle; Custom scalar type
+127,TIFFWriteCheck,2.5,int,3,TIFF* | int | const char *,Requires TIFF* handle; String/buffer pointer
+128,TIFFCreateCustomDirectory,2.0,int,2,TIFF* | const TIFFFieldArray*,Requires TIFF* handle; Raw pointer
+129,TIFFWriteCustomDirectory,2.0,int,2,TIFF * | uint64 *,Requires TIFF* handle; Raw pointer
+130,TIFFPrintDirectory,2.0,void,3,TIFF* | FILE* | long,Requires TIFF* handle; Raw pointer
+131,TIFFReadBufferSetup,2.0,int,3,TIFF* tif | void* bp | tmsize_t size,Requires TIFF* handle; Raw pointer
+132,TIFFReadCustomDirectory,2.0,int,3,TIFF* tif | toff_t diroff | const TIFFFieldArray* infoarray,Requires TIFF* handle; Raw pointer
+133,TIFFReadRGBAStrip,2.0,int,3,TIFF* | uint32 | uint32 *,Requires TIFF* handle; Raw pointer
+134,TIFFWriteBufferSetup,2.0,int,3,TIFF* tif | void* bp | tmsize_t size,Requires TIFF* handle; Raw pointer
+135,TIFFReadEncodedStrip,2.0,tmsize_t,4,TIFF* tif | uint32 strip | void* buf | tmsize_t size,Requires TIFF* handle; Raw pointer
+136,TIFFReadEncodedTile,2.0,tmsize_t,4,TIFF* tif | uint32 tile | void* buf | tmsize_t size,Requires TIFF* handle; Raw pointer
+137,TIFFReadRGBATile,2.0,int,4,TIFF* | uint32 | uint32 | uint32 *,Requires TIFF* handle; Raw pointer
+138,TIFFReadRawStrip,2.0,tmsize_t,4,TIFF* tif | uint32 strip | void* buf | tmsize_t size,Requires TIFF* handle; Raw pointer
+139,TIFFReadRawTile,2.0,tmsize_t,4,TIFF* tif | uint32 tile | void* buf | tmsize_t size,Requires TIFF* handle; Raw pointer
+140,TIFFReadScanline,2.0,int,4,TIFF* tif | void* buf | uint32 row | uint16 sample,Requires TIFF* handle; Raw pointer
+141,TIFFWriteEncodedStrip,2.0,tmsize_t,4,TIFF* tif | uint32 strip | void* data | tmsize_t cc,Requires TIFF* handle; Raw pointer
+142,TIFFWriteEncodedTile,2.0,tmsize_t,4,TIFF* tif | uint32 tile | void* data | tmsize_t cc,Requires TIFF* handle; Raw pointer
+143,TIFFWriteRawStrip,2.0,tmsize_t,4,TIFF* tif | uint32 strip | void* data | tmsize_t cc,Requires TIFF* handle; Raw pointer
+144,TIFFWriteRawTile,2.0,tmsize_t,4,TIFF* tif | uint32 tile | void* data | tmsize_t cc,Requires TIFF* handle; Raw pointer
+145,TIFFWriteScanline,2.0,int,4,TIFF* tif | void* buf | uint32 row | uint16 sample,Requires TIFF* handle; Raw pointer
+146,TIFFReadRGBAImage,2.0,int,5,TIFF* | uint32 | uint32 | uint32* | int,Requires TIFF* handle; Raw pointer
+147,TIFFSetClientInfo,1.5,void,3,TIFF * | void * | const char *,Requires TIFF* handle; Raw pointer; String/buffer pointer
+148,TIFFRGBAImageGet,1.5,int,4,TIFFRGBAImage* | uint32* | uint32 | uint32,Callback parameter; Raw pointer
+149,TIFFReadRGBAImageOriented,1.5,int,6,TIFF* | uint32 | uint32 | uint32* | int | int,Requires TIFF* handle; Raw pointer; Many params (6)
+150,TIFFReadTile,1.5,tmsize_t,6,TIFF* tif | void* buf | uint32 x | uint32 y | uint32 z | uint16 s,Requires TIFF* handle; Raw pointer; Many params (6)
+151,TIFFWriteTile,1.5,tmsize_t,6,TIFF* tif | void* buf | uint32 x | uint32 y | uint32 z | uint16 s,Requires TIFF* handle; Raw pointer; Many params (6)
+152,TIFFDefaultTileSize,1.0,void,3,TIFF* | uint32* | uint32*,Requires TIFF* handle; Raw pointer
+153,TIFFError,1.0,void,3,const char* | const char* | ...),String/buffer pointer; Variadic parameter
+154,TIFFGetField,1.0,int,3,TIFF* tif | uint32 tag | ...,Requires TIFF* handle; Variadic parameter
+155,TIFFGetFieldDefaulted,1.0,int,3,TIFF* tif | uint32 tag | ...,Requires TIFF* handle; Variadic parameter
+156,TIFFSetField,1.0,int,3,TIFF* | uint32 | ...,Requires TIFF* handle; Variadic parameter
+157,TIFFVGetField,1.0,int,3,TIFF* tif | uint32 tag | va_list ap,Requires TIFF* handle; Variadic parameter
+158,TIFFVGetFieldDefaulted,1.0,int,3,TIFF* tif | uint32 tag | va_list ap,Requires TIFF* handle; Variadic parameter
+159,TIFFVSetField,1.0,int,3,TIFF* | uint32 | va_list,Requires TIFF* handle; Variadic parameter
+160,TIFFWarning,1.0,void,3,const char* | const char* | ...),String/buffer pointer; Variadic parameter
+161,void,1.0,"""C"" { typedef",3,*TIFFErrorHandler)(const char* | const char* | va_list,String/buffer pointer; Variadic parameter
+162,TIFFErrorExt,1.0,void,4,thandle_t | const char* | const char* | ...),Custom scalar type; String/buffer pointer; Variadic parameter
+163,TIFFWarningExt,1.0,void,4,thandle_t | const char* | const char* | ...),Custom scalar type; String/buffer pointer; Variadic parameter
+164,TIFFYCbCrToRGBInit,0.5,int,3,TIFFYCbCrToRGB* | float* | float*,Callback parameter; Raw pointer
+165,TIFFRGBAImageBegin,0.5,int,4,TIFFRGBAImage* | TIFF* | int | char [1024],Callback parameter; Requires TIFF* handle
+166,TIFFCIELabToRGBInit,0.0,int,3,TIFFCIELabToRGB* | const TIFFDisplay * | float*,Callback parameter; Raw pointer
+167,TIFFCIELabToXYZ,0.0,void,7,TIFFCIELabToRGB * | uint32 | int32 | int32 | float * | float * | float *,Callback parameter; Raw pointer; Many params (7)
+168,TIFFXYZToRGB,0.0,void,7,TIFFCIELabToRGB * | float | float | float | uint32 * | uint32 * | uint32 *,Callback parameter; Raw pointer; Many params (7)
+169,TIFFYCbCrtoRGB,0.0,void,7,TIFFYCbCrToRGB * | uint32 | int32 | int32 | uint32 * | uint32 * | uint32 *,Callback parameter; Raw pointer; Many params (7)
+170,TIFFClientOpen,0.0,TIFF*,10,const char* | const char* | thandle_t | TIFFReadWriteProc | TIFFReadWriteProc | TIFFSeekProc | TIFFCloseProc | TIFFSizeProc | TIFFMapFileProc | TIFFUnmapFileProc,String/buffer pointer; Custom scalar type; Callback parameter; Many params (10)

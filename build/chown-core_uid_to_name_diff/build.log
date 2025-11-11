@@ -1,0 +1,26 @@
+[+] Generate .proto (libclang parser)
+[i] Skipping C++ protobuf generation (reference decoder=nanopb)
+[+] Generate Python protobuf helpers
+[+] Generate nanopb protobuf (for wrapper decode)
+[+] Generate wrapper with pin_wrapper_entry() and standalone main
+[+] Compile original object (instrumented) and plain object
+/home/priyatam/pin/examples/coreutils/chown-core_uid_to_name.c:7:14: error: unknown type name 'uid_t'
+uid_to_name (uid_t uid){
+             ^
+/home/priyatam/pin/examples/coreutils/chown-core_uid_to_name.c:8:24: warning: implicit declaration of function 'getpwuid' is invalid in C99 [-Wimplicit-function-declaration]
+  struct passwd *pwd = getpwuid (uid);
+                       ^
+/home/priyatam/pin/examples/coreutils/chown-core_uid_to_name.c:9:16: warning: implicit declaration of function 'xstrdup' is invalid in C99 [-Wimplicit-function-declaration]
+  return pwd ? xstrdup (pwd->pw_name) : uid_to_str (uid);
+               ^
+/home/priyatam/pin/examples/coreutils/chown-core_uid_to_name.c:9:28: error: incomplete definition of type 'struct passwd'
+  return pwd ? xstrdup (pwd->pw_name) : uid_to_str (uid);
+                        ~~~^
+/home/priyatam/pin/examples/coreutils/chown-core_uid_to_name.c:8:10: note: forward declaration of 'struct passwd'
+  struct passwd *pwd = getpwuid (uid);
+         ^
+/home/priyatam/pin/examples/coreutils/chown-core_uid_to_name.c:9:41: warning: implicit declaration of function 'uid_to_str' is invalid in C99 [-Wimplicit-function-declaration]
+  return pwd ? xstrdup (pwd->pw_name) : uid_to_str (uid);
+                                        ^
+3 warnings and 2 errors generated.
+[-] Failed compiling original

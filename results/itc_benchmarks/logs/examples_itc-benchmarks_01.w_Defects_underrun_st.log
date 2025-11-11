@@ -1,0 +1,45 @@
+[+] Generate .proto (libclang parser)
+[i] Skipping C++ protobuf generation (reference decoder=nanopb)
+[+] Generate Python protobuf helpers
+[+] Generate nanopb protobuf (for wrapper decode)
+[+] Generate wrapper with pin_wrapper_entry() and standalone main
+[+] Compile original object (instrumented) and plain object
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/underrun_st.c:21:8: warning: array index -1 is before the beginning of the array [-Warray-bounds]
+        ret = buf[-1];/*Tool should detect this line as error*/ /*ERROR:Data Underrun*/
+              ^   ~~
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/underrun_st.c:19:2: note: array 'buf' declared here
+        int buf[5] = {1, 2, 3, 4, 5};
+        ^
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/underrun_st.c:31:2: warning: array index -1 is before the beginning of the array [-Warray-bounds]
+        buf[-1] = 1;/*Tool should detect this line as error*/ /*ERROR:Data Underrun*/
+        ^   ~~
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/underrun_st.c:30:2: note: array 'buf' declared here
+        int buf[5];
+        ^
+2 warnings generated.
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/underrun_st.c:21:8: warning: array index -1 is before the beginning of the array [-Warray-bounds]
+        ret = buf[-1];/*Tool should detect this line as error*/ /*ERROR:Data Underrun*/
+              ^   ~~
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/underrun_st.c:19:2: note: array 'buf' declared here
+        int buf[5] = {1, 2, 3, 4, 5};
+        ^
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/underrun_st.c:31:2: warning: array index -1 is before the beginning of the array [-Warray-bounds]
+        buf[-1] = 1;/*Tool should detect this line as error*/ /*ERROR:Data Underrun*/
+        ^   ~~
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/underrun_st.c:30:2: note: array 'buf' declared here
+        int buf[5];
+        ^
+2 warnings generated.
+[+] Compile extra sources (1)
+[+] Compile nanopb runtime and wrapper
+[+] Compile wrapper object (no main) for fuzz_bytes
+[+] Build nanopb reference replay binary
+[+] Build normalized standalone runner (reads bytes file)
+[+] Build libFuzzer byte harness to call pin_wrapper_entry (Stage A)
+[+] Link fuzz_bytes
+[+] Stage B: differential replay
+[i] Stage B: no inputs in /home/priyatam/pin/build/underrun_st_diff/corpus
+[+] Ready. Next steps:
+    1) Stage A (discovery): cd /home/priyatam/pin/build/underrun_st_diff && ./fuzz_bytes corpus -max_total_time=60 -use_value_profile=1
+    2) Stage B (replay): add inputs under /home/priyatam/pin/build/underrun_st_diff/corpus and rerun to compare normalized vs original outputs
+       Replay artifacts stored under /home/priyatam/pin/results/underrun_st_diff/stage_b

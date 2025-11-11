@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+message Input {
+  Int32ScalarPtr value = 1;
+  int32 scale = 2;
+}
+
+message Int32ScalarPtr {
+  bool has_value = 1;
+  int32 value = 2;
+}

@@ -1,0 +1,24 @@
+[+] Generate .proto (libclang parser)
+[i] Skipping C++ protobuf generation (reference decoder=nanopb)
+[+] Generate Python protobuf helpers
+[+] Generate nanopb protobuf (for wrapper decode)
+[+] Generate wrapper with pin_wrapper_entry() and standalone main
+[+] Compile original object (instrumented) and plain object
+[+] Compile nanopb runtime and wrapper
+[+] Compile wrapper object (no main) for fuzz_bytes
+main.c:46:35: warning: declaration of 'struct mg_str' will not be visible outside of this function [-Wvisibility]
+extern int mg_check_ip_acl(struct mg_str acl, uint32_t remote_ip);
+                                  ^
+main.c:58:11: error: no member named 'acl' in 'struct _Input'
+    input.acl.ptr.arg = acl_ptr_buf;
+    ~~~~~ ^
+main.c:59:11: error: no member named 'acl' in 'struct _Input'
+    input.acl.ptr.funcs.decode = &decode_acl_ptr;
+    ~~~~~ ^
+main.c:66:27: error: no member named 'acl' in 'struct _Input'
+    mg_check_ip_acl(input.acl, input.remote_ip);
+                    ~~~~~ ^
+main.c:66:38: error: no member named 'remote_ip' in 'struct _Input'
+    mg_check_ip_acl(input.acl, input.remote_ip);
+                               ~~~~~ ^
+1 warning and 4 errors generated.

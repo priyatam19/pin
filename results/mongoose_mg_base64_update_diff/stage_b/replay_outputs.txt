@@ -1,0 +1,32 @@
+=== 6a5b2545df4bfc2f6e2a2cac251db45c67dad769 ===
+[input decoded]
+{"ch": 0, "n": 13, "to": ""}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 73218f417030d3350ada60681c17905633b45667 ===
+[input decoded]
+{"ch": 0, "n": 0, "to": ""}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 94297de466fc62cb2c17f99c138040ef659b0dac ===
+[input decoded]
+{"ch": 13, "n": 0, "to": ""}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== b512a67ff6c648acff6e10acbb5f6f93ba9ae154 ===
+[input decoded]
+{"ch": 0, "n": 1754, "to": ""}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+

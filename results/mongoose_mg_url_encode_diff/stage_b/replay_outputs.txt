@@ -1,0 +1,48 @@
+=== 099600a10a944114aac406d136b625fb416dd779 ===
+[input decoded]
+{"buf": "", "len": 32, "s": "", "sl": 0}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 739255ad1645ebef6dee8e0d292f83432433bd7b ===
+[input decoded]
+{"buf": "", "len": 96, "s": "", "sl": 0}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== da030fea0dcc66d3a495b2e46bc489b450a0d1aa ===
+[input decoded]
+{"buf": "", "len": 298, "s": "", "sl": 0}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== dd122581c8cd44d0227f9c305581ffcb4b6f1b46 ===
+[input decoded]
+{"buf": "", "len": 10, "s": "", "sl": 0}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== f547969736d1e7689f9bba0569ae5b3bc4066765 ===
+[input decoded]
+{"buf": "", "len": 2, "s": "", "sl": 0}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== f6460d7d9d2b32d0dbd200d75a696a0a3e3a09e1 ===
+[input decoded]
+{"buf": "", "len": 0, "s": "", "sl": 0}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+

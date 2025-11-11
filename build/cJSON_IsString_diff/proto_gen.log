@@ -1,0 +1,104 @@
+DEBUG: Starting main with file /home/priyatam/pin/examples/cJSON/cJSON.c, func cJSON_IsString, parser libclang, headers /home/priyatam/pin/examples/cJSON
+DEBUG: Parsing file /home/priyatam/pin/examples/cJSON/cJSON.c with libclang
+DEBUG: Libclang args: ['-I/home/priyatam/pin/examples/cJSON']
+DEBUG: Scanning for function cJSON_IsString
+DEBUG: Found target function cJSON_IsString
+DEBUG: Function has 1 arguments
+DEBUG: Param type: const cJSON *const
+DEBUG: Collecting structs from /home/priyatam/pin/examples/cJSON/cJSON.c
+DEBUG: Skipped struct __locale_struct from /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h (not in main file or headers dir)
+DEBUG: Skipped struct __locale_data from /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h (not in main file or headers dir)
+DEBUG: Skipped struct __fsid_t from /usr/include/x86_64-linux-gnu/bits/types.h (not in main file or headers dir)
+DEBUG: Skipped struct __fsid_t from /usr/include/x86_64-linux-gnu/bits/types.h (not in main file or headers dir)
+DEBUG: Skipped struct __mbstate_t from /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h (not in main file or headers dir)
+DEBUG: Skipped struct __mbstate_t from /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos64_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos64_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/__FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_marker from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_codecvt from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_wide_data from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct div_t from /usr/include/stdlib.h (not in main file or headers dir)
+DEBUG: Skipped struct div_t from /usr/include/stdlib.h (not in main file or headers dir)
+DEBUG: Skipped struct ldiv_t from /usr/include/stdlib.h (not in main file or headers dir)
+DEBUG: Skipped struct ldiv_t from /usr/include/stdlib.h (not in main file or headers dir)
+DEBUG: Skipped struct lldiv_t from /usr/include/stdlib.h (not in main file or headers dir)
+DEBUG: Skipped struct lldiv_t from /usr/include/stdlib.h (not in main file or headers dir)
+DEBUG: Skipped struct __sigset_t from /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h (not in main file or headers dir)
+DEBUG: Skipped struct __sigset_t from /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h (not in main file or headers dir)
+DEBUG: Skipped struct timeval from /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h (not in main file or headers dir)
+DEBUG: Skipped struct timespec from /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h (not in main file or headers dir)
+DEBUG: Skipped struct fd_set from /usr/include/x86_64-linux-gnu/sys/select.h (not in main file or headers dir)
+DEBUG: Skipped struct fd_set from /usr/include/x86_64-linux-gnu/sys/select.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3) from /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3) from /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3) from /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3) from /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_internal_list from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_internal_list from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_internal_slist from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_internal_slist from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_mutex_s from /usr/include/x86_64-linux-gnu/bits/struct_mutex.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_rwlock_arch_t from /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_cond_s from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct __once_flag from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct __once_flag from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct random_data from /usr/include/stdlib.h (not in main file or headers dir)
+DEBUG: Skipped struct drand48_data from /usr/include/stdlib.h (not in main file or headers dir)
+DEBUG: Skipping header struct cJSON from /home/priyatam/pin/examples/cJSON/cJSON.h
+DEBUG: Skipping header struct cJSON from /home/priyatam/pin/examples/cJSON/cJSON.h
+DEBUG: Skipping header struct cJSON_Hooks from /home/priyatam/pin/examples/cJSON/cJSON.h
+DEBUG: Skipping header struct cJSON_Hooks from /home/priyatam/pin/examples/cJSON/cJSON.h
+DEBUG: Found struct struct (unnamed at /home/priyatam/pin/examples/cJSON/cJSON.c:88:9) in /home/priyatam/pin/examples/cJSON/cJSON.c
+DEBUG: Skipping external struct AnonymousStruct
+DEBUG: Found struct struct (unnamed at /home/priyatam/pin/examples/cJSON/cJSON.c:88:9) in /home/priyatam/pin/examples/cJSON/cJSON.c
+DEBUG: Skipping external struct AnonymousStruct
+DEBUG: Found struct internal_hooks in /home/priyatam/pin/examples/cJSON/cJSON.c
+DEBUG: Skipping external struct internal_hooks
+DEBUG: Found struct internal_hooks in /home/priyatam/pin/examples/cJSON/cJSON.c
+DEBUG: Skipping external struct internal_hooks
+DEBUG: Found struct struct (unnamed at /home/priyatam/pin/examples/cJSON/cJSON.c:289:9) in /home/priyatam/pin/examples/cJSON/cJSON.c
+DEBUG: Skipping external struct AnonymousStruct
+DEBUG: Found struct struct (unnamed at /home/priyatam/pin/examples/cJSON/cJSON.c:289:9) in /home/priyatam/pin/examples/cJSON/cJSON.c
+DEBUG: Skipping external struct AnonymousStruct
+DEBUG: Found struct struct (unnamed at /home/priyatam/pin/examples/cJSON/cJSON.c:473:9) in /home/priyatam/pin/examples/cJSON/cJSON.c
+DEBUG: Skipping external struct AnonymousStruct
+DEBUG: Found struct struct (unnamed at /home/priyatam/pin/examples/cJSON/cJSON.c:473:9) in /home/priyatam/pin/examples/cJSON/cJSON.c
+DEBUG: Skipping external struct AnonymousStruct
+DEBUG: Parsing headers in /home/priyatam/pin/examples/cJSON
+DEBUG: Parsing header /home/priyatam/pin/examples/cJSON/cJSON_Utils.h
+DEBUG: Found header struct cJSON
+DEBUG: Skipping external header struct cJSON
+DEBUG: Found header struct cJSON
+DEBUG: Skipping external header struct cJSON
+DEBUG: Found header struct cJSON_Hooks
+DEBUG: Skipping external header struct cJSON_Hooks
+DEBUG: Found header struct cJSON_Hooks
+DEBUG: Skipping external header struct cJSON_Hooks
+DEBUG: Parsing header /home/priyatam/pin/examples/cJSON/cJSON.h
+DEBUG: Found header struct cJSON
+DEBUG: Skipping external header struct cJSON
+DEBUG: Found header struct cJSON
+DEBUG: Skipping external header struct cJSON
+DEBUG: Found header struct cJSON_Hooks
+DEBUG: Skipping external header struct cJSON_Hooks
+DEBUG: Found header struct cJSON_Hooks
+DEBUG: Skipping external header struct cJSON_Hooks
+DEBUG: Function cJSON_IsString params: [('const cJSON *const', 'item')]
+DEBUG: Recorded pointer metadata for param cJSON_IsString.item: PointerMetadata(depth=1, base_type='struct cJSON', qualifiers=['const'], kind='struct_ptr', proto_hint='bytes', raw='const cJSON *const', clean_base='cJSON', wrapper_name=None, length_param=None, length_type=None, length_proto=None, typedef_target='cJSON', include_header='cJSON.h', external=True)
+DEBUG: CLI main function detected: False
+DEBUG: Skipping external pointer param item in proto fields
+DEBUG: Using function params for Input: []
+DEBUG: Skipping external pointer param item in proto fields
+Wrote proto to input.proto:
+
+syntax = "proto3";
+
+message Input {
+}
+

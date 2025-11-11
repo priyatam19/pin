@@ -1,0 +1,33 @@
+DEBUG: Starting main with file /home/priyatam/pin/examples/coreutils/basename_remove_suffix.c, func remove_suffix, parser libclang, headers /home/priyatam/pin/utils/coreutils_headers
+DEBUG: Parsing file /home/priyatam/pin/examples/coreutils/basename_remove_suffix.c with libclang
+DEBUG: Libclang args: ['-I/home/priyatam/pin/utils/coreutils_headers']
+DEBUG: Scanning for function remove_suffix
+DEBUG: Found target function remove_suffix
+DEBUG: Function has 2 arguments
+DEBUG: Param type: char *
+DEBUG: Param type: const char *
+DEBUG: Found called function strlen
+DEBUG: Found called function strlen
+DEBUG: Collecting structs from /home/priyatam/pin/examples/coreutils/basename_remove_suffix.c
+DEBUG: Skipped struct __locale_struct from /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h (not in main file or headers dir)
+DEBUG: Skipped struct __locale_data from /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h (not in main file or headers dir)
+DEBUG: Parsing headers in /home/priyatam/pin/utils/coreutils_headers
+DEBUG: Parsing header /home/priyatam/pin/utils/coreutils_headers/config.h
+DEBUG: Function remove_suffix params: [('char *', 'name'), ('const char *', 'suffix')]
+DEBUG: Recorded pointer metadata for param remove_suffix.name: PointerMetadata(depth=1, base_type='char', qualifiers=[], kind='string_ptr', proto_hint='string', raw='char *', clean_base=None, wrapper_name=None, length_param=None, length_type=None, length_proto=None, typedef_target=None, include_header=None, external=False)
+DEBUG: Recorded pointer metadata for param remove_suffix.suffix: PointerMetadata(depth=1, base_type='char', qualifiers=['const'], kind='string_ptr', proto_hint='string', raw='const char *', clean_base=None, wrapper_name=None, length_param=None, length_type=None, length_proto=None, typedef_target=None, include_header=None, external=False)
+DEBUG: CLI main function detected: False
+DEBUG: Mapping type for decl: ('char *', 'name')
+DEBUG: Mapping type for decl: ('const char *', 'suffix')
+DEBUG: Using function params for Input: [('string', 'name'), ('string', 'suffix')]
+DEBUG: Mapping type for decl: ('char *', 'name')
+DEBUG: Mapping type for decl: ('const char *', 'suffix')
+Wrote proto to input.proto:
+
+syntax = "proto3";
+
+message Input {
+  string name = 1;
+  string suffix = 2;
+}
+

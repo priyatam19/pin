@@ -1,0 +1,45 @@
+#include <cstddef>
+#include <cstdint>
+#include <cstdio>
+#include <cstdlib>
+#include <fstream>
+#include <vector>
+
+#include <google/protobuf/stubs/common.h>
+#include "cpp_proto/input.pb.h"
+#include "cJSON.h"
+
+__attribute__((weak)) cJSON * pin_acquire_handle_a(void) { return NULL; }
+__attribute__((weak)) cJSON * pin_acquire_handle_b(void) { return NULL; }
+
+
+extern "C" int test_cJSON_Compare(cJSON * a, cJSON * b, int case_sensitive);
+
+int pin_reference_entry(const uint8_t *data, size_t len) {
+    Input msg;
+    if (!msg.ParseFromArray(data, static_cast<int>(len))) {
+        return 1;
+    }
+    test_cJSON_Compare(pin_acquire_handle_a(), pin_acquire_handle_b(), msg.case_sensitive());
+    return 0;
+}
+
+int main(int argc, char *argv[]) {
+    if (argc != 2) {
+        std::fprintf(stderr, "Usage: %s input.bin\n", argv[0]);
+        return 1;
+    }
+
+    GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+    std::ifstream ifs(argv[1], std::ios::binary);
+    if (!ifs) {
+        std::perror("ifstream");
+        return 1;
+    }
+    std::vector<uint8_t> buffer((std::istreambuf_iterator<char>(ifs)), std::istreambuf_iterator<char>());
+
+    int rc = pin_reference_entry(buffer.data(), buffer.size());
+    ::google::protobuf::ShutdownProtobufLibrary();
+    return rc;
+}

@@ -1,0 +1,16 @@
+DEBUG: Starting main with file /home/priyatam/pin/examples/itc-benchmarks/02.wo_Defects/zero_division.c, func zero_division_main, parser libclang, headers /home/priyatam/pin/examples/itc-benchmarks/include
+DEBUG: Parsing file /home/priyatam/pin/examples/itc-benchmarks/02.wo_Defects/zero_division.c with libclang
+DEBUG: Libclang args: ['-I/home/priyatam/pin/examples/itc-benchmarks/include']
+DEBUG: Scanning for function zero_division_main
+DEBUG: Found target function zero_division_main
+DEBUG: Function has 0 arguments
+DEBUG: Function zero_division_main has no parameters, returning empty structs
+DEBUG: CLI main function detected: False
+DEBUG: No structs or params found, generating empty Input message
+Wrote proto to input.proto:
+
+syntax = "proto3";
+
+message Input {
+}
+

@@ -1,0 +1,26 @@
+[+] Generate .proto (libclang parser)
+[i] Skipping C++ protobuf generation (reference decoder=nanopb)
+[+] Generate Python protobuf helpers
+[+] Generate nanopb protobuf (for wrapper decode)
+[+] Generate wrapper with pin_wrapper_entry() and standalone main
+[+] Compile original object (instrumented) and plain object
+/home/priyatam/pin/examples/coreutils/chown-core_gid_to_name.c:7:14: error: unknown type name 'gid_t'
+gid_to_name (gid_t gid){
+             ^
+/home/priyatam/pin/examples/coreutils/chown-core_gid_to_name.c:8:23: warning: implicit declaration of function 'getgrgid' is invalid in C99 [-Wimplicit-function-declaration]
+  struct group *grp = getgrgid (gid);
+                      ^
+/home/priyatam/pin/examples/coreutils/chown-core_gid_to_name.c:9:16: warning: implicit declaration of function 'xstrdup' is invalid in C99 [-Wimplicit-function-declaration]
+  return grp ? xstrdup (grp->gr_name) : gid_to_str (gid);
+               ^
+/home/priyatam/pin/examples/coreutils/chown-core_gid_to_name.c:9:28: error: incomplete definition of type 'struct group'
+  return grp ? xstrdup (grp->gr_name) : gid_to_str (gid);
+                        ~~~^
+/home/priyatam/pin/examples/coreutils/chown-core_gid_to_name.c:8:10: note: forward declaration of 'struct group'
+  struct group *grp = getgrgid (gid);
+         ^
+/home/priyatam/pin/examples/coreutils/chown-core_gid_to_name.c:9:41: warning: implicit declaration of function 'gid_to_str' is invalid in C99 [-Wimplicit-function-declaration]
+  return grp ? xstrdup (grp->gr_name) : gid_to_str (gid);
+                                        ^
+3 warnings and 2 errors generated.
+[-] Failed compiling original

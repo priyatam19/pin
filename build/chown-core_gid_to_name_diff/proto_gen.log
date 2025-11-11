@@ -1,0 +1,44 @@
+DEBUG: Starting main with file /home/priyatam/pin/examples/coreutils/chown-core_gid_to_name.c, func gid_to_name, parser libclang, headers /home/priyatam/pin/utils/coreutils_headers
+DEBUG: Parsing file /home/priyatam/pin/examples/coreutils/chown-core_gid_to_name.c with libclang
+DEBUG: Libclang args: ['-I/home/priyatam/pin/utils/coreutils_headers']
+DEBUG: Scanning for function gid_to_name
+DEBUG: Found target function gid_to_name
+DEBUG: Function has 1 arguments
+DEBUG: Param type: int
+DEBUG: Found called function getgrgid
+DEBUG: Found called function xstrdup
+DEBUG: Found called function gid_to_str
+DEBUG: Collecting structs from /home/priyatam/pin/examples/coreutils/chown-core_gid_to_name.c
+DEBUG: Skipped struct __fsid_t from /usr/include/x86_64-linux-gnu/bits/types.h (not in main file or headers dir)
+DEBUG: Skipped struct __fsid_t from /usr/include/x86_64-linux-gnu/bits/types.h (not in main file or headers dir)
+DEBUG: Skipped struct __mbstate_t from /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h (not in main file or headers dir)
+DEBUG: Skipped struct __mbstate_t from /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos64_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos64_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/__FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_marker from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_codecvt from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_wide_data from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Found struct group in /home/priyatam/pin/examples/coreutils/chown-core_gid_to_name.c
+DEBUG: Added struct group with fields []
+DEBUG: Parsing headers in /home/priyatam/pin/utils/coreutils_headers
+DEBUG: Parsing header /home/priyatam/pin/utils/coreutils_headers/config.h
+DEBUG: Function gid_to_name params: [('int', 'gid')]
+DEBUG: CLI main function detected: False
+DEBUG: Mapping type for decl: ('int', 'gid')
+Wrote proto to input.proto:
+
+syntax = "proto3";
+
+message Input {
+  int32 gid = 1;
+}
+
+message group {
+}
+

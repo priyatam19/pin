@@ -1,0 +1,21 @@
+[+] Generate .proto (libclang parser)
+[i] Skipping C++ protobuf generation (reference decoder=nanopb)
+[+] Generate Python protobuf helpers
+[+] Generate nanopb protobuf (for wrapper decode)
+[+] Generate wrapper with pin_wrapper_entry() and standalone main
+[+] Compile original object (instrumented) and plain object
+[+] Compile nanopb runtime and wrapper
+[+] Compile wrapper object (no main) for fuzz_bytes
+main.c:77:13: error: no member named 'arg' in 'struct _Uint32Slice'
+    input.p.arg = p_buf;
+    ~~~~~~~ ^
+main.c:78:13: error: no member named 'funcs' in 'struct _Uint32Slice'
+    input.p.funcs.decode = &decode_p;
+    ~~~~~~~ ^
+main.c:89:25: error: use of undeclared identifier 'n_len'
+    if (input.n != (int)n_len) {
+                        ^
+main.c:94:34: error: use of undeclared identifier 'n_len'
+    mg_base64_encode(p_buf, (int)n_len, to_buf);
+                                 ^
+4 errors generated.

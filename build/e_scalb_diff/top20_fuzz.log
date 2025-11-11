@@ -1,0 +1,32 @@
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 2402652468
+INFO: Loaded 1 modules   (24 inline 8-bit counters): 24 [0x5638fbdec7f8, 0x5638fbdec810), 
+INFO: Loaded 1 PC tables (24 PCs): 24 [0x5638fbdec810,0x5638fbdec990), 
+INFO:        0 files found in corpus
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 4096 bytes
+INFO: A corpus is not provided, starting from an empty corpus
+#2	INITED cov: 1 ft: 1 corp: 1/1b exec/s: 0 rss: 30Mb
+	NEW_FUNC[1/1]: 0x5638fbd9f700 in __ieee754_scalb (/home/priyatam/pin/build/e_scalb_diff/fuzz_bytes+0x120700) (BuildId: aa7c09ddd941eaf6bdc503720f10d433dca630a3)
+#84	NEW    cov: 3 ft: 6 corp: 2/4b lim: 4 exec/s: 0 rss: 30Mb L: 3/3 MS: 2 InsertByte-InsertByte-
+#98	REDUCE cov: 3 ft: 6 corp: 2/3b lim: 4 exec/s: 0 rss: 31Mb L: 2/2 MS: 4 InsertByte-EraseBytes-CrossOver-EraseBytes-
+#4317	REDUCE cov: 4 ft: 7 corp: 3/23b lim: 43 exec/s: 0 rss: 31Mb L: 20/20 MS: 4 ShuffleBytes-ChangeBit-EraseBytes-InsertRepeatedBytes-
+#4425	NEW    cov: 5 ft: 10 corp: 4/53b lim: 43 exec/s: 0 rss: 31Mb L: 30/30 MS: 3 ChangeByte-ChangeByte-InsertRepeatedBytes-
+#4585	REDUCE cov: 5 ft: 10 corp: 4/44b lim: 43 exec/s: 0 rss: 31Mb L: 11/30 MS: 5 ChangeBit-ChangeBinInt-InsertByte-InsertByte-EraseBytes-
+#4679	REDUCE cov: 5 ft: 10 corp: 4/30b lim: 43 exec/s: 0 rss: 31Mb L: 16/16 MS: 4 InsertByte-CopyPart-CrossOver-CrossOver-
+#5696	REDUCE cov: 5 ft: 10 corp: 4/28b lim: 53 exec/s: 0 rss: 31Mb L: 9/16 MS: 2 EraseBytes-InsertByte-
+#6058	REDUCE cov: 6 ft: 13 corp: 5/44b lim: 53 exec/s: 0 rss: 31Mb L: 16/16 MS: 2 ChangeByte-CMP- DE: "\377\377\377\377\377\377\377\377"-
+#7977	REDUCE cov: 6 ft: 13 corp: 5/39b lim: 68 exec/s: 0 rss: 31Mb L: 11/16 MS: 4 ChangeBit-CopyPart-InsertByte-EraseBytes-
+#9250	REDUCE cov: 6 ft: 13 corp: 5/37b lim: 80 exec/s: 0 rss: 31Mb L: 9/16 MS: 3 ChangeBit-ChangeBit-EraseBytes-
+#9503	REDUCE cov: 6 ft: 13 corp: 5/32b lim: 80 exec/s: 0 rss: 31Mb L: 11/11 MS: 3 InsertRepeatedBytes-EraseBytes-PersAutoDict- DE: "\377\377\377\377\377\377\377\377"-
+#11005	REDUCE cov: 6 ft: 13 corp: 5/30b lim: 92 exec/s: 0 rss: 31Mb L: 9/9 MS: 2 ChangeByte-EraseBytes-
+#18212	REDUCE cov: 7 ft: 16 corp: 6/39b lim: 163 exec/s: 0 rss: 32Mb L: 9/9 MS: 2 PersAutoDict-ChangeBinInt- DE: "\377\377\377\377\377\377\377\377"-
+#1048576	pulse  cov: 7 ft: 16 corp: 6/39b lim: 4096 exec/s: 524288 rss: 111Mb
+#2097152	pulse  cov: 7 ft: 16 corp: 6/39b lim: 4096 exec/s: 524288 rss: 191Mb
+#4194304	pulse  cov: 7 ft: 16 corp: 6/39b lim: 4096 exec/s: 466033 rss: 350Mb
+#8388608	pulse  cov: 7 ft: 16 corp: 6/39b lim: 4096 exec/s: 493447 rss: 551Mb
+#16777216	pulse  cov: 7 ft: 16 corp: 6/39b lim: 4096 exec/s: 466033 rss: 552Mb
+#27988232	DONE   cov: 7 ft: 16 corp: 6/39b lim: 4096 exec/s: 458823 rss: 552Mb
+###### Recommended dictionary. ######
+"\377\377\377\377\377\377\377\377" # Uses: 2477827
+###### End of recommended dictionary. ######
+Done 27988232 runs in 61 second(s)

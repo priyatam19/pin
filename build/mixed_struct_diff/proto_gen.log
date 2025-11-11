@@ -1,5 +1,5 @@
-DEBUG: Starting main with file /workspace/examples/mixed_struct.c, func analyze_sensor, parser libclang, headers 
-DEBUG: Parsing file /workspace/examples/mixed_struct.c with libclang
+DEBUG: Starting main with file /home/priyatam/pin/examples/simple_benchs/mixed_struct.c, func analyze_sensor, parser libclang, headers 
+DEBUG: Parsing file /home/priyatam/pin/examples/simple_benchs/mixed_struct.c with libclang
 DEBUG: Libclang args: []
 DEBUG: Scanning for function analyze_sensor
 DEBUG: Found target function analyze_sensor
@@ -14,23 +14,24 @@ DEBUG: Found called function printf
 DEBUG: Found called function printf
 DEBUG: Found called function printf
 DEBUG: Found called function printf
-DEBUG: Collecting structs from /workspace/examples/mixed_struct.c
-DEBUG: Skipped struct  from /usr/include/aarch64-linux-gnu/bits/types.h (not in main file or headers dir)
-DEBUG: Skipped struct  from /usr/include/aarch64-linux-gnu/bits/types.h (not in main file or headers dir)
-DEBUG: Skipped struct  from /usr/include/aarch64-linux-gnu/bits/types/__mbstate_t.h (not in main file or headers dir)
-DEBUG: Skipped struct  from /usr/include/aarch64-linux-gnu/bits/types/__mbstate_t.h (not in main file or headers dir)
-DEBUG: Skipped struct _G_fpos_t from /usr/include/aarch64-linux-gnu/bits/types/__fpos_t.h (not in main file or headers dir)
-DEBUG: Skipped struct _G_fpos_t from /usr/include/aarch64-linux-gnu/bits/types/__fpos_t.h (not in main file or headers dir)
-DEBUG: Skipped struct _G_fpos64_t from /usr/include/aarch64-linux-gnu/bits/types/__fpos64_t.h (not in main file or headers dir)
-DEBUG: Skipped struct _G_fpos64_t from /usr/include/aarch64-linux-gnu/bits/types/__fpos64_t.h (not in main file or headers dir)
-DEBUG: Skipped struct _IO_FILE from /usr/include/aarch64-linux-gnu/bits/types/__FILE.h (not in main file or headers dir)
-DEBUG: Skipped struct _IO_FILE from /usr/include/aarch64-linux-gnu/bits/types/FILE.h (not in main file or headers dir)
-DEBUG: Skipped struct _IO_FILE from /usr/include/aarch64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
-DEBUG: Skipped struct _IO_marker from /usr/include/aarch64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
-DEBUG: Skipped struct _IO_codecvt from /usr/include/aarch64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
-DEBUG: Skipped struct _IO_wide_data from /usr/include/aarch64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
-DEBUG: Skipped struct _IO_FILE from /usr/include/aarch64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Collecting structs from /home/priyatam/pin/examples/simple_benchs/mixed_struct.c
+DEBUG: Skipped struct __fsid_t from /usr/include/x86_64-linux-gnu/bits/types.h (not in main file or headers dir)
+DEBUG: Skipped struct __fsid_t from /usr/include/x86_64-linux-gnu/bits/types.h (not in main file or headers dir)
+DEBUG: Skipped struct __mbstate_t from /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h (not in main file or headers dir)
+DEBUG: Skipped struct __mbstate_t from /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos64_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos64_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/__FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_marker from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_codecvt from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_wide_data from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
 DEBUG: Function analyze_sensor params: [('int', 'id'), ('double', 'reading'), ('int', 'flag0'), ('int', 'flag1'), ('int', 'flag2'), ('const char *', 'note')]
+DEBUG: Recorded pointer metadata for param analyze_sensor.note: PointerMetadata(depth=1, base_type='char', qualifiers=['const'], kind='string_ptr', proto_hint='string', raw='const char *', clean_base=None, wrapper_name=None, length_param=None, length_type=None, length_proto=None, typedef_target=None, include_header=None, external=False)
 DEBUG: CLI main function detected: False
 DEBUG: Mapping type for decl: ('int', 'id')
 DEBUG: Mapping type for decl: ('double', 'reading')
@@ -39,6 +40,12 @@ DEBUG: Mapping type for decl: ('int', 'flag1')
 DEBUG: Mapping type for decl: ('int', 'flag2')
 DEBUG: Mapping type for decl: ('const char *', 'note')
 DEBUG: Using function params for Input: [('int32', 'id'), ('double', 'reading'), ('int32', 'flag0'), ('int32', 'flag1'), ('int32', 'flag2'), ('string', 'note')]
+DEBUG: Mapping type for decl: ('int', 'id')
+DEBUG: Mapping type for decl: ('double', 'reading')
+DEBUG: Mapping type for decl: ('int', 'flag0')
+DEBUG: Mapping type for decl: ('int', 'flag1')
+DEBUG: Mapping type for decl: ('int', 'flag2')
+DEBUG: Mapping type for decl: ('const char *', 'note')
 Wrote proto to input.proto:
 
 syntax = "proto3";

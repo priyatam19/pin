@@ -1,0 +1,16 @@
+DEBUG: Starting main with file /home/priyatam/pin/examples/itc-benchmarks/02.wo_Defects/invalid_extern.c, func invalid_extern_main, parser libclang, headers /home/priyatam/pin/examples/itc-benchmarks/include
+DEBUG: Parsing file /home/priyatam/pin/examples/itc-benchmarks/02.wo_Defects/invalid_extern.c with libclang
+DEBUG: Libclang args: ['-I/home/priyatam/pin/examples/itc-benchmarks/include']
+DEBUG: Scanning for function invalid_extern_main
+DEBUG: Found target function invalid_extern_main
+DEBUG: Function has 0 arguments
+DEBUG: Function invalid_extern_main has no parameters, returning empty structs
+DEBUG: CLI main function detected: False
+DEBUG: No structs or params found, generating empty Input message
+Wrote proto to input.proto:
+
+syntax = "proto3";
+
+message Input {
+}
+

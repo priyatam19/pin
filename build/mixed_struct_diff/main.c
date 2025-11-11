@@ -7,56 +7,40 @@
 #include "input.pb.h"
 
 #define MAXLEN 128
+#define PIN_EMI_REJECT_RC 86
+
+typedef enum {
+    PIN_EMI_REASON_OK = 0,
+    PIN_EMI_REASON_NULL_SLICE = 1,
+    PIN_EMI_REASON_LENGTH_MISMATCH = 2
+} pin_emi_reason_t;
+
+static const char *pin_emi_reason_to_string(pin_emi_reason_t reason) {
+    switch (reason) {
+        case PIN_EMI_REASON_OK: return "ok";
+        case PIN_EMI_REASON_NULL_SLICE: return "null-pointer-with-length";
+        case PIN_EMI_REASON_LENGTH_MISMATCH: return "length-field-mismatch";
+        default: return "unknown";
+    }
+}
+
 
 bool decode_note(pb_istream_t *stream, const pb_field_t *field, void **arg) {
     char *buffer = (char *)(*arg);
-    memset(buffer, 0, 128);
+    size_t len = stream->bytes_left;
+    if (len >= 128) {
+        if (!pb_read(stream, (pb_byte_t*)buffer, 128 - 1)) {
+            return false;
+        }
+        buffer[128 - 1] = 0;
+        return true;
+    }
 
-    pb_istream_t substream;
-    if (!pb_make_string_substream(stream, &substream)) {
+    if (!pb_read(stream, (pb_byte_t*)buffer, len)) {
         return false;
     }
-
-    size_t declared_len = substream.bytes_left;
-    size_t to_read = declared_len;
-    bool truncated = false;
-    if (to_read >= 128) {
-        truncated = true;
-        to_read = 128 - 1;
-    }
-
-    bool ok = pb_read(&substream, (pb_byte_t*)buffer, to_read);
-    while (ok && substream.bytes_left > 0) {
-        uint8_t scratch[32];
-        size_t chunk = substream.bytes_left < sizeof(scratch) ? substream.bytes_left : sizeof(scratch);
-        ok = pb_read(&substream, scratch, chunk);
-    }
-
-    if (ok && truncated) {
-        ok = false;
-    }
-
-    if (ok && memchr(buffer, 0, to_read) != NULL) {
-        ok = false;
-    }
-
-    if (ok) {
-#ifdef PB_VALIDATE_UTF8
-        ok = pb_validate_utf8(buffer);
-#else
-        const unsigned char *p = (const unsigned char *)buffer;
-        while (ok && *p) {
-            unsigned char c = *p++;
-            if (c < 0x80) {
-                continue;
-            }
-            ok = false;
-        }
-#endif
-    }
-
-    pb_close_string_substream(stream, &substream);
-    return ok;
+    buffer[len] = 0;
+    return true;
 }
 
 extern int analyze_sensor(int id, double reading, int flag0, int flag1, int flag2, const char * note);
@@ -64,7 +48,10 @@ extern int analyze_sensor(int id, double reading, int flag0, int flag1, int flag
 // Decode from in-memory buffer and call target (for fuzzers)
 int pin_wrapper_entry(const uint8_t *data, size_t len) {
     Input input = Input_init_zero;
-    char note_buf[128];
+    int emi_rc = 0;
+    pin_emi_reason_t emi_reason = PIN_EMI_REASON_OK;
+    const char *emi_detail = NULL;
+    char note_buf[128] = {0};
 
 
     note_buf[0] = '\0';
@@ -75,8 +62,22 @@ int pin_wrapper_entry(const uint8_t *data, size_t len) {
     if (!pb_decode(&stream, Input_fields, &input)) {
         return 1;
     }
+
     analyze_sensor(input.id, input.reading, input.flag0, input.flag1, input.flag2, note_buf);
-    return 0;
+    goto emi_finish;
+
+emi_reject:
+    emi_rc = PIN_EMI_REJECT_RC;
+
+emi_finish:
+
+    if (emi_rc == PIN_EMI_REJECT_RC) {
+        fprintf(stderr, "[PIN_EMI] reject reason=%s%s%s\n",
+                pin_emi_reason_to_string(emi_reason),
+                emi_detail ? " detail=" : "",
+                emi_detail ? emi_detail : "");
+    }
+    return emi_rc;
 }
 
 #ifndef PIN_WRAPPER_NO_MAIN

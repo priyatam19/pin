@@ -1,0 +1,8 @@
+=== 09d2af8dd22201dd8d48e5dcfcaed281ff9422c7 ===
+[input decoded]
+{"out_config": ""}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+

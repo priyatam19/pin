@@ -1,0 +1,31 @@
+DEBUG: Starting main with file /home/priyatam/pin/examples/pointers/void_pointer_example.c, func process_generic, parser libclang, headers 
+DEBUG: Parsing file /home/priyatam/pin/examples/pointers/void_pointer_example.c with libclang
+DEBUG: Libclang args: []
+DEBUG: Scanning for function process_generic
+DEBUG: Found target function process_generic
+DEBUG: Function has 2 arguments
+DEBUG: Param type: void *
+DEBUG: Param type: int
+DEBUG: Collecting structs from /home/priyatam/pin/examples/pointers/void_pointer_example.c
+DEBUG: Function process_generic params: [('void *', 'data'), ('int', 'data_type')]
+DEBUG: Recorded pointer metadata for param process_generic.data: PointerMetadata(depth=1, base_type='void', qualifiers=[], kind='scalar_ptr', proto_hint='BytesScalarPtr', raw='void *', clean_base=None, wrapper_name='BytesScalarPtr', length_param=None, length_type=None, length_proto=None, typedef_target=None, include_header=None, external=False)
+DEBUG: CLI main function detected: False
+DEBUG: Mapping type for decl: ('void *', 'data')
+DEBUG: Mapping type for decl: ('int', 'data_type')
+DEBUG: Using function params for Input: [('BytesScalarPtr', 'data'), ('int32', 'data_type')]
+DEBUG: Mapping type for decl: ('void *', 'data')
+DEBUG: Mapping type for decl: ('int', 'data_type')
+Wrote proto to input.proto:
+
+syntax = "proto3";
+
+message BytesScalarPtr {
+  bool has_value = 1;
+  bytes value = 2;
+}
+
+message Input {
+  BytesScalarPtr data = 1;
+  int32 data_type = 2;
+}
+

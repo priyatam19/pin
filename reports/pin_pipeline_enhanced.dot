@@ -1,0 +1,111 @@
+digraph PIN_Enhanced_Pipeline {
+    rankdir=TB;
+    node [shape=box, fontname="Helvetica", fontsize=10, style=filled];
+    edge [fontname="Helvetica", fontsize=9];
+
+    // Define color scheme
+    subgraph cluster_input {
+        label="Input Processing";
+        style=filled;
+        fillcolor=lightblue;
+
+        source [label="C Source\nfoo.c\nFunc(int* ptr, size_t len,\n     struct Data* data)", fillcolor=white];
+        parse [label="Libclang Parser", fillcolor=lightcyan];
+    }
+
+    subgraph cluster_analysis {
+        label="Type Analysis & Metadata";
+        style=filled;
+        fillcolor=lightgreen;
+
+        classify [label="Pointer Classifier\n• scalar_ptr\n• struct_ptr\n• slice (ptr+len)", fillcolor=white];
+        metadata [label="PointerMetadata\ndepth, base_type,\nkind, qualifiers,\nlength_param", fillcolor=white];
+        helpers [label="Helper Generator\nInt32ScalarPtr\nDataPtr\nInt32Slice", fillcolor=white];
+    }
+
+    subgraph cluster_schema {
+        label="Schema Generation";
+        style=filled;
+        fillcolor=lightyellow;
+
+        proto [label=".proto Schema\nmessage Input {\n  Int32ScalarPtr ptr = 1;\n  uint32 len = 2;\n  DataPtr data = 3;\n}", fillcolor=white];
+        nanopb [label="Nanopb Compiler\nschema.pb.c/h", fillcolor=white];
+        cpp_proto [label="C++ Proto\nschema.pb.cc/h", fillcolor=white];
+    }
+
+    subgraph cluster_wrapper {
+        label="Wrapper Generation";
+        style=filled;
+        fillcolor=lightcoral;
+
+        c_wrapper [label="C Wrapper\n• Decode protobuf\n• Reconstruct pointers:\n  - malloc for slices\n  - stack for scalars\n  - &storage for structs\n• Call original func\n• Cleanup (free)", fillcolor=white];
+        cpp_wrapper [label="C++ Reference Runner\n• Decode protobuf\n• Mirror reconstruction:\n  - unique_ptr for slices\n  - stack for scalars\n• Call original func\n• Auto cleanup", fillcolor=white];
+    }
+
+    subgraph cluster_fuzzing {
+        label="Fuzzing & Testing";
+        style=filled;
+        fillcolor=plum;
+
+        libfuzzer [label="LibFuzzer Harness\nLLVMFuzzerTestOneInput(\n  uint8_t* Data, size_t Size)", fillcolor=white];
+        corpus [label="Interesting Corpus\nProtobuf-serialized\ntest cases", fillcolor=white];
+    }
+
+    subgraph cluster_execution {
+        label="Differential Execution";
+        style=filled;
+        fillcolor=orange;
+
+        norm_bin [label="Normalized Binary\n(C wrapper + nanopb)", fillcolor=white];
+        ref_bin [label="Reference Binary\n(C++ wrapper + proto)", fillcolor=white];
+        decode [label="Deserializer\nProtobuf → Pointers", fillcolor=white];
+    }
+
+    subgraph cluster_validation {
+        label="Output Validation";
+        style=filled;
+        fillcolor=lightgray;
+
+        output_n [label="Output N\n(Normalized)", fillcolor=white];
+        output_r [label="Output R\n(Reference)", fillcolor=white];
+        compare [label="Differential\nComparison\nOutputN == OutputR?", fillcolor=yellow];
+        report [label="Validation Report\n✓ Semantics preserved\n✗ Differences found", fillcolor=white];
+    }
+
+    // Main flow
+    source -> parse [label="Parse"];
+    parse -> classify [label="Extract\nTypes"];
+    classify -> metadata [label="Analyze"];
+    metadata -> helpers [label="Generate\nHelpers"];
+    helpers -> proto [label="Emit\nMessages"];
+    proto -> nanopb [label="Compile"];
+    proto -> cpp_proto [label="Compile"];
+
+    // Wrapper generation
+    nanopb -> c_wrapper [label="Include"];
+    cpp_proto -> cpp_wrapper [label="Include"];
+    metadata -> c_wrapper [label="Pointer\nContext", style=dashed, color=blue];
+    metadata -> cpp_wrapper [label="Pointer\nContext", style=dashed, color=blue];
+
+    // Fuzzing flow
+    c_wrapper -> libfuzzer [label="Integrate"];
+    libfuzzer -> corpus [label="Discover"];
+
+    // Execution flow
+    c_wrapper -> norm_bin [label="Compile"];
+    cpp_wrapper -> ref_bin [label="Compile"];
+    corpus -> decode [label="Deserialize"];
+    decode -> norm_bin [label="Execute"];
+    decode -> ref_bin [label="Execute"];
+
+    // Validation
+    norm_bin -> output_n;
+    ref_bin -> output_r;
+    output_n -> compare;
+    output_r -> compare;
+    compare -> report [label="Generate"];
+
+    // Feedback loop
+    report -> proto [label="Refine\nSchema", style=dashed, color=red];
+    report -> helpers [label="Fix\nHelpers", style=dashed, color=red];
+}

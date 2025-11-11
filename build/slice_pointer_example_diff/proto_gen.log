@@ -1,0 +1,32 @@
+DEBUG: Starting main with file /home/priyatam/pin/examples/pointers/slice_pointer_example.c, func sum_slice, parser libclang, headers 
+DEBUG: Parsing file /home/priyatam/pin/examples/pointers/slice_pointer_example.c with libclang
+DEBUG: Libclang args: []
+DEBUG: Scanning for function sum_slice
+DEBUG: Found target function sum_slice
+DEBUG: Function has 2 arguments
+DEBUG: Param type: const int *
+DEBUG: Param type: int
+DEBUG: Collecting structs from /home/priyatam/pin/examples/pointers/slice_pointer_example.c
+DEBUG: Function sum_slice params: [('const int *', 'values'), ('int', 'count')]
+DEBUG: Detected length companion count for pointer values
+DEBUG: Recorded pointer metadata for param sum_slice.values: PointerMetadata(depth=1, base_type='int', qualifiers=['const'], kind='scalar_ptr', proto_hint='Int32Slice', raw='const int *', clean_base=None, wrapper_name='Int32Slice', length_param='count', length_type='int', length_proto='int32', typedef_target=None, include_header=None, external=False)
+DEBUG: CLI main function detected: False
+DEBUG: Mapping type for decl: ('const int *', 'values')
+DEBUG: Mapping type for decl: ('int', 'count')
+DEBUG: Using function params for Input: [('Int32Slice', 'values'), ('int32', 'count')]
+DEBUG: Mapping type for decl: ('const int *', 'values')
+DEBUG: Mapping type for decl: ('int', 'count')
+Wrote proto to input.proto:
+
+syntax = "proto3";
+
+message Int32Slice {
+  repeated int32 data = 1;
+  int32 length = 2;
+}
+
+message Input {
+  Int32Slice values = 1;
+  int32 count = 2;
+}
+

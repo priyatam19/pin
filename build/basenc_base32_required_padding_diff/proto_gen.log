@@ -1,0 +1,38 @@
+DEBUG: Starting main with file /home/priyatam/pin/examples/coreutils/basenc_base32_required_padding.c, func base32_required_padding, parser libclang, headers /home/priyatam/pin/utils/coreutils_headers
+DEBUG: Parsing file /home/priyatam/pin/examples/coreutils/basenc_base32_required_padding.c with libclang
+DEBUG: Libclang args: ['-I/home/priyatam/pin/utils/coreutils_headers']
+DEBUG: Scanning for function base32_required_padding
+DEBUG: Found target function base32_required_padding
+DEBUG: Function has 1 arguments
+DEBUG: Param type: int
+DEBUG: Collecting structs from /home/priyatam/pin/examples/coreutils/basenc_base32_required_padding.c
+DEBUG: Skipped struct __fsid_t from /usr/include/x86_64-linux-gnu/bits/types.h (not in main file or headers dir)
+DEBUG: Skipped struct __fsid_t from /usr/include/x86_64-linux-gnu/bits/types.h (not in main file or headers dir)
+DEBUG: Skipped struct __mbstate_t from /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h (not in main file or headers dir)
+DEBUG: Skipped struct __mbstate_t from /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos64_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos64_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/__FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_marker from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_codecvt from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_wide_data from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Parsing headers in /home/priyatam/pin/utils/coreutils_headers
+DEBUG: Parsing header /home/priyatam/pin/utils/coreutils_headers/config.h
+DEBUG: Function base32_required_padding params: [('int', 'len')]
+DEBUG: CLI main function detected: False
+DEBUG: Mapping type for decl: ('int', 'len')
+DEBUG: Using function params for Input: [('int32', 'len')]
+DEBUG: Mapping type for decl: ('int', 'len')
+Wrote proto to input.proto:
+
+syntax = "proto3";
+
+message Input {
+  int32 len = 1;
+}
+

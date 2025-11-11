@@ -1,0 +1,45 @@
+DEBUG: Starting main with file /home/priyatam/pin/examples/cJSON/test_getarraysize.c, func test_cJSON_GetArraySize, parser libclang, headers /home/priyatam/pin/examples/cJSON
+DEBUG: Parsing file /home/priyatam/pin/examples/cJSON/test_getarraysize.c with libclang
+DEBUG: Libclang args: ['-I/home/priyatam/pin/examples/cJSON']
+DEBUG: Scanning for function test_cJSON_GetArraySize
+DEBUG: Found target function test_cJSON_GetArraySize
+DEBUG: Function has 1 arguments
+DEBUG: Param type: cJSON *
+DEBUG: Found called function cJSON_GetArraySize
+DEBUG: Collecting structs from /home/priyatam/pin/examples/cJSON/test_getarraysize.c
+DEBUG: Skipping header struct cJSON from /home/priyatam/pin/examples/cJSON/cJSON.h
+DEBUG: Skipping header struct cJSON from /home/priyatam/pin/examples/cJSON/cJSON.h
+DEBUG: Skipping header struct cJSON_Hooks from /home/priyatam/pin/examples/cJSON/cJSON.h
+DEBUG: Skipping header struct cJSON_Hooks from /home/priyatam/pin/examples/cJSON/cJSON.h
+DEBUG: Parsing headers in /home/priyatam/pin/examples/cJSON
+DEBUG: Parsing header /home/priyatam/pin/examples/cJSON/cJSON_Utils.h
+DEBUG: Found header struct cJSON
+DEBUG: Skipping external header struct cJSON
+DEBUG: Found header struct cJSON
+DEBUG: Skipping external header struct cJSON
+DEBUG: Found header struct cJSON_Hooks
+DEBUG: Skipping external header struct cJSON_Hooks
+DEBUG: Found header struct cJSON_Hooks
+DEBUG: Skipping external header struct cJSON_Hooks
+DEBUG: Parsing header /home/priyatam/pin/examples/cJSON/cJSON.h
+DEBUG: Found header struct cJSON
+DEBUG: Skipping external header struct cJSON
+DEBUG: Found header struct cJSON
+DEBUG: Skipping external header struct cJSON
+DEBUG: Found header struct cJSON_Hooks
+DEBUG: Skipping external header struct cJSON_Hooks
+DEBUG: Found header struct cJSON_Hooks
+DEBUG: Skipping external header struct cJSON_Hooks
+DEBUG: Function test_cJSON_GetArraySize params: [('cJSON *', 'array')]
+DEBUG: Recorded pointer metadata for param test_cJSON_GetArraySize.array: PointerMetadata(depth=1, base_type='struct cJSON', qualifiers=[], kind='struct_ptr', proto_hint='bytes', raw='cJSON *', clean_base='cJSON', wrapper_name=None, length_param=None, length_type=None, length_proto=None, typedef_target='cJSON', include_header='cJSON.h', external=True)
+DEBUG: CLI main function detected: False
+DEBUG: Skipping external pointer param array in proto fields
+DEBUG: Using function params for Input: []
+DEBUG: Skipping external pointer param array in proto fields
+Wrote proto to input.proto:
+
+syntax = "proto3";
+
+message Input {
+}
+

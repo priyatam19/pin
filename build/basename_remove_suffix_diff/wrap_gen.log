@@ -1,0 +1,8 @@
+Generated main.c for wrapper.
+Generated reference_runner.cc.
+DEBUG: Wrapper parse found struct __locale_struct with fields [('struct __locale_data *[13]', '__locales'), ('const unsigned short *', '__ctype_b'), ('const int *', '__ctype_tolower'), ('const int *', '__ctype_toupper'), ('const char *[13]', '__names')]
+DEBUG: Wrapper parse found struct __locale_data with fields []
+DEBUG: pointer context {}
+DEBUG: walk_decls called with 2 fields, prefix='', depth=0, parser=libclang
+DEBUG: Processing field ('char *', 'name'), name=name, is_struct=False, is_ptr=True
+DEBUG: Processing field ('const char *', 'suffix'), name=suffix, is_struct=False, is_ptr=True

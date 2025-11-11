@@ -1,0 +1,32 @@
+[+] Generate .proto (libclang parser)
+[i] Skipping C++ protobuf generation (reference decoder=nanopb)
+[+] Generate Python protobuf helpers
+[+] Generate nanopb protobuf (for wrapper decode)
+[+] Generate wrapper with pin_wrapper_entry() and standalone main
+[+] Compile original object (instrumented) and plain object
+/home/priyatam/pin/examples/coreutils/chown-core_uid_to_str.c:7:13: error: unknown type name 'uid_t'
+uid_to_str (uid_t uid){
+            ^
+/home/priyatam/pin/examples/coreutils/chown-core_uid_to_str.c:8:12: warning: implicit declaration of function 'INT_BUFSIZE_BOUND' is invalid in C99 [-Wimplicit-function-declaration]
+  char buf[INT_BUFSIZE_BOUND (intmax_t)];
+           ^
+/home/priyatam/pin/examples/coreutils/chown-core_uid_to_str.c:8:31: error: use of undeclared identifier 'intmax_t'
+  char buf[INT_BUFSIZE_BOUND (intmax_t)];
+                              ^
+/home/priyatam/pin/examples/coreutils/chown-core_uid_to_str.c:9:10: warning: implicit declaration of function 'xstrdup' is invalid in C99 [-Wimplicit-function-declaration]
+  return xstrdup (TYPE_SIGNED (uid_t) ? imaxtostr (uid, buf)
+         ^
+/home/priyatam/pin/examples/coreutils/chown-core_uid_to_str.c:9:19: warning: implicit declaration of function 'TYPE_SIGNED' is invalid in C99 [-Wimplicit-function-declaration]
+  return xstrdup (TYPE_SIGNED (uid_t) ? imaxtostr (uid, buf)
+                  ^
+/home/priyatam/pin/examples/coreutils/chown-core_uid_to_str.c:9:41: warning: implicit declaration of function 'imaxtostr' is invalid in C99 [-Wimplicit-function-declaration]
+  return xstrdup (TYPE_SIGNED (uid_t) ? imaxtostr (uid, buf)
+                                        ^
+/home/priyatam/pin/examples/coreutils/chown-core_uid_to_str.c:9:32: error: use of undeclared identifier 'uid_t'
+  return xstrdup (TYPE_SIGNED (uid_t) ? imaxtostr (uid, buf)
+                               ^
+/home/priyatam/pin/examples/coreutils/chown-core_uid_to_str.c:10:21: warning: implicit declaration of function 'umaxtostr' is invalid in C99 [-Wimplicit-function-declaration]
+                  : umaxtostr (uid, buf));
+                    ^
+5 warnings and 3 errors generated.
+[-] Failed compiling original

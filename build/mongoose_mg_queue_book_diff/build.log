@@ -1,0 +1,27 @@
+[+] Generate .proto (libclang parser)
+[i] Skipping C++ protobuf generation (reference decoder=nanopb)
+[+] Generate Python protobuf helpers
+[+] Generate nanopb protobuf (for wrapper decode)
+[+] Generate wrapper with pin_wrapper_entry() and standalone main
+[+] Compile original object (instrumented) and plain object
+[+] Compile nanopb runtime and wrapper
+[+] Compile wrapper object (no main) for fuzz_bytes
+main.c:46:33: warning: declaration of 'struct mg_queue' will not be visible outside of this function [-Wvisibility]
+extern int mg_queue_book(struct mg_queue * q, char ** buf, size_t len);
+                                ^
+main.c:58:11: error: no member named 'buf' in 'struct _Input'
+    input.buf.arg = buf_buf;
+    ~~~~~ ^
+main.c:59:11: error: no member named 'buf' in 'struct _Input'
+    input.buf.funcs.decode = &decode_buf;
+    ~~~~~ ^
+main.c:67:15: error: no member named 'q' in 'struct _Input'
+    if (input.q.present) {
+        ~~~~~ ^
+main.c:68:27: error: no member named 'q' in 'struct _Input'
+        q_storage = input.q.value;
+                    ~~~~~ ^
+main.c:71:41: error: no member named 'len' in 'struct _Input'
+    mg_queue_book(q_ptr, buf_buf, input.len);
+                                  ~~~~~ ^
+1 warning and 5 errors generated.

@@ -1,0 +1,24 @@
+[+] Generate .proto (libclang parser)
+[i] Skipping C++ protobuf generation (reference decoder=nanopb)
+[+] Generate Python protobuf helpers
+[+] Generate nanopb protobuf (for wrapper decode)
+[+] Generate wrapper with pin_wrapper_entry() and standalone main
+[+] Compile original object (instrumented) and plain object
+[+] Compile nanopb runtime and wrapper
+[+] Compile wrapper object (no main) for fuzz_bytes
+main.c:46:28: error: unknown type name 'mg_sha1_ctx'
+extern void mg_sha1_update(mg_sha1_ctx * context, const unsigned char * data, size_t len);
+                           ^
+main.c:58:16: error: no member named 'arg' in 'struct _Uint32Slice'
+    input.data.arg = data_buf;
+    ~~~~~~~~~~ ^
+main.c:59:16: error: no member named 'funcs' in 'struct _Uint32Slice'
+    input.data.funcs.decode = &decode_data;
+    ~~~~~~~~~~ ^
+main.c:66:30: error: use of undeclared identifier 'len_len'
+    if (input.len != (size_t)len_len) {
+                             ^
+main.c:71:53: error: use of undeclared identifier 'len_len'
+    mg_sha1_update(input.context, data_buf, (size_t)len_len);
+                                                    ^
+5 errors generated.

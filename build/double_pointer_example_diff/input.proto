@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+message Input {
+  bytes out_config = 1;
+}
+
+message Config {
+  int32 timeout = 1;
+  int32 retries = 2;
+}

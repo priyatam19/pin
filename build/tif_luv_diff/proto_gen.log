@@ -1,0 +1,415 @@
+DEBUG: Starting main with file /home/priyatam/pin/../libtiff/libtiff/tif_luv.c, func LogL16fromY, parser libclang, headers /home/priyatam/pin/../libtiff/libtiff
+DEBUG: Parsing file /home/priyatam/pin/../libtiff/libtiff/tif_luv.c with libclang
+DEBUG: Libclang args: ['-I/home/priyatam/pin/../libtiff/libtiff']
+DEBUG: Scanning for function LogL16fromY
+DEBUG: Found target function LogL16fromY
+DEBUG: Function has 2 arguments
+DEBUG: Param type: double
+DEBUG: Param type: int
+DEBUG: Found called function log
+DEBUG: Found called function log
+DEBUG: Found called function rand
+DEBUG: Found called function log
+DEBUG: Found called function log
+DEBUG: Found called function rand
+DEBUG: Collecting structs from /home/priyatam/pin/../libtiff/libtiff/tif_luv.c
+DEBUG: Skipped struct __fsid_t from /usr/include/x86_64-linux-gnu/bits/types.h (not in main file or headers dir)
+DEBUG: Skipped struct __fsid_t from /usr/include/x86_64-linux-gnu/bits/types.h (not in main file or headers dir)
+DEBUG: Skipped struct flock from /usr/include/x86_64-linux-gnu/bits/fcntl.h (not in main file or headers dir)
+DEBUG: Skipped struct timespec from /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h (not in main file or headers dir)
+DEBUG: Skipped struct stat from /usr/include/x86_64-linux-gnu/bits/struct_stat.h (not in main file or headers dir)
+DEBUG: Skipped struct __sigset_t from /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h (not in main file or headers dir)
+DEBUG: Skipped struct __sigset_t from /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h (not in main file or headers dir)
+DEBUG: Skipped struct timeval from /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h (not in main file or headers dir)
+DEBUG: Skipped struct fd_set from /usr/include/x86_64-linux-gnu/sys/select.h (not in main file or headers dir)
+DEBUG: Skipped struct fd_set from /usr/include/x86_64-linux-gnu/sys/select.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3) from /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3) from /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3) from /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3) from /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_internal_list from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_internal_list from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_internal_slist from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_internal_slist from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_mutex_s from /usr/include/x86_64-linux-gnu/bits/struct_mutex.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_rwlock_arch_t from /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_cond_s from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct __once_flag from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct __once_flag from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct __locale_struct from /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h (not in main file or headers dir)
+DEBUG: Skipped struct __locale_data from /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h (not in main file or headers dir)
+DEBUG: Skipped struct entry from /usr/include/search.h (not in main file or headers dir)
+DEBUG: Skipped struct entry from /usr/include/search.h (not in main file or headers dir)
+DEBUG: Skipped struct _ENTRY from /usr/include/search.h (not in main file or headers dir)
+DEBUG: Skipping header struct TIFFHeaderCommon from /home/priyatam/pin/../libtiff/libtiff/tiff.h
+DEBUG: Skipping header struct TIFFHeaderCommon from /home/priyatam/pin/../libtiff/libtiff/tiff.h
+DEBUG: Skipping header struct TIFFHeaderClassic from /home/priyatam/pin/../libtiff/libtiff/tiff.h
+DEBUG: Skipping header struct TIFFHeaderClassic from /home/priyatam/pin/../libtiff/libtiff/tiff.h
+DEBUG: Skipping header struct TIFFHeaderBig from /home/priyatam/pin/../libtiff/libtiff/tiff.h
+DEBUG: Skipping header struct TIFFHeaderBig from /home/priyatam/pin/../libtiff/libtiff/tiff.h
+DEBUG: Skipping header struct tiff from /home/priyatam/pin/../libtiff/libtiff/tiffio.h
+DEBUG: Skipping header struct TIFFDisplay from /home/priyatam/pin/../libtiff/libtiff/tiffio.h
+DEBUG: Skipping header struct TIFFDisplay from /home/priyatam/pin/../libtiff/libtiff/tiffio.h
+DEBUG: Skipping header struct TIFFYCbCrToRGB from /home/priyatam/pin/../libtiff/libtiff/tiffio.h
+DEBUG: Skipping header struct TIFFYCbCrToRGB from /home/priyatam/pin/../libtiff/libtiff/tiffio.h
+DEBUG: Skipping header struct TIFFCIELabToRGB from /home/priyatam/pin/../libtiff/libtiff/tiffio.h
+DEBUG: Skipping header struct TIFFCIELabToRGB from /home/priyatam/pin/../libtiff/libtiff/tiffio.h
+DEBUG: Skipping header struct _TIFFRGBAImage from /home/priyatam/pin/../libtiff/libtiff/tiffio.h
+DEBUG: Skipping header struct _TIFFRGBAImage from /home/priyatam/pin/../libtiff/libtiff/tiffio.h
+DEBUG: Skipping header struct TIFFCodec from /home/priyatam/pin/../libtiff/libtiff/tiffio.h
+DEBUG: Skipping header struct TIFFCodec from /home/priyatam/pin/../libtiff/libtiff/tiffio.h
+DEBUG: Skipped struct __mbstate_t from /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h (not in main file or headers dir)
+DEBUG: Skipped struct __mbstate_t from /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos64_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos64_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/__FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_marker from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_codecvt from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_wide_data from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipping header struct _TIFFField from /home/priyatam/pin/../libtiff/libtiff/tiffio.h
+DEBUG: Skipping header struct _TIFFFieldArray from /home/priyatam/pin/../libtiff/libtiff/tiffio.h
+DEBUG: Skipping header struct TIFFTagMethods from /home/priyatam/pin/../libtiff/libtiff/tiffio.h
+DEBUG: Skipping header struct TIFFTagMethods from /home/priyatam/pin/../libtiff/libtiff/tiffio.h
+DEBUG: Skipping header struct TIFFFieldInfo from /home/priyatam/pin/../libtiff/libtiff/tiffio.h
+DEBUG: Skipping header struct TIFFFieldInfo from /home/priyatam/pin/../libtiff/libtiff/tiffio.h
+DEBUG: Skipping header struct TIFFTagValue from /home/priyatam/pin/../libtiff/libtiff/tif_dir.h
+DEBUG: Skipping header struct TIFFTagValue from /home/priyatam/pin/../libtiff/libtiff/tif_dir.h
+DEBUG: Skipping header struct TIFFDirEntry from /home/priyatam/pin/../libtiff/libtiff/tif_dir.h
+DEBUG: Skipping header struct TIFFDirEntry from /home/priyatam/pin/../libtiff/libtiff/tif_dir.h
+DEBUG: Skipping header struct TIFFDirectory from /home/priyatam/pin/../libtiff/libtiff/tif_dir.h
+DEBUG: Skipping header struct TIFFDirectory from /home/priyatam/pin/../libtiff/libtiff/tif_dir.h
+DEBUG: Skipping header struct _TIFFFieldArray from /home/priyatam/pin/../libtiff/libtiff/tif_dir.h
+DEBUG: Skipping header struct _TIFFField from /home/priyatam/pin/../libtiff/libtiff/tif_dir.h
+DEBUG: Skipping header struct client_info from /home/priyatam/pin/../libtiff/libtiff/tiffiop.h
+DEBUG: Skipping header struct client_info from /home/priyatam/pin/../libtiff/libtiff/tiffiop.h
+DEBUG: Skipping header struct tiff from /home/priyatam/pin/../libtiff/libtiff/tiffiop.h
+DEBUG: Skipped struct div_t from /usr/include/stdlib.h (not in main file or headers dir)
+DEBUG: Skipped struct div_t from /usr/include/stdlib.h (not in main file or headers dir)
+DEBUG: Skipped struct ldiv_t from /usr/include/stdlib.h (not in main file or headers dir)
+DEBUG: Skipped struct ldiv_t from /usr/include/stdlib.h (not in main file or headers dir)
+DEBUG: Skipped struct lldiv_t from /usr/include/stdlib.h (not in main file or headers dir)
+DEBUG: Skipped struct lldiv_t from /usr/include/stdlib.h (not in main file or headers dir)
+DEBUG: Skipped struct random_data from /usr/include/stdlib.h (not in main file or headers dir)
+DEBUG: Skipped struct drand48_data from /usr/include/stdlib.h (not in main file or headers dir)
+DEBUG: Found struct logLuvState in /home/priyatam/pin/../libtiff/libtiff/tif_luv.c
+DEBUG: Skipping external struct logLuvState
+DEBUG: Found struct logLuvState in /home/priyatam/pin/../libtiff/libtiff/tif_luv.c
+DEBUG: Skipping external struct logLuvState
+DEBUG: Skipping header struct struct (unnamed at /home/priyatam/pin/../libtiff/libtiff/uvcode.h:6:8) from /home/priyatam/pin/../libtiff/libtiff/uvcode.h
+DEBUG: Skipping header struct struct (unnamed at /home/priyatam/pin/../libtiff/libtiff/uvcode.h:6:8) from /home/priyatam/pin/../libtiff/libtiff/uvcode.h
+DEBUG: Parsing headers in /home/priyatam/pin/../libtiff/libtiff
+DEBUG: Parsing header /home/priyatam/pin/../libtiff/libtiff/uvcode.h
+DEBUG: Found header struct struct (unnamed at /home/priyatam/pin/../libtiff/libtiff/uvcode.h:6:8)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /home/priyatam/pin/../libtiff/libtiff/uvcode.h:6:8)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Parsing header /home/priyatam/pin/../libtiff/libtiff/tiffconf.vc.h
+DEBUG: Parsing header /home/priyatam/pin/../libtiff/libtiff/tiffvers.h
+DEBUG: Parsing header /home/priyatam/pin/../libtiff/libtiff/tiffconf.h
+DEBUG: Parsing header /home/priyatam/pin/../libtiff/libtiff/tif_config.wince.h
+DEBUG: Parsing header /home/priyatam/pin/../libtiff/libtiff/tif_config.vc.h
+DEBUG: Parsing header /home/priyatam/pin/../libtiff/libtiff/tif_config.h
+DEBUG: Parsing header /home/priyatam/pin/../libtiff/libtiff/tiffiop.h
+DEBUG: Found header struct __fsid_t
+DEBUG: Skipping header struct Struct___fsid_t to avoid duplication
+DEBUG: Found header struct __fsid_t
+DEBUG: Skipping header struct Struct___fsid_t to avoid duplication
+DEBUG: Found header struct flock
+DEBUG: Skipping header struct flock to avoid duplication
+DEBUG: Found header struct timespec
+DEBUG: Found header struct stat
+DEBUG: Found header struct __sigset_t
+DEBUG: Skipping header struct Struct___sigset_t to avoid duplication
+DEBUG: Found header struct __sigset_t
+DEBUG: Skipping header struct Struct___sigset_t to avoid duplication
+DEBUG: Found header struct timeval
+DEBUG: Found header struct fd_set
+DEBUG: Skipping header struct fd_set to avoid duplication
+DEBUG: Found header struct fd_set
+DEBUG: Skipping header struct fd_set to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct __pthread_internal_list
+DEBUG: Skipping header struct Struct___pthread_internal_list to avoid duplication
+DEBUG: Found header struct __pthread_internal_list
+DEBUG: Skipping header struct Struct___pthread_internal_list to avoid duplication
+DEBUG: Found header struct __pthread_internal_slist
+DEBUG: Skipping header struct Struct___pthread_internal_slist to avoid duplication
+DEBUG: Found header struct __pthread_internal_slist
+DEBUG: Skipping header struct Struct___pthread_internal_slist to avoid duplication
+DEBUG: Found header struct __pthread_mutex_s
+DEBUG: Skipping header struct Struct___pthread_mutex_s to avoid duplication
+DEBUG: Found header struct __pthread_rwlock_arch_t
+DEBUG: Skipping header struct Struct___pthread_rwlock_arch_t to avoid duplication
+DEBUG: Found header struct __pthread_cond_s
+DEBUG: Skipping header struct Struct___pthread_cond_s to avoid duplication
+DEBUG: Found header struct __once_flag
+DEBUG: Skipping header struct Struct___once_flag to avoid duplication
+DEBUG: Found header struct __once_flag
+DEBUG: Skipping header struct Struct___once_flag to avoid duplication
+DEBUG: Found header struct __locale_struct
+DEBUG: Skipping header struct Struct___locale_struct to avoid duplication
+DEBUG: Found header struct __locale_data
+DEBUG: Skipping header struct Struct___locale_data to avoid duplication
+DEBUG: Found header struct entry
+DEBUG: Skipping header struct entry to avoid duplication
+DEBUG: Found header struct entry
+DEBUG: Skipping header struct entry to avoid duplication
+DEBUG: Found header struct _ENTRY
+DEBUG: Skipping header struct Struct__ENTRY to avoid duplication
+DEBUG: Found header struct TIFFHeaderCommon
+DEBUG: Skipping header struct TIFFHeaderCommon to avoid duplication
+DEBUG: Found header struct TIFFHeaderCommon
+DEBUG: Skipping header struct TIFFHeaderCommon to avoid duplication
+DEBUG: Found header struct TIFFHeaderClassic
+DEBUG: Skipping header struct TIFFHeaderClassic to avoid duplication
+DEBUG: Found header struct TIFFHeaderClassic
+DEBUG: Skipping header struct TIFFHeaderClassic to avoid duplication
+DEBUG: Found header struct TIFFHeaderBig
+DEBUG: Skipping header struct TIFFHeaderBig to avoid duplication
+DEBUG: Found header struct TIFFHeaderBig
+DEBUG: Skipping header struct TIFFHeaderBig to avoid duplication
+DEBUG: Found header struct tiff
+DEBUG: Skipping external header struct tiff
+DEBUG: Found header struct TIFFDisplay
+DEBUG: Skipping header struct TIFFDisplay to avoid duplication
+DEBUG: Found header struct TIFFDisplay
+DEBUG: Skipping header struct TIFFDisplay to avoid duplication
+DEBUG: Found header struct TIFFYCbCrToRGB
+DEBUG: Skipping header struct TIFFYCbCrToRGB to avoid duplication
+DEBUG: Found header struct TIFFYCbCrToRGB
+DEBUG: Skipping header struct TIFFYCbCrToRGB to avoid duplication
+DEBUG: Found header struct TIFFCIELabToRGB
+DEBUG: Skipping header struct TIFFCIELabToRGB to avoid duplication
+DEBUG: Found header struct TIFFCIELabToRGB
+DEBUG: Skipping header struct TIFFCIELabToRGB to avoid duplication
+DEBUG: Found header struct _TIFFRGBAImage
+DEBUG: Skipping external header struct Struct__TIFFRGBAImage
+DEBUG: Found header struct _TIFFRGBAImage
+DEBUG: Skipping external header struct Struct__TIFFRGBAImage
+DEBUG: Found header struct TIFFCodec
+DEBUG: Skipping header struct TIFFCodec to avoid duplication
+DEBUG: Found header struct TIFFCodec
+DEBUG: Skipping header struct TIFFCodec to avoid duplication
+DEBUG: Found header struct __mbstate_t
+DEBUG: Skipping header struct Struct___mbstate_t to avoid duplication
+DEBUG: Found header struct __mbstate_t
+DEBUG: Skipping header struct Struct___mbstate_t to avoid duplication
+DEBUG: Found header struct _G_fpos_t
+DEBUG: Skipping header struct Struct__G_fpos_t to avoid duplication
+DEBUG: Found header struct _G_fpos_t
+DEBUG: Skipping header struct Struct__G_fpos_t to avoid duplication
+DEBUG: Found header struct _G_fpos64_t
+DEBUG: Skipping header struct Struct__G_fpos64_t to avoid duplication
+DEBUG: Found header struct _G_fpos64_t
+DEBUG: Skipping header struct Struct__G_fpos64_t to avoid duplication
+DEBUG: Found header struct _IO_FILE
+DEBUG: Skipping header struct Struct__IO_FILE to avoid duplication
+DEBUG: Found header struct _IO_FILE
+DEBUG: Skipping header struct Struct__IO_FILE to avoid duplication
+DEBUG: Found header struct _IO_FILE
+DEBUG: Skipping header struct Struct__IO_FILE to avoid duplication
+DEBUG: Found header struct _IO_marker
+DEBUG: Skipping header struct Struct__IO_marker to avoid duplication
+DEBUG: Found header struct _IO_codecvt
+DEBUG: Skipping header struct Struct__IO_codecvt to avoid duplication
+DEBUG: Found header struct _IO_wide_data
+DEBUG: Skipping header struct Struct__IO_wide_data to avoid duplication
+DEBUG: Found header struct _IO_FILE
+DEBUG: Skipping header struct Struct__IO_FILE to avoid duplication
+DEBUG: Found header struct _TIFFField
+DEBUG: Skipping external header struct Struct__TIFFField
+DEBUG: Found header struct _TIFFFieldArray
+DEBUG: Skipping external header struct Struct__TIFFFieldArray
+DEBUG: Found header struct TIFFTagMethods
+DEBUG: Skipping header struct TIFFTagMethods to avoid duplication
+DEBUG: Found header struct TIFFTagMethods
+DEBUG: Skipping header struct TIFFTagMethods to avoid duplication
+DEBUG: Found header struct TIFFFieldInfo
+DEBUG: Skipping header struct TIFFFieldInfo to avoid duplication
+DEBUG: Found header struct TIFFFieldInfo
+DEBUG: Skipping header struct TIFFFieldInfo to avoid duplication
+DEBUG: Found header struct TIFFTagValue
+DEBUG: Skipping header struct TIFFTagValue to avoid duplication
+DEBUG: Found header struct TIFFTagValue
+DEBUG: Skipping header struct TIFFTagValue to avoid duplication
+DEBUG: Found header struct TIFFDirEntry
+DEBUG: Skipping header struct TIFFDirEntry to avoid duplication
+DEBUG: Found header struct TIFFDirEntry
+DEBUG: Skipping header struct TIFFDirEntry to avoid duplication
+DEBUG: Found header struct TIFFDirectory
+DEBUG: Skipping header struct TIFFDirectory to avoid duplication
+DEBUG: Found header struct TIFFDirectory
+DEBUG: Skipping header struct TIFFDirectory to avoid duplication
+DEBUG: Found header struct _TIFFFieldArray
+DEBUG: Skipping external header struct Struct__TIFFFieldArray
+DEBUG: Found header struct _TIFFField
+DEBUG: Skipping external header struct Struct__TIFFField
+DEBUG: Found header struct client_info
+DEBUG: Skipping external header struct client_info
+DEBUG: Found header struct client_info
+DEBUG: Skipping external header struct client_info
+DEBUG: Found header struct tiff
+DEBUG: Skipping external header struct tiff
+DEBUG: Parsing header /home/priyatam/pin/../libtiff/libtiff/tif_predict.h
+DEBUG: Found header struct struct (unnamed at /home/priyatam/pin/../libtiff/libtiff/tif_predict.h:38:9)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /home/priyatam/pin/../libtiff/libtiff/tif_predict.h:38:9)
+DEBUG: Skipping external header struct AnonymousStruct
+DEBUG: Parsing header /home/priyatam/pin/../libtiff/libtiff/tiff.h
+DEBUG: Found header struct TIFFHeaderCommon
+DEBUG: Skipping header struct TIFFHeaderCommon to avoid duplication
+DEBUG: Found header struct TIFFHeaderCommon
+DEBUG: Skipping header struct TIFFHeaderCommon to avoid duplication
+DEBUG: Found header struct TIFFHeaderClassic
+DEBUG: Skipping header struct TIFFHeaderClassic to avoid duplication
+DEBUG: Found header struct TIFFHeaderClassic
+DEBUG: Skipping header struct TIFFHeaderClassic to avoid duplication
+DEBUG: Found header struct TIFFHeaderBig
+DEBUG: Skipping header struct TIFFHeaderBig to avoid duplication
+DEBUG: Found header struct TIFFHeaderBig
+DEBUG: Skipping header struct TIFFHeaderBig to avoid duplication
+DEBUG: Parsing header /home/priyatam/pin/../libtiff/libtiff/tiffconf.wince.h
+DEBUG: Parsing header /home/priyatam/pin/../libtiff/libtiff/t4.h
+DEBUG: Found header struct tableentry
+DEBUG: Skipping header struct tableentry to avoid duplication
+DEBUG: Found header struct tableentry
+DEBUG: Skipping external header struct tableentry
+DEBUG: Parsing header /home/priyatam/pin/../libtiff/libtiff/tiffio.h
+DEBUG: Found header struct TIFFHeaderCommon
+DEBUG: Skipping header struct TIFFHeaderCommon to avoid duplication
+DEBUG: Found header struct TIFFHeaderCommon
+DEBUG: Skipping header struct TIFFHeaderCommon to avoid duplication
+DEBUG: Found header struct TIFFHeaderClassic
+DEBUG: Skipping header struct TIFFHeaderClassic to avoid duplication
+DEBUG: Found header struct TIFFHeaderClassic
+DEBUG: Skipping header struct TIFFHeaderClassic to avoid duplication
+DEBUG: Found header struct TIFFHeaderBig
+DEBUG: Skipping header struct TIFFHeaderBig to avoid duplication
+DEBUG: Found header struct TIFFHeaderBig
+DEBUG: Skipping header struct TIFFHeaderBig to avoid duplication
+DEBUG: Found header struct tiff
+DEBUG: Skipping external header struct tiff
+DEBUG: Found header struct TIFFDisplay
+DEBUG: Skipping header struct TIFFDisplay to avoid duplication
+DEBUG: Found header struct TIFFDisplay
+DEBUG: Skipping header struct TIFFDisplay to avoid duplication
+DEBUG: Found header struct TIFFYCbCrToRGB
+DEBUG: Skipping header struct TIFFYCbCrToRGB to avoid duplication
+DEBUG: Found header struct TIFFYCbCrToRGB
+DEBUG: Skipping header struct TIFFYCbCrToRGB to avoid duplication
+DEBUG: Found header struct TIFFCIELabToRGB
+DEBUG: Skipping header struct TIFFCIELabToRGB to avoid duplication
+DEBUG: Found header struct TIFFCIELabToRGB
+DEBUG: Skipping header struct TIFFCIELabToRGB to avoid duplication
+DEBUG: Found header struct _TIFFRGBAImage
+DEBUG: Skipping external header struct Struct__TIFFRGBAImage
+DEBUG: Found header struct _TIFFRGBAImage
+DEBUG: Skipping external header struct Struct__TIFFRGBAImage
+DEBUG: Found header struct TIFFCodec
+DEBUG: Skipping header struct TIFFCodec to avoid duplication
+DEBUG: Found header struct TIFFCodec
+DEBUG: Skipping header struct TIFFCodec to avoid duplication
+DEBUG: Found header struct __fsid_t
+DEBUG: Skipping header struct Struct___fsid_t to avoid duplication
+DEBUG: Found header struct __fsid_t
+DEBUG: Skipping header struct Struct___fsid_t to avoid duplication
+DEBUG: Found header struct __mbstate_t
+DEBUG: Skipping header struct Struct___mbstate_t to avoid duplication
+DEBUG: Found header struct __mbstate_t
+DEBUG: Skipping header struct Struct___mbstate_t to avoid duplication
+DEBUG: Found header struct _G_fpos_t
+DEBUG: Skipping header struct Struct__G_fpos_t to avoid duplication
+DEBUG: Found header struct _G_fpos_t
+DEBUG: Skipping header struct Struct__G_fpos_t to avoid duplication
+DEBUG: Found header struct _G_fpos64_t
+DEBUG: Skipping header struct Struct__G_fpos64_t to avoid duplication
+DEBUG: Found header struct _G_fpos64_t
+DEBUG: Skipping header struct Struct__G_fpos64_t to avoid duplication
+DEBUG: Found header struct _IO_FILE
+DEBUG: Skipping header struct Struct__IO_FILE to avoid duplication
+DEBUG: Found header struct _IO_FILE
+DEBUG: Skipping header struct Struct__IO_FILE to avoid duplication
+DEBUG: Found header struct _IO_FILE
+DEBUG: Skipping header struct Struct__IO_FILE to avoid duplication
+DEBUG: Found header struct _IO_marker
+DEBUG: Skipping header struct Struct__IO_marker to avoid duplication
+DEBUG: Found header struct _IO_codecvt
+DEBUG: Skipping header struct Struct__IO_codecvt to avoid duplication
+DEBUG: Found header struct _IO_wide_data
+DEBUG: Skipping header struct Struct__IO_wide_data to avoid duplication
+DEBUG: Found header struct _IO_FILE
+DEBUG: Skipping header struct Struct__IO_FILE to avoid duplication
+DEBUG: Found header struct _TIFFField
+DEBUG: Skipping external header struct Struct__TIFFField
+DEBUG: Found header struct _TIFFFieldArray
+DEBUG: Skipping external header struct Struct__TIFFFieldArray
+DEBUG: Found header struct TIFFTagMethods
+DEBUG: Skipping header struct TIFFTagMethods to avoid duplication
+DEBUG: Found header struct TIFFTagMethods
+DEBUG: Skipping header struct TIFFTagMethods to avoid duplication
+DEBUG: Found header struct TIFFFieldInfo
+DEBUG: Skipping header struct TIFFFieldInfo to avoid duplication
+DEBUG: Found header struct TIFFFieldInfo
+DEBUG: Skipping header struct TIFFFieldInfo to avoid duplication
+DEBUG: Parsing header /home/priyatam/pin/../libtiff/libtiff/tif_dir.h
+DEBUG: Found header struct struct (unnamed at /home/priyatam/pin/../libtiff/libtiff/tif_dir.h:33:9)
+DEBUG: Skipping external header struct AnonymousStruct
+DEBUG: Found header struct struct (unnamed at /home/priyatam/pin/../libtiff/libtiff/tif_dir.h:33:9)
+DEBUG: Skipping external header struct AnonymousStruct
+DEBUG: Found header struct struct (unnamed at /home/priyatam/pin/../libtiff/libtiff/tif_dir.h:50:9)
+DEBUG: Skipping external header struct AnonymousStruct
+DEBUG: Found header struct struct (unnamed at /home/priyatam/pin/../libtiff/libtiff/tif_dir.h:50:9)
+DEBUG: Skipping external header struct AnonymousStruct
+DEBUG: Found header struct struct (unnamed at /home/priyatam/pin/../libtiff/libtiff/tif_dir.h:64:9)
+DEBUG: Skipping external header struct AnonymousStruct
+DEBUG: Found header struct struct (unnamed at /home/priyatam/pin/../libtiff/libtiff/tif_dir.h:64:9)
+DEBUG: Skipping external header struct AnonymousStruct
+DEBUG: Found header struct _TIFFFieldArray
+DEBUG: Skipping external header struct Struct__TIFFFieldArray
+DEBUG: Found header struct _TIFFField
+DEBUG: Skipping external header struct Struct__TIFFField
+DEBUG: Parsing header /home/priyatam/pin/../libtiff/libtiff/tif_fax3.h
+DEBUG: Found header struct TIFFHeaderCommon
+DEBUG: Skipping header struct TIFFHeaderCommon to avoid duplication
+DEBUG: Found header struct TIFFHeaderCommon
+DEBUG: Skipping header struct TIFFHeaderCommon to avoid duplication
+DEBUG: Found header struct TIFFHeaderClassic
+DEBUG: Skipping header struct TIFFHeaderClassic to avoid duplication
+DEBUG: Found header struct TIFFHeaderClassic
+DEBUG: Skipping header struct TIFFHeaderClassic to avoid duplication
+DEBUG: Found header struct TIFFHeaderBig
+DEBUG: Skipping header struct TIFFHeaderBig to avoid duplication
+DEBUG: Found header struct TIFFHeaderBig
+DEBUG: Skipping header struct TIFFHeaderBig to avoid duplication
+DEBUG: Found header struct TIFFFaxTabEnt
+DEBUG: Skipping header struct TIFFFaxTabEnt to avoid duplication
+DEBUG: Found header struct TIFFFaxTabEnt
+DEBUG: Skipping header struct TIFFFaxTabEnt to avoid duplication
+DEBUG: Function LogL16fromY params: [('double', 'Y'), ('int', 'em')]
+DEBUG: CLI main function detected: False
+DEBUG: Mapping type for decl: ('double', 'Y')
+DEBUG: Mapping type for decl: ('int', 'em')
+DEBUG: Using function params for Input: [('double', 'Y'), ('int32', 'em')]
+DEBUG: Mapping type for decl: ('double', 'Y')
+DEBUG: Mapping type for decl: ('int', 'em')
+Wrote proto to input.proto:
+
+syntax = "proto3";
+
+message Input {
+  double Y = 1;
+  int32 em = 2;
+}
+

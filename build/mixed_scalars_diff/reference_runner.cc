@@ -1,3 +1,4 @@
+#include <cstddef>
 #include <cstdint>
 #include <cstdio>
 #include <cstdlib>
@@ -7,14 +8,14 @@
 #include <google/protobuf/stubs/common.h>
 #include "cpp_proto/input.pb.h"
 
-extern "C" int evaluate_sensor(int sensor_id, float temperature, const char * mode);
+extern "C" int pin_original_main();
 
 int pin_reference_entry(const uint8_t *data, size_t len) {
     Input msg;
     if (!msg.ParseFromArray(data, static_cast<int>(len))) {
         return 1;
     }
-    evaluate_sensor(msg.sensor_id(), msg.temperature(), msg.mode().c_str());
+    pin_original_main();
     return 0;
 }
 

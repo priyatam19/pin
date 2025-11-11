@@ -1,0 +1,1920 @@
+=== 00574b3dbfdaa7c15eac94f8089392684dde64b2 ===
+[input decoded]
+{"now": 0, "prd": 356241729650576, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 0113f0019fac6bcf1bda0f5c5d7601593f841f84 ===
+[input decoded]
+{"now": 64, "prd": 18446744073709551552, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 011ce3e5b1dc8be0e7295367cb7fbe6e9ed67e17 ===
+[input decoded]
+{"now": 0, "prd": 10256, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 017c9036c0f9f548f026dd68a686994fcb888e25 ===
+[input decoded]
+{"now": 0, "prd": 4294967295999, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 03ade8c5f68e6df2bd5288bf246a5f8804347fd2 ===
+[input decoded]
+{"now": 172588888143866, "prd": 18446730525230415866, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 05327870de781f95310f29c770e0e96be75b947d ===
+[input decoded]
+{"now": 0, "prd": 558446353793939111, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 0625ceb3b37d8a91afd8ce209445b3e884f37445 ===
+[input decoded]
+{"now": 0, "prd": 2097151, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 062a95ac8074cc65a834a6cea703d4421bfa6c24 ===
+[input decoded]
+{"now": 1511830568994, "prd": 18446742699320016896, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 063beedd4a82e75c389b59d541deb04a5bda0fab ===
+[input decoded]
+{"now": 158329676484991, "prd": 18446603336221196288, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 0912dbceb4b6218aee0aa8c6dfa5e94eb56e70c3 ===
+[input decoded]
+{"now": 0, "prd": 511, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 09d4fa1a145f63fa7cbf244abb355e528d82a29d ===
+[input decoded]
+{"now": 2594552772702027774, "prd": 18302628885633695744, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 0a7d06a575ef16ea47c2f6472785bde65dcd95b8 ===
+[input decoded]
+{"now": 20269943536734591, "prd": 18441114574175338496, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 0dcd4dbb6415d4a3b790d474e5639c06216fa65d ===
+[input decoded]
+{"now": 2882140857701941242, "prd": 17705198247565328378, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 10471b7219d3e296b51fddca23b21c953b11975f ===
+[input decoded]
+{"now": 16, "prd": 653053, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 11504c9926bff7e8f6a07339eb7e5f85729816ba ===
+[input decoded]
+{"now": 0, "prd": 5836665117071329322, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 115f9c8cef03180aa7ecdb8390738c067796b290 ===
+[input decoded]
+{"now": 0, "prd": 1005, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 129c55f94db90050b808781f55af1c27ad60d8ad ===
+[input decoded]
+{"now": 20269943536734591, "prd": 18435485074641125376, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 130417c32c85f77f7846e0183adf9ee0c82ce3bc ===
+[input decoded]
+{"now": 39, "prd": 18446744073709551597, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 13ca8e838d0b7c94c95437a559e00bb8f0bc0e38 ===
+[input decoded]
+{"now": 0, "prd": 137438953471, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 14a03338a1f79bf711cb651a458053ab60fa9698 ===
+[input decoded]
+{"now": 0, "prd": 356241767398271, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 15c000313a5145f89f2dc622025ca8f6a773aa0d ===
+[input decoded]
+{"now": 0, "prd": 7881299280782992, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 1799c0ba23e6454d64ed25de27ce033a9943ced6 ===
+[input decoded]
+{"now": 83886079, "prd": 18446744073705356927, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 188cb6598bc9e5e1207e09e98f9f66a73c8721f8 ===
+[input decoded]
+{"now": 5247, "prd": 18446744073709550592, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 18ea4a45673499e8482c84a1beebcfa30c05d1f2 ===
+[input decoded]
+{"now": 0, "prd": 262798309031, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 1b6aa91195bb2743106fd1e704d9b8584c46f56d ===
+[input decoded]
+{"now": 0, "prd": 64, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 1bd40d6ffa7ecd58cd0724ef6abf1f8c96b88352 ===
+[input decoded]
+{"now": 0, "prd": 10, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 1ccd779131513a2894e939dfb72761140567c6a8 ===
+[input decoded]
+{"now": 20269943536734591, "prd": 18435520259013214208, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 1e83af8ab9564a98aeb98119d07ba892664fda15 ===
+[input decoded]
+{"now": 605986, "prd": 18446744073709420544, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 2083f186bae4fe51231190342e508a64233d5aa8 ===
+[input decoded]
+{"now": 0, "prd": 16, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 20bd9ed4cbafef3724be199391a4bdac059f8d0e ===
+[input decoded]
+{"now": 655359, "prd": 18446744073708961536, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 20d1c882bc01594bf31a23d7cfeb96af9647b42c ===
+[input decoded]
+{"now": 0, "prd": 25895697857380351, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 22012006ee75a6b61e9873d376735bc563c72727 ===
+[input decoded]
+{"now": 0, "prd": 2783071695871, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 239477699659ad864fd3928e01e721f9f5e983fd ===
+[input decoded]
+{"now": 20269943536734591, "prd": 18446198715942174720, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 241786ac1c43c0bd4b8177a21823613258aae0a9 ===
+[input decoded]
+{"now": 9930002815, "prd": 18446744073525002240, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 2687d25a42d03f4f5640a375cd8781b93d1a1e33 ===
+[input decoded]
+{"now": 0, "prd": 52428688, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 26bd4f3d6279afd1f5162f977c158ab3823d0f1f ===
+[input decoded]
+{"now": 0, "prd": 29527900159, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 27394131a558c325b00335cc0c43bd532ba55d33 ===
+[input decoded]
+{"now": 2091263, "prd": 18446744073708060412, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 273c76e1f9f493ac86f900981eb4d006fbe18ecd ===
+[input decoded]
+{"now": 0, "prd": 18441677524128759807, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 27f0af2753af0630f442962c25de862870496f1b ===
+[input decoded]
+{"now": 4191890161791, "prd": 18446742424442109952, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 28004ad751535069ef187e16cca97d15f5016356 ===
+[input decoded]
+{"now": 0, "prd": 7, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 293ed70c2f12300d2ed1f979e40fb1d7754084b9 ===
+[input decoded]
+{"now": 0, "prd": 536870911, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 29706bc5e998dc464b5485e506ea91dac404b495 ===
+[input decoded]
+{"now": 0, "prd": 653053, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 29a2c861a1538bb31a4a8a6e6bd55713cfce67e5 ===
+[input decoded]
+{"now": 1271041872255, "prd": 18446743708100460544, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 2a25df7b5a8970c92bfc8245d942ce3c8c68a7cb ===
+[input decoded]
+{"now": 0, "prd": 786173, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 2a5bcd3a9441ec984b9cc893a9d12895f211ba6f ===
+[input decoded]
+{"now": 0, "prd": 21743271935, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 2bf32fc07e6534c7b28bc4de4f0cec74f06987a4 ===
+[input decoded]
+{"now": 2594552772702027774, "prd": 18374686479671623680, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 2bf47cf7cc2eb6249cb3f334dddd66fa138a6244 ===
+[input decoded]
+{"now": 0, "prd": 28147711, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 2c3c098b2ed1b73d27963821784fe35e0ab82e6c ===
+[input decoded]
+{"now": 2594552772701470626, "prd": 17293822569102704640, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 2cdd81824ebc87e55abab96c0b81aea773d75062 ===
+[input decoded]
+{"now": 175917564870650, "prd": 18446739323475116026, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 2cf788e1f733d8aee0b1a8a545660d9b9966e048 ===
+[input decoded]
+{"now": 654335, "prd": 18446744073709551488, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 3504c2b0755118613dd929b3e2aa297973062dff ===
+[input decoded]
+{"now": 0, "prd": 1125899906842623, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 35686038fa982d4e2e36ae7a566ac5d32fdabe4f ===
+[input decoded]
+{"now": 10736811391, "prd": 18446744064314310005, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 3810fe36ff9a901c426855b6f634c3a6ed8d4ea0 ===
+[input decoded]
+{"now": 123145302310911, "prd": 0, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 3a40070a33dcc67657d81c398daeab33c416a206 ===
+[input decoded]
+{"now": 0, "prd": 1, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 3ab188ec67ea80c2bc9fe5e7b6e83a9f54e563c0 ===
+[input decoded]
+{"now": 655359, "prd": 18446744073709420538, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 3cef5a0c3ef277b0d0972d55aaf0914c4d3abd39 ===
+[input decoded]
+{"now": 39, "prd": 18446744073709551612, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 3d07698f02756730bca70b75aea9a4beade6e17b ===
+[input decoded]
+{"now": 5119, "prd": 18446744073709547520, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 3d5af3baeeff426c0c43b0fb101a36ff856b2704 ===
+[input decoded]
+{"now": 0, "prd": 25895697856331775, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 404208e8af3498e30848db8d1daec4c670c77920 ===
+[input decoded]
+{"now": 39, "prd": 18446744073709551615, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 40c76d840ec714d6295a7684b732d73264cb4e82 ===
+[input decoded]
+{"now": 540306887922047, "prd": 18446251492500307968, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 40f856569e7e9dc1b723519a0f90a9c3c44f5af1 ===
+[input decoded]
+{"now": 5119, "prd": 18446744073709548154, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 41d933b4f126b1d24a94d18eb2becb0b36cde09e ===
+[input decoded]
+{"now": 0, "prd": 45598937636358186, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 4256eac699339ade6c87b251f56b42e3df00b7ed ===
+[input decoded]
+{"now": 0, "prd": 123145302310911, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 425853f5f02921e73d440b8203c120913a617662 ===
+[input decoded]
+{"now": 1271041872255, "prd": 18446742950575603712, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 42b29aa40d5d0b98eab690733e4523f5f12c5e87 ===
+[input decoded]
+{"now": 0, "prd": 356241767399423, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 42e9a994bcfd15b920539dcf86d9324d7f8a9076 ===
+[input decoded]
+{"now": 0, "prd": 8796093022207, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 430baa600ff90d8157664ef712c8b28b4bfca846 ===
+[input decoded]
+{"now": 81870847, "prd": 18446744073631793146, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 44541809efde16b76cd6ee4262aed9ae4f383166 ===
+[input decoded]
+{"now": 22517998136852479, "prd": 18445618173802659189, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 4528e474eb8014cdd1eeb620a61b005b395861b2 ===
+[input decoded]
+{"now": 20269943536734591, "prd": 18442240474082181120, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 46e7a09254bd62b293887033d9b6d9a941c76713 ===
+[input decoded]
+{"now": 0, "prd": 8863084066665136127, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 478c4353c6e9885caeded90cadbd4d5e3f66245b ===
+[input decoded]
+{"now": 35651583, "prd": 0, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 47cf5c096ab46ad57a030acdf46ad42cad987d6b ===
+[input decoded]
+{"now": 0, "prd": 83853053, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 48c3f83b1bf6044d44a41d48356709ccfd1f3873 ===
+[input decoded]
+{"now": 51228445761208319, "prd": 18398893327668690293, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 48dad12865d1eb8b98d26723f2abda2f0a6d2409 ===
+[input decoded]
+{"now": 0, "prd": 0, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 4a021cfe85bf82a6806062784c60f0f15572f175 ===
+[input decoded]
+{"now": 606079, "prd": 18446744073709027328, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 4abefad69764acab8af8f7c2f52d909c64b5420b ===
+[input decoded]
+{"now": 1374379048959, "prd": 18446743515342225402, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 4af632b6ae900b32b75eaac4853203ededb9a0c6 ===
+[input decoded]
+{"now": 39, "prd": 18446744073709551609, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 4bf4cee575b4527453d9a99ec691267416668caa ===
+[input decoded]
+{"now": 0, "prd": 288230376151711743, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 4f3da899b20e2754f80ada6a4b228aebc40d6539 ===
+[input decoded]
+{"now": 9930002815, "prd": 18446744073533390848, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 506e70d6de1da535d8d37b344d848a9a04c1c592 ===
+[input decoded]
+{"now": 0, "prd": 21742747536, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 519962be50114dbefa8958aa49d1f0f7f396df75 ===
+[input decoded]
+{"now": 0, "prd": 6143, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 52472db69629db122cc48a1829c5337bc50f4705 ===
+[input decoded]
+{"now": 2594552772702027774, "prd": 17870283321406128128, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 526e6621791df09693dba73ed2df54e51c9113fc ===
+[input decoded]
+{"now": 10699636735, "prd": 0, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 53553e84b51dd84070a7ee188fb662f4a0688ffd ===
+[input decoded]
+{"now": 39, "prd": 18446744073709551608, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 540d4c9ab19d2ecd02787c5ee2f8785ce7df38c1 ===
+[input decoded]
+{"now": 123145302310911, "prd": 18446717685430435189, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 54ea3d8639dd00c501866ccf1f724b8bd400648d ===
+[input decoded]
+{"now": 0, "prd": 5101, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 550f5b07ed24325a6b3e33cd96befb11f687ee41 ===
+[input decoded]
+{"now": 5112, "prd": 18446744073709549568, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 56d9f2e78998007c8e099bee99d7f8837d083879 ===
+[input decoded]
+{"now": 0, "prd": 1326992, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 5b98e238a0a1c4b2320f695cf67833853f108300 ===
+[input decoded]
+{"now": 426434417311739, "prd": 18446321686737764351, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 5e901ab0e11d6fa625a8822179f5bbc799b6e49c ===
+[input decoded]
+{"now": 0, "prd": 268435353, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 5f222c8f7e8248405e5b2517327b3977338f2b48 ===
+[input decoded]
+{"now": 74766790688767, "prd": 0, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 5ffede95f0943359625b1523fed108261c96e904 ===
+[input decoded]
+{"now": 0, "prd": 2251799813685247, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 602922dc20c06cfc431760cb977ffecdbefe0da4 ===
+[input decoded]
+{"now": 174649207341050, "prd": 18446695343010004986, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 63f39d36b6044a97683404619ca878f2c5f63804 ===
+[input decoded]
+{"now": 20269943536734591, "prd": 18446189919849152512, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 64274ab2aa125736669e02a1c1f40bc4072f3104 ===
+[input decoded]
+{"now": 1236950597631, "prd": 18446742974197923840, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 64333de3dbc1b73d4c735dd965667dac6ba62949 ===
+[input decoded]
+{"now": 2594552772702027774, "prd": 18158513697557839872, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 64d769327cb933ef0e786a369336f24008d5fd56 ===
+[input decoded]
+{"now": 655359, "prd": 18446744073709469690, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 64f244d360bc931b76b1df2384627d0463328872 ===
+[input decoded]
+{"now": 0, "prd": 1389, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 65d58658f874a240cd14f32272714f4266c46881 ===
+[input decoded]
+{"now": 31524097775108063, "prd": 0, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 677018567dba3080ac7c6310acfec3e18804e716 ===
+[input decoded]
+{"now": 655359, "prd": 18446744073709537267, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 6822960434d47af2e8deef2d6e3cc6fced72f1d0 ===
+[input decoded]
+{"now": 1364446674938, "prd": 18446742971512963066, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 685acf03cd70ddde9ac2c5f0ebf8081253413ed7 ===
+[input decoded]
+{"now": 1374121103743, "prd": 18446742948428120064, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 68c36de41e9b75e585d7c56cfaa9be57bf7063be ===
+[input decoded]
+{"now": 0, "prd": 2882303761517117439, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 69253f9f948b41f2a92e7af4109d4f333f3b4402 ===
+[input decoded]
+{"now": 83884415, "prd": 18446744073707454204, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 6dc72529630e66a1e336fd5ea1bf45ff141a66e3 ===
+[input decoded]
+{"now": 2594552772702027774, "prd": 18338657682652659712, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 714fcea40810780f2b67759b4a9c45adeeb13b5b ===
+[input decoded]
+{"now": 0, "prd": 8388607, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 722bf052915d572751d60874b7e42b08626c6e35 ===
+[input decoded]
+{"now": 0, "prd": 35184372086439, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 73d227cf29f51d30800404aceb393859d5e1f250 ===
+[input decoded]
+{"now": 22517996717080575, "prd": 18441604397994016762, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 73d7c2fdb2e176674c2426a1cce4a33bbe5dac5d ===
+[input decoded]
+{"now": 652955, "prd": 0, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 755e7244efbc70994ae2a0743c0562c3fc07a5e6 ===
+[input decoded]
+{"now": 83884415, "prd": 18446744073699065596, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 758eebb3b1c2ff55fbaf2e45fc5dda39cc1ef8d4 ===
+[input decoded]
+{"now": 0, "prd": 16777215, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 76852880adfdff6741bf4f54135fe134444dba7d ===
+[input decoded]
+{"now": 0, "prd": 4329327034367, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 77b5cb2ae4360e5e9527c637f031dde5920458e8 ===
+[input decoded]
+{"now": 0, "prd": 45598941395288047, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 77d308a5128a1015f186a19fbb2a0b2ae6b9f76e ===
+[input decoded]
+{"now": 39, "prd": 9223372036854775807, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 78350a7455a2fdb4eb2932d6ac0bdbf2827494ca ===
+[input decoded]
+{"now": 10736811391, "prd": 18446744069393006586, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 792fed6c2e56fb1a00a06e042e80d929695d0a10 ===
+[input decoded]
+{"now": 0, "prd": 276973, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 79be878e86a2b03d6282e31574948f36744860a3 ===
+[input decoded]
+{"now": 0, "prd": 2147483647, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 7a365b6eb13dbef3f97b105a421ac3b41f4d6cd9 ===
+[input decoded]
+{"now": 33776997205278719, "prd": 0, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 7b67b124c827bdbf8080f3b0fe6ee69ff570a138 ===
+[input decoded]
+{"now": 10736811391, "prd": 18446744071024588794, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 7c41a4e9a2c7409848abc479d6ebe6ab20c5d9ac ===
+[input decoded]
+{"now": 0, "prd": 21743267839, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 7dec335a98e9fed296977c56362bc293e9195f4e ===
+[input decoded]
+{"now": 0, "prd": 128679, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 7e6ba1b75d4c94e97b7f2d7464e462313a84e813 ===
+[input decoded]
+{"now": 655322, "prd": 18446744073709501813, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 7e76daac03604ea7dd459e899bed6bdcaf1f3903 ===
+[input decoded]
+{"now": 0, "prd": 5485, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 8089f08b73e301fa6d8efd48240ec9f1b304a4d9 ===
+[input decoded]
+{"now": 32480600054, "prd": 18446744056529682428, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 81e726eb5f5bd3d05f5345daf3022524a6eb5c95 ===
+[input decoded]
+{"now": 211795967, "prd": 18446744073535488000, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 830e1d02f6ca0a5d52f38a9341abbfe524762d66 ===
+[input decoded]
+{"now": 5119, "prd": 18446744073709550965, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 834e9aed3d9ddbe56dbcdea2419e8994edcc6783 ===
+[input decoded]
+{"now": 81870847, "prd": 18446744073687973882, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 838de6bb9eb7ba67f8c40bdc6fc9ffd6c4c0d821 ===
+[input decoded]
+{"now": 0, "prd": 1073741823, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 8413e63ac4c0c97cffcd2937524ad27e6a8726a4 ===
+[input decoded]
+{"now": 655359, "prd": 18446744073709109242, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 862726cc7384769bbcc023515e60ca6a30056496 ===
+[input decoded]
+{"now": 606207, "prd": 18446744073709289472, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 88b440725663eac4e498211ce7e50a8ac2303593 ===
+[input decoded]
+{"now": 0, "prd": 2783138807696, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 894dfec9c9a3c8e7748d90a40478d9cf190731d0 ===
+[input decoded]
+{"now": 2017612633061982207, "prd": 18038605357479050613, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 8a335c3d0ff757f1a1efc3b66198525a20c61625 ===
+[input decoded]
+{"now": 558552173812991, "prd": 18446462598732840960, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 8c07547971c7f6ed47eed93db0a51330980563c1 ===
+[input decoded]
+{"now": 2594552772701470626, "prd": 16140901064495857664, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 8cf5b4a99982afff52f45e5b2df4e3d439fbc87f ===
+[input decoded]
+{"now": 10736811391, "prd": 18446744072904244597, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 8eaeba117138cbf68354cfd64b30cfefce807873 ===
+[input decoded]
+{"now": 0, "prd": 784125, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 90db64bde0c2aa5f0d4e8a76c571cf4142860442 ===
+[input decoded]
+{"now": 0, "prd": 61572651155455, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 91b7163362e9d89be40f82c38264c79d3a5700e9 ===
+[input decoded]
+{"now": 0, "prd": 74766790688767, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 9262b76d7439161d7dbc6b033b8ed01b79d17088 ===
+[input decoded]
+{"now": 83885439, "prd": 18446744073675014144, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 92d369347ef139d7eb154c198b33a27d760af3f8 ===
+[input decoded]
+{"now": 5119, "prd": 18446744073709551487, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 92ff0b1c458742b4dd7227dad6dd61d6e84306f4 ===
+[input decoded]
+{"now": 175921849352191, "prd": 18446670947574808570, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 93700d71715546d20bab55eee35e5e191b0ce69f ===
+[input decoded]
+{"now": 1271041872255, "prd": 18446742971312242688, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 937ad71dcc23094537099e384f0fced67bc040e1 ===
+[input decoded]
+{"now": 20269943568191871, "prd": 18428729675200069632, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 93cfe50f145dec3c135c89eea0dee5adb03735b9 ===
+[input decoded]
+{"now": 0, "prd": 22516658107056127, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 945ebfb9c56efb08e6fb9c4d8dae552fade95fa3 ===
+[input decoded]
+{"now": 1374389534719, "prd": 18446743901910859516, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 95380b1c287557b75212c5fb3a653eed53f19f4d ===
+[input decoded]
+{"now": 0, "prd": 9223372036854775807, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 95c2e288ff44fcaaa7ec744a92dd661cb3852276 ===
+[input decoded]
+{"now": 0, "prd": 1403917434879, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 96dd80a067988980a6340db0a41b6d786a69bc10 ===
+[input decoded]
+{"now": 1236950597631, "prd": 18446743867551121408, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 9844c90e5cfee5751f92aedd26e39813709505b6 ===
+[input decoded]
+{"now": 1271041872255, "prd": 18446743708368896000, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 9895c61eaa0996347340d2d1ed2e10a97efe0c33 ===
+[input decoded]
+{"now": 0, "prd": 1224979098644774911, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 98d5b715caad054e76be77fa45139e1e28d8af78 ===
+[input decoded]
+{"now": 0, "prd": 2954361355554226175, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 98fb65d5be2c1b872fabb25c44307bfad86daf9d ===
+[input decoded]
+{"now": 9930002774, "prd": 18446744070857424896, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 9a2eaf7c4591d3b0ab59e9f46b86d623b7a78932 ===
+[input decoded]
+{"now": 1271041872255, "prd": 18446743708637331456, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 9a3f619632011423269be10d6712d6d8682805ef ===
+[input decoded]
+{"now": 20269943536734591, "prd": 18446183322779385856, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 9a7a9e8dde91bea378f79ebbf0ec546cf220f992 ===
+[input decoded]
+{"now": 0, "prd": 1008806316529778687, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 9b6676695874a25373320276e6fd14d1c5e41e21 ===
+[input decoded]
+{"now": 0, "prd": 177733581, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 9c138a4f8686ce17a03298a87eb444586a99dae6 ===
+[input decoded]
+{"now": 0, "prd": 61, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 9cb46c5cf46a31d590addbde75e172bbe0146073 ===
+[input decoded]
+{"now": 0, "prd": 2157, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 9ce4e935773a2cea64e395fbcd8c64efc152589a ===
+[input decoded]
+{"now": 5247, "prd": 18446744073709551520, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 9d1637060370673666658fe2120d7dbe3567b15d ===
+[input decoded]
+{"now": 655346, "prd": 18446744073709534972, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 9d1996cb2f705ac232aa433ece29827b7939f32d ===
+[input decoded]
+{"now": 0, "prd": 3, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 9f826af42d9b0bd34a4b3e0c9d4186d7c15efa39 ===
+[input decoded]
+{"now": 5119, "prd": 18446744073709550330, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== a181603f6b366f9a35ae448b7378cd5a6450f291 ===
+[input decoded]
+{"now": 9930014719, "prd": 18446744072770027520, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== a2ff54ac881ef9310620bb866a2823a8581971ac ===
+[input decoded]
+{"now": 0, "prd": 65535, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== a36e8ef831da7bf4178193f8f10e81c438d1f903 ===
+[input decoded]
+{"now": 0, "prd": 169865165, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== a3963cd17b9c9fe1872d15c64f016061326de8a6 ===
+[input decoded]
+{"now": 0, "prd": 6125, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== a3b42410ecbe8b6ec14d81bb3a442d5aab688c54 ===
+[input decoded]
+{"now": 0, "prd": 404620279021567, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== a5a3d665f5814e8b42c1dc38efb4656d95d8cf99 ===
+[input decoded]
+{"now": 158358935949695, "prd": 18446598938174685184, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== a7e3b4ced6083c7f6e43dd7c2f00d824b99bf1c5 ===
+[input decoded]
+{"now": 10699635711, "prd": 0, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== a90e28397aa160189ddfa5eb6a2108cb8a1399f0 ===
+[input decoded]
+{"now": 10879, "prd": 18446744073709543424, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== a914573253158d38107f83f3025361496e0774de ===
+[input decoded]
+{"now": 0, "prd": 481036337151, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== aa49e2e55e56c615aefd255dcfb38e9af7a67b99 ===
+[input decoded]
+{"now": 3573402304511, "prd": 18446741316318986234, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== aa5106c287c9774f061918057b93a9364c2c2281 ===
+[input decoded]
+{"now": 0, "prd": 10200022989, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== aa73585a147d05a9a6858d4a62d086f276a4f661 ===
+[input decoded]
+{"now": 18446744073709551610, "prd": 65, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== ac45393ac44ebbf59730b46fb4605c90faa26c1c ===
+[input decoded]
+{"now": 0, "prd": 27021597764222975, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== ad2149d31d7aa1c2e6f42bb2fd94de91118ef1e1 ===
+[input decoded]
+{"now": 5119, "prd": 18446744073709551356, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== ada4bdf2c3dd19f3f1ca2bc5a69f84e89a2e769f ===
+[input decoded]
+{"now": 178257919, "prd": 18446744073575333884, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== ae5ddb0b379c9eb179e64d7805999a6fa974e161 ===
+[input decoded]
+{"now": 10736811391, "prd": 18446744072077361146, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== ae9abf40ed84ad8fe5bd8540aa7726e2f82db469 ===
+[input decoded]
+{"now": 0, "prd": 3758096383, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== b11d34f3bfb14e0af966765c292723b74447dd74 ===
+[input decoded]
+{"now": 9932110847, "prd": 18446744070856376320, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== b15486779c2f4a4a20eb2e4cdbfaa5ba7d5786fc ===
+[input decoded]
+{"now": 2882140857701941242, "prd": 15762598352199352314, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== b17a35c6f983a114962c48e7ec776d485e466003 ===
+[input decoded]
+{"now": 0, "prd": 229375, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== b184a7686e1225238af12d8899d0095f5ad6111b ===
+[input decoded]
+{"now": 39, "prd": 18446744073709551603, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== b2bba83cfac3251c58dbef4ce0df999bf40aa002 ===
+[input decoded]
+{"now": 0, "prd": 130023407, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== b4f7c1359b917b400db1de7063ec6cb2b303fff2 ===
+[input decoded]
+{"now": 10736811391, "prd": 18446744073441115509, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== b748a2bdfaaed341898f739321e2aee98d7c47d0 ===
+[input decoded]
+{"now": 20269943536734591, "prd": 18446181123756130304, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== b7bf9ef513b3dabb99584fe3ac365b767bd2ee1d ===
+[input decoded]
+{"now": 175921849958399, "prd": 18446603331904651258, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== b802e1a95c616062d94b4003f77f9bd3ef070dc9 ===
+[input decoded]
+{"now": 1654783, "prd": 18446744073708535808, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== b8efc02e2f4e04a1e5bc3ac9409dfde75fee2ed1 ===
+[input decoded]
+{"now": 2882303579786313727, "prd": 17293681831592771578, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== bb70ba7a6cd41b90853182540fb348f4f16bddeb ===
+[input decoded]
+{"now": 2017612633061982207, "prd": 18254778139592834421, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== bcd6ddec0bb556a050da9ed7e767dc914387c098 ===
+[input decoded]
+{"now": 0, "prd": 3314367850767974399, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== bde8e0f4cca8bc0f940d62132f1d7632a505d452 ===
+[input decoded]
+{"now": 114, "prd": 18446744073709551504, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== bf0cf53a9b6b11d7732dd85d164653418ea8e8cb ===
+[input decoded]
+{"now": 0, "prd": 12348030975, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== bfcd6fbe454f58a754883219af109c82b2316808 ===
+[input decoded]
+{"now": 0, "prd": 25893497760382975, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== bfd7bfcbec299f801d4816baf87d2dfbccc951f5 ===
+[input decoded]
+{"now": 39, "prd": 18446744073709551613, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== bfd9b898160c9ce378822b19c0bae14e1e8ac3d2 ===
+[input decoded]
+{"now": 1364456816634, "prd": 18446743721521627130, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== c373d32ee2dbd13bc514064c246946b086d92498 ===
+[input decoded]
+{"now": 1957687197695, "prd": 18446743970617752949, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== c4b41ef0e35f7f07a98bdaed79f1a89e3d6e0f55 ===
+[input decoded]
+{"now": 157710662238207, "prd": 0, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== c95b3907adb4210b0e26b5b7c0b36d4b5d36ff01 ===
+[input decoded]
+{"now": 0, "prd": 202310139510783, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== c98ffc4027b1785ab36cde86dbe9ec17f301f3ca ===
+[input decoded]
+{"now": 1236950597538, "prd": 18446742939838185472, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== ca55b6fbffe2e83b2cfdac000c812da5780a9e3b ===
+[input decoded]
+{"now": 5119, "prd": 18446744073709547251, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== cac372e5eb53a36ae4308f63979ddd42bc146bff ===
+[input decoded]
+{"now": 0, "prd": 4831838207, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== cd01c6e940f328e5603deaa84b31a0efe89a19cc ===
+[input decoded]
+{"now": 0, "prd": 17592186044415, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== ce220bfceb3a58679d3eff8f5ef65c5f7ceb26c9 ===
+[input decoded]
+{"now": 39, "prd": 18446744073709551581, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== d002b242aeee1222add33ef8f09aa6a543aa08ea ===
+[input decoded]
+{"now": 22517996717080575, "prd": 18437596136944877562, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== d0b2b51857394a9ffd81eecc4385e6377b4082b5 ===
+[input decoded]
+{"now": 2882303761479334911, "prd": 0, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== d0cfc61fc169e37596a1cf1d5fb9487fa2faccb6 ===
+[input decoded]
+{"now": 1271041883135, "prd": 18446742971344764928, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== d304e54c1f0652da1f901283d067c47877dce5f2 ===
+[input decoded]
+{"now": 0, "prd": 1575716126719, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== d47ffacdba84906496b85198b5ee8dd7f5e495a1 ===
+[input decoded]
+{"now": 22517997331546111, "prd": 18443366373988973941, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== d5bb6d70bdbab4b0596b2f4138fc2c5a10937c6d ===
+[input decoded]
+{"now": 0, "prd": 68719476735, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== d6014f0fb3b548fdbf7ffd705cb211ec773b23dc ===
+[input decoded]
+{"now": 83885439, "prd": 18446744073675389690, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== d643aad650551c070be1b0e53b1d58212b8c4f8d ===
+[input decoded]
+{"now": 0, "prd": 255, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== d749342af505d64fdb3fa070c3d4d6283250c1d7 ===
+[input decoded]
+{"now": 0, "prd": 45, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== d881c32d9760586228da95b2d34f2bb9464ab583 ===
+[input decoded]
+{"now": 9930014719, "prd": 18446744072635809792, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== d9878cf585a9ab72534358a81b0205832e36c8d4 ===
+[input decoded]
+{"now": 39, "prd": 18446744073709551610, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== daa3161ca004f31d675a699519739a3986f29536 ===
+[input decoded]
+{"now": 0, "prd": 4362862139012775, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== ddea98b2d5d23a00e8e962c5618b309dc98fe520 ===
+[input decoded]
+{"now": 22516722530959354, "prd": 18446137134700478458, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== debd7e46c4261994263dda37654bb02046193d35 ===
+[input decoded]
+{"now": 1236950597538, "prd": 18446742853938839552, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== dfc8febcf8663b6e5a2cbf55a5ef1f26fb3074ae ===
+[input decoded]
+{"now": 0, "prd": 117440511, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== e0716e53d0eca969b1c15757f47c3d7f949bb0a9 ===
+[input decoded]
+{"now": 2017612633061982207, "prd": 18326813743398206837, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== e0fb1d37c9dbda722e9f8ae65e26f94a63e90069 ===
+[input decoded]
+{"now": 9930014626, "prd": 18446744070853230592, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== e0ff88d042cc8e4cd3969bcc90e5c4a1918b77fb ===
+[input decoded]
+{"now": 1373047357439, "prd": 18446744039349812597, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== e30487d743364dbb8d47f6667187556d41ac86a0 ===
+[input decoded]
+{"now": 0, "prd": 4194303, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== e386139b6ac03b69e1a595cdabc0d36319c7aed5 ===
+[input decoded]
+{"now": 5119, "prd": 18446744073709551104, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== e533a75463cd8378b99157d7b676ccb1697bfe46 ===
+[input decoded]
+{"now": 0, "prd": 25893463400644607, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== ea4e51e7018d7c7824eb53b6cdc97b9c906312eb ===
+[input decoded]
+{"now": 0, "prd": 3092376453119, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== ee6edf8c28c529ba057dc9a91d82b489c567179d ===
+[input decoded]
+{"now": 0, "prd": 783597, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== eecb73a5e60afcda0529aadb6ff9aec2c86319bd ===
+[input decoded]
+{"now": 0, "prd": 2954361355555045375, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== ef04b2bd19a1735248b5c96de534651c80fffe63 ===
+[input decoded]
+{"now": 20268397463851391, "prd": 18437736874454810624, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== f0eb6c798c5352b11830c7a424a71050dbfb8b86 ===
+[input decoded]
+{"now": 0, "prd": 583578681343, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== f1f25260e100f3882d6204e48ff84b2678436b99 ===
+[input decoded]
+{"now": 655359, "prd": 18446744073708945402, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== f272232b859d80f05ab3ece07f444a5473695a9f ===
+[input decoded]
+{"now": 39, "prd": 18446744073709551600, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== f3b9d5635c0a790c0c9a36b6ea6a7764ff602ccf ===
+[input decoded]
+{"now": 0, "prd": 9570149208162303, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== f4ed6aff5719d66002aa6179981ae225a194e8e7 ===
+[input decoded]
+{"now": 0, "prd": 6141, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== f5071c0b3b4bb44e540d14c66e010e7d4eca288a ===
+[input decoded]
+{"now": 0, "prd": 786429, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== f918d294541faf97aae36052b7a1e9d3ea1f4c92 ===
+[input decoded]
+{"now": 0, "prd": 18559, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== f94da4c5372d4db207d295ed0284e6596fbb50f7 ===
+[input decoded]
+{"now": 0, "prd": 268435455, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== f9e76f148064609182c9734ba290ddf9f70807ab ===
+[input decoded]
+{"now": 0, "prd": 144115188075855871, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== fd5bcaff69d1dc1ba588cfcebab11e2c6042f734 ===
+[input decoded]
+{"now": 1236950597538, "prd": 18446742836758970368, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== ffa692760b29641544fa9ad56c90e2ec211cf3e0 ===
+[input decoded]
+{"now": 22517988204740607, "prd": 18428729670887718906, "t": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+

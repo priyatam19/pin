@@ -1,0 +1,230 @@
+DEBUG: Starting main with file /home/priyatam/pin/examples/fdlibm/e_atan2.c, func __ieee754_atan2, parser libclang, headers /home/priyatam/pin/examples/fdlibm/include
+DEBUG: Parsing file /home/priyatam/pin/examples/fdlibm/e_atan2.c with libclang
+DEBUG: Libclang args: ['-I/home/priyatam/pin/examples/fdlibm/include']
+DEBUG: Scanning for function __ieee754_atan2
+DEBUG: Found target function __ieee754_atan2
+DEBUG: Function has 2 arguments
+DEBUG: Param type: double
+DEBUG: Param type: double
+DEBUG: Found called function __ieee754_atan
+DEBUG: Found called function __ieee754_atan
+DEBUG: Found called function fabs
+DEBUG: Collecting structs from /home/priyatam/pin/examples/fdlibm/e_atan2.c
+DEBUG: Skipped struct __fsid_t from /usr/include/x86_64-linux-gnu/bits/types.h (not in main file or headers dir)
+DEBUG: Skipped struct __fsid_t from /usr/include/x86_64-linux-gnu/bits/types.h (not in main file or headers dir)
+DEBUG: Skipped struct __mbstate_t from /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h (not in main file or headers dir)
+DEBUG: Skipped struct __mbstate_t from /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos64_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos64_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/__FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_marker from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_codecvt from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_wide_data from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_cookie_io_functions_t from /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_cookie_io_functions_t from /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h (not in main file or headers dir)
+DEBUG: Skipped struct obstack from /usr/include/stdio.h (not in main file or headers dir)
+DEBUG: Skipped struct __sigset_t from /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h (not in main file or headers dir)
+DEBUG: Skipped struct __sigset_t from /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h (not in main file or headers dir)
+DEBUG: Skipped struct timeval from /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h (not in main file or headers dir)
+DEBUG: Skipped struct timespec from /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h (not in main file or headers dir)
+DEBUG: Skipped struct fd_set from /usr/include/x86_64-linux-gnu/sys/select.h (not in main file or headers dir)
+DEBUG: Skipped struct fd_set from /usr/include/x86_64-linux-gnu/sys/select.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3) from /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3) from /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3) from /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3) from /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_internal_list from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_internal_list from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_internal_slist from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_internal_slist from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_mutex_s from /usr/include/x86_64-linux-gnu/bits/struct_mutex.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_rwlock_arch_t from /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_cond_s from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct __once_flag from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct __once_flag from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipping header struct exception from /home/priyatam/pin/examples/fdlibm/include/math.h
+DEBUG: Skipping header struct fenv_t from /home/priyatam/pin/examples/fdlibm/include/bits/x86/fenv.h
+DEBUG: Skipping header struct fenv_t from /home/priyatam/pin/examples/fdlibm/include/bits/x86/fenv.h
+DEBUG: Skipping header struct struct (unnamed at /home/priyatam/pin/examples/fdlibm/include/fdlibm.h:88:3) from /home/priyatam/pin/examples/fdlibm/include/fdlibm.h
+DEBUG: Skipping header struct struct (unnamed at /home/priyatam/pin/examples/fdlibm/include/fdlibm.h:88:3) from /home/priyatam/pin/examples/fdlibm/include/fdlibm.h
+DEBUG: Skipping header struct struct (unnamed at /home/priyatam/pin/examples/fdlibm/include/fdlibm.h:88:3) from /home/priyatam/pin/examples/fdlibm/include/fdlibm.h
+DEBUG: Skipping header struct struct (unnamed at /home/priyatam/pin/examples/fdlibm/include/fdlibm.h:88:3) from /home/priyatam/pin/examples/fdlibm/include/fdlibm.h
+DEBUG: Skipping header struct struct (unnamed at /home/priyatam/pin/examples/fdlibm/include/fdlibm.h:98:3) from /home/priyatam/pin/examples/fdlibm/include/fdlibm.h
+DEBUG: Skipping header struct struct (unnamed at /home/priyatam/pin/examples/fdlibm/include/fdlibm.h:98:3) from /home/priyatam/pin/examples/fdlibm/include/fdlibm.h
+DEBUG: Skipping header struct struct (unnamed at /home/priyatam/pin/examples/fdlibm/include/fdlibm.h:98:3) from /home/priyatam/pin/examples/fdlibm/include/fdlibm.h
+DEBUG: Skipping header struct struct (unnamed at /home/priyatam/pin/examples/fdlibm/include/fdlibm.h:98:3) from /home/priyatam/pin/examples/fdlibm/include/fdlibm.h
+DEBUG: Parsing headers in /home/priyatam/pin/examples/fdlibm/include
+DEBUG: Parsing header /home/priyatam/pin/examples/fdlibm/include/math.h
+DEBUG: Found header struct __fsid_t
+DEBUG: Skipping header struct Struct___fsid_t to avoid duplication
+DEBUG: Found header struct __fsid_t
+DEBUG: Skipping header struct Struct___fsid_t to avoid duplication
+DEBUG: Found header struct __sigset_t
+DEBUG: Skipping header struct Struct___sigset_t to avoid duplication
+DEBUG: Found header struct __sigset_t
+DEBUG: Skipping header struct Struct___sigset_t to avoid duplication
+DEBUG: Found header struct timeval
+DEBUG: Found header struct timespec
+DEBUG: Found header struct fd_set
+DEBUG: Skipping header struct fd_set to avoid duplication
+DEBUG: Found header struct fd_set
+DEBUG: Skipping header struct fd_set to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct __pthread_internal_list
+DEBUG: Skipping header struct Struct___pthread_internal_list to avoid duplication
+DEBUG: Found header struct __pthread_internal_list
+DEBUG: Skipping header struct Struct___pthread_internal_list to avoid duplication
+DEBUG: Found header struct __pthread_internal_slist
+DEBUG: Skipping header struct Struct___pthread_internal_slist to avoid duplication
+DEBUG: Found header struct __pthread_internal_slist
+DEBUG: Skipping header struct Struct___pthread_internal_slist to avoid duplication
+DEBUG: Found header struct __pthread_mutex_s
+DEBUG: Skipping header struct Struct___pthread_mutex_s to avoid duplication
+DEBUG: Found header struct __pthread_rwlock_arch_t
+DEBUG: Skipping header struct Struct___pthread_rwlock_arch_t to avoid duplication
+DEBUG: Found header struct __pthread_cond_s
+DEBUG: Skipping header struct Struct___pthread_cond_s to avoid duplication
+DEBUG: Found header struct __once_flag
+DEBUG: Skipping header struct Struct___once_flag to avoid duplication
+DEBUG: Found header struct __once_flag
+DEBUG: Skipping header struct Struct___once_flag to avoid duplication
+DEBUG: Found header struct exception
+DEBUG: Skipping header struct exception to avoid duplication
+DEBUG: Parsing header /home/priyatam/pin/examples/fdlibm/include/fdlibm.h
+DEBUG: Found header struct __fsid_t
+DEBUG: Skipping header struct Struct___fsid_t to avoid duplication
+DEBUG: Found header struct __fsid_t
+DEBUG: Skipping header struct Struct___fsid_t to avoid duplication
+DEBUG: Found header struct __mbstate_t
+DEBUG: Skipping header struct Struct___mbstate_t to avoid duplication
+DEBUG: Found header struct __mbstate_t
+DEBUG: Skipping header struct Struct___mbstate_t to avoid duplication
+DEBUG: Found header struct _G_fpos_t
+DEBUG: Skipping header struct Struct__G_fpos_t to avoid duplication
+DEBUG: Found header struct _G_fpos_t
+DEBUG: Skipping header struct Struct__G_fpos_t to avoid duplication
+DEBUG: Found header struct _G_fpos64_t
+DEBUG: Skipping header struct Struct__G_fpos64_t to avoid duplication
+DEBUG: Found header struct _G_fpos64_t
+DEBUG: Skipping header struct Struct__G_fpos64_t to avoid duplication
+DEBUG: Found header struct _IO_FILE
+DEBUG: Skipping header struct Struct__IO_FILE to avoid duplication
+DEBUG: Found header struct _IO_FILE
+DEBUG: Skipping header struct Struct__IO_FILE to avoid duplication
+DEBUG: Found header struct _IO_FILE
+DEBUG: Skipping header struct Struct__IO_FILE to avoid duplication
+DEBUG: Found header struct _IO_marker
+DEBUG: Skipping header struct Struct__IO_marker to avoid duplication
+DEBUG: Found header struct _IO_codecvt
+DEBUG: Skipping header struct Struct__IO_codecvt to avoid duplication
+DEBUG: Found header struct _IO_wide_data
+DEBUG: Skipping header struct Struct__IO_wide_data to avoid duplication
+DEBUG: Found header struct _IO_FILE
+DEBUG: Skipping header struct Struct__IO_FILE to avoid duplication
+DEBUG: Found header struct _IO_cookie_io_functions_t
+DEBUG: Skipping header struct Struct__IO_cookie_io_functions_t to avoid duplication
+DEBUG: Found header struct _IO_cookie_io_functions_t
+DEBUG: Skipping header struct Struct__IO_cookie_io_functions_t to avoid duplication
+DEBUG: Found header struct obstack
+DEBUG: Skipping header struct obstack to avoid duplication
+DEBUG: Found header struct __sigset_t
+DEBUG: Skipping header struct Struct___sigset_t to avoid duplication
+DEBUG: Found header struct __sigset_t
+DEBUG: Skipping header struct Struct___sigset_t to avoid duplication
+DEBUG: Found header struct timeval
+DEBUG: Found header struct timespec
+DEBUG: Found header struct fd_set
+DEBUG: Skipping header struct fd_set to avoid duplication
+DEBUG: Found header struct fd_set
+DEBUG: Skipping header struct fd_set to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct __pthread_internal_list
+DEBUG: Skipping header struct Struct___pthread_internal_list to avoid duplication
+DEBUG: Found header struct __pthread_internal_list
+DEBUG: Skipping header struct Struct___pthread_internal_list to avoid duplication
+DEBUG: Found header struct __pthread_internal_slist
+DEBUG: Skipping header struct Struct___pthread_internal_slist to avoid duplication
+DEBUG: Found header struct __pthread_internal_slist
+DEBUG: Skipping header struct Struct___pthread_internal_slist to avoid duplication
+DEBUG: Found header struct __pthread_mutex_s
+DEBUG: Skipping header struct Struct___pthread_mutex_s to avoid duplication
+DEBUG: Found header struct __pthread_rwlock_arch_t
+DEBUG: Skipping header struct Struct___pthread_rwlock_arch_t to avoid duplication
+DEBUG: Found header struct __pthread_cond_s
+DEBUG: Skipping header struct Struct___pthread_cond_s to avoid duplication
+DEBUG: Found header struct __once_flag
+DEBUG: Skipping header struct Struct___once_flag to avoid duplication
+DEBUG: Found header struct __once_flag
+DEBUG: Skipping header struct Struct___once_flag to avoid duplication
+DEBUG: Found header struct exception
+DEBUG: Skipping header struct exception to avoid duplication
+DEBUG: Found header struct fenv_t
+DEBUG: Skipping header struct fenv_t to avoid duplication
+DEBUG: Found header struct fenv_t
+DEBUG: Skipping header struct fenv_t to avoid duplication
+DEBUG: Found header struct struct (unnamed at /home/priyatam/pin/examples/fdlibm/include/fdlibm.h:88:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /home/priyatam/pin/examples/fdlibm/include/fdlibm.h:88:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /home/priyatam/pin/examples/fdlibm/include/fdlibm.h:88:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /home/priyatam/pin/examples/fdlibm/include/fdlibm.h:88:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /home/priyatam/pin/examples/fdlibm/include/fdlibm.h:98:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /home/priyatam/pin/examples/fdlibm/include/fdlibm.h:98:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /home/priyatam/pin/examples/fdlibm/include/fdlibm.h:98:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /home/priyatam/pin/examples/fdlibm/include/fdlibm.h:98:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Parsing header /home/priyatam/pin/examples/fdlibm/include/fenv.h
+DEBUG: Found header struct __fsid_t
+DEBUG: Skipping header struct Struct___fsid_t to avoid duplication
+DEBUG: Found header struct __fsid_t
+DEBUG: Skipping header struct Struct___fsid_t to avoid duplication
+DEBUG: Found header struct fenv_t
+DEBUG: Skipping header struct fenv_t to avoid duplication
+DEBUG: Found header struct fenv_t
+DEBUG: Skipping header struct fenv_t to avoid duplication
+DEBUG: Parsing header /home/priyatam/pin/examples/fdlibm/include/k_stand.h
+DEBUG: Parsing header /home/priyatam/pin/examples/fdlibm/include/fpu_control.h
+DEBUG: Found header struct __fsid_t
+DEBUG: Skipping header struct Struct___fsid_t to avoid duplication
+DEBUG: Found header struct __fsid_t
+DEBUG: Skipping header struct Struct___fsid_t to avoid duplication
+DEBUG: Function __ieee754_atan2 params: [('double', 'y'), ('double', 'x')]
+DEBUG: CLI main function detected: False
+DEBUG: Mapping type for decl: ('double', 'y')
+DEBUG: Mapping type for decl: ('double', 'x')
+DEBUG: Using function params for Input: [('double', 'y'), ('double', 'x')]
+DEBUG: Mapping type for decl: ('double', 'y')
+DEBUG: Mapping type for decl: ('double', 'x')
+Wrote proto to input.proto:
+
+syntax = "proto3";
+
+message Input {
+  double y = 1;
+  double x = 2;
+}
+

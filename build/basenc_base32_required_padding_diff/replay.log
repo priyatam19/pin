@@ -1,0 +1,23 @@
+[+] Generate .proto (libclang parser)
+[i] Skipping C++ protobuf generation (reference decoder=nanopb)
+[+] Generate Python protobuf helpers
+[+] Generate nanopb protobuf (for wrapper decode)
+[+] Generate wrapper with pin_wrapper_entry() and standalone main
+[+] Compile original object (instrumented) and plain object
+[+] Compile nanopb runtime and wrapper
+[+] Compile wrapper object (no main) for fuzz_bytes
+[+] Build nanopb reference replay binary
+[+] Build normalized standalone runner (reads bytes file)
+[+] Build libFuzzer byte harness to call pin_wrapper_entry (Stage A)
+[+] Link fuzz_bytes
+[+] Stage B: differential replay
+[+] Stage B replay summary saved to /home/priyatam/pin/results/basenc_base32_required_padding_diff/stage_b/replay_summary.txt (inputs=7)
+[+] Stage B detailed outputs saved to /home/priyatam/pin/results/basenc_base32_required_padding_diff/stage_b/replay_outputs.txt
+[+] Stage C: crash harvesting
+[i] Stage C: no crashes to archive from /home/priyatam/pin/build/basenc_base32_required_padding_diff/artifacts
+[+] Stage C: captured corpus snapshot at /home/priyatam/pin/results/basenc_base32_required_padding_diff/stage_c/corpus/run_20251107T192427Z
+[+] Ready. Next steps:
+    1) Stage A (discovery): cd /home/priyatam/pin/build/basenc_base32_required_padding_diff && ./fuzz_bytes corpus -max_total_time=60 -use_value_profile=1
+    2) Stage B (replay): add inputs under /home/priyatam/pin/build/basenc_base32_required_padding_diff/corpus and rerun to compare normalized vs original outputs
+       Replay artifacts stored under /home/priyatam/pin/results/basenc_base32_required_padding_diff/stage_b
+    3) Stage C (crash vault): review archived crashes under /home/priyatam/pin/results/basenc_base32_required_padding_diff/stage_c

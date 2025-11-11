@@ -1,0 +1,29 @@
+{
+  "typedef_aliases": {
+    "__fpos_t": {
+      "struct": "Struct__G_fpos_t",
+      "header": "__fpos_t.h",
+      "external": false
+    },
+    "__fpos64_t": {
+      "struct": "Struct__G_fpos64_t",
+      "header": "__fpos64_t.h",
+      "external": false
+    },
+    "__FILE": {
+      "struct": "Struct__IO_FILE",
+      "header": "__FILE.h",
+      "external": false
+    },
+    "FILE": {
+      "struct": "Struct__IO_FILE",
+      "header": "FILE.h",
+      "external": false
+    },
+    "fpos_t": {
+      "struct": "Struct__G_fpos_t",
+      "header": "stdio.h",
+      "external": false
+    }
+  }
+}

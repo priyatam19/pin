@@ -1,0 +1,21 @@
+[+] Generate .proto (libclang parser)
+[i] Skipping C++ protobuf generation (reference decoder=nanopb)
+[+] Generate Python protobuf helpers
+[+] Generate nanopb protobuf (for wrapper decode)
+[+] Generate wrapper with pin_wrapper_entry() and standalone main
+[+] Compile original object (instrumented) and plain object
+[+] Compile nanopb runtime and wrapper
+[+] Compile wrapper object (no main) for fuzz_bytes
+main.c:46:45: error: expected ')'
+extern void mg_sha1_final(unsigned char[20] digest, mg_sha1_ctx * context);
+                                            ^
+main.c:46:26: note: to match this '('
+extern void mg_sha1_final(unsigned char[20] digest, mg_sha1_ctx * context);
+                         ^
+main.c:66:31: error: too many arguments to function call, expected 1, have 2
+    mg_sha1_final(digest_buf, input.context);
+    ~~~~~~~~~~~~~             ^~~~~~~~~~~~~
+main.c:46:13: note: 'mg_sha1_final' declared here
+extern void mg_sha1_final(unsigned char[20] digest, mg_sha1_ctx * context);
+            ^
+2 errors generated.

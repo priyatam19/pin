@@ -1,0 +1,6 @@
+\nomenclatureentry{aPIN@[{PIN}]\begingroup Program Input Normalization\nomeqref {0}|nompageref}{xii}
+\nomenclatureentry{aEMI@[{EMI}]\begingroup Equivalence Modulo Input Validation\nomeqref {0}|nompageref}{xii}
+\nomenclatureentry{aAST@[{AST}]\begingroup Abstract Syntax Tree\nomeqref {0}|nompageref}{xii}
+\nomenclatureentry{aPB@[{PB}]\begingroup Protocol Buffers serialization format\nomeqref {0}|nompageref}{xii}
+\nomenclatureentry{aNPB@[{NPB}]\begingroup Nanopb embedded Protocol Buffers runtime\nomeqref {0}|nompageref}{xii}
+\nomenclatureentry{aCLI@[{CLI}]\begingroup Command-Line Interface\nomeqref {0}|nompageref}{xii}

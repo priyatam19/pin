@@ -1,0 +1,15 @@
+DEBUG: Wrapper parse found struct SimpleStruct with fields [('int', 'id'), ('char[16]', 'msg')]
+DEBUG: Wrapper parse found struct SimpleStruct with fields [('int', 'id'), ('char[16]', 'msg')]
+DEBUG: pointer context {}
+DEBUG: walk_decls called with 2 fields, prefix='', depth=0, parser=libclang
+DEBUG: Processing field ('int', 'id'), name=id, is_struct=False, is_ptr=False
+DEBUG: Processing field ('char[16]', 'msg'), name=msg, is_struct=False, is_ptr=False
+Traceback (most recent call last):
+  File "/home/priyatam/pin/src/generate_wrapper_ast.py", line 1347, in <module>
+    generate_wrapper(
+  File "/home/priyatam/pin/src/generate_wrapper_ast.py", line 1170, in generate_wrapper
+    call_str_cpp = make_cpp_call_expr(call_str)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/priyatam/pin/src/generate_wrapper_ast.py", line 1167, in make_cpp_call_expr
+    raise RuntimeError("C++ reference runner could not translate all arguments")
+RuntimeError: C++ reference runner could not translate all arguments

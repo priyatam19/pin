@@ -1,0 +1,8 @@
+=== 3c75fe5b05644497cd498f65a8f6b84f9d3f98ee ===
+[input decoded]
+{"sensor": {"present": false, "value": {"id": 0, "reading": 0.0}}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+

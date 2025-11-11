@@ -1,0 +1,33 @@
+DEBUG: Starting main with file /home/priyatam/pin/examples/simple_benchs/myprog_structs.c, func P, parser libclang, headers 
+DEBUG: Parsing file /home/priyatam/pin/examples/simple_benchs/myprog_structs.c with libclang
+DEBUG: Libclang args: []
+DEBUG: Scanning for function P
+DEBUG: Found target function P
+DEBUG: Function has 2 arguments
+DEBUG: Param type: const SimpleStruct *
+DEBUG: Param type: const char *
+DEBUG: Found called function printf
+DEBUG: Found called function printf
+DEBUG: Collecting structs from /home/priyatam/pin/examples/simple_benchs/myprog_structs.c
+DEBUG: Found struct SimpleStruct in /home/priyatam/pin/examples/simple_benchs/myprog_structs.c
+DEBUG: Added struct SimpleStruct with fields [('int32', 'id'), ('string', 'msg')]
+DEBUG: Found struct SimpleStruct in /home/priyatam/pin/examples/simple_benchs/myprog_structs.c
+DEBUG: Added struct SimpleStruct with fields [('int32', 'id'), ('string', 'msg')]
+DEBUG: Function P params: [('const SimpleStruct *', 'input'), ('const char *', 'msg_buf')]
+DEBUG: Recorded pointer metadata for param P.input: PointerMetadata(depth=1, base_type='SimpleStruct', qualifiers=['const'], kind='opaque_ptr', proto_hint='bytes', raw='const SimpleStruct *', clean_base=None, wrapper_name=None, length_param=None, length_type=None, length_proto=None, typedef_target=None, include_header=None, external=False)
+DEBUG: Recorded pointer metadata for param P.msg_buf: PointerMetadata(depth=1, base_type='char', qualifiers=['const'], kind='string_ptr', proto_hint='string', raw='const char *', clean_base=None, wrapper_name=None, length_param=None, length_type=None, length_proto=None, typedef_target=None, include_header=None, external=False)
+DEBUG: CLI main function detected: False
+DEBUG: Mapping type for decl: ('int32', 'id')
+DEBUG: Mapping type for decl: ('string', 'msg')
+DEBUG: No primary input struct, using SimpleStruct
+DEBUG: Mapping type for decl: ('const SimpleStruct *', 'input')
+DEBUG: Mapping type for decl: ('const char *', 'msg_buf')
+Wrote proto to simplestruct.proto:
+
+syntax = "proto3";
+
+message SimpleStruct {
+  bytes input = 1;
+  string msg_buf = 2;
+}
+

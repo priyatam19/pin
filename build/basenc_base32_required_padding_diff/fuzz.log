@@ -1,0 +1,20 @@
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 218912292
+INFO: Loaded 1 modules   (4 inline 8-bit counters): 4 [0x563cbb525668, 0x563cbb52566c), 
+INFO: Loaded 1 PC tables (4 PCs): 4 [0x563cbb525670,0x563cbb5256b0), 
+INFO:        2 files found in corpus
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 4096 bytes
+INFO: seed corpus: files: 2 min: 2b max: 2b total: 4b rss: 34Mb
+#3	INITED cov: 4 ft: 8 corp: 2/4b exec/s: 0 rss: 34Mb
+#55	NEW    cov: 4 ft: 9 corp: 3/6b lim: 4 exec/s: 0 rss: 35Mb L: 2/2 MS: 2 ShuffleBytes-ChangeBit-
+#116	NEW    cov: 4 ft: 10 corp: 4/8b lim: 4 exec/s: 0 rss: 35Mb L: 2/2 MS: 1 ChangeByte-
+#563	NEW    cov: 4 ft: 12 corp: 5/14b lim: 8 exec/s: 0 rss: 35Mb L: 6/6 MS: 2 ShuffleBytes-InsertRepeatedBytes-
+#579	NEW    cov: 4 ft: 14 corp: 6/20b lim: 8 exec/s: 0 rss: 35Mb L: 6/6 MS: 1 ChangeBit-
+#2006	NEW    cov: 4 ft: 16 corp: 7/26b lim: 21 exec/s: 0 rss: 35Mb L: 6/6 MS: 2 ShuffleBytes-ChangeBit-
+#947911	DONE   cov: 4 ft: 16 corp: 7/26b lim: 4096 exec/s: 473955 rss: 106Mb
+Done 947911 runs in 2 second(s)
+stat::number_of_executed_units: 947911
+stat::average_exec_per_sec:     473955
+stat::new_units_added:          5
+stat::slowest_unit_time_sec:    0
+stat::peak_rss_mb:              106

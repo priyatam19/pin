@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+message Input {
+  int32 uid = 1;
+}
+
+message passwd {
+}

@@ -1,0 +1,10 @@
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 1804736807
+INFO: Loaded 1 modules   (16 inline 8-bit counters): 16 [0x564229f826f0, 0x564229f82700), 
+INFO: Loaded 1 PC tables (16 PCs): 16 [0x564229f82700,0x564229f82800), 
+INFO:      336 files found in corpus
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 4096 bytes
+INFO: seed corpus: files: 336 min: 2b max: 9b total: 3017b rss: 32Mb
+#337	INITED cov: 16 ft: 24 corp: 13/110b exec/s: 0 rss: 37Mb
+#337	DONE   cov: 16 ft: 24 corp: 13/110b lim: 9 exec/s: 0 rss: 37Mb
+Done 337 runs in 0 second(s)

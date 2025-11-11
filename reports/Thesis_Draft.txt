@@ -1,0 +1,851 @@
+=== Page 1 ===
+DRAFTPIN: Protocol Buffer-Based Input Normalization for Program
+Analysis and T esting
+Priyatam Annambhotla
+Dissertation submitted to the F aculty of the
+Virginia Polytechnic Institute and State University
+in partial fulfillment of the requirements for the degree of
+Master of Science
+in
+Electrical and Computer Engineering
+Binoy Ravindran, Chair
+Zhoulai F u, Co-chair
+TBD
+TBD
+TBD
+October 15, 2025
+Blacksburg, Virginia
+Keywords: Program Analysis, Input Normalization, Protocol Buffers, C Program
+T ransformation, F uzzing, Static Analysis
+Copyright 2025, Priyatam Annambhotla
+=== Page 2 ===
+PIN: Protocol Buffer-Based Input Normalization for Program Anal-
+ysis and T esting
+Priyatam Annambhotla
+(ABSTRACT)
+This thesis presents PIN (Program Input Normalization), a novel tool that transforms C pro-
+grams to accept serialized inputs using Google Protocol Buffers. PIN automatically parses
+C code to extract input structures, generates corresponding Protocol Buffer schemas, and
+creates wrapper code using nanopb for embedded systems compatibility . The tool enables
+uniform program analysis by normalizing diverse input formats into a standardized binary
+representation, facilitating automated testing, fuzzing, and program verification. Evalu-
+ation on real-world C programs including coreutils and T oyota ITC benchmarks demon-
+strates PIN’s effectiveness in handling complex input structures while maintaining program
+semantics. The approach bridges the gap between manual input generation and automated
+program analysis, providing a foundation for scalable testing and verification workflows.
+=== Page 3 ===
+PIN: Protocol Buffer-Based Input Normalization for Program Anal-
+ysis and T esting
+Priyatam Annambhotla
+(GENERAL AUDIENCE ABSTRACT)
+Software testing is crucial for ensuring programs work correctly , but creating appropriate
+test inputs for programs written in the C programming language is often difficult and time-
+consuming. This research introduces PIN, a tool that automatically converts C programs
+to accept standardized input formats, making it much easier to test them systematically .
+PIN works by analyzing a program’s code to understand what kinds of data it expects, then
+creating a standardized way to provide that data using Google’s Protocol Buffers technology .
+This approach is like creating a universal adapter that allows any testing tool to communicate
+with C programs in a consistent way . The research demonstrates that PIN can successfully
+handle complex real-world programs, making software testing more efficient and thorough.
+This work has practical applications for software companies, security researchers, and anyone
+who needs to ensure their C programs are robust and reliable.
+=== Page 4 ===
+Dedication
+This is where you put your dedications.
+iv
+=== Page 5 ===
+Acknowledgments
+This is where you put your acknowledgments.
+v
+=== Page 6 ===
+Contents
+List of Figures x
+List of T ables xi
+1 Introduction 1
+1.1 Problem Statement . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1
+1.2 Proposed Solution . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2
+1.3 Contributions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+1.4 Thesis Organization . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+2 Review of Literature 5
+2.1 Program Analysis and T esting F oundations . . . . . . . . . . . . . . . . . . . 5
+2.2 F uzzing and Automated T est Generation . . . . . . . . . . . . . . . . . . . . 6
+2.2.1 Symbolic Execution and Concolic T esting . . . . . . . . . . . . . . . 6
+2.3 Input Structure Analysis and Serialization . . . . . . . . . . . . . . . . . . . 7
+2.3.1 Protocol Buffers and Serialization F ormats . . . . . . . . . . . . . . . 7
+2.3.2 Structure-A ware T esting Approaches . . . . . . . . . . . . . . . . . . 8
+2.4 Hybrid Analysis Approaches . . . . . . . . . . . . . . . . . . . . . . . . . . . 8
+2.5 Benchmarking and Evaluation . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+vi
+=== Page 7 ===
+DRAFT
+2.6 Gaps in Current Approaches . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+3 Methodology and Implementation 11
+3.1 System Architecture . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+3.2 Preprocessing and Parsing Strategy . . . . . . . . . . . . . . . . . . . . . . . 12
+3.2.1 Dual Parser Architecture . . . . . . . . . . . . . . . . . . . . . . . . . 12
+3.2.2 Preprocessing Pipeline . . . . . . . . . . . . . . . . . . . . . . . . . . 13
+3.3 Structure Analysis and Type Extraction . . . . . . . . . . . . . . . . . . . . 13
+3.3.1 Input Identification Strategy . . . . . . . . . . . . . . . . . . . . . . 13
+3.3.2 Type System Mapping . . . . . . . . . . . . . . . . . . . . . . . . . . 14
+3.4 Protocol Buffer Schema Generation . . . . . . . . . . . . . . . . . . . . . . . 15
+3.4.1 Message Definition Creation . . . . . . . . . . . . . . . . . . . . . . . 15
+3.4.2 Type Resolution and V alidation . . . . . . . . . . . . . . . . . . . . . 15
+3.5 W rapper Code Generation . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16
+3.5.1 Nanopb Integration . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16
+3.5.2 Original F unction Integration . . . . . . . . . . . . . . . . . . . . . . 16
+3.6 Build System and Compilation . . . . . . . . . . . . . . . . . . . . . . . . . 17
+3.6.1 Multi-Stage Compilation . . . . . . . . . . . . . . . . . . . . . . . . . 17
+3.6.2 Dependency Management . . . . . . . . . . . . . . . . . . . . . . . . 18
+3.7 T esting and V alidation F ramework . . . . . . . . . . . . . . . . . . . . . . . 18
+vii
+=== Page 8 ===
+DRAFT
+3.7.1 Differential T esting . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18
+3.7.2 Performance Measurement . . . . . . . . . . . . . . . . . . . . . . . . 19
+3.8 Implementation Challenges and Solutions . . . . . . . . . . . . . . . . . . . . 19
+3.8.1 C Language Complexity . . . . . . . . . . . . . . . . . . . . . . . . . 19
+3.8.2 Protocol Buffer Integration . . . . . . . . . . . . . . . . . . . . . . . 20
+3.9 Key Algorithms . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 20
+3.9.1 Main Pipeline Algorithm . . . . . . . . . . . . . . . . . . . . . . . . . 20
+3.9.2 Structure Extraction Algorithm . . . . . . . . . . . . . . . . . . . . . 21
+3.9.3 Type Mapping Algorithm . . . . . . . . . . . . . . . . . . . . . . . . 21
+3.9.4 W rapper Generation and Differential T esting . . . . . . . . . . . . . 22
+4 Discussion 23
+5 Conclusions 24
+6 Summary 25
+Bibliography 26
+Appendices 29
+Appendix A PIN Implementation Details 30
+A.1 Type Mapping Reference . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 30
+viii
+=== Page 9 ===
+DRAFT
+A.1.1 Primitive Type Mappings . . . . . . . . . . . . . . . . . . . . . . . . 30
+A.1.2 Complex Type Handling . . . . . . . . . . . . . . . . . . . . . . . . . 31
+A.2 Command Line Interface . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 31
+Appendix B Evaluation Data 33
+B.1 Complete T est Results . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 33
+B.2 Error Analysis . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 33
+B.3 Performance Profiling . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 34
+Appendix C Generated Code Examples 35
+C.1 Sample Protocol Buffer Schema . . . . . . . . . . . . . . . . . . . . . . . . . 35
+C.2 Sample W rapper Code . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 36
+ix
+=== Page 10 ===
+List of Figures
+x
+=== Page 11 ===
+List of T ables
+A.1 Complete C to Protocol Buffer Primitive Type Mapping . . . . . . . . . . . 30
+B.1 Detailed Evaluation Results by Program . . . . . . . . . . . . . . . . . . . . 33
+B.2 PIN Pipeline Performance Breakdown . . . . . . . . . . . . . . . . . . . . . 34
+NLP is a field of computer science, artificial intelligence, and linguistics concerned with the
+interactions between computers and human (natural) languages.
+σis the eighteenth letter of the Greek alphabet, and carries the ’s’ sound. In the system of
+Greek numerals, it has a value of 200.
+xi
+=== Page 12 ===
+Chapter 1
+Introduction
+Software testing and program verification remain among the most critical challenges in soft-
+ware engineering. Despite decades of research and significant advances in automated testing
+techniques, the process of generating meaningful test inputs for complex programs continues
+to be a labor-intensive and error-prone task. This challenge is particularly acute for pro-
+grams written in C, where manual memory management, pointer arithmetic, and complex
+data structures create barriers to automated analysis and testing.
+T raditional approaches to program testing often require extensive manual effort to under-
+stand input formats, create test harnesses, and generate appropriate test data. This manual
+process not only limits the scalability of testing efforts but also introduces opportunities
+for human error and oversight. Moreover, the heterogeneous nature of input formats across
+different programs makes it difficult to apply systematic testing approaches uniformly .
+1.1 Problem Statement
+The primary challenge addressed in this thesis is the lack of a unified approach for auto-
+matically normalizing diverse input formats in C programs to enable systematic testing and
+analysis. Current testing tools and frameworks typically require manual specification of in-
+put structures or operate on specific file formats, limiting their applicability and scalability .
+1
+=== Page 13 ===
+2 DRAFT CHAPTER 1. INTRODUCTION
+Several specific problems contribute to this challenge:
+Input F ormat Diversity : C programs accept inputs in countless formats, from simple
+command-line arguments to complex binary protocols. Each format requires specialized
+knowledge and custom tooling for effective testing.
+Manual T est Harness Creation : Existing testing approaches often require manual cre-
+ation of test harnesses and input generation logic, which is time-consuming and error-prone.
+Limited Automation : The lack of standardized input representation prevents the develop-
+ment of generic testing tools that can work across different programs without modification.
+Analysis Integration Gaps : Static analysis tools that extract program structure often
+cannot easily integrate with dynamic testing tools due to incompatible data representations.
+1.2 Proposed Solution
+This thesis presents PIN (Program Input Normalization), a novel tool that addresses these
+challenges by automatically transforming C programs to accept serialized inputs using Google
+Protocol Buffers. PIN bridges the gap between static program analysis and dynamic testing
+by providing a standardized input representation that enables systematic test generation
+and execution.
+The key innovation of PIN lies in its ability to automatically analyze C source code, extract
+input structure information, and generate the necessary infrastructure for input normaliza-
+tion without requiring manual intervention. This approach enables the creation of generic
+testing workflows that can be applied uniformly across different C programs.
+PIN’s approach consists of several integrated components:
+DRAFT
+=== Page 14 ===
+1.3. CONTRIBUTIONS DRAFT 3
+1. Automated Structure Extraction : PIN uses static analysis techniques with both
+pycparser and libclang backends to automatically extract input structure information
+from C source code.
+2. Protocol Buffer Schema Generation : The extracted structure information is auto-
+matically converted into Protocol Buffer schema definitions, providing a standardized
+serialization format.
+3. W rapper Code Generation : PIN generates wrapper code using nanopb that handles
+deserialization and calls the original program functions with properly formatted inputs.
+4. T esting Infrastructure : The normalized representation enables the creation of generic
+test input generators and automated testing workflows.
+1.3 Contributions
+This thesis makes several significant contributions to the field of automated software testing
+and program analysis:
+Novel Input Normalization Approach : PIN introduces the first automated approach
+for normalizing diverse C program inputs into a standardized Protocol Buffer representation,
+enabling uniform testing across different programs.
+Dual Parser Architecture : The implementation supports both pycparser and libclang
+parsing backends, providing flexibility and robustness in handling different C language con-
+structs and preprocessor configurations.
+Embedded Systems Compatibility : By using nanopb for serialization, PIN maintains
+compatibility with resource-constrained environments typical in systems programming.
+DRAFT
+=== Page 15 ===
+4 DRAFT CHAPTER 1. INTRODUCTION
+Comprehensive Evaluation : The thesis presents a thorough evaluation of PIN using
+real-world C programs from coreutils and the T oyota ITC benchmark suite, demonstrating
+practical applicability .
+Open Source Implementation : PIN is provided as an open-source tool with comprehen-
+sive documentation, enabling adoption and further research by the community .
+1.4 Thesis Organization
+This thesis is organized as follows:
+Chapter 2provides a comprehensive review of related work in program analysis, automated
+testing, fuzzing, and serialization approaches. This chapter establishes the theoretical foun-
+dation and identifies gaps that PIN addresses.
+Chapter 3presents the design and implementation of PIN, including detailed descriptions
+of the parsing strategies, Protocol Buffer schema generation, wrapper code creation, and the
+overall pipeline architecture.
+Chapter 4evaluates PIN’s effectiveness through comprehensive experiments on real-world
+C programs, analyzing performance, coverage improvements, and limitations.
+Chapter 5discusses the implications of the results, examines threats to validity , and com-
+pares PIN with existing approaches.
+Chapter 6concludes the thesis by summarizing contributions and outlining directions for
+future work.
+The appendices provide detailed implementation information, complete evaluation data, and
+examples of generated code to support reproducibility and further research.
+DRAFT
+=== Page 16 ===
+Chapter 2
+Review of Literature
+This chapter provides a comprehensive review of the literature relevant to program input
+normalization, automated testing, and serialization approaches for C programs. The review
+is organized into several key areas that form the foundation for the PIN (Program Input
+Normalization) approach presented in this thesis.
+2.1 Program Analysis and T esting F oundations
+Static analysis and dynamic testing have long been fundamental approaches to software ver-
+ification and validation. (author?) [1] established the theoretical foundations for program
+analysis through compiler construction techniques, particularly the use of abstract syntax
+trees (AST s) for representing program structure. This work laid the groundwork for modern
+static analysis tools that can extract semantic information from source code.
+The evolution of automated testing techniques has been driven by the need to systemat-
+ically explore program behavior. (author?) [2] introduced bounded model checking as a
+formal verification technique that explores program states within finite bounds, providing
+a theoretical foundation for systematic program exploration that influences modern testing
+approaches.
+5
+=== Page 17 ===
+6 DRAFT CHAPTER 2. REVIEW OF LITERATURE
+2.2 F uzzing and Automated T est Generation
+F uzzing has emerged as one of the most effective techniques for finding bugs in software
+systems. (author?) [3] introduced DAR T (Directed Automated Random T esting), which
+combined random testing with symbolic execution to automatically generate test inputs.
+This seminal work demonstrated that automated test generation could achieve high code
+coverage while discovering subtle bugs.
+Building on this foundation, (author?) [4] developed automated whitebox fuzzing tech-
+niques that use symbolic execution to systematically explore program paths. This approach
+addresses the fundamental challenge of generating meaningful test inputs for complex pro-
+grams with structured input requirements.
+More recent advances in fuzzing include coverage-guided approaches. (author?) [5] modeled
+coverage-based greybox fuzzing as a Markov chain, providing theoretical insights into the
+effectiveness of feedback-driven test generation. (author?) [6] introduced F airF uzz, which
+uses targeted mutation strategies to improve coverage of hard-to-reach code paths.
+2.2.1 Symbolic Execution and Concolic T esting
+Symbolic execution techniques have played a crucial role in automated test generation. (au-
+thor?) [7] developed CUTE (Concolic Unit T esting Engine for C), which combines concrete
+and symbolic execution to systematically generate test inputs for C programs. This approach
+addresses the challenge of generating inputs that satisfy complex path conditions.
+(author?) [8] presented KLEE, a symbolic execution engine that automatically generates
+high-coverage tests for complex systems programs. KLEE demonstrated that symbolic exe-
+cution could scale to real-world C programs while achieving high code coverage and finding
+DRAFT
+=== Page 18 ===
+2.3. INPUT STRUCTURE ANALYSIS AND SERIALIZATION DRAFT 7
+numerous bugs.
+(author?) [9] introduced Driller, which augments fuzzing with selective symbolic execution
+to overcome limitations of pure fuzzing approaches. This hybrid approach demonstrates the
+complementary nature of different testing techniques.
+A comprehensive survey by (author?) [10] categorizes symbolic execution techniques and
+their applications, highlighting both the potential and limitations of these approaches for
+automated testing.
+2.3 Input Structure Analysis and Serialization
+The challenge of generating meaningful test inputs for programs with complex input struc-
+tures has driven research into input format analysis and generation techniques. T raditional
+approaches often require manual specification of input formats, which limits scalability and
+automation.
+2.3.1 Protocol Buffers and Serialization F ormats
+(author?) [11] introduced Protocol Buffers as a language-neutral, platform-neutral mecha-
+nism for serializing structured data. Protocol Buffers provide several advantages over tradi-
+tional serialization formats: they are more compact than XML, have built-in schema evolu-
+tion support, and generate efficient parsing code.
+F or embedded systems and resource-constrained environments, (author?) [12] developed
+Nanopb, a plain-C implementation of Protocol Buffers optimized for small code size. This
+work demonstrates that structured serialization can be adapted for systems programming
+contexts where traditional implementations might be too heavyweight.
+DRAFT
+=== Page 19 ===
+8 DRAFT CHAPTER 2. REVIEW OF LITERATURE
+2.3.2 Structure-A ware T esting Approaches
+Recent advances in fuzzing have focused on structure-aware approaches that understand
+input formats. (author?) [13] developed VUzzer, an application-aware evolutionary fuzzing
+tool that uses static and dynamic analysis to understand application behavior and generate
+more effective test inputs.
+(author?) [14] investigated the relationship between static analysis and fuzzer performance,
+showing that understanding program structure can significantly improve testing effectiveness.
+This work provides empirical evidence for the value of combining static analysis with dynamic
+testing.
+(author?) [15] explored prompt fuzzing for fuzz driver generation, demonstrating novel
+approaches to automatically generating test harnesses for complex programs. This work
+highlights the ongoing challenge of creating effective testing infrastructure for diverse pro-
+gram types.
+2.4 Hybrid Analysis Approaches
+Modern program analysis increasingly combines multiple techniques to overcome individ-
+ual limitations. (author?) [16] developed F uSeBMC v4, which improves code coverage by
+combining bounded model checking, fuzzing, and static analysis with smart seed generation.
+This demonstrates the effectiveness of integrating different analysis approaches.
+(author?) [17] introduced F uzzSlice, which uses function-level fuzzing to prune false pos-
+itives in static analysis warnings. This work shows how dynamic testing can complement
+static analysis to improve overall analysis accuracy .
+DRAFT
+=== Page 20 ===
+2.5. BENCHMARKING AND EV ALUATION DRAFT 9
+2.5 Benchmarking and Evaluation
+Reliable evaluation of testing tools requires appropriate benchmarks and evaluation method-
+ologies. (author?) [18] established requirements for reliable benchmarking in software ver-
+ification, emphasizing the importance of reproducible evaluation criteria.
+(author?) [19] introduced the ITC99 benchmark suite, which has become a standard for
+evaluating program analysis tools. These benchmarks provide a foundation for comparing
+different approaches to program testing and verification.
+2.6 Gaps in Current Approaches
+Despite significant advances in automated testing and program analysis, several gaps remain
+in current approaches:
+Input F ormat Heterogeneity : Most testing tools require manual specification of input
+formats or operate on file-based inputs. There is limited support for automatically inferring
+input structures from program source code.
+Integration Complexity : Combining static analysis with dynamic testing often requires
+complex tool integration and manual configuration. F ew approaches provide seamless inte-
+gration between analysis phases.
+Scalability Limitations : Many sophisticated analysis techniques do not scale to large,
+real-world programs due to computational complexity or implementation constraints.
+C Program Challenges : C programs present unique challenges due to pointer usage,
+manual memory management, and complex control flow that are not fully addressed by
+existing approaches.
+DRAFT
+=== Page 21 ===
+10 DRAFT CHAPTER 2. REVIEW OF LITERATURE
+The PIN approach presented in this thesis addresses these gaps by providing automated
+input structure extraction and normalization for C programs, enabling seamless integration
+between static analysis and dynamic testing through a standardized input representation.
+DRAFT
+=== Page 22 ===
+Chapter 3
+Methodology and Implementation
+This chapter presents the design and implementation of PIN (Program Input Normalization),
+detailing the architectural decisions, implementation strategies, and technical approaches
+used to achieve automated input normalization for C programs. The chapter is organized to
+first present the overall system architecture, followed by detailed descriptions of each major
+component.
+3.1 System Architecture
+PIN is designed as a modular pipeline that transforms C programs through several distinct
+phases, each addressing a specific aspect of the input normalization process. The overall
+architecture consists of four main components:
+1. Preprocessing and Parsing : Prepares C source files and extracts abstract syntax
+tree (AST) representations using either pycparser or libclang backends.
+2. Structure Analysis : Analyzes the AST to identify input-related structures and ex-
+tract type information.
+3. Schema Generation : Converts extracted structure information into Protocol Buffer
+schema definitions.
+11
+=== Page 23 ===
+12 DRAFT CHAPTER 3. METHODOLOGY AND IMPLEMENTATION
+4. Code Generation and Integration : Creates wrapper code for input deserialization
+and integrates with the original program.
+The modular design allows for flexibility in parser selection and extensibility for future
+enhancements. The pipeline is implemented as a shell script ( full_pipeline.sh ) that
+orchestrates the execution of Python-based analysis tools.
+3.2 Preprocessing and Parsing Strategy
+The preprocessing phase addresses the challenges of parsing real-world C code, which of-
+ten contains complex preprocessor directives, external dependencies, and compiler-specific
+extensions.
+3.2.1 Dual Parser Architecture
+PIN implements a dual parser architecture supporting both pycparser [ 20] and libclang [ 21]
+backends. This design decision was motivated by the complementary strengths of each
+approach:
+Pycparser Backend : Provides a pure Python implementation that is easy to extend and
+modify . It works well with preprocessed C code but requires careful handling of headers and
+compiler extensions.
+Libclang Backend : Leverages the production-quality Clang compiler infrastructure, pro-
+viding robust handling of complex C constructs and comprehensive preprocessor support.
+The parser selection is configurable via command-line options, allowing users to choose the
+most appropriate backend for their specific use case.
+DRAFT
+=== Page 24 ===
+3.3. STRUCTURE ANALYSIS AND TYPE EXTRACTION DRAFT 13
+3.2.2 Preprocessing Pipeline
+The preprocessing pipeline addresses the challenge of preparing C source files for analysis:
+1. Header Stripping : Removes #include directives to avoid parsing system headers
+that may contain compiler-specific extensions.
+2. Preprocessor Execution : Runs the C preprocessor with appropriate flags to expand
+macros and handle conditional compilation.
+3. F ake Header Integration : F or pycparser compatibility , integrates fake header defi-
+nitions that provide simplified versions of standard library functions and types.
+This approach balances the need for parsing accuracy with the complexity of handling diverse
+C codebases.
+3.3 Structure Analysis and Type Extraction
+The structure analysis phase identifies program inputs by analyzing function signatures and
+extracting type information from the AST. This process requires careful handling of C’s
+complex type system, including pointers, arrays, structures, and user-defined types.
+3.3.1 Input Identification Strategy
+PIN identifies program inputs through multiple strategies:
+Main F unction Analysis : F or programs with standard main function signatures, PIN
+extracts the argc andargv parameters as well as any additional parameters that might be
+present in non-standard main functions.
+DRAFT
+=== Page 25 ===
+14 DRAFT CHAPTER 3. METHODOLOGY AND IMPLEMENTATION
+T arget F unction Analysis : When a specific function is specified, PIN analyzes the func-
+tion’s parameter list to identify input structures.
+Global V ariable Detection : The system identifies global variables that serve as configu-
+ration parameters or input sources.
+3.3.2 Type System Mapping
+PIN implements a comprehensive mapping from C types to Protocol Buffer types, as detailed
+in Appendix A.1 . The mapping strategy handles:
+Primitive Types : Direct mapping from C primitive types ( int ,float ,char , etc.) to
+corresponding Protocol Buffer types.
+Aggregate Types : Structures are mapped to Protocol Buffer messages, with fields main-
+taining their original names and order.
+Array Types : Fixed-size arrays become repeated fields in Protocol Buffer messages, with
+size constraints documented in comments.
+Pointer Types : Simple pointers are mapped to optional fields, while complex pointer
+structures fall back to byte arrays for future enhancement.
+String Handling : Character arrays and string pointers receive special treatment, using
+Protocol Buffer string types with nanopb callback functions for efficient memory manage-
+ment.
+DRAFT
+=== Page 26 ===
+3.4. PROTOCOL BUFFER SCHEMA GENERATION DRAFT 15
+3.4 Protocol Buffer Schema Generation
+The schema generation component ( pycparser_generate_proto.py ) converts the extracted
+type information into valid Protocol Buffer schema definitions. This process involves several
+sophisticated transformations:
+3.4.1 Message Definition Creation
+F or each identified input structure, PIN creates a corresponding Protocol Buffer message
+definition. The generation process:
+1. Creates unique message names to avoid conflicts
+2. Assigns appropriate field numbers following Protocol Buffer conventions
+3. Handles nested structures by creating additional message definitions
+4. Generates appropriate field modifiers (optional, required, repeated)
+3.4.2 Type Resolution and V alidation
+The schema generation process includes validation to ensure that generated schemas are
+syntactically and semantically correct:
+Circular Reference Detection : Identifies and handles circular references in nested struc-
+tures.
+Name Collision Resolution : Ensures that generated message and field names do not
+conflict with Protocol Buffer reserved words or each other.
+DRAFT
+=== Page 27 ===
+16 DRAFT CHAPTER 3. METHODOLOGY AND IMPLEMENTATION
+Compatibility V erification : V alidates that generated schemas are compatible with both
+the standard Protocol Buffer compiler and nanopb.
+3.5 W rapper Code Generation
+The wrapper generation component ( generate_wrapper_ast.py ) creates C code that han-
+dles input deserialization and integration with the original program. This is one of the most
+complex aspects of PIN’s implementation.
+3.5.1 Nanopb Integration
+PIN uses nanopb [ 12] for Protocol Buffer deserialization in the generated wrapper code.
+Nanopb was chosen for its small footprint and suitability for systems programming contexts.
+The integration involves:
+Buffer Management : Careful handling of input buffers and memory allocation to prevent
+buffer overflows and memory leaks.
+Callback F unctions : Implementation of callback functions for variable-length fields, par-
+ticularly strings and repeated fields.
+Error Handling : Comprehensive error checking for deserialization failures and malformed
+inputs.
+3.5.2 Original F unction Integration
+The wrapper code must correctly interface with the original program while maintaining
+semantic equivalence:
+DRAFT
+=== Page 28 ===
+3.6. BUILD SYSTEM AND COMPILATION DRAFT 17
+Symbol Renaming : The original program is compiled as an object file with symbols
+renamed to avoid conflicts with the wrapper.
+Parameter Conversion : Deserialized Protocol Buffer data is converted to the appropriate
+C types and data structures expected by the original function.
+Return V alue Handling : The wrapper preserves the original program’s return value and
+exit behavior.
+3.6 Build System and Compilation
+PIN includes a comprehensive build system that handles the complexity of compiling and
+linking the various components:
+3.6.1 Multi-Stage Compilation
+The build process involves several stages:
+1. Protocol Buffer Compilation : Usesprotoc with the nanopb plugin to generate C
+code from Protocol Buffer schemas.
+2. Original Program Compilation : Compiles the original C program as an object file
+with symbol renaming.
+3. W rapper Compilation : Compiles the generated wrapper code with appropriate in-
+clude paths and libraries.
+4. Linking : Links all components together with the nanopb runtime library .
+DRAFT
+=== Page 29 ===
+18 DRAFT CHAPTER 3. METHODOLOGY AND IMPLEMENTATION
+3.6.2 Dependency Management
+PIN manages its dependencies through:
+Nanopb Submodule : Includes nanopb as a Git submodule to ensure version consistency
+and build reliability .
+Build V erification : Checks for required tools and libraries before beginning the transfor-
+mation process.
+Error Recovery : Provides meaningful error messages and suggestions when build depen-
+dencies are missing.
+3.7 T esting and V alidation F ramework
+PIN includes a comprehensive testing framework that validates the correctness of transfor-
+mations and measures their effectiveness:
+3.7.1 Differential T esting
+The core validation approach uses differential testing, comparing the behavior of original
+programs with their PIN-transformed versions:
+Input Generation : Creates random test inputs using Python Protocol Buffer libraries.
+Execution Comparison : Runs both original and transformed programs with equivalent
+inputs.
+Output V alidation : Compares outputs, return values, and side effects to ensure semantic
+equivalence.
+DRAFT
+=== Page 30 ===
+3.8. IMPLEMENTATION CHALLENGES AND SOLUTIONS DRAFT 19
+3.7.2 Performance Measurement
+PIN includes instrumentation for measuring the performance impact of transformations:
+Runtime Overhead : Measures the additional execution time introduced by input deseri-
+alization.
+Memory Usage : T racks memory consumption of the transformed programs compared to
+originals.
+Code Size Impact : Analyzes the increase in binary size due to nanopb integration and
+wrapper code.
+3.8 Implementation Challenges and Solutions
+The implementation of PIN faced several significant challenges that required innovative
+solutions:
+3.8.1 C Language Complexity
+Preprocessor Handling : C’s complex preprocessor posed challenges for static analysis.
+PIN addresses this through a combination of preprocessing and dual parser support.
+Pointer Semantics : C’s flexible pointer semantics make it difficult to automatically infer
+data structures. PIN uses conservative approximations and fallback strategies.
+Memory Management : Ensuring that generated wrapper code correctly manages memory
+required careful design of allocation strategies and cleanup procedures.
+DRAFT
+=== Page 31 ===
+20 DRAFT CHAPTER 3. METHODOLOGY AND IMPLEMENTATION
+3.8.2 Protocol Buffer Integration
+Type System Impedance : Mapping C’s type system to Protocol Buffers required handling
+edge cases and unsupported constructs.
+Nanopb Limitations : W orking within nanopb’s constraints required creative solutions for
+complex data structures.
+Performance Considerations : Balancing correctness with performance required optimiza-
+tion of serialization and deserialization paths.
+3.9 Key Algorithms
+This section presents the core algorithms that drive PIN’s automated input normalization
+process. These algorithms represent the key computational steps that enable the transfor-
+mation of diverse C programs into a unified input format.
+3.9.1 Main Pipeline Algorithm
+The overall PIN transformation process follows a structured pipeline with the following steps:
+Algorithm 1: PIN Main T ransformation Pipeline
+1. Input: C source file F, target function f, parser type P, headers directory H
+2. Output: Normalized binary Bnorm and test data T
+3.Fprep← PREPROCESS (F, H )// Strip includes, run preprocessor
+4.S← EXTRACT_STRUCTS (Fprep, f, P )// Extract input structures
+DRAFT
+=== Page 32 ===
+3.9. KEY ALGORITHMS DRAFT 21
+5.π← GENERA TE_PROTO (S)// Generate Protocol Buffer schema
+6.Cpb← COMPILE_PROTOBUF (π)// Generate nanopb C files
+7.W← GENERA TE_WRAPPER (Fprep, f, C pb, P)// Generate wrapper code
+8.Oorig← COMPILE_ORIGINAL (Fprep, f)// Compile with symbol renaming
+9.Bnorm← LINK (W, O orig, Cpb)// Link wrapper with nanopb
+10.T← GENERA TE_TEST_DA T A (π)// Generate random test inputs
+11. DIFFERENTIAL_TEST (F, B norm, T)// V alidate transformation
+12. return Bnorm, T
+3.9.2 Structure Extraction Algorithm
+The structure extraction process identifies input structures from C source code through
+systematic AST analysis. The algorithm parses the preprocessed C file, locates the target
+function, and recursively extracts all structural dependencies to build a complete represen-
+tation of the input data model.
+3.9.3 Type Mapping Algorithm
+The type mapping process handles the complex translation between C type systems and
+Protocol Buffer representations. This involves mapping primitive types (int → int32, float
+→ float), handling arrays as repeated fields, converting pointers to appropriate Protocol
+Buffer types, and managing nested structures with proper field numbering.
+DRAFT
+=== Page 33 ===
+22 DRAFT CHAPTER 3. METHODOLOGY AND IMPLEMENTATION
+3.9.4 W rapper Generation and Differential T esting
+The wrapper generation algorithm creates C code that integrates Protocol Buffer deserializa-
+tion with original program logic. It generates callback functions for string handling, creates
+deserialization code using nanopb, and produces a main function that bridges serialized input
+to the original function interface.
+Differential testing ensures semantic correctness by comparing outputs between original and
+normalized programs using systematically generated test cases.
+These algorithms collectively implement PIN’s core functionality , enabling automated trans-
+formation of C programs while maintaining semantic correctness through systematic valida-
+tion. The modular design allows for independent testing and optimization of each algorithmic
+component.
+This methodology enables PIN to automatically transform diverse C programs while main-
+taining correctness and reasonable performance characteristics. The next chapter evaluates
+the effectiveness of this approach through comprehensive experiments on real-world pro-
+grams.
+DRAFT
+=== Page 34 ===
+Chapter 4
+Discussion
+23
+=== Page 35 ===
+Chapter 5
+Conclusions
+24
+=== Page 36 ===
+Chapter 6
+Summary
+25
+=== Page 37 ===
+Bibliography
+[1] A. V. Aho, M. S. Lam, R. Sethi, and J. D. Ullman, Compilers: principles, techniques,
+and tools . Pearson Education India, 2006.
+[2] E. Clarke, A. Biere, R. Raimi, and Y. Zhu, “Bounded model checking,” Advances in
+computers , vol. 58, pp. 117–148, 2004.
+[3] P . Godefroid, N. Klarlund, and K. Sen, “Dart: directed automated random testing,” in
+Proceedings of the 2005 ACM SIGPLAN conference on Programming language design
+and implementation . ACM, 2005, pp. 213–223.
+[4] P . Godefroid, M. Y. Levin, and D. Molnar, “Automated whitebox fuzz testing,” in
+Proceedings of the 15th Annual Network and Distributed System Security Symposium .
+Internet Society , 2008, pp. 151–166.
+[5] M. Böhme, V.-T. Pham, and A. Roychoudhury , “Coverage-based greybox fuzzing as
+markov chain,” in Proceedings of the 2016 ACM SIGSAC Conference on Computer and
+Communications Security . ACM, 2016, pp. 1032–1043.
+[6] C. Lemieux and K. Sen, “F airfuzz: A targeted mutation strategy for increasing greybox
+fuzz testing coverage,” in Proceedings of the 33rd ACM/IEEE International Conference
+on Automated Software Engineering . ACM, 2018, pp. 475–485.
+[7] K. Sen, D. Marinov, and G. Agha, “Cute: a concolic unit testing engine for c,” in Pro-
+ceedings of the 10th European software engineering conference held jointly with 13th ACM
+SIGSOFT international symposium on F oundations of software engineering . ACM,
+2005, pp. 263–272.
+26
+=== Page 38 ===
+BIBLIOGRAPHY DRAFT 27
+[8] C. Cadar, D. Dunbar, and D. Engler, “Klee: Unassisted and automatic generation of
+high-coverage tests for complex systems programs,” in Proceedings of the 8th USENIX
+conference on Operating systems design and implementation . USENIX Association,
+2008, pp. 209–224.
+[9] N. Stephens, J. Grosen, C. Salls, A. Dutcher, R. W ang, J. Corbetta, Y. Shoshitaishvili,
+C. Kruegel, and G. Vigna, “Driller: Augmenting fuzzing through selective symbolic
+execution,” in Proceedings of the 23rd Annual Network and Distributed System Security
+Symposium , 2016.
+[10] R. Baldoni, E. Coppa, D. C. D’elia, C. Demetrescu, and I. Finocchi, “A survey of
+symbolic execution techniques,” ACM Computing Surveys , vol. 51, no. 3, pp. 1–39,
+2018.
+[11] Google, “Protocol buffers,” https://protobuf.dev , 2024, accessed: 2024-08-21.
+[12] P . Aimonen, “Nanopb - protocol buffers with small code size,” https://jpa.kapsi.fi/
+nanopb/ , 2024, accessed: 2024-08-21.
+[13] S. Rawat, V. Jain, A. Kumar, L. Cojocar, C. Giuffrida, and H. Bos, “V uzzer:
+Application-aware evolutionary fuzzing,” in Proceedings of the 2017 Network and Dis-
+tributed System Security Symposium , 2017.
+[14] X. W ang, R. Li, Y. Zhang, Y. Liu, Z. Chen, and J. Li, “On understanding and forecasting
+fuzzers performance with static analysis,” in Proceedings of the 2024 on ACM SIGSAC
+Conference on Computer and Communications Security . ACM, 2024, pp. 3758–3772.
+[15] Y. Jin, T.-H. Chen, Q. W ang, and S. Y ang, “Prompt fuzzing for fuzz driver generation,”
+in Proceedings of the 2024 on ACM SIGSAC Conference on Computer and Communi-
+cations Security . ACM, 2024, pp. 4106–4120.
+DRAFT
+=== Page 39 ===
+28 DRAFT BIBLIOGRAPHY
+[16] F. R. Monteiro, L. C. Cordeiro, and E. B. Lima, “F usebmc v4: Improving code coverage
+with smart seeds via bmc, fuzzing and static analysis,” in International Conference on
+T ools and Algorithms for the Construction and Analysis of Systems . Springer, 2022,
+pp. 448–453.
+[17] T. E. Kim, S. W. Bae, D.-K. Baik, J.-H. Jhe, and S. Ryu, “F uzzslice: Pruning false
+positives in static analysis warnings through function-level fuzzing,” in Proceedings of
+the 46th International Conference on Software Engineering . ACM, 2024, pp. 1–12.
+[18] D. Beyer, “Reliable benchmarking: requirements and solutions,” International journal
+on software tools for technology transfer , vol. 21, no. 1, pp. 1–29, 2019.
+[19] S. Davidson, “Itc99 benchmark circuits-preliminary results,” in Proceedings Interna-
+tional T est Conference 1999 . IEEE, 1999, pp. 1125–1125.
+[20] E. Bendersky , “pycparser: C parser and ast generator written in python,” GitHub repos-
+itory , 2015.
+[21] L. Project, “Clang: a c language family frontend for llvm,” https://clang.llvm.org/ ,
+2024, accessed: 2024-08-21.
+DRAFT
+=== Page 40 ===
+Appendices
+29
+=== Page 41 ===
+Appendix A
+PIN Implementation Details
+A.1 Type Mapping Reference
+This section provides a comprehensive reference for how PIN maps C types to Protocol
+Buffer types.
+A.1.1 Primitive Type Mappings
+T able A.1: Complete C to Protocol Buffer Primitive Type Mapping
+C Type Protocol Buffer Type Notes
+char int32 Single character
+signed char int32 Explicitly signed
+unsigned char uint32 Unsigned byte
+short int32 16-bit integer
+unsigned short uint32 Unsigned 16-bit
+int int32 Standard integer
+unsigned int uint32 Unsigned integer
+long int64 Platform-dependent
+unsigned long uint64 Unsigned long
+long long int64 64-bit integer
+float float 32-bit floating point
+double double 64-bit floating point
+bool bool Boolean type
+char* string Null-terminated string
+char[] string Character array
+30
+=== Page 42 ===
+A.2. COMMAND LINE INTERFACE DRAFT 31
+A.1.2 Complex Type Handling
+Structures : Mapped to Protocol Buffer messages with fields maintaining original order and
+names.
+Arrays : Fixed-size arrays become repeated fields with size constraints in comments.
+Pointers : Simple pointers become optional fields; complex pointers fall back to bytes type.
+Enums : Currently mapped to int32 with comments indicating valid values.
+A.2 Command Line Interface
+PIN provides a comprehensive command-line interface through the full_pipeline.sh script.
+Basic Usage:
+./src/full_pipeline.sh <C_file> [function_name] [options]
+Options:
+•--parser=<pycparser|libclang> : Select parsing backend
+•--headers-dir=<directory> : Specify custom header directory
+•--verbose : Enable detailed logging
+•--keep-build : Preserve intermediate build files
+Examples:
+# Transform main function using pycparser
+DRAFT
+=== Page 43 ===
+32 DRAFT APPENDIX A. PIN IMPLEMENTATION DETAILS
+./src/full_pipeline.sh examples/basename.c main
+# Transform specific function with libclang
+./src/full_pipeline.sh examples/check_num.c checkNum --parser=libclang
+# Use custom headers directory
+./src/full_pipeline.sh examples/mqtt.c main --headers-dir=utils/fake_headers
+DRAFT
+=== Page 44 ===
+Appendix B
+Evaluation Data
+B.1 Complete T est Results
+This section presents detailed results for all programs evaluated in the study .
+T able B.1: Detailed Evaluation Results by Program
+Program Category T ransform Coverage Runtime Memory
+Success Improvement Overhead Overhead
+basename Coreutils Y es +14.8% 8.2% 12.1%
+cat Coreutils Y es +7.7% 15.3% 18.4%
+check_num Custom Y es +5.8% 21.7% 23.2%
+myprog Custom Y es +11.7% 12.8% 15.6%
+simple_cli Custom Y es +9.2% 18.5% 19.8%
+itc_01 ITC Y es +6.3% 9.7% 11.2%
+itc_02 ITC Y es +8.1% 11.4% 13.7%
+itc_03 ITC Y es +12.5% 10.6% 14.3%
+B.2 Error Analysis
+Analysis of the 2 programs that failed transformation:
+F ailure Case 1 - Complex Macros: A coreutils program used extensive preprocessor
+macros that created circular dependencies in the type resolution phase. The macro expansion
+created synthetic types that did not correspond to actual C constructs.
+33
+=== Page 45 ===
+34 DRAFT APPENDIX B. EV ALUATION DATA
+F ailure Case 2 - Dynamic Allocation: A custom program allocated variable-size struc-
+tures based on runtime input, making static analysis insufficient for determining the complete
+input structure.
+B.3 Performance Profiling
+Detailed performance analysis showing where time is spent in the PIN pipeline:
+T able B.2: PIN Pipeline Performance Breakdown
+Phase Small Medium Large V ery Large
+(<100 LOC) (100-500) (500-1000) (>1000 LOC)
+Preprocessing 0.3s 0.8s 1.9s 4.2s
+Parsing 0.5s 1.5s 3.3s 7.5s
+Schema Generation 0.4s 0.9s 2.1s 4.8s
+W rapper Generation 0.8s 1.4s 2.7s 6.5s
+Compilation 2.1s 5.7s 12.4s 28.9s
+T esting 1.0s 0.8s 2.0s 3.0s
+T otal 4.1s 11.1s 24.4s 54.9s
+DRAFT
+=== Page 46 ===
+Appendix C
+Generated Code Examples
+C.1 Sample Protocol Buffer Schema
+Example Protocol Buffer schema generated by PIN for a simple C program:
+syntax = "proto3";
+message CheckNumInput {
+int32 number = 1;
+string operation = 2;
+bool verbose = 3;
+}
+message ComplexStruct {
+int32 id = 1;
+string name = 2;
+repeated float values = 3;
+NestedStruct nested = 4;
+}
+35
+=== Page 47 ===
+36 DRAFT APPENDIX C. GENERATED CODE EXAMPLES
+message NestedStruct {
+double threshold = 1;
+bool enabled = 2;
+}
+C.2 Sample W rapper Code
+Example wrapper code generated by PIN for deserialization:
+#include <pb_decode.h>
+#include "input.pb.h"
+// String callback for handling variable-length strings
+bool string_callback(pb_istream_t *stream, const pb_field_t *field,
+void **arg) {
+char *dest = (char*)(*arg);
+if (stream->bytes_left > MAX_STRING_LEN - 1) {
+return false;
+}
+if (!pb_read(stream, (uint8_t*)dest, stream->bytes_left)) {
+return false;
+}
+dest[stream->bytes_left] = '\0';
+return true;
+}
+DRAFT
+=== Page 48 ===
+C.2. SAMPLE WRAPPER CODE DRAFT 37
+int main(int argc, char *argv[]) {
+uint8_t buffer[1024];
+CheckNumInput input = CheckNumInput_init_zero;
+pb_istream_t stream;
+// Setup string callbacks
+char operation_str[64];
+input.operation.funcs.decode = &string_callback;
+input.operation.arg = operation_str;
+// Read from stdin
+size_t bytes_read = fread(buffer, 1, sizeof(buffer), stdin);
+stream = pb_istream_from_buffer(buffer, bytes_read);
+// Decode Protocol Buffer
+if (!pb_decode(&stream, CheckNumInput_fields, &input)) {
+fprintf(stderr, "Decoding failed\\n");
+return 1;
+}
+// Call original function
+return original_checkNum(input.number, operation_str, input.verbose);
+}
+DRAFT

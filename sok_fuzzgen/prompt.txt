@@ -1,0 +1,5 @@
+Im writing an SoK paper on the Automated Fuzz driver generation (both for Application level and Library level) primary focussing on the C/C++ programs.
+I have found this paper : Yan, Q., Huang, M., Cao, H., Lu, S. (2025). SoK: From Systematization to Best Practices in Fuzz Driver Generation. In: Susilo, W., Pieprzyk, J. (eds) Information Security and Privacy. ACISP 2025. Lecture Notes in Computer Science, vol 15660. Springer, Singapore. https://doi.org/10.1007/978-981-96-9101-2_18
+which is an SoK released this year. However there are more papers after this work was done, so I want include more dimensions and challenges as there are increased use of LLM's in the architecture of fuzz driver generation. So for List down all the paper till the date that have worked in this area.
+I have taken some references for the SOK paper I mentioned in the file: /home/priyatam/pin/sok_fuzzgen/review_papers.txt
+(go beyond these) and the collected new papers in review_papers.txt

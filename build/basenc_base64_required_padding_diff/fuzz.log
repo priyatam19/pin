@@ -1,0 +1,27 @@
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 2072069637
+INFO: Loaded 1 modules   (4 inline 8-bit counters): 4 [0x561b1087b668, 0x561b1087b66c), 
+INFO: Loaded 1 PC tables (4 PCs): 4 [0x561b1087b670,0x561b1087b6b0), 
+INFO:        0 files found in corpus
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 4096 bytes
+INFO: A corpus is not provided, starting from an empty corpus
+#2	INITED cov: 1 ft: 1 corp: 1/1b exec/s: 0 rss: 32Mb
+	NEW_FUNC[1/1]: 0x561b10830730 in base64_required_padding (/home/priyatam/pin/build/basenc_base64_required_padding_diff/fuzz_bytes+0x120730) (BuildId: feb1e2d1e9507343b0338798615de48501d811ac)
+#194	NEW    cov: 3 ft: 5 corp: 2/3b lim: 4 exec/s: 0 rss: 33Mb L: 2/2 MS: 2 CopyPart-ChangeByte-
+#701	NEW    cov: 4 ft: 8 corp: 3/7b lim: 8 exec/s: 0 rss: 33Mb L: 4/4 MS: 2 ChangeBinInt-CrossOver-
+#717	NEW    cov: 4 ft: 9 corp: 4/14b lim: 8 exec/s: 0 rss: 33Mb L: 7/7 MS: 1 InsertRepeatedBytes-
+#938	NEW    cov: 4 ft: 11 corp: 5/22b lim: 8 exec/s: 0 rss: 33Mb L: 8/8 MS: 1 InsertByte-
+#1069	NEW    cov: 4 ft: 13 corp: 6/30b lim: 8 exec/s: 0 rss: 33Mb L: 8/8 MS: 1 CrossOver-
+#1195	REDUCE cov: 4 ft: 13 corp: 6/28b lim: 8 exec/s: 0 rss: 33Mb L: 5/8 MS: 1 EraseBytes-
+#1228	REDUCE cov: 4 ft: 13 corp: 6/26b lim: 8 exec/s: 0 rss: 33Mb L: 3/8 MS: 3 ChangeBinInt-CopyPart-EraseBytes-
+#1839	REDUCE cov: 4 ft: 13 corp: 6/24b lim: 14 exec/s: 0 rss: 33Mb L: 2/8 MS: 1 EraseBytes-
+#2360	REDUCE cov: 4 ft: 13 corp: 6/22b lim: 17 exec/s: 0 rss: 33Mb L: 6/8 MS: 1 EraseBytes-
+#2550	REDUCE cov: 4 ft: 13 corp: 6/20b lim: 17 exec/s: 0 rss: 33Mb L: 6/6 MS: 5 ChangeBinInt-ShuffleBytes-EraseBytes-ChangeBinInt-ChangeBinInt-
+#6142	REDUCE cov: 4 ft: 13 corp: 6/19b lim: 48 exec/s: 0 rss: 33Mb L: 2/6 MS: 2 EraseBytes-ChangeBit-
+#793317	DONE   cov: 4 ft: 13 corp: 6/19b lim: 4096 exec/s: 396658 rss: 92Mb
+Done 793317 runs in 2 second(s)
+stat::number_of_executed_units: 793317
+stat::average_exec_per_sec:     396658
+stat::new_units_added:          11
+stat::slowest_unit_time_sec:    0
+stat::peak_rss_mb:              92

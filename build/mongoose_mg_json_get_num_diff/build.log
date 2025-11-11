@@ -1,0 +1,33 @@
+[+] Generate .proto (libclang parser)
+[i] Skipping C++ protobuf generation (reference decoder=nanopb)
+[+] Generate Python protobuf helpers
+[+] Generate nanopb protobuf (for wrapper decode)
+[+] Generate wrapper with pin_wrapper_entry() and standalone main
+[+] Compile original object (instrumented) and plain object
+[+] Compile nanopb runtime and wrapper
+[+] Compile wrapper object (no main) for fuzz_bytes
+main.c:64:35: warning: declaration of 'struct mg_str' will not be visible outside of this function [-Wvisibility]
+extern int mg_json_get_num(struct mg_str json, const char * path, double * v);
+                                  ^
+main.c:77:11: error: no member named 'json' in 'struct _Input'
+    input.json.ptr.arg = json_ptr_buf;
+    ~~~~~ ^
+main.c:78:11: error: no member named 'json' in 'struct _Input'
+    input.json.ptr.funcs.decode = &decode_json_ptr;
+    ~~~~~ ^
+main.c:81:11: error: no member named 'path' in 'struct _Input'
+    input.path.arg = path_buf;
+    ~~~~~ ^
+main.c:82:11: error: no member named 'path' in 'struct _Input'
+    input.path.funcs.decode = &decode_path;
+    ~~~~~ ^
+main.c:90:15: error: no member named 'v' in 'struct _Input'
+    if (input.v.has_value) {
+        ~~~~~ ^
+main.c:91:36: error: no member named 'v' in 'struct _Input'
+        v_storage = (double)(input.v.value);
+                             ~~~~~ ^
+main.c:94:27: error: no member named 'json' in 'struct _Input'
+    mg_json_get_num(input.json, path_buf, v_ptr);
+                    ~~~~~ ^
+1 warning and 7 errors generated.

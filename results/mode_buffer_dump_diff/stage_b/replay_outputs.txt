@@ -1,26 +1,1656 @@
-=== 00f97b2f6c526ec0bc0a59163691cd210186ebbc ===
+=== 018f45b8d76ba3318e93a3cef51ab0e819d861ef ===
 [input decoded]
 {"mode": ""}
 [normalized rc=0 stdout]
 mode-bytes:
-[0]=0x3f
-[1]=0x70
-[2]=0x70
-[3]=0x6e
-[4]=0x50
-[5]=0x70
-[6]=0x69
+[0]=0xac
+[1]=0x8b
+[2]=0x27
+[3]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 01b5cff02f2bed1c591ff9bece9a794cc9013d51 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0xfb
+[1]=0xff
+[2]=0x7f
+[3]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 0289a829676d310624c374f4b658ca9187a98c94 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0xff
+[1]=0xff
+[2]=0xd2
+[3]=0xff
+[4]=0x7f
+[5]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 03822cb4e988b9ec67810be9e00821f9e53e2bbb ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x9a
+[1]=0xff
+[2]=0xff
+[3]=0xff
+[4]=0xff
+[5]=0x04
+[6]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 0472852a60787835bf5508ad0e73fb13f87e97af ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x04
+[1]=0x68
+[2]=0x5b
+[3]=0x26
+[4]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 048b558d61e81df1f37c2348fdeeeb4c51880e91 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x65
+[1]=0x04
+[2]=0x61
+[3]=0x65
+[4]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 0498c0266912ccf9658ed070b58b07cbbe9dc98e ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x7a
+[1]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 078ced3e2e68648f2c509fe2376742fb113a0d22 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x9b
+[1]=0x04
+[2]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 09f04d6f327d12401e40bee4550dfa6571b7ea05 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x21
+[1]=0x04
+[2]=0x68
+[3]=0x74
+[4]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 0ae29fe525011710a01d0eac184ec7753bde51ee ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x04
+[1]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 0bb77da5257fcccea096a25378a78f7c7e3606d9 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x41
+[1]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 0cc67b127926909781039dc92d40e9f85eb7c5c2 ===
+[input decoded]
+{"mode": "\u0004"}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x04
+[1]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x04
+[1]=0x00
+[original stderr]
+
+=== 14834056523ec18ef7fbfc5f12469e752054ffde ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x04
+[1]=0x68
+[2]=0xff
+[3]=0xff
+[4]=0xff
+[5]=0xff
+[6]=0x98
+[7]=0x00
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:618] String field 'Input.mode' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== 16c8f3d7b719f718f4a9618972a41f2261e1df44 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x9b
+[1]=0xfe
+[2]=0x44
+[3]=0x90
+[4]=0xf7
+[5]=0x00
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:618] String field 'Input.mode' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== 1785a9ff50dbc46ce4440e6d601cad7a983dcf34 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0xff
+[1]=0xff
+[2]=0x6f
+[3]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 181c26f2127af76ea4716710222353462923dc02 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x04
+[1]=0x68
+[2]=0x40
+[3]=0x6f
+[4]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 18bee743e5acd2b1c000c99774e4d8e01599d60d ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0xdc
+[1]=0x82
+[2]=0x0a
+[3]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 1abcf9f86f0f4c82c01de922f77fd28d58fdcd3c ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0xff
+[1]=0xff
+[2]=0x00
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:618] String field 'Input.mode' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== 1b00d30a50f54b36294ce0d38693040ce4fee222 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x0a
+[1]=0x4d
+[2]=0xda
+[3]=0xef
+[4]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 1c507516f4ca49dbca7890b75f02582100d1b3fa ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x98
+[1]=0x7e
+[2]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 1d88d9b1ab3851e7515df6301396b786b9cca9e7 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x74
+[1]=0x0a
+[2]=0x82
+[3]=0x04
+[4]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 1e272e31b8ba015114b1bdf4148b3053c6c6d407 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0xac
+[1]=0xff
+[2]=0x40
+[3]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 1ffa65965f683f4af6addf06b16e496e97f74c49 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0xe0
+[1]=0xff
+[2]=0xff
+[3]=0x9e
+[4]=0xd7
+[5]=0x77
+[6]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 2069ced62c1bde7e02b9fa6c3a224028ce6a1f89 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0xff
+[1]=0xff
+[2]=0xff
+[3]=0xff
+[4]=0xff
+[5]=0xd7
+[6]=0x41
 [7]=0x00
 [normalized stderr]
 [original rc=0 stdout]
 mode-bytes:
-[0]=0x3f
-[1]=0x70
-[2]=0x70
-[3]=0x6e
-[4]=0x50
-[5]=0x70
-[6]=0x69
+[0]=0x00
+[original stderr]
+
+=== 2168b2e4d5d102e9ce9b925b5c7c46ea1ee48a46 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x98
+[1]=0x04
+[2]=0x0a
+[3]=0x9e
+[4]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 21f369ebc1d5329eab9be986a3e80e6e786a0a73 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x9a
+[1]=0x2f
+[2]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 2883cf402f5dc10c2ee7366912c643b617958c5b ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x1a
+[1]=0x61
+[2]=0xff
+[3]=0xff
+[4]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 294298c992acf24e16501633523219957d157f33 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0xff
+[1]=0xff
+[2]=0x72
+[3]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 2c4fcf329b827a77507344dcad238a91c0546d89 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0xa4
+[1]=0xa4
+[2]=0xa4
+[3]=0xda
+[4]=0x69
+[5]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 379da8c1bb945b69794a162d795d46a885a314ac ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0xff
+[1]=0x04
+[2]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 37c631cf222f4e7fb4f6138df05b462a74cbe99c ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x08
+[1]=0xff
+[2]=0x65
+[3]=0xa2
+[4]=0x65
+[5]=0x27
+[6]=0xdf
+[7]=0x65
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 37e3926cc56064dff7513c25385051b61b64920f ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0xfa
+[1]=0x98
+[2]=0x40
+[3]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 38da95f01e7f8f148a45abe907620fdc72e1884d ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0xff
+[1]=0xff
+[2]=0xff
+[3]=0xda
+[4]=0x04
+[5]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 39c1709f75a600c89e883f4a27e355910acfecd9 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x65
+[1]=0x65
+[2]=0x65
+[3]=0x65
+[4]=0x25
+[5]=0x65
+[6]=0x6d
+[7]=0x65
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 3bbd480cd5891a225cba1e78da42b1ef51bc7cc6 ===
+[input decoded]
+{"mode": "\u0004\u0004"}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x04
+[1]=0x04
+[2]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x04
+[1]=0x04
+[2]=0x00
+[original stderr]
+
+=== 3f93db7b4d4cfca1da6e8bc26ad3ad48f9385f7a ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0xff
+[1]=0xff
+[2]=0xff
+[3]=0xff
+[4]=0xd7
+[5]=0x59
+[6]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 473f3c9d3eb6fe458b45e59b4ac58771d2af5aea ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x98
+[1]=0x54
+[2]=0x40
+[3]=0x00
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:618] String field 'Input.mode' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== 47cc00e24d7084794a451f7f6c918ba8d7efda20 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x04
+[1]=0x23
+[2]=0x72
+[3]=0xbf
+[4]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 4aa7bdc97f43c8507f8f7e0c6a60be5a224bcc98 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x5c
+[1]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 4cc2b889693ec38403af67ac0884291134861d98 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0xd5
+[1]=0x0a
+[2]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 4d24bc954a1684a03051af3b24b143ac93fac80e ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0xac
+[1]=0x8b
+[2]=0xff
+[3]=0xff
+[4]=0xff
+[5]=0xff
+[6]=0x01
 [7]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 4e08fe4c7ac52137c93b441f57fc2af6b35cc79d ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0xff
+[1]=0xff
+[2]=0xff
+[3]=0xda
+[4]=0x67
+[5]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 4f4b2f56d6a42fe9e1afcbfbe97d3a50efafadf7 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x0a
+[1]=0x68
+[2]=0x04
+[3]=0x65
+[4]=0x61
+[5]=0x3b
+[6]=0x65
+[7]=0x61
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 50459f2fd0aee39b7b8df5c468efeb7420a12391 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0xa2
+[1]=0x3b
+[2]=0x65
+[3]=0x61
+[4]=0x74
+[5]=0xff
+[6]=0xff
+[7]=0x00
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:618] String field 'Input.mode' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== 51af68159bae0e1c0695358ef1ffc6f25315896f ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x7f
+[1]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 52223bf4c4acf2e36ee7e996e0c63774e1eaf1d7 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0xff
+[1]=0xff
+[2]=0xff
+[3]=0xff
+[4]=0xd7
+[5]=0x2f
+[6]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 5522fb96b76ba23c98a956b71a6520b7a3b03d0d ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x08
+[1]=0x65
+[2]=0xff
+[3]=0xff
+[4]=0x25
+[5]=0x67
+[6]=0x69
+[7]=0xff
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 557b6c28e473de26362a3805918de0c08489355d ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x5b
+[1]=0x04
+[2]=0x83
+[3]=0xff
+[4]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 57d9cde20de6a86ff68702a96da5502b8023c3bf ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x9a
+[1]=0x9e
+[2]=0x98
+[3]=0xff
+[4]=0xff
+[5]=0x68
+[6]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 59cbca337416ee52266874f0e01c120049a98f0a ===
+[input decoded]
+{"mode": "T/"}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x54
+[1]=0x2f
+[2]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x54
+[1]=0x2f
+[2]=0x00
+[original stderr]
+
+=== 6414b3b482db022f63ad08375f5a19bad4f63453 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0xff
+[1]=0xff
+[2]=0xff
+[3]=0xda
+[4]=0x6f
+[5]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 6967564122df1e48a7df003766ef90034d87730d ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0xff
+[1]=0xff
+[2]=0xff
+[3]=0xff
+[4]=0xff
+[5]=0x48
+[6]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 6b1ad1df82865bf453a354b26b5fcafba4b4708d ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x74
+[1]=0x0a
+[2]=0x82
+[3]=0x00
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:618] String field 'Input.mode' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== 6b501b76249bceb0edc6c664f6ebea3fb7598e10 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0xac
+[1]=0x2f
+[2]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 6c2aed9ab0238e32e5e91cc9921b362da7774ca7 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x68
+[1]=0xab
+[2]=0xbf
+[3]=0x54
+[4]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 6c609d377d20e7cf4dafad64238856dd6076f4df ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x9b
+[1]=0xfa
+[2]=0xd7
+[3]=0xc4
+[4]=0x08
+[5]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 7e277ad9d623182849f6684450467739785cc73e ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0xfa
+[1]=0xd7
+[2]=0xc4
+[3]=0x9a
+[4]=0x74
+[5]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 81a3062fc7ce05b4429d5bfe3415f4ba893d95eb ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x08
+[1]=0xff
+[2]=0x2a
+[3]=0x60
+[4]=0x65
+[5]=0x71
+[6]=0x2a
+[7]=0x65
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 858b82cdfadf860481847f59d53f47b7146f5b7e ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x28
+[1]=0x26
+[2]=0x68
+[3]=0xff
+[4]=0xff
+[5]=0x00
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:618] String field 'Input.mode' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== 8752c290b3d81253bd59848ae26f4118d8a10709 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x6f
+[1]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 8bfce5434622910ed3f3142148f0eb7dd8f3819c ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0xbf
+[1]=0xff
+[2]=0xff
+[3]=0xff
+[4]=0xff
+[5]=0x6f
+[6]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 8c223f543aaf45d0af50db240f59ac3c516f0760 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x08
+[1]=0x7a
+[2]=0x65
+[3]=0x7a
+[4]=0x65
+[5]=0x08
+[6]=0x04
+[7]=0x65
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 8cb8add6832427fdb42b685014b5de6247494962 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0xff
+[1]=0xff
+[2]=0xff
+[3]=0xff
+[4]=0xd7
+[5]=0x41
+[6]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 8f222717a17420b03966b456e712e2f3bc30bf45 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x74
+[1]=0x0a
+[2]=0x08
+[3]=0xa2
+[4]=0x9e
+[5]=0xd7
+[6]=0x3b
+[7]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 931c17caa428fed3128438df2eaef6bbc65ae090 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x98
+[1]=0x69
+[2]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 98490fa3d2b94534061a1d2183a899302cc3f1e8 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0xdc
+[1]=0x82
+[2]=0x0d
+[3]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 9ad3431251de1c92799eb190781202ad7269f24c ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x04
+[1]=0xff
+[2]=0xff
+[3]=0x5a
+[4]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 9ba3d71c341b08ffa9594df959f8a46b2b0ac99a ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0xac
+[1]=0x8b
+[2]=0x2f
+[3]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 9bb797a820ef5ad35d5ede8c28b1e1aa52f15e91 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x9a
+[1]=0x9e
+[2]=0x98
+[3]=0x0a
+[4]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 9d66510d6daaacb5ae88a6c2ceb063e525b4a0bb ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x9e
+[1]=0x98
+[2]=0x9a
+[3]=0x0a
+[4]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 9f0d28c2780e45b84cda3876d8e607b478154bb8 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x98
+[1]=0x9b
+[2]=0x7e
+[3]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== 9ff5e22710005091affa3102f2852fc436783a73 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x6f
+[1]=0xd7
+[2]=0x9e
+[3]=0x74
+[4]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== a4383064cf1db3f9db6361e731dec658e477f24a ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x9a
+[1]=0x9e
+[2]=0x98
+[3]=0xff
+[4]=0xff
+[5]=0x04
+[6]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== a45967e03e72b42983fcda80fde2bcffdb272012 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0xf9
+[1]=0xce
+[2]=0xfe
+[3]=0xf7
+[4]=0xce
+[5]=0xfe
+[6]=0x7f
+[7]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== a8557855c448e0bfaaf94adae493bc42b99a1c15 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0xde
+[1]=0x7f
+[2]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== b31e3ea6e567110bd67062cce5f62d8dee8e5f90 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0xff
+[1]=0xff
+[2]=0xff
+[3]=0xff
+[4]=0x61
+[5]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== b41ebd1932cdaf0275d814df612e4528585cada6 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x08
+[1]=0x65
+[2]=0x65
+[3]=0x0c
+[4]=0x65
+[5]=0x72
+[6]=0x65
+[7]=0x65
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== b4b32aa5b523b4483bf954861c343bf1531a36fc ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x04
+[1]=0x98
+[2]=0x04
+[3]=0x9e
+[4]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== bdfb358609a991bd6b76289f6086c75c514ff4ee ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x08
+[1]=0x65
+[2]=0x6f
+[3]=0x0a
+[4]=0x5b
+[5]=0x05
+[6]=0x6f
+[7]=0x69
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== c00868fed6c3a28c861f1bff2001b0f9ee26956d ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0xbf
+[1]=0xff
+[2]=0xf5
+[3]=0xff
+[4]=0xff
+[5]=0xff
+[6]=0x3f
+[7]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== c08ba36a7d29a11ad2db188b7d2b0679c9fd0f75 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0xbb
+[1]=0x7f
+[2]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== c22b5f9178342609428d6f51b2c5af4c0bde6a42 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== c2f076e0a8380cf515558418451da37e5850748a ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x72
+[1]=0xbf
+[2]=0x04
+[3]=0x6f
+[4]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== cbc733af259ddf89342f31b180b97cdfcd3c15a6 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x04
+[1]=0xff
+[2]=0xfb
+[3]=0x54
+[4]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== cc7bdbf1e296ca3da252cbbe3ec1e9a6f78ada8e ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x0a
+[1]=0x88
+[2]=0x64
+[3]=0x65
+[4]=0x0c
+[5]=0xff
+[6]=0xff
+[7]=0x65
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== cdfee5c332a5d64a2c7871e68f36df1d0a19bd6f ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x08
+[1]=0xa2
+[2]=0x65
+[3]=0x0e
+[4]=0xf9
+[5]=0xce
+[6]=0xfe
+[7]=0xf7
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== d3092285320a2a26526d926063da338e904916b4 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x2b
+[1]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== d3502b25836e54efda62e62f4d1a2c62f4668bd1 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x10
+[1]=0x44
+[2]=0x90
+[3]=0x3a
+[4]=0xd7
+[5]=0x54
+[6]=0xd7
+[7]=0x9e
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== d519d5d9a3542cd1e0c677a602353bd6ef3f8a0b ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0xff
+[1]=0xff
+[2]=0xe7
+[3]=0xd2
+[4]=0xff
+[5]=0x7f
+[6]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== d649d4f7d11374108ba55d3dd75648f79f146344 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0xc5
+[1]=0x65
+[2]=0x01
+[3]=0x0a
+[4]=0x5e
+[5]=0x30
+[6]=0x00
+[normalized stderr]
+[original rc=1 stdout]
+[original stderr]
+[libprotobuf ERROR google/protobuf/wire_format_lite.cc:618] String field 'Input.mode' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+
+=== df9a17733edb4b649baeafcd631eead5aa268cec ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x9e
+[1]=0x98
+[2]=0x9a
+[3]=0x0a
+[4]=0x5d
+[5]=0xfe
+[6]=0xc4
+[7]=0xff
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== e54da4661b9a2c7f3992e22047b0d17628b4811a ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0xc6
+[1]=0x31
+[2]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== edcdf6397f12283dfc57e809041791f82fe46b58 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x08
+[1]=0x0c
+[2]=0xdf
+[3]=0x65
+[4]=0x65
+[5]=0x0a
+[6]=0x0a
+[7]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== edf45a02645d867fc7a20a56acdda172fed2a6bf ===
+[input decoded]
+{"mode": "hT@T\n\u0004"}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x68
+[1]=0x54
+[2]=0x40
+[3]=0x54
+[4]=0x0a
+[5]=0x04
+[6]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x68
+[1]=0x54
+[2]=0x40
+[3]=0x54
+[4]=0x0a
+[5]=0x04
+[6]=0x00
+[original stderr]
+
+=== eecb9be7c2d6419041770490c6969f4994a83955 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0xbf
+[1]=0xff
+[2]=0xf5
+[3]=0xe3
+[4]=0x0c
+[5]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== empty.bin ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== f2b6aa3be74ae4f9a71d16d30baa81a4a7583cf0 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0xff
+[1]=0x2a
+[2]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== fba0e7fc0f87bb62fed49721863fddfe812c6aa9 ===
+[input decoded]
+{"mode": ""}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0xff
+[1]=0xff
+[2]=0xff
+[3]=0xff
+[4]=0xff
+[5]=0x07
+[6]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x00
+[original stderr]
+
+=== fff89e3d6329a746421d3c78736098e112a68c7d ===
+[input decoded]
+{"mode": "eee:\fe"}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x65
+[1]=0x65
+[2]=0x65
+[3]=0x3a
+[4]=0x0c
+[5]=0x65
+[6]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x65
+[1]=0x65
+[2]=0x65
+[3]=0x3a
+[4]=0x0c
+[5]=0x65
+[6]=0x00
+[original stderr]
+
+=== heat.bin ===
+[input decoded]
+{"mode": "heat"}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x68
+[1]=0x65
+[2]=0x61
+[3]=0x74
+[4]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x68
+[1]=0x65
+[2]=0x61
+[3]=0x74
+[4]=0x00
+[original stderr]
+
+=== short.bin ===
+[input decoded]
+{"mode": "hi"}
+[normalized rc=0 stdout]
+mode-bytes:
+[0]=0x68
+[1]=0x69
+[2]=0x00
+[normalized stderr]
+[original rc=0 stdout]
+mode-bytes:
+[0]=0x68
+[1]=0x69
+[2]=0x00
 [original stderr]
 

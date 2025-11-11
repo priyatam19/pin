@@ -1,0 +1,314 @@
+[
+  {
+    "file": "examples/simple_benchs/check_num.c",
+    "func": "checkNum",
+    "rc": 0,
+    "proto_ok": true,
+    "wrapper_ok": true,
+    "stage_reached": "Stage B",
+    "fail_reason": null,
+    "stage_b_counts": {
+      "match": 67,
+      "DIFF": 0,
+      "emi-reject": 0,
+      "other": 0
+    },
+    "first_diff": null,
+    "first_emi": null,
+    "replay_summary_path": "results/check_num_diff/stage_b/replay_summary.txt",
+    "log_path": "results/log_check_num.txt"
+  },
+  {
+    "file": "examples/simple_benchs/empty_mode_compare.c",
+    "func": "classify_mode_empty",
+    "rc": 0,
+    "proto_ok": true,
+    "wrapper_ok": true,
+    "stage_reached": "Stage B",
+    "fail_reason": null,
+    "stage_b_counts": {
+      "match": 36,
+      "DIFF": 102,
+      "emi-reject": 0,
+      "other": 0
+    },
+    "first_diff": "00b8124e1d241e05112d59fd02d2150f176141ef:DIFF\tRC(norm=0, ref=1)",
+    "first_emi": null,
+    "replay_summary_path": "results/empty_mode_compare_diff/stage_b/replay_summary.txt",
+    "log_path": "results/log_empty_mode_compare.txt"
+  },
+  {
+    "file": "examples/simple_benchs/mixed_scalars.c",
+    "func": "evaluate_sensor",
+    "rc": 0,
+    "proto_ok": true,
+    "wrapper_ok": true,
+    "stage_reached": "Stage B",
+    "fail_reason": null,
+    "stage_b_counts": {
+      "match": 118,
+      "DIFF": 18,
+      "emi-reject": 0,
+      "other": 0
+    },
+    "first_diff": "0ba8fdf42c3e366e05711fbe7faca3285019c488:DIFF\tRC(norm=0, ref=1)",
+    "first_emi": null,
+    "replay_summary_path": "results/mixed_scalars_diff/stage_b/replay_summary.txt",
+    "log_path": "results/log_mixed_scalars.txt"
+  },
+  {
+    "file": "examples/simple_benchs/mixed_struct.c",
+    "func": "analyze_sensor",
+    "rc": 0,
+    "proto_ok": true,
+    "wrapper_ok": true,
+    "stage_reached": "Stage B",
+    "fail_reason": null,
+    "stage_b_counts": {
+      "match": 26,
+      "DIFF": 20,
+      "emi-reject": 0,
+      "other": 0
+    },
+    "first_diff": "0086da9addeda1c964220a7fcfa60a8cd65e25ec:DIFF\tRC(norm=0, ref=0)",
+    "first_emi": null,
+    "replay_summary_path": "results/mixed_struct_diff/stage_b/replay_summary.txt",
+    "log_path": "results/log_mixed_struct.txt"
+  },
+  {
+    "file": "examples/simple_benchs/mode_buffer_dump.c",
+    "func": "dump_mode_bytes",
+    "rc": 0,
+    "proto_ok": true,
+    "wrapper_ok": true,
+    "stage_reached": "Stage B",
+    "fail_reason": null,
+    "stage_b_counts": {
+      "match": 9,
+      "DIFF": 90,
+      "emi-reject": 0,
+      "other": 0
+    },
+    "first_diff": "018f45b8d76ba3318e93a3cef51ab0e819d861ef:DIFF\tRC(norm=0, ref=0)",
+    "first_emi": null,
+    "replay_summary_path": "results/mode_buffer_dump_diff/stage_b/replay_summary.txt",
+    "log_path": "results/log_mode_buffer_dump.txt"
+  },
+  {
+    "file": "examples/simple_benchs/multi_mode_pair.c",
+    "func": "compare_modes",
+    "rc": 0,
+    "proto_ok": true,
+    "wrapper_ok": true,
+    "stage_reached": "Stage B",
+    "fail_reason": null,
+    "stage_b_counts": {
+      "match": 51,
+      "DIFF": 340,
+      "emi-reject": 0,
+      "other": 0
+    },
+    "first_diff": "009788b7ab349d2f0b8319df69c0526f03738f7e:DIFF\tRC(norm=0, ref=1)",
+    "first_emi": null,
+    "replay_summary_path": "results/multi_mode_pair_diff/stage_b/replay_summary.txt",
+    "log_path": "results/log_multi_mode_pair.txt"
+  },
+  {
+    "file": "examples/simple_benchs/multi_string_packet.c",
+    "func": "inspect_packet",
+    "rc": 1,
+    "proto_ok": true,
+    "wrapper_ok": true,
+    "stage_reached": "Stage B",
+    "fail_reason": null,
+    "stage_b_counts": null,
+    "first_diff": null,
+    "first_emi": null,
+    "replay_summary_path": null,
+    "log_path": "results/log_multi_string_packet.txt"
+  },
+  {
+    "file": "examples/simple_benchs/myprog.c",
+    "func": "P",
+    "rc": 4,
+    "proto_ok": true,
+    "wrapper_ok": false,
+    "stage_reached": "Stage A - wrapper",
+    "fail_reason": "Wrapper generation failed. See wrap_gen.log",
+    "stage_b_counts": null,
+    "first_diff": null,
+    "first_emi": null,
+    "replay_summary_path": null,
+    "log_path": "results/log_myprog.txt"
+  },
+  {
+    "file": "examples/simple_benchs/myprog_structs.c",
+    "func": "P",
+    "rc": 4,
+    "proto_ok": true,
+    "wrapper_ok": false,
+    "stage_reached": "Stage A - wrapper",
+    "fail_reason": "Wrapper generation failed. See wrap_gen.log",
+    "stage_b_counts": null,
+    "first_diff": null,
+    "first_emi": null,
+    "replay_summary_path": null,
+    "log_path": "results/log_myprog_structs.txt"
+  },
+  {
+    "file": "examples/pointers/array_of_structs_example.c",
+    "func": "average_samples",
+    "rc": 1,
+    "proto_ok": true,
+    "wrapper_ok": true,
+    "stage_reached": "Stage B",
+    "fail_reason": null,
+    "stage_b_counts": null,
+    "first_diff": null,
+    "first_emi": null,
+    "replay_summary_path": null,
+    "log_path": "results/log_array_of_structs_example.txt"
+  },
+  {
+    "file": "examples/pointers/const_pointer_example.c",
+    "func": "calculate_distance",
+    "rc": 0,
+    "proto_ok": true,
+    "wrapper_ok": true,
+    "stage_reached": "Stage B",
+    "fail_reason": null,
+    "stage_b_counts": {
+      "match": 1,
+      "DIFF": 0,
+      "emi-reject": 0,
+      "other": 0
+    },
+    "first_diff": null,
+    "first_emi": null,
+    "replay_summary_path": "results/const_pointer_example_diff/stage_b/replay_summary.txt",
+    "log_path": "results/log_const_pointer_example.txt"
+  },
+  {
+    "file": "examples/pointers/double_pointer_example.c",
+    "func": "get_config",
+    "rc": 1,
+    "proto_ok": true,
+    "wrapper_ok": true,
+    "stage_reached": "Stage B",
+    "fail_reason": null,
+    "stage_b_counts": null,
+    "first_diff": null,
+    "first_emi": null,
+    "replay_summary_path": null,
+    "log_path": "results/log_double_pointer_example.txt"
+  },
+  {
+    "file": "examples/pointers/multiple_pointers_example.c",
+    "func": "process_data",
+    "rc": 0,
+    "proto_ok": true,
+    "wrapper_ok": true,
+    "stage_reached": "Stage B",
+    "fail_reason": null,
+    "stage_b_counts": {
+      "match": 1,
+      "DIFF": 0,
+      "emi-reject": 0,
+      "other": 0
+    },
+    "first_diff": null,
+    "first_emi": null,
+    "replay_summary_path": "results/multiple_pointers_example_diff/stage_b/replay_summary.txt",
+    "log_path": "results/log_multiple_pointers_example.txt"
+  },
+  {
+    "file": "examples/pointers/nested_struct_pointer_example.c",
+    "func": "update_person",
+    "rc": 0,
+    "proto_ok": true,
+    "wrapper_ok": true,
+    "stage_reached": "Stage B",
+    "fail_reason": null,
+    "stage_b_counts": {
+      "match": 2,
+      "DIFF": 0,
+      "emi-reject": 0,
+      "other": 0
+    },
+    "first_diff": null,
+    "first_emi": null,
+    "replay_summary_path": "results/nested_struct_pointer_example_diff/stage_b/replay_summary.txt",
+    "log_path": "results/log_nested_struct_pointer_example.txt"
+  },
+  {
+    "file": "examples/pointers/scalar_pointer_example.c",
+    "func": "scale_optional",
+    "rc": 0,
+    "proto_ok": true,
+    "wrapper_ok": true,
+    "stage_reached": "Stage B",
+    "fail_reason": null,
+    "stage_b_counts": {
+      "match": 1,
+      "DIFF": 0,
+      "emi-reject": 0,
+      "other": 0
+    },
+    "first_diff": null,
+    "first_emi": null,
+    "replay_summary_path": "results/scalar_pointer_example_diff/stage_b/replay_summary.txt",
+    "log_path": "results/log_scalar_pointer_example.txt"
+  },
+  {
+    "file": "examples/pointers/slice_pointer_example.c",
+    "func": "sum_slice",
+    "rc": 0,
+    "proto_ok": true,
+    "wrapper_ok": true,
+    "stage_reached": "Stage B",
+    "fail_reason": null,
+    "stage_b_counts": {
+      "match": 1,
+      "DIFF": 0,
+      "emi-reject": 59,
+      "other": 0
+    },
+    "first_diff": null,
+    "first_emi": "01158448d394a31e56712732771bc388715e4320:emi-reject\tRC(norm=86, ref=0) reason=[PIN_EMI] reject reason=length-field-mismatch detail=values",
+    "replay_summary_path": "results/slice_pointer_example_diff/stage_b/replay_summary.txt",
+    "log_path": "results/log_slice_pointer_example.txt"
+  },
+  {
+    "file": "examples/pointers/struct_pointer_example.c",
+    "func": "read_sensor_value",
+    "rc": 0,
+    "proto_ok": true,
+    "wrapper_ok": true,
+    "stage_reached": "Stage B",
+    "fail_reason": null,
+    "stage_b_counts": {
+      "match": 1,
+      "DIFF": 0,
+      "emi-reject": 0,
+      "other": 0
+    },
+    "first_diff": null,
+    "first_emi": null,
+    "replay_summary_path": "results/struct_pointer_example_diff/stage_b/replay_summary.txt",
+    "log_path": "results/log_struct_pointer_example.txt"
+  },
+  {
+    "file": "examples/pointers/void_pointer_example.c",
+    "func": "process_generic",
+    "rc": 1,
+    "proto_ok": true,
+    "wrapper_ok": true,
+    "stage_reached": "Stage B",
+    "fail_reason": null,
+    "stage_b_counts": null,
+    "first_diff": null,
+    "first_emi": null,
+    "replay_summary_path": null,
+    "log_path": "results/log_void_pointer_example.txt"
+  }
+]

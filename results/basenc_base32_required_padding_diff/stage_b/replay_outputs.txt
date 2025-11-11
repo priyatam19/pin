@@ -1,0 +1,152 @@
+=== 02738a1384bfee45d009bc89d80ebf9afc6ec9e9 ===
+[input decoded]
+{"len": -1849456884}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 0c3c47262d16301a49b164ab9605ffe63be2ffb7 ===
+[input decoded]
+{"len": 39}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 48dad12865d1eb8b98d26723f2abda2f0a6d2409 ===
+[input decoded]
+{"len": 0}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 627bc94ff2c3a92573ae7c531d2ed94b30986e3f ===
+[input decoded]
+{"len": 41}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== b2491265d18d9fef4ff688751040042935e8f937 ===
+[input decoded]
+{"len": -1849456882}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== b2b288d071c8a14d7adb72368c7732452ca1bfd6 ===
+[input decoded]
+{"len": 37}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== c8ce0c9b4b706796f46d7b06194c438d2a730f45 ===
+[input decoded]
+{"len": -1849456881}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== seed_publish_valid.bin ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+
+=== seed_subscribe_valid.bin ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+
+=== seed_v1_0.bin ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+
+=== seed_v1_1.bin ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+
+=== seed_v1_2.bin ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+
+=== seed_v1_3.bin ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+
+=== seed_v1_4.bin ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+
+=== seed_v2_5.bin ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+
+=== seed_v2_6.bin ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+
+=== seed_v2_7.bin ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+
+=== seed_v2_8.bin ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+
+=== seed_v2_9.bin ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+

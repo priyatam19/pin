@@ -1,0 +1,42 @@
+[+] Generate .proto (libclang parser)
+[i] Skipping C++ protobuf generation (reference decoder=nanopb)
+[+] Generate Python protobuf helpers
+[+] Generate nanopb protobuf (for wrapper decode)
+[+] Generate wrapper with pin_wrapper_entry() and standalone main
+[+] Compile original object (instrumented) and plain object
+[+] Compile nanopb runtime and wrapper
+[+] Compile wrapper object (no main) for fuzz_bytes
+main.c:57:65: warning: declaration of 'struct mg_dns_message' will not be visible outside of this function [-Wvisibility]
+extern int mg_dns_parse(const uint8_t * buf, size_t len, struct mg_dns_message * dm);
+                                                                ^
+main.c:67:11: error: no member named 'buf' in 'struct _Input'
+    input.buf.data.funcs.decode = decode_Uint32Slice_data;
+    ~~~~~ ^
+main.c:68:11: error: no member named 'buf' in 'struct _Input'
+    input.buf.data.arg = &buf_ctx;
+    ~~~~~ ^
+main.c:75:37: error: no member named 'buf' in 'struct _Input'
+    uint64_t buf_length_raw = input.buf.length;
+                              ~~~~~ ^
+main.c:83:11: error: no member named 'has_buf' in 'struct _Input'
+    input.has_buf = (buf_len > 0);
+    ~~~~~ ^
+main.c:84:11: error: no member named 'buf' in 'struct _Input'
+    input.buf.length = (uint64_t)buf_len;
+    ~~~~~ ^
+main.c:87:15: error: no member named 'dm' in 'struct _Input'
+    if (input.dm.present) {
+        ~~~~~ ^
+main.c:88:28: error: no member named 'dm' in 'struct _Input'
+        dm_storage = input.dm.value;
+                     ~~~~~ ^
+main.c:101:15: error: no member named 'len' in 'struct _Input'
+    if (input.len != (size_t)buf_len) {
+        ~~~~~ ^
+main.c:106:44: warning: incompatible pointer types passing 'struct mg_dns_message *' to parameter of type 'struct mg_dns_message *' [-Wincompatible-pointer-types]
+    mg_dns_parse(buf_ptr, (size_t)buf_len, dm_ptr);
+                                           ^~~~~~
+main.c:57:82: note: passing argument to parameter 'dm' here
+extern int mg_dns_parse(const uint8_t * buf, size_t len, struct mg_dns_message * dm);
+                                                                                 ^
+2 warnings and 8 errors generated.

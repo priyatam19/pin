@@ -1,0 +1,41 @@
+DEBUG: Starting main with file /home/priyatam/pin/examples/pointers/array_of_structs_example.c, func average_samples, parser libclang, headers 
+DEBUG: Parsing file /home/priyatam/pin/examples/pointers/array_of_structs_example.c with libclang
+DEBUG: Libclang args: []
+DEBUG: Scanning for function average_samples
+DEBUG: Found target function average_samples
+DEBUG: Function has 2 arguments
+DEBUG: Param type: const struct Sample *
+DEBUG: Added referenced struct Sample
+DEBUG: Param type: int
+DEBUG: Collecting structs from /home/priyatam/pin/examples/pointers/array_of_structs_example.c
+DEBUG: Found struct Sample in /home/priyatam/pin/examples/pointers/array_of_structs_example.c
+DEBUG: Added struct Sample with fields [('int32', 'id'), ('float', 'value')]
+DEBUG: Function average_samples params: [('const struct Sample *', 'samples'), ('int', 'count')]
+DEBUG: Detected length companion count for pointer samples
+DEBUG: Recorded pointer metadata for param average_samples.samples: PointerMetadata(depth=1, base_type='struct Sample', qualifiers=['const'], kind='struct_ptr', proto_hint='SamplePtr', raw='const struct Sample *', clean_base='Sample', wrapper_name='SamplePtr', length_param='count', length_type='int', length_proto='int32', typedef_target=None, include_header=None, external=False)
+DEBUG: CLI main function detected: False
+DEBUG: Primary input struct from libclang params: Sample
+DEBUG: Mapping type for decl: ('int32', 'id')
+DEBUG: Mapping type for decl: ('float', 'value')
+DEBUG: Added Input wrapper for Sample
+DEBUG: Mapping type for decl: ('const struct Sample *', 'samples')
+DEBUG: Mapping type for decl: ('int', 'count')
+Wrote proto to input.proto:
+
+syntax = "proto3";
+
+message SamplePtr {
+  bool present = 1;
+  Sample value = 2;
+}
+
+message Input {
+  SamplePtr samples = 1;
+  int32 count = 2;
+}
+
+message Sample {
+  int32 id = 1;
+  float value = 2;
+}
+

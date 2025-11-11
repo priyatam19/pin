@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+message PointPtr {
+  bool present = 1;
+  Point value = 2;
+}
+
+message Input {
+  PointPtr p1 = 1;
+  PointPtr p2 = 2;
+}
+
+message Point {
+  double x = 1;
+  double y = 2;
+}

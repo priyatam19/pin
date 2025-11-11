@@ -1,0 +1,39 @@
+[+] Generate .proto (libclang parser)
+[i] Skipping C++ protobuf generation (reference decoder=nanopb)
+[+] Generate Python protobuf helpers
+[+] Generate nanopb protobuf (for wrapper decode)
+[+] Generate wrapper with pin_wrapper_entry() and standalone main
+[+] Compile original object (instrumented) and plain object
+[+] Compile nanopb runtime and wrapper
+[+] Compile wrapper object (no main) for fuzz_bytes
+main.c:57:83: warning: declaration of 'struct mg_mqtt_message' will not be visible outside of this function [-Wvisibility]
+extern int mg_mqtt_parse(const uint8_t * buf, size_t len, uint8_t version, struct mg_mqtt_message * m);
+                                                                                  ^
+main.c:67:11: error: no member named 'buf' in 'struct _Input'
+    input.buf.data.funcs.decode = decode_Uint32Slice_data;
+    ~~~~~ ^
+main.c:68:11: error: no member named 'buf' in 'struct _Input'
+    input.buf.data.arg = &buf_ctx;
+    ~~~~~ ^
+main.c:75:37: error: no member named 'buf' in 'struct _Input'
+    uint64_t buf_length_raw = input.buf.length;
+                              ~~~~~ ^
+main.c:83:11: error: no member named 'has_buf' in 'struct _Input'
+    input.has_buf = (buf_len > 0);
+    ~~~~~ ^
+main.c:84:11: error: no member named 'buf' in 'struct _Input'
+    input.buf.length = (uint64_t)buf_len;
+    ~~~~~ ^
+main.c:87:15: error: no member named 'm' in 'struct _Input'
+    if (input.m.present) {
+        ~~~~~ ^
+main.c:88:27: error: no member named 'm' in 'struct _Input'
+        m_storage = input.m.value;
+                    ~~~~~ ^
+main.c:101:15: error: no member named 'len' in 'struct _Input'
+    if (input.len != (size_t)buf_len) {
+        ~~~~~ ^
+main.c:106:51: error: no member named 'version' in 'struct _Input'
+    mg_mqtt_parse(buf_ptr, (size_t)buf_len, input.version, m_ptr);
+                                            ~~~~~ ^
+1 warning and 9 errors generated.

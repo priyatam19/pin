@@ -1,0 +1,36 @@
+[+] Generate .proto (libclang parser)
+[i] Skipping C++ protobuf generation (reference decoder=nanopb)
+[+] Generate Python protobuf helpers
+[+] Generate nanopb protobuf (for wrapper decode)
+[+] Generate wrapper with pin_wrapper_entry() and standalone main
+[+] Compile original object (instrumented) and plain object
+[+] Compile nanopb runtime and wrapper
+[+] Compile wrapper object (no main) for fuzz_bytes
+main.c:64:34: warning: declaration of 'struct mg_http_message' will not be visible outside of this function [-Wvisibility]
+extern void mg_http_creds(struct mg_http_message * hm, char * user, size_t userlen, char * pass, size_t passlen);
+                                 ^
+main.c:77:11: error: no member named 'user' in 'struct _Input'
+    input.user.arg = user_buf;
+    ~~~~~ ^
+main.c:78:11: error: no member named 'user' in 'struct _Input'
+    input.user.funcs.decode = &decode_user;
+    ~~~~~ ^
+main.c:81:11: error: no member named 'pass' in 'struct _Input'
+    input.pass.arg = pass_buf;
+    ~~~~~ ^
+main.c:82:11: error: no member named 'pass' in 'struct _Input'
+    input.pass.funcs.decode = &decode_pass;
+    ~~~~~ ^
+main.c:90:15: error: no member named 'hm' in 'struct _Input'
+    if (input.hm.present) {
+        ~~~~~ ^
+main.c:91:28: error: no member named 'hm' in 'struct _Input'
+        hm_storage = input.hm.value;
+                     ~~~~~ ^
+main.c:94:43: error: no member named 'userlen' in 'struct _Input'
+    mg_http_creds(hm_ptr, user_buf, input.userlen, pass_buf, input.passlen);
+                                    ~~~~~ ^
+main.c:94:68: error: no member named 'passlen' in 'struct _Input'
+    mg_http_creds(hm_ptr, user_buf, input.userlen, pass_buf, input.passlen);
+                                                             ~~~~~ ^
+1 warning and 8 errors generated.

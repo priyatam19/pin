@@ -1,0 +1,120 @@
+=== 3bc15c8aae3e4124dd409035f32ea2fd6835efc9 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+
+=== b34b8fca7d22b9e512c28922f34b6133c462b748 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+
+=== ba0c29d1d590e1dcfe2610e67adf0cbb27998c7a ===
+[input decoded]
+{}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== seed_publish_valid.bin ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+
+=== seed_subscribe_valid.bin ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+
+=== seed_v1_0.bin ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+
+=== seed_v1_1.bin ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+
+=== seed_v1_2.bin ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+
+=== seed_v1_3.bin ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+
+=== seed_v1_4.bin ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+
+=== seed_v2_5.bin ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+
+=== seed_v2_6.bin ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+
+=== seed_v2_7.bin ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+
+=== seed_v2_8.bin ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+
+=== seed_v2_9.bin ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=1 stdout]
+[normalized stderr]
+[reference_npb rc=1 stdout]
+[reference_npb stderr]
+

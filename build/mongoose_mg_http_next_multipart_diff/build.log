@@ -1,0 +1,33 @@
+[+] Generate .proto (libclang parser)
+[i] Skipping C++ protobuf generation (reference decoder=nanopb)
+[+] Generate Python protobuf helpers
+[+] Generate nanopb protobuf (for wrapper decode)
+[+] Generate wrapper with pin_wrapper_entry() and standalone main
+[+] Compile original object (instrumented) and plain object
+[+] Compile nanopb runtime and wrapper
+[+] Compile wrapper object (no main) for fuzz_bytes
+main.c:46:42: warning: declaration of 'struct mg_str' will not be visible outside of this function [-Wvisibility]
+extern int mg_http_next_multipart(struct mg_str body, size_t ofs, struct mg_http_part * part);
+                                         ^
+main.c:46:74: warning: declaration of 'struct mg_http_part' will not be visible outside of this function [-Wvisibility]
+extern int mg_http_next_multipart(struct mg_str body, size_t ofs, struct mg_http_part * part);
+                                                                         ^
+main.c:58:11: error: no member named 'body' in 'struct _Input'
+    input.body.ptr.arg = body_ptr_buf;
+    ~~~~~ ^
+main.c:59:11: error: no member named 'body' in 'struct _Input'
+    input.body.ptr.funcs.decode = &decode_body_ptr;
+    ~~~~~ ^
+main.c:67:15: error: no member named 'part' in 'struct _Input'
+    if (input.part.present) {
+        ~~~~~ ^
+main.c:68:30: error: no member named 'part' in 'struct _Input'
+        part_storage = input.part.value;
+                       ~~~~~ ^
+main.c:71:34: error: no member named 'body' in 'struct _Input'
+    mg_http_next_multipart(input.body, input.ofs, part_ptr);
+                           ~~~~~ ^
+main.c:71:46: error: no member named 'ofs' in 'struct _Input'
+    mg_http_next_multipart(input.body, input.ofs, part_ptr);
+                                       ~~~~~ ^
+2 warnings and 6 errors generated.

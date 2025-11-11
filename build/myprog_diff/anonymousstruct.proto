@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+message AnonymousStruct {
+  bytes input = 1;
+  string name_buf = 2;
+  string sub_desc_buf = 3;
+}
+
+message MyStruct {
+  int32 id = 1;
+  float score = 2;
+  string name = 3;
+  bytes values = 4;
+  AnonymousStruct sub = 5;
+}

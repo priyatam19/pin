@@ -1,0 +1,6 @@
+syntax = "proto3";
+
+message Input {
+  string name = 1;
+  string suffix = 2;
+}

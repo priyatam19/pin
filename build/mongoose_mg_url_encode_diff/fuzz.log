@@ -1,0 +1,43 @@
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 2021423351
+INFO: Loaded 1 modules   (2668 inline 8-bit counters): 2668 [0x5626741a08c8, 0x5626741a1334), 
+INFO: Loaded 1 PC tables (2668 PCs): 2668 [0x5626741a1338,0x5626741ab9f8), 
+INFO:        0 files found in corpus
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 4096 bytes
+INFO: A corpus is not provided, starting from an empty corpus
+#2	INITED cov: 1 ft: 1 corp: 1/1b exec/s: 0 rss: 34Mb
+	NEW_FUNC[1/1]: 0x5626741329f0 in mg_url_encode (/home/priyatam/pin/build/mongoose_mg_url_encode_diff/fuzz_bytes+0x13d9f0) (BuildId: a9d38b966a5c1638b5199cd8fe3c92c83d90abd2)
+#29	NEW    cov: 3 ft: 7 corp: 2/3b lim: 4 exec/s: 0 rss: 35Mb L: 2/2 MS: 2 InsertByte-ShuffleBytes-
+#31	NEW    cov: 5 ft: 13 corp: 3/5b lim: 4 exec/s: 0 rss: 35Mb L: 2/2 MS: 2 ShuffleBytes-ChangeBit-
+#40	NEW    cov: 5 ft: 15 corp: 4/7b lim: 4 exec/s: 0 rss: 35Mb L: 2/2 MS: 4 ChangeBinInt-ChangeBinInt-CrossOver-ChangeBit-
+#73	NEW    cov: 5 ft: 16 corp: 5/9b lim: 4 exec/s: 0 rss: 35Mb L: 2/2 MS: 3 ShuffleBytes-EraseBytes-CopyPart-
+#79	NEW    cov: 5 ft: 18 corp: 6/12b lim: 4 exec/s: 0 rss: 35Mb L: 3/3 MS: 1 InsertByte-
+#136	NEW    cov: 5 ft: 19 corp: 7/14b lim: 4 exec/s: 0 rss: 35Mb L: 2/3 MS: 2 CopyPart-CrossOver-
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==3087308==ERROR: AddressSanitizer: stack-overflow on address 0x7ffe04a72959 (pc 0x562674132dad bp 0x000000000000 sp 0x7ffe04a69330 T0)
+    #0 0x562674132dad in mg_url_encode (/home/priyatam/pin/build/mongoose_mg_url_encode_diff/fuzz_bytes+0x13ddad) (BuildId: a9d38b966a5c1638b5199cd8fe3c92c83d90abd2)
+    #1 0x562674122318 in pin_wrapper_entry (/home/priyatam/pin/build/mongoose_mg_url_encode_diff/fuzz_bytes+0x12d318) (BuildId: a9d38b966a5c1638b5199cd8fe3c92c83d90abd2)
+    #2 0x5626741220e8 in LLVMFuzzerTestOneInput (/home/priyatam/pin/build/mongoose_mg_url_encode_diff/fuzz_bytes+0x12d0e8) (BuildId: a9d38b966a5c1638b5199cd8fe3c92c83d90abd2)
+    #3 0x562674048413 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) (/home/priyatam/pin/build/mongoose_mg_url_encode_diff/fuzz_bytes+0x53413) (BuildId: a9d38b966a5c1638b5199cd8fe3c92c83d90abd2)
+    #4 0x562674047b39 in fuzzer::Fuzzer::RunOne(unsigned char const*, unsigned long, bool, fuzzer::InputInfo*, bool, bool*) (/home/priyatam/pin/build/mongoose_mg_url_encode_diff/fuzz_bytes+0x52b39) (BuildId: a9d38b966a5c1638b5199cd8fe3c92c83d90abd2)
+    #5 0x562674049299 in fuzzer::Fuzzer::MutateAndTestOne() (/home/priyatam/pin/build/mongoose_mg_url_encode_diff/fuzz_bytes+0x54299) (BuildId: a9d38b966a5c1638b5199cd8fe3c92c83d90abd2)
+    #6 0x562674049e15 in fuzzer::Fuzzer::Loop(std::vector<fuzzer::SizedFile, std::allocator<fuzzer::SizedFile> >&) (/home/priyatam/pin/build/mongoose_mg_url_encode_diff/fuzz_bytes+0x54e15) (BuildId: a9d38b966a5c1638b5199cd8fe3c92c83d90abd2)
+    #7 0x562674038282 in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) (/home/priyatam/pin/build/mongoose_mg_url_encode_diff/fuzz_bytes+0x43282) (BuildId: a9d38b966a5c1638b5199cd8fe3c92c83d90abd2)
+    #8 0x562674061f92 in main (/home/priyatam/pin/build/mongoose_mg_url_encode_diff/fuzz_bytes+0x6cf92) (BuildId: a9d38b966a5c1638b5199cd8fe3c92c83d90abd2)
+    #9 0x7fb1c4246249 in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #10 0x7fb1c4246304 in __libc_start_main csu/../csu/libc-start.c:360:3
+    #11 0x56267402cab0 in _start (/home/priyatam/pin/build/mongoose_mg_url_encode_diff/fuzz_bytes+0x37ab0) (BuildId: a9d38b966a5c1638b5199cd8fe3c92c83d90abd2)
+
+SUMMARY: AddressSanitizer: stack-overflow (/home/priyatam/pin/build/mongoose_mg_url_encode_diff/fuzz_bytes+0x13ddad) (BuildId: a9d38b966a5c1638b5199cd8fe3c92c83d90abd2) in mg_url_encode
+==3087308==ABORTING
+MS: 1 CopyPart-; base unit: da030fea0dcc66d3a495b2e46bc489b450a0d1aa
+0x20,0xaa,0xaa,0x2,
+ \252\252\002
+artifact_prefix='./'; Test unit written to ./crash-fa4e7ac8ee2a4ef8b73bc9e571a628192e35abe2
+Base64: IKqqAg==
+stat::number_of_executed_units: 142
+stat::average_exec_per_sec:     0
+stat::new_units_added:          6
+stat::slowest_unit_time_sec:    0
+stat::peak_rss_mb:              35

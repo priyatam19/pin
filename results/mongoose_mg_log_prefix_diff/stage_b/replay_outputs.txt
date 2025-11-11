@@ -1,0 +1,1544 @@
+=== 00ecfab4dbc23823975986dd563b34613cff8ae2 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 1073741823}
+[normalized rc=0 stdout]
+b9c233dd 0 :1073741823:                 [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c233de 0 :1073741823:                 [reference_npb stderr]
+
+=== 017d489aa8d6302c66f41d863c50141d6e0bbd36 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+b9c23439 0 888ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ1ÿÿÿ)ÿÿÿ [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c2343c 0 888ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ1ÿÿÿ)ÿÿÿ [reference_npb stderr]
+
+=== 02691a3a5a157586c7819b082c42f39314a254b0 ===
+[input decoded]
+{"file": "", "fname": "", "level": 2, "line": 2}
+[normalized rc=0 stdout]
+b9c23498 2 :2:                          [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c2349a 2 :2:                          [reference_npb stderr]
+
+=== 02b6758213b9157a962fb0639b68e2531b424c5f ===
+[input decoded]
+{"file": "", "fname": "", "level": -1073987665, "line": 0}
+[normalized rc=0 stdout]
+b9c234f2 -1073987665 :0:                [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c234f3 -1073987665 :0:                [reference_npb stderr]
+
+=== 06462fb67ea5ea5db3732952be394bb2009808aa ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 68}
+[normalized rc=0 stdout]
+b9c23541 0 :68:                         [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c23542 0 :68:                         [reference_npb stderr]
+
+=== 07185e7432540a747efd896c608029ab13255731 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+b9c23591 0 0000000000000000000082596=5+ [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c23593 0 0000000000000000000082596=5+ [reference_npb stderr]
+
+=== 079df26f20bab41cbb7589fc9c66c85973ac8fca ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 192937983}
+[normalized rc=0 stdout]
+b9c235ee 0 :192937983:                  [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c235f0 0 :192937983:                  [reference_npb stderr]
+
+=== 0852a7d840b4a3e301f8e6c8f81adaadc25f7f9b ===
+[input decoded]
+{"file": "", "fname": "", "level": -218502124, "line": 0}
+[normalized rc=0 stdout]
+b9c23647 -218502124 :0:                 [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c23648 -218502124 :0:                 [reference_npb stderr]
+
+=== 0b780c858e24805b41cca6f84ece600d8ddaa988 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 268435455}
+[normalized rc=0 stdout]
+b9c236a1 0 :268435455:                  [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c236a2 0 :268435455:                  [reference_npb stderr]
+
+=== 0be94a26d3e9cd2216c5f0aea697c911743008c9 ===
+[input decoded]
+{"file": "", "fname": "", "level": -109319148, "line": 0}
+[normalized rc=0 stdout]
+b9c236f8 -109319148 :0:                 [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c236f9 -109319148 :0:                 [reference_npb stderr]
+
+=== 0e394777296da516fef724dbfa9f8db6142004fe ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 0}
+[normalized rc=0 stdout]
+b9c23757 0 ÷ÿ÷ÿÿÿ.:0:                   [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c23758 0 ÷ÿ÷ÿÿÿ.:0:                   [reference_npb stderr]
+
+=== 11916c508e08fcaed4edf145421bae220fcd4496 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": -1917855505}
+[normalized rc=0 stdout]
+b9c237ae 0 :-1917855505:                [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c237af 0 :-1917855505:                [reference_npb stderr]
+
+=== 1489e27d39d350569c814c2ef23dd548c72e7e8d ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 1073741819}
+[normalized rc=0 stdout]
+b9c237fc 0 :1073741819:                 [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c237ff 0 :1073741819:                 [reference_npb stderr]
+
+=== 181d5417ed9e3d5e47b41eaf57e383014ee29656 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 524287}
+[normalized rc=0 stdout]
+b9c23848 0 :524287:                     [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c23849 0 :524287:                     [reference_npb stderr]
+
+=== 184a0faf9003507a281d3883317754fb3acb08fc ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": -108}
+[normalized rc=0 stdout]
+b9c238a0 0 :-108:                       [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c238a1 0 :-108:                       [reference_npb stderr]
+
+=== 1c15e81eed8f774418d7856cb4f3db3cd1045415 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+b9c238f8 0 175708111418ÏÄ232:76:        [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c238fa 0 175708111418ÏÄ232:76:        [reference_npb stderr]
+
+=== 1ec13f2bf89a730c74f31512b114619cb58fc757 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": -131121}
+[normalized rc=0 stdout]
+b9c2394e 0 :-131121:                    [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c23950 0 :-131121:                    [reference_npb stderr]
+
+=== 2083f186bae4fe51231190342e508a64233d5aa8 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 0}
+[normalized rc=0 stdout]
+b9c2399f 0 :0:                         [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c239a0 0 :0:                         [reference_npb stderr]
+
+=== 23782da88734a85fdb3b13ecc9d2a871786da20e ===
+[input decoded]
+{"file": "", "fname": "", "level": 1064703, "line": 0}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 2457e0750cd473513c3a61ff39699df1fc668609 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 0}
+[normalized rc=0 stdout]
+b9c23a37 0 :0:                          [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c23a3a 0 :0:                          [reference_npb stderr]
+
+=== 270a48fe54804f38657deb8292903aa0c17c4c9b ===
+[input decoded]
+{"file": "", "fname": "", "level": -8388609, "line": 0}
+[normalized rc=0 stdout]
+b9c23a89 -8388609 :0:                   [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c23a8a -8388609 :0:                   [reference_npb stderr]
+
+=== 2724cf645c0f663a986d5e2af98a2038c69a19af ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 0}
+[normalized rc=0 stdout]
+b9c23ad4 0 :0:                          [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c23ad6 0 :0:                          [reference_npb stderr]
+
+=== 2b1034f794d17b949c814d8005901fd7bdc9e4d7 ===
+[input decoded]
+{"file": "", "fname": "", "level": -385, "line": 0}
+[normalized rc=0 stdout]
+b9c23b21 -385 :0:                       [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c23b23 -385 :0:                       [reference_npb stderr]
+
+=== 2c4c183437334df2e4306b9daaacc2f7f32bdf0c ===
+[input decoded]
+{"file": "", "fname": "", "level": 93, "line": 0}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 2d688283c3001f112aa72f28bbdc4abe0214b887 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": -12673}
+[normalized rc=0 stdout]
+b9c23bc4 0 :-12673:                     [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c23bc6 0 :-12673:                     [reference_npb stderr]
+
+=== 2fc52d70c376669cdbff853347f70e91b3d60014 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": -2400335}
+[normalized rc=0 stdout]
+b9c23c0d 0 :-2400335:                   [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c23c0f 0 :-2400335:                   [reference_npb stderr]
+
+=== 309b36fedb27f1eceb809ece182a6fb7968a51a8 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 126}
+[normalized rc=0 stdout]
+b9c23c59 0 :126:                        [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c23c5a 0 :126:                        [reference_npb stderr]
+
+=== 30bcad7c9c665af2402e85afaa22e57046e4dcea ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+b9c23cb1 0 44ÿŸÿü88888ÿÿÿ)88888888888 [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c23cb2 0 44ÿŸÿü88888ÿÿÿ)88888888888 [reference_npb stderr]
+
+=== 3652631430ac39c8d38affc341a15d84911edec3 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": -1261858010}
+[normalized rc=0 stdout]
+b9c23cfc 0 :-1261858010:                [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c23cfd 0 :-1261858010:                [reference_npb stderr]
+
+=== 379e74ef2ab60ea4c6620def1ba35447c3be63d7 ===
+[input decoded]
+{"file": "", "fname": "", "level": 1033855, "line": 0}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 386cb59b4bea6d85b047b9868ed8caa0999a1641 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 84}
+[normalized rc=0 stdout]
+b9c23dab 0 :84:                         [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c23dac 0 :84:                         [reference_npb stderr]
+
+=== 3903a3dfeee45a33670313dc0e8a54896b9b6872 ===
+[input decoded]
+{"file": "", "fname": "", "level": -5100, "line": 0}
+[normalized rc=0 stdout]
+b9c23e0d -5100 :0:                      [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c23e0f -5100 :0:                      [reference_npb stderr]
+
+=== 3b3037b16aa79b7b18d8027057d21094afbe216b ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 587519}
+[normalized rc=0 stdout]
+b9c23e67 0 :587519:                     [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c23e68 0 :587519:                     [reference_npb stderr]
+
+=== 3bc7032343d18aa0d3ed21b1893f8b9d0ff32e7b ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": -19}
+[normalized rc=0 stdout]
+b9c23eb4 0 :-19:                        [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c23eb5 0 :-19:                        [reference_npb stderr]
+
+=== 3bc9959d4c2c124f3e374f18cc1a9f7882954513 ===
+[input decoded]
+{"file": "", "fname": "", "level": 268435453, "line": 0}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 3c099444bf31c646e99ae5d8a205fafc1de4d6a6 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 1039932}
+[normalized rc=0 stdout]
+b9c23f4f 0 ÿÿÿÿ.:1039932:               [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c23f50 0 ÿÿÿÿ.:1039932:               [reference_npb stderr]
+
+=== 3c19496a3a3faae08b440904bfdf247bcb13ae20 ===
+[input decoded]
+{"file": "", "fname": "", "level": -132387820, "line": 0}
+[normalized rc=0 stdout]
+b9c23f9d -132387820 :0:                 [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c23f9f -132387820 :0:                 [reference_npb stderr]
+
+=== 3ddab33de09522091bde5b8f873007faec16d63c ===
+[input decoded]
+{"file": "", "fname": "", "level": -32, "line": 0}
+[normalized rc=0 stdout]
+b9c23ff0 -32 :0:                        [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c23ff1 -32 :0:                        [reference_npb stderr]
+
+=== 3f9be36fc76bda163746c6c2c79d1d27465ae9df ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 0}
+[normalized rc=0 stdout]
+b9c24037 0 :0:                          [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c24038 0 :0:                          [reference_npb stderr]
+
+=== 3fdd1282bc7544d65c4297516ad4b8f925d77ea2 ===
+[input decoded]
+{"file": "", "fname": "", "level": -1879048193, "line": 133119999}
+[normalized rc=0 stdout]
+b9c2407d -1879048193 ÷÷Ÿÿ£ÿÿÿ.:13311999 [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c2407e -1879048193 ÷÷Ÿÿ£ÿÿÿ.:13311999 [reference_npb stderr]
+
+=== 40991216859c08df98c706cb3ba3cb2cba0e536c ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 0}
+[normalized rc=0 stdout]
+b9c240c4 0 :0:                          [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c240c5 0 :0:                          [reference_npb stderr]
+
+=== 40ac811808c99a12238fabd22aa23aee87f8ebe6 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+b9c24110 0 8888888888888ÿ”ÿÿÿÿÿÿÿÿÿÿÿÿ [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c24111 0 8888888888888ÿ”ÿÿÿÿÿÿÿÿÿÿÿÿ [reference_npb stderr]
+
+=== 41367d9238dacbf0fe37cc9f87c801ae7d4be21c ===
+[input decoded]
+{"file": "", "fname": "", "level": 96, "line": 0}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 4243b964459e69ae559898f90391c82c44e6033f ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": -142257153}
+[normalized rc=0 stdout]
+b9c241a5 0 :-142257153:                 [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c241a6 0 :-142257153:                 [reference_npb stderr]
+
+=== 43731c9f7a523cf01fe57dfd870e62890dfc8028 ===
+[input decoded]
+{"file": "", "fname": "", "level": -1, "line": 0}
+[normalized rc=0 stdout]
+b9c241f9 -1 :0:                         [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c241fb -1 :0:                         [reference_npb stderr]
+
+=== 43a62390f39ea24725ee6bf3e2acfb46a83e6c0c ===
+[input decoded]
+{"file": "", "fname": "", "level": -133059564, "line": 0}
+[normalized rc=0 stdout]
+b9c24248 -133059564 :0:                 [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c24249 -133059564 :0:                 [reference_npb stderr]
+
+=== 465da3646a13492dec82f0c93e06fd31aa61e11e ===
+[input decoded]
+{"file": "", "fname": "", "level": -1879048193, "line": 0}
+[normalized rc=0 stdout]
+b9c24296 -1879048193 :0:                [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c24297 -1879048193 :0:                [reference_npb stderr]
+
+=== 46c65387b775227a0c4aa444b36a8abdd9542d73 ===
+[input decoded]
+{"file": "", "fname": "", "level": -2104358396, "line": 0}
+[normalized rc=0 stdout]
+b9c242e0 -2104358396 :0:                [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c242e1 -2104358396 :0:                [reference_npb stderr]
+
+=== 46de7bcf8209b769444d6c212aa82521cce87c6e ===
+[input decoded]
+{"file": "", "fname": "", "level": -1879048193, "line": 16316}
+[normalized rc=0 stdout]
+b9c2433f -1879048193 ÷ÿŸ£÷ÿÿ.:16316:    [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c24340 -1879048193 ÷ÿŸ£÷ÿÿ.:16316:    [reference_npb stderr]
+
+=== 48057fff89477917abcfba3e2a709bd97882e930 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 103}
+[normalized rc=0 stdout]
+b9c2438b 0 :103:                        [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c2438c 0 :103:                        [reference_npb stderr]
+
+=== 4aa7bdc97f43c8507f8f7e0c6a60be5a224bcc98 ===
+[input decoded]
+{"file": "", "fname": "", "level": 92, "line": 0}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 4be9e77f0850942b4246c9a880b3fde9f492fb75 ===
+[input decoded]
+{"file": "", "fname": "", "level": 1507325, "line": 0}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 4df398a2ffc29a2c2758043a4b9bc79521aa23f8 ===
+[input decoded]
+{"file": "", "fname": "", "level": -4, "line": 0}
+[normalized rc=0 stdout]
+b9c2447d -4 :0:                         [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c2447e -4 :0:                         [reference_npb stderr]
+
+=== 4f100f71e84ffd657baf07975727b77dbe889bce ===
+[input decoded]
+{"file": "", "fname": "", "level": 8319, "line": 0}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 4f5e5e1b56c709b20a83df8070c373295c2b8b19 ===
+[input decoded]
+{"file": "", "fname": "", "level": -2112878076, "line": 0}
+[normalized rc=0 stdout]
+b9c24516 -2112878076 :0:                [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c24517 -2112878076 :0:                [reference_npb stderr]
+
+=== 4f8190a08041a67360ceea6c64f9be3ffb59b602 ===
+[input decoded]
+{"file": "", "fname": "", "level": 1, "line": 0}
+[normalized rc=0 stdout]
+b9c24563 1 :0:                          [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c24564 1 :0:                          [reference_npb stderr]
+
+=== 50c8a33e85dd7f864ad4008438b3d78d95288510 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+b9c245b9 0 888888888888£888888888:9837: [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c245bb 0 888888888888£888888888:9837: [reference_npb stderr]
+
+=== 5167c3fb3f6744178aa22f8a4907a09b273dbdf7 ===
+[input decoded]
+{"file": "", "fname": "", "level": -16, "line": 63}
+[normalized rc=0 stdout]
+b9c24604 -16 :63:                       [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c24606 -16 :63:                       [reference_npb stderr]
+
+=== 54203e63d8009cedce666a40f9018f8adc92f4e1 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+b9c2465e 0 88ÿŸÿü8888ÿÿ8888888888888888 [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c24660 0 88ÿŸÿü8888ÿÿ8888888888888888 [reference_npb stderr]
+
+=== 549b9bf87a90bf591eb02e94e82cf74a9b58569f ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": -1260989658}
+[normalized rc=0 stdout]
+b9c246b7 0 :-1260989658:                [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c246b8 0 :-1260989658:                [reference_npb stderr]
+
+=== 54db2babcb8dbd988212d687104abcdee26dcdd0 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+b9c2470e 0 ÿÿÿL180ÿŸÿü8þÿý8888888#:-32 [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c24710 0 ÿÿÿL180ÿŸÿü8þÿý8888888#:-32 [reference_npb stderr]
+
+=== 57d3054ddeb88ab22add2ee774f8f26cb4255865 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 8092}
+[normalized rc=0 stdout]
+b9c2475c 0 :8092:                       [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c2475e 0 :8092:                       [reference_npb stderr]
+
+=== 58a58bfc5a252da87956a58bc5755bdfb92228e2 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": -83619421}
+[normalized rc=0 stdout]
+b9c247b5 0 :-83619421:                  [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c247b6 0 :-83619421:                  [reference_npb stderr]
+
+=== 5962abc8ddd39aed311e7a773a8dc9503c5b435b ===
+[input decoded]
+{"file": "", "fname": "", "level": -2104358380, "line": 0}
+[normalized rc=0 stdout]
+b9c2480b -2104358380 :0:                [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c2480c -2104358380 :0:                [reference_npb stderr]
+
+=== 5b8ff73651147c8267ef180c66beb95fb95c9557 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 16383}
+[normalized rc=0 stdout]
+b9c24858 0 :16383:                      [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c24859 0 :16383:                      [reference_npb stderr]
+
+=== 5bf15cfa0b9df9e9fa465bc0e0d078d979ae10fd ===
+[input decoded]
+{"file": "", "fname": "", "level": 6460, "line": 0}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 5d700474b4b8223de64d251cef79be5e0a5dceb2 ===
+[input decoded]
+{"file": "", "fname": "", "level": -2146435072, "line": 0}
+[normalized rc=0 stdout]
+b9c248f3 -2146435072 :0:                [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c248f6 -2146435072 :0:                [reference_npb stderr]
+
+=== 5e7af7fc048df4708dd77bd59570388108d37416 ===
+[input decoded]
+{"file": "", "fname": "", "level": 136314879, "line": 0}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 5fc6fe3ede38747bc3834eb68ebbb8bf9cc7c036 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 134217628}
+[normalized rc=0 stdout]
+b9c249a5 0 :134217628:                  [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c249a6 0 :134217628:                  [reference_npb stderr]
+
+=== 629277e5d960387de7c9e6f2adc2834da76bd38d ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 0}
+[normalized rc=0 stdout]
+b9c249f3 0 ÿÿ.:0:                       [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c249f4 0 ÿÿ.:0:                       [reference_npb stderr]
+
+=== 6449bf6f77aaa0b686f31446a7c37510516899ef ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 2005425}
+[normalized rc=0 stdout]
+b9c24a3c 0 :2005425:                    [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c24a3f 0 :2005425:                    [reference_npb stderr]
+
+=== 66b48cf50c4c9c0a348927504446d82b982d6d87 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 0}
+[normalized rc=0 stdout]
+b9c24a8f 0 :0:                          [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c24a91 0 :0:                          [reference_npb stderr]
+
+=== 68458abe07a6c49ac9ffb704b3d7099410ff20d6 ===
+[input decoded]
+{"file": "", "fname": "", "level": -1426052076, "line": 0}
+[normalized rc=0 stdout]
+b9c24adf -1426052076 :0:                [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c24ae0 -1426052076 :0:                [reference_npb stderr]
+
+=== 6adc92db3abe20949b0961ddb566967c24dd2262 ===
+[input decoded]
+{"file": "", "fname": "", "level": -3, "line": 0}
+[normalized rc=0 stdout]
+b9c24b2b -3 :0:                         [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c24b2c -3 :0:                         [reference_npb stderr]
+
+=== 6b0c4813dac0f09db0f6fda44c3f7eec7abc8508 ===
+[input decoded]
+{"file": "", "fname": "", "level": 123731967, "line": 0}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 6b2d9a704dc0cbf6b25f170b279dc5cddebae7a4 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 15667}
+[normalized rc=0 stdout]
+b9c24bc3 0 :15667:                      [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c24bc4 0 :15667:                      [reference_npb stderr]
+
+=== 6e2cfa84ddfb38098d487b2d22b8efc1b9a08d02 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 2147483647}
+[normalized rc=0 stdout]
+b9c24c1d 0 :2147483647:                 [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c24c1e 0 :2147483647:                 [reference_npb stderr]
+
+=== 6f8935b7decf13713abc5de79170082981f6237d ===
+[input decoded]
+{"file": "", "fname": "", "level": 1832910847, "line": 0}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 71389f6202643cec476a1c40187b56a4c4eab419 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": -49}
+[normalized rc=0 stdout]
+b9c24cc4 0 :-49:                        [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c24cc5 0 :-49:                        [reference_npb stderr]
+
+=== 733f7edea5234317009876ade78f82de8a583736 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 0}
+[normalized rc=0 stdout]
+b9c24d13 0 ÿÿÿ.:0:                      [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c24d14 0 ÿÿÿ.:0:                      [reference_npb stderr]
+
+=== 76be8616a9f30864887a662323af3795a628b256 ===
+[input decoded]
+{"file": "", "fname": "", "level": 2, "line": 0}
+[normalized rc=0 stdout]
+b9c24d62 2 :0:                          [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c24d63 2 :0:                          [reference_npb stderr]
+
+=== 77d21d1afe9e910f7b3d3d5f98c350a84892bc9d ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+b9c24db3 0 8888888888888888888888888888 [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c24db5 0 8888888888888888888888888888 [reference_npb stderr]
+
+=== 785aa2e7eaa65326b5e499b23b3588816de08def ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": -475137}
+[normalized rc=0 stdout]
+b9c24e00 0 :-475137:                    [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c24e01 0 :-475137:                    [reference_npb stderr]
+
+=== 7894874364fd03729168bf040e858c3b7a0b4994 ===
+[input decoded]
+{"file": "", "fname": "", "level": -218502124, "line": 46}
+[normalized rc=0 stdout]
+b9c24e58 -218502124 :46:                [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c24e5a -218502124 :46:                [reference_npb stderr]
+
+=== 78da797e58cd7e60dd5ab94cc4ec78ac0afc40ac ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": -147}
+[normalized rc=0 stdout]
+b9c24eb2 0 :-147:                       [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c24eb3 0 :-147:                       [reference_npb stderr]
+
+=== 790fabf183f5be4d847ed5a7cd61e48d226ffa99 ===
+[input decoded]
+{"file": "", "fname": "", "level": -974268, "line": 0}
+[normalized rc=0 stdout]
+b9c24f0d -974268 :0:                    [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c24f0e -974268 :0:                    [reference_npb stderr]
+
+=== 7b16eddef02379bc3f7ed9db6e6e1335a79eeb53 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 0}
+[normalized rc=0 stdout]
+b9c24f63 0 :0:                         [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c24f65 0 :0:                         [reference_npb stderr]
+
+=== 7d9ae7b2f65fc65bbcb29f6a87cfeac95bc1d4e4 ===
+[input decoded]
+{"file": "", "fname": "", "level": -2394369, "line": 0}
+[normalized rc=0 stdout]
+b9c24fbd -2394369 :0:                   [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c24fbf -2394369 :0:                   [reference_npb stderr]
+
+=== 84fc69f11402489f02d924e6f97c6eade0f44028 ===
+[input decoded]
+{"file": "", "fname": "", "level": -69842, "line": 0}
+[normalized rc=0 stdout]
+b9c2500f -69842 :0:                     [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c25011 -69842 :0:                     [reference_npb stderr]
+
+=== 859139c0bbe442484286f06bd475d26215c90999 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 93}
+[normalized rc=0 stdout]
+b9c25060 0 :93:                         [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c25061 0 :93:                         [reference_npb stderr]
+
+=== 87244df349359c64c1b362636fcb336efd699f85 ===
+[input decoded]
+{"file": "", "fname": "", "level": -1616912385, "line": 0}
+[normalized rc=0 stdout]
+b9c250ba -1616912385 :0:                [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c250bb -1616912385 :0:                [reference_npb stderr]
+
+=== 88196175f2821c9b7c627957d2d0eb8a0f52d885 ===
+[input decoded]
+{"file": "", "fname": "", "level": -268435457, "line": 0}
+[normalized rc=0 stdout]
+b9c25106 -268435457 :0:                 [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c25107 -268435457 :0:                 [reference_npb stderr]
+
+=== 890f8378e2bded2daafaad5d23747580f75f4fad ===
+[input decoded]
+{"file": "", "fname": "", "level": 133955476, "line": 0}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 8a070cd1a62bfe62b3dad133c88b5fcbc011ede4 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 35}
+[normalized rc=0 stdout]
+b9c251a0 0 :35:                         [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c251a1 0 :35:                         [reference_npb stderr]
+
+=== 8ba28f00dad43c690337a066c703c5a83d152cdf ===
+[input decoded]
+{"file": "", "fname": "", "level": 1244159, "line": 0}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 8f3ba8be549863d62ac33ed8e460a6ec9c2918a6 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 134217620}
+[normalized rc=0 stdout]
+b9c25248 0 :134217620:                  [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c25249 0 :134217620:                  [reference_npb stderr]
+
+=== 90cb94d4e370543f4f6955eadd0e9f7b0afde954 ===
+[input decoded]
+{"file": "", "fname": "", "level": -268959745, "line": 0}
+[normalized rc=0 stdout]
+b9c2529f -268959745 :0:                 [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c252a1 -268959745 :0:                 [reference_npb stderr]
+
+=== 915948547b5dfe4977efc433b4febff3a408ffab ===
+[input decoded]
+{"file": "", "fname": "", "level": -536920065, "line": 0}
+[normalized rc=0 stdout]
+b9c252e9 -536920065 :0:                 [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c252eb -536920065 :0:                 [reference_npb stderr]
+
+=== 91c092e1ad57554c851dd4f59e318489056ddb6d ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 1073610703}
+[normalized rc=0 stdout]
+b9c2533d 0 :1073610703:                 [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c2533f 0 :1073610703:                 [reference_npb stderr]
+
+=== 9407875e4e27ac381058f5541dc023167819c882 ===
+[input decoded]
+{"file": "", "fname": "", "level": 16255, "line": 0}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 9547ac1cddcb9de12961f666e67af847dff44817 ===
+[input decoded]
+{"file": "", "fname": "", "level": -133059532, "line": 172783359}
+[normalized rc=0 stdout]
+b9c253d3 -133059532 :172783359:         [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c253d5 -133059532 :172783359:         [reference_npb stderr]
+
+=== 96aed9fe4dbb1d14edcee169cf282a913eb2442d ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 134600941}
+[normalized rc=0 stdout]
+b9c25420 0 :134600941:                  [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c25421 0 :134600941:                  [reference_npb stderr]
+
+=== 9d938d72d0cd32ee6186f685a84b852bc245057a ===
+[input decoded]
+{"file": "", "fname": "", "level": -1879048193, "line": -192938052}
+[normalized rc=0 stdout]
+b9c2546e -1879048193 ÿ.:-192938052:     [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c2546f -1879048193 ÿ.:-192938052:     [reference_npb stderr]
+
+=== 9eeb3bc13112ad028039286ba62a55cfb2a6a69a ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 0}
+[normalized rc=0 stdout]
+b9c254b9 0 P:0:                         [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c254ba 0 P:0:                         [reference_npb stderr]
+
+=== 9f0ca8da33c111804e8d33508253d4c042a159e9 ===
+[input decoded]
+{"file": "", "fname": "", "level": -218366060, "line": 0}
+[normalized rc=0 stdout]
+b9c25509 -218366060 :0:                 [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c2550b -218366060 :0:                 [reference_npb stderr]
+
+=== a055b93f36d092387efa1e243420aafdb3f54cca ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+b9c25563 0 88ü8888888888888887~íLL88 [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c25564 0 88ü8888888888888887~íLL88 [reference_npb stderr]
+
+=== a12c42aeafd33b3a7707e8bbcadcbc5e2ac66fb9 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 1073731821}
+[normalized rc=0 stdout]
+b9c255bd 0 :1073731821:                 [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c255bf 0 :1073731821:                 [reference_npb stderr]
+
+=== a2defeede771b740393f8ca59b378fb10ac09d60 ===
+[input decoded]
+{"file": "", "fname": "", "level": -2112880124, "line": 0}
+[normalized rc=0 stdout]
+b9c25608 -2112880124 :0:                [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c2560a -2112880124 :0:                [reference_npb stderr]
+
+=== a6d9e5709c2b67c519fc9e3808dce3663a6414c7 ===
+[input decoded]
+{"file": "", "fname": "", "level": -513, "line": 0}
+[normalized rc=0 stdout]
+b9c25653 -513 :0:                       [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c25654 -513 :0:                       [reference_npb stderr]
+
+=== a87ac42f9f228a3d7ac7dcb6c4a4c87ab94d7922 ===
+[input decoded]
+{"file": "", "fname": "", "level": -23078785, "line": 0}
+[normalized rc=0 stdout]
+b9c2569f -23078785 :0:                  [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c256a1 -23078785 :0:                  [reference_npb stderr]
+
+=== a899f44501f65bfd1b757e4b3f0892f49002c288 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 46}
+[normalized rc=0 stdout]
+b9c256f8 0 :46:                         [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c256f9 0 :46:                         [reference_npb stderr]
+
+=== a9f1479f6fbe84487fa3a5d843940ba0fbbb26be ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 0}
+[normalized rc=0 stdout]
+b9c25745 0 ”?:0:                        [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c25746 0 ”?:0:                        [reference_npb stderr]
+
+=== ab4b6c41806244e92ce39d5bbbb0513edbd00898 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 64}
+[normalized rc=0 stdout]
+b9c25795 0 :64:                         [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c25796 0 :64:                         [reference_npb stderr]
+
+=== ab61c0af91ba73770313fd196c32d67b6586e684 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+b9c257e2 0 8888888888888ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c257e3 0 8888888888888ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ [reference_npb stderr]
+
+=== ab86d9a956b613cf8530d1fe6e999221c119658d ===
+[input decoded]
+{"file": "", "fname": "", "level": 134217620, "line": 0}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== acdf6f1057b8203026bfaf1fd14c403a95758535 ===
+[input decoded]
+{"file": "", "fname": "", "level": -2147483648, "line": 0}
+[normalized rc=0 stdout]
+b9c25887 -2147483648 :0:                [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c25888 -2147483648 :0:                [reference_npb stderr]
+
+=== afc9904cc09267920fff64d9b867f45f6fd589db ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 75192557}
+[normalized rc=0 stdout]
+b9c258e4 0 :75192557:                   [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c258e7 0 :75192557:                   [reference_npb stderr]
+
+=== b0ac6a9040710cfe6f2599bfd9d2f763fbf31194 ===
+[input decoded]
+{"file": "#00000000547839024:87\u00008#", "fname": "", "level": 0, "line": 9837}
+[normalized rc=0 stdout]
+b9c2592f 0 #00000000547839024:87:9837:  [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c25930 0 #00000000547839024:87:9837:  [reference_npb stderr]
+
+=== b16c72077ba78cfb3287332205c19114d1c8a291 ===
+[input decoded]
+{"file": "", "fname": "", "level": 64, "line": 0}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== b2b288d071c8a14d7adb72368c7732452ca1bfd6 ===
+[input decoded]
+{"file": "", "fname": "", "level": 37, "line": 0}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== b33caeff6d5ab9aeaa728b7ca2e11e1efc7c9b38 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+b9c25a18 0 888ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c25a19 0 888ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ [reference_npb stderr]
+
+=== b3b09d7046055f8d482489e20c30f5d3b05682c8 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 655359}
+[normalized rc=0 stdout]
+b9c25a67 0 :655359:                     [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c25a69 0 :655359:                     [reference_npb stderr]
+
+=== b3babc08f26e4eb6fa59b5ac520b16de55eb2bde ===
+[input decoded]
+{"file": "", "fname": "", "level": -2049, "line": 0}
+[normalized rc=0 stdout]
+b9c25abe -2049 :0:                      [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c25ac0 -2049 :0:                      [reference_npb stderr]
+
+=== b3dfbdaf2c43ec9a900296dd18a638c269a68991 ===
+[input decoded]
+{"file": "", "fname": "", "level": -2, "line": 0}
+[normalized rc=0 stdout]
+b9c25b0d -2 :0:                         [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c25b0e -2 :0:                         [reference_npb stderr]
+
+=== b4d407e82ba23a1d3c8dd9381332d00d87088beb ===
+[input decoded]
+{"file": "", "fname": "", "level": 15999, "line": 0}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== b500c4f8216a914f6a6d40b2b36c2acb5d55de12 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": -1284627}
+[normalized rc=0 stdout]
+b9c25bac 0 :-1284627:                   [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c25bad 0 :-1284627:                   [reference_npb stderr]
+
+=== b72c2a0f17e887ba8e93ff3be68749a5dae4e449 ===
+[input decoded]
+{"file": "", "fname": "", "level": -38043727, "line": 0}
+[normalized rc=0 stdout]
+b9c25bfa -38043727 :0:                  [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c25bfc -38043727 :0:                  [reference_npb stderr]
+
+=== b7cfde5d9a339fba09bafd3c6e80743cb29401a0 ===
+[input decoded]
+{"file": "", "fname": "", "level": -2112880640, "line": 0}
+[normalized rc=0 stdout]
+b9c25c54 -2112880640 :0:                [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c25c55 -2112880640 :0:                [reference_npb stderr]
+
+=== b864c41d53997159d74c87026715124c57d3d8e8 ===
+[input decoded]
+{"file": "", "fname": "", "level": -228659410, "line": 0}
+[normalized rc=0 stdout]
+b9c25c9e -228659410 :0:                 [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c25ca0 -228659410 :0:                 [reference_npb stderr]
+
+=== b8b2cf088c3586c3c071d7f56387945e3c30e7f4 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+b9c25cf8 0 8888888888888ÿÿÿÿÿÿ$ÿÿÿÿÿÿÿÿ [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c25cf9 0 8888888888888ÿÿÿÿÿÿ$ÿÿÿÿÿÿÿÿ [reference_npb stderr]
+
+=== b8e76defcd7f62ae6f0a7c19dc35e493e819387a ===
+[input decoded]
+{"file": "", "fname": "", "level": -1073741840, "line": -1420119}
+[normalized rc=0 stdout]
+b9c25d52 -1073741840 :-1420119:         [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c25d54 -1073741840 :-1420119:         [reference_npb stderr]
+
+=== b930372a11e0d80cea495f478aa889ad93f7f577 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": -114796}
+[normalized rc=0 stdout]
+b9c25da0 0 :-114796:                    [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c25da1 0 :-114796:                    [reference_npb stderr]
+
+=== b9a83c8ffc4bad097a3954ca3fda941dde6c238a ===
+[input decoded]
+{"file": "", "fname": "", "level": -1025, "line": 0}
+[normalized rc=0 stdout]
+b9c25deb -1025 :0:                      [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c25dec -1025 :0:                      [reference_npb stderr]
+
+=== babd428809b52ffcd46f02cea79b99477bd799b5 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 0}
+[normalized rc=0 stdout]
+b9c25e38 0 :0:                          [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c25e3a 0 :0:                          [reference_npb stderr]
+
+=== bb37877d3e6e7eb160bcad96f7e7c241d572ba03 ===
+[input decoded]
+{"file": "", "fname": "", "level": 5631, "line": 0}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== bf0252fdb401b4bf228196d3e9d581e83a799381 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 0}
+[normalized rc=0 stdout]
+b9c25edf 0 ÿø§ÿ?:0:                     [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c25ee1 0 ÿø§ÿ?:0:                     [reference_npb stderr]
+
+=== c0836f7dffe13861bd46afa87d4821823a445944 ===
+[input decoded]
+{"file": "", "fname": "", "level": -16, "line": 0}
+[normalized rc=0 stdout]
+b9c25f37 -16 :0:                        [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c25f38 -16 :0:                        [reference_npb stderr]
+
+=== c140ad38a8bfb0aefaa60a301032bdb51f1d6645 ===
+[input decoded]
+{"file": "7550956297025341280\u000088888z88888888888#", "fname": "", "level": -23078785, "line": 9837}
+[normalized rc=0 stdout]
+b9c25f85 -23078785 7550956297025341280: [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c25f86 -23078785 7550956297025341280: [reference_npb stderr]
+
+=== c2db16e543ff04befd5f3a6e39dd6b640519db3b ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 0}
+[normalized rc=0 stdout]
+b9c25fd0 0 :0:                          [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c25fd1 0 :0:                          [reference_npb stderr]
+
+=== c331b4954f9fe4f2c756cc3857140b2a484c13e7 ===
+[input decoded]
+{"file": "", "fname": "", "level": 136306687, "line": 0}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== c49e1a05d6819c8543df00043e55ae227662f45c ===
+[input decoded]
+{"file": "", "fname": "", "level": -262145, "line": 0}
+[normalized rc=0 stdout]
+b9c26079 -262145 :0:                    [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c2607a -262145 :0:                    [reference_npb stderr]
+
+=== c5d656026c87e57cb4e50c24d3388fe3480a2d52 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 1073610751}
+[normalized rc=0 stdout]
+b9c260c5 0 :1073610751:                 [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c260c6 0 :1073610751:                 [reference_npb stderr]
+
+=== c82b80e1eb539d3a929812e4045cee528ebf5a40 ===
+[input decoded]
+{"file": "", "fname": "", "level": -2112880636, "line": 0}
+[normalized rc=0 stdout]
+b9c26112 -2112880636 :0:                [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c26113 -2112880636 :0:                [reference_npb stderr]
+
+=== c874c4d8427da16ecedf6fe0ae06a36aa1dc79c9 ===
+[input decoded]
+{"file": "", "fname": "", "level": 1033853, "line": 0}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== c8e9b668e2bc3e4d526b27279f4e67dc32cdfe21 ===
+[input decoded]
+{"file": "", "fname": "", "level": -110363116, "line": 0}
+[normalized rc=0 stdout]
+b9c261ac -110363116 :0:                 [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c261ae -110363116 :0:                 [reference_npb stderr]
+
+=== c9cd875798626ce9bc5356d472ac2601ebb3b4aa ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": -140520449}
+[normalized rc=0 stdout]
+b9c26205 0 :-140520449:                 [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c26207 0 :-140520449:                 [reference_npb stderr]
+
+=== c9e1d0cf086667d9dceb521c9a15d605ee49b144 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 8084}
+[normalized rc=0 stdout]
+b9c26254 0 :8084:                       [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c26255 0 :8084:                       [reference_npb stderr]
+
+=== ce579cb9b3af95f53254c9e374af7d9110f8a4c5 ===
+[input decoded]
+{"file": "", "fname": "", "level": -12673, "line": 0}
+[normalized rc=0 stdout]
+b9c262ae -12673 :0:                     [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c262b0 -12673 :0:                     [reference_npb stderr]
+
+=== ced0e9f183fd97ff6ba3e9698d4a030d3b85441e ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+b9c2630f 0 444444ÿ{ÿ888888888888(8888: [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c26312 0 444444ÿ{ÿ888888888888(8888: [reference_npb stderr]
+
+=== cfbcb030d48dfdb4867904997a1088256502793b ===
+[input decoded]
+{"file": "888888888L\u001288888888888888888888\u00008888887776#", "fname": "", "level": 0, "line": 0}
+[normalized rc=0 stdout]
+b9c2636a 0 888888888L88888888888888888 [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c2636c 0 888888888L88888888888888888 [reference_npb stderr]
+
+=== cfe0dabf052273f39b4569bb8fe09386a8b6cd6e ===
+[input decoded]
+{"file": "", "fname": "", "level": 1048560, "line": 0}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== d0074795b8d358fa3d7be0dce2c78ce4b122f426 ===
+[input decoded]
+{"file": "", "fname": "", "level": -79, "line": 0}
+[normalized rc=0 stdout]
+b9c26410 -79 :0:                        [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c26411 -79 :0:                        [reference_npb stderr]
+
+=== d3d3bf8e941ee16536b23c37861efc00b507d01e ===
+[input decoded]
+{"file": "", "fname": "", "level": 266338295, "line": 0}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== d4cb57dc1c3d4e4c794b4ea5ee9258463cca5442 ===
+[input decoded]
+{"file": "", "fname": "", "level": -133059564, "line": 4589}
+[normalized rc=0 stdout]
+b9c264a8 -133059564 :4589:              [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c264aa -133059564 :4589:              [reference_npb stderr]
+
+=== d64e0ea87bdf7db55dcd9cc4aae7f144bcad9c49 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 980975}
+[normalized rc=0 stdout]
+b9c26500 0 :980975:                     [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c26501 0 :980975:                     [reference_npb stderr]
+
+=== d66a5cd306b1c209076050fdfdce58d1cf0b90d5 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 16}
+[normalized rc=0 stdout]
+b9c26549 0 :16:                         [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c2654a 0 :16:                         [reference_npb stderr]
+
+=== dad1805d47b4ce4c7fcf148f21ca7e1c8a03bf70 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 2097151}
+[normalized rc=0 stdout]
+b9c2659f 0 :2097151:                    [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c265a0 0 :2097151:                    [reference_npb stderr]
+
+=== dd6ef3d31ac2851fe090870e2adbb403771b2d99 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 0}
+[normalized rc=0 stdout]
+b9c265f6 0 :0:                          [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c265f7 0 :0:                          [reference_npb stderr]
+
+=== dd957d8ec7d1a391f3768d8cb5c4c330a66c15ce ===
+[input decoded]
+{"file": "", "fname": "", "level": -218371052, "line": 0}
+[normalized rc=0 stdout]
+b9c26642 -218371052 :0:                 [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c26643 -218371052 :0:                 [reference_npb stderr]
+
+=== de26b0844f7494eab88219f7b627e1d8a599b02c ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 8}
+[normalized rc=0 stdout]
+b9c26687 0 :8:                          [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c26688 0 :8:                          [reference_npb stderr]
+
+=== de5cbe843f9e5f8a97e3fbd0fd63677d17e0b632 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": -18707}
+[normalized rc=0 stdout]
+b9c266cb 0 :-18707:                     [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c266cc 0 :-18707:                     [reference_npb stderr]
+
+=== dfd28f5a063afeaf2805260a3b0ce121a93589fa ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 63}
+[normalized rc=0 stdout]
+b9c26713 0 :63:                         [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c26715 0 :63:                         [reference_npb stderr]
+
+=== e0705e03a40638157f7591ed374a75f4baf334fc ===
+[input decoded]
+{"file": "", "fname": "", "level": -18707, "line": 0}
+[normalized rc=0 stdout]
+b9c26764 -18707 :0:                     [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c26766 -18707 :0:                     [reference_npb stderr]
+
+=== e07d525b161f9ada31f74606cc436fbb30068d02 ===
+[input decoded]
+{"file": "", "fname": "", "level": -1321041, "line": 0}
+[normalized rc=0 stdout]
+b9c267b0 -1321041 :0:                   [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c267b1 -1321041 :0:                   [reference_npb stderr]
+
+=== e08b4cc47ae54f8ed03212e5a6b57bfa7b74fc8b ===
+[input decoded]
+{"file": "", "fname": "", "level": 1015807, "line": 0}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== e08bf3aafef42bae982980912192939a93dde7a0 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": -2305}
+[normalized rc=0 stdout]
+b9c26844 0 :-2305:                      [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c26845 0 :-2305:                      [reference_npb stderr]
+
+=== e5527ede82ca80e2bc2c833f0b8d28a16d5eb0b0 ===
+[input decoded]
+{"file": "", "fname": "", "level": -9, "line": 0}
+[normalized rc=0 stdout]
+b9c26890 -9 :0:                         [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c26891 -9 :0:                         [reference_npb stderr]
+
+=== e83bb67df32c10bf3dc7d961372f22a7381093ee ===
+[input decoded]
+{"file": "", "fname": "", "level": 5375, "line": 0}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== e8834a5bdb6ef3c5637cc8670c73ee7ad39c8f4f ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 0}
+[normalized rc=0 stdout]
+b9c26929 0 :0:                          [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c2692a 0 :0:                          [reference_npb stderr]
+
+=== e92a579c1f782c044f4b42e86d5aa6f62c83e978 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 195035135}
+[normalized rc=0 stdout]
+b9c26976 0 :195035135:                  [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c26977 0 :195035135:                  [reference_npb stderr]
+
+=== e9b1a77b9e043091dbad560a2328ab65edd98b12 ===
+[input decoded]
+{"file": "", "fname": "", "level": -1616904193, "line": 0}
+[normalized rc=0 stdout]
+b9c269c3 -1616904193 :0:                [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c269c4 -1616904193 :0:                [reference_npb stderr]
+
+=== eb6a9c0bc7fbdecdf6bc1a32fdad1fd16bb1ae3b ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 1048575}
+[normalized rc=0 stdout]
+b9c26a14 0 :1048575:                    [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c26a15 0 :1048575:                    [reference_npb stderr]
+
+=== eb738b1f39e1f78ee023f42c23b0d3f424977c7e ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": -14680172}
+[normalized rc=0 stdout]
+b9c26a5d 0 :-14680172:                  [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c26a5e 0 :-14680172:                  [reference_npb stderr]
+
+=== ef66aa13506cf4a5a6090855011aea7cf2c89edd ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+b9c26aa7 0 8888888888888ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c26aa8 0 8888888888888ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ [reference_npb stderr]
+
+=== f04b1136ccaa4fa80c24a8184047b32c599c62fb ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 0}
+[normalized rc=0 stdout]
+b9c26af2 0 ;:0:                         [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c26af3 0 ;:0:                         [reference_npb stderr]
+
+=== f11b2afd905f9ae26e2b7bf0760c364685eec3d7 ===
+[input decoded]
+{"file": "", "fname": "", "level": -183, "line": 0}
+[normalized rc=0 stdout]
+b9c26b4a -183 :0:                       [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c26b4b -183 :0:                       [reference_npb stderr]
+
+=== f2cd37298152b76089bc5117c5d48d3b1096123e ===
+[input decoded]
+{"file": "", "fname": "", "level": -669930476, "line": 0}
+[normalized rc=0 stdout]
+b9c26b97 -669930476 :0:                 [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c26b98 -669930476 :0:                 [reference_npb stderr]
+
+=== f2d593b9d2b3d1f400fd392fe9260823d7cdc4e6 ===
+[input decoded]
+{"file": "", "fname": "", "level": -40961, "line": 0}
+[normalized rc=0 stdout]
+b9c26be6 -40961 :0:                     [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c26be7 -40961 :0:                     [reference_npb stderr]
+
+=== f4c0f46ade50b98c29972fdc2a319e7702e5e489 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 127}
+[normalized rc=0 stdout]
+b9c26c31 0 :127:                        [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c26c32 0 :127:                        [reference_npb stderr]
+
+=== f4d92aeaec8871eb94cd2da29765f366fdfc84a0 ===
+[input decoded]
+{"file": "", "fname": "", "level": -1885351937, "line": 0}
+[normalized rc=0 stdout]
+b9c26c7b -1885351937 :0:                [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c26c7d -1885351937 :0:                [reference_npb stderr]
+
+=== f6657bd406a9c14973a121aac9209fb55c7f56d4 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 0}
+[normalized rc=0 stdout]
+b9c26cc8 0 ÿÿ÷£÷ÿÿÿ.:0:                 [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c26cca 0 ÿÿ÷£÷ÿÿÿ.:0:                 [reference_npb stderr]
+
+=== f6d4c36c2782dc6d0cfb5bd2515c60f53bc9f256 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": -1}
+[normalized rc=0 stdout]
+b9c26d12 0 :-1:                         [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c26d14 0 :-1:                         [reference_npb stderr]
+
+=== f973eda91907463aa04e2ddf8d3e092da78d8ac9 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 0}
+[normalized rc=0 stdout]
+b9c26d58 0 :0:                          [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c26d5a 0 :0:                          [reference_npb stderr]
+
+=== fa0f4f76d073e26b63d9ee320f2b47e1b78dbe17 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 0}
+[normalized rc=0 stdout]
+b9c26d9d 0 6:0:                         [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c26d9f 0 6:0:                         [reference_npb stderr]
+
+=== fa96851d6d49ecbd7bda91b9675beb6169b53c6e ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": -10}
+[normalized rc=0 stdout]
+b9c26de9 0 :-10:                        [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c26dea 0 :-10:                        [reference_npb stderr]
+
+=== fadee917d3b42a314726626a5d17aaa28db692c1 ===
+[input decoded]
+{"file": "", "fname": "", "level": -143745, "line": 0}
+[normalized rc=0 stdout]
+b9c26e32 -143745 :0:                    [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c26e33 -143745 :0:                    [reference_npb stderr]
+
+=== fbd50c15f69cee9283eaa1a8b86de651dee7723a ===
+[input decoded]
+{"file": "", "fname": "", "level": -2104489468, "line": 0}
+[normalized rc=0 stdout]
+b9c26e87 -2104489468 :0:                [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c26e89 -2104489468 :0:                [reference_npb stderr]
+
+=== fbd90cf747e1c8d1c34f0b58ad957d8fd108baca ===
+[input decoded]
+{"file": "", "fname": "", "level": 1879048191, "line": 0}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== fccf089f44334bc14b65035f85760b7c314d8a27 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 0}
+[normalized rc=0 stdout]
+b9c26f28 0 #:0:                         [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c26f2a 0 #:0:                         [reference_npb stderr]
+
+=== fcd6c82227fbbd75c87a735b71aca20e12541b44 ===
+[input decoded]
+{"file": "", "fname": "", "level": -6291460, "line": 0}
+[normalized rc=0 stdout]
+b9c26f76 -6291460 :0:                   [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c26f77 -6291460 :0:                   [reference_npb stderr]
+
+=== fe36889de7df9f7a3b1102a617b93a3dd86117b4 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 16237}
+[normalized rc=0 stdout]
+b9c26fc2 0 :16237:                      [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c26fc3 0 :16237:                      [reference_npb stderr]
+
+=== ff05f314358b9ff2c1020efe0c3709ff0a045898 ===
+[input decoded]
+{"file": "", "fname": "", "level": 0, "line": 8124}
+[normalized rc=0 stdout]
+b9c2700f 0 :8124:                       [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c27010 0 :8124:                       [reference_npb stderr]
+
+=== ff6e3f2cb6b4998aa394e99304a022542cfdff9d ===
+[input decoded]
+{"file": "", "fname": "", "level": -1299895280, "line": 0}
+[normalized rc=0 stdout]
+b9c2705e -1299895280 :0:                [normalized stderr]
+[reference_npb rc=0 stdout]
+b9c2705f -1299895280 :0:                [reference_npb stderr]
+

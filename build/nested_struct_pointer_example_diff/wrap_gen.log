@@ -1,0 +1,8 @@
+Generated main.c for wrapper.
+Generated reference_runner.cc.
+DEBUG: Wrapper parse found struct Address with fields [('int', 'zip'), ('int', 'street_number')]
+DEBUG: Wrapper parse found struct Person with fields [('int', 'age'), ('struct Address', 'addr')]
+DEBUG: pointer context {'person': {'name': 'person', 'pointer_type': 'struct Person *', 'kind': 'struct_ptr', 'base_type': 'struct Person', 'storage_type': 'Person', 'qualifiers': [], 'var_name': 'person_ptr', 'storage_var': 'person_storage', 'used': False, 'field_path': None, 'msg_accessor': None, 'msg_var': 'person_msg', 'is_slice': False, 'length_field': None, 'length_type': None, 'length_proto': None, 'helper_name': 'PersonPtr', 'data_proto': 'Person', 'storage_ptr_type': 'Person *', 'presence_field': 'present', 'include_header': None, 'typedef_target': None, 'external_handle': False, 'external_fn': None, 'external_call': None}}
+DEBUG: walk_decls called with 2 fields, prefix='', depth=0, parser=libclang
+DEBUG: Processing field ('struct Person *', 'person'), name=person, is_struct=True, is_ptr=True
+DEBUG: Processing field ('int', 'new_zip'), name=new_zip, is_struct=False, is_ptr=False

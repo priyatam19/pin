@@ -1,102 +1,532 @@
-=== 09d2af8dd22201dd8d48e5dcfcaed281ff9422c7 ===
+=== 0086da9addeda1c964220a7fcfa60a8cd65e25ec ===
 [input decoded]
 {"flag0": 0, "flag1": 0, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-sensor 0 underflow (0.00)
-[original stderr]
-
-=== 290942debeee92e96bd28a606d7eb043a7df47fd ===
-[input decoded]
-{"flag0": 0, "flag1": 8191, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
 [normalized rc=0 stdout]
-sensor 0 overload (4095.50)
+sensor 0 note:w
+sensor 0 underflow (0.00)
 [normalized stderr]
-[original rc=0 stdout]
-sensor 0 overload (4095.50)
-[original stderr]
+[reference_npb rc=0 stdout]
+sensor 0 note:w
+sensor 0 underflow (0.00)
+[reference_npb stderr]
 
-=== 3c29793ef5ce1b2121800d418471fa1629c02cbf ===
+=== 0428f75c0c2ef41db6e3fe21222ac97c4f426b75 ===
+[input decoded]
+{"flag0": 117, "flag1": 0, "flag2": 0, "id": 10, "note": "", "reading": NaN}
+[normalized rc=0 stdout]
+sensor 10 stable (-nan)
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 10 stable (-nan)
+[reference_npb stderr]
+
+=== 08ab27eb24236726a6652f79439303099090921a ===
+[input decoded]
+{"flag0": 2, "flag1": 0, "flag2": 0, "id": 11, "note": "alert", "reading": 120.0}
+[normalized rc=0 stdout]
+sensor 11 note:alert
+sensor 11 overload (121.00)
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 11 note:alert
+sensor 11 overload (121.00)
+[reference_npb stderr]
+
+=== 0c75a713fa9db28780dfb4ecdd570c603a727db1 ===
+[input decoded]
+{"flag0": 0, "flag1": 0, "flag2": 0, "id": 0, "note": "low", "reading": 0.0}
+[normalized rc=0 stdout]
+sensor 0 note:low
+sensor 0 underflow (0.00)
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 0 note:low
+sensor 0 underflow (0.00)
+[reference_npb stderr]
+
+=== 1a689ec35ef926f48920198f1d9b8a54af30014b ===
+[input decoded]
+{"flag0": 0, "flag1": 0, "flag2": 0, "id": 0, "note": "al\u0014rt", "reading": 6.243497100632018e+144}
+[normalized rc=0 stdout]
+sensor 0 note:alrt
+sensor 0 overload (6243497100632017734799523909364647552467406002334383538963218429049645523394498615696305873634460422012527111917750414485427488201438518302474240.00)
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 0 note:alrt
+sensor 0 overload (6243497100632017734799523909364647552467406002334383538963218429049645523394498615696305873634460422012527111917750414485427488201438518302474240.00)
+[reference_npb stderr]
+
+=== 1b02207ba9e9671cce31ec2e155dbed229efb79a ===
+[input decoded]
+{"flag0": 0, "flag1": 0, "flag2": 0, "id": 10, "note": "", "reading": 0.0}
+[normalized rc=0 stdout]
+sensor 10 underflow (0.00)
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 10 underflow (0.00)
+[reference_npb stderr]
+
+=== 1d583b9e14fa7f0dc3748b67ecf46df3fc8f74b0 ===
 [input decoded]
 {"flag0": 0, "flag1": 0, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
+[normalized rc=0 stdout]
+sensor 0 note:Éi
 sensor 0 underflow (0.00)
-[original stderr]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 0 note:Éi
+sensor 0 underflow (0.00)
+[reference_npb stderr]
+
+=== 2744fa18d22bed98d21acff7a07acc84c46d20cb ===
+[input decoded]
+{"flag0": 1, "flag1": 0, "flag2": 0, "id": 10, "note": "", "reading": 75.5}
+[normalized rc=0 stdout]
+sensor 10 note:routine
+sensor 10 stable (76.00)
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 10 note:routine
+sensor 10 stable (76.00)
+[reference_npb stderr]
+
+=== 2c0c69951e7bd8372d1e9935c8d613f8b314f8bc ===
+[input decoded]
+{"flag0": 0, "flag1": 0, "flag2": 0, "id": 0, "note": "ale;t", "reading": 120.0}
+[normalized rc=0 stdout]
+sensor 0 note:ale;t
+sensor 0 overload (120.00)
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 0 note:ale;t
+sensor 0 overload (120.00)
+[reference_npb stderr]
+
+=== 4becb52659bf8f0a502d84b828998da76cf707d1 ===
+[input decoded]
+{"flag0": 2, "flag1": 0, "flag2": 0, "id": 11, "note": "ale;t", "reading": 120.0}
+[normalized rc=0 stdout]
+sensor 11 note:ale;t
+sensor 11 overload (121.00)
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 11 note:ale;t
+sensor 11 overload (121.00)
+[reference_npb stderr]
+
+=== 50e352bdb2b0251acacfa67a25b7c003b80cd6f7 ===
+[input decoded]
+{"flag0": 0, "flag1": 0, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
+[normalized rc=0 stdout]
+sensor 0 note:ÿw
+sensor 0 underflow (0.00)
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 0 note:ÿw
+sensor 0 underflow (0.00)
+[reference_npb stderr]
+
+=== 58346a4e60292f94e3194891b5a83960dde136a7 ===
+[input decoded]
+{"flag0": 0, "flag1": 0, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
+[normalized rc=0 stdout]
+sensor 0 note:y
+sensor 0 underflow (0.00)
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 0 note:y
+sensor 0 underflow (0.00)
+[reference_npb stderr]
+
+=== 58d4e26f91c3f93619d4b4fbad0beaf6461580ee ===
+[input decoded]
+{"flag0": 0, "flag1": 0, "flag2": 0, "id": 0, "note": "", "reading": 120.0}
+[normalized rc=0 stdout]
+sensor 0 note:2
+sensor 0 overload (120.00)
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 0 note:2
+sensor 0 overload (120.00)
+[reference_npb stderr]
 
 === 631efa3896d21dc7016d0d096add0ecf2461ccf3 ===
 [input decoded]
 {"flag0": 0, "flag1": 0, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
+[normalized rc=0 stdout]
+sensor 0 note:
 sensor 0 underflow (0.00)
-[original stderr]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 0 note:
+sensor 0 underflow (0.00)
+[reference_npb stderr]
 
-=== 66739abf6904c92e6d1c87091eb5e4ab22ce7d21 ===
+=== 63e48e6bdd472a9e761d1b006b23f6e76fdbd288 ===
 [input decoded]
 {"flag0": 0, "flag1": 0, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
+[normalized rc=0 stdout]
+sensor 0 note:
 sensor 0 underflow (0.00)
-[original stderr]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 0 note:
+sensor 0 underflow (0.00)
+[reference_npb stderr]
 
-=== 73c663ba8bf2b28fb17291afa1f071398b0807fa ===
+=== 6f14f3af648475dfa343701f99e2371646a3dca5 ===
 [input decoded]
-{"flag0": 0, "flag1": 63, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
+{"flag0": 0, "flag1": 0, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
+[normalized rc=0 stdout]
+sensor 0 note:o
+sensor 0 underflow (0.00)
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 0 note:o
+sensor 0 underflow (0.00)
+[reference_npb stderr]
+
+=== 70ee2bc6a7bd0367e1cd594e456a5d04ab8840fb ===
+[input decoded]
+{"flag0": 0, "flag1": 0, "flag2": 0, "id": 0, "note": "low", "reading": 0.0}
+[normalized rc=0 stdout]
+sensor 0 note:low
+sensor 0 underflow (0.00)
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 0 note:low
+sensor 0 underflow (0.00)
+[reference_npb stderr]
+
+=== 76dd9dfcf91cacb2961d1b931edd3d5201cfa6fd ===
+[input decoded]
+{"flag0": 0, "flag1": 0, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
+[normalized rc=0 stdout]
+sensor 0 note:
+sensor 0 underflow (0.00)
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 0 note:
+sensor 0 underflow (0.00)
+[reference_npb stderr]
+
+=== 786593a956cecd7fe58a0867115064a2a0078446 ===
+[input decoded]
+{"flag0": 0, "flag1": 0, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
+[normalized rc=0 stdout]
+sensor 0 note:
+sensor 0 underflow (0.00)
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 0 note:
+sensor 0 underflow (0.00)
+[reference_npb stderr]
+
+=== 7cafea3fd200d5602790eb3802e1006a9abc2df5 ===
+[input decoded]
+{"flag0": 0, "flag1": 0, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
+[normalized rc=0 stdout]
+sensor 0 note:‡w
+sensor 0 underflow (0.00)
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 0 note:‡w
+sensor 0 underflow (0.00)
+[reference_npb stderr]
+
+=== 818e758a4fd712a4d8e873503e19a7c4a62e9ffc ===
+[input decoded]
+{"flag0": 0, "flag1": 6015, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
+[normalized rc=0 stdout]
+sensor 0 note:,
+sensor 0 overload (3007.50)
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 0 note:,
+sensor 0 overload (3007.50)
+[reference_npb stderr]
+
+=== 85d364731bc62f05e8539b0538c29599c9cd0b0b ===
+[input decoded]
+{"flag0": 0, "flag1": 0, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
+[normalized rc=0 stdout]
+sensor 0 note:@
+sensor 0 underflow (0.00)
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 0 note:@
+sensor 0 underflow (0.00)
+[reference_npb stderr]
+
+=== 950f50f4e4b2219059ba5e70bad6838322248a62 ===
+[input decoded]
+{"flag0": 8, "flag1": 0, "flag2": 0, "id": 0, "note": "", "reading": 75.5}
+[normalized rc=0 stdout]
+sensor 0 stable (79.50)
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 0 stable (79.50)
+[reference_npb stderr]
+
+=== 95e6a44b1376ea60570bea0573287ac4c0f6def6 ===
+[input decoded]
+{"flag0": 2, "flag1": 0, "flag2": 2, "id": 11, "note": "ale;t", "reading": 120.0}
+[normalized rc=0 stdout]
+sensor 11 note:ale;t
+sensor 11 overload (122.00)
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 11 note:ale;t
+sensor 11 overload (122.00)
+[reference_npb stderr]
+
+=== 97705cb30a978e30cff1c3aa8a7835fe7a29ae88 ===
+[input decoded]
+{"flag0": 0, "flag1": 0, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
+[normalized rc=0 stdout]
+sensor 0 note:s
+sensor 0 underflow (0.00)
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 0 note:s
+sensor 0 underflow (0.00)
+[reference_npb stderr]
+
+=== 983faad92df17b76a13652f6cffd3bbaea760669 ===
+[input decoded]
+{"flag0": 8, "flag1": 0, "flag2": 0, "id": 10, "note": "", "reading": 75.5}
+[normalized rc=0 stdout]
+sensor 10 stable (79.50)
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 10 stable (79.50)
+[reference_npb stderr]
+
+=== 9d3f04b729d102b83375ba7367b48be307ad7c78 ===
+[input decoded]
+{"flag0": 12159, "flag1": 0, "flag2": 0, "id": 0, "note": "al\u0014r]", "reading": 0.0}
+[normalized rc=0 stdout]
+sensor 0 note:alr]
+sensor 0 overload (6079.50)
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 0 note:alr]
+sensor 0 overload (6079.50)
+[reference_npb stderr]
+
+=== 9fe2c69e3398689a9eca5b6ee6a0ef66648470e4 ===
+[input decoded]
+{"flag0": 0, "flag1": 0, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
+[normalized rc=0 stdout]
+sensor 0 note:q
+sensor 0 underflow (0.00)
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 0 note:q
+sensor 0 underflow (0.00)
+[reference_npb stderr]
+
+=== a17de7a85948603892c928cb7b4e6aa02f38f920 ===
+[input decoded]
+{"flag0": 0, "flag1": 0, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
+[normalized rc=0 stdout]
+sensor 0 note:i
+sensor 0 underflow (0.00)
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 0 note:i
+sensor 0 underflow (0.00)
+[reference_npb stderr]
+
+=== a62542deeff811898c1a3e10e20e729adc4a81ae ===
+[input decoded]
+{"flag0": 0, "flag1": 268435455, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
+[normalized rc=0 stdout]
+sensor 0 note:2
+sensor 0 overload (134217727.50)
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 0 note:2
+sensor 0 overload (134217727.50)
+[reference_npb stderr]
+
+=== ba1039e8cdae53e44ac3e6185b0871f3d031a476 ===
+[input decoded]
+{"flag0": 0, "flag1": 0, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
+[normalized rc=0 stdout]
+sensor 0 underflow (0.00)
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 0 underflow (0.00)
+[reference_npb stderr]
+
+=== cd327310c794541aec5da69b367ad7226fb313fb ===
+[input decoded]
+{"flag0": 63, "flag1": 0, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
 [normalized rc=0 stdout]
 sensor 0 stable (31.50)
 [normalized stderr]
-[original rc=0 stdout]
+[reference_npb rc=0 stdout]
 sensor 0 stable (31.50)
-[original stderr]
+[reference_npb stderr]
 
-=== 8563345b080a1f4c1cce2e67f8581547f8c2839d ===
+=== d432f183dd939e99e74487dadfcfce081a3478cf ===
 [input decoded]
-{"flag0": 0, "flag1": 0, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-sensor 0 underflow (0.00)
-[original stderr]
-
-=== 8e40d454433c5319136099316336f12dfaf6f8fb ===
-[input decoded]
-{"flag0": 0, "flag1": 19, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
+{"flag0": 0, "flag1": 0, "flag2": 0, "id": 0, "note": "low", "reading": 0.0}
 [normalized rc=0 stdout]
-sensor 0 underflow (9.50)
+sensor 0 note:low
+sensor 0 underflow (0.00)
 [normalized stderr]
-[original rc=0 stdout]
-sensor 0 underflow (9.50)
-[original stderr]
+[reference_npb rc=0 stdout]
+sensor 0 note:low
+sensor 0 underflow (0.00)
+[reference_npb stderr]
 
-=== 9326a846e7f5d0ee994abb6256f2e1ebcdb79848 ===
+=== daa58e75cddb064cd5e12d86b1045255ea4c67a5 ===
+[input decoded]
+{"flag0": 1556479, "flag1": 0, "flag2": 0, "id": 0, "note": "al\u0014r]", "reading": 0.0}
+[normalized rc=0 stdout]
+sensor 0 note:alr]
+sensor 0 overload (778239.50)
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 0 note:alr]
+sensor 0 overload (778239.50)
+[reference_npb stderr]
+
+=== dcfbc9ad287e3c82f63d2aa1957110f20af4ffed ===
+[input decoded]
+{"flag0": 12159, "flag1": 0, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
+[normalized rc=0 stdout]
+sensor 0 note:2
+sensor 0 overload (6079.50)
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 0 note:2
+sensor 0 overload (6079.50)
+[reference_npb stderr]
+
+=== df66e21514bf21e75512a213f2df42d103c78f11 ===
+[input decoded]
+{"flag0": 0, "flag1": 0, "flag2": 0, "id": 11, "note": "al\u0014rt", "reading": 6.243497100632018e+144}
+[normalized rc=0 stdout]
+sensor 11 note:alrt
+sensor 11 overload (6243497100632017734799523909364647552467406002334383538963218429049645523394498615696305873634460422012527111917750414485427488201438518302474240.00)
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 11 note:alrt
+sensor 11 overload (6243497100632017734799523909364647552467406002334383538963218429049645523394498615696305873634460422012527111917750414485427488201438518302474240.00)
+[reference_npb stderr]
+
+=== dfd28f5a063afeaf2805260a3b0ce121a93589fa ===
+[input decoded]
+{"flag0": 63, "flag1": 0, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
+[normalized rc=0 stdout]
+sensor 0 stable (31.50)
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 0 stable (31.50)
+[reference_npb stderr]
+
+=== e0e4bb8c9387fa83e3859b11e64ae67759056f66 ===
 [input decoded]
 {"flag0": 0, "flag1": 0, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
+[normalized rc=0 stdout]
+sensor 0 note:ÿt
 sensor 0 underflow (0.00)
-[original stderr]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 0 note:ÿt
+sensor 0 underflow (0.00)
+[reference_npb stderr]
 
-=== be828a9746910262cd9d436af0ea3de18519a497 ===
+=== e3e179fdbe8d9ecd4a50c0f272123f0fe82ef766 ===
 [input decoded]
-{"flag0": 0, "flag1": 0, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
-[normalized rc=1 stdout]
+{"flag0": 117, "flag1": 0, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
+[normalized rc=0 stdout]
+sensor 0 stable (58.50)
 [normalized stderr]
-[original rc=0 stdout]
-sensor 0 underflow (0.00)
-[original stderr]
+[reference_npb rc=0 stdout]
+sensor 0 stable (58.50)
+[reference_npb stderr]
 
-=== d9a28b259d6187282d514a4f987e51d8a71dcfa0 ===
+=== f1c7f7e9e5292fd5343f7fd80c0f0ed2cd77423d ===
 [input decoded]
-{"flag0": 0, "flag1": 0, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
-[normalized rc=1 stdout]
+{"flag0": 2, "flag1": 0, "flag2": 0, "id": 0, "note": "ale;t", "reading": 120.0}
+[normalized rc=0 stdout]
+sensor 0 note:ale;t
+sensor 0 overload (121.00)
 [normalized stderr]
-[original rc=0 stdout]
+[reference_npb rc=0 stdout]
+sensor 0 note:ale;t
+sensor 0 overload (121.00)
+[reference_npb stderr]
+
+=== f3ef46f6268de8fc585af71b565fa075de2c5f37 ===
+[input decoded]
+{"flag0": 1, "flag1": 0, "flag2": 0, "id": 10, "note": "", "reading": 75.5}
+[normalized rc=0 stdout]
+sensor 10 stable (76.00)
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 10 stable (76.00)
+[reference_npb stderr]
+
+=== f74cd9497b0bd4a6f8dc24413032e093de920eb6 ===
+[input decoded]
+{"flag0": 0, "flag1": 0, "flag2": 0, "id": 0, "note": "low", "reading": 0.0}
+[normalized rc=0 stdout]
+sensor 0 note:low
 sensor 0 underflow (0.00)
-[original stderr]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 0 note:low
+sensor 0 underflow (0.00)
+[reference_npb stderr]
+
+=== fbdccbcb60f63e02c4abc01cb44a89ea5d8128f2 ===
+[input decoded]
+{"flag0": 117, "flag1": 0, "flag2": 0, "id": 0, "note": "", "reading": 0.0}
+[normalized rc=0 stdout]
+sensor 0 stable (58.50)
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 0 stable (58.50)
+[reference_npb stderr]
+
+=== overload.bin ===
+[input decoded]
+{"flag0": 2, "flag1": 2, "flag2": 2, "id": 11, "note": "alert", "reading": 120.0}
+[normalized rc=0 stdout]
+sensor 11 note:alert
+sensor 11 overload (123.00)
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 11 note:alert
+sensor 11 overload (123.00)
+[reference_npb stderr]
+
+=== stable.bin ===
+[input decoded]
+{"flag0": 1, "flag1": 0, "flag2": 1, "id": 10, "note": "routine", "reading": 75.5}
+[normalized rc=0 stdout]
+sensor 10 note:routine
+sensor 10 stable (76.50)
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 10 note:routine
+sensor 10 stable (76.50)
+[reference_npb stderr]
+
+=== underflow.bin ===
+[input decoded]
+{"flag0": 0, "flag1": 0, "flag2": 0, "id": 12, "note": "low", "reading": 10.0}
+[normalized rc=0 stdout]
+sensor 12 note:low
+sensor 12 underflow (10.00)
+[normalized stderr]
+[reference_npb rc=0 stdout]
+sensor 12 note:low
+sensor 12 underflow (10.00)
+[reference_npb stderr]
 

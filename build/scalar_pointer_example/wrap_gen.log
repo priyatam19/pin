@@ -1,0 +1,5 @@
+Generated main.c for wrapper.
+Generated reference_runner.cc.
+DEBUG: walk_decls called with 2 fields, prefix='', depth=0, parser=libclang
+DEBUG: Processing field ('int *', 'value'), name=value, is_struct=False, is_ptr=True
+DEBUG: Processing field ('int', 'scale'), name=scale, is_struct=False, is_ptr=False

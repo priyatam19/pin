@@ -1,0 +1,35 @@
+digraph PIN_DIFF {
+    // rankdir=LR;
+    node [shape=box, fontname="Helvetica", fontsize=11, style=filled, fillcolor=lightgray];
+
+    // Nodes
+    n1  [label="foo.c\nFunc1(int a, float b, char* str)"];
+    n2  [label=".proto message\nmessage Func1_input {\n  int32 a = 1;\n  float b = 2;\n  string str = 3;\n}"];
+    n3  [label=".c/.h files\nschema.pb.c\nschema.pb.h"];
+    n4  [label="foo_wrapper.c\nint main(int argc, char** argv) {\n  // decode input\n  Func1(decoded.a, decoded.b, decoded.str);\n}"];
+    n5  [label="libfuzzer_wrapper.c\nint LLVMFuzzerTestOneInput(\n   const uint8_t *Data, size_t Size) {\n  Func1_input msg;\n  pb_decode(Data, Size, &msg);\n  Func1(msg.a, msg.b, msg.str);\n  return 0;\n}"];
+    n6  [label="Interesting Corpus\nExamples (serialized):\n  0x08 0x2A 0x15 0x42\n  0x08 0x01 0x09 0x00"];
+    n7  [label="Decoded Input\nExamples:\n  (a=42, b=2.65, str=\"hi\")\n  (a=1, b=0.0, str=\"\")"];
+    n8  [label="Original Binary\nCompiled foo.c with\nFunc1(int a, float b, char* str)"];
+    n9  [label="Normalized Binary\nCompiled wrapper with\nFunc1(int a, float b, char* str)"];
+    n10 [label="OutputO\nExamples:\n  return 5\n  return -1"];
+    n11 [label="OutputN\nExamples:\n  return 5\n  return -1"];
+    n12 [label="Correctness of Normalization\nCompare OutputO vs OutputN"];
+
+    // Edges
+    n1 -> n2  [label="ProtoGenerator"];
+    n2 -> n3  [label="ProtoCompiler"];
+    n3 -> n4  [label="WrapperGenerator"];
+    n4 -> n5  [label="LibFuzzerHarnessGenerator"];
+    n5 -> n6  [label="Running LibFuzzer"];
+    n6 -> n7  [label="Deserializer"];
+    n2 -> n7  [label="Schema Ref"];
+    n1 -> n8  [label="Compile"];
+    n5 -> n9  [label="Compile"];
+    n8 -> n10 [label="Execute"];
+    n7 -> n10 [label="Feed Input"];
+    n9 -> n11 [label="Execute"];
+    n6 -> n11 [label="Feed Input"];
+    n10 -> n12 [label="Compare"];
+    n11 -> n12 [label="Compare"];
+}

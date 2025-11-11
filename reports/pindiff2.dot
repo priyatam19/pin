@@ -1,0 +1,26 @@
+digraph PIN_DIFF {
+    // rankdir=LR;
+    node [shape=box, fontname="Helvetica", fontsize=11, style=filled, fillcolor=lightgray];
+
+    src      [label="Target C Source\nexamples/mixed_scalars.c\nint evaluate_sensor(int id, float temp, const char *mode)"];
+    schema   [label="Proto Schema (libclang)\nmessage Input {\n  int32 sensor_id = 1;\n  float temperature = 2;\n  string mode = 3;\n}"];
+    codegen  [label="Generated Code\n• input.pb.h / input.pb.c (nanopb)\n• py_proto/input_pb2.py\n• main.c wrapper\n(decode -> evaluate_sensor)"];
+    normbin  [label="Normalized Binary\n./build/mixed_scalars_diff/normalized_bin\nExample run:\n  input = {id:2,temp:35,mode:\"cool\"}\n  output: \"sensor 2 normal...\" (rc=0)"];
+    harness  [label="LibFuzzer Harness\nfuzz_bytes (Stage A)\nLLVMFuzzerTestOneInput -> pin_wrapper_entry"];
+    corpus   [label="Corpus (Stage A output)\n/home/.../build/mixed_scalars_diff/corpus/\n  sensor_cool.bin\n  sensor_heat.bin"];
+    refsel   [label="Reference Binary (Stage B)\n--reference-decoder=cpp → original_replay_bin\n--reference-decoder=nanopb → reference_nanopb_bin\nExample: same input ⇒ rc=0"];
+    compare  [label="Stage B Replay + Compare\n./results/mixed_scalars_diff/stage_b/\n  replay_summary.txt\n  replay_outputs.txt\nChecks stdout/stderr + return codes"];
+
+    src -> schema        [label="libclang proto generator"];
+    schema -> codegen    [label="nanopb + wrapper generation"];
+    codegen -> normbin;
+    codegen -> harness;
+    src -> normbin       [label="original_plain.o link"];
+    src -> harness       [label="original.o link"];
+
+    harness -> corpus    [label="Stage A fuzzing\n./fuzz_bytes corpus ..."];
+    corpus -> normbin    [label="Stage B\nfeed serialized inputs"];
+    corpus -> refsel;
+    normbin -> compare;
+    refsel -> compare;
+}

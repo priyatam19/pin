@@ -1,0 +1,1132 @@
+rank,score,program,function,params,param_count,return_type,is_static,line_num,reason,extraction_difficulty
+1,5.0,basenc,base32_required_padding,"int len",1,int,True,178,"Mostly scalars",easy
+2,5.0,basenc,base64_required_padding,"int len",1,int,True,187,"Mostly scalars",easy
+3,5.0,chcon,process_file,"int * fts; int * ent",2,int,True,208,"Mostly scalars; Has mutable pointers",easy
+4,5.0,chmod,process_file,"int * fts; int * ent",2,int,True,210,"Mostly scalars; Has mutable pointers",easy
+5,5.0,chown-core,gid_to_name,"gid_t gid",1,char *,False,103,"Mostly scalars",easy
+6,5.0,chown-core,gid_to_str,"gid_t gid",1,char *,True,91,"Mostly scalars",easy
+7,5.0,chown-core,uid_to_name,"uid_t uid",1,char *,False,114,"Mostly scalars",easy
+8,5.0,chown-core,uid_to_str,"uid_t uid",1,char *,True,80,"Mostly scalars",easy
+9,5.0,chroot,gid_unset,"gid_t gid",1,int,True,45,"Mostly scalars",easy
+10,5.0,chroot,setgroups,"int size; int gid_t",2,int,True,69,"Mostly scalars",easy
+11,5.0,chroot,uid_unset,"uid_t uid",1,int,True,44,"Mostly scalars",easy
+12,5.0,cksum_vmull,bswap_neon,"int in",1,int,True,30,"Mostly scalars",easy
+13,5.0,copy,clone_file,"int dest_fd; int src_fd",2,int,True,493,"Mostly scalars",easy
+14,5.0,copy,copy_attr,"const int * src_path; int src_fd; const int * dst_path; int dst_fd; const int * x",5,int,True,799,"Mostly scalars",easy
+15,5.0,copy,errno_unsupported,"int err",1,int,True,701,"Mostly scalars",easy
+16,5.0,copy,is_CLONENOTSUP,"int err",1,int,True,299,"Mostly scalars",easy
+17,5.0,copy,is_terminal_error,"int err",1,int,True,289,"Mostly scalars",easy
+18,5.0,copy,punch_hole,"int fd; off_t offset; off_t length",3,int,True,240,"Mostly scalars",easy
+19,5.0,copy,write_zeros,"int fd; off_t n_bytes",2,int,True,508,"Mostly scalars",easy
+20,5.0,csplit,find_line,"intmax_t linenum",1,struct cstring *,True,564,"Mostly scalars",easy
+21,5.0,csplit,get_new_buffer,"int min_size",1,struct buffer_record *,False,405,"Mostly scalars",easy
+22,5.0,csplit,interrupt_handler,"int sig",1,void,True,232,"Mostly scalars",easy
+23,5.0,csplit,make_filename,"int num",1,char *,True,886,"Mostly scalars",easy
+24,5.0,csplit,write_to_file,"intmax_t last_line; int ignore; int argnum",3,void,True,622,"Mostly scalars",easy
+25,5.0,cut,is_range_start_index,"uintmax_t k",1,int,True,209,"Mostly scalars",easy
+26,5.0,cut,next_item,"uintmax_t * item_idx",1,void,True,191,"Mostly scalars; Has mutable pointers",easy
+27,5.0,cut,print_kth,"uintmax_t k",1,int,True,201,"Mostly scalars",easy
+28,5.0,date,res_width,"long res",1,int,True,299,"Mostly scalars",easy
+29,5.0,dd,ATTRIBUTE_FORMAT,"int __printf__",1,int,False,514,"Mostly scalars",easy
+30,5.0,dd,advance_input_after_read_error,"int nbytes",1,int,True,1918,"Mostly scalars",easy
+31,5.0,dd,advance_input_offset,"intmax_t offset",1,void,True,1777,"Mostly scalars",easy
+32,5.0,dd,cache_round,"int fd; off_t len",2,off_t,True,1006,"Mostly scalars",easy
+33,5.0,dd,iclose,"int fd",1,int,True,916,"Mostly scalars",easy
+34,5.0,dd,ifdatasync,"int fd",1,int,True,1272,"Mostly scalars",easy
+35,5.0,dd,ifsync,"int fd",1,int,True,1323,"Mostly scalars",easy
+36,5.0,dd,iftruncate,"int fd; off_t length",2,int,True,1340,"Mostly scalars",easy
+37,5.0,dd,interrupt_handler,"int sig",1,void,True,843,"Mostly scalars",easy
+38,5.0,dd,invalidate_cache,"int fd; off_t len",2,int,True,1033,"Mostly scalars",easy
+39,5.0,dd,multiple_bits_set,"int i",1,int,True,720,"Mostly scalars",easy
+40,5.0,dd,print_xfer_stats,"int progress_time",1,void,True,734,"Mostly scalars",easy
+41,5.0,dd,quit,"int code",1,void,True,994,"Mostly scalars",easy
+42,5.0,dd,siginfo_handler,"int sig",1,void,True,853,"Mostly scalars",easy
+43,5.0,dd,static_assert,"int",1,int,False,324,"Mostly scalars",easy
+44,5.0,dd,static_assert,"int",1,int,False,325,"Mostly scalars",easy
+45,5.0,dd,static_assert,"int",1,int,False,326,"Mostly scalars",easy
+46,5.0,dd,static_assert,"int",1,int,False,327,"Mostly scalars",easy
+47,5.0,dd,static_assert,"int",1,int,False,328,"Mostly scalars",easy
+48,5.0,df,add_uint_with_neg_flag,"uintmax_t * dest; int * dest_neg; uintmax_t src; int src_neg",4,void,True,892,"Mostly scalars; Has mutable pointers",easy
+49,5.0,df,filter_mount_list,"int devices_only",1,void,True,710,"Mostly scalars",easy
+50,5.0,df,known_value,"uintmax_t n",1,int,True,859,"Mostly scalars",easy
+51,5.0,dircolors,static_assert,"int",1,int,False,70,"Mostly scalars",easy
+52,5.0,du,mount_point_in_fts_cycle,"const int * ent",1,int,True,437,"Mostly scalars",easy
+53,5.0,du,print_only_size,"uintmax_t n_bytes",1,void,True,372,"Mostly scalars",easy
+54,5.0,du,process_file,"int * fts; int * ent",2,int,True,470,"Mostly scalars; Has mutable pointers",easy
+55,5.0,echo,hextobin,"unsigned char c",1,int,True,94,"Mostly scalars",easy
+56,5.0,expr,eval,"int evaluate",1,VALUE *,True,973,"Mostly scalars",easy
+57,5.0,expr,eval1,"int evaluate",1,VALUE *,True,942,"Mostly scalars",easy
+58,5.0,expr,eval2,"int evaluate",1,VALUE *,True,864,"Mostly scalars",easy
+59,5.0,expr,eval3,"int evaluate",1,VALUE *,True,832,"Mostly scalars",easy
+60,5.0,expr,eval4,"int evaluate",1,VALUE *,True,793,"Mostly scalars",easy
+61,5.0,expr,eval5,"int evaluate",1,VALUE *,True,762,"Mostly scalars",easy
+62,5.0,expr,eval6,"int evaluate",1,VALUE *,True,679,"Mostly scalars",easy
+63,5.0,expr,eval7,"int evaluate",1,VALUE *,True,649,"Mostly scalars",easy
+64,5.0,expr,int_value,"unsigned long i",1,VALUE *,True,352,"Mostly scalars",easy
+65,5.0,expr,static_assert,"int",1,int,False,46,"Mostly scalars",easy
+66,5.0,factor,hi,"uuint u",1,uintmax_t,True,220,"Mostly scalars",easy
+67,5.0,factor,hiset,"uuint * u; uintmax_t hi",2,void,True,221,"Mostly scalars; Has mutable pointers",easy
+68,5.0,factor,lbuf_putint,"uintmax_t i",1,void,True,2418,"Mostly scalars",easy
+69,5.0,factor,lo,"uuint u",1,uintmax_t,True,219,"Mostly scalars",easy
+70,5.0,factor,make_uuint,"uintmax_t hi; uintmax_t lo",2,uuint,True,229,"Mostly scalars",easy
+71,5.0,factor,mulredc,"uintmax_t a; uintmax_t b; uintmax_t m; uintmax_t mi",4,uintmax_t,True,952,"Mostly scalars",easy
+72,5.0,factor,print_factors_single,"uintmax_t t1; uintmax_t t0",2,void,True,2474,"Mostly scalars",easy
+73,5.0,factor,print_uuint,"uuint t",1,void,True,2425,"Mostly scalars",easy
+74,5.0,factor,uuset,"uintmax_t * phi; uintmax_t * plo; uuint uu",3,void,True,223,"Mostly scalars; Has mutable pointers",easy
+75,5.0,fmt,put_space,"int space",1,void,True,169,"Mostly scalars",easy
+76,5.0,fmt,put_space,"int space",1,void,True,1026,"Mostly scalars",easy
+77,5.0,fmt,same_para,"int c",1,int,True,160,"Mostly scalars",easy
+78,5.0,fmt,same_para,"int c",1,int,True,659,"Mostly scalars",easy
+79,5.0,fmt,set_other_indent,"int same_paragraph",1,void,True,509,"Mostly scalars",easy
+80,5.0,getlimits,print_DBL,"double x",1,void,True,111,"Mostly scalars",easy
+81,5.0,getlimits,print_FLT,"float x",1,void,True,110,"Mostly scalars",easy
+82,5.0,getlimits,print_LDBL,"long double x",1,void,True,112,"Mostly scalars",easy
+83,5.0,group-list,print_group,"gid_t gid; int use_name",2,int,False,91,"Mostly scalars",easy
+84,5.0,head,copy_fd,"int src_fd; uintmax_t n_bytes",2,enum Copy_fd_status,True,194,"Mostly scalars",easy
+85,5.0,id,print_user,"uid_t uid",1,void,True,69,"Mostly scalars",easy
+86,5.0,id,print_user,"uid_t uid",1,void,True,309,"Mostly scalars",easy
+87,5.0,install,extra_mode,"mode_t input",1,int,True,159,"Mostly scalars",easy
+88,5.0,install,have_same_content,"int a_fd; int b_fd",2,int,True,139,"Mostly scalars",easy
+89,5.0,iopoll,fclose_wait,"int * f",1,int,False,207,"Mostly scalars; Has mutable pointers",easy
+90,5.0,iopoll,fwait_for_nonblocking_write,"int * f",1,int,True,180,"Mostly scalars; Has mutable pointers",easy
+91,5.0,iopoll,iopoll,"int fdin; int fdout; int block",3,int,False,139,"Mostly scalars",easy
+92,5.0,iopoll,iopoll_input_ok,"int fdin",1,int,False,151,"Mostly scalars",easy
+93,5.0,iopoll,iopoll_internal,"int fdin; int fdout; int block; int broken_output",4,int,True,62,"Mostly scalars",easy
+94,5.0,iopoll,iopoll_output_ok,"int fdout",1,int,False,164,"Mostly scalars",easy
+95,5.0,join,add_field,"int file; int field",2,void,True,822,"Mostly scalars",easy
+96,5.0,join,comma_or_blank,"int g",1,int,True,894,"Mostly scalars",easy
+97,5.0,join,eq_tab,"int g",1,int,True,276,"Mostly scalars",easy
+98,5.0,join,newline_or_blank,"int g",1,int,True,282,"Mostly scalars",easy
+99,5.0,join,set_join_field,"int * var; int val",2,void,True,928,"Mostly scalars; Has mutable pointers",easy
+100,5.0,join,system_join,"int * fp1; int * fp2",2,void,True,663,"Mostly scalars; Has mutable pointers",easy
+101,5.0,libstdbuf,fileno_to_name,"const int fd",1,const char *,True,68,"Mostly scalars",easy
+102,5.0,ln,errnoize,"int status",1,int,True,115,"Mostly scalars",easy
+103,5.0,ls,calculate_columns,"int by_columns",1,int,True,293,"Mostly scalars",easy
+104,5.0,ls,calculate_columns,"int by_columns",1,int,True,5341,"Mostly scalars",easy
+105,5.0,ls,format_group,"gid_t g; int width; int stat_ok",3,void,True,4245,"Mostly scalars",easy
+106,5.0,ls,format_group_width,"gid_t g",1,int,True,301,"Mostly scalars",easy
+107,5.0,ls,format_group_width,"gid_t g",1,int,True,4274,"Mostly scalars",easy
+108,5.0,ls,format_user,"uid_t u; int width; int stat_ok",3,void,True,4236,"Mostly scalars",easy
+109,5.0,ls,format_user_width,"uid_t u",1,int,True,300,"Mostly scalars",easy
+110,5.0,ls,format_user_width,"uid_t u",1,int,True,4266,"Mostly scalars",easy
+111,5.0,ls,has_capability,"const int * name",1,int,True,3259,"Mostly scalars",easy
+112,5.0,ls,indent,"int from; int to",2,void,True,292,"Mostly scalars",easy
+113,5.0,ls,indent,"int from; int to",2,void,True,5253,"Mostly scalars",easy
+114,5.0,ls,init_column_info,"int max_cols",1,void,True,5298,"Mostly scalars",easy
+115,5.0,ls,off_cmp,"off_t a; off_t b",2,int,True,3885,"Mostly scalars",easy
+116,5.0,ls,set_exit_status,"int serious",1,void,True,2975,"Mostly scalars",easy
+117,5.0,ls,sighandler,"int sig",1,void,True,1530,"Mostly scalars",easy
+118,5.0,ls,signal_setup,"int init",1,void,True,1599,"Mostly scalars",easy
+119,5.0,ls,static_assert,"int",1,int,False,184,"Mostly scalars",easy
+120,5.0,ls,static_assert,"int",1,int,False,192,"Mostly scalars",easy
+121,5.0,ls,static_assert,"int",1,int,False,4046,"Mostly scalars",easy
+122,5.0,ls,stophandler,"int sig",1,void,True,1541,"Mostly scalars",easy
+123,5.0,ls,unsigned_file_size,"off_t size",1,uintmax_t,True,3229,"Mostly scalars",easy
+124,5.0,make-prime-list,print_wide_uint,"wide_uint n; int nesting; unsigned int wide_uint_bits",3,void,True,83,"Mostly scalars",easy
+125,5.0,make-prime-list,xalloc,"int s",1,int *,True,171,"Mostly scalars",easy
+126,5.0,nice,perm_related_errno,"int err",1,int,True,95,"Mostly scalars",easy
+127,5.0,numfmt,absld,"long double val",1,long double,True,342,"Mostly scalars",easy
+128,5.0,numfmt,expld,"long double val; int base; int * x",3,long double,True,352,"Mostly scalars; Has mutable pointers",easy
+129,5.0,numfmt,newline_or_blank,"int g",1,int,True,1319,"Mostly scalars",easy
+130,5.0,numfmt,powerld,"long double base; int x",2,long double,True,326,"Mostly scalars",easy
+131,5.0,numfmt,prepare_padded_number,"const long double val; int precision; intmax_t * padding",3,int,True,1177,"Mostly scalars; Has mutable pointers",easy
+132,5.0,numfmt,print_padded_number,"intmax_t padding",1,void,True,1255,"Mostly scalars",easy
+133,5.0,numfmt,simple_round_ceiling,"long double val",1,intmax_t,True,372,"Mostly scalars",easy
+134,5.0,numfmt,simple_round_floor,"long double val",1,intmax_t,True,383,"Mostly scalars",easy
+135,5.0,numfmt,simple_round_from_zero,"long double val",1,intmax_t,True,391,"Mostly scalars",easy
+136,5.0,numfmt,simple_round_nearest,"long double val",1,intmax_t,True,407,"Mostly scalars",easy
+137,5.0,numfmt,simple_round_to_zero,"long double val",1,intmax_t,True,399,"Mostly scalars",easy
+138,5.0,numfmt,suffix_power_char,"int power",1,const char *,True,282,"Mostly scalars",easy
+139,5.0,od,static_assert,"int",1,int,False,196,"Mostly scalars",easy
+140,5.0,pr,balance,"int total_stored",1,void,True,439,"Mostly scalars",easy
+141,5.0,pr,balance,"int total_stored",1,void,True,1998,"Mostly scalars",easy
+142,5.0,pr,init_parameters,"int number_of_files",1,void,True,433,"Mostly scalars",easy
+143,5.0,pr,init_parameters,"int number_of_files",1,void,True,1206,"Mostly scalars",easy
+144,5.0,pr,pad_across_to,"int position",1,void,True,427,"Mostly scalars",easy
+145,5.0,pr,pad_across_to,"int position",1,void,True,2078,"Mostly scalars",easy
+146,5.0,pr,pad_down,"unsigned int lines",1,void,True,441,"Mostly scalars",easy
+147,5.0,pr,pad_down,"unsigned int lines",1,void,True,2098,"Mostly scalars",easy
+148,5.0,pr,skip_to_page,"uintmax_t page",1,int,True,425,"Mostly scalars",easy
+149,5.0,pr,skip_to_page,"uintmax_t page",1,int,True,2329,"Mostly scalars",easy
+150,5.0,ptx,find_occurs_in_text,"int file_index",1,void,True,726,"Mostly scalars",easy
+151,5.0,ptx,print_spaces,"int number",1,void,True,1002,"Mostly scalars",easy
+152,5.0,pwd,nth_parent,"int n",1,char *,True,125,"Mostly scalars",easy
+153,5.0,remove,fts_skip_tree,"int * fts; int * ent",2,void,True,365,"Mostly scalars; Has mutable pointers",easy
+154,5.0,remove,get_dir_status,"const int * fts; const int * ent; int * dir_status",3,int,True,168,"Mostly scalars; Has mutable pointers",easy
+155,5.0,remove,mark_ancestor_dirs,"int * ent",1,void,True,376,"Mostly scalars; Has mutable pointers",easy
+156,5.0,remove,nonexistent_file_errno,"int errnum",1,int,True,330,"Mostly scalars",easy
+157,5.0,rmdir,errno_may_be_non_empty,"int error_number",1,int,True,81,"Mostly scalars",easy
+158,5.0,rmdir,errno_rmdir_non_empty,"int error_number",1,int,True,73,"Mostly scalars",easy
+159,5.0,set-fields,add_range_pair,"uintmax_t lo; uintmax_t hi",2,void,True,48,"Mostly scalars",easy
+160,5.0,shred,direct_mode,"int fd; int enable",2,void,True,330,"Mostly scalars",easy
+161,5.0,shred,ignorable_sync_errno,"int errno_val",1,int,True,284,"Mostly scalars",easy
+162,5.0,shred,known,"off_t size",1,int,True,377,"Mostly scalars",easy
+163,5.0,shred,periodic_pattern,"int type",1,int,True,224,"Mostly scalars",easy
+164,5.0,sort,create_temp,"int ** pfp",1,struct tempnode *,True,1168,"Mostly scalars; Has mutable pointers",easy
+165,5.0,sort,create_temp_file,"int * pfd; int survive_fd_exhaustion",2,struct tempnode *,True,846,"Mostly scalars; Has mutable pointers",easy
+166,5.0,sort,delete_proc,"pid_t",1,int,True,704,"Mostly scalars",easy
+167,5.0,sort,delete_proc,"pid_t pid",1,int,True,759,"Mostly scalars",easy
+168,5.0,sort,diff_reversed,"int diff; int reversed",2,int,True,2671,"Mostly scalars",easy
+169,5.0,sort,mark_key,"int offset; int width",2,void,True,2335,"Mostly scalars",easy
+170,5.0,sort,maybe_create_temp,"int ** pfp; int survive_fd_exhaustion",2,struct tempnode *,True,1120,"Mostly scalars; Has mutable pointers",easy
+171,5.0,sort,move_fd,"int oldfd; int newfd",2,void,True,1027,"Mostly scalars",easy
+172,5.0,sort,nan_compare,"long double a; long double b",2,int,True,2008,"Mostly scalars",easy
+173,5.0,sort,pipe_fork,"int[2] pipefds; int tries",2,pid_t,True,1043,"Mostly scalars",easy
+174,5.0,sort,reap,"pid_t pid",1,pid_t,True,714,"Mostly scalars",easy
+175,5.0,sort,sighandler,"int sig",1,void,True,4252,"Mostly scalars",easy
+176,5.0,sort,wait_proc,"pid_t pid",1,void,True,775,"Mostly scalars",easy
+177,5.0,split,ignorable,"int err",1,int,True,158,"Mostly scalars",easy
+178,5.0,stat,default_format,"int fs; int terse; int device",3,char *,True,1661,"Mostly scalars",easy
+179,5.0,stat,unsigned_file_size,"off_t size",1,uintmax_t,True,1496,"Mostly scalars",easy
+180,5.0,stdbuf,optc_to_fileno,"int c",1,int,True,169,"Mostly scalars",easy
+181,5.0,stty,ATTRIBUTE_FORMAT,"int printf",1,int,False,503,"Mostly scalars",easy
+182,5.0,tee,get_next_out,"int ** descriptors; int nfiles; int idx",3,int,True,190,"Mostly scalars; Has mutable pointers",easy
+183,5.0,test,ATTRIBUTE_FORMAT,"int printf",1,int,False,84,"Mostly scalars",easy
+184,5.0,test,advance,"int f",1,void,True,99,"Mostly scalars",easy
+185,5.0,test,binary_operator,"int l_is_l",1,int,True,262,"Mostly scalars",easy
+186,5.0,test,posixtest,"int",1,int,True,75,"Mostly scalars",easy
+187,5.0,test,posixtest,"int nargs",1,int,True,644,"Mostly scalars",easy
+188,5.0,timeout,chld,"int sig",1,void,True,190,"Mostly scalars",easy
+189,5.0,timeout,cleanup,"int sig",1,void,True,196,"Mostly scalars",easy
+190,5.0,timeout,install_cleanup,"int sigterm",1,void,True,404,"Mostly scalars",easy
+191,5.0,timeout,send_sig,"pid_t where; int sig",2,int,True,173,"Mostly scalars",easy
+192,5.0,timeout,settimeout,"double duration; int warn",2,void,True,106,"Mostly scalars",easy
+193,5.0,timeout,unblock_signal,"int sig",1,void,True,378,"Mostly scalars",easy
+194,5.0,tr,is_equiv_class_member,"unsigned char equiv_class; unsigned char c",2,int,True,358,"Mostly scalars",easy
+195,5.0,tr,make_printable_char,"unsigned char c",1,char *,True,560,"Mostly scalars",easy
+196,5.0,tsort,count_items,"int * unused",1,int,True,279,"Mostly scalars; Has mutable pointers",easy
+197,5.0,uniq,newline_or_blank,"int g",1,int,True,237,"Mostly scalars",easy
+198,5.0,wc,iswnbspace,"int wc",1,int,True,197,"Mostly scalars",easy
+199,5.0,wc,wc_lines,"int fd",1,struct wc_lines,True,248,"Mostly scalars",easy
+200,5.0,wc_avx2,wc_lines_avx2,"int fd",1,struct wc_lines,False,27,"Mostly scalars",easy
+201,4.8,copy,fchown_or_lchown,"int desc; int dirfd; const char * name; uid_t uid; gid_t gid",5,int,True,904,"Mostly scalars",easy
+202,4.8,df,df_readable,"int negative; uintmax_t n; char * buf; uintmax_t input_units; uintmax_t output_units",5,const char *,True,872,"Mostly scalars; Has mutable pointers",easy
+203,4.75,chroot,parse_additional_groups,"const char * groups; int ** pgids; int * pn_gids; int show_errors",4,int,True,95,"Mostly scalars; Has mutable pointers",easy
+204,4.75,copy,create_hole,"int fd; const char * name; int punch_holes; off_t size",4,int,True,259,"Mostly scalars",easy
+205,4.75,copy,fchmod_or_lchmod,"int desc; int dirfd; const char * name; mode_t mode",4,int,True,890,"Mostly scalars",easy
+206,4.75,kill,print_table_row,"int num_width; int signum; int name_width; const char * signame",4,void,True,95,"Mostly scalars",easy
+207,4.75,mktemp,mkdtemp_len,"char * tmpl; int suff_len; int x_len; int dry_run",4,int,True,121,"Mostly scalars; Has mutable pointers",easy
+208,4.75,mktemp,mkstemp_len,"char * tmpl; int suff_len; int x_len; int dry_run",4,int,True,114,"Mostly scalars; Has mutable pointers",easy
+209,4.75,numfmt,process_suffixed_number,"char * text; long double * result; int * precision; long field",4,int,True,1275,"Mostly scalars; Has mutable pointers",easy
+210,4.67,copy,writable_destination,"int dst_dirfd; const char * dst_relname; mode_t mode",3,int,True,1983,"Mostly scalars",easy
+211,4.67,csplit,extract_regexp,"int argnum; int ignore; const char * str",3,struct control *,True,1085,"Mostly scalars",easy
+212,4.67,csplit,parse_patterns,"int argc; int start; char ** argv",3,void,True,1127,"Mostly scalars; Has mutable pointers",easy
+213,4.67,dd,iread,"int fd; char * buf; int size",3,ssize_t,True,1103,"Mostly scalars; Has mutable pointers",easy
+214,4.67,dd,iread_fullblock,"int fd; char * buf; int size",3,ssize_t,True,1150,"Mostly scalars; Has mutable pointers",easy
+215,4.67,dd,iwrite,"int fd; const char * buf; int size",3,int,True,1175,"Mostly scalars",easy
+216,4.67,dd,set_fd_flags,"int fd; int add_flags; const char * name",3,void,True,2047,"Mostly scalars",easy
+217,4.67,dd,swab_buffer,"char * buf; int * nread; int * saved_byte",3,char *,True,1744,"Mostly scalars; Has mutable pointers",easy
+218,4.67,env,build_argv,"const char * str; int extra_argc; int * argc",3,char **,True,353,"Mostly scalars; Has mutable pointers",easy
+219,4.67,expr,mbs_logical_substr,"const char * s; int pos; int len",3,char *,True,167,"Mostly scalars",easy
+220,4.67,factor,strto2uintmax,"uintmax_t * hip; uintmax_t * lop; const char * s",3,int,True,2246,"Mostly scalars; Has mutable pointers",easy
+221,4.67,iopoll,fwrite_wait,"const char * buf; ssize_t size; int * f",3,int,False,225,"Mostly scalars; Has mutable pointers",easy
+222,4.67,ls,format_user_or_group,"const char * name; uintmax_t id; int width",3,void,True,4215,"Mostly scalars",easy
+223,4.67,numfmt,parse_human_number,"const char * str; long double * value; int * precision",3,enum simple_strtod_error,True,1150,"Mostly scalars; Has mutable pointers",easy
+224,4.67,pathchk,validate_file_name,"char *; int bool; int",3,int,True,63,"Mostly scalars; Has mutable pointers",easy
+225,4.67,shred,fillpattern,"int type; unsigned char * r; int size",3,void,True,247,"Mostly scalars; Has mutable pointers",easy
+226,4.67,shuf,write_permuted_lines,"int n_lines; char *const * line; const int * permutation",3,int,True,295,"Mostly scalars",easy
+227,4.67,split,copy_to_tmpfile,"int fd; char * buf; int bufsize",3,off_t,True,280,"Mostly scalars; Has mutable pointers",easy
+228,4.67,split,cwrite,"int new_file_flag; const char * bp; int bytes",3,int,True,617,"Mostly scalars",easy
+229,4.67,split,line_bytes_split,"intmax_t n_bytes; char * buf; int bufsize",3,void,True,771,"Mostly scalars; Has mutable pointers",easy
+230,4.67,split,lines_split,"intmax_t n_lines; char * buf; int bufsize",3,void,True,724,"Mostly scalars; Has mutable pointers",easy
+231,4.67,split,parse_chunk,"intmax_t * k_units; intmax_t * n_units; const char * arg",3,void,True,1323,"Mostly scalars; Has mutable pointers",easy
+232,4.67,stat,out_int,"char * pformat; int prefix_len; intmax_t arg",3,int,True,694,"Mostly scalars; Has mutable pointers",easy
+233,4.67,stat,out_uint,"char * pformat; int prefix_len; uintmax_t arg",3,int,True,700,"Mostly scalars; Has mutable pointers",easy
+234,4.67,stat,out_uint_o,"char * pformat; int prefix_len; uintmax_t arg",3,void,True,706,"Mostly scalars; Has mutable pointers",easy
+235,4.67,stat,out_uint_x,"char * pformat; int prefix_len; uintmax_t arg",3,void,True,712,"Mostly scalars; Has mutable pointers",easy
+236,4.67,stty,set_window_size,"int rows; int cols; const char * device_name",3,void,True,463,"Mostly scalars",easy
+237,4.67,stty,set_window_size,"int rows; int cols; const char * device_name",3,void,True,1750,"Mostly scalars",easy
+238,4.67,tail,parse_obsolete_option,"int argc; char *const * argv; uintmax_t * n_units",3,int,True,2116,"Mostly scalars; Has mutable pointers",easy
+239,4.6,force-link,force_symlinkat,"const char * srcname; int dstdir; const char * dstname; int force; int symlinkat_errno",5,int,False,152,"Mostly scalars",medium
+240,4.5,cat,simple_cat,"char * buf; int bufsize",2,int,True,156,"Mostly scalars; Has mutable pointers",easy
+241,4.5,chcon,compute_context_from_mask,"const char * context; int * ret",2,int,True,93,"Mostly scalars; Has mutable pointers",easy
+242,4.5,csplit,check_format_conv_type,"char * format; int flags",2,void,True,1213,"Mostly scalars; Has mutable pointers",easy
+243,4.5,csplit,get_format_flags,"const char * format; int * flags_ptr",2,int,True,1182,"Mostly scalars; Has mutable pointers",easy
+244,4.5,csplit,read_input,"char * dest; int max_n_bytes",2,int,True,257,"Mostly scalars; Has mutable pointers",easy
+245,4.5,csplit,save_to_hold_area,"char * start; int num",2,void,True,246,"Mostly scalars; Has mutable pointers",easy
+246,4.5,dd,copy_simple,"const char * buf; int nread",2,void,True,1959,"Mostly scalars",easy
+247,4.5,dd,copy_with_block,"const char * buf; int nread",2,void,True,1983,"Mostly scalars",easy
+248,4.5,dd,copy_with_unblock,"const char * buf; int nread",2,void,True,2013,"Mostly scalars",easy
+249,4.5,dd,diagnose,"int errnum; const char * fmt",2,void,True,516,"Mostly scalars",easy
+250,4.5,dd,parse_integer,"const char * str; int * invalid",2,intmax_t,True,1413,"Mostly scalars; Has mutable pointers",easy
+251,4.5,dd,scanargs,"int argc; char *const * argv",2,void,True,1481,"Mostly scalars",easy
+252,4.5,dd,translate_buffer,"char * buf; int nread",2,void,True,1728,"Mostly scalars; Has mutable pointers",easy
+253,4.5,df,alloc_field,"int f; const char * c",2,void,True,412,"Mostly scalars",easy
+254,4.5,digest,filename_unescape,"char * s; int s_len",2,char *,True,596,"Mostly scalars; Has mutable pointers",easy
+255,4.5,env,parse_block_signal_params,"const char * arg; int block",2,void,True,624,"Mostly scalars",easy
+256,4.5,env,parse_signal_action_params,"const char * arg; int set_default",2,void,True,543,"Mostly scalars",easy
+257,4.5,env,parse_split_string,"const char * str; int * orig_optind; int * orig_argc; char *** orig_argv",4,void,True,513,"Mostly scalars; Has mutable pointers",easy
+258,4.5,expr,mbs_offset_to_chars,"const char * s; int ofs",2,int,True,217,"Mostly scalars",easy
+259,4.5,factor,lbuf_putint_append,"uintmax_t i; char * bufend",2,void,True,2398,"Mostly scalars; Has mutable pointers",easy
+260,4.5,head,string_to_integer,"int count_lines; const char * n_string",2,uintmax_t,True,900,"Mostly scalars",easy
+261,4.5,head,xwrite_stdout,"const char * buffer; int n_bytes",2,void,True,179,"Mostly scalars",easy
+262,4.5,hostname,sethostname,"const char * name; int namelen",2,int,True,39,"Mostly scalars",easy
+263,4.5,kill,list_signals,"int table; char *const * argv",2,int,True,108,"Mostly scalars",easy
+264,4.5,kill,send_signals,"int signum; char *const * argv",2,int,True,181,"Mostly scalars",easy
+265,4.5,ls,decode_switches,"int argc; char ** argv",2,int,True,276,"Mostly scalars; Has mutable pointers",easy
+266,4.5,ls,decode_switches,"int argc; char ** argv",2,int,True,1956,"Mostly scalars; Has mutable pointers",easy
+267,4.5,ls,dired_outbuf,"const char * s; int s_len",2,void,True,1024,"Mostly scalars",easy
+268,4.5,ls,extract_dirs_from_files,"const char * dirname; int command_line_arg",2,void,True,288,"Mostly scalars",easy
+269,4.5,ls,extract_dirs_from_files,"const char * dirname; int command_line_arg",2,void,True,3734,"Mostly scalars",easy
+270,4.5,ls,file_escape,"const char * str; int path",2,char *,True,4728,"Mostly scalars",easy
+271,4.5,ls,format_user_or_group_width,"const char * name; uintmax_t id",2,int,True,4255,"Mostly scalars",easy
+272,4.5,ls,get_funky_string,"char ** dest; const char ** src; int equals_end; int * output_count",4,int,True,2536,"Mostly scalars; Has mutable pointers",easy
+273,4.5,mktemp,count_consecutive_X_s,"const char * s; int len",2,int,True,105,"Mostly scalars",easy
+274,4.5,numfmt,process_field,"char * text; uintmax_t field",2,int,True,1372,"Mostly scalars; Has mutable pointers",easy
+275,4.5,numfmt,process_line,"char * line; int newline",2,int,True,1401,"Mostly scalars; Has mutable pointers",easy
+276,4.5,numfmt,simple_strtod_float,"const char * input_str; char ** endptr; long double * value; int * precision",4,enum simple_strtod_error,True,545,"Mostly scalars; Has mutable pointers",easy
+277,4.5,numfmt,simple_strtod_int,"const char * input_str; char ** endptr; long double * value; int * negative",4,enum simple_strtod_error,True,480,"Mostly scalars; Has mutable pointers",easy
+278,4.5,od,dump_hexl_mode_trailer,"int n_bytes; const char * block",2,void,True,521,"Mostly scalars",easy
+279,4.5,pinky,long_pinky,"const int argc_names; char *const[] argv_names",2,void,True,484,"Mostly scalars",easy
+280,4.5,pr,init_fps,"int number_of_files; char ** av",2,int,True,435,"Mostly scalars; Has mutable pointers",easy
+281,4.5,pr,init_fps,"int number_of_files; char ** av",2,int,True,1329,"Mostly scalars; Has mutable pointers",easy
+282,4.5,pr,print_files,"int number_of_files; char ** av",2,void,True,432,"Mostly scalars; Has mutable pointers",easy
+283,4.5,pr,print_files,"int number_of_files; char ** av",2,void,True,1618,"Mostly scalars; Has mutable pointers",easy
+284,4.5,printf,print_esc,"const char * escstart; int octal_0",2,int,True,218,"Mostly scalars",easy
+285,4.5,rm,diagnose_leading_hyphen,"int argc; char ** argv",2,void,True,102,"Mostly scalars; Has mutable pointers",easy
+286,4.5,rmdir,ignorable_failure,"int error_number; const char * dir",2,int,True,98,"Mostly scalars",easy
+287,4.5,seq,cmp,"const char * a; int a_len; const char * b; int b_len",4,int,True,435,"Mostly scalars",easy
+288,4.5,set-fields,set_fields,"const char * fieldstr; unsigned int options",2,void,False,137,"Mostly scalars",easy
+289,4.5,shred,dosync,"int fd; const char * qname",2,int,True,299,"Mostly scalars",easy
+290,4.5,shred,incname,"char * name; int len",2,int,True,986,"Mostly scalars; Has mutable pointers",easy
+291,4.5,shuf,write_permuted_numbers,"int n_lines; int lo_input; const int * permutation; char eolbyte",4,int,True,312,"Mostly scalars",easy
+292,4.5,sort,async_safe_die,"int errnum; const char * errstr",2,void,True,378,"Mostly scalars",easy
+293,4.5,sort,compare_random,"char *restrict texta; int lena; char *restrict textb; int lenb",4,int,True,2190,"Mostly scalars; Has mutable pointers",easy
+294,4.5,stat,out_minus_zero,"char * pformat; int prefix_len",2,int,True,718,"Mostly scalars; Has mutable pointers",easy
+295,4.5,stdbuf,parse_size,"const char * str; int * size",2,int,True,64,"Mostly scalars; Has mutable pointers",easy
+296,4.5,stty,display_window_size,"int fancy; const char * device_name",2,void,True,456,"Mostly scalars",easy
+297,4.5,stty,display_window_size,"int fancy; const char * device_name",2,void,True,1812,"Mostly scalars",easy
+298,4.5,stty,integer_arg,"const char * s; uintmax_t max",2,uintmax_t,True,445,"Mostly scalars",easy
+299,4.5,stty,integer_arg,"const char * s; uintmax_t maxval",2,uintmax_t,True,2362,"Mostly scalars",easy
+300,4.5,tail,fremote,"int fd; const char * name",2,int,True,942,"Mostly scalars",easy
+301,4.5,tail,xwrite_stdout,"const char * buffer; int n_bytes",2,void,True,421,"Mostly scalars",easy
+302,4.5,tr,look_up_char_class,"const char * class_str; int len",2,int,True,545,"Mostly scalars",easy
+303,4.5,tr,make_printable_str,"const char * s; int len",2,char *,True,584,"Mostly scalars",easy
+304,4.5,tr,plain_read,"char * buf; int size",2,int,True,1594,"Mostly scalars; Has mutable pointers",easy
+305,4.5,tr,read_and_delete,"char * buf; int size",2,int,True,1609,"Mostly scalars; Has mutable pointers",easy
+306,4.5,tr,read_and_xlate,"char * buf; int size",2,int,True,1647,"Mostly scalars; Has mutable pointers",easy
+307,4.5,uname,decode_switches,"int argc; char ** argv",2,int,True,186,"Mostly scalars; Has mutable pointers",easy
+308,4.5,uname,print_element_env,"const char * element; const int * envvar",2,void,True,168,"Mostly scalars",easy
+309,4.5,uniq,different,"char * old; char * new; int oldlen; int newlen",4,int,True,285,"Mostly scalars; Has mutable pointers",easy
+310,4.4,dd,skip,"int fdesc; const char * file; intmax_t records; int blocksize; int * bytes",5,intmax_t,True,1793,"Mixed scalars/strings; Has mutable pointers",easy
+311,4.4,head,elide_tail_lines_seekable,"const char * pretty_filename; int fd; uintmax_t n_lines; off_t start_pos; off_t size",5,int,True,633,"Mixed scalars/strings",easy
+312,4.4,head,head,"const char * filename; int fd; uintmax_t n_units; int count_lines; int elide_from_end",5,int,True,821,"Mixed scalars/strings",easy
+313,4.4,ln,do_link,"const char * source; int destdir_fd; const char * dest_base; const char * dest; int link_errno",5,int,True,178,"Mixed scalars/strings",easy
+314,4.4,seq,print_numbers,"const char * fmt; struct layout layout; long double first; long double step; long double last",5,void,True,295,"Mixed scalars/strings; Has structs",easy
+315,4.4,sort,sort_buffer_size,"int *const * fps; int nfps; char *const * files; int nfiles; int line_bytes",5,int,True,1515,"Mixed scalars/strings",easy
+316,4.4,tail,parse_options,"int argc; char ** argv; uintmax_t * n_units; enum header_mode * header_mode; double * sleep_interval",5,void,True,2201,"Mixed scalars/strings; Has mutable pointers",easy
+317,4.4,truncate,do_ftruncate,"int fd; const char * fname; off_t ssize; off_t rsize; rel_mode_t rel_mode",5,int,True,105,"Mixed scalars/strings",easy
+318,4.33,basename,perform_basename,"const char * string; const char * suffix; int use_nuls",3,void,True,103,"Mixed scalars/strings",easy
+319,4.33,coreutils,launch_program,"const char * prog_name; int prog_argc; char ** prog_argv",3,void,True,94,"Mixed scalars/strings; Has mutable pointers",easy
+320,4.33,expand-common,get_next_tab_column,"colno column; int * tab_index; int * last_tab",3,colno,False,280,"Mixed scalars/strings; Has mutable pointers",easy
+321,4.33,install,change_attributes,"const char * name; int dirfd; const char * relname",3,int,True,436,"Mixed scalars/strings",easy
+322,4.33,ln,atomic_link,"const char * source; int destdir_fd; const char * dest_base",3,int,True,160,"Mixed scalars/strings",easy
+323,4.33,ls,get_type_indicator,"int stat_ok; mode_t mode; enum filetype type",3,char,True,4897,"Mixed scalars/strings",easy
+324,4.33,ls,print_dir,"const char * name; const char * realname; int command_line_arg",3,void,True,295,"Mixed scalars/strings",easy
+325,4.33,ls,print_dir,"const char * name; const char * realname; int command_line_arg",3,void,True,3021,"Mixed scalars/strings",easy
+326,4.33,ls,print_type_indicator,"int stat_ok; mode_t mode; enum filetype type",3,int,True,309,"Mixed scalars/strings",easy
+327,4.33,ls,print_type_indicator,"int stat_ok; mode_t mode; enum filetype type",3,int,True,4929,"Mixed scalars/strings",easy
+328,4.33,ls,queue_directory,"const char * name; const char * realname; int command_line_arg",3,void,True,312,"Mixed scalars/strings",easy
+329,4.33,ls,queue_directory,"const char * name; const char * realname; int command_line_arg",3,void,True,3005,"Mixed scalars/strings",easy
+330,4.33,od,simple_strtoi,"const char * s; const char ** p; int * val",3,int,True,632,"Mixed scalars/strings; Has mutable pointers",easy
+331,4.33,pr,getoptnum,"const char * n_str; int min; const char * errfmt",3,int,True,429,"Mixed scalars/strings",easy
+332,4.33,pr,getoptnum,"const char * n_str; int min; const char * err",3,int,True,1158,"Mixed scalars/strings",easy
+333,4.33,printf,print_formatted,"const char * format; int argc; char ** argv",3,int,True,511,"Mixed scalars/strings; Has mutable pointers",easy
+334,4.33,relpath,buffer_or_output,"const char * str; char ** pbuf; int * plen",3,int,True,66,"Mixed scalars/strings; Has mutable pointers",easy
+335,4.33,seq,seq_fast,"const char * a; const char * b; uintmax_t step",3,void,True,459,"Mixed scalars/strings",easy
+336,4.33,sort,parse_field_count,"const char * string; int * val; const char * msgid",3,const char *,True,4221,"Mixed scalars/strings; Has mutable pointers",easy
+337,4.33,sort,xstrxfrm,"char *restrict dest; const char *restrict src; int destsize",3,int,True,2168,"Mixed scalars/strings; Has mutable pointers",easy
+338,4.33,split,bytes_chunk_extract,"intmax_t k; intmax_t n; char * buf; int bufsize; ssize_t initial_read; off_t file_size",6,void,True,1003,"Mostly scalars; Has mutable pointers; Many params (6)",easy
+339,4.33,split,bytes_split,"intmax_t n_bytes; intmax_t rem_bytes; char * buf; int bufsize; ssize_t initial_read; intmax_t max_files",6,void,True,647,"Mostly scalars; Has mutable pointers; Many params (6)",easy
+340,4.33,split,lines_chunk_split,"intmax_t k; intmax_t n; char * buf; int bufsize; ssize_t initial_read; off_t file_size",6,void,True,877,"Mostly scalars; Has mutable pointers; Many params (6)",easy
+341,4.33,stat,out_string,"char * pformat; int prefix_len; const char * arg",3,void,True,688,"Mixed scalars/strings; Has mutable pointers",easy
+342,4.25,dd,ifd_reopen,"int desired_fd; const char * file; int flag; mode_t mode",4,int,True,1289,"Mixed scalars/strings",easy
+343,4.25,factor,factor_insert_refind,"struct factors * factors; uintmax_t p; int i; int off",4,void,True,695,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+344,4.25,factor,factor_using_pollard_rho2,"uintmax_t n1; uintmax_t n0; unsigned long a; struct factors * factors",4,void,True,1527,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+345,4.25,head,elide_tail_bytes_pipe,"const char * filename; int fd; uintmax_t n_elide; off_t current_pos",4,int,True,246,"Mixed scalars/strings",easy
+346,4.25,head,elide_tail_lines_pipe,"const char * filename; int fd; uintmax_t n_elide; off_t current_pos",4,int,True,483,"Mixed scalars/strings",easy
+347,4.25,head,elseek,"int fd; off_t offset; int whence; const char * filename",4,off_t,True,223,"Mixed scalars/strings",easy
+348,4.25,head,head_file,"const char * filename; uintmax_t n_units; int count_lines; int elide_from_end",4,int,True,859,"Mixed scalars/strings",easy
+349,4.25,join,advance_seq,"int * fp; struct seq * seq; int first; int whichfile",4,int,True,532,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+350,4.25,remove,excise,"int * fts; int * ent; const struct rm_options * x; int is_dir",4,enum RM_status,True,391,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+351,4.25,stat,make_format,"char * pformat; int prefix_len; const char * allowed_flags; const char * suffix",4,void,True,673,"Mixed scalars/strings; Has mutable pointers",easy
+352,4.25,tail,pipe_bytes,"const char * pretty_filename; int fd; uintmax_t n_bytes; uintmax_t * read_pos",4,int,True,766,"Mixed scalars/strings; Has mutable pointers",easy
+353,4.25,tail,pipe_lines,"const char * pretty_filename; int fd; uintmax_t n_lines; uintmax_t * read_pos",4,int,True,627,"Mixed scalars/strings; Has mutable pointers",easy
+354,4.25,tail,start_bytes,"const char * pretty_filename; int fd; uintmax_t n_bytes; uintmax_t * read_pos",4,int,True,867,"Mixed scalars/strings; Has mutable pointers",easy
+355,4.25,tail,start_lines,"const char * pretty_filename; int fd; uintmax_t n_lines; uintmax_t * read_pos",4,int,True,902,"Mixed scalars/strings; Has mutable pointers",easy
+356,4.25,tail,tail,"const char * filename; int fd; uintmax_t n_units; uintmax_t * read_pos",4,int,True,1992,"Mixed scalars/strings; Has mutable pointers",easy
+357,4.25,tail,tail_bytes,"const char * pretty_filename; int fd; uintmax_t n_bytes; uintmax_t * read_pos",4,int,True,1847,"Mixed scalars/strings; Has mutable pointers",easy
+358,4.25,tail,tail_lines,"const char * pretty_filename; int fd; uintmax_t n_lines; uintmax_t * read_pos",4,int,True,1923,"Mixed scalars/strings; Has mutable pointers",easy
+359,4.25,tail,xlseek,"int fd; off_t offset; int whence; const char * filename",4,off_t,True,482,"Mixed scalars/strings",easy
+360,4.2,basenc,wrap_write,"const char * buffer; int len; int wrap_column; int * current_column; FILE * out",5,void,True,1044,"Mixed scalars/strings; Has mutable pointers; FILE I/O",easy
+361,4.2,digest,digest_file,"const char * filename; int * binary; unsigned char * bin_result; int * missing; int uintmax_t",5,int,True,973,"Mixed scalars/strings; Has mutable pointers",easy
+362,4.2,numfmt,simple_strtod_human,"const char * input_str; char ** endptr; long double * value; int * precision; enum scale_type allowed_scaling",5,enum simple_strtod_error,True,621,"Mixed scalars/strings; Has mutable pointers",easy
+363,4.2,split,lines_rr,"intmax_t k; intmax_t n; char * buf; int bufsize; of_t ** filesp",5,void,True,1151,"Mixed scalars/strings; Has mutable pointers",easy
+364,4.0,basename,remove_suffix,"char * name; const char * suffix",2,void,True,84,"Mixed scalars/strings; Has mutable pointers",easy
+365,4.0,cat,write_pending,"char * outbuf; char ** bpout",2,void,True,188,"Mixed scalars/strings; Has mutable pointers",easy
+366,4.0,chown-core,user_group_str,"const char * user; const char * group",2,char *,True,123,"Mixed scalars/strings",easy
+367,4.0,chroot,is_root,"const char * dir",1,int,True,171,"Mixed scalars/strings",easy
+368,4.0,cksum,cksum_slice8,"FILE * fp; uint_fast32_t * crc_out; uintmax_t * length_out",3,int,True,224,"Mixed scalars/strings; Has mutable pointers; FILE I/O",easy
+369,4.0,cksum_avx2,cksum_avx2,"FILE * fp; uint_fast32_t * crc_out; uintmax_t * length_out",3,int,False,30,"Mixed scalars/strings; Has mutable pointers; FILE I/O",hard
+370,4.0,cksum_avx512,cksum_avx512,"FILE * fp; uint_fast32_t * crc_out; uintmax_t * length_out",3,int,False,29,"Mixed scalars/strings; Has mutable pointers; FILE I/O",hard
+371,4.0,cksum_pclmul,cksum_pclmul,"FILE * fp; uint_fast32_t * crc_out; uintmax_t * length_out",3,int,False,32,"Mixed scalars/strings; Has mutable pointers; FILE I/O",hard
+372,4.0,cksum_vmull,cksum_vmull,"FILE * fp; uint_fast32_t * crc_out; uintmax_t * length_out",3,int,False,41,"Mixed scalars/strings; Has mutable pointers; FILE I/O",hard
+373,4.0,copy,set_process_security_ctx,"const char * src_name; const char * dst_name; mode_t mode; int new_dst; const struct cp_options * x",5,int,False,1022,"Mixed scalars/strings; Has structs",medium
+374,4.0,copy,subst_suffix,"const char * str; const char * suffix; const char * newsuffix",3,char *,True,2106,"Mixed scalars/strings",easy
+375,4.0,csplit,max_out,"char * format",1,int,True,1256,"Mixed scalars/strings; Has mutable pointers",easy
+376,4.0,csplit,regexp_error,"struct control * p; intmax_t repetition; int ignore",3,void,True,725,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+377,4.0,csplit,set_input_file,"const char * name",1,void,True,609,"Mixed scalars/strings",easy
+378,4.0,date,adjust_resolution,"const char * format",1,char *,True,312,"Mixed scalars/strings",easy
+379,4.0,date,show_date_helper,"const char *; struct timespec; int timezone_t",3,int,True,40,"Mixed scalars/strings; Has structs",easy
+380,4.0,date,show_date_helper,"const char * format; struct timespec when; int tz",3,int,True,653,"Mixed scalars/strings; Has structs",easy
+381,4.0,dd,abbreviation_lacks_prefix,"const char * message",1,int,True,726,"Mixed scalars/strings",easy
+382,4.0,dd,translate_charset,"const char * new_trans",1,void,True,710,"Mixed scalars/strings",easy
+383,4.0,df,add_excluded_fs_type,"const char * fstype",1,void,True,1495,"Mixed scalars/strings",easy
+384,4.0,df,add_fs_type,"const char * fstype",1,void,True,1482,"Mixed scalars/strings",easy
+385,4.0,df,decode_output_arg,"const char * arg",1,void,True,430,"Mixed scalars/strings",easy
+386,4.0,df,get_device,"const char * device",1,int,True,1275,"Mixed scalars/strings",easy
+387,4.0,df,last_device_for_mount,"const char * mount",1,char *,True,1248,"Mixed scalars/strings",easy
+388,4.0,df,replace_control_chars,"char * cell",1,void,True,305,"Mixed scalars/strings; Has mutable pointers",easy
+389,4.0,df,replace_invalid_chars,"char * cell",1,void,True,319,"Mixed scalars/strings; Has mutable pointers",easy
+390,4.0,df,replace_problematic_chars,"char * cell",1,void,True,354,"Mixed scalars/strings; Has mutable pointers",easy
+391,4.0,digest,hex_equal,"const unsigned char * hex_digest; const unsigned char * bin_buffer",2,int,True,1119,"Mixed scalars/strings",easy
+392,4.0,dircolors,append_quoted,"const char * str",1,void,True,199,"Mixed scalars/strings",easy
+393,4.0,dircolors,parse_line,"const char * line; char ** keyword; char ** arg",3,void,True,147,"Mixed scalars/strings; Has mutable pointers",easy
+394,4.0,env,append_unset_var,"const char * var",1,void,True,171,"Mixed scalars/strings",easy
+395,4.0,env,extract_varname,"const char * str",1,char *,True,218,"Mixed scalars/strings",easy
+396,4.0,env,scan_varname,"const char * str",1,const int *,True,198,"Mixed scalars/strings",easy
+397,4.0,expand-common,parse_tab_stops,"const char * stops",1,void,False,129,"Mixed scalars/strings",easy
+398,4.0,expand-common,set_file_list,"char ** list",1,void,False,325,"Mixed scalars/strings; Has mutable pointers",easy
+399,4.0,expand-common,validate_tab_stops,"const colno * tabs; int entries",2,void,True,234,"Mixed scalars/strings",easy
+400,4.0,expr,mbs_logical_cspn,"const char * s; const char * accept",2,int,True,116,"Mixed scalars/strings",easy
+401,4.0,expr,nextarg,"const char * str",1,int,True,519,"Mixed scalars/strings",easy
+402,4.0,expr,str_value,"const char * s",1,VALUE *,True,363,"Mixed scalars/strings",easy
+403,4.0,factor,factor,"uintmax_t; uintmax_t; struct factors *",3,void,True,267,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+404,4.0,factor,factor,"uintmax_t t1; uintmax_t t0; struct factors * factors",3,void,True,2194,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+405,4.0,factor,factor_insert_large,"struct factors * factors; uintmax_t p1; uintmax_t p0",3,void,True,544,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+406,4.0,factor,factor_insert_multiplicity,"struct factors * factors; uintmax_t prime; int m",3,void,True,509,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+407,4.0,factor,factor_using_division,"uintmax_t t1; uintmax_t t0; struct factors * factors",3,uuint,True,736,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+408,4.0,factor,factor_using_pollard_rho,"uintmax_t n; unsigned long a; struct factors * factors",3,void,True,1441,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+409,4.0,factor,print_factors,"const char * input",1,int,True,2511,"Mixed scalars/strings",easy
+410,4.0,fmt,line_cost,"WORD * next; int len",2,COST,True,165,"Mixed scalars/strings; Has mutable pointers",easy
+411,4.0,fmt,line_cost,"WORD * next; int len",2,COST,True,954,"Mixed scalars/strings; Has mutable pointers",easy
+412,4.0,fmt,put_line,"WORD * w; int indent",2,void,True,167,"Mixed scalars/strings; Has mutable pointers",easy
+413,4.0,fmt,put_line,"WORD * w; int indent",2,void,True,988,"Mixed scalars/strings; Has mutable pointers",easy
+414,4.0,fmt,set_prefix,"char * p",1,void,True,153,"Mixed scalars/strings; Has mutable pointers",easy
+415,4.0,fmt,set_prefix,"char * p",1,void,True,458,"Mixed scalars/strings; Has mutable pointers",easy
+416,4.0,fold,adjust_column,"int column; char c",2,int,True,93,"Mixed scalars/strings",easy
+417,4.0,getlimits,decimal_absval_add_one,"char * buf",1,const char *,True,86,"Mixed scalars/strings; Has mutable pointers",easy
+418,4.0,group-list,print_group_list,"const char * username; uid_t ruid; gid_t rgid; gid_t egid; int use_names; char delim",6,int,False,35,"Mostly scalars; Many params (6)",medium
+419,4.0,head,head_bytes,"const char * filename; int fd; uintmax_t bytes_to_write",3,int,True,760,"Mixed scalars/strings",easy
+420,4.0,head,head_lines,"const char * filename; int fd; uintmax_t lines_to_write",3,int,True,784,"Mixed scalars/strings",easy
+421,4.0,id,print_full_info,"const char * username",1,void,True,70,"Mixed scalars/strings",easy
+422,4.0,id,print_full_info,"const char * username",1,void,True,332,"Mixed scalars/strings",easy
+423,4.0,id,print_stuff,"const char * pw_name",1,void,True,71,"Mixed scalars/strings",easy
+424,4.0,id,print_stuff,"const char * pw_name",1,void,True,407,"Mixed scalars/strings",easy
+425,4.0,install,install_file_in_dir,"const char * from; const char * to_dir; const struct cp_options * x; int mkdir_and_install; int * target_dirfd",5,int,True,736,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+426,4.0,install,strip,"const char * name",1,int,True,491,"Mixed scalars/strings",easy
+427,4.0,join,add_field_list,"char * str",1,void,True,902,"Mixed scalars/strings; Has mutable pointers",easy
+428,4.0,join,get_line,"int * fp; struct line ** linep; int which",3,int,True,455,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+429,4.0,join,getseq,"int * fp; struct seq * seq; int whichfile",3,int,True,512,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+430,4.0,join,prfields,"const struct line * line; int join_field; int autocount",3,void,True,573,"Mixed scalars/strings; Has structs",easy
+431,4.0,join,string_to_join_field,"const char * str",1,int,True,846,"Mixed scalars/strings",easy
+432,4.0,ln,convert_abs_rel,"const char * from; const char * target",2,char *,True,124,"Mixed scalars/strings",easy
+433,4.0,ls,add_ignore_pattern,"const char * pattern",1,void,True,285,"Mixed scalars/strings",easy
+434,4.0,ls,add_ignore_pattern,"const char * pattern",1,void,True,3188,"Mixed scalars/strings",easy
+435,4.0,ls,attach,"char * dest; const char * dirname; const char * name",3,void,True,286,"Mixed scalars/strings; Has mutable pointers",easy
+436,4.0,ls,attach,"char * dest; const char * dirname; const char * name",3,void,True,5275,"Mixed scalars/strings; Has mutable pointers",easy
+437,4.0,ls,basename_is_dot_or_dotdot,"const char * name",1,int,True,3719,"Mixed scalars/strings",easy
+438,4.0,ls,decode_line_length,"const char * spec",1,int,True,1916,"Mixed scalars/strings",easy
+439,4.0,ls,dired_outstring,"const char * s",1,void,True,1032,"Mixed scalars/strings",easy
+440,4.0,ls,file_ignored,"const char * name",1,int,True,277,"Mixed scalars/strings",easy
+441,4.0,ls,file_ignored,"const char * name",1,int,True,3214,"Mixed scalars/strings",easy
+442,4.0,ls,first_percent_b,"const char * fmt",1,const int *,True,1302,"Mixed scalars/strings",easy
+443,4.0,ls,needs_quoting,"const char * name",1,int,True,3363,"Mixed scalars/strings",easy
+444,4.0,ls,xstrcoll,"const char * a; const char * b",2,int,True,3789,"Mixed scalars/strings",easy
+445,4.0,numfmt,next_field,"char ** line",1,char *,True,1327,"Mixed scalars/strings; Has mutable pointers",easy
+446,4.0,numfmt,parse_format_string,"const char * fmt",1,void,True,1036,"Mixed scalars/strings",easy
+447,4.0,numfmt,simple_round,"long double val; enum round_type t",2,int,True,414,"Mixed scalars/strings",easy
+448,4.0,numfmt,unit_to_umax,"const char * n_string",1,uintmax_t,True,825,"Mixed scalars/strings",easy
+449,4.0,od,print_ascii,"int fields; int blank; const void * block; const int * unused_fmt_string; int width; int pad",6,void,True,565,"Mostly scalars; Many params (6)",easy
+450,4.0,od,print_bfloat,"int fields; int blank; const void * block; const int * fmt_string; int width; int pad",6,void,True,511,"Mostly scalars; Many params (6)",easy
+451,4.0,od,print_double,"int fields; int blank; const void * block; const int * fmt_string; int width; int pad",6,void,True,514,"Mostly scalars; Many params (6)",easy
+452,4.0,od,print_float,"int fields; int blank; const void * block; const int * fmt_string; int width; int pad",6,void,True,513,"Mostly scalars; Many params (6)",easy
+453,4.0,od,print_halffloat,"int fields; int blank; const void * block; const int * fmt_string; int width; int pad",6,void,True,512,"Mostly scalars; Many params (6)",easy
+454,4.0,od,print_long_double,"int fields; int blank; const void * block; const int * fmt_string; int width; int pad",6,void,True,515,"Mostly scalars; Many params (6)",easy
+455,4.0,od,print_named_ascii,"int fields; int blank; const void * block; const int * unused_fmt_string; int width; int pad",6,void,True,534,"Mostly scalars; Many params (6)",easy
+456,4.0,operand2sig,operand2sig,"const char * operand",1,int,False,36,"Mixed scalars/strings",easy
+457,4.0,paste,collapse_escapes,"const char * strptr",1,int,True,90,"Mixed scalars/strings",easy
+458,4.0,pathchk,component_start,"char * f",1,int *,True,208,"Mixed scalars/strings; Has mutable pointers",easy
+459,4.0,pathchk,validate_file_name,"char * file; int check_basic_portability; int check_extra_portability",3,int,True,248,"Mixed scalars/strings; Has mutable pointers",easy
+460,4.0,pinky,create_fullname,"const char * gecos_name; const char * user_name",2,char *,True,110,"Mixed scalars/strings",easy
+461,4.0,pinky,scan_entries,"int n; const struct gl_utmp * utmp_buf; const int argc_names; char *const[] argv_names",4,void,True,431,"Mixed scalars/strings; Has structs",easy
+462,4.0,pr,first_last_page,"int oi; char c; const char * pages",3,int,True,804,"Mixed scalars/strings",easy
+463,4.0,pr,getoptarg,"char * arg; char switch_char; char * character; int * number",4,void,True,430,"Mixed scalars/strings; Has mutable pointers",easy
+464,4.0,pr,getoptarg,"char * arg; char switch_char; char * character; int * number",4,void,True,1171,"Mixed scalars/strings; Has mutable pointers",easy
+465,4.0,pr,parse_column_count,"const char * s",1,void,True,839,"Mixed scalars/strings",easy
+466,4.0,pr,print_clump,"COLUMN * p; int n; char * clump",3,void,True,2285,"Mixed scalars/strings; Has mutable pointers",easy
+467,4.0,pr,separator_string,"const char * optarg_S",1,void,True,447,"Mixed scalars/strings",easy
+468,4.0,pr,separator_string,"const char * optarg_S",1,void,True,848,"Mixed scalars/strings",easy
+469,4.0,pr,skip_read,"COLUMN * p; int column_number",2,void,True,443,"Mixed scalars/strings; Has mutable pointers",easy
+470,4.0,pr,skip_read,"COLUMN * p; int column_number",2,void,True,2148,"Mixed scalars/strings; Has mutable pointers",easy
+471,4.0,printf,get_curr_arg,"int pos; struct arg_cursor ac",2,int,True,463,"Mixed scalars/strings; Has structs",easy
+472,4.0,printf,print_esc_string,"const char * str",1,void,True,286,"Mixed scalars/strings",easy
+473,4.0,printf,verify_numeric,"const char * s; const char * end",2,void,True,105,"Mixed scalars/strings",easy
+474,4.0,printf,vstrtoimax,"const char * s",1,intmax_t,True,167,"Mixed scalars/strings",easy
+475,4.0,printf,vstrtold,"const char * s",1,long double,True,169,"Mixed scalars/strings",easy
+476,4.0,printf,vstrtoumax,"const char * s",1,uintmax_t,True,168,"Mixed scalars/strings",easy
+477,4.0,ptx,unescape_string,"char * string",1,void,True,297,"Mixed scalars/strings; Has mutable pointers",easy
+478,4.0,realpath,isdir,"const char * path",1,int,True,140,"Mixed scalars/strings",easy
+479,4.0,relpath,path_common_prefix,"const char * path1; const char * path2",2,int,True,30,"Mixed scalars/strings",easy
+480,4.0,remove,rm_fts,"int * fts; int * ent; const struct rm_options * x",3,enum RM_status,True,442,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+481,4.0,rmdir,remove_parents,"char * dir",1,int,True,112,"Mixed scalars/strings; Has mutable pointers",easy
+482,4.0,seq,incr_grows,"char * p; char * endp",2,int,True,413,"Mixed scalars/strings; Has mutable pointers",easy
+483,4.0,seq,scan_arg,"const char * arg",1,operand,True,150,"Mixed scalars/strings",easy
+484,4.0,seq,trim_leading_zeros,"const char * s",1,const int *,True,444,"Mixed scalars/strings",easy
+485,4.0,show-date,show_date,"const char * format; struct timespec when; int tz",3,int,False,20,"Mixed scalars/strings; Has structs",easy
+486,4.0,shred,genpattern,"int * dest; int num; struct randint_source * s",3,void,True,700,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+487,4.0,shuf,input_from_argv,"char ** operand; int n_operands; char eolbyte",3,void,True,110,"Mixed scalars/strings; Has mutable pointers",easy
+488,4.0,shuf,read_input,"int * in; char eolbyte; char *** pline",3,int,True,251,"Mixed scalars/strings; Has mutable pointers",easy
+489,4.0,shuf,write_permuted_output_reservoir,"int n_lines; struct linebuffer * lines; const int * permutation",3,int,True,231,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+490,4.0,shuf,write_random_lines,"struct randint_source * s; int count; char *const * lines; int n_lines",4,int,True,347,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+491,4.0,shuf,write_random_numbers,"struct randint_source * s; int count; int lo_input; int hi_input; char eolbyte",5,int,True,328,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+492,4.0,sleep,apply_suffix,"double * x; char suffix_char",2,int,True,65,"Mixed scalars/strings; Has mutable pointers",easy
+493,4.0,sort,add_temp_dir,"const char * dir",1,void,True,1235,"Mixed scalars/strings",easy
+494,4.0,sort,badfieldspec,"const char * spec; const char * msgid",2,void,True,4180,"Mixed scalars/strings",easy
+495,4.0,sort,debug_width,"const char * text; const char * lim",2,int,True,2323,"Mixed scalars/strings",easy
+496,4.0,sort,find_unit_order,"const char * number",1,int,True,1960,"Mixed scalars/strings",easy
+497,4.0,sort,general_numcompare,"const char * sa; const char * sb",2,int,True,2017,"Mixed scalars/strings",easy
+498,4.0,sort,getmonth,"const char * month; char ** ea",2,int,True,2048,"Mixed scalars/strings; Has mutable pointers",easy
+499,4.0,sort,human_numcompare,"const char * a; const char * b",2,int,True,1980,"Mixed scalars/strings",easy
+500,4.0,sort,incompatible_options,"const char * opts",1,void,True,4189,"Mixed scalars/strings",easy
+501,4.0,sort,initbuf,"struct buffer * buf; int line_bytes; int alloc",3,void,True,1578,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+502,4.0,sort,merge_loop,"struct merge_node_queue * queue; int total_lines; int * tfp; const char * temp_output",4,void,True,3696,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+503,4.0,sort,merge_tree_init,"int nthreads; int nlines; struct line * dest",3,struct merge_node *,True,3398,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+504,4.0,sort,mergelines_node,"struct merge_node *restrict node; int total_lines; int * tfp; const char * temp_output",4,void,True,3590,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+505,4.0,sort,numcompare,"const char * a; const char * b",2,int,True,1997,"Mixed scalars/strings",easy
+506,4.0,sort,open_input_files,"struct sortfile * files; int nfiles; int *** pfps",3,int,True,3049,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+507,4.0,sort,random_md5_state_init,"const char * random_source",1,void,True,2151,"Mixed scalars/strings",easy
+508,4.0,sort,specify_nmerge,"int oi; char c; const char * s",3,void,True,1333,"Mixed scalars/strings",easy
+509,4.0,sort,specify_nthreads,"int oi; char c; const char * s",3,int,True,1446,"Mixed scalars/strings",easy
+510,4.0,sort,specify_sort_size,"int oi; char c; const char * s",3,void,True,1385,"Mixed scalars/strings",easy
+511,4.0,sort,traverse_raw_number,"const char ** number",1,char,True,1911,"Mixed scalars/strings",easy
+512,4.0,sort,zaptemp,"const char * name",1,void,True,1246,"Mixed scalars/strings",easy
+513,4.0,split,closeout,"FILE * fp; int fd; pid_t pid; const char * name",4,void,True,559,"Mixed scalars/strings; Has mutable pointers; FILE I/O",easy
+514,4.0,split,create,"const char * name",1,int,True,472,"Mixed scalars/strings",easy
+515,4.0,split,input_file_size,"int fd; const struct stat * st; char * buf; int bufsize",4,off_t,True,315,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+516,4.0,split,ofile_open,"of_t * files; int i_check; int nfiles",3,int,True,1071,"Mixed scalars/strings; Has mutable pointers",easy
+517,4.0,split,parse_n_units,"const char * arg; const char * multipliers; const char * msgid",3,intmax_t,True,1312,"Mixed scalars/strings",easy
+518,4.0,split,set_suffix_length,"intmax_t n_units; enum Split_type split_type",2,void,True,164,"Mixed scalars/strings",easy
+519,4.0,split,strtoint_die,"const char * msgid; const char * arg",2,void,True,1296,"Mixed scalars/strings",easy
+520,4.0,stat,find_bind_mount,"const char * name",1,const int *,True,949,"Mixed scalars/strings",easy
+521,4.0,stat,out_epoch_sec,"char * pformat; int prefix_len; struct timespec arg",3,void,True,727,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+522,4.0,stdbuf,set_program_path,"const char * arg",1,void,True,136,"Mixed scalars/strings",easy
+523,4.0,stty,string_to_baud,"const char * arg",1,speed_t,True,446,"Mixed scalars/strings",easy
+524,4.0,stty,wrapf,"const char * message",1,void,True,505,"Mixed scalars/strings",easy
+525,4.0,tac,output,"const char * start; const char * past_end",2,void,True,146,"Mixed scalars/strings",easy
+526,4.0,tac,tac_seekable,"int input_fd; const char * file; off_t file_pos",3,int,True,180,"Mixed scalars/strings",easy
+527,4.0,tail,tail_file,"struct File_spec * f; uintmax_t n_files; uintmax_t n_units",3,int,True,2006,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+528,4.0,tail,tail_forever,"struct File_spec * f; int n_files; double sleep_interval",3,void,True,1167,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+529,4.0,tee,fail_output,"int ** descriptors; char ** files; int i",3,int,True,202,"Mixed scalars/strings; Has mutable pointers",easy
+530,4.0,tee,tee_files,"int nfiles; char ** files; int bool",3,int,True,40,"Mixed scalars/strings; Has mutable pointers",easy
+531,4.0,tee,tee_files,"int nfiles; char ** files; int pipe_check",3,int,True,226,"Mixed scalars/strings; Has mutable pointers",easy
+532,4.0,test,binop,"const char * s",1,int,True,174,"Mixed scalars/strings",easy
+533,4.0,test,find_int,"const char * string",1,const char *,True,128,"Mixed scalars/strings",easy
+534,4.0,test,test_syntax_error,"const char * format",1,void,True,86,"Mixed scalars/strings",easy
+535,4.0,timeout,apply_time_suffix,"double * x; char suffix_char",2,int,True,328,"Mixed scalars/strings; Has mutable pointers",easy
+536,4.0,timeout,block_cleanup_and_chld,"int sigterm; sigset_t * old_set",2,void,True,426,"Mixed scalars/strings; Has mutable pointers",easy
+537,4.0,timeout,parse_duration,"const char * str",1,double,True,357,"Mixed scalars/strings",easy
+538,4.0,tr,append_range,"struct Spec_list * list; unsigned char first; unsigned char last",3,int,True,659,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+539,4.0,tr,set_initialize,"struct Spec_list * s; int complement_this_set; int * in_set",3,void,True,1664,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+540,4.0,tsort,new_item,"const char * str",1,struct item *,True,101,"Mixed scalars/strings",easy
+541,4.0,uname,print_element,"const char * element",1,void,True,154,"Mixed scalars/strings",easy
+542,4.0,uniq,size_opt,"const char * opt; const char * msgid",2,int,True,227,"Mixed scalars/strings",easy
+543,4.0,uniq,writeline,"const struct linebuffer * line; int match; intmax_t linecount",3,void,True,300,"Mixed scalars/strings; Has structs",easy
+544,4.0,wc,write_counts,"uintmax_t lines; uintmax_t words; uintmax_t chars; uintmax_t bytes; intmax_t linelength; const char * file",6,void,True,207,"Mostly scalars; Many params (6)",easy
+545,3.83,ls,align_nstrftime,"char * buf; int size; int recent; const struct tm * tm; int tz; int ns",6,int,True,4166,"Mixed scalars/strings; Has structs; Has mutable pointers; Many params (6)",easy
+546,3.83,od,print_char,"int fields; int blank; const void * block; const char * fmt_string; int width; int pad",6,void,True,504,"Mixed scalars/strings; Many params (6)",easy
+547,3.83,od,print_int,"int fields; int blank; const void * block; const char * fmt_string; int width; int pad",6,void,True,507,"Mixed scalars/strings; Many params (6)",easy
+548,3.83,od,print_long,"int fields; int blank; const void * block; const char * fmt_string; int width; int pad",6,void,True,508,"Mixed scalars/strings; Many params (6)",easy
+549,3.83,od,print_long_long,"int fields; int blank; const void * block; const char * fmt_string; int width; int pad",6,void,True,509,"Mixed scalars/strings; Many params (6)",easy
+550,3.83,od,print_s_char,"int fields; int blank; const void * block; const char * fmt_string; int width; int pad",6,void,True,503,"Mixed scalars/strings; Many params (6)",easy
+551,3.83,od,print_s_short,"int fields; int blank; const void * block; const char * fmt_string; int width; int pad",6,void,True,505,"Mixed scalars/strings; Many params (6)",easy
+552,3.83,od,print_short,"int fields; int blank; const void * block; const char * fmt_string; int width; int pad",6,void,True,506,"Mixed scalars/strings; Many params (6)",easy
+553,3.8,chmod,mode_changed,"int dir_fd; const char * file; const char * file_full_name; mode_t old_mode; mode_t new_mode",5,int,True,127,"Mixed scalars/strings",easy
+554,3.8,head,elide_tail_bytes_file,"const char * filename; int fd; uintmax_t n_elide; const struct stat * st; off_t current_pos",5,int,True,450,"Mixed scalars/strings; Has structs",easy
+555,3.8,head,elide_tail_lines_file,"const char * filename; int fd; uintmax_t n_elide; const struct stat * st; off_t current_pos",5,int,True,740,"Mixed scalars/strings; Has structs",easy
+556,3.8,install,copy_file,"const char * from; const char * to; int to_dirfd; const char * to_relname; const struct cp_options * x",5,int,True,415,"Mixed scalars/strings; Has structs",easy
+557,3.8,install,install_file_in_file,"const char * from; const char * to; int to_dirfd; const char * to_relname; const struct cp_options * x",5,int,True,654,"Mixed scalars/strings; Has structs",easy
+558,3.8,install,need_copy,"const char * src_name; const char * dest_name; int dest_dirfd; const char * dest_relname; const struct cp_options * x",5,int,True,168,"Mixed scalars/strings; Has structs",easy
+559,3.8,ls,gobble_file,"const char * name; enum filetype type; ino_t inode; int command_line_arg; const char * dirname",5,uintmax_t,True,278,"Mixed scalars/strings",easy
+560,3.8,ls,gobble_file,"const char * name; enum filetype type; ino_t inode; int command_line_arg; const char * dirname",5,uintmax_t,True,3375,"Mixed scalars/strings",easy
+561,3.8,mv,do_move,"const char * source; const char * dest; int dest_dirfd; const char * dest_relname; const struct cp_options * x",5,int,True,169,"Mixed scalars/strings; Has structs",easy
+562,3.8,sort,mergefiles,"struct sortfile * files; int ntemps; int nfiles; int * ofp; const char * output_file",5,int,True,3275,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+563,3.8,stty,strtoul_cc_t,"const char * s; int base; char ** p; cc_t * result; char delim",5,int,True,2132,"Mixed scalars/strings; Has mutable pointers",easy
+564,3.8,stty,strtoul_tcflag_t,"const char * s; int base; char ** p; tcflag_t * result; char delim",5,int,True,2118,"Mixed scalars/strings; Has mutable pointers",easy
+565,3.8,tail,record_open_fd,"struct File_spec * f; int fd; off_t size; const struct stat * st; int blocking",5,void,True,382,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+566,3.8,tr,find_bracketed_repeat,"const struct E_string * es; int start_idx; unsigned char * char_to_repeat; count * repeat_count; int * closing_bracket_idx",5,int,True,775,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+567,3.75,copy,source_is_dst_backup,"const char * srcbase; const struct stat * src_st; int dst_dirfd; const char * dst_relname",4,int,True,2165,"Mixed scalars/strings; Has structs",easy
+568,3.75,date,batch_convert,"const char * input_filename; const char * format; int tz; const char * tzstring",4,int,True,339,"Mixed scalars/strings",easy
+569,3.75,dd,parse_symbols,"const char * str; const struct symbol_value * table; int exclusive; const char * error_msgid",4,int,True,1371,"Mixed scalars/strings; Has structs",easy
+570,3.75,install,change_timestamps,"const struct stat * src_sb; const char * dest; int dirfd; const char * relname",4,int,True,469,"Mixed scalars/strings; Has structs",easy
+571,3.75,install,mkancesdirs_safe_wd,"const char * from; char * to; struct cp_options * x; int save_always",4,int,True,684,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+572,3.75,relpath,relpath,"const char * can_fname; const char * can_reldir; char * buf; int len",4,int,False,88,"Mixed scalars/strings; Has mutable pointers",medium
+573,3.75,tr,find_closing_delim,"const struct E_string * es; int start_idx; char pre_bracket_char; int * result_idx",4,int,True,751,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+574,3.71,force-link,force_linkat,"int srcdir; const char * srcname; int dstdir; const char * dstname; int flags; int force; int linkat_errno",7,int,False,95,"Mostly scalars; Many params (7)",medium
+575,3.67,copy,set_author,"const char * dst_name; int dest_desc; const struct stat * src_sb",3,void,True,985,"Mixed scalars/strings; Has structs",easy
+576,3.67,copy,set_file_security_ctx,"const char * dst_name; int recurse; const struct cp_options * x",3,int,False,1084,"Mixed scalars/strings; Has structs",medium
+577,3.67,cp,decode_preserve_arg,"const char * arg; struct cp_options * x; int on_off",3,void,True,883,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+578,3.67,csplit,keep_new_line,"struct buffer_record * b; char * line_start; int line_len",3,void,True,303,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+579,3.67,csplit,parse_repeat_count,"int argnum; struct control * p; char * str",3,void,True,1050,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+580,3.67,digest,bsd_split_3,"char * s; int s_len; unsigned char ** digest; int * d_len; char ** file_name; int escaped_filename",6,int,True,689,"Mixed scalars/strings; Has mutable pointers; Many params (6)",easy
+581,3.67,digest,split_3,"char * s; int s_len; unsigned char ** digest; int * d_len; int * binary; char ** file_name",6,int,True,773,"Mixed scalars/strings; Has mutable pointers; Many params (6)",easy
+582,3.67,dircolors,append_entry,"char prefix; const char * item; const char * arg",3,void,True,240,"Mixed scalars/strings",easy
+583,3.67,join,decode_field_spec,"const char * s; int * file_index; int * field_index",3,void,True,864,"Mixed scalars/strings; Has mutable pointers",easy
+584,3.67,join,extract_field,"struct line * line; char * field; int len",3,void,True,265,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+585,3.67,ls,file_failure,"int serious; const char * message; const char * file",3,void,True,2988,"Mixed scalars/strings",easy
+586,3.67,ls,quote_name_width,"const char * name; const struct quoting_options * options; int needs_general_quoting",3,int,True,319,"Mixed scalars/strings; Has structs",easy
+587,3.67,ls,quote_name_width,"const char * name; const struct quoting_options * options; int needs_general_quoting",3,int,True,4706,"Mixed scalars/strings; Has structs",easy
+588,3.67,pinky,short_pinky,"const char * filename; const int argc_names; char *const[] argv_names",3,void,True,471,"Mixed scalars/strings",easy
+589,3.67,pwd,file_name_prepend,"struct file_name * p; const char * s; int s_len",3,void,True,102,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+590,3.67,remove,prompt,"const int * fts; const int * ent; int is_dir; const struct rm_options * x; enum Prompt_action mode; int * dir_status",6,enum RM_status,True,189,"Mixed scalars/strings; Has structs; Has mutable pointers; Many params (6)",easy
+591,3.67,sort,write_unique,"const struct line * line; int * tfp; const char * temp_output",3,void,True,3570,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+592,3.67,stty,apply_settings,"int checking; const char * device_name; char *const * settings; int n_settings; struct termios * mode; int * require_set_attr",6,void,True,1099,"Mixed scalars/strings; Has structs; Has mutable pointers; Many params (6)",easy
+593,3.67,tr,append_char_class,"struct Spec_list * list; const char * char_class_str; int len",3,int,True,689,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+594,3.67,tr,append_equiv_class,"struct Spec_list * list; const char * equiv_class_str; int len",3,int,True,729,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+595,3.6,cp,do_copy,"int n_files; char ** file; const char * target_directory; int no_target_directory; struct cp_options * x",5,int,True,614,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+596,3.57,chown-core,change_file_owner,"int * fts; int * ent; uid_t uid; gid_t gid; uid_t required_uid; gid_t required_gid; const struct Chown_option * chopt",7,int,True,284,"Mostly scalars; Has structs; Has mutable pointers; Many params (7)",easy
+597,3.5,chcon,change_file_context,"int fd; const char * file",2,int,True,140,"Mixed scalars/strings",easy
+598,3.5,chcon,process_files,"char ** files; int bit_flags",2,int,True,310,"Mixed scalars/strings; Has mutable pointers",easy
+599,3.5,chmod,process_files,"char ** files; int bit_flags",2,int,True,371,"Mixed scalars/strings; Has mutable pointers",easy
+600,3.5,comm,writeline,"const struct linebuffer * line; int class",2,void,True,168,"Mixed scalars/strings; Has structs",easy
+601,3.5,copy,follow_fstatat,"int dirfd; const char * filename; struct stat * st; int flags",4,int,True,207,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+602,3.5,cp-hash,src_to_dest_hash,"const void * x; int table_size",2,int,True,51,"Mixed scalars/strings",easy
+603,3.5,csplit,handle_line_error,"const struct control * p; intmax_t repetition",2,void,True,669,"Mixed scalars/strings; Has structs",easy
+604,3.5,csplit,process_line_count,"const struct control * p; intmax_t repetition",2,void,True,689,"Mixed scalars/strings; Has structs",easy
+605,3.5,csplit,process_regexp,"struct control * p; intmax_t repetition",2,void,True,748,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+606,3.5,dd,ifstat,"int fd; struct stat * st",2,int,True,1306,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+607,3.5,df,devlist_hash,"const void * x; int table_size",2,int,True,672,"Mixed scalars/strings",easy
+608,3.5,digest,print_filename,"const char * file; int escape",2,void,True,928,"Mixed scalars/strings",easy
+609,3.5,dircolors,dc_parse_stream,"int * fp; const char * filename",2,int,True,266,"Mixed scalars/strings; Has mutable pointers",easy
+610,3.5,du,du_files,"char ** files; int bit_flags",2,int,True,657,"Mixed scalars/strings; Has mutable pointers",easy
+611,3.5,factor,mp_factor_insert_ui,"struct mp_factors * factors; unsigned long prime",2,void,True,642,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+612,3.5,factor,mulredc2,"uintmax_t * r1p; uintmax_t a1; uintmax_t a0; uintmax_t b1; uintmax_t b0; uintmax_t m1; uintmax_t m0; uintmax_t mi",8,uintmax_t,True,971,"Mostly scalars; Has mutable pointers; Many params (8)",easy
+613,3.5,fmt,copy_rest,"FILE * f; int c",2,int,True,159,"Mixed scalars/strings; Has mutable pointers; FILE I/O",easy
+614,3.5,fmt,copy_rest,"FILE * f; int c",2,int,True,631,"Mixed scalars/strings; Has mutable pointers; FILE I/O",easy
+615,3.5,fmt,get_line,"FILE * f; int c",2,int,True,156,"Mixed scalars/strings; Has mutable pointers; FILE I/O",easy
+616,3.5,fmt,get_line,"FILE * f; int c",2,int,True,675,"Mixed scalars/strings; Has mutable pointers; FILE I/O",easy
+617,3.5,fmt,get_space,"FILE * f; int c",2,int,True,158,"Mixed scalars/strings; Has mutable pointers; FILE I/O",easy
+618,3.5,fmt,get_space,"FILE * f; int c",2,int,True,759,"Mixed scalars/strings; Has mutable pointers; FILE I/O",easy
+619,3.5,fold,fold_file,"const char * filename; int width",2,int,True,119,"Mixed scalars/strings",easy
+620,3.5,force-link,samedir_template,"const char * dstname; char[256] buf",2,char *,True,51,"Mixed scalars/strings",easy
+621,3.5,join,keycmp,"const struct line * line1; const struct line * line2; int jf_1; int jf_2",4,int,True,334,"Mixed scalars/strings; Has structs",easy
+622,3.5,join,prfield,"int n; const struct line * line",2,void,True,556,"Mixed scalars/strings; Has structs",easy
+623,3.5,ls,assert_matching_dev_ino,"const char * name; struct dev_ino di",2,void,True,1098,"Mixed scalars/strings; Has structs",easy
+624,3.5,ls,dev_ino_hash,"const void * x; int table_size",2,int,True,1433,"Mixed scalars/strings",easy
+625,3.5,ls,format_inode,"char[INT_BUFSIZE_BOUND(<recovery-expr>())] buf; const struct fileinfo * f",2,char *,True,4283,"Mixed scalars/strings; Has structs",easy
+626,3.5,ls,fstat_for_ino,"int fd; struct stat * st",2,int,True,1290,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+627,3.5,ls,get_color_indicator,"const struct fileinfo * f; int symlink_target",2,const struct bin_str *,True,281,"Mixed scalars/strings; Has structs",easy
+628,3.5,ls,get_color_indicator,"const struct fileinfo * f; int symlink_target",2,const int *,True,4957,"Mixed scalars/strings; Has structs",easy
+629,3.5,ls,print_file_name_and_frills,"const struct fileinfo * f; int start_col",2,int,True,297,"Mixed scalars/strings; Has structs",easy
+630,3.5,ls,print_file_name_and_frills,"const struct fileinfo * f; int start_col",2,int,True,4867,"Mixed scalars/strings; Has structs",easy
+631,3.5,ls,print_name_with_quoting,"const struct fileinfo * f; int symlink_target; struct obstack * stack; int start_col",4,int,True,304,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+632,3.5,ls,print_name_with_quoting,"const struct fileinfo * f; int symlink_target; struct obstack * stack; int start_col",4,int,True,4814,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+633,3.5,make-prime-list,output_primes,"const struct prime * primes; unsigned int nprimes",2,void,True,119,"Mixed scalars/strings; Has structs",easy
+634,3.5,make-prime-list,process_prime,"struct prime * info; unsigned int p",2,void,True,74,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+635,3.5,numfmt,simple_strtod_fatal,"enum simple_strtod_error err; const char * input_str",2,void,True,695,"Mixed scalars/strings",easy
+636,3.5,paste,paste_parallel,"int nfiles; char ** fnamptr",2,int,True,169,"Mixed scalars/strings; Has mutable pointers",easy
+637,3.5,paste,paste_serial,"int nfiles; char ** fnamptr",2,int,True,336,"Mixed scalars/strings; Has mutable pointers",easy
+638,3.5,pathchk,portable_chars_only,"const char * file; int filelen",2,int,True,180,"Mixed scalars/strings",easy
+639,3.5,pr,init_header,"const char * filename; int desc",2,void,True,434,"Mixed scalars/strings",easy
+640,3.5,pr,init_header,"const char * filename; int desc",2,void,True,1648,"Mixed scalars/strings",easy
+641,3.5,pr,open_file,"char * name; COLUMN * p",2,int,True,424,"Mixed scalars/strings; Has mutable pointers",easy
+642,3.5,pr,open_file,"char * name; COLUMN * p",2,int,True,1484,"Mixed scalars/strings; Has mutable pointers",easy
+643,3.5,realpath,process_path,"const char * fname; int can_mode",2,int,True,149,"Mixed scalars/strings",easy
+644,3.5,realpath,realpath_canon,"const char * fname; int can_mode",2,char *,True,97,"Mixed scalars/strings",easy
+645,3.5,remove,cache_fstatat,"int fd; const char * file; struct stat * st; int flag",4,int,True,59,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+646,3.5,remove,ignorable_missing,"const struct rm_options * x; int errnum",2,int,True,358,"Mixed scalars/strings; Has structs",easy
+647,3.5,shred,dorewind,"int fd; const struct stat * st",2,int,True,353,"Mixed scalars/strings; Has structs",easy
+648,3.5,shred,passname,"const unsigned char * data; char[7] name",2,void,True,273,"Mixed scalars/strings",easy
+649,3.5,shuf,next_line,"char * line; char eolbyte",2,char *,True,135,"Mixed scalars/strings; Has mutable pointers",easy
+650,3.5,sort,avoid_trashing_input,"struct sortfile * files; int ntemps; int nfiles; const char * outfile",4,void,True,3849,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+651,3.5,sort,check_inputs,"char *const * files; int nfiles",2,void,True,3900,"Mixed scalars/strings",easy
+652,3.5,sort,key_warnings,"const struct keyfield * gkey; int gkey_only",2,void,True,2484,"Mixed scalars/strings; Has structs",easy
+653,3.5,sort,merge,"struct sortfile * files; int ntemps; int nfiles; const char * output_file",4,void,True,3935,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+654,3.5,sort,merge_tree_destroy,"int nthreads; struct merge_node * merge_tree",2,void,True,3417,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+655,3.5,sort,mergefps,"struct sortfile * files; int ntemps; int nfiles; int * ofp; const char * output_file; int ** fps",6,void,True,3076,"Mixed scalars/strings; Has structs; Has mutable pointers; Many params (6)",easy
+656,3.5,sort,proctab_hasher,"const void * entry; int tabsize",2,int,True,687,"Mixed scalars/strings",easy
+657,3.5,sort,queue_init,"struct merge_node_queue * queue; int nthreads",2,void,True,3524,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+658,3.5,sort,sequential_sort,"struct line *restrict lines; int nlines; struct line *restrict temp; int to_temp",4,void,True,3340,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+659,3.5,sort,sort,"char *const * files; int nfiles; const char * output_file; int nthreads",4,void,True,4051,"Mixed scalars/strings",easy
+660,3.5,sort,xfclose,"int * fp; const char * file",2,void,True,1002,"Mixed scalars/strings; Has mutable pointers",easy
+661,3.5,stty,display_speed,"struct termios * mode; int fancy",2,void,True,455,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+662,3.5,stty,display_speed,"struct termios * mode; int fancy",2,void,True,2090,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+663,3.5,stty,get_win_size,"int fd; struct winsize * win",2,int,True,1743,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+664,3.5,stty,mode_type_flag,"enum mode_type type; struct termios * mode",2,tcflag_t *,True,447,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+665,3.5,tac,tac_nonseekable,"int input_fd; const char * file",2,int,True,424,"Mixed scalars/strings",easy
+666,3.5,tac-pipe,print_line,"int * out_stream; const Buf * x; const Line_ptr * bol; const Line_ptr * bol_next",4,void,True,218,"Mixed scalars/strings; Has mutable pointers",easy
+667,3.5,tail,any_live_files,"const struct File_spec * f; int n_files",2,int,True,1118,"Mixed scalars/strings; Has structs",easy
+668,3.5,tail,close_fd,"int fd; const char * filename",2,void,True,400,"Mixed scalars/strings",easy
+669,3.5,tail,ignore_fifo_and_pipe,"struct File_spec * f; int n_files",2,int,True,2334,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+670,3.5,tail,recheck,"struct File_spec * f; int blocking",2,void,True,972,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+671,3.5,temp-stream,record_or_unlink_tempfile,"const char * fn; int FILE",2,void,True,69,"Mixed scalars/strings",easy
+672,3.5,touch,date_relative,"const char * flex_date; struct timespec now",2,struct timespec,True,109,"Mixed scalars/strings; Has structs",easy
+673,3.5,tr,append_normal_char,"struct Spec_list * list; unsigned char c",2,void,True,643,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+674,3.5,uniq,find_field,"const struct linebuffer * line; int * plen",2,char *,True,247,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+675,3.5,uptime,print_uptime,"int n; const struct gl_utmp * utmp_buf",2,int,True,40,"Mixed scalars/strings; Has structs",easy
+676,3.5,uptime,uptime,"const char * filename; int options",2,void,True,125,"Mixed scalars/strings",easy
+677,3.5,users,list_entries_users,"int n; const struct gl_utmp * this",2,void,True,45,"Mixed scalars/strings; Has structs",easy
+678,3.5,users,users,"const char * filename; int options",2,void,True,83,"Mixed scalars/strings",easy
+679,3.5,wc,compute_number_width,"int nfiles; const struct fstatus * fstatus",2,int,True,689,"Mixed scalars/strings; Has structs",easy
+680,3.5,wc,get_input_fstatus,"int nfiles; char *const * file",2,struct fstatus *,True,662,"Mixed scalars/strings",easy
+681,3.5,wc,wc,"int fd; const char * file_x; struct fstatus * fstatus; off_t current_pos",4,int,True,302,"Mixed scalars/strings; Has structs; Has mutable pointers",easy
+682,3.5,who,list_entries_who,"int n; const struct gl_utmp * utmp_buf",2,void,True,528,"Mixed scalars/strings; Has structs",easy
+683,3.5,who,scan_entries,"int n; const struct gl_utmp * utmp_buf",2,void,True,560,"Mixed scalars/strings; Has structs",easy
+684,3.5,who,who,"const char * filename; int options",2,void,True,611,"Mixed scalars/strings",easy
+685,3.43,printf,print_direc,"const char * start; char conversion; int have_field_width; int field_width; int have_precision; int precision; const char * argument",7,void,True,302,"Mixed scalars/strings; Many params (7)",easy
+686,3.4,copy,abandon_move,"const struct cp_options * x; const char * dst_name; int dst_dirfd; const char * dst_relname; const struct stat * dst_sb",5,int,True,2065,"Has structs",easy
+687,3.4,copy,overwrite_ok,"const struct cp_options * x; const char * dst_name; int dst_dirfd; const char * dst_relname; const struct stat * dst_sb",5,int,True,1991,"Has structs",easy
+688,3.4,shuf,read_input_reservoir_sampling,"int * in; char eolbyte; int k; struct randint_source * s; struct linebuffer ** out_rsrv",5,int,True,169,"Has structs; Has mutable pointers",easy
+689,3.33,copy,infer_scantype,"int fd; const struct stat * sb; union scan_inference * scan_inference",3,enum scantype,True,1134,"Has structs; Has mutable pointers",easy
+690,3.33,cp-hash,remember_copied,"const char * name; ino_t ino; dev_t dev",3,char *,False,115,"Standard function",medium
+691,3.33,csplit,check_for_offset,"struct control * p; const char * str; const char * num",3,void,True,1037,"Has structs; Has mutable pointers",easy
+692,3.33,du,duinfo_set,"struct duinfo * a; uintmax_t size; struct timespec tmax",3,void,True,92,"Has structs; Has mutable pointers",easy
+693,3.33,factor,mp_factor_using_pollard_rho,"mpz_t n; unsigned long a; struct mp_factors * factors",3,void,True,1651,"Has structs; Has mutable pointers",easy
+694,3.33,install,install_file_in_file_parents,"const char * from; char * to; const struct cp_options * x",3,int,True,724,"Has structs; Has mutable pointers",easy
+695,3.33,install,make_ancestor,"const char * dir; const char * component; void * options",3,int,True,368,"Has mutable pointers",easy
+696,3.33,mkdir,make_ancestor,"const char * dir; const char * component; void * options",3,int,True,124,"Has mutable pointers",easy
+697,3.33,nl,build_type_arg,"const char ** typep; struct re_pattern_buffer * regexp; char * fastmap",3,int,True,244,"Has structs; Has mutable pointers",easy
+698,3.33,shred,wipename,"char * oldname; const char * qoldname; const struct Options * flags",3,int,True,1036,"Has structs; Has mutable pointers",easy
+699,3.33,tr,append_repeated_char,"struct Spec_list * list; unsigned char the_char; count repeat_count",3,void,True,710,"Has structs; Has mutable pointers",easy
+700,3.33,tr,es_match,"const struct E_string * es; int i; char c",3,int,True,194,"Has structs",easy
+701,3.33,tr,squeeze_filter,"char * buf; int size; int (int *) size_t",3,void,True,1509,"Has mutable pointers",easy
+702,3.29,copy,handle_clone_fail,"int dst_dirfd; const char * dst_relname; const char * src_name; const char * dst_name; int dest_desc; int new_dst; enum Reflink_type reflink_mode",7,int,True,1184,"Mixed scalars/strings; Many params (7)",easy
+703,3.29,join,add_file_name,"char * name; char *[2] names; int[2] operand_status; int[2] joption_count; int * nfiles; int * prev_optc_status; int * optc_status",7,void,True,958,"Mixed scalars/strings; Has mutable pointers; Many params (7)",easy
+704,3.29,ls,quote_name_buf,"char ** inbuf; int bufsize; char * name; const struct quoting_options * options; int needs_general_quoting; int * width; int * pad",7,int,True,272,"Mixed scalars/strings; Has structs; Has mutable pointers; Many params (7)",easy
+705,3.29,ls,quote_name_buf,"char ** inbuf; int bufsize; char * name; const struct quoting_options * options; int needs_general_quoting; int * width; int * pad",7,int,True,4511,"Mixed scalars/strings; Has structs; Has mutable pointers; Many params (7)",easy
+706,3.29,numfmt,double_to_human,"long double val; int precision; char * buf; int buf_size; enum scale_type scale; int group; enum round_type round",7,int,True,738,"Mixed scalars/strings; Has mutable pointers; Many params (7)",easy
+707,3.25,shred,do_wipefd,"int fd; const char * qname; struct randint_source * s; const struct Options * flags",4,int,True,814,"Has structs; Has mutable pointers",easy
+708,3.25,shred,wipefd,"int fd; const char * qname; struct randint_source * s; const struct Options * flags",4,int,True,956,"Has structs; Has mutable pointers",easy
+709,3.14,chown-core,chown_files,"char ** files; int bit_flags; uid_t uid; gid_t gid; uid_t required_uid; gid_t required_gid; const struct Chown_option * chopt",7,int,False,536,"Mixed scalars/strings; Has structs; Has mutable pointers; Many params (7)",medium
+710,3.14,chown-core,restricted_chown,"int cwd_fd; const char * file; const struct stat * orig_st; uid_t uid; gid_t gid; uid_t required_uid; gid_t required_gid",7,enum RCH_status,True,230,"Mixed scalars/strings; Has structs; Many params (7)",easy
+711,3.14,digest,output_file,"const char * file; int binary_file; const void * digest; int raw; int tagged; unsigned char delim; int bool",7,void,True,1039,"Mixed scalars/strings; Many params (7)",easy
+712,3.14,tail,file_lines,"const char * pretty_filename; int fd; const struct stat * sb; uintmax_t n_lines; off_t start_pos; off_t end_pos; uintmax_t * read_pos",7,int,True,519,"Mixed scalars/strings; Has structs; Has mutable pointers; Many params (7)",easy
+713,3.0,chown-core,describe_change,"const char * file; enum Change_status changed; const char * old_user; const char * old_group; const char * user; const char * group",6,void,True,152,"Mixed scalars/strings; Many params (6)",easy
+714,3.0,cksum,crc32b_sum_stream,"FILE * stream; void * resstream; uintmax_t * reslen",3,int,False,317,"Has mutable pointers; FILE I/O",hard
+715,3.0,cksum,crc_sum_stream,"FILE * stream; void * resstream; uintmax_t * length",3,int,False,281,"Has mutable pointers; FILE I/O",hard
+716,3.0,comm,check_order,"const struct linebuffer * prev; const struct linebuffer * current; int whatfile",3,void,True,212,"Has structs",easy
+717,3.0,copy,copy_debug_sparse_string,"enum copy_debug_val debug_val",1,const char *,True,172,"Standard function",easy
+718,3.0,copy,copy_debug_string,"enum copy_debug_val debug_val",1,const char *,True,155,"Standard function",easy
+719,3.0,cp,re_protect,"const char * const_dst_name; const char * dst_src_name; int dst_dirfd; const char * dst_relname; struct dir_attr * attr_list; const struct cp_options * x",6,int,True,308,"Mixed scalars/strings; Has structs; Has mutable pointers; Many params (6)",easy
+720,3.0,cp-hash,forget_created,"ino_t ino; dev_t dev",2,void,False,82,"Standard function",medium
+721,3.0,cp-hash,src_to_dest_lookup,"ino_t ino; dev_t dev",2,char *,False,100,"Standard function",medium
+722,3.0,df,devlist_for_dev,"dev_t dev",1,struct devlist *,True,687,"Standard function",easy
+723,3.0,df,get_entry,"const char * name; const struct stat * statp",2,void,True,1455,"Has structs",easy
+724,3.0,df,get_point,"const char * point; const struct stat * statp",2,void,True,1356,"Has structs",easy
+725,3.0,df,me_for_dev,"dev_t dev",1,const int *,True,845,"Standard function",easy
+726,3.0,du,print_size,"const struct duinfo * pdui; const char * string",2,void,True,385,"Has structs",easy
+727,3.0,expand-common,add_tab_stop,"colno tabval",1,void,False,76,"Standard function",medium
+728,3.0,expand-common,set_extend_size,"colno tabval",1,int,True,93,"Standard function",easy
+729,3.0,expand-common,set_increment_size,"colno tabval",1,int,True,110,"Standard function",easy
+730,3.0,expr,docolon,"VALUE * sv; VALUE * pv",2,VALUE *,True,572,"Has mutable pointers",easy
+731,3.0,expr,freev,"VALUE * v",1,void,True,374,"Has mutable pointers",easy
+732,3.0,expr,getsize,"mpz_t i",1,int,True,502,"Standard function",easy
+733,3.0,expr,null,"VALUE * v",1,int,True,94,"Has mutable pointers",easy
+734,3.0,expr,printv,"VALUE * v",1,void,True,95,"Has mutable pointers",easy
+735,3.0,expr,printv,"VALUE * v",1,void,True,386,"Has mutable pointers",easy
+736,3.0,expr,toarith,"VALUE * v",1,int,True,475,"Has mutable pointers",easy
+737,3.0,expr,tostring,"VALUE * v",1,void,True,453,"Has mutable pointers",easy
+738,3.0,factor,lbuf_putc,"char c",1,void,True,2371,"Standard function",easy
+739,3.0,factor,lbuf_putmpz,"const mpz_t i",1,void,True,2447,"Standard function",easy
+740,3.0,factor,mp_prime_p,"mpz_t n",1,int,True,1359,"Standard function",easy
+741,3.0,fmt,base_cost,"WORD * this",1,COST,True,164,"Has mutable pointers",easy
+742,3.0,fmt,base_cost,"WORD * this",1,COST,True,921,"Has mutable pointers",easy
+743,3.0,fmt,check_punctuation,"WORD * w",1,void,True,163,"Has mutable pointers",easy
+744,3.0,fmt,check_punctuation,"WORD * w",1,void,True,779,"Has mutable pointers",easy
+745,3.0,fmt,fmt,"FILE * f; const char *",2,int,True,154,"Has mutable pointers; FILE I/O",easy
+746,3.0,fmt,put_paragraph,"WORD * finish",1,void,True,166,"Has mutable pointers",easy
+747,3.0,fmt,put_paragraph,"WORD * finish",1,void,True,975,"Has mutable pointers",easy
+748,3.0,fmt,put_word,"WORD * w",1,void,True,168,"Has mutable pointers",easy
+749,3.0,fmt,put_word,"WORD * w",1,void,True,1012,"Has mutable pointers",easy
+750,3.0,force-link,try_link,"char * dest; void * arg",2,int,True,80,"Has mutable pointers",easy
+751,3.0,force-link,try_symlink,"char * dest; void * arg",2,int,True,138,"Has mutable pointers",easy
+752,3.0,install,announce_mkdir,"const char * dir; void * options",2,void,True,357,"Has mutable pointers",easy
+753,3.0,join,check_order,"const struct line * prev; const struct line * current; int whatfile",3,void,True,402,"Has structs",easy
+754,3.0,libstdbuf,apply_mode,"FILE * stream; const char * mode",2,void,True,92,"Has mutable pointers; FILE I/O",easy
+755,3.0,ls,abmon_init,"char[12][128] abmon",1,int,True,1345,"Standard function",easy
+756,3.0,ls,dev_ino_push,"dev_t dev; ino_t ino",2,void,True,1069,"Standard function",easy
+757,3.0,ls,dired_dump_obstack,"const char * prefix; struct obstack * os",2,void,True,1112,"Has structs; Has mutable pointers",easy
+758,3.0,ls,dired_outbyte,"char c",1,void,True,1016,"Standard function",easy
+759,3.0,ls,do_lstat,"const char * name; struct stat * st",2,int,True,1272,"Has structs; Has mutable pointers",easy
+760,3.0,ls,do_stat,"const char * name; struct stat * st",2,int,True,1266,"Has structs; Has mutable pointers",easy
+761,3.0,ls,get_link_name,"const char * filename; struct fileinfo * f; int command_line_arg",3,void,True,290,"Has structs; Has mutable pointers",easy
+762,3.0,ls,get_link_name,"const char * filename; struct fileinfo * f; int command_line_arg",3,void,True,3707,"Has structs; Has mutable pointers",easy
+763,3.0,ls,is_colored,"enum indicator_no type",1,int,True,1497,"Standard function",easy
+764,3.0,ls,print_with_separator,"char sep",1,void,True,311,"Standard function",easy
+765,3.0,ls,print_with_separator,"char sep",1,void,True,5213,"Standard function",easy
+766,3.0,ls,rev_strcmp_atime,"V a; V b",2,int,True,3939,"Standard function",easy
+767,3.0,ls,rev_strcmp_btime,"V a; V b",2,int,True,3940,"Standard function",easy
+768,3.0,ls,rev_strcmp_ctime,"V a; V b",2,int,True,3937,"Standard function",easy
+769,3.0,ls,rev_strcmp_df_atime,"V a; V b",2,int,True,3939,"Standard function",easy
+770,3.0,ls,rev_strcmp_df_btime,"V a; V b",2,int,True,3940,"Standard function",easy
+771,3.0,ls,rev_strcmp_df_ctime,"V a; V b",2,int,True,3937,"Standard function",easy
+772,3.0,ls,rev_strcmp_df_extension,"V a; V b",2,int,True,3943,"Standard function",easy
+773,3.0,ls,rev_strcmp_df_mtime,"V a; V b",2,int,True,3938,"Standard function",easy
+774,3.0,ls,rev_strcmp_df_name,"V a; V b",2,int,True,3942,"Standard function",easy
+775,3.0,ls,rev_strcmp_df_size,"V a; V b",2,int,True,3941,"Standard function",easy
+776,3.0,ls,rev_strcmp_df_width,"V a; V b",2,int,True,3944,"Standard function",easy
+777,3.0,ls,rev_strcmp_extension,"V a; V b",2,int,True,3943,"Standard function",easy
+778,3.0,ls,rev_strcmp_mtime,"V a; V b",2,int,True,3938,"Standard function",easy
+779,3.0,ls,rev_strcmp_name,"V a; V b",2,int,True,3942,"Standard function",easy
+780,3.0,ls,rev_strcmp_size,"V a; V b",2,int,True,3941,"Standard function",easy
+781,3.0,ls,rev_strcmp_width,"V a; V b",2,int,True,3944,"Standard function",easy
+782,3.0,ls,rev_xstrcoll_atime,"V a; V b",2,int,True,3939,"Standard function",easy
+783,3.0,ls,rev_xstrcoll_btime,"V a; V b",2,int,True,3940,"Standard function",easy
+784,3.0,ls,rev_xstrcoll_ctime,"V a; V b",2,int,True,3937,"Standard function",easy
+785,3.0,ls,rev_xstrcoll_df_atime,"V a; V b",2,int,True,3939,"Standard function",easy
+786,3.0,ls,rev_xstrcoll_df_btime,"V a; V b",2,int,True,3940,"Standard function",easy
+787,3.0,ls,rev_xstrcoll_df_ctime,"V a; V b",2,int,True,3937,"Standard function",easy
+788,3.0,ls,rev_xstrcoll_df_extension,"V a; V b",2,int,True,3943,"Standard function",easy
+789,3.0,ls,rev_xstrcoll_df_mtime,"V a; V b",2,int,True,3938,"Standard function",easy
+790,3.0,ls,rev_xstrcoll_df_name,"V a; V b",2,int,True,3942,"Standard function",easy
+791,3.0,ls,rev_xstrcoll_df_size,"V a; V b",2,int,True,3941,"Standard function",easy
+792,3.0,ls,rev_xstrcoll_df_version,"V a; V b",2,int,True,3979,"Standard function",easy
+793,3.0,ls,rev_xstrcoll_df_width,"V a; V b",2,int,True,3944,"Standard function",easy
+794,3.0,ls,rev_xstrcoll_extension,"V a; V b",2,int,True,3943,"Standard function",easy
+795,3.0,ls,rev_xstrcoll_mtime,"V a; V b",2,int,True,3938,"Standard function",easy
+796,3.0,ls,rev_xstrcoll_name,"V a; V b",2,int,True,3942,"Standard function",easy
+797,3.0,ls,rev_xstrcoll_size,"V a; V b",2,int,True,3941,"Standard function",easy
+798,3.0,ls,rev_xstrcoll_version,"V a; V b",2,int,True,3969,"Standard function",easy
+799,3.0,ls,rev_xstrcoll_width,"V a; V b",2,int,True,3944,"Standard function",easy
+800,3.0,ls,stat_for_ino,"const char * name; struct stat * st",2,int,True,1284,"Has structs; Has mutable pointers",easy
+801,3.0,ls,stat_for_mode,"const char * name; struct stat * st",2,int,True,1278,"Has structs; Has mutable pointers",easy
+802,3.0,ls,strcmp_atime,"V a; V b",2,int,True,3939,"Standard function",easy
+803,3.0,ls,strcmp_btime,"V a; V b",2,int,True,3940,"Standard function",easy
+804,3.0,ls,strcmp_ctime,"V a; V b",2,int,True,3937,"Standard function",easy
+805,3.0,ls,strcmp_df_atime,"V a; V b",2,int,True,3939,"Standard function",easy
+806,3.0,ls,strcmp_df_btime,"V a; V b",2,int,True,3940,"Standard function",easy
+807,3.0,ls,strcmp_df_ctime,"V a; V b",2,int,True,3937,"Standard function",easy
+808,3.0,ls,strcmp_df_extension,"V a; V b",2,int,True,3943,"Standard function",easy
+809,3.0,ls,strcmp_df_mtime,"V a; V b",2,int,True,3938,"Standard function",easy
+810,3.0,ls,strcmp_df_name,"V a; V b",2,int,True,3942,"Standard function",easy
+811,3.0,ls,strcmp_df_size,"V a; V b",2,int,True,3941,"Standard function",easy
+812,3.0,ls,strcmp_df_width,"V a; V b",2,int,True,3944,"Standard function",easy
+813,3.0,ls,strcmp_extension,"V a; V b",2,int,True,3943,"Standard function",easy
+814,3.0,ls,strcmp_mtime,"V a; V b",2,int,True,3938,"Standard function",easy
+815,3.0,ls,strcmp_name,"V a; V b",2,int,True,3942,"Standard function",easy
+816,3.0,ls,strcmp_size,"V a; V b",2,int,True,3941,"Standard function",easy
+817,3.0,ls,strcmp_width,"V a; V b",2,int,True,3944,"Standard function",easy
+818,3.0,ls,visit_dir,"dev_t dev; ino_t ino",2,int,True,1458,"Standard function",easy
+819,3.0,ls,xstrcoll_atime,"V a; V b",2,int,True,3939,"Standard function",easy
+820,3.0,ls,xstrcoll_btime,"V a; V b",2,int,True,3940,"Standard function",easy
+821,3.0,ls,xstrcoll_ctime,"V a; V b",2,int,True,3937,"Standard function",easy
+822,3.0,ls,xstrcoll_df_atime,"V a; V b",2,int,True,3939,"Standard function",easy
+823,3.0,ls,xstrcoll_df_btime,"V a; V b",2,int,True,3940,"Standard function",easy
+824,3.0,ls,xstrcoll_df_ctime,"V a; V b",2,int,True,3937,"Standard function",easy
+825,3.0,ls,xstrcoll_df_extension,"V a; V b",2,int,True,3943,"Standard function",easy
+826,3.0,ls,xstrcoll_df_mtime,"V a; V b",2,int,True,3938,"Standard function",easy
+827,3.0,ls,xstrcoll_df_name,"V a; V b",2,int,True,3942,"Standard function",easy
+828,3.0,ls,xstrcoll_df_size,"V a; V b",2,int,True,3941,"Standard function",easy
+829,3.0,ls,xstrcoll_df_version,"V a; V b",2,int,True,3974,"Standard function",easy
+830,3.0,ls,xstrcoll_df_width,"V a; V b",2,int,True,3944,"Standard function",easy
+831,3.0,ls,xstrcoll_extension,"V a; V b",2,int,True,3943,"Standard function",easy
+832,3.0,ls,xstrcoll_mtime,"V a; V b",2,int,True,3938,"Standard function",easy
+833,3.0,ls,xstrcoll_name,"V a; V b",2,int,True,3942,"Standard function",easy
+834,3.0,ls,xstrcoll_size,"V a; V b",2,int,True,3941,"Standard function",easy
+835,3.0,ls,xstrcoll_version,"V a; V b",2,int,True,3964,"Standard function",easy
+836,3.0,ls,xstrcoll_width,"V a; V b",2,int,True,3944,"Standard function",easy
+837,3.0,mkdir,announce_mkdir,"const char * dir; void * options",2,void,True,111,"Has mutable pointers",easy
+838,3.0,numfmt,default_scale_base,"enum scale_type scale",1,int,True,215,"Standard function",easy
+839,3.0,numfmt,suffix_power,"const char suf",1,int,True,241,"Standard function",easy
+840,3.0,numfmt,valid_suffix,"const char suf",1,int,True,235,"Standard function",easy
+841,3.0,paste,xputchar,"char c",1,void,True,158,"Standard function",easy
+842,3.0,pinky,idle_string,"time_t when",1,const char *,True,154,"Standard function",easy
+843,3.0,pinky,print_long_entry,"const char[] name",1,void,True,317,"Standard function",easy
+844,3.0,pr,add_line_number,"COLUMN * p",1,void,True,428,"Has mutable pointers",easy
+845,3.0,pr,add_line_number,"COLUMN * p",1,void,True,2031,"Has mutable pointers",easy
+846,3.0,pr,align_column,"COLUMN * p",1,void,True,1748,"Has mutable pointers",easy
+847,3.0,pr,char_to_clump,"char c",1,int,True,420,"Standard function",easy
+848,3.0,pr,char_to_clump,"char c",1,int,True,2639,"Standard function",easy
+849,3.0,pr,close_file,"COLUMN * p",1,void,True,1517,"Has mutable pointers",easy
+850,3.0,pr,hold_file,"COLUMN * p",1,void,True,1562,"Has mutable pointers",easy
+851,3.0,pr,print_char,"char c",1,void,True,444,"Standard function",easy
+852,3.0,pr,print_char,"char c",1,void,True,2301,"Standard function",easy
+853,3.0,pr,print_stored,"COLUMN * p",1,int,True,423,"Has mutable pointers",easy
+854,3.0,pr,print_stored,"COLUMN * p",1,int,True,2567,"Has mutable pointers",easy
+855,3.0,pr,read_line,"COLUMN * p",1,int,True,421,"Has mutable pointers",easy
+856,3.0,pr,read_line,"COLUMN * p",1,int,True,2428,"Has mutable pointers",easy
+857,3.0,pr,read_rest_of_line,"COLUMN * p",1,void,True,442,"Has mutable pointers",easy
+858,3.0,pr,read_rest_of_line,"COLUMN * p",1,void,True,2114,"Has mutable pointers",easy
+859,3.0,pr,store_char,"char c",1,void,True,440,"Standard function",easy
+860,3.0,pr,store_char,"char c",1,void,True,2020,"Standard function",easy
+861,3.0,printf,print_esc_char,"char c",1,void,True,174,"Standard function",easy
+862,3.0,prog-fprintf,prog_fprintf,"FILE * fp; const char * fmt",2,void,False,28,"Has mutable pointers; FILE I/O",hard
+863,3.0,ptx,define_all_fields,"OCCURS * occurs",1,void,True,1218,"Has mutable pointers",easy
+864,3.0,ptx,print_field,"BLOCK field",1,void,True,1013,"Standard function",easy
+865,3.0,pwd,find_dir_entry,"struct stat * dot_sb; struct file_name * file_name; int parent_height",3,void,True,151,"Has structs; Has mutable pointers",easy
+866,3.0,remove,write_protected_non_symlink,"int fd_cwd; const char * file; struct stat * buf",3,int,True,96,"Has structs; Has mutable pointers",easy
+867,3.0,seq,get_default_format,"operand first; operand step; operand last",3,const char *,True,370,"Standard function",easy
+868,3.0,seq,long_double_format,"const char * fmt; struct layout * layout",2,const char *,True,237,"Has structs; Has mutable pointers",easy
+869,3.0,shred,wipefile,"char * name; const char * qname; struct randint_source * s; const struct Options * flags",4,int,True,1118,"Has structs; Has mutable pointers",easy
+870,3.0,sort,fillbuf,"struct buffer * buf; int * fp; const char * file",3,int,True,1762,"Has structs; Has mutable pointers",easy
+871,3.0,sort,init_node,"struct merge_node *restrict; struct merge_node *restrict; struct line *; int size_t; int; int bool",6,struct merge_node *,True,3390,"Mixed scalars/strings; Has structs; Has mutable pointers; Many params (6)",easy
+872,3.0,sort,init_node,"struct merge_node *restrict parent; struct merge_node *restrict node_pool; struct line * dest; int nthreads; int total_lines; int is_lo_child",6,struct merge_node *,True,3439,"Mixed scalars/strings; Has structs; Has mutable pointers; Many params (6)",easy
+873,3.0,sort,key_to_opts,"const struct keyfield * key; char * opts",2,void,True,2454,"Has structs; Has mutable pointers",easy
+874,3.0,sort,mergelines,"struct line *restrict t; int nlines; const struct line *restrict lo",3,void,True,3293,"Has structs; Has mutable pointers",easy
+875,3.0,sort,set_ordering,"const char * s; struct keyfield * key; enum blanktype blanktype",3,char *,True,4269,"Has structs; Has mutable pointers",easy
+876,3.0,sort,sort_die,"const char * message; const char * file",2,void,True,404,"Standard function",easy
+877,3.0,sort,stream_open,"const char * file; const char * how",2,int *,True,951,"Standard function",easy
+878,3.0,sort,write_line,"const struct line * line; int * fp; const char * output_file",3,void,True,2922,"Has structs; Has mutable pointers",easy
+879,3.0,sort,xfopen,"const char * file; const char * how",2,int *,True,991,"Standard function",easy
+880,3.0,stat,get_birthtime,"int fd; const char * filename; const struct stat * st",3,struct timespec,True,1421,"Has structs",easy
+881,3.0,stat,human_time,"struct timespec t",1,int *,True,644,"Has structs",easy
+882,3.0,stat,neg_to_zero,"struct timespec ts",1,struct timespec,True,1038,"Has structs",easy
+883,3.0,stat,print_esc_char,"char c",1,void,True,1075,"Standard function",easy
+884,3.0,stty,baud_to_value,"speed_t speed",1,unsigned long,True,439,"Standard function",easy
+885,3.0,stty,baud_to_value,"speed_t speed",1,int,True,2263,"Standard function",easy
+886,3.0,stty,display_all,"struct termios * mode; const char * device_name",2,void,True,448,"Has structs; Has mutable pointers",easy
+887,3.0,stty,display_all,"struct termios * mode; const char * device_name",2,void,True,2001,"Has structs; Has mutable pointers",easy
+888,3.0,stty,display_settings,"enum output_type output_type; struct termios * mode; const char * device_name",3,void,True,451,"Has structs; Has mutable pointers",easy
+889,3.0,stty,display_settings,"enum output_type output_type; struct termios * mode; const char * device_name",3,void,True,1890,"Has structs; Has mutable pointers",easy
+890,3.0,stty,recover_mode,"const char * arg; struct termios * mode",2,int,True,440,"Has structs; Has mutable pointers",easy
+891,3.0,stty,recover_mode,"const char * arg; struct termios * mode",2,int,True,2146,"Has structs; Has mutable pointers",easy
+892,3.0,stty,set_mode,"const struct mode_info * info; int reversed; struct termios * mode",3,int,True,442,"Has structs; Has mutable pointers",easy
+893,3.0,stty,set_mode,"const struct mode_info * info; int reversed; struct termios * mode",3,int,True,1487,"Has structs; Has mutable pointers",easy
+894,3.0,stty,set_speed,"enum speed_setting type; const char * arg; struct termios * mode",3,void,True,461,"Has structs; Has mutable pointers",easy
+895,3.0,stty,set_speed,"enum speed_setting type; const char * arg; struct termios * mode",3,void,True,1717,"Has structs; Has mutable pointers",easy
+896,3.0,stty,visible,"cc_t ch",1,const char *,True,438,"Standard function",easy
+897,3.0,stty,visible,"cc_t ch",1,const char *,True,2310,"Standard function",easy
+898,3.0,sum,bsd_sum_stream,"FILE * stream; void * resstream; uintmax_t * length",3,int,False,34,"Has mutable pointers; FILE I/O",hard
+899,3.0,sum,sysv_sum_stream,"FILE * stream; void * resstream; uintmax_t * length",3,int,False,112,"Has mutable pointers; FILE I/O",hard
+900,3.0,tac-pipe,buf_free,"Buf * x",1,void,True,125,"Has mutable pointers",easy
+901,3.0,tac-pipe,buf_init_from_stdin,"Buf * x; char eol_byte",2,int,True,51,"Has mutable pointers",easy
+902,3.0,tac-pipe,find_bol,"const Buf * x; const Line_ptr * last_bol; Line_ptr * new_bol; char eol_byte",4,int,True,172,"Has mutable pointers",easy
+903,3.0,tac-pipe,line_ptr_decrement,"const Buf * x; const Line_ptr * lp",2,Line_ptr,False,133,"Standard function",medium
+904,3.0,tac-pipe,line_ptr_increment,"const Buf * x; const Line_ptr * lp",2,Line_ptr,False,152,"Standard function",medium
+905,3.0,tr,parse_str,"const char * s; struct Spec_list * spec_list",2,int,True,1346,"Has structs; Has mutable pointers",easy
+906,3.0,tr,unquote,"const char * s; struct E_string * es",2,int,True,433,"Has structs; Has mutable pointers",easy
+907,3.0,tsort,search_item,"struct item * root; const char * str",2,struct item *,True,119,"Has structs; Has mutable pointers",easy
+908,3.0,who,idle_string,"time_t when; time_t boottime",2,const char *,True,179,"Standard function",easy
+909,2.86,cp,make_dir_parents_private,"const char * const_dir; int src_offset; int dst_dirfd; const char * verbose_fmt_string; struct dir_attr ** attr_list; int * new_dst; const struct cp_options * x",7,int,True,405,"Mixed scalars/strings; Has structs; Has mutable pointers; Many params (7)",easy
+910,2.75,basenc,do_decode,"FILE * in; const char * infile; FILE * out; int ignore_garbage",4,void,True,1133,"Has mutable pointers; FILE I/O",easy
+911,2.75,basenc,do_encode,"FILE * in; const char * infile; FILE * out; int wrap_column",4,void,True,1089,"Has mutable pointers; FILE I/O",easy
+912,2.75,cksum,output_crc,"const char * file; int binary_file; const void * digest; int raw; int tagged; unsigned char delim; int args; uintmax_t length",8,void,False,359,"Mixed scalars/strings; Many params (8)",medium
+913,2.75,copy,copy,"const char * src_name; const char * dst_name; int dst_dirfd; const char * dst_relname; int nonexistent_dst; const struct cp_options * options; int * copy_into_self; int * rename_succeeded",8,int,False,3378,"Mixed scalars/strings; Has structs; Has mutable pointers; Many params (8)",medium
+914,2.75,digest,output_file,"const char * file; int binary_file; const void * digest; int raw; int tagged; unsigned char delim; int args; uintmax_t length",8,void,True,173,"Mixed scalars/strings; Many params (8)",easy
+915,2.75,ls,file_has_aclinfo_cache,"const char * file; struct fileinfo * f; struct aclinfo * ai; int flags",4,int,True,3307,"Has structs; Has mutable pointers",easy
+916,2.75,sum,output_bsd,"const char * file; int binary_file; const void * digest; int raw; int tagged; unsigned char delim; int args; uintmax_t length",8,void,False,187,"Mixed scalars/strings; Many params (8)",medium
+917,2.75,sum,output_sysv,"const char * file; int binary_file; const void * digest; int raw; int tagged; unsigned char delim; int args; uintmax_t length",8,void,False,212,"Mixed scalars/strings; Many params (8)",medium
+918,2.75,tac,copy_to_temp,"FILE ** g_tmp; char ** g_tempfile; int input_fd; const char * file",4,off_t,True,378,"Has mutable pointers; FILE I/O",easy
+919,2.67,du,hash_ins,"struct di_set * di_set; ino_t ino; dev_t dev",3,int,True,361,"Has structs; Has mutable pointers",easy
+920,2.67,install,process_dir,"char * dir; struct savewd * wd; void * options",3,int,True,385,"Has structs; Has mutable pointers",easy
+921,2.67,mkdir,process_dir,"char * dir; struct savewd * wd; void * options",3,int,True,153,"Has structs; Has mutable pointers",easy
+922,2.67,stty,set_control_char,"const struct control_info * info; const char * arg; struct termios * mode",3,void,True,458,"Has structs; Has mutable pointers",easy
+923,2.67,stty,set_control_char,"const struct control_info * info; const char * arg; struct termios * mode",3,void,True,1693,"Has structs; Has mutable pointers",easy
+924,2.62,shred,dopass,"int fd; const struct stat * st; const char * qname; off_t * sizep; int type; struct randread_source * s; unsigned long k; unsigned long n",8,int,True,393,"Mixed scalars/strings; Has structs; Has mutable pointers; Many params (8)",easy
+925,2.57,sort,sortlines,"struct line *restrict; int size_t; int; struct merge_node *; struct merge_node_queue *; int *; const char *",7,void,True,3719,"Mixed scalars/strings; Has structs; Has mutable pointers; Many params (7)",easy
+926,2.57,sort,sortlines,"struct line *restrict lines; int nthreads; int total_lines; struct merge_node * node; struct merge_node_queue * queue; int * tfp; const char * temp_output",7,void,True,3788,"Mixed scalars/strings; Has structs; Has mutable pointers; Many params (7)",easy
+927,2.56,copy,create_hard_link,"const char * src_name; int src_dirfd; const char * src_relname; const char * dst_name; int dst_dirfd; const char * dst_relname; int replace; int verbose; int dereference",9,int,True,2126,"Mostly scalars; Many params (9)",easy
+928,2.5,env,splitbuf_append_byte,"struct splitbuf * ss; char c",2,void,True,288,"Has structs; Has mutable pointers",easy
+929,2.5,factor,mp_factor,"mpz_t; struct mp_factors *",2,void,True,578,"Has structs; Has mutable pointers",easy
+930,2.5,factor,mp_factor,"mpz_t t; struct mp_factors * factors",2,void,True,2226,"Has structs; Has mutable pointers",easy
+931,2.5,factor,mp_factor_insert,"struct mp_factors * factors; mpz_t prime",2,void,True,600,"Has structs; Has mutable pointers",easy
+932,2.5,factor,mp_factor_using_division,"mpz_t t; struct mp_factors * factors",2,void,True,817,"Has structs; Has mutable pointers",easy
+933,2.5,factor,mp_millerrabin,"mpz_srcptr n; mpz_srcptr nm1; mpz_ptr x; mpz_ptr y; mpz_srcptr q; mp_bitcnt_t k",6,int,True,1157,"Many params (6)",easy
+934,2.5,head,diagnose_copy_fd_failure,"enum Copy_fd_status err; const char * filename",2,void,True,151,"Standard function",easy
+935,2.5,ptx,digest_word_file,"const char * file_name; WORD_TABLE * table",2,void,True,672,"Has mutable pointers",easy
+936,2.5,ptx,swallow_file_in_memory,"const char * file_name; BLOCK * block",2,void,True,501,"Has mutable pointers",easy
+937,2.5,sort,check,"const char * file_name; char checkonly",2,int,True,2961,"Standard function",easy
+938,2.5,sync,sync_arg,"enum sync_mode mode; const char * file",2,int,True,88,"Standard function",easy
+939,2.5,tr,get_next,"struct Spec_list * s; enum Upper_Lower_class * class",2,int,True,1013,"Has structs; Has mutable pointers",easy
+940,2.5,tr,get_s2_spec_stats,"struct Spec_list * s2; count len_s1",2,void,True,1320,"Has structs; Has mutable pointers",easy
+941,2.5,who,print_user,"const struct gl_utmp * utmp_ent; time_t boottime",2,void,True,315,"Has structs",easy
+942,2.43,copy,same_file_ok,"const char * src_name; const struct stat * src_sb; int dst_dirfd; const char * dst_relname; const struct stat * dst_sb; const struct cp_options * x; int * return_now",7,int,True,1742,"Has structs; Has mutable pointers; Many params (7)",easy
+943,2.43,ls,quote_name,"const char * name; const struct quoting_options * options; int needs_general_quoting; const struct bin_str * color; int allow_pad; struct obstack * stack; const char * absolute_name",7,int,True,266,"Has structs; Has mutable pointers; Many params (7)",easy
+944,2.43,ls,quote_name,"const char * name; const struct quoting_options * options; int needs_general_quoting; const struct bin_str * color; int allow_pad; struct obstack * stack; const char * absolute_name",7,int,True,4749,"Has structs; Has mutable pointers; Many params (7)",easy
+945,2.43,stat,print_stat,"char * pformat; int prefix_len; char mod; char m; int fd; const char * filename; const void * data",7,int,True,243,"Has mutable pointers; Many params (7)",easy
+946,2.43,stat,print_stat,"char * pformat; int prefix_len; char mod; char m; int fd; const char * filename; const void * data",7,int,True,1503,"Has mutable pointers; Many params (7)",easy
+947,2.38,who,print_line,"const char * user; const char state; const char * line; const char * time_str; const char * idle; const char * pid; const char * comment; const char * exitstr",8,void,True,226,"Mixed scalars/strings; Many params (8)",easy
+948,2.33,uniq,check_file,"const char * infile; const char * outfile; char delimiter",3,void,True,320,"Standard function",easy
+949,2.3,cat,cat,"char * inbuf; int insize; char * outbuf; int outsize; int show_nonprinting; int show_tabs; int number; int number_nonblank; int show_ends; int squeeze_blank",10,int,True,212,"Mostly scalars; Has mutable pointers; Many params (10)",easy
+950,2.12,copy,set_owner,"const struct cp_options * x; const char * dst_name; int dst_dirfd; const char * dst_relname; int dest_desc; const struct stat * src_sb; int new_dst; const struct stat * dst_sb",8,int,True,926,"Mixed scalars/strings; Has structs; Many params (8)",easy
+951,2.0,basenc,finish_and_exit,"FILE * in; const char * infile",2,void,True,1075,"Has mutable pointers; FILE I/O",easy
+952,2.0,chmod,describe_change,"const char * file; const struct change_status * ch",2,void,True,155,"Has structs",easy
+953,2.0,chown-core,chopt_free,"struct Chown_option * chopt",1,void,False,70,"Has structs; Has mutable pointers",medium
+954,2.0,chown-core,chopt_init,"struct Chown_option * chopt",1,void,False,58,"Has structs; Has mutable pointers",medium
+955,2.0,comm,compare_files,"char ** infiles",1,void,True,252,"Has mutable pointers",easy
+956,2.0,copy,chown_failure_ok,"const struct cp_options * x",1,int,False,3432,"Has structs",medium
+957,2.0,copy,copy_reg,"const char * src_name; const char * dst_name; int dst_dirfd; const char * dst_relname; const struct cp_options * x; mode_t dst_mode; mode_t omitted_permissions; int * new_dst; struct stat * src_sb",9,int,True,1234,"Mixed scalars/strings; Has structs; Has mutable pointers; Many params (9)",easy
+958,2.0,copy,cp_options_default,"struct cp_options * x",1,void,False,3406,"Has structs; Has mutable pointers",medium
+959,2.0,copy,dest_info_init,"struct cp_options * x",1,void,False,2021,"Has structs; Has mutable pointers",medium
+960,2.0,copy,owner_failure_ok,"const struct cp_options * x",1,int,True,128,"Has structs",easy
+961,2.0,copy,owner_failure_ok,"const struct cp_options * x",1,int,True,3453,"Has structs",easy
+962,2.0,copy,src_info_init,"struct cp_options * x",1,void,False,2036,"Has structs; Has mutable pointers",medium
+963,2.0,copy,valid_options,"const struct cp_options * co",1,void,True,3355,"Has structs",easy
+964,2.0,cp,cp_option_init,"struct cp_options * x",1,void,True,829,"Has structs; Has mutable pointers",easy
+965,2.0,cp-hash,src_to_dest_compare,"const void * x; const void * y",2,int,True,64,"Standard function",easy
+966,2.0,cp-hash,src_to_dest_free,"void * x",1,void,True,72,"Has mutable pointers",easy
+967,2.0,csplit,clear_line_control,"struct line * p",1,void,True,279,"Has structs; Has mutable pointers",easy
+968,2.0,csplit,delete_all_files,"int in_signal_handler",1,void,True,936,"Standard function",easy
+969,2.0,csplit,free_buffer,"struct buffer_record * buf",1,void,True,389,"Has structs; Has mutable pointers",easy
+970,2.0,csplit,record_line_starts,"struct buffer_record * b",1,int,True,336,"Has structs; Has mutable pointers",easy
+971,2.0,csplit,save_buffer,"struct buffer_record * buf",1,void,True,424,"Has structs; Has mutable pointers",easy
+972,2.0,csplit,save_line_to_file,"const struct cstring * line",1,void,True,111,"Has structs",easy
+973,2.0,csplit,save_line_to_file,"const struct cstring * line",1,void,True,1000,"Has structs",easy
+974,2.0,cut,cut_bytes,"FILE * stream",1,void,True,217,"Has mutable pointers; FILE I/O",easy
+975,2.0,cut,cut_fields,"FILE * stream",1,void,True,277,"Has mutable pointers; FILE I/O",easy
+976,2.0,df,add_to_grand_total,"struct field_values_t * bv; struct field_values_t * iv",2,void,True,972,"Has structs; Has mutable pointers",easy
+977,2.0,df,automount_stat_err,"const char * file; struct stat * st",2,int,True,281,"Has structs; Has mutable pointers",easy
+978,2.0,df,devlist_compare,"const void * x; const void * y",2,int,True,679,"Standard function",easy
+979,2.0,df,get_field_values,"struct field_values_t * bv; struct field_values_t * iv; const struct fs_usage * fsu",3,void,True,934,"Has structs; Has mutable pointers",easy
+980,2.0,digest,digest_check,"const char * checkfile_name",1,int,True,1142,"Standard function",easy
+981,2.0,dircolors,dc_parse_file,"const char * filename",1,int,True,395,"Standard function",easy
+982,2.0,du,duinfo_add,"struct duinfo * a; const struct duinfo * b",2,void,True,101,"Has structs; Has mutable pointers",easy
+983,2.0,du,duinfo_init,"struct duinfo * a",1,void,True,82,"Has structs; Has mutable pointers",easy
+984,2.0,env,check_start_new_arg,"struct splitbuf * ss",1,void,True,300,"Has structs; Has mutable pointers",easy
+985,2.0,env,splitbuf_finishup,"struct splitbuf * ss",1,char **,True,317,"Has structs; Has mutable pointers",easy
+986,2.0,env,splitbuf_grow,"struct splitbuf * ss",1,void,True,277,"Has structs; Has mutable pointers",easy
+987,2.0,expand-common,next_file,"FILE * fp",1,FILE *,False,341,"Has mutable pointers; FILE I/O",hard
+988,2.0,factor,mp_factor_clear,"struct mp_factors * factors",1,void,True,590,"Has structs; Has mutable pointers",easy
+989,2.0,factor,mp_factor_init,"struct mp_factors * factors",1,void,True,581,"Has structs; Has mutable pointers",easy
+990,2.0,find-mount-point,find_mount_point,"const char * file; const struct stat * file_stat",2,char *,False,30,"Has structs",medium
+991,2.0,fmt,fmt,"FILE * f; const char * file",2,int,True,483,"Has mutable pointers; FILE I/O",easy
+992,2.0,fmt,get_paragraph,"FILE * f",1,int,True,155,"Has mutable pointers; FILE I/O",easy
+993,2.0,fmt,get_paragraph,"FILE * f",1,int,True,554,"Has mutable pointers; FILE I/O",easy
+994,2.0,fmt,get_prefix,"FILE * f",1,int,True,157,"Has mutable pointers; FILE I/O",easy
+995,2.0,fmt,get_prefix,"FILE * f",1,int,True,729,"Has mutable pointers; FILE I/O",easy
+996,2.0,head,write_header,"const char * filename",1,void,True,167,"Standard function",easy
+997,2.0,install,cp_option_init,"struct cp_options * x",1,void,True,258,"Has structs; Has mutable pointers",easy
+998,2.0,install,setdefaultfilecon,"const char * file",1,void,True,323,"Standard function",easy
+999,2.0,join,delseq,"struct seq * seq",1,void,True,541,"Has structs; Has mutable pointers",easy
+1000,2.0,join,freeline,"struct line * line",1,void,True,318,"Has structs; Has mutable pointers",easy
+1001,2.0,join,init_linep,"struct line ** linep",1,struct line *,True,444,"Has structs; Has mutable pointers",easy
+1002,2.0,join,initseq,"struct seq * seq",1,void,True,502,"Has structs; Has mutable pointers",easy
+1003,2.0,join,prjoin,"const struct line * line1; const struct line * line2",2,void,True,593,"Has structs",easy
+1004,2.0,join,reset_line,"struct line * line",1,void,True,438,"Has structs; Has mutable pointers",easy
+1005,2.0,join,xfields,"struct line * line",1,void,True,290,"Has structs; Has mutable pointers",easy
+1006,2.0,ls,cmp_version,"const struct fileinfo * a; const struct fileinfo * b",2,int,True,3957,"Has structs",easy
+1007,2.0,ls,dev_ino_compare,"const void * x; const void * y",2,int,True,1440,"Standard function",easy
+1008,2.0,ls,dev_ino_free,"void * x",1,void,True,1448,"Has mutable pointers",easy
+1009,2.0,ls,file_or_link_mode,"const struct fileinfo * file",1,mode_t,True,376,"Has structs",easy
+1010,2.0,ls,fileinfo_name_width,"const struct fileinfo * f",1,int,True,3922,"Has structs",easy
+1011,2.0,ls,free_ent,"struct fileinfo * f",1,void,True,3269,"Has structs; Has mutable pointers",easy
+1012,2.0,ls,free_pending_ent,"struct pending * p",1,void,True,1489,"Has structs; Has mutable pointers",easy
+1013,2.0,ls,get_stat_btime,"const struct stat * st",1,struct timespec,True,1135,"Has structs",easy
+1014,2.0,ls,has_capability_cache,"const char * file; struct fileinfo * f",2,int,True,3344,"Has structs; Has mutable pointers",easy
+1015,2.0,ls,is_directory,"const struct fileinfo * f",1,int,True,3689,"Has structs",easy
+1016,2.0,ls,is_linked_directory,"const struct fileinfo * f",1,int,True,3696,"Has structs",easy
+1017,2.0,ls,length_of_file_name_and_frills,"const struct fileinfo * f",1,int,True,5105,"Has structs",easy
+1018,2.0,ls,patterns_match,"const struct ignore_pattern * patterns; const char * file",2,int,True,3202,"Has structs",easy
+1019,2.0,ls,print_color_indicator,"const struct bin_str * ind",1,int,True,283,"Has structs",easy
+1020,2.0,ls,print_color_indicator,"const struct bin_str * ind",1,int,True,4939,"Has structs",easy
+1021,2.0,ls,print_long_format,"const struct fileinfo * f",1,void,True,302,"Has structs",easy
+1022,2.0,ls,print_long_format,"const struct fileinfo * f",1,void,True,4293,"Has structs",easy
+1023,2.0,ls,push_current_dired_pos,"struct obstack * obs",1,void,True,1056,"Has structs; Has mutable pointers",easy
+1024,2.0,ls,put_indicator,"const struct bin_str * ind",1,void,True,284,"Has structs",easy
+1025,2.0,ls,put_indicator,"const struct bin_str * ind",1,void,True,5085,"Has structs",easy
+1026,2.0,mv,cp_option_init,"struct cp_options * x",1,void,True,121,"Has structs; Has mutable pointers",easy
+1027,2.0,mv,rm_option_init,"struct rm_options * x",1,void,True,89,"Has structs; Has mutable pointers",easy
+1028,2.0,nl,nl_file,"const char * file",1,int,True,435,"Standard function",easy
+1029,2.0,nl,process_file,"FILE * fp",1,void,True,409,"Has mutable pointers; FILE I/O",easy
+1030,2.0,pathchk,no_leading_hyphen,"const char * file",1,int,True,161,"Standard function",easy
+1031,2.0,pinky,print_entry,"const struct gl_utmp * utmp_ent",1,void,True,199,"Has structs",easy
+1032,2.0,pinky,time_string,"const struct gl_utmp * utmp_ent",1,const char *,True,182,"Has structs",easy
+1033,2.0,ptx,compare_occurs,"const void * void_first; const void * void_second",2,int,True,571,"Standard function",easy
+1034,2.0,ptx,compare_words,"const void * void_first; const void * void_second",2,int,True,534,"Standard function",easy
+1035,2.0,ptx,compile_regex,"struct regex_data * regex",1,void,True,398,"Has structs; Has mutable pointers",easy
+1036,2.0,ptx,digest_break_file,"const char * file_name",1,void,True,632,"Standard function",easy
+1037,2.0,pwd,file_name_free,"struct file_name * p",1,void,True,78,"Has structs; Has mutable pointers",easy
+1038,2.0,pwd,robust_getcwd,"struct file_name * file_name",1,void,True,266,"Has structs; Has mutable pointers",easy
+1039,2.0,remove,cache_stat_init,"struct stat * st",1,struct stat *,True,83,"Has structs; Has mutable pointers",easy
+1040,2.0,remove,rm,"char *const * file; const struct rm_options * x",2,enum RM_status,False,604,"Has structs",medium
+1041,2.0,rm,rm_option_init,"struct rm_options * x",1,void,True,194,"Has structs; Has mutable pointers",easy
+1042,2.0,set-fields,compare_ranges,"const void * a; const void * b",2,int,True,61,"Standard function",easy
+1043,2.0,sort,begfield,"const struct line * line; const struct keyfield * key",2,char *,True,1614,"Has structs",easy
+1044,2.0,sort,buffer_linelim,"const struct buffer * buf",1,struct line *,True,1604,"Has structs",easy
+1045,2.0,sort,check_output,"const char * outfile",1,void,True,3917,"Standard function",easy
+1046,2.0,sort,compare,"const struct line * a; const struct line * b",2,int,True,2875,"Has structs",easy
+1047,2.0,sort,compare_nodes,"const void * a; const void * b",2,int,True,3485,"Standard function",easy
+1048,2.0,sort,cs_enter,"struct cs_status * status",1,void,True,638,"Has structs; Has mutable pointers",easy
+1049,2.0,sort,cs_leave,"const struct cs_status * status",1,void,True,646,"Has structs",easy
+1050,2.0,sort,debug_key,"const struct line * line; const struct keyfield * key",2,void,True,2364,"Has structs",easy
+1051,2.0,sort,debug_line,"const struct line * line",1,void,True,2425,"Has structs",easy
+1052,2.0,sort,default_key_compare,"const struct keyfield * key",1,int,True,2437,"Has structs",easy
+1053,2.0,sort,insertkey,"struct keyfield * key_arg",1,void,True,4166,"Has structs; Has mutable pointers",easy
+1054,2.0,sort,key_init,"struct keyfield * key",1,struct keyfield *,True,4325,"Has structs; Has mutable pointers",easy
+1055,2.0,sort,key_numeric,"const struct keyfield * key",1,int,True,2355,"Has structs",easy
+1056,2.0,sort,keycompare,"const struct line * a; const struct line * b",2,int,True,2680,"Has structs",easy
+1057,2.0,sort,limfield,"const struct line * line; const struct keyfield * key",2,int *,True,1657,"Has structs",easy
+1058,2.0,sort,lock_node,"struct merge_node * node",1,void,True,3497,"Has structs; Has mutable pointers",easy
+1059,2.0,sort,open_temp,"struct tempnode * temp",1,int *,True,1179,"Has structs; Has mutable pointers",easy
+1060,2.0,sort,proctab_comparator,"const void * e1; const void * e2",2,int,True,694,"Standard function",easy
+1061,2.0,sort,queue_check_insert,"struct merge_node_queue * queue; struct merge_node * node",2,void,True,3658,"Has structs; Has mutable pointers",easy
+1062,2.0,sort,queue_check_insert_parent,"struct merge_node_queue * queue; struct merge_node * node",2,void,True,3672,"Has structs; Has mutable pointers",easy
+1063,2.0,sort,queue_destroy,"struct merge_node_queue * queue",1,void,True,3513,"Has structs; Has mutable pointers",easy
+1064,2.0,sort,queue_insert,"struct merge_node_queue * queue; struct merge_node * node",2,void,True,3538,"Has structs; Has mutable pointers",easy
+1065,2.0,sort,queue_pop,"struct merge_node_queue * queue",1,struct merge_node *,True,3550,"Has structs; Has mutable pointers",easy
+1066,2.0,sort,register_proc,"struct tempnode * temp",1,void,True,737,"Has structs; Has mutable pointers",easy
+1067,2.0,sort,sortlines_thread,"void * data",1,void *,True,3754,"Has mutable pointers",easy
+1068,2.0,sort,unlock_node,"struct merge_node * node",1,void,True,3505,"Has structs; Has mutable pointers",easy
+1069,2.0,stat,human_access,"const struct stat * statbuf",1,int *,True,634,"Has structs",easy
+1070,2.0,stat,human_fstype,"const struct statfs * statfsbuf",1,const int *,True,254,"Has structs",easy
+1071,2.0,stty,check_speed,"struct termios * mode",1,void,True,454,"Has structs; Has mutable pointers",easy
+1072,2.0,stty,check_speed,"struct termios * mode",1,void,True,2077,"Has structs; Has mutable pointers",easy
+1073,2.0,stty,display_changed,"struct termios * mode",1,void,True,449,"Has structs; Has mutable pointers",easy
+1074,2.0,stty,display_changed,"struct termios * mode",1,void,True,1910,"Has structs; Has mutable pointers",easy
+1075,2.0,stty,display_recoverable,"struct termios * mode",1,void,True,450,"Has structs; Has mutable pointers",easy
+1076,2.0,stty,display_recoverable,"struct termios * mode",1,void,True,2104,"Has structs; Has mutable pointers",easy
+1077,2.0,stty,eq_mode,"struct termios * mode1; struct termios * mode2",2,int,True,444,"Has structs; Has mutable pointers",easy
+1078,2.0,stty,eq_mode,"struct termios * mode1; struct termios * mode2",2,int,True,1469,"Has structs; Has mutable pointers",easy
+1079,2.0,stty,sane_mode,"struct termios * mode",1,void,True,457,"Has structs; Has mutable pointers",easy
+1080,2.0,stty,sane_mode,"struct termios * mode",1,void,True,2272,"Has structs; Has mutable pointers",easy
+1081,2.0,tac,tac_file,"const char * filename",1,int,True,441,"Standard function",easy
+1082,2.0,tail,pretty_name,"const struct File_spec * f",1,const char *,True,373,"Has structs",easy
+1083,2.0,tail,write_header,"const char * pretty_filename",1,void,True,409,"Standard function",easy
+1084,2.0,temp-stream,temp_stream,"FILE ** fp; char ** file_name",2,int,False,84,"Has mutable pointers; FILE I/O",hard
+1085,2.0,test,get_mtime,"const char * filename; struct timespec * mtime",2,int,True,163,"Has structs; Has mutable pointers",easy
+1086,2.0,touch,touch,"const char * file",1,int,True,121,"Standard function",easy
+1087,2.0,tr,build_spec_list,"const struct E_string * es; struct Spec_list * result",2,int,True,852,"Has structs; Has mutable pointers",easy
+1088,2.0,tr,card_of_complement,"struct Spec_list * s",1,int,True,1137,"Has structs; Has mutable pointers",easy
+1089,2.0,tr,es_free,"struct E_string * es",1,void,True,418,"Has structs; Has mutable pointers",easy
+1090,2.0,tr,get_s1_spec_stats,"struct Spec_list * s1",1,void,True,1312,"Has structs; Has mutable pointers",easy
+1091,2.0,tr,get_spec_stats,"struct Spec_list * s",1,void,True,1236,"Has structs; Has mutable pointers",easy
+1092,2.0,tr,homogeneous_spec_list,"struct Spec_list * s",1,int,True,1413,"Has structs; Has mutable pointers",easy
+1093,2.0,tr,skip_construct,"struct Spec_list * s",1,void,True,992,"Has structs; Has mutable pointers",easy
+1094,2.0,tr,spec_init,"struct Spec_list * spec_list",1,void,True,1332,"Has structs; Has mutable pointers",easy
+1095,2.0,tr,string2_extend,"const struct Spec_list * s1; struct Spec_list * s2",2,void,True,1364,"Has structs; Has mutable pointers",easy
+1096,2.0,tr,validate,"struct Spec_list * s1; struct Spec_list * s2",2,void,True,1438,"Has structs; Has mutable pointers",easy
+1097,2.0,tr,validate_case_classes,"struct Spec_list * s1; struct Spec_list * s2",2,void,True,1162,"Has structs; Has mutable pointers",easy
+1098,2.0,tsort,detect_loop,"struct item * k",1,int,True,321,"Has structs; Has mutable pointers",easy
+1099,2.0,tsort,record_relation,"struct item * j; struct item * k",2,void,True,264,"Has structs; Has mutable pointers",easy
+1100,2.0,tsort,scan_zeros,"struct item * k",1,int,True,286,"Has structs; Has mutable pointers",easy
+1101,2.0,tsort,tsort,"const char * file",1,void,True,429,"Standard function",easy
+1102,2.0,uniq,swap_lines,"struct linebuffer ** a; struct linebuffer ** b",2,void,True,44,"Has structs; Has mutable pointers",easy
+1103,2.0,users,userid_compare,"const void * v_a; const void * v_b",2,int,True,37,"Standard function",easy
+1104,2.0,wc,wc_file,"const char * file; struct fstatus * fstatus",2,int,True,626,"Has structs; Has mutable pointers",easy
+1105,2.0,who,is_tty_writable,"const struct stat * pstat",1,int,True,299,"Has structs",easy
+1106,2.0,who,make_id_equals_comment,"const struct gl_utmp * utmp_ent",1,char *,True,436,"Has structs",easy
+1107,2.0,who,print_boottime,"const struct gl_utmp * utmp_ent",1,void,True,429,"Has structs",easy
+1108,2.0,who,print_clockchange,"const struct gl_utmp * utmp_ent",1,void,True,497,"Has structs",easy
+1109,2.0,who,print_deadprocs,"const struct gl_utmp * utmp_ent",1,void,True,450,"Has structs",easy
+1110,2.0,who,print_initspawn,"const struct gl_utmp * utmp_ent",1,void,True,486,"Has structs",easy
+1111,2.0,who,print_login,"const struct gl_utmp * utmp_ent",1,void,True,473,"Has structs",easy
+1112,2.0,who,print_runlevel,"const struct gl_utmp * utmp_ent",1,void,True,505,"Has structs",easy
+1113,2.0,who,time_string,"const struct gl_utmp * utmp_ent",1,const char *,True,208,"Has structs",easy
+1114,1.67,df,get_dev,"const char * device; const char * mount_point; const char * file; const char * stat_file; const char * fstype; int me_dummy; int me_remote; const struct fs_usage * force_fsu; int process_all",9,void,True,1006,"Mixed scalars/strings; Has structs; Many params (9)",easy
+1115,1.67,ls,cmp_atime,"const struct fileinfo * a; const struct fileinfo * b; int (*)(const char *, const char *) cmp",3,int,True,3867,"Has structs",easy
+1116,1.67,ls,cmp_btime,"const struct fileinfo * a; const struct fileinfo * b; int (*)(const char *, const char *) cmp",3,int,True,3876,"Has structs",easy
+1117,1.67,ls,cmp_ctime,"const struct fileinfo * a; const struct fileinfo * b; int (*)(const char *, const char *) cmp",3,int,True,3849,"Has structs",easy
+1118,1.67,ls,cmp_extension,"const struct fileinfo * a; const struct fileinfo * b; int (*)(const char *, const char *) cmp",3,int,True,3909,"Has structs",easy
+1119,1.67,ls,cmp_mtime,"const struct fileinfo * a; const struct fileinfo * b; int (*)(const char *, const char *) cmp",3,int,True,3858,"Has structs",easy
+1120,1.67,ls,cmp_name,"const struct fileinfo * a; const struct fileinfo * b; int (*)(const char *, const char *) cmp",3,int,True,3899,"Has structs",easy
+1121,1.67,ls,cmp_size,"const struct fileinfo * a; const struct fileinfo * b; int (*)(const char *, const char *) cmp",3,int,True,3891,"Has structs",easy
+1122,1.67,ls,cmp_width,"const struct fileinfo * a; const struct fileinfo * b; int (*)(const char *, const char *) cmp",3,int,True,3930,"Has structs",easy
+1123,1.67,ls,dirfirst_check,"const struct fileinfo * a; const struct fileinfo * b; int (*)(V, V) cmp",3,int,True,3811,"Has structs; Has mutable pointers",easy
+1124,1.55,copy,lseek_copy,"int src_fd; int dest_fd; char ** abuf; int buf_size; int hole_size; off_t ext_start; off_t src_total_size; enum Sparse_type sparse_mode; int allow_reflink; const char * src_name; const char * dst_name",11,int,True,551,"Mostly scalars; Has mutable pointers; Many params (11)",easy
+1125,1.5,cut,cut_file,"const char * file; void (*)(FILE *) cut_stream",2,int,True,440,"Has mutable pointers; FILE I/O",easy
+1126,1.5,tsort,recurse_tree,"struct item * root; int (int *) bool",2,int,True,397,"Has structs; Has mutable pointers",easy
+1127,1.5,tsort,walk_tree,"struct item * root; int (int *) bool",2,void,True,420,"Has structs; Has mutable pointers",easy
+1128,1.3,copy,copy_dir,"const char * src_name_in; const char * dst_name_in; int dst_dirfd; const char * dst_relname_in; int new_dst; const struct stat * src_sb; struct dir_list * ancestors; const struct cp_options * x; int * first_dir_created_per_command_line_arg; int * copy_into_self",10,int,True,823,"Mixed scalars/strings; Has structs; Has mutable pointers; Many params (10)",easy
+1129,1.25,copy,sparse_copy,"int src_fd; int dest_fd; char ** abuf; int buf_size; int hole_size; int punch_holes; int allow_reflink; const char * src_name; const char * dst_name; uintmax_t max_n_read; off_t * total_n_read; int * last_write_made_hole",12,int,True,319,"Mostly scalars; Has mutable pointers; Many params (12)",easy
+1130,0.5,copy,copy_internal,"const char * src_name; const char * dst_name; int dst_dirfd; const char * dst_relname; int nonexistent_dst; const struct stat * parent; struct dir_list * ancestors; const struct cp_options * x; int command_line_arg; int * first_dir_created_per_command_line_arg; int * copy_into_self; int * rename_succeeded",12,int,True,119,"Mixed scalars/strings; Has structs; Has mutable pointers; Many params (12)",easy
+1131,0.5,copy,copy_internal,"const char * src_name; const char * dst_name; int dst_dirfd; const char * dst_relname; int nonexistent_dst; const struct stat * parent; struct dir_list * ancestors; const struct cp_options * x; int command_line_arg; int * first_dir_created_per_command_line_arg; int * copy_into_self; int * rename_succeeded",12,int,True,2201,"Mixed scalars/strings; Has structs; Has mutable pointers; Many params (12)",easy

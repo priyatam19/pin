@@ -1,0 +1,69 @@
+{
+  "typedef_aliases": {
+    "__fpos_t": {
+      "struct": "Struct__G_fpos_t",
+      "header": "__fpos_t.h",
+      "external": false
+    },
+    "__fpos64_t": {
+      "struct": "Struct__G_fpos64_t",
+      "header": "__fpos64_t.h",
+      "external": false
+    },
+    "__FILE": {
+      "struct": "Struct__IO_FILE",
+      "header": "__FILE.h",
+      "external": false
+    },
+    "FILE": {
+      "struct": "Struct__IO_FILE",
+      "header": "FILE.h",
+      "external": false
+    },
+    "fpos_t": {
+      "struct": "Struct__G_fpos_t",
+      "header": "stdio.h",
+      "external": false
+    },
+    "__pthread_list_t": {
+      "struct": "Struct___pthread_internal_list",
+      "header": "thread-shared-types.h",
+      "external": false
+    },
+    "__pthread_slist_t": {
+      "struct": "Struct___pthread_internal_slist",
+      "header": "thread-shared-types.h",
+      "external": false
+    },
+    "cJSON": {
+      "struct": "cJSON",
+      "header": "cJSON.h",
+      "external": true
+    },
+    "cJSON_Hooks": {
+      "struct": "cJSON_Hooks",
+      "header": "cJSON.h",
+      "external": true
+    },
+    "error": {
+      "struct": "AnonymousStruct",
+      "header": "cJSON.c",
+      "external": true
+    },
+    "internal_hooks": {
+      "struct": "internal_hooks",
+      "header": "cJSON.c",
+      "external": true
+    },
+    "parse_buffer": {
+      "struct": "AnonymousStruct",
+      "header": "cJSON.c",
+      "external": true
+    },
+    "printbuffer": {
+      "struct": "AnonymousStruct",
+      "header": "cJSON.c",
+      "external": true
+    }
+  }
+}

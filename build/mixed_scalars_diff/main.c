@@ -7,76 +7,54 @@
 #include "input.pb.h"
 
 #define MAXLEN 128
+#define PIN_EMI_REJECT_RC 86
 
-bool decode_mode(pb_istream_t *stream, const pb_field_t *field, void **arg) {
-    char *buffer = (char *)(*arg);
-    memset(buffer, 0, 128);
+typedef enum {
+    PIN_EMI_REASON_OK = 0,
+    PIN_EMI_REASON_NULL_SLICE = 1,
+    PIN_EMI_REASON_LENGTH_MISMATCH = 2
+} pin_emi_reason_t;
 
-    pb_istream_t substream;
-    if (!pb_make_string_substream(stream, &substream)) {
-        return false;
+static const char *pin_emi_reason_to_string(pin_emi_reason_t reason) {
+    switch (reason) {
+        case PIN_EMI_REASON_OK: return "ok";
+        case PIN_EMI_REASON_NULL_SLICE: return "null-pointer-with-length";
+        case PIN_EMI_REASON_LENGTH_MISMATCH: return "length-field-mismatch";
+        default: return "unknown";
     }
-
-    size_t declared_len = substream.bytes_left;
-    size_t to_read = declared_len;
-    bool truncated = false;
-    if (to_read >= 128) {
-        truncated = true;
-        to_read = 128 - 1;
-    }
-
-    bool ok = pb_read(&substream, (pb_byte_t*)buffer, to_read);
-    while (ok && substream.bytes_left > 0) {
-        uint8_t scratch[32];
-        size_t chunk = substream.bytes_left < sizeof(scratch) ? substream.bytes_left : sizeof(scratch);
-        ok = pb_read(&substream, scratch, chunk);
-    }
-
-    if (ok && truncated) {
-        ok = false;
-    }
-
-    if (ok && memchr(buffer, 0, to_read) != NULL) {
-        ok = false;
-    }
-
-    if (ok) {
-#ifdef PB_VALIDATE_UTF8
-        ok = pb_validate_utf8(buffer);
-#else
-        const unsigned char *p = (const unsigned char *)buffer;
-        while (ok && *p) {
-            unsigned char c = *p++;
-            if (c < 0x80) {
-                continue;
-            }
-            ok = false;
-        }
-#endif
-    }
-
-    pb_close_string_substream(stream, &substream);
-    return ok;
 }
 
-extern int evaluate_sensor(int sensor_id, float temperature, const char * mode);
+
+extern int pin_original_main();
 
 // Decode from in-memory buffer and call target (for fuzzers)
 int pin_wrapper_entry(const uint8_t *data, size_t len) {
     Input input = Input_init_zero;
-    char mode_buf[128];
+    int emi_rc = 0;
+    pin_emi_reason_t emi_reason = PIN_EMI_REASON_OK;
+    const char *emi_detail = NULL;
 
-
-    mode_buf[0] = '\0';
-    input.mode.arg = mode_buf;
-    input.mode.funcs.decode = &decode_mode;
 
     pb_istream_t stream = pb_istream_from_buffer(data, len);
     if (!pb_decode(&stream, Input_fields, &input)) {
         return 1;
     }
-    evaluate_sensor(input.sensor_id, input.temperature, mode_buf);
-    return 0;
+
+    pin_original_main();
+    goto emi_finish;
+
+emi_reject:
+    emi_rc = PIN_EMI_REJECT_RC;
+
+emi_finish:
+
+    if (emi_rc == PIN_EMI_REJECT_RC) {
+        fprintf(stderr, "[PIN_EMI] reject reason=%s%s%s\n",
+                pin_emi_reason_to_string(emi_reason),
+                emi_detail ? " detail=" : "",
+                emi_detail ? emi_detail : "");
+    }
+    return emi_rc;
 }
 
 #ifndef PIN_WRAPPER_NO_MAIN

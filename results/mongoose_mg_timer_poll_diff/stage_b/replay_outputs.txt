@@ -1,0 +1,8 @@
+=== 53b333d7d94957a4b5c9eb0109ac6638d0a5ec87 ===
+[input decoded]
+{"head": "", "now_ms": 0}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+

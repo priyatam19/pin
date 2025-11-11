@@ -1,0 +1,24 @@
+=== 1bd40d6ffa7ecd58cd0724ef6abf1f8c96b88352 ===
+[input decoded]
+{"n": 10, "to": ""}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 3889237b23871f75352ba673691a231830f2f5fc ===
+[input decoded]
+{"n": 8, "to": ""}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+
+=== 9d1996cb2f705ac232aa433ece29827b7939f32d ===
+[input decoded]
+{"n": 3, "to": ""}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+

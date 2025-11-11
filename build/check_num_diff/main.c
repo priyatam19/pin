@@ -7,20 +7,54 @@
 #include "input.pb.h"
 
 #define MAXLEN 128
+#define PIN_EMI_REJECT_RC 86
+
+typedef enum {
+    PIN_EMI_REASON_OK = 0,
+    PIN_EMI_REASON_NULL_SLICE = 1,
+    PIN_EMI_REASON_LENGTH_MISMATCH = 2
+} pin_emi_reason_t;
+
+static const char *pin_emi_reason_to_string(pin_emi_reason_t reason) {
+    switch (reason) {
+        case PIN_EMI_REASON_OK: return "ok";
+        case PIN_EMI_REASON_NULL_SLICE: return "null-pointer-with-length";
+        case PIN_EMI_REASON_LENGTH_MISMATCH: return "length-field-mismatch";
+        default: return "unknown";
+    }
+}
+
 
 extern void checkNum(int N);
 
 // Decode from in-memory buffer and call target (for fuzzers)
 int pin_wrapper_entry(const uint8_t *data, size_t len) {
     Input input = Input_init_zero;
+    int emi_rc = 0;
+    pin_emi_reason_t emi_reason = PIN_EMI_REASON_OK;
+    const char *emi_detail = NULL;
 
 
     pb_istream_t stream = pb_istream_from_buffer(data, len);
     if (!pb_decode(&stream, Input_fields, &input)) {
         return 1;
     }
+
     checkNum(input.N);
-    return 0;
+    goto emi_finish;
+
+emi_reject:
+    emi_rc = PIN_EMI_REJECT_RC;
+
+emi_finish:
+
+    if (emi_rc == PIN_EMI_REJECT_RC) {
+        fprintf(stderr, "[PIN_EMI] reject reason=%s%s%s\n",
+                pin_emi_reason_to_string(emi_reason),
+                emi_detail ? " detail=" : "",
+                emi_detail ? emi_detail : "");
+    }
+    return emi_rc;
 }
 
 #ifndef PIN_WRAPPER_NO_MAIN

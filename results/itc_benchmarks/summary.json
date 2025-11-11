@@ -1,0 +1,926 @@
+[
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/bit_shift.c",
+    "function": "bit_shift_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.736,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/bit_shift_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_bit_shift.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/buffer_overrun_dynamic.c",
+    "function": "dynamic_buffer_overrun_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 3.56,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/buffer_overrun_dynamic_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_buffer_overrun_dynamic.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/buffer_underrun_dynamic.c",
+    "function": "dynamic_buffer_underrun_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 4.063,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/buffer_underrun_dynamic_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_buffer_underrun_dynamic.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/cmp_funcadr.c",
+    "function": "cmp_funcadr_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.063,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/cmp_funcadr_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_cmp_funcadr.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/conflicting_cond.c",
+    "function": "conflicting_cond_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.312,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/conflicting_cond_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_conflicting_cond.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/data_lost.c",
+    "function": "data_lost_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.699,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/data_lost_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_data_lost.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/data_overflow.c",
+    "function": "data_overflow_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.928,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/data_overflow_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_data_overflow.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/data_underflow.c",
+    "function": "data_underflow_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.451,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/data_underflow_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_data_underflow.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/dead_code.c",
+    "function": "dead_code_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.424,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/dead_code_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_dead_code.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/dead_lock.c",
+    "function": "dead_lock_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.191,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/dead_lock_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_dead_lock.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/deletion_of_data_structure_sentinel.c",
+    "function": "deletion_of_data_structure_sentinel_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.104,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/deletion_of_data_structure_sentinel_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_deletion_of_data_structure_sentinel.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/double_free.c",
+    "function": "double_free_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.355,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/double_free_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_double_free.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/double_lock.c",
+    "function": "double_lock_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.151,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/double_lock_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_double_lock.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/double_release.c",
+    "function": "double_release_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.252,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/double_release_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_double_release.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/endless_loop.c",
+    "function": "endless_loop_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.226,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/endless_loop_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_endless_loop.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/free_nondynamic_allocated_memory.c",
+    "function": "free_nondynamic_allocated_memory_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.664,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/free_nondynamic_allocated_memory_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_free_nondynamic_allocated_memory.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/free_null_pointer.c",
+    "function": "free_null_pointer_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.464,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/free_null_pointer_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_free_null_pointer.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/func_pointer.c",
+    "function": "func_pointer_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.589,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/func_pointer_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_func_pointer.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/function_return_value_unchecked.c",
+    "function": "function_return_value_unchecked_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.411,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/function_return_value_unchecked_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_function_return_value_unchecked.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/improper_termination_of_block.c",
+    "function": "improper_termination_of_block_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.045,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/improper_termination_of_block_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_improper_termination_of_block.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/insign_code.c",
+    "function": "insign_code_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.015,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/insign_code_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_insign_code.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/invalid_extern.c",
+    "function": "invalid_extern_main",
+    "status": "fail",
+    "exit_code": 6,
+    "duration_sec": 1.668,
+    "note": "[-] Failed linking reference_nanopb_bin",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_invalid_extern.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/invalid_extern_1.c",
+    "function": "",
+    "status": "skip",
+    "exit_code": null,
+    "duration_sec": 0.0,
+    "note": "no *_main entry point found"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/invalid_memory_access.c",
+    "function": "invalid_memory_access_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.899,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/invalid_memory_access_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_invalid_memory_access.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/littlemem_st.c",
+    "function": "littlemem_st_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.404,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/littlemem_st_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_littlemem_st.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/livelock.c",
+    "function": "livelock_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 1.835,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/livelock_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_livelock.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/lock_never_unlock.c",
+    "function": "lock_never_unlock_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.374,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/lock_never_unlock_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_lock_never_unlock.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/memory_allocation_failure.c",
+    "function": "memory_allocation_failure_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.708,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/memory_allocation_failure_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_memory_allocation_failure.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/memory_leak.c",
+    "function": "memory_leak_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.776,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/memory_leak_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_memory_leak.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/not_return.c",
+    "function": "not_return_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 1.995,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/not_return_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_not_return.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/null_pointer.c",
+    "function": "null_pointer_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.752,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/null_pointer_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_null_pointer.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/overrun_st.c",
+    "function": "overrun_st_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 4.823,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/overrun_st_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_overrun_st.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/ow_memcpy.c",
+    "function": "ow_memcpy_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 1.925,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/ow_memcpy_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_ow_memcpy.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/pow_related_errors.c",
+    "function": "pow_related_errors_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 3.328,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/pow_related_errors_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_pow_related_errors.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/ptr_subtraction.c",
+    "function": "ptr_subtraction_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.028,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/ptr_subtraction_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_ptr_subtraction.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/race_condition.c",
+    "function": "race_condition_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.33,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/race_condition_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_race_condition.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/redundant_cond.c",
+    "function": "redundant_cond_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.613,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/redundant_cond_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_redundant_cond.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/return_local.c",
+    "function": "return_local_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 1.985,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/return_local_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_return_local.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/sign_conv.c",
+    "function": "sign_conv_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.688,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/sign_conv_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_sign_conv.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/sleep_lock.c",
+    "function": "sleep_lock_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.121,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/sleep_lock_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_sleep_lock.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/st_cross_thread_access.c",
+    "function": "st_cross_thread_access_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.28,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/st_cross_thread_access_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_st_cross_thread_access.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/st_overflow.c",
+    "function": "st_overflow_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.224,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/st_overflow_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_st_overflow.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/st_underrun.c",
+    "function": "st_underrun_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.384,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/st_underrun_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_st_underrun.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/stubs.c",
+    "function": "",
+    "status": "skip",
+    "exit_code": null,
+    "duration_sec": 0.0,
+    "note": "no *_main entry point found"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/underrun_st.c",
+    "function": "underrun_st_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.393,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/underrun_st_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_underrun_st.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/uninit_memory_access.c",
+    "function": "uninit_memory_access_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.596,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/uninit_memory_access_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_uninit_memory_access.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/uninit_pointer.c",
+    "function": "uninit_pointer_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.924,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/uninit_pointer_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_uninit_pointer.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/uninit_var.c",
+    "function": "uninit_var_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.659,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/uninit_var_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_uninit_var.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/unlock_without_lock.c",
+    "function": "unlock_without_lock_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.407,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/unlock_without_lock_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_unlock_without_lock.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/unused_var.c",
+    "function": "unused_var_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.323,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/unused_var_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_unused_var.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/wrong_arguments_func_pointer.c",
+    "function": "wrong_arguments_func_pointer_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.927,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/wrong_arguments_func_pointer_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_wrong_arguments_func_pointer.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/01.w_Defects/zero_division.c",
+    "function": "zero_division_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.507,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/zero_division_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_01.w_Defects_zero_division.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/bit_shift.c",
+    "function": "bit_shift_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.59,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/bit_shift_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_bit_shift.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/buffer_overrun_dynamic.c",
+    "function": "dynamic_buffer_overrun_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 3.368,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/buffer_overrun_dynamic_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_buffer_overrun_dynamic.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/buffer_underrun_dynamic.c",
+    "function": "dynamic_buffer_underrun_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 3.949,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/buffer_underrun_dynamic_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_buffer_underrun_dynamic.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/cmp_funcadr.c",
+    "function": "cmp_funcadr_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.014,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/cmp_funcadr_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_cmp_funcadr.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/conflicting_cond.c",
+    "function": "conflicting_cond_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.301,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/conflicting_cond_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_conflicting_cond.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/data_lost.c",
+    "function": "data_lost_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.59,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/data_lost_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_data_lost.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/data_overflow.c",
+    "function": "data_overflow_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.905,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/data_overflow_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_data_overflow.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/data_underflow.c",
+    "function": "data_underflow_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.297,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/data_underflow_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_data_underflow.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/dead_code.c",
+    "function": "dead_code_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.401,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/dead_code_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_dead_code.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/dead_lock.c",
+    "function": "dead_lock_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.304,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/dead_lock_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_dead_lock.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/deletion_of_data_structure_sentinel.c",
+    "function": "deletion_of_data_structure_sentinel_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.023,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/deletion_of_data_structure_sentinel_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_deletion_of_data_structure_sentinel.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/double_free.c",
+    "function": "double_free_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.216,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/double_free_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_double_free.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/double_lock.c",
+    "function": "double_lock_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.072,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/double_lock_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_double_lock.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/double_release.c",
+    "function": "double_release_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.142,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/double_release_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_double_release.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/endless_loop.c",
+    "function": "endless_loop_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.19,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/endless_loop_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_endless_loop.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/free_nondynamically_allocated_memory.c",
+    "function": "free_nondynamic_allocated_memory_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.508,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/free_nondynamically_allocated_memory_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_free_nondynamically_allocated_memory.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/free_null_pointer.c",
+    "function": "free_null_pointer_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.61,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/free_null_pointer_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_free_null_pointer.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/func_pointer.c",
+    "function": "func_pointer_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.733,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/func_pointer_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_func_pointer.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/function_return_value_unchecked.c",
+    "function": "function_return_value_unchecked_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.667,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/function_return_value_unchecked_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_function_return_value_unchecked.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/improper_termination_of_block.c",
+    "function": "improper_termination_of_block_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.032,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/improper_termination_of_block_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_improper_termination_of_block.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/insign_code.c",
+    "function": "insign_code_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 1.867,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/insign_code_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_insign_code.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/invalid_extern.c",
+    "function": "invalid_extern_main",
+    "status": "fail",
+    "exit_code": 6,
+    "duration_sec": 1.619,
+    "note": "[-] Failed linking reference_nanopb_bin",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_invalid_extern.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/invalid_extern_1.c",
+    "function": "",
+    "status": "skip",
+    "exit_code": null,
+    "duration_sec": 0.0,
+    "note": "no *_main entry point found"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/invalid_memory_access.c",
+    "function": "invalid_memory_access_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.935,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/invalid_memory_access_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_invalid_memory_access.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/littlemem_st.c",
+    "function": "littlemem_st_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.207,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/littlemem_st_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_littlemem_st.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/livelock.c",
+    "function": "livelock_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 1.751,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/livelock_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_livelock.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/lock_never_unlock.c",
+    "function": "lock_never_unlock_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.285,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/lock_never_unlock_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_lock_never_unlock.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/memory_allocation_failure.c",
+    "function": "memory_allocation_failure_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.853,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/memory_allocation_failure_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_memory_allocation_failure.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/memory_leak.c",
+    "function": "memory_leak_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.732,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/memory_leak_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_memory_leak.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/not_return.c",
+    "function": "not_return_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.104,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/not_return_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_not_return.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/null_pointer.c",
+    "function": "null_pointer_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.705,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/null_pointer_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_null_pointer.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/overrun_st.c",
+    "function": "overrun_st_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 4.976,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/overrun_st_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_overrun_st.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/ow_memcpy.c",
+    "function": "ow_memcpy_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 1.994,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/ow_memcpy_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_ow_memcpy.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/pow_related_errors.c",
+    "function": "pow_related_errors_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 3.238,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/pow_related_errors_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_pow_related_errors.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/ptr_subtraction.c",
+    "function": "ptr_subtraction_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 1.941,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/ptr_subtraction_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_ptr_subtraction.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/race_condition.c",
+    "function": "race_condition_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.111,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/race_condition_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_race_condition.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/redundant_cond.c",
+    "function": "redundant_cond_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.484,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/redundant_cond_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_redundant_cond.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/return_local.c",
+    "function": "return_local_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.017,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/return_local_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_return_local.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/sign_conv.c",
+    "function": "sign_conv_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.494,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/sign_conv_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_sign_conv.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/sleep_lock.c",
+    "function": "sleep_lock_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.031,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/sleep_lock_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_sleep_lock.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/st_cross_thread_access.c",
+    "function": "st_cross_thread_access_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.196,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/st_cross_thread_access_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_st_cross_thread_access.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/st_overflow.c",
+    "function": "st_overflow_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.175,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/st_overflow_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_st_overflow.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/st_underrun.c",
+    "function": "st_underrun_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.211,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/st_underrun_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_st_underrun.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/underrun_st.c",
+    "function": "underrun_st_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.363,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/underrun_st_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_underrun_st.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/uninit_memory_access.c",
+    "function": "uninit_memory_access_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.643,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/uninit_memory_access_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_uninit_memory_access.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/uninit_pointer.c",
+    "function": "uninit_pointer_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.619,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/uninit_pointer_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_uninit_pointer.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/uninit_var.c",
+    "function": "uninit_var_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.364,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/uninit_var_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_uninit_var.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/unlock_without_lock.c",
+    "function": "unlock_without_lock_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.228,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/unlock_without_lock_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_unlock_without_lock.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/unused_var.c",
+    "function": "unused_var_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.094,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/unused_var_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_unused_var.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/wrong_arguments_func_pointer.c",
+    "function": "wrong_arguments_func_pointer_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.888,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/wrong_arguments_func_pointer_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_wrong_arguments_func_pointer.log"
+  },
+  {
+    "source": "examples/itc-benchmarks/02.wo_Defects/zero_division.c",
+    "function": "zero_division_main",
+    "status": "ok",
+    "exit_code": 0,
+    "duration_sec": 2.441,
+    "note": "       Replay artifacts stored under /home/priyatam/pin/results/zero_division_diff/stage_b",
+    "log_path": "results/itc_benchmarks/logs/examples_itc-benchmarks_02.wo_Defects_zero_division.log"
+  }
+]

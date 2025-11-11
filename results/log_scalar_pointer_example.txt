@@ -1,0 +1,37 @@
+[+] Generate .proto (libclang parser)
+[+] Generate C++ protobuf (for original replay)
+[+] Generate Python protobuf helpers
+[+] Generate nanopb protobuf (for wrapper decode)
+[+] Generate wrapper with pin_wrapper_entry() and standalone main
+[+] Compile original object (instrumented) and plain object
+[+] Compile nanopb runtime and wrapper
+[+] Compile wrapper object (no main) for fuzz_bytes
+[+] Compile C++ protobuf support
+[+] Compile reference runner (protobuf decode)
+[+] Build normalized standalone runner (reads bytes file)
+[+] Build libFuzzer byte harness to call pin_wrapper_entry (Stage A)
+[+] Link fuzz_bytes
+[+] Stage A: libFuzzer discovery for 1s
+    Running: ./fuzz_bytes corpus -max_total_time=1 -use_value_profile=1 -print_final_stats=1 -artifact_prefix=/home/priyatam/pin/build/scalar_pointer_example_diff/artifacts/
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 1373425320
+INFO: Loaded 1 modules   (4 inline 8-bit counters): 4 [0x5565efb09ea0, 0x5565efb09ea4), 
+INFO: Loaded 1 PC tables (4 PCs): 4 [0x5565efb09ea8,0x5565efb09ee8), 
+INFO:        1 files found in corpus
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 4096 bytes
+INFO: seed corpus: files: 1 min: 2b max: 2b total: 2b rss: 31Mb
+#2	INITED cov: 3 ft: 3 corp: 1/2b exec/s: 0 rss: 32Mb
+#983192	DONE   cov: 3 ft: 3 corp: 1/2b lim: 4096 exec/s: 491596 rss: 104Mb
+Done 983192 runs in 2 second(s)
+stat::number_of_executed_units: 983192
+stat::average_exec_per_sec:     491596
+stat::new_units_added:          0
+stat::slowest_unit_time_sec:    0
+stat::peak_rss_mb:              104
+[+] Stage B: differential replay
+[+] Stage B replay summary saved to /home/priyatam/pin/results/scalar_pointer_example_diff/stage_b/replay_summary.txt (inputs=1)
+[+] Stage B detailed outputs saved to /home/priyatam/pin/results/scalar_pointer_example_diff/stage_b/replay_outputs.txt
+[+] Ready. Next steps:
+    1) Stage A (discovery): cd /home/priyatam/pin/build/scalar_pointer_example_diff && ./fuzz_bytes corpus -max_total_time=60 -use_value_profile=1
+    2) Stage B (replay): add inputs under /home/priyatam/pin/build/scalar_pointer_example_diff/corpus and rerun to compare normalized vs original outputs
+       Replay artifacts stored under /home/priyatam/pin/results/scalar_pointer_example_diff/stage_b

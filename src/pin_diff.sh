@@ -2,6 +2,7 @@
 # PIN Differential Fuzzing (Stage A scaffold)
 #
 # Usage: pin/src/pin_diff.sh <c_file> <function_name> [--headers-dir=DIR]
+#        [--extra-sources=PATH[,PATH...]]
 #
 # Stage A: Build normalized wrapper + libFuzzer byte harness that calls
 #          pin_wrapper_entry(data, size) to discover interesting serialized
@@ -23,8 +24,9 @@ HEADERS_DIR=""
 REPLAY_DIR=""
 FUZZ_SECONDS=0
 FUZZ_EXTRA_FLAGS=""
-REFERENCE_DECODER="cpp"
+REFERENCE_DECODER="nanopb"
 LIBS=""
+EXTRA_SOURCES_RAW=""
 for arg in "$@"; do
   case "$arg" in
     --headers-dir=*) HEADERS_DIR="${arg#*=}" ;;
@@ -33,8 +35,18 @@ for arg in "$@"; do
     --fuzz-flags=*) FUZZ_EXTRA_FLAGS="${arg#*=}" ;;
     --reference-decoder=*) REFERENCE_DECODER="${arg#*=}" ;;
     --libs=*) LIBS="${arg#*=}" ;;
+    --extra-sources=*) EXTRA_SOURCES_RAW="${arg#*=}" ;;
   esac
 done
+
+PIN_EXTRA_CFLAGS_ARR=()
+PIN_EXTRA_LDFLAGS_ARR=()
+if [[ -n "${PIN_EXTRA_CFLAGS:-}" ]]; then
+  read -r -a PIN_EXTRA_CFLAGS_ARR <<< "${PIN_EXTRA_CFLAGS}"
+fi
+if [[ -n "${PIN_EXTRA_LDFLAGS:-}" ]]; then
+  read -r -a PIN_EXTRA_LDFLAGS_ARR <<< "${PIN_EXTRA_LDFLAGS}"
+fi
 
 if [[ "$REFERENCE_DECODER" != "cpp" && "$REFERENCE_DECODER" != "nanopb" ]]; then
   echo "[-] Unsupported reference decoder: $REFERENCE_DECODER (use cpp or nanopb)"
@@ -42,7 +54,7 @@ if [[ "$REFERENCE_DECODER" != "cpp" && "$REFERENCE_DECODER" != "nanopb" ]]; then
 fi
 
 if [[ -z "$CFILE" || -z "$FUNC" ]]; then
-  echo "Usage: pin/src/pin_diff.sh <c_file> <function_name> [--headers-dir=DIR] [--replay-dir=DIR] [--fuzz-seconds=N] [--fuzz-flags=FLAGS] [--reference-decoder={cpp|nanopb}]"
+  echo "Usage: pin/src/pin_diff.sh <c_file> <function_name> [--headers-dir=DIR] [--replay-dir=DIR] [--fuzz-seconds=N] [--fuzz-flags=FLAGS] [--reference-decoder={cpp|nanopb}] [--libs=LIBS] [--extra-sources=PATH[,PATH...]]"
   exit 1
 fi
 
@@ -67,6 +79,23 @@ RESULTS_DIR="$ROOT_DIR/results/${EXAMPLE_NAME}_diff"
 NANOPB_DIR="$ROOT_DIR/nanopb"
 FAKE_INC_DIR="$ROOT_DIR/utils/fake_headers"
 
+normalize_path() {
+  local path="$1"
+  if [[ "$path" = /* ]]; then
+    echo "$path"
+  else
+    echo "$ROOT_DIR/$path"
+  fi
+}
+
+if [[ -n "${PIN_BUILD_DIR:-}" ]]; then
+  BUILD_DIR="$(normalize_path "$PIN_BUILD_DIR")"
+fi
+
+if [[ -n "${PIN_RESULTS_DIR:-}" ]]; then
+  RESULTS_DIR="$(normalize_path "$PIN_RESULTS_DIR")"
+fi
+
 HEADERS_ABS=""
 if [[ -n "$HEADERS_DIR" ]]; then
   if [[ "$HEADERS_DIR" = /* ]]; then
@@ -87,6 +116,37 @@ HEADERS_INCLUDES=()
 if [[ -n "$HEADERS_ABS" ]]; then
   HEADERS_FLAG=("--headers-dir=$HEADERS_ABS")
   HEADERS_INCLUDES=(-I"$HEADERS_ABS")
+fi
+
+resolve_source_path() {
+  local source_path="$1"
+  local resolved=""
+  if [[ "$source_path" = /* ]]; then
+    resolved="$source_path"
+  elif [[ -f "$ROOT_DIR/$source_path" ]]; then
+    resolved="$ROOT_DIR/$source_path"
+  else
+    resolved="$(realpath -m "$source_path" 2>/dev/null || echo "")"
+  fi
+  if [[ -z "$resolved" || ! -f "$resolved" ]]; then
+    echo ""
+  else
+    echo "$resolved"
+  fi
+}
+
+EXTRA_SOURCES=()
+if [[ -n "$EXTRA_SOURCES_RAW" ]]; then
+  IFS=',' read -r -a extra_arr <<< "$EXTRA_SOURCES_RAW"
+  for item in "${extra_arr[@]}"; do
+    [[ -z "$item" ]] && continue
+    resolved=$(resolve_source_path "$item")
+    if [[ -z "$resolved" ]]; then
+      echo "[-] Extra source $item not found"
+      exit 1
+    fi
+    EXTRA_SOURCES+=("$resolved")
+  done
 fi
 
 prepare_pycparser_source() {
@@ -126,6 +186,18 @@ run_proto_generation() {
   shopt -s nullglob
   PROTO_FILES=(*.proto)
   shopt -u nullglob
+}
+
+calc_sha1() {
+  local file="$1"
+  if command -v sha1sum >/dev/null 2>&1; then
+    sha1sum "$file" | awk '{print $1}'
+  elif command -v shasum >/dev/null 2>&1; then
+    shasum "$file" | awk '{print $1}'
+  else
+    echo "[-] Neither sha1sum nor shasum found; cannot hash crashes" >&2
+    return 1
+  fi
 }
 
 mkdir -p "$BUILD_DIR/corpus" "$RESULTS_DIR"
@@ -225,20 +297,42 @@ if [[ -n "$HEADERS_ABS" ]]; then
   CLANG_INCLUDE_ARGS+=(-I"$HEADERS_ABS")
 fi
 CLANG_INCLUDE_ARGS+=(-I"$ROOT_DIR/examples")
-clang -fsanitize=fuzzer-no-link -c "$ORIGINAL_SRC" "${CLANG_INCLUDE_ARGS[@]}" -O2 -o original.o || {
+clang -fsanitize=fuzzer-no-link -c "$ORIGINAL_SRC" "${PIN_EXTRA_CFLAGS_ARR[@]}" "${CLANG_INCLUDE_ARGS[@]}" -O2 -o original.o || {
   echo "[-] Failed compiling original"; exit 5; }
 objcopy --redefine-sym main=pin_original_main original.o || true
-clang -fPIC -c "$ORIGINAL_SRC" "${CLANG_INCLUDE_ARGS[@]}" -O2 -o original_plain.o || {
+clang -fPIC -c "$ORIGINAL_SRC" "${PIN_EXTRA_CFLAGS_ARR[@]}" "${CLANG_INCLUDE_ARGS[@]}" -O2 -o original_plain.o || {
   echo "[-] Failed compiling original (plain)"; exit 5; }
 objcopy --redefine-sym main=pin_original_main original_plain.o || true
 
+EXTRA_INST_OBJS=()
+EXTRA_PLAIN_OBJS=()
+if (( ${#EXTRA_SOURCES[@]} > 0 )); then
+  echo "[+] Compile extra sources (${#EXTRA_SOURCES[@]})"
+  idx=0
+  for extra_src in "${EXTRA_SOURCES[@]}"; do
+    extra_base=$(basename "$extra_src")
+    extra_stem="${extra_base%.*}"
+    inst_obj="extra_${idx}_${extra_stem}.instrumented.o"
+    plain_obj="extra_${idx}_${extra_stem}.plain.o"
+    clang -fsanitize=fuzzer-no-link -c "$extra_src" "${PIN_EXTRA_CFLAGS_ARR[@]}" "${CLANG_INCLUDE_ARGS[@]}" -O2 -o "$inst_obj" || {
+      echo "[-] Failed compiling extra source (instrumented): $extra_src"; exit 5; }
+    objcopy --redefine-sym main=pin_original_main "$inst_obj" || true
+    clang -fPIC -c "$extra_src" "${PIN_EXTRA_CFLAGS_ARR[@]}" "${CLANG_INCLUDE_ARGS[@]}" -O2 -o "$plain_obj" || {
+      echo "[-] Failed compiling extra source (plain): $extra_src"; exit 5; }
+    objcopy --redefine-sym main=pin_original_main "$plain_obj" || true
+    EXTRA_INST_OBJS+=("$inst_obj")
+    EXTRA_PLAIN_OBJS+=("$plain_obj")
+    idx=$((idx + 1))
+  done
+fi
+
 echo "[+] Compile nanopb runtime and wrapper"
-clang -c "$NANOPB_DIR/pb_decode.c" -I"$NANOPB_DIR" -O2 -o pb_decode.o
-clang -c "$NANOPB_DIR/pb_common.c" -I"$NANOPB_DIR" -O2 -o pb_common.o
-clang -c "${PROTO_BASE_LOWER}.pb.c" -I"$NANOPB_DIR" -O2 -o input.nanopb.o
+clang -c "$NANOPB_DIR/pb_decode.c" -I"$NANOPB_DIR" "${PIN_EXTRA_CFLAGS_ARR[@]}" -O2 -o pb_decode.o
+clang -c "$NANOPB_DIR/pb_common.c" -I"$NANOPB_DIR" "${PIN_EXTRA_CFLAGS_ARR[@]}" -O2 -o pb_common.o
+clang -c "${PROTO_BASE_LOWER}.pb.c" -I"$NANOPB_DIR" "${PIN_EXTRA_CFLAGS_ARR[@]}" -O2 -o input.nanopb.o
 
 echo "[+] Compile wrapper object (no main) for fuzz_bytes"
-clang -DPIN_WRAPPER_NO_MAIN -I"$NANOPB_DIR" "${HEADERS_INCLUDES[@]}" -O2 -c main.c -o wrapper.o
+clang -DPIN_WRAPPER_NO_MAIN -I"$NANOPB_DIR" "${HEADERS_INCLUDES[@]}" "${PIN_EXTRA_CFLAGS_ARR[@]}" -O2 -c main.c -o wrapper.o
 
 REF_BIN=""
 REF_LABEL=""
@@ -248,16 +342,16 @@ if [[ "$REFERENCE_DECODER" == "cpp" ]]; then
   CPP_OBJS=()
   for cc in "$CPP_PROTO_DIR"/*.cc; do
     obj="$(basename "$cc" .cc).o"
-    clang++ -std=c++17 -I"$CPP_PROTO_DIR" "${HEADERS_INCLUDES[@]}" -O2 -c "$cc" -o "$obj"
+    clang++ -std=c++17 -I"$CPP_PROTO_DIR" "${HEADERS_INCLUDES[@]}" "${PIN_EXTRA_CFLAGS_ARR[@]}" -O2 -c "$cc" -o "$obj"
     CPP_OBJS+=("$obj")
   done
 
   echo "[+] Compile reference runner (protobuf decode)"
-  clang++ -std=c++17 -I"$CPP_PROTO_DIR" "${HEADERS_INCLUDES[@]}" -O2 -c reference_runner.cc -o reference_runner.o
+  clang++ -std=c++17 -I"$CPP_PROTO_DIR" "${HEADERS_INCLUDES[@]}" "${PIN_EXTRA_CFLAGS_ARR[@]}" -O2 -c reference_runner.cc -o reference_runner.o
 
   PROTOBUF_LIBS=$(pkg-config --libs protobuf 2>/dev/null || echo "-lprotobuf -pthread")
 
-  clang++ -std=c++17 -O2 -o original_replay_bin reference_runner.o "${CPP_OBJS[@]}" original_plain.o $PROTOBUF_LIBS $LIBS || {
+  clang++ -std=c++17 -O2 -o original_replay_bin reference_runner.o "${CPP_OBJS[@]}" original_plain.o "${EXTRA_PLAIN_OBJS[@]}" $PROTOBUF_LIBS "${PIN_EXTRA_LDFLAGS_ARR[@]}" $LIBS || {
     echo "[-] Failed linking original_replay_bin"; exit 6; }
   REF_BIN="./original_replay_bin"
   REF_LABEL="original"
@@ -317,7 +411,7 @@ int main(int argc, char **argv) {
     return rc;
 }
 EOF
-  clang -I"$NANOPB_DIR" "${HEADERS_INCLUDES[@]}" -O2 -o reference_nanopb_bin reference_nanopb_main.c wrapper.o pb_decode.o pb_common.o input.nanopb.o original_plain.o $LIBS || {
+  clang -I"$NANOPB_DIR" "${HEADERS_INCLUDES[@]}" -O2 -o reference_nanopb_bin reference_nanopb_main.c wrapper.o pb_decode.o pb_common.o input.nanopb.o original_plain.o "${EXTRA_PLAIN_OBJS[@]}" "${PIN_EXTRA_LDFLAGS_ARR[@]}" $LIBS || {
     echo "[-] Failed linking reference_nanopb_bin"; exit 6; }
   rm -f reference_nanopb_main.c
   REF_BIN="./reference_nanopb_bin"
@@ -325,7 +419,7 @@ EOF
 fi
 
 echo "[+] Build normalized standalone runner (reads bytes file)"
-clang -I"$NANOPB_DIR" "${HEADERS_INCLUDES[@]}" -O2 -o normalized_bin main.c pb_decode.o pb_common.o input.nanopb.o original_plain.o $LIBS || {
+clang -I"$NANOPB_DIR" "${HEADERS_INCLUDES[@]}" -O2 -o normalized_bin main.c pb_decode.o pb_common.o input.nanopb.o original_plain.o "${EXTRA_PLAIN_OBJS[@]}" "${PIN_EXTRA_LDFLAGS_ARR[@]}" $LIBS || {
   echo "[-] Failed linking normalized_bin"; exit 6; }
 
 echo "[+] Build libFuzzer byte harness to call pin_wrapper_entry (Stage A)"
@@ -338,20 +432,25 @@ extern "C" int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size) {
   return 0;
 }
 EOF
-clang++ -fsanitize=fuzzer,address -std=c++17 -I. -I"$NANOPB_DIR" -O2 -c bytes_fuzz.cc -o bytes_fuzz.o
+clang++ -fsanitize=fuzzer,address -std=c++17 -I. -I"$NANOPB_DIR" "${PIN_EXTRA_CFLAGS_ARR[@]}" -O2 -c bytes_fuzz.cc -o bytes_fuzz.o
 
 echo "[+] Link fuzz_bytes"
 # clang++ -fsanitize=fuzzer,address -O2 \
 #   -o fuzz_bytes bytes_fuzz.o pb_decode.o pb_common.o input.nanopb.o original.o \
 #   -lpthread
 clang++ -fsanitize=fuzzer,address -O2 \
-    -o fuzz_bytes bytes_fuzz.o wrapper.o pb_decode.o pb_common.o input.nanopb.o original.o \
-    -lpthread $LIBS
+    -o fuzz_bytes bytes_fuzz.o wrapper.o pb_decode.o pb_common.o input.nanopb.o original.o "${EXTRA_INST_OBJS[@]}" \
+    -lpthread "${PIN_EXTRA_LDFLAGS_ARR[@]}" $LIBS
 
 if [[ "$FUZZ_SECONDS" != "0" ]]; then
   echo "[+] Stage A: libFuzzer discovery for ${FUZZ_SECONDS}s"
   mkdir -p corpus artifacts
-  FUZZ_CMD=("./fuzz_bytes" "corpus" -max_total_time="$FUZZ_SECONDS" -use_value_profile=1 -print_final_stats=1 -artifact_prefix="$BUILD_DIR/artifacts/")
+
+  if compgen -G "$ROOT_DIR/seed_corpus/*" > /dev/null; then
+    cp -n "$ROOT_DIR"/seed_corpus/* corpus/ 2>/dev/null || true
+  fi
+
+  FUZZ_CMD=("./fuzz_bytes" "corpus" -max_total_time="$FUZZ_SECONDS" -use_value_profile=1 -print_final_stats=1 -artifact_prefix="$BUILD_DIR/artifacts/" -ignore_crashes=1)
   if [[ -n "$FUZZ_EXTRA_FLAGS" ]]; then
     # shellcheck disable=SC2206
     EXTRA_ARR=($FUZZ_EXTRA_FLAGS)
@@ -370,6 +469,10 @@ if [[ -z "$REPLAY_DIR" ]]; then
 else
   REPLAY_INPUT_DIR="$REPLAY_DIR"
 fi
+
+declare -A STAGE_B_STATUS
+declare -A STAGE_B_NORM_RC
+declare -A STAGE_B_REF_RC
 
 if [[ ! -d "$REPLAY_INPUT_DIR" ]]; then
   echo "[i] Stage B: replay directory $REPLAY_INPUT_DIR not found; skipping"
@@ -411,6 +514,10 @@ else
         status="DIFF"
       fi
       printf "%s\tRC(norm=%d, ref=%d)%s\n" "$base:$status" "$norm_rc" "$ref_rc" "$reason_note" >> "$REPORT"
+
+      STAGE_B_STATUS["$base"]=$status
+      STAGE_B_NORM_RC["$base"]=$norm_rc
+      STAGE_B_REF_RC["$base"]=$ref_rc
 
       set +e
       DECODED_JSON=$(PY_PROTO_DIR="$PY_PROTO_DIR" PROTO="$PROTO_BASE" MODULE="$PROTO_MODULE" INPUT_PATH="$input_path" python3 - <<'PY' 2>&1
@@ -478,7 +585,62 @@ PY
   fi
 fi
 
+echo "[+] Stage C: crash harvesting"
+STAGE_C_DIR="$RESULTS_DIR/stage_c"
+mkdir -p "$STAGE_C_DIR/crashes"
+RUN_TAG=$(date -u +"%Y%m%dT%H%M%SZ")
+CRASH_INDEX="$STAGE_C_DIR/crash_index.tsv"
+if [[ ! -f "$CRASH_INDEX" ]]; then
+  echo -e "stored_at_utc\tsha1\toriginal_name\tstage_b_status\tstage_b_norm_rc\tstage_b_ref_rc" > "$CRASH_INDEX"
+fi
+
+shopt -s nullglob
+crash_files=("$BUILD_DIR"/artifacts/crash-*)
+shopt -u nullglob
+if (( ${#crash_files[@]} == 0 )); then
+  echo "[i] Stage C: no crashes to archive from $BUILD_DIR/artifacts"
+else
+  for crash_file in "${crash_files[@]}"; do
+    [[ -f "$crash_file" ]] || continue
+    sha=$(calc_sha1 "$crash_file") || continue
+    base=$(basename "$crash_file")
+    dest_dir="$STAGE_C_DIR/crashes/$sha"
+    stage_status="${STAGE_B_STATUS[$base]:-n/a}"
+    stage_norm="${STAGE_B_NORM_RC[$base]:-n/a}"
+    stage_ref="${STAGE_B_REF_RC[$base]:-n/a}"
+
+    if [[ -d "$dest_dir" ]]; then
+      echo "[i] Stage C: crash $base already archived under $sha"
+      continue
+    fi
+
+    mkdir -p "$dest_dir"
+    cp "$crash_file" "$dest_dir/$base"
+    stored_at=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+    cat > "$dest_dir/metadata.txt" <<EOF
+original_name: $base
+sha1: $sha
+stored_at_utc: $stored_at
+stage_b_status: $stage_status
+stage_b_norm_rc: $stage_norm
+stage_b_ref_rc: $stage_ref
+EOF
+    echo -e "$stored_at\t$sha\t$base\t$stage_status\t$stage_norm\t$stage_ref" >> "$CRASH_INDEX"
+    echo "[+] Stage C: archived crash $base (sha1=$sha)"
+  done
+fi
+
+if compgen -G "$BUILD_DIR/corpus/*" > /dev/null; then
+  SNAP_DIR="$STAGE_C_DIR/corpus/run_$RUN_TAG"
+  mkdir -p "$SNAP_DIR"
+  cp -a "$BUILD_DIR/corpus/." "$SNAP_DIR/" 2>/dev/null || true
+  echo "[+] Stage C: captured corpus snapshot at $SNAP_DIR"
+else
+  echo "[i] Stage C: corpus directory empty; skipping snapshot"
+fi
+
 echo "[+] Ready. Next steps:"
 echo "    1) Stage A (discovery): cd $BUILD_DIR && ./fuzz_bytes corpus -max_total_time=60 -use_value_profile=1"
 echo "    2) Stage B (replay): add inputs under $REPLAY_INPUT_DIR and rerun to compare normalized vs original outputs"
 echo "       Replay artifacts stored under $STAGE_B_DIR"
+echo "    3) Stage C (crash vault): review archived crashes under $STAGE_C_DIR"

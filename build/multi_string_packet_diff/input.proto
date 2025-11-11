@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+message Input {
+  NotePacket pkt = 1;
+}
+
+message NotePacket {
+  int32 id = 1;
+  string primary = 2;
+  string secondary = 3;
+}

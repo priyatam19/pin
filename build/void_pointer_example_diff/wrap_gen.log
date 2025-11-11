@@ -1,0 +1,6 @@
+Generated main.c for wrapper.
+Generated reference_runner.cc.
+DEBUG: pointer context {'data': {'name': 'data', 'pointer_type': 'void *', 'kind': 'scalar_ptr', 'base_type': 'void', 'storage_type': 'void', 'qualifiers': [], 'var_name': 'data_ptr', 'storage_var': 'data_storage', 'used': False, 'field_path': None, 'msg_accessor': None, 'msg_var': 'data_msg', 'is_slice': False, 'length_field': None, 'length_type': None, 'length_proto': None, 'helper_name': 'BytesScalarPtr', 'data_proto': 'bytes', 'storage_ptr_type': 'void *', 'presence_field': 'has_value', 'include_header': None, 'typedef_target': None, 'external_handle': False, 'external_fn': None, 'external_call': None}}
+DEBUG: walk_decls called with 2 fields, prefix='', depth=0, parser=libclang
+DEBUG: Processing field ('void *', 'data'), name=data, is_struct=False, is_ptr=True
+DEBUG: Processing field ('int', 'data_type'), name=data_type, is_struct=False, is_ptr=False

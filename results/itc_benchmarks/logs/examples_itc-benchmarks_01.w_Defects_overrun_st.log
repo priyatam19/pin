@@ -1,0 +1,189 @@
+[+] Generate .proto (libclang parser)
+[i] Skipping C++ protobuf generation (reference decoder=nanopb)
+[+] Generate Python protobuf helpers
+[+] Generate nanopb protobuf (for wrapper decode)
+[+] Generate wrapper with pin_wrapper_entry() and standalone main
+[+] Compile original object (instrumented) and plain object
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:21:2: warning: array index 5 is past the end of the array (which contains 5 elements) [-Warray-bounds]
+        buf[5] = 1; /*Tool should detect this line as error*/ /*ERROR: buffer overrun */
+        ^   ~
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:20:2: note: array 'buf' declared here
+        char buf[5];
+        ^
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:32:2: warning: array index 5 is past the end of the array (which contains 5 elements) [-Warray-bounds]
+        buf[5] = 1;/*Tool should detect this line as error*/ /*ERROR: buffer overrun */
+        ^   ~
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:31:2: note: array 'buf' declared here
+        short buf[5];
+        ^
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:44:8: warning: array index 5 is past the end of the array (which contains 5 elements) [-Warray-bounds]
+        ret = buf[5];/*Tool should detect this line as error*/ /*ERROR: buffer overrun */
+              ^   ~
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:42:2: note: array 'buf' declared here
+        int buf[5] = {1, 2, 3, 4, 5};
+        ^
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:55:2: warning: array index 5 is past the end of the array (which contains 5 elements) [-Warray-bounds]
+        buf[5] = 1;/*Tool should detect this line as error*/ /*ERROR: buffer overrun */
+        ^   ~
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:54:2: note: array 'buf' declared here
+        int buf[5];
+        ^
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:66:2: warning: array index 5 is past the end of the array (which contains 5 elements) [-Warray-bounds]
+        buf[5] = 1;/*Tool should detect this line as error*/ /*ERROR: buffer overrun */
+        ^   ~
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:65:2: note: array 'buf' declared here
+        long buf[5];
+        ^
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:77:2: warning: array index 5 is past the end of the array (which contains 5 elements) [-Warray-bounds]
+        buf[5] = 1.0;/*Tool should detect this line as error*/ /*ERROR: buffer overrun */
+        ^   ~
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:76:2: note: array 'buf' declared here
+        float buf[5];
+        ^
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:88:2: warning: array index 5 is past the end of the array (which contains 5 elements) [-Warray-bounds]
+        buf[5] = 1.0;/*Tool should detect this line as error*/ /*ERROR: buffer overrun */
+        ^   ~
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:87:2: note: array 'buf' declared here
+        double buf[5];
+        ^
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:99:2: warning: array index 5 is past the end of the array (which contains 5 elements) [-Warray-bounds]
+        buf[5][5] = 1;/*Tool should detect this line as error*/ /*ERROR: buffer overrun */
+        ^   ~
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:98:2: note: array 'buf' declared here
+        int buf[5][6];
+        ^
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:110:2: warning: array index 5 is past the end of the array (which contains 5 elements) [-Warray-bounds]
+        buf[5][5][6] = 1;/*Tool should detect this line as error*/ /*ERROR: buffer overrun */
+        ^   ~
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:109:2: note: array 'buf' declared here
+        int buf[5][6][7];
+        ^
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:142:2: warning: array index 5 is past the end of the array (which contains 5 elements) [-Warray-bounds]
+        sbuf[5].a = 1;/*Tool should detect this line as error*/ /*ERROR: buffer overrun */
+        ^    ~
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:141:2: note: array 'sbuf' declared here
+        overrun_st_011_s_001 sbuf[5];
+        ^
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:158:2: warning: array index 5 is past the end of the array (which contains 5 elements) [-Warray-bounds]
+        overrun_st_012_s_gbl.buf[5] = 1;/*Tool should detect this line as error*/ /*ERROR: buffer overrun */
+        ^                        ~
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:152:2: note: array 'buf' declared here
+        int buf[5];
+        ^
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:706:2: warning: array index 5 is past the end of the array (which contains 5 elements) [-Warray-bounds]
+        buf[5] = 1;/*Tool should detect this line as error*/ /*ERROR: buffer overrun */
+        ^   ~
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:705:2: note: array 'buf' declared here
+        int buf[] = {1, 2, 3, 4, 5};
+        ^
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:724:2: warning: array index 5 is past the end of the array (which contains 5 elements) [-Warray-bounds]
+        buf[5][5] = 1;/*Tool should detect this line as error*/ /*ERROR: buffer overrun */
+        ^   ~
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:716:2: note: array 'buf' declared here
+        int buf[][6] =
+        ^
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:749:2: warning: array index 5 is past the end of the array (which contains 5 elements) [-Warray-bounds]
+        buf[5] = 1;/*Tool should detect this line as error*/ /*ERROR: buffer overrun */
+        ^   ~
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:748:2: note: array 'buf' declared here
+        char buf[] = "1234";
+        ^
+14 warnings generated.
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:21:2: warning: array index 5 is past the end of the array (which contains 5 elements) [-Warray-bounds]
+        buf[5] = 1; /*Tool should detect this line as error*/ /*ERROR: buffer overrun */
+        ^   ~
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:20:2: note: array 'buf' declared here
+        char buf[5];
+        ^
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:32:2: warning: array index 5 is past the end of the array (which contains 5 elements) [-Warray-bounds]
+        buf[5] = 1;/*Tool should detect this line as error*/ /*ERROR: buffer overrun */
+        ^   ~
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:31:2: note: array 'buf' declared here
+        short buf[5];
+        ^
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:44:8: warning: array index 5 is past the end of the array (which contains 5 elements) [-Warray-bounds]
+        ret = buf[5];/*Tool should detect this line as error*/ /*ERROR: buffer overrun */
+              ^   ~
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:42:2: note: array 'buf' declared here
+        int buf[5] = {1, 2, 3, 4, 5};
+        ^
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:55:2: warning: array index 5 is past the end of the array (which contains 5 elements) [-Warray-bounds]
+        buf[5] = 1;/*Tool should detect this line as error*/ /*ERROR: buffer overrun */
+        ^   ~
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:54:2: note: array 'buf' declared here
+        int buf[5];
+        ^
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:66:2: warning: array index 5 is past the end of the array (which contains 5 elements) [-Warray-bounds]
+        buf[5] = 1;/*Tool should detect this line as error*/ /*ERROR: buffer overrun */
+        ^   ~
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:65:2: note: array 'buf' declared here
+        long buf[5];
+        ^
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:77:2: warning: array index 5 is past the end of the array (which contains 5 elements) [-Warray-bounds]
+        buf[5] = 1.0;/*Tool should detect this line as error*/ /*ERROR: buffer overrun */
+        ^   ~
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:76:2: note: array 'buf' declared here
+        float buf[5];
+        ^
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:88:2: warning: array index 5 is past the end of the array (which contains 5 elements) [-Warray-bounds]
+        buf[5] = 1.0;/*Tool should detect this line as error*/ /*ERROR: buffer overrun */
+        ^   ~
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:87:2: note: array 'buf' declared here
+        double buf[5];
+        ^
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:99:2: warning: array index 5 is past the end of the array (which contains 5 elements) [-Warray-bounds]
+        buf[5][5] = 1;/*Tool should detect this line as error*/ /*ERROR: buffer overrun */
+        ^   ~
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:98:2: note: array 'buf' declared here
+        int buf[5][6];
+        ^
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:110:2: warning: array index 5 is past the end of the array (which contains 5 elements) [-Warray-bounds]
+        buf[5][5][6] = 1;/*Tool should detect this line as error*/ /*ERROR: buffer overrun */
+        ^   ~
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:109:2: note: array 'buf' declared here
+        int buf[5][6][7];
+        ^
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:142:2: warning: array index 5 is past the end of the array (which contains 5 elements) [-Warray-bounds]
+        sbuf[5].a = 1;/*Tool should detect this line as error*/ /*ERROR: buffer overrun */
+        ^    ~
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:141:2: note: array 'sbuf' declared here
+        overrun_st_011_s_001 sbuf[5];
+        ^
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:158:2: warning: array index 5 is past the end of the array (which contains 5 elements) [-Warray-bounds]
+        overrun_st_012_s_gbl.buf[5] = 1;/*Tool should detect this line as error*/ /*ERROR: buffer overrun */
+        ^                        ~
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:152:2: note: array 'buf' declared here
+        int buf[5];
+        ^
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:706:2: warning: array index 5 is past the end of the array (which contains 5 elements) [-Warray-bounds]
+        buf[5] = 1;/*Tool should detect this line as error*/ /*ERROR: buffer overrun */
+        ^   ~
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:705:2: note: array 'buf' declared here
+        int buf[] = {1, 2, 3, 4, 5};
+        ^
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:724:2: warning: array index 5 is past the end of the array (which contains 5 elements) [-Warray-bounds]
+        buf[5][5] = 1;/*Tool should detect this line as error*/ /*ERROR: buffer overrun */
+        ^   ~
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:716:2: note: array 'buf' declared here
+        int buf[][6] =
+        ^
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:749:2: warning: array index 5 is past the end of the array (which contains 5 elements) [-Warray-bounds]
+        buf[5] = 1;/*Tool should detect this line as error*/ /*ERROR: buffer overrun */
+        ^   ~
+/home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/overrun_st.c:748:2: note: array 'buf' declared here
+        char buf[] = "1234";
+        ^
+14 warnings generated.
+[+] Compile extra sources (1)
+[+] Compile nanopb runtime and wrapper
+[+] Compile wrapper object (no main) for fuzz_bytes
+[+] Build nanopb reference replay binary
+[+] Build normalized standalone runner (reads bytes file)
+[+] Build libFuzzer byte harness to call pin_wrapper_entry (Stage A)
+[+] Link fuzz_bytes
+[+] Stage B: differential replay
+[i] Stage B: no inputs in /home/priyatam/pin/build/overrun_st_diff/corpus
+[+] Ready. Next steps:
+    1) Stage A (discovery): cd /home/priyatam/pin/build/overrun_st_diff && ./fuzz_bytes corpus -max_total_time=60 -use_value_profile=1
+    2) Stage B (replay): add inputs under /home/priyatam/pin/build/overrun_st_diff/corpus and rerun to compare normalized vs original outputs
+       Replay artifacts stored under /home/priyatam/pin/results/overrun_st_diff/stage_b

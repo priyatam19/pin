@@ -1,0 +1,7 @@
+Generated main.c for wrapper.
+Generated reference_runner.cc.
+DEBUG: Wrapper parse found struct Sample with fields [('int', 'id'), ('float', 'value')]
+DEBUG: pointer context {'samples': {'name': 'samples', 'pointer_type': 'const struct Sample *', 'kind': 'struct_ptr', 'base_type': 'struct Sample', 'storage_type': 'Sample', 'qualifiers': ['const'], 'var_name': 'samples_ptr', 'storage_var': 'samples_storage', 'used': False, 'field_path': None, 'msg_accessor': None, 'msg_var': 'samples_msg', 'is_slice': True, 'length_field': 'count', 'length_type': 'int', 'length_proto': 'int32', 'helper_name': 'SamplePtr', 'data_proto': 'Sample', 'storage_ptr_type': 'Sample *', 'presence_field': 'present', 'include_header': None, 'typedef_target': None, 'external_handle': False, 'external_fn': None, 'external_call': None}}
+DEBUG: walk_decls called with 2 fields, prefix='', depth=0, parser=libclang
+DEBUG: Processing field ('const struct Sample *', 'samples'), name=samples, is_struct=False, is_ptr=True
+DEBUG: Processing field ('int', 'count'), name=count, is_struct=False, is_ptr=False

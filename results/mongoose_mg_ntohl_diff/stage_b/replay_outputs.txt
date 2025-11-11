@@ -1,0 +1,8 @@
+=== a7c13e6fe60eee08b9aac00a095a9301ea1a9824 ===
+[input decoded]
+{"net": 0}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+

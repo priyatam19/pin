@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+message Int32Slice {
+  repeated int32 data = 1;
+  int32 length = 2;
+}
+
+message Input {
+  Int32Slice values = 1;
+  int32 count = 2;
+}

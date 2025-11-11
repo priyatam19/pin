@@ -1,0 +1,6 @@
+syntax = "proto3";
+
+message Input {
+  double x = 1;
+  double fn = 2;
+}

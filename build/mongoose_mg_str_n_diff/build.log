@@ -1,0 +1,18 @@
+[+] Generate .proto (libclang parser)
+[i] Skipping C++ protobuf generation (reference decoder=nanopb)
+[+] Generate Python protobuf helpers
+[+] Generate nanopb protobuf (for wrapper decode)
+[+] Generate wrapper with pin_wrapper_entry() and standalone main
+[+] Compile original object (instrumented) and plain object
+[+] Compile nanopb runtime and wrapper
+[+] Compile wrapper object (no main) for fuzz_bytes
+main.c:66:5: error: calling 'mg_str_n' with incomplete return type 'struct mg_str'
+    mg_str_n(s_buf, input.n);
+    ^~~~~~~~~~~~~~~~~~~~~~~~
+main.c:46:22: note: 'mg_str_n' declared here
+extern struct mg_str mg_str_n(const char * s, size_t n);
+                     ^
+main.c:46:15: note: forward declaration of 'struct mg_str'
+extern struct mg_str mg_str_n(const char * s, size_t n);
+              ^
+1 error generated.

@@ -1,0 +1,973 @@
+DEBUG: Starting main with file /home/priyatam/pin/examples/mongoose.c, func mg_iobuf_init, parser libclang, headers /home/priyatam/pin/utils/user_headers
+DEBUG: Parsing file /home/priyatam/pin/examples/mongoose.c with libclang
+DEBUG: Libclang args: ['-I/home/priyatam/pin/utils/user_headers']
+DEBUG: Scanning for function mg_iobuf_init
+DEBUG: Found target function mg_iobuf_init
+DEBUG: Function has 3 arguments
+DEBUG: Param type: struct mg_iobuf *
+DEBUG: Param type: size_t
+DEBUG: Param type: size_t
+DEBUG: Found called function mg_iobuf_resize
+DEBUG: Collecting structs from /home/priyatam/pin/examples/mongoose.c
+DEBUG: Skipped struct __fsid_t from /usr/include/x86_64-linux-gnu/bits/types.h (not in main file or headers dir)
+DEBUG: Skipped struct __fsid_t from /usr/include/x86_64-linux-gnu/bits/types.h (not in main file or headers dir)
+DEBUG: Skipped struct iovec from /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h (not in main file or headers dir)
+DEBUG: Skipped struct __sigset_t from /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h (not in main file or headers dir)
+DEBUG: Skipped struct __sigset_t from /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h (not in main file or headers dir)
+DEBUG: Skipped struct timeval from /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h (not in main file or headers dir)
+DEBUG: Skipped struct timespec from /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h (not in main file or headers dir)
+DEBUG: Skipped struct fd_set from /usr/include/x86_64-linux-gnu/sys/select.h (not in main file or headers dir)
+DEBUG: Skipped struct fd_set from /usr/include/x86_64-linux-gnu/sys/select.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3) from /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3) from /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3) from /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3) from /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_internal_list from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_internal_list from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_internal_slist from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_internal_slist from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_mutex_s from /usr/include/x86_64-linux-gnu/bits/struct_mutex.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_rwlock_arch_t from /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_cond_s from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct __once_flag from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct __once_flag from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct sockaddr from /usr/include/x86_64-linux-gnu/bits/socket.h (not in main file or headers dir)
+DEBUG: Skipped struct sockaddr_storage from /usr/include/x86_64-linux-gnu/bits/socket.h (not in main file or headers dir)
+DEBUG: Skipped struct msghdr from /usr/include/x86_64-linux-gnu/bits/socket.h (not in main file or headers dir)
+DEBUG: Skipped struct cmsghdr from /usr/include/x86_64-linux-gnu/bits/socket.h (not in main file or headers dir)
+DEBUG: Skipped struct __kernel_fd_set from /usr/include/linux/posix_types.h (not in main file or headers dir)
+DEBUG: Skipped struct __kernel_fd_set from /usr/include/linux/posix_types.h (not in main file or headers dir)
+DEBUG: Skipped struct __kernel_fsid_t from /usr/include/asm-generic/posix_types.h (not in main file or headers dir)
+DEBUG: Skipped struct __kernel_fsid_t from /usr/include/asm-generic/posix_types.h (not in main file or headers dir)
+DEBUG: Skipped struct linger from /usr/include/x86_64-linux-gnu/bits/socket.h (not in main file or headers dir)
+DEBUG: Skipped struct osockaddr from /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h (not in main file or headers dir)
+DEBUG: Skipped struct in_addr from /usr/include/netinet/in.h (not in main file or headers dir)
+DEBUG: Skipped struct ip_opts from /usr/include/x86_64-linux-gnu/bits/in.h (not in main file or headers dir)
+DEBUG: Skipped struct in_pktinfo from /usr/include/x86_64-linux-gnu/bits/in.h (not in main file or headers dir)
+DEBUG: Skipped struct in6_addr from /usr/include/netinet/in.h (not in main file or headers dir)
+DEBUG: Skipped struct sockaddr_in from /usr/include/netinet/in.h (not in main file or headers dir)
+DEBUG: Skipped struct sockaddr_in6 from /usr/include/netinet/in.h (not in main file or headers dir)
+DEBUG: Skipped struct ip_mreq from /usr/include/netinet/in.h (not in main file or headers dir)
+DEBUG: Skipped struct ip_mreqn from /usr/include/netinet/in.h (not in main file or headers dir)
+DEBUG: Skipped struct ip_mreq_source from /usr/include/netinet/in.h (not in main file or headers dir)
+DEBUG: Skipped struct ipv6_mreq from /usr/include/netinet/in.h (not in main file or headers dir)
+DEBUG: Skipped struct group_req from /usr/include/netinet/in.h (not in main file or headers dir)
+DEBUG: Skipped struct group_source_req from /usr/include/netinet/in.h (not in main file or headers dir)
+DEBUG: Skipped struct ip_msfilter from /usr/include/netinet/in.h (not in main file or headers dir)
+DEBUG: Skipped struct group_filter from /usr/include/netinet/in.h (not in main file or headers dir)
+DEBUG: Skipped struct __locale_struct from /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h (not in main file or headers dir)
+DEBUG: Skipped struct __locale_data from /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h (not in main file or headers dir)
+DEBUG: Skipped struct dirent from /usr/include/x86_64-linux-gnu/bits/dirent.h (not in main file or headers dir)
+DEBUG: Skipped struct __dirstream from /usr/include/dirent.h (not in main file or headers dir)
+DEBUG: Skipped struct flock from /usr/include/x86_64-linux-gnu/bits/fcntl.h (not in main file or headers dir)
+DEBUG: Skipped struct stat from /usr/include/x86_64-linux-gnu/bits/struct_stat.h (not in main file or headers dir)
+DEBUG: Skipped struct imaxdiv_t from /usr/include/inttypes.h (not in main file or headers dir)
+DEBUG: Skipped struct imaxdiv_t from /usr/include/inttypes.h (not in main file or headers dir)
+DEBUG: Skipped struct rpcent from /usr/include/rpc/netdb.h (not in main file or headers dir)
+DEBUG: Skipped struct netent from /usr/include/x86_64-linux-gnu/bits/netdb.h (not in main file or headers dir)
+DEBUG: Skipped struct hostent from /usr/include/netdb.h (not in main file or headers dir)
+DEBUG: Skipped struct servent from /usr/include/netdb.h (not in main file or headers dir)
+DEBUG: Skipped struct protoent from /usr/include/netdb.h (not in main file or headers dir)
+DEBUG: Skipped struct addrinfo from /usr/include/netdb.h (not in main file or headers dir)
+DEBUG: Skipped struct tcphdr from /usr/include/netinet/tcp.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (anonymous at /usr/include/netinet/tcp.h:102:7) from /usr/include/netinet/tcp.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (anonymous at /usr/include/netinet/tcp.h:127:7) from /usr/include/netinet/tcp.h (not in main file or headers dir)
+DEBUG: Skipped struct tcp_info from /usr/include/netinet/tcp.h (not in main file or headers dir)
+DEBUG: Skipped struct tcp_md5sig from /usr/include/netinet/tcp.h (not in main file or headers dir)
+DEBUG: Skipped struct tcp_repair_opt from /usr/include/netinet/tcp.h (not in main file or headers dir)
+DEBUG: Skipped struct tcp_cookie_transactions from /usr/include/netinet/tcp.h (not in main file or headers dir)
+DEBUG: Skipped struct tcp_repair_window from /usr/include/netinet/tcp.h (not in main file or headers dir)
+DEBUG: Skipped struct tcp_zerocopy_receive from /usr/include/netinet/tcp.h (not in main file or headers dir)
+DEBUG: Skipped struct siginfo_t from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:56:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:56:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:63:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:63:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:71:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:71:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:79:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:79:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:89:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:89:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:108:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:108:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:116:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:116:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:56:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:56:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:63:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:63:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:71:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:71:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:79:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:79:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:89:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:89:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:108:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:108:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:116:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:116:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct siginfo_t from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:56:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:56:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:63:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:63:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:71:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:71:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:79:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:79:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:89:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:89:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:108:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:108:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:116:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:116:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:56:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:56:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:63:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:63:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:71:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:71:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:79:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:79:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:89:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:89:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:108:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:108:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:116:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:116:2) from /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h (not in main file or headers dir)
+DEBUG: Skipped struct sigevent from /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h:36:2) from /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h:36:2) from /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h:36:2) from /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h:36:2) from /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h (not in main file or headers dir)
+DEBUG: Skipped struct sigevent from /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h:36:2) from /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h:36:2) from /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h:36:2) from /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h:36:2) from /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h (not in main file or headers dir)
+DEBUG: Skipped struct sigaction from /usr/include/x86_64-linux-gnu/bits/sigaction.h (not in main file or headers dir)
+DEBUG: Skipped struct _fpx_sw_bytes from /usr/include/x86_64-linux-gnu/bits/sigcontext.h (not in main file or headers dir)
+DEBUG: Skipped struct _fpreg from /usr/include/x86_64-linux-gnu/bits/sigcontext.h (not in main file or headers dir)
+DEBUG: Skipped struct _fpxreg from /usr/include/x86_64-linux-gnu/bits/sigcontext.h (not in main file or headers dir)
+DEBUG: Skipped struct _xmmreg from /usr/include/x86_64-linux-gnu/bits/sigcontext.h (not in main file or headers dir)
+DEBUG: Skipped struct _fpstate from /usr/include/x86_64-linux-gnu/bits/sigcontext.h (not in main file or headers dir)
+DEBUG: Skipped struct sigcontext from /usr/include/x86_64-linux-gnu/bits/sigcontext.h (not in main file or headers dir)
+DEBUG: Skipped struct _xsave_hdr from /usr/include/x86_64-linux-gnu/bits/sigcontext.h (not in main file or headers dir)
+DEBUG: Skipped struct _ymmh_state from /usr/include/x86_64-linux-gnu/bits/sigcontext.h (not in main file or headers dir)
+DEBUG: Skipped struct _xstate from /usr/include/x86_64-linux-gnu/bits/sigcontext.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/stack_t.h:26:9) from /usr/include/x86_64-linux-gnu/bits/types/stack_t.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/stack_t.h:26:9) from /usr/include/x86_64-linux-gnu/bits/types/stack_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _libc_fpxreg from /usr/include/x86_64-linux-gnu/sys/ucontext.h (not in main file or headers dir)
+DEBUG: Skipped struct _libc_xmmreg from /usr/include/x86_64-linux-gnu/sys/ucontext.h (not in main file or headers dir)
+DEBUG: Skipped struct _libc_fpstate from /usr/include/x86_64-linux-gnu/sys/ucontext.h (not in main file or headers dir)
+DEBUG: Skipped struct mcontext_t from /usr/include/x86_64-linux-gnu/sys/ucontext.h (not in main file or headers dir)
+DEBUG: Skipped struct mcontext_t from /usr/include/x86_64-linux-gnu/sys/ucontext.h (not in main file or headers dir)
+DEBUG: Skipped struct ucontext_t from /usr/include/x86_64-linux-gnu/sys/ucontext.h (not in main file or headers dir)
+DEBUG: Skipped struct ucontext_t from /usr/include/x86_64-linux-gnu/sys/ucontext.h (not in main file or headers dir)
+DEBUG: Skipped struct sigstack from /usr/include/x86_64-linux-gnu/bits/types/struct_sigstack.h (not in main file or headers dir)
+DEBUG: Skipped struct __mbstate_t from /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h (not in main file or headers dir)
+DEBUG: Skipped struct __mbstate_t from /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos64_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos64_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/__FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_marker from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_codecvt from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_wide_data from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct div_t from /usr/include/stdlib.h (not in main file or headers dir)
+DEBUG: Skipped struct div_t from /usr/include/stdlib.h (not in main file or headers dir)
+DEBUG: Skipped struct ldiv_t from /usr/include/stdlib.h (not in main file or headers dir)
+DEBUG: Skipped struct ldiv_t from /usr/include/stdlib.h (not in main file or headers dir)
+DEBUG: Skipped struct lldiv_t from /usr/include/stdlib.h (not in main file or headers dir)
+DEBUG: Skipped struct lldiv_t from /usr/include/stdlib.h (not in main file or headers dir)
+DEBUG: Skipped struct random_data from /usr/include/stdlib.h (not in main file or headers dir)
+DEBUG: Skipped struct drand48_data from /usr/include/stdlib.h (not in main file or headers dir)
+DEBUG: Skipped struct epoll_event from /usr/include/x86_64-linux-gnu/sys/epoll.h (not in main file or headers dir)
+DEBUG: Skipped struct timezone from /usr/include/x86_64-linux-gnu/sys/time.h (not in main file or headers dir)
+DEBUG: Skipped struct itimerval from /usr/include/x86_64-linux-gnu/sys/time.h (not in main file or headers dir)
+DEBUG: Skipped struct tm from /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h (not in main file or headers dir)
+DEBUG: Skipped struct itimerspec from /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h (not in main file or headers dir)
+DEBUG: Skipped struct sigevent from /usr/include/time.h (not in main file or headers dir)
+DEBUG: Skipping header struct mg_str from /home/priyatam/pin/utils/user_headers/mongoose.h
+DEBUG: Skipping header struct mg_queue from /home/priyatam/pin/utils/user_headers/mongoose.h
+DEBUG: Skipping header struct mg_timer from /home/priyatam/pin/utils/user_headers/mongoose.h
+DEBUG: Skipping header struct mg_fs from /home/priyatam/pin/utils/user_headers/mongoose.h
+DEBUG: Skipping header struct mg_fd from /home/priyatam/pin/utils/user_headers/mongoose.h
+DEBUG: Skipping header struct mg_iobuf from /home/priyatam/pin/utils/user_headers/mongoose.h
+DEBUG: Skipping header struct mg_md5_ctx from /home/priyatam/pin/utils/user_headers/mongoose.h
+DEBUG: Skipping header struct mg_md5_ctx from /home/priyatam/pin/utils/user_headers/mongoose.h
+DEBUG: Skipping header struct mg_sha1_ctx from /home/priyatam/pin/utils/user_headers/mongoose.h
+DEBUG: Skipping header struct mg_sha1_ctx from /home/priyatam/pin/utils/user_headers/mongoose.h
+DEBUG: Skipping header struct mg_connection from /home/priyatam/pin/utils/user_headers/mongoose.h
+DEBUG: Skipping header struct mg_dns from /home/priyatam/pin/utils/user_headers/mongoose.h
+DEBUG: Skipping header struct mg_addr from /home/priyatam/pin/utils/user_headers/mongoose.h
+DEBUG: Skipping header struct mg_mgr from /home/priyatam/pin/utils/user_headers/mongoose.h
+DEBUG: Skipping header struct mg_connection from /home/priyatam/pin/utils/user_headers/mongoose.h
+DEBUG: Skipping header struct mg_http_header from /home/priyatam/pin/utils/user_headers/mongoose.h
+DEBUG: Skipping header struct mg_http_message from /home/priyatam/pin/utils/user_headers/mongoose.h
+DEBUG: Skipping header struct mg_http_serve_opts from /home/priyatam/pin/utils/user_headers/mongoose.h
+DEBUG: Skipping header struct mg_http_part from /home/priyatam/pin/utils/user_headers/mongoose.h
+DEBUG: Skipping header struct mg_tls_opts from /home/priyatam/pin/utils/user_headers/mongoose.h
+DEBUG: Skipping header struct mg_ws_message from /home/priyatam/pin/utils/user_headers/mongoose.h
+DEBUG: Skipping header struct mg_mqtt_prop from /home/priyatam/pin/utils/user_headers/mongoose.h
+DEBUG: Skipping header struct mg_mqtt_opts from /home/priyatam/pin/utils/user_headers/mongoose.h
+DEBUG: Skipping header struct mg_mqtt_message from /home/priyatam/pin/utils/user_headers/mongoose.h
+DEBUG: Skipping header struct mg_dns_message from /home/priyatam/pin/utils/user_headers/mongoose.h
+DEBUG: Skipping header struct mg_dns_header from /home/priyatam/pin/utils/user_headers/mongoose.h
+DEBUG: Skipping header struct mg_dns_rr from /home/priyatam/pin/utils/user_headers/mongoose.h
+DEBUG: Skipping header struct mg_rpc_req from /home/priyatam/pin/utils/user_headers/mongoose.h
+DEBUG: Skipping header struct mg_rpc from /home/priyatam/pin/utils/user_headers/mongoose.h
+DEBUG: Skipping header struct mg_rpc from /home/priyatam/pin/utils/user_headers/mongoose.h
+DEBUG: Skipping header struct mg_tcpip_driver_imxrt1020_data from /home/priyatam/pin/utils/user_headers/mongoose.h
+DEBUG: Skipping header struct mg_tcpip_driver_stm32_data from /home/priyatam/pin/utils/user_headers/mongoose.h
+DEBUG: Skipping header struct mg_tcpip_driver_stm32h_data from /home/priyatam/pin/utils/user_headers/mongoose.h
+DEBUG: Skipping header struct mg_tcpip_driver_tm4c_data from /home/priyatam/pin/utils/user_headers/mongoose.h
+DEBUG: Found struct dns_data in /home/priyatam/pin/examples/mongoose.c
+DEBUG: Recorded pointer metadata for dns_data.next: PointerMetadata(depth=1, base_type='struct dns_data', qualifiers=[], kind='struct_ptr', proto_hint='DnsDataPtr', raw='struct dns_data *', clean_base='dns_data', wrapper_name='DnsDataPtr', length_param=None, length_type=None, length_proto=None, typedef_target=None, include_header=None, external=False)
+DEBUG: Recorded pointer metadata for dns_data.c: PointerMetadata(depth=1, base_type='struct mg_connection', qualifiers=[], kind='struct_ptr', proto_hint='bytes', raw='struct mg_connection *', clean_base='mg_connection', wrapper_name=None, length_param=None, length_type=None, length_proto=None, typedef_target=None, include_header=None, external=False)
+DEBUG: Added struct dns_data with fields [('DnsDataPtr', 'next'), ('bytes', 'c'), ('uint64', 'expire'), ('uint32', 'txnid')]
+DEBUG: Found struct struct (unnamed at /home/priyatam/pin/examples/mongoose.c:311:3) in /home/priyatam/pin/examples/mongoose.c
+DEBUG: Added struct AnonymousStruct with fields [('bytes', 'header'), ('repeated uint32', 'data')]
+DEBUG: Found struct struct (unnamed at /home/priyatam/pin/examples/mongoose.c:311:3) in /home/priyatam/pin/examples/mongoose.c
+DEBUG: Added struct AnonymousStruct with fields [('bytes', 'header'), ('repeated uint32', 'data')]
+DEBUG: Found struct packed_file in /home/priyatam/pin/examples/mongoose.c
+DEBUG: Recorded pointer metadata for packed_file.data: PointerMetadata(depth=1, base_type='char', qualifiers=['const'], kind='string_ptr', proto_hint='string', raw='const char *', clean_base=None, wrapper_name=None, length_param=None, length_type=None, length_proto=None, typedef_target=None, include_header=None, external=False)
+DEBUG: Added struct packed_file with fields [('string', 'data'), ('uint64', 'size'), ('uint64', 'pos')]
+DEBUG: Found struct printdirentrydata in /home/priyatam/pin/examples/mongoose.c
+DEBUG: Recorded pointer metadata for printdirentrydata.c: PointerMetadata(depth=1, base_type='struct mg_connection', qualifiers=[], kind='struct_ptr', proto_hint='bytes', raw='struct mg_connection *', clean_base='mg_connection', wrapper_name=None, length_param=None, length_type=None, length_proto=None, typedef_target=None, include_header=None, external=False)
+DEBUG: Recorded pointer metadata for printdirentrydata.hm: PointerMetadata(depth=1, base_type='struct mg_http_message', qualifiers=[], kind='struct_ptr', proto_hint='MgHttpMessagePtr', raw='struct mg_http_message *', clean_base='mg_http_message', wrapper_name='MgHttpMessagePtr', length_param=None, length_type=None, length_proto=None, typedef_target=None, include_header=None, external=False)
+DEBUG: Recorded pointer metadata for printdirentrydata.opts: PointerMetadata(depth=1, base_type='struct mg_http_serve_opts', qualifiers=['const'], kind='struct_ptr', proto_hint='MgHttpServeOptsPtr', raw='const struct mg_http_serve_opts *', clean_base='mg_http_serve_opts', wrapper_name='MgHttpServeOptsPtr', length_param=None, length_type=None, length_proto=None, typedef_target=None, include_header=None, external=False)
+DEBUG: Recorded pointer metadata for printdirentrydata.dir: PointerMetadata(depth=1, base_type='char', qualifiers=['const'], kind='string_ptr', proto_hint='string', raw='const char *', clean_base=None, wrapper_name=None, length_param=None, length_type=None, length_proto=None, typedef_target=None, include_header=None, external=False)
+DEBUG: Added struct printdirentrydata with fields [('bytes', 'c'), ('MgHttpMessagePtr', 'hm'), ('MgHttpServeOptsPtr', 'opts'), ('string', 'dir')]
+DEBUG: Found struct mg_mqtt_pmap in /home/priyatam/pin/examples/mongoose.c
+DEBUG: Added struct mg_mqtt_pmap with fields [('uint32', 'id'), ('uint32', 'type')]
+DEBUG: Found struct url in /home/priyatam/pin/examples/mongoose.c
+DEBUG: Added struct url with fields [('uint64', 'key'), ('uint64', 'user'), ('uint64', 'pass'), ('uint64', 'host'), ('uint64', 'port'), ('uint64', 'uri'), ('uint64', 'end')]
+DEBUG: Found struct ws_msg in /home/priyatam/pin/examples/mongoose.c
+DEBUG: Added struct ws_msg with fields [('uint32', 'flags'), ('uint64', 'header_len'), ('uint64', 'data_len')]
+DEBUG: Parsing headers in /home/priyatam/pin/utils/user_headers
+DEBUG: Parsing header /home/priyatam/pin/utils/user_headers/mongoose.h
+DEBUG: Found header struct __fsid_t
+DEBUG: Skipping header struct Struct___fsid_t to avoid duplication
+DEBUG: Found header struct __fsid_t
+DEBUG: Skipping header struct Struct___fsid_t to avoid duplication
+DEBUG: Found header struct iovec
+DEBUG: Skipping header struct iovec to avoid duplication
+DEBUG: Found header struct __sigset_t
+DEBUG: Skipping header struct Struct___sigset_t to avoid duplication
+DEBUG: Found header struct __sigset_t
+DEBUG: Skipping header struct Struct___sigset_t to avoid duplication
+DEBUG: Found header struct timeval
+DEBUG: Found header struct timespec
+DEBUG: Found header struct fd_set
+DEBUG: Skipping header struct fd_set to avoid duplication
+DEBUG: Found header struct fd_set
+DEBUG: Skipping header struct fd_set to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct __pthread_internal_list
+DEBUG: Skipping header struct Struct___pthread_internal_list to avoid duplication
+DEBUG: Found header struct __pthread_internal_list
+DEBUG: Skipping header struct Struct___pthread_internal_list to avoid duplication
+DEBUG: Found header struct __pthread_internal_slist
+DEBUG: Skipping header struct Struct___pthread_internal_slist to avoid duplication
+DEBUG: Found header struct __pthread_internal_slist
+DEBUG: Skipping header struct Struct___pthread_internal_slist to avoid duplication
+DEBUG: Found header struct __pthread_mutex_s
+DEBUG: Skipping header struct Struct___pthread_mutex_s to avoid duplication
+DEBUG: Found header struct __pthread_rwlock_arch_t
+DEBUG: Skipping header struct Struct___pthread_rwlock_arch_t to avoid duplication
+DEBUG: Found header struct __pthread_cond_s
+DEBUG: Skipping header struct Struct___pthread_cond_s to avoid duplication
+DEBUG: Found header struct __once_flag
+DEBUG: Skipping header struct Struct___once_flag to avoid duplication
+DEBUG: Found header struct __once_flag
+DEBUG: Skipping header struct Struct___once_flag to avoid duplication
+DEBUG: Found header struct sockaddr
+DEBUG: Skipping header struct sockaddr to avoid duplication
+DEBUG: Found header struct sockaddr_storage
+DEBUG: Skipping header struct sockaddr_storage to avoid duplication
+DEBUG: Found header struct msghdr
+DEBUG: Skipping header struct msghdr to avoid duplication
+DEBUG: Found header struct cmsghdr
+DEBUG: Skipping header struct cmsghdr to avoid duplication
+DEBUG: Found header struct __kernel_fd_set
+DEBUG: Skipping header struct Struct___kernel_fd_set to avoid duplication
+DEBUG: Found header struct __kernel_fd_set
+DEBUG: Skipping header struct Struct___kernel_fd_set to avoid duplication
+DEBUG: Found header struct __kernel_fsid_t
+DEBUG: Skipping header struct Struct___kernel_fsid_t to avoid duplication
+DEBUG: Found header struct __kernel_fsid_t
+DEBUG: Skipping header struct Struct___kernel_fsid_t to avoid duplication
+DEBUG: Found header struct linger
+DEBUG: Skipping header struct linger to avoid duplication
+DEBUG: Found header struct osockaddr
+DEBUG: Skipping header struct osockaddr to avoid duplication
+DEBUG: Found header struct in_addr
+DEBUG: Skipping header struct in_addr to avoid duplication
+DEBUG: Found header struct ip_opts
+DEBUG: Skipping header struct ip_opts to avoid duplication
+DEBUG: Found header struct in_pktinfo
+DEBUG: Skipping header struct in_pktinfo to avoid duplication
+DEBUG: Found header struct in6_addr
+DEBUG: Skipping header struct in6_addr to avoid duplication
+DEBUG: Found header struct sockaddr_in
+DEBUG: Skipping header struct sockaddr_in to avoid duplication
+DEBUG: Found header struct sockaddr_in6
+DEBUG: Skipping header struct sockaddr_in6 to avoid duplication
+DEBUG: Found header struct ip_mreq
+DEBUG: Skipping header struct ip_mreq to avoid duplication
+DEBUG: Found header struct ip_mreqn
+DEBUG: Skipping header struct ip_mreqn to avoid duplication
+DEBUG: Found header struct ip_mreq_source
+DEBUG: Skipping header struct ip_mreq_source to avoid duplication
+DEBUG: Found header struct ipv6_mreq
+DEBUG: Skipping header struct ipv6_mreq to avoid duplication
+DEBUG: Found header struct group_req
+DEBUG: Skipping header struct group_req to avoid duplication
+DEBUG: Found header struct group_source_req
+DEBUG: Skipping header struct group_source_req to avoid duplication
+DEBUG: Found header struct ip_msfilter
+DEBUG: Skipping header struct ip_msfilter to avoid duplication
+DEBUG: Found header struct group_filter
+DEBUG: Skipping header struct group_filter to avoid duplication
+DEBUG: Found header struct __locale_struct
+DEBUG: Skipping header struct Struct___locale_struct to avoid duplication
+DEBUG: Found header struct __locale_data
+DEBUG: Skipping header struct Struct___locale_data to avoid duplication
+DEBUG: Found header struct dirent
+DEBUG: Skipping header struct dirent to avoid duplication
+DEBUG: Found header struct __dirstream
+DEBUG: Skipping header struct Struct___dirstream to avoid duplication
+DEBUG: Found header struct flock
+DEBUG: Skipping header struct flock to avoid duplication
+DEBUG: Found header struct stat
+DEBUG: Found header struct imaxdiv_t
+DEBUG: Found header struct imaxdiv_t
+DEBUG: Found header struct rpcent
+DEBUG: Skipping header struct rpcent to avoid duplication
+DEBUG: Found header struct netent
+DEBUG: Skipping header struct netent to avoid duplication
+DEBUG: Found header struct hostent
+DEBUG: Skipping header struct hostent to avoid duplication
+DEBUG: Found header struct servent
+DEBUG: Skipping header struct servent to avoid duplication
+DEBUG: Found header struct protoent
+DEBUG: Skipping header struct protoent to avoid duplication
+DEBUG: Found header struct addrinfo
+DEBUG: Skipping header struct addrinfo to avoid duplication
+DEBUG: Found header struct tcphdr
+DEBUG: Skipping header struct tcphdr to avoid duplication
+DEBUG: Found header struct struct (anonymous at /usr/include/netinet/tcp.h:102:7)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (anonymous at /usr/include/netinet/tcp.h:127:7)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct tcp_info
+DEBUG: Skipping header struct tcp_info to avoid duplication
+DEBUG: Found header struct tcp_md5sig
+DEBUG: Skipping header struct tcp_md5sig to avoid duplication
+DEBUG: Found header struct tcp_repair_opt
+DEBUG: Skipping header struct tcp_repair_opt to avoid duplication
+DEBUG: Found header struct tcp_cookie_transactions
+DEBUG: Skipping header struct tcp_cookie_transactions to avoid duplication
+DEBUG: Found header struct tcp_repair_window
+DEBUG: Skipping header struct tcp_repair_window to avoid duplication
+DEBUG: Found header struct tcp_zerocopy_receive
+DEBUG: Skipping header struct tcp_zerocopy_receive to avoid duplication
+DEBUG: Found header struct siginfo_t
+DEBUG: Skipping header struct siginfo_t to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:56:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:56:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:63:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:63:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:71:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:71:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:79:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:79:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:89:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:89:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:108:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:108:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:116:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:116:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:56:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:56:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:63:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:63:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:71:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:71:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:79:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:79:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:89:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:89:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:108:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:108:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:116:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:116:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct siginfo_t
+DEBUG: Skipping header struct siginfo_t to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:56:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:56:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:63:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:63:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:71:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:71:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:79:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:79:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:89:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:89:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:108:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:108:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:116:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:116:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:56:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:56:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:63:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:63:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:71:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:71:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:79:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:79:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:89:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:89:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:97:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:108:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:108:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:116:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:116:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct sigevent
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h:36:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h:36:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h:36:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h:36:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct sigevent
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h:36:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h:36:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h:36:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h:36:2)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct sigaction
+DEBUG: Found header struct _fpx_sw_bytes
+DEBUG: Skipping header struct Struct__fpx_sw_bytes to avoid duplication
+DEBUG: Found header struct _fpreg
+DEBUG: Skipping header struct Struct__fpreg to avoid duplication
+DEBUG: Found header struct _fpxreg
+DEBUG: Skipping header struct Struct__fpxreg to avoid duplication
+DEBUG: Found header struct _xmmreg
+DEBUG: Skipping header struct Struct__xmmreg to avoid duplication
+DEBUG: Found header struct _fpstate
+DEBUG: Skipping header struct Struct__fpstate to avoid duplication
+DEBUG: Found header struct sigcontext
+DEBUG: Skipping header struct sigcontext to avoid duplication
+DEBUG: Found header struct _xsave_hdr
+DEBUG: Skipping header struct Struct__xsave_hdr to avoid duplication
+DEBUG: Found header struct _ymmh_state
+DEBUG: Skipping header struct Struct__ymmh_state to avoid duplication
+DEBUG: Found header struct _xstate
+DEBUG: Skipping header struct Struct__xstate to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/stack_t.h:26:9)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/types/stack_t.h:26:9)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct _libc_fpxreg
+DEBUG: Skipping header struct Struct__libc_fpxreg to avoid duplication
+DEBUG: Found header struct _libc_xmmreg
+DEBUG: Skipping header struct Struct__libc_xmmreg to avoid duplication
+DEBUG: Found header struct _libc_fpstate
+DEBUG: Skipping header struct Struct__libc_fpstate to avoid duplication
+DEBUG: Found header struct mcontext_t
+DEBUG: Skipping header struct mcontext_t to avoid duplication
+DEBUG: Found header struct mcontext_t
+DEBUG: Skipping header struct mcontext_t to avoid duplication
+DEBUG: Found header struct ucontext_t
+DEBUG: Found header struct ucontext_t
+DEBUG: Found header struct sigstack
+DEBUG: Skipping header struct sigstack to avoid duplication
+DEBUG: Found header struct __mbstate_t
+DEBUG: Skipping header struct Struct___mbstate_t to avoid duplication
+DEBUG: Found header struct __mbstate_t
+DEBUG: Skipping header struct Struct___mbstate_t to avoid duplication
+DEBUG: Found header struct _G_fpos_t
+DEBUG: Skipping header struct Struct__G_fpos_t to avoid duplication
+DEBUG: Found header struct _G_fpos_t
+DEBUG: Skipping header struct Struct__G_fpos_t to avoid duplication
+DEBUG: Found header struct _G_fpos64_t
+DEBUG: Skipping header struct Struct__G_fpos64_t to avoid duplication
+DEBUG: Found header struct _G_fpos64_t
+DEBUG: Skipping header struct Struct__G_fpos64_t to avoid duplication
+DEBUG: Found header struct _IO_FILE
+DEBUG: Skipping header struct Struct__IO_FILE to avoid duplication
+DEBUG: Found header struct _IO_FILE
+DEBUG: Skipping header struct Struct__IO_FILE to avoid duplication
+DEBUG: Found header struct _IO_FILE
+DEBUG: Skipping header struct Struct__IO_FILE to avoid duplication
+DEBUG: Found header struct _IO_marker
+DEBUG: Skipping header struct Struct__IO_marker to avoid duplication
+DEBUG: Found header struct _IO_codecvt
+DEBUG: Skipping header struct Struct__IO_codecvt to avoid duplication
+DEBUG: Found header struct _IO_wide_data
+DEBUG: Skipping header struct Struct__IO_wide_data to avoid duplication
+DEBUG: Found header struct _IO_FILE
+DEBUG: Skipping header struct Struct__IO_FILE to avoid duplication
+DEBUG: Found header struct div_t
+DEBUG: Found header struct div_t
+DEBUG: Found header struct ldiv_t
+DEBUG: Found header struct ldiv_t
+DEBUG: Found header struct lldiv_t
+DEBUG: Found header struct lldiv_t
+DEBUG: Found header struct random_data
+DEBUG: Skipping header struct random_data to avoid duplication
+DEBUG: Found header struct drand48_data
+DEBUG: Skipping header struct drand48_data to avoid duplication
+DEBUG: Found header struct epoll_event
+DEBUG: Found header struct timezone
+DEBUG: Found header struct itimerval
+DEBUG: Skipping header struct itimerval to avoid duplication
+DEBUG: Found header struct tm
+DEBUG: Skipping header struct tm to avoid duplication
+DEBUG: Found header struct itimerspec
+DEBUG: Skipping header struct itimerspec to avoid duplication
+DEBUG: Found header struct sigevent
+DEBUG: Found header struct mg_str
+DEBUG: Skipping header struct mg_str to avoid duplication
+DEBUG: Found header struct mg_queue
+DEBUG: Skipping header struct mg_queue to avoid duplication
+DEBUG: Found header struct mg_timer
+DEBUG: Found header struct mg_fs
+DEBUG: Skipping header struct mg_fs to avoid duplication
+DEBUG: Found header struct mg_fd
+DEBUG: Skipping header struct mg_fd to avoid duplication
+DEBUG: Found header struct mg_iobuf
+DEBUG: Found header struct mg_md5_ctx
+DEBUG: Skipping header struct mg_md5_ctx to avoid duplication
+DEBUG: Found header struct mg_md5_ctx
+DEBUG: Skipping header struct mg_md5_ctx to avoid duplication
+DEBUG: Found header struct mg_sha1_ctx
+DEBUG: Skipping header struct mg_sha1_ctx to avoid duplication
+DEBUG: Found header struct mg_sha1_ctx
+DEBUG: Skipping header struct mg_sha1_ctx to avoid duplication
+DEBUG: Found header struct mg_connection
+DEBUG: Found header struct mg_dns
+DEBUG: Found header struct mg_addr
+DEBUG: Found header struct mg_mgr
+DEBUG: Found header struct mg_connection
+DEBUG: Found header struct mg_http_header
+DEBUG: Skipping header struct mg_http_header to avoid duplication
+DEBUG: Found header struct mg_http_message
+DEBUG: Skipping header struct mg_http_message to avoid duplication
+DEBUG: Found header struct mg_http_serve_opts
+DEBUG: Skipping header struct mg_http_serve_opts to avoid duplication
+DEBUG: Found header struct mg_http_part
+DEBUG: Skipping header struct mg_http_part to avoid duplication
+DEBUG: Found header struct mg_tls_opts
+DEBUG: Skipping header struct mg_tls_opts to avoid duplication
+DEBUG: Found header struct mg_ws_message
+DEBUG: Skipping header struct mg_ws_message to avoid duplication
+DEBUG: Found header struct mg_mqtt_prop
+DEBUG: Skipping header struct mg_mqtt_prop to avoid duplication
+DEBUG: Found header struct mg_mqtt_opts
+DEBUG: Skipping header struct mg_mqtt_opts to avoid duplication
+DEBUG: Found header struct mg_mqtt_message
+DEBUG: Skipping header struct mg_mqtt_message to avoid duplication
+DEBUG: Found header struct mg_dns_message
+DEBUG: Skipping header struct mg_dns_message to avoid duplication
+DEBUG: Found header struct mg_dns_header
+DEBUG: Found header struct mg_dns_rr
+DEBUG: Found header struct mg_rpc_req
+DEBUG: Skipping header struct mg_rpc_req to avoid duplication
+DEBUG: Found header struct mg_rpc
+DEBUG: Skipping header struct mg_rpc to avoid duplication
+DEBUG: Found header struct mg_rpc
+DEBUG: Skipping header struct mg_rpc to avoid duplication
+DEBUG: Found header struct mg_tcpip_driver_imxrt1020_data
+DEBUG: Found header struct mg_tcpip_driver_stm32_data
+DEBUG: Found header struct mg_tcpip_driver_stm32h_data
+DEBUG: Found header struct mg_tcpip_driver_tm4c_data
+DEBUG: Parsing header /home/priyatam/pin/utils/user_headers/HeaderFile.h
+DEBUG: Found header struct __fsid_t
+DEBUG: Skipping header struct Struct___fsid_t to avoid duplication
+DEBUG: Found header struct __fsid_t
+DEBUG: Skipping header struct Struct___fsid_t to avoid duplication
+DEBUG: Found header struct __mbstate_t
+DEBUG: Skipping header struct Struct___mbstate_t to avoid duplication
+DEBUG: Found header struct __mbstate_t
+DEBUG: Skipping header struct Struct___mbstate_t to avoid duplication
+DEBUG: Found header struct _G_fpos_t
+DEBUG: Skipping header struct Struct__G_fpos_t to avoid duplication
+DEBUG: Found header struct _G_fpos_t
+DEBUG: Skipping header struct Struct__G_fpos_t to avoid duplication
+DEBUG: Found header struct _G_fpos64_t
+DEBUG: Skipping header struct Struct__G_fpos64_t to avoid duplication
+DEBUG: Found header struct _G_fpos64_t
+DEBUG: Skipping header struct Struct__G_fpos64_t to avoid duplication
+DEBUG: Found header struct _IO_FILE
+DEBUG: Skipping header struct Struct__IO_FILE to avoid duplication
+DEBUG: Found header struct _IO_FILE
+DEBUG: Skipping header struct Struct__IO_FILE to avoid duplication
+DEBUG: Found header struct _IO_FILE
+DEBUG: Skipping header struct Struct__IO_FILE to avoid duplication
+DEBUG: Found header struct _IO_marker
+DEBUG: Skipping header struct Struct__IO_marker to avoid duplication
+DEBUG: Found header struct _IO_codecvt
+DEBUG: Skipping header struct Struct__IO_codecvt to avoid duplication
+DEBUG: Found header struct _IO_wide_data
+DEBUG: Skipping header struct Struct__IO_wide_data to avoid duplication
+DEBUG: Found header struct _IO_FILE
+DEBUG: Skipping header struct Struct__IO_FILE to avoid duplication
+DEBUG: Found header struct div_t
+DEBUG: Found header struct div_t
+DEBUG: Found header struct ldiv_t
+DEBUG: Found header struct ldiv_t
+DEBUG: Found header struct lldiv_t
+DEBUG: Found header struct lldiv_t
+DEBUG: Found header struct __sigset_t
+DEBUG: Skipping header struct Struct___sigset_t to avoid duplication
+DEBUG: Found header struct __sigset_t
+DEBUG: Skipping header struct Struct___sigset_t to avoid duplication
+DEBUG: Found header struct timeval
+DEBUG: Found header struct timespec
+DEBUG: Found header struct fd_set
+DEBUG: Skipping header struct fd_set to avoid duplication
+DEBUG: Found header struct fd_set
+DEBUG: Skipping header struct fd_set to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct __pthread_internal_list
+DEBUG: Skipping header struct Struct___pthread_internal_list to avoid duplication
+DEBUG: Found header struct __pthread_internal_list
+DEBUG: Skipping header struct Struct___pthread_internal_list to avoid duplication
+DEBUG: Found header struct __pthread_internal_slist
+DEBUG: Skipping header struct Struct___pthread_internal_slist to avoid duplication
+DEBUG: Found header struct __pthread_internal_slist
+DEBUG: Skipping header struct Struct___pthread_internal_slist to avoid duplication
+DEBUG: Found header struct __pthread_mutex_s
+DEBUG: Skipping header struct Struct___pthread_mutex_s to avoid duplication
+DEBUG: Found header struct __pthread_rwlock_arch_t
+DEBUG: Skipping header struct Struct___pthread_rwlock_arch_t to avoid duplication
+DEBUG: Found header struct __pthread_cond_s
+DEBUG: Skipping header struct Struct___pthread_cond_s to avoid duplication
+DEBUG: Found header struct __once_flag
+DEBUG: Skipping header struct Struct___once_flag to avoid duplication
+DEBUG: Found header struct __once_flag
+DEBUG: Skipping header struct Struct___once_flag to avoid duplication
+DEBUG: Found header struct random_data
+DEBUG: Skipping header struct random_data to avoid duplication
+DEBUG: Found header struct drand48_data
+DEBUG: Skipping header struct drand48_data to avoid duplication
+DEBUG: Found header struct __locale_struct
+DEBUG: Skipping header struct Struct___locale_struct to avoid duplication
+DEBUG: Found header struct __locale_data
+DEBUG: Skipping header struct Struct___locale_data to avoid duplication
+DEBUG: Found header struct sched_param
+DEBUG: Skipping header struct sched_param to avoid duplication
+DEBUG: Found header struct cpu_set_t
+DEBUG: Skipping header struct cpu_set_t to avoid duplication
+DEBUG: Found header struct cpu_set_t
+DEBUG: Skipping header struct cpu_set_t to avoid duplication
+DEBUG: Found header struct tm
+DEBUG: Skipping header struct tm to avoid duplication
+DEBUG: Found header struct itimerspec
+DEBUG: Skipping header struct itimerspec to avoid duplication
+DEBUG: Found header struct sigevent
+DEBUG: Found header struct __jmp_buf_tag
+DEBUG: Skipping header struct Struct___jmp_buf_tag to avoid duplication
+DEBUG: Found header struct _pthread_cleanup_buffer
+DEBUG: Skipping header struct Struct__pthread_cleanup_buffer to avoid duplication
+DEBUG: Found header struct __cancel_jmp_buf_tag
+DEBUG: Skipping header struct Struct___cancel_jmp_buf_tag to avoid duplication
+DEBUG: Found header struct __pthread_unwind_buf_t
+DEBUG: Skipping header struct Struct___pthread_unwind_buf_t to avoid duplication
+DEBUG: Found header struct __pthread_unwind_buf_t
+DEBUG: Skipping header struct Struct___pthread_unwind_buf_t to avoid duplication
+DEBUG: Found header struct __pthread_cleanup_frame
+DEBUG: Skipping header struct Struct___pthread_cleanup_frame to avoid duplication
+DEBUG: Function mg_iobuf_init params: [('struct mg_iobuf *', 'io'), ('size_t', 'size'), ('size_t', 'align')]
+DEBUG: Detected length companion size for pointer io
+DEBUG: Recorded pointer metadata for param mg_iobuf_init.io: PointerMetadata(depth=1, base_type='struct mg_iobuf', qualifiers=[], kind='struct_ptr', proto_hint='bytes', raw='struct mg_iobuf *', clean_base='mg_iobuf', wrapper_name=None, length_param='size', length_type='size_t', length_proto='uint64', typedef_target=None, include_header=None, external=False)
+DEBUG: CLI main function detected: False
+DEBUG: Mapping type for decl: ('DnsDataPtr', 'next')
+DEBUG: Unmapped type DnsDataPtr, using bytes
+DEBUG: Mapping type for decl: ('bytes', 'c')
+DEBUG: Mapping type for decl: ('uint64', 'expire')
+DEBUG: Mapping type for decl: ('uint32', 'txnid')
+DEBUG: Mapping type for decl: ('bytes', 'header')
+DEBUG: Mapping type for decl: ('repeated uint32', 'data')
+DEBUG: Unmapped type repeated uint32, using bytes
+DEBUG: Mapping type for decl: ('string', 'data')
+DEBUG: Mapping type for decl: ('uint64', 'size')
+DEBUG: Mapping type for decl: ('uint64', 'pos')
+DEBUG: Mapping type for decl: ('bytes', 'c')
+DEBUG: Mapping type for decl: ('MgHttpMessagePtr', 'hm')
+DEBUG: Unmapped type MgHttpMessagePtr, using bytes
+DEBUG: Mapping type for decl: ('MgHttpServeOptsPtr', 'opts')
+DEBUG: Unmapped type MgHttpServeOptsPtr, using bytes
+DEBUG: Mapping type for decl: ('string', 'dir')
+DEBUG: Mapping type for decl: ('uint32', 'id')
+DEBUG: Mapping type for decl: ('uint32', 'type')
+DEBUG: Mapping type for decl: ('uint64', 'key')
+DEBUG: Mapping type for decl: ('uint64', 'user')
+DEBUG: Mapping type for decl: ('uint64', 'pass')
+DEBUG: Mapping type for decl: ('uint64', 'host')
+DEBUG: Mapping type for decl: ('uint64', 'port')
+DEBUG: Mapping type for decl: ('uint64', 'uri')
+DEBUG: Mapping type for decl: ('uint64', 'end')
+DEBUG: Mapping type for decl: ('uint32', 'flags')
+DEBUG: Mapping type for decl: ('uint64', 'header_len')
+DEBUG: Mapping type for decl: ('uint64', 'data_len')
+DEBUG: Mapping type for decl: ('struct mg_iobuf *', 'io')
+DEBUG: Mapping type for decl: ('size_t', 'size')
+DEBUG: Mapping type for decl: ('size_t', 'align')
+Wrote proto to input.proto:
+
+syntax = "proto3";
+
+message Input {
+  bytes io = 1;
+  uint64 size = 2;
+  uint64 align = 3;
+}
+
+message DnsDataPtr {
+  bool present = 1;
+  bytes value = 2;
+}
+
+message MgHttpMessagePtr {
+  bool present = 1;
+  bytes value = 2;
+}
+
+message MgHttpServeOptsPtr {
+  bool present = 1;
+  bytes value = 2;
+}
+
+message dns_data {
+  bytes next = 1;
+  bytes c = 2;
+  uint64 expire = 3;
+  uint32 txnid = 4;
+}
+
+message AnonymousStruct {
+  bytes header = 1;
+  bytes data = 2;
+}
+
+message packed_file {
+  string data = 1;
+  uint64 size = 2;
+  uint64 pos = 3;
+}
+
+message printdirentrydata {
+  bytes c = 1;
+  bytes hm = 2;
+  bytes opts = 3;
+  string dir = 4;
+}
+
+message mg_mqtt_pmap {
+  uint32 id = 1;
+  uint32 type = 2;
+}
+
+message url {
+  uint64 key = 1;
+  uint64 user = 2;
+  uint64 pass = 3;
+  uint64 host = 4;
+  uint64 port = 5;
+  uint64 uri = 6;
+  uint64 end = 7;
+}
+
+message ws_msg {
+  uint32 flags = 1;
+  uint64 header_len = 2;
+  uint64 data_len = 3;
+}
+
+message mg_http_message {
+  bytes raw = 1;
+}
+
+message mg_http_serve_opts {
+  bytes raw = 1;
+}
+

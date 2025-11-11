@@ -1,0 +1,14 @@
+{
+  "typedef_aliases": {
+    "cJSON": {
+      "struct": "cJSON",
+      "header": "cJSON.h",
+      "external": true
+    },
+    "cJSON_Hooks": {
+      "struct": "cJSON_Hooks",
+      "header": "cJSON.h",
+      "external": true
+    }
+  }
+}

@@ -1,0 +1,18 @@
+[+] Generate .proto (libclang parser)
+[i] Skipping C++ protobuf generation (reference decoder=nanopb)
+[+] Generate Python protobuf helpers
+[+] Generate nanopb protobuf (for wrapper decode)
+[+] Generate wrapper with pin_wrapper_entry() and standalone main
+[+] Compile original object (instrumented) and plain object
+[+] Compile nanopb runtime and wrapper
+[+] Compile wrapper object (no main) for fuzz_bytes
+main.c:46:26: error: unknown type name 'mg_md5_ctx'
+extern void mg_md5_final(mg_md5_ctx * ctx, unsigned char[16] digest);
+                         ^
+main.c:46:62: error: expected ')'
+extern void mg_md5_final(mg_md5_ctx * ctx, unsigned char[16] digest);
+                                                             ^
+main.c:46:25: note: to match this '('
+extern void mg_md5_final(mg_md5_ctx * ctx, unsigned char[16] digest);
+                        ^
+2 errors generated.

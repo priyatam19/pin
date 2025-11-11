@@ -660,18 +660,16 @@ def walk_decls(decls, prefix, callbacks, structs, ast, cpath='input', depth=0, i
 
             if info['kind'] == 'scalar_ptr':
                 post_decode_lines.append(f"    {storage_type} {storage_var} = 0;\n")
-                post_decode_lines.append(f"    {pointer_type} {var_name} = NULL;\n")
+                post_decode_lines.append(f"    {pointer_type} {var_name} = &{storage_var};\n")
                 post_decode_lines.append(f"    if ({fieldcpath}.has_value) {{\n")
                 post_decode_lines.append(f"        {storage_var} = ({storage_type})({fieldcpath}.value);\n")
-                post_decode_lines.append(f"        {var_name} = &{storage_var};\n")
                 post_decode_lines.append("    }\n")
             elif info['kind'] == 'struct_ptr':
                 post_decode_lines.append(f"    {storage_type} {storage_var} = {{0}};\n")
-                post_decode_lines.append(f"    {pointer_type} {var_name} = NULL;\n")
+                post_decode_lines.append(f"    {pointer_type} {var_name} = ({pointer_type})&{storage_var};\n")
                 presence = info.get('presence_field', 'has_value')
                 post_decode_lines.append(f"    if ({fieldcpath}.{presence}) {{\n")
                 post_decode_lines.append(f"        {storage_var} = {fieldcpath}.value;\n")
-                post_decode_lines.append(f"        {var_name} = ({pointer_type})&{storage_var};\n")
                 post_decode_lines.append("    }\n")
             else:
                 call_args.append(fieldcpath)
@@ -787,6 +785,7 @@ def generate_wrapper(filename, logic_func, pb_base, mainstruct=None, parser="pyc
     pointer_context = {}
     header_includes = ""
     external_stub_defs = ""
+    forced_headers = [h.strip() for h in os.environ.get("PIN_FORCE_INCLUDES", "").split(",") if h.strip()]
     if parser == "pycparser":
         with open(filename) as f:
             src = f.read()
@@ -886,8 +885,13 @@ def generate_wrapper(filename, logic_func, pb_base, mainstruct=None, parser="pyc
                 pointer_context = detect_pointer_params(params, TYPEDEF_ALIAS_MAP)
                 print(f"DEBUG: pointer context {pointer_context}")
                 headers = sorted({info.get('include_header') for info in pointer_context.values() if info.get('include_header')})
+                include_list = []
                 if headers:
-                    header_includes = "".join(f'#include "{hdr}"\n' for hdr in headers)
+                    include_list.extend(headers)
+                if forced_headers:
+                    include_list.extend(forced_headers)
+                if include_list:
+                    header_includes = "".join(f'#include "{hdr}"\n' for hdr in include_list)
                 stub_lines = []
                 seen_stubs = set()
                 for info in pointer_context.values():
@@ -983,7 +987,7 @@ def generate_wrapper(filename, logic_func, pb_base, mainstruct=None, parser="pyc
         buf_decls = ""
         for bufname, buflen, _ in callbacks:
             cb_code += generate_decode_callback(bufname, buflen)
-            buf_decls += f"    char {bufname}_buf[{buflen}];\n"
+            buf_decls += f"    char {bufname}_buf[{buflen}] = {{0}};\n"
         helper_defs = ''.join(slice_helpers.values())
         cb_code = helper_defs + cb_code
         fail_block = format_cleanup_block(fail_cleanup_code)
@@ -1174,7 +1178,7 @@ int main(int argc, char *argv[]) {{
         buf_decls = ""
         for bufname, buflen, _ in callbacks:
             cb_code += generate_decode_callback(bufname, buflen)
-            buf_decls += f"    char {bufname}_buf[{buflen}];\n"
+            buf_decls += f"    char {bufname}_buf[{buflen}] = {{0}};\n"
         helper_defs = ''.join(slice_helpers.values())
         cb_code = helper_defs + cb_code
         fail_block = format_cleanup_block(fail_cleanup_code)

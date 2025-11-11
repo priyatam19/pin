@@ -1,0 +1,29 @@
+DEBUG: Starting main with file tmp_structs.c, func scale_optional, parser libclang, headers 
+DEBUG: Parsing file tmp_structs.c with libclang
+DEBUG: Libclang args: []
+DEBUG: Scanning for function scale_optional
+DEBUG: Found target function scale_optional
+DEBUG: Function has 2 arguments
+DEBUG: Param type: int *
+DEBUG: Param type: int
+DEBUG: Collecting structs from tmp_structs.c
+DEBUG: Function scale_optional params: [('int *', 'value'), ('int', 'scale')]
+DEBUG: Recorded pointer metadata for param scale_optional.value: PointerMetadata(depth=1, base_type='int', qualifiers=[], kind='scalar_ptr', proto_hint='Int32ScalarPtr', raw='int *', clean_base=None, wrapper_name='Int32ScalarPtr', length_param=None, length_type=None, length_proto=None)
+DEBUG: CLI main function detected: False
+DEBUG: Mapping type for decl: ('int *', 'value')
+DEBUG: Mapping type for decl: ('int', 'scale')
+DEBUG: Using function params for Input: [('Int32ScalarPtr', 'value'), ('int32', 'scale')]
+Wrote proto to input.proto:
+
+syntax = "proto3";
+
+message Input {
+  Int32ScalarPtr value = 1;
+  int32 scale = 2;
+}
+
+message Int32ScalarPtr {
+  bool has_value = 1;
+  int32 value = 2;
+}
+

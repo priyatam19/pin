@@ -1,0 +1,21 @@
+[+] Generate .proto (libclang parser)
+[i] Skipping C++ protobuf generation (reference decoder=nanopb)
+[+] Generate Python protobuf helpers
+[+] Generate nanopb protobuf (for wrapper decode)
+[+] Generate wrapper with pin_wrapper_entry() and standalone main
+[+] Compile original object (instrumented) and plain object
+[+] Compile nanopb runtime and wrapper
+[+] Compile wrapper object (no main) for fuzz_bytes
+main.c:81:14: error: no member named 'arg' in 'struct _Uint32ScalarPtr'
+    input.to.arg = to_buf;
+    ~~~~~~~~ ^
+main.c:82:14: error: no member named 'funcs' in 'struct _Uint32ScalarPtr'
+    input.to.funcs.decode = &decode_to;
+    ~~~~~~~~ ^
+main.c:89:34: warning: passing 'char[128]' to parameter of type 'unsigned char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+    mg_unhex(buf_buf, input.len, to_buf);
+                                 ^~~~~~
+main.c:64:68: note: passing argument to parameter 'to' here
+extern void mg_unhex(const char * buf, size_t len, unsigned char * to);
+                                                                   ^
+1 warning and 2 errors generated.

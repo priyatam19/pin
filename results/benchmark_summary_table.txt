@@ -1,0 +1,20 @@
+Example                                   RC Stage                          StageB(match/DIFF/emi)     Comment
+--------------------------------------------------------------------------------------------------------------
+check_num                                  0 Stage B                        67/0/0                     
+empty_mode_compare                         0 Stage B                        36/102/0                   diff examples; first=00b8124e1d241e05112d59fd02d2150f176141ef:DIFF	RC(norm=0, ref=1)
+mixed_scalars                              0 Stage B                        118/18/0                   diff examples; first=0ba8fdf42c3e366e05711fbe7faca3285019c488:DIFF	RC(norm=0, ref=1)
+mixed_struct                               0 Stage B                        26/20/0                    diff examples; first=0086da9addeda1c964220a7fcfa60a8cd65e25ec:DIFF	RC(norm=0, ref=0)
+mode_buffer_dump                           0 Stage B                        9/90/0                     diff examples; first=018f45b8d76ba3318e93a3cef51ab0e819d861ef:DIFF	RC(norm=0, ref=0)
+multi_mode_pair                            0 Stage B                        51/340/0                   diff examples; first=009788b7ab349d2f0b8319df69c0526f03738f7e:DIFF	RC(norm=0, ref=1)
+multi_string_packet                        1 Stage B                        n/a                        pipeline error (see log)
+myprog                                     4 Stage A - wrapper              n/a                        Wrapper generation failed. See wrap_gen.log
+myprog_structs                             4 Stage A - wrapper              n/a                        Wrapper generation failed. See wrap_gen.log
+array_of_structs_example                   1 Stage B                        n/a                        pipeline error (see log)
+const_pointer_example                      0 Stage B                        1/0/0                      
+double_pointer_example                     1 Stage B                        n/a                        pipeline error (see log)
+multiple_pointers_example                  0 Stage B                        1/0/0                      
+nested_struct_pointer_example              0 Stage B                        2/0/0                      
+scalar_pointer_example                     0 Stage B                        1/0/0                      
+slice_pointer_example                      0 Stage B                        1/0/59                     emi rejects; first=01158448d394a31e56712732771bc388715e4320:emi-reject	RC(norm=86, ref=0) reason=[PIN_EMI] reject reason=length-field-mismatch detail=values
+struct_pointer_example                     0 Stage B                        1/0/0                      
+void_pointer_example                       1 Stage B                        n/a                        pipeline error (see log)

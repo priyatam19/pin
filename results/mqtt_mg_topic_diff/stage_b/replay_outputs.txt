@@ -1,0 +1,8 @@
+=== id_000000 ===
+[input decoded]
+{"msg": {"present": false, "value": {"ack": 0, "cmd": 0, "data": {"len": 0, "ptr": ""}, "dgram": {"len": 0, "ptr": ""}, "id": 0, "props_size": 0, "props_start": 0, "qos": {"has_value": false, "value": 0}, "topic": {"present": false, "value": {"len": 0, "ptr": ""}}}}, "pos": 0, "qos": {"has_value": false, "value": 0}, "topic": {"present": false, "value": {"len": 0, "ptr": ""}}}
+[normalized rc=139 stdout]
+[normalized stderr]
+[reference_npb rc=139 stdout]
+[reference_npb stderr]
+

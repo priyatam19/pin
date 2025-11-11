@@ -1,0 +1,8 @@
+=== 3a5a90e4668e4112a67184bda480990ed4e25a18 ===
+[input decoded]
+{"scale": 0, "value": {"has_value": false, "value": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+

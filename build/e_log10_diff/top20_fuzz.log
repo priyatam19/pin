@@ -1,0 +1,33 @@
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 4042120841
+INFO: Loaded 1 modules   (9 inline 8-bit counters): 9 [0x55c88ac016b8, 0x55c88ac016c1), 
+INFO: Loaded 1 PC tables (9 PCs): 9 [0x55c88ac016c8,0x55c88ac01758), 
+INFO:      228 files found in corpus
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 4096 bytes
+INFO: seed corpus: files: 228 min: 2b max: 10b total: 2099b rss: 36Mb
+#229	INITED cov: 8 ft: 334 corp: 170/1544b exec/s: 0 rss: 40Mb
+#515748	REDUCE cov: 8 ft: 334 corp: 170/1543b lim: 4096 exec/s: 515748 rss: 106Mb L: 9/10 MS: 4 EraseBytes-ChangeByte-CopyPart-ChangeBit-
+#1002871	REDUCE cov: 8 ft: 334 corp: 170/1542b lim: 4096 exec/s: 334290 rss: 169Mb L: 9/10 MS: 2 EraseBytes-CrossOver-
+#1048576	pulse  cov: 8 ft: 334 corp: 170/1542b lim: 4096 exec/s: 349525 rss: 175Mb
+#1245945	REDUCE cov: 8 ft: 334 corp: 170/1541b lim: 4096 exec/s: 415315 rss: 201Mb L: 9/10 MS: 4 ChangeBit-ChangeBit-EraseBytes-ChangeBinInt-
+#1369719	REDUCE cov: 8 ft: 334 corp: 170/1540b lim: 4096 exec/s: 342429 rss: 217Mb L: 9/10 MS: 4 ShuffleBytes-EraseBytes-ShuffleBytes-ChangeBit-
+#2097152	pulse  cov: 8 ft: 334 corp: 170/1540b lim: 4096 exec/s: 349525 rss: 310Mb
+#3085111	REDUCE cov: 8 ft: 334 corp: 170/1539b lim: 4096 exec/s: 342790 rss: 437Mb L: 9/10 MS: 2 EraseBytes-ChangeBit-
+#4194304	pulse  cov: 8 ft: 334 corp: 170/1539b lim: 4096 exec/s: 322638 rss: 476Mb
+#4661029	REDUCE cov: 8 ft: 334 corp: 170/1538b lim: 4096 exec/s: 332930 rss: 477Mb L: 9/10 MS: 3 ChangeBinInt-EraseBytes-ChangeBit-
+#6092256	REDUCE cov: 8 ft: 334 corp: 170/1537b lim: 4096 exec/s: 320645 rss: 478Mb L: 9/10 MS: 2 EraseBytes-ChangeBinInt-
+#7833720	REDUCE cov: 8 ft: 334 corp: 170/1536b lim: 4096 exec/s: 313348 rss: 479Mb L: 9/10 MS: 4 ChangeBit-CrossOver-EraseBytes-ChangeBit-
+#7867482	REDUCE cov: 8 ft: 334 corp: 170/1535b lim: 4096 exec/s: 314699 rss: 479Mb L: 9/10 MS: 2 EraseBytes-ChangeBinInt-
+#8388608	pulse  cov: 8 ft: 334 corp: 170/1535b lim: 4096 exec/s: 310689 rss: 479Mb
+#10031264	REDUCE cov: 8 ft: 334 corp: 170/1534b lim: 4096 exec/s: 313477 rss: 479Mb L: 9/10 MS: 2 EraseBytes-ChangeBinInt-
+#13058561	REDUCE cov: 8 ft: 334 corp: 170/1533b lim: 4096 exec/s: 310918 rss: 480Mb L: 9/10 MS: 2 ChangeBit-EraseBytes-
+#14392558	REDUCE cov: 8 ft: 334 corp: 170/1532b lim: 4096 exec/s: 306224 rss: 480Mb L: 9/10 MS: 2 EraseBytes-ChangeBinInt-
+#14407113	REDUCE cov: 8 ft: 334 corp: 170/1531b lim: 4096 exec/s: 306534 rss: 480Mb L: 9/10 MS: 5 ChangeBit-ShuffleBytes-ChangeBit-EraseBytes-CMP- DE: "\004i\375\372"-
+#16777216	pulse  cov: 8 ft: 334 corp: 170/1531b lim: 4096 exec/s: 310689 rss: 482Mb
+#17214471	REDUCE cov: 8 ft: 334 corp: 170/1530b lim: 4096 exec/s: 307401 rss: 482Mb L: 9/10 MS: 3 CopyPart-EraseBytes-ChangeBit-
+#17432680	REDUCE cov: 8 ft: 334 corp: 170/1529b lim: 4096 exec/s: 305836 rss: 483Mb L: 9/10 MS: 4 ChangeByte-InsertByte-ChangeBit-EraseBytes-
+#18588245	DONE   cov: 8 ft: 334 corp: 170/1529b lim: 4096 exec/s: 304725 rss: 483Mb
+###### Recommended dictionary. ######
+"\004i\375\372" # Uses: 397426
+###### End of recommended dictionary. ######
+Done 18588245 runs in 61 second(s)

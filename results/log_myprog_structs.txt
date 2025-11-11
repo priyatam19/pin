@@ -1,0 +1,6 @@
+[+] Generate .proto (libclang parser)
+[+] Generate C++ protobuf (for original replay)
+[+] Generate Python protobuf helpers
+[+] Generate nanopb protobuf (for wrapper decode)
+[+] Generate wrapper with pin_wrapper_entry() and standalone main
+[-] Wrapper generation failed. See wrap_gen.log

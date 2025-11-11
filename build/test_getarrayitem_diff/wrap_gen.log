@@ -1,0 +1,10 @@
+Generated main.c for wrapper.
+Generated reference_runner.cc.
+DEBUG: Wrapper parse found struct cJSON with fields [('struct cJSON *', 'next'), ('struct cJSON *', 'prev'), ('struct cJSON *', 'child'), ('int', 'type'), ('char *', 'valuestring'), ('int', 'valueint'), ('double', 'valuedouble'), ('char *', 'string')]
+DEBUG: Wrapper parse found struct cJSON with fields [('struct cJSON *', 'next'), ('struct cJSON *', 'prev'), ('struct cJSON *', 'child'), ('int', 'type'), ('char *', 'valuestring'), ('int', 'valueint'), ('double', 'valuedouble'), ('char *', 'string')]
+DEBUG: Wrapper parse found struct cJSON_Hooks with fields [('void *(*)(int)', 'malloc_fn'), ('void (*)(void *)', 'free_fn')]
+DEBUG: Wrapper parse found struct cJSON_Hooks with fields [('void *(*)(int)', 'malloc_fn'), ('void (*)(void *)', 'free_fn')]
+DEBUG: pointer context {'array': {'name': 'array', 'pointer_type': 'cJSON *', 'kind': 'struct_ptr', 'base_type': 'struct cJSON', 'storage_type': 'cJSON', 'qualifiers': [], 'var_name': 'array_ptr', 'storage_var': 'array_storage', 'used': False, 'field_path': None, 'msg_accessor': None, 'msg_var': 'array_msg', 'is_slice': False, 'length_field': None, 'length_type': None, 'length_proto': None, 'helper_name': None, 'data_proto': 'cJSON', 'storage_ptr_type': 'cJSON *', 'presence_field': 'present', 'include_header': 'cJSON.h', 'typedef_target': None, 'external_handle': True, 'external_fn': 'pin_acquire_handle_array', 'external_call': 'pin_acquire_handle_array()'}}
+DEBUG: walk_decls called with 2 fields, prefix='', depth=0, parser=libclang
+DEBUG: Processing field ('cJSON *', 'array'), name=array, is_struct=False, is_ptr=True
+DEBUG: Processing field ('int', 'index'), name=index, is_struct=False, is_ptr=False

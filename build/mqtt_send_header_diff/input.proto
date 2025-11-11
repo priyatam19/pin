@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+message Input {
+  bytes connection = 1;
+  uint32 cmd = 2;
+  uint32 flags = 3;
+  uint32 len = 4;
+}

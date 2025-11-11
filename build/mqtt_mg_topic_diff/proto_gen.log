@@ -1,0 +1,85 @@
+DEBUG: Starting main with file /home/priyatam/pin/examples/mqtt_mg_topic.c, func mg_mqtt_next_topic, parser libclang, headers 
+DEBUG: Parsing file /home/priyatam/pin/examples/mqtt_mg_topic.c with libclang
+DEBUG: Libclang args: []
+DEBUG: Scanning for function mg_mqtt_next_topic
+DEBUG: Found target function mg_mqtt_next_topic
+DEBUG: Function has 4 arguments
+DEBUG: Param type: struct mg_mqtt_message *
+DEBUG: Added referenced struct mg_mqtt_message
+DEBUG: Param type: struct mg_str *
+DEBUG: Added referenced struct mg_str
+DEBUG: Param type: uint8_t *
+DEBUG: Param type: int
+DEBUG: Collecting structs from /home/priyatam/pin/examples/mqtt_mg_topic.c
+DEBUG: Skipped struct __fsid_t from /usr/include/x86_64-linux-gnu/bits/types.h (not in main file or headers dir)
+DEBUG: Skipped struct __fsid_t from /usr/include/x86_64-linux-gnu/bits/types.h (not in main file or headers dir)
+DEBUG: Found struct mg_str in /home/priyatam/pin/examples/mqtt_mg_topic.c
+DEBUG: Recorded pointer metadata for mg_str.ptr: PointerMetadata(depth=1, base_type='char', qualifiers=['const'], kind='string_ptr', proto_hint='string', raw='const char *', clean_base=None, wrapper_name=None, length_param=None, length_type=None, length_proto=None, typedef_target=None, include_header=None, external=False)
+DEBUG: Added struct mg_str with fields [('string', 'ptr'), ('int32', 'len')]
+DEBUG: Found struct mg_mqtt_message in /home/priyatam/pin/examples/mqtt_mg_topic.c
+DEBUG: Added struct mg_mqtt_message with fields [('mg_str', 'topic'), ('mg_str', 'data'), ('mg_str', 'dgram'), ('uint32', 'id'), ('uint32', 'cmd'), ('uint32', 'qos'), ('uint32', 'ack'), ('int32', 'props_start'), ('int32', 'props_size')]
+DEBUG: Function mg_mqtt_next_topic params: [('struct mg_mqtt_message *', 'msg'), ('struct mg_str *', 'topic'), ('uint8_t *', 'qos'), ('int', 'pos')]
+DEBUG: Recorded pointer metadata for param mg_mqtt_next_topic.msg: PointerMetadata(depth=1, base_type='struct mg_mqtt_message', qualifiers=[], kind='struct_ptr', proto_hint='MgMqttMessagePtr', raw='struct mg_mqtt_message *', clean_base='mg_mqtt_message', wrapper_name='MgMqttMessagePtr', length_param=None, length_type=None, length_proto=None, typedef_target=None, include_header=None, external=False)
+DEBUG: Recorded pointer metadata for param mg_mqtt_next_topic.topic: PointerMetadata(depth=1, base_type='struct mg_str', qualifiers=[], kind='struct_ptr', proto_hint='MgStrPtr', raw='struct mg_str *', clean_base='mg_str', wrapper_name='MgStrPtr', length_param=None, length_type=None, length_proto=None, typedef_target=None, include_header=None, external=False)
+DEBUG: Recorded pointer metadata for param mg_mqtt_next_topic.qos: PointerMetadata(depth=1, base_type='uint8_t', qualifiers=[], kind='scalar_ptr', proto_hint='Uint32ScalarPtr', raw='uint8_t *', clean_base=None, wrapper_name='Uint32ScalarPtr', length_param=None, length_type=None, length_proto=None, typedef_target=None, include_header=None, external=False)
+DEBUG: CLI main function detected: False
+DEBUG: Primary input struct from libclang params: mg_mqtt_message
+DEBUG: Mapping type for decl: ('string', 'ptr')
+DEBUG: Mapping type for decl: ('int32', 'len')
+DEBUG: Mapping type for decl: ('mg_str', 'topic')
+DEBUG: Mapping type for decl: ('mg_str', 'data')
+DEBUG: Mapping type for decl: ('mg_str', 'dgram')
+DEBUG: Mapping type for decl: ('uint32', 'id')
+DEBUG: Mapping type for decl: ('uint32', 'cmd')
+DEBUG: Mapping type for decl: ('uint32', 'qos')
+DEBUG: Mapping type for decl: ('uint32', 'ack')
+DEBUG: Mapping type for decl: ('int32', 'props_start')
+DEBUG: Mapping type for decl: ('int32', 'props_size')
+DEBUG: Added Input wrapper for mg_mqtt_message
+DEBUG: Mapping type for decl: ('struct mg_mqtt_message *', 'msg')
+DEBUG: Mapping type for decl: ('struct mg_str *', 'topic')
+DEBUG: Mapping type for decl: ('uint8_t *', 'qos')
+DEBUG: Mapping type for decl: ('int', 'pos')
+Wrote proto to input.proto:
+
+syntax = "proto3";
+
+message MgMqttMessagePtr {
+  bool present = 1;
+  mg_mqtt_message value = 2;
+}
+
+message MgStrPtr {
+  bool present = 1;
+  mg_str value = 2;
+}
+
+message Uint32ScalarPtr {
+  bool has_value = 1;
+  uint32 value = 2;
+}
+
+message Input {
+  MgMqttMessagePtr msg = 1;
+  MgStrPtr topic = 2;
+  Uint32ScalarPtr qos = 3;
+  int32 pos = 4;
+}
+
+message mg_str {
+  string ptr = 1;
+  int32 len = 2;
+}
+
+message mg_mqtt_message {
+  MgStrPtr topic = 1;
+  mg_str data = 2;
+  mg_str dgram = 3;
+  uint32 id = 4;
+  uint32 cmd = 5;
+  Uint32ScalarPtr qos = 6;
+  uint32 ack = 7;
+  int32 props_start = 8;
+  int32 props_size = 9;
+}
+

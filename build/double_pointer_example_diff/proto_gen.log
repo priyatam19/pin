@@ -1,0 +1,32 @@
+DEBUG: Starting main with file /home/priyatam/pin/examples/pointers/double_pointer_example.c, func get_config, parser libclang, headers 
+DEBUG: Parsing file /home/priyatam/pin/examples/pointers/double_pointer_example.c with libclang
+DEBUG: Libclang args: []
+DEBUG: Scanning for function get_config
+DEBUG: Found target function get_config
+DEBUG: Function has 1 arguments
+DEBUG: Param type: struct Config **
+DEBUG: Added referenced struct Config
+DEBUG: Collecting structs from /home/priyatam/pin/examples/pointers/double_pointer_example.c
+DEBUG: Found struct Config in /home/priyatam/pin/examples/pointers/double_pointer_example.c
+DEBUG: Added struct Config with fields [('int32', 'timeout'), ('int32', 'retries')]
+DEBUG: Function get_config params: [('struct Config **', 'out_config')]
+DEBUG: Recorded pointer metadata for param get_config.out_config: PointerMetadata(depth=2, base_type='struct Config', qualifiers=[], kind='pointer_chain', proto_hint='bytes', raw='struct Config **', clean_base=None, wrapper_name=None, length_param=None, length_type=None, length_proto=None, typedef_target=None, include_header=None, external=False)
+DEBUG: CLI main function detected: False
+DEBUG: Primary input struct from libclang params: Config
+DEBUG: Mapping type for decl: ('int32', 'timeout')
+DEBUG: Mapping type for decl: ('int32', 'retries')
+DEBUG: Added Input wrapper for Config
+DEBUG: Mapping type for decl: ('struct Config **', 'out_config')
+Wrote proto to input.proto:
+
+syntax = "proto3";
+
+message Input {
+  bytes out_config = 1;
+}
+
+message Config {
+  int32 timeout = 1;
+  int32 retries = 2;
+}
+

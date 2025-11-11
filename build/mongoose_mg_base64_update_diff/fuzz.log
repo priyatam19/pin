@@ -1,0 +1,44 @@
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 3152011935
+INFO: Loaded 1 modules   (2668 inline 8-bit counters): 2668 [0x5645dd173878, 0x5645dd1742e4), 
+INFO: Loaded 1 PC tables (2668 PCs): 2668 [0x5645dd1742e8,0x5645dd17e9a8), 
+INFO:        0 files found in corpus
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 4096 bytes
+INFO: A corpus is not provided, starting from an empty corpus
+#2	INITED cov: 1 ft: 1 corp: 1/1b exec/s: 0 rss: 33Mb
+	NEW_FUNC[1/1]: 0x5645dd0f88c0 in mg_base64_update (/home/priyatam/pin/build/mongoose_mg_base64_update_diff/fuzz_bytes+0x1308c0) (BuildId: 083a6d459a42664c6b743f69bb35cd492d5737de)
+#258	NEW    cov: 3 ft: 7 corp: 2/6b lim: 6 exec/s: 0 rss: 33Mb L: 5/5 MS: 1 InsertRepeatedBytes-
+#283	REDUCE cov: 3 ft: 7 corp: 2/3b lim: 6 exec/s: 0 rss: 33Mb L: 2/2 MS: 5 ChangeByte-InsertByte-CrossOver-ChangeBit-InsertByte-
+#509	REDUCE cov: 3 ft: 8 corp: 3/5b lim: 8 exec/s: 0 rss: 33Mb L: 2/2 MS: 1 ChangeBit-
+#535	NEW    cov: 4 ft: 15 corp: 4/7b lim: 8 exec/s: 0 rss: 33Mb L: 2/2 MS: 1 ChangeBit-
+#597	NEW    cov: 6 ft: 23 corp: 5/10b lim: 8 exec/s: 0 rss: 33Mb L: 3/3 MS: 2 ShuffleBytes-InsertByte-
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==2882831==ERROR: AddressSanitizer: SEGV on unknown address 0x7ffe7864d56a (pc 0x5645dd0f89b0 bp 0x000000000000 sp 0x7ffe78617840 T0)
+==2882831==The signal is caused by a READ memory access.
+    #0 0x5645dd0f89b0 in mg_base64_update (/home/priyatam/pin/build/mongoose_mg_base64_update_diff/fuzz_bytes+0x1309b0) (BuildId: 083a6d459a42664c6b743f69bb35cd492d5737de)
+    #1 0x5645dd0f523d in pin_wrapper_entry (/home/priyatam/pin/build/mongoose_mg_base64_update_diff/fuzz_bytes+0x12d23d) (BuildId: 083a6d459a42664c6b743f69bb35cd492d5737de)
+    #2 0x5645dd0f50e8 in LLVMFuzzerTestOneInput (/home/priyatam/pin/build/mongoose_mg_base64_update_diff/fuzz_bytes+0x12d0e8) (BuildId: 083a6d459a42664c6b743f69bb35cd492d5737de)
+    #3 0x5645dd01b413 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) (/home/priyatam/pin/build/mongoose_mg_base64_update_diff/fuzz_bytes+0x53413) (BuildId: 083a6d459a42664c6b743f69bb35cd492d5737de)
+    #4 0x5645dd01ab39 in fuzzer::Fuzzer::RunOne(unsigned char const*, unsigned long, bool, fuzzer::InputInfo*, bool, bool*) (/home/priyatam/pin/build/mongoose_mg_base64_update_diff/fuzz_bytes+0x52b39) (BuildId: 083a6d459a42664c6b743f69bb35cd492d5737de)
+    #5 0x5645dd01c299 in fuzzer::Fuzzer::MutateAndTestOne() (/home/priyatam/pin/build/mongoose_mg_base64_update_diff/fuzz_bytes+0x54299) (BuildId: 083a6d459a42664c6b743f69bb35cd492d5737de)
+    #6 0x5645dd01ce15 in fuzzer::Fuzzer::Loop(std::vector<fuzzer::SizedFile, std::allocator<fuzzer::SizedFile> >&) (/home/priyatam/pin/build/mongoose_mg_base64_update_diff/fuzz_bytes+0x54e15) (BuildId: 083a6d459a42664c6b743f69bb35cd492d5737de)
+    #7 0x5645dd00b282 in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) (/home/priyatam/pin/build/mongoose_mg_base64_update_diff/fuzz_bytes+0x43282) (BuildId: 083a6d459a42664c6b743f69bb35cd492d5737de)
+    #8 0x5645dd034f92 in main (/home/priyatam/pin/build/mongoose_mg_base64_update_diff/fuzz_bytes+0x6cf92) (BuildId: 083a6d459a42664c6b743f69bb35cd492d5737de)
+    #9 0x7f7702b46249 in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #10 0x7f7702b46304 in __libc_start_main csu/../csu/libc-start.c:360:3
+    #11 0x5645dcfffab0 in _start (/home/priyatam/pin/build/mongoose_mg_base64_update_diff/fuzz_bytes+0x37ab0) (BuildId: 083a6d459a42664c6b743f69bb35cd492d5737de)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV (/home/priyatam/pin/build/mongoose_mg_base64_update_diff/fuzz_bytes+0x1309b0) (BuildId: 083a6d459a42664c6b743f69bb35cd492d5737de) in mg_base64_update
+==2882831==ABORTING
+MS: 1 InsertByte-; base unit: b512a67ff6c648acff6e10acbb5f6f93ba9ae154
+0x18,0xda,0xb9,0xd,
+\030\332\271\015
+artifact_prefix='./'; Test unit written to ./crash-6d0dbe37104d28270cd27cb66014c13e189f57ab
+Base64: GNq5DQ==
+stat::number_of_executed_units: 603
+stat::average_exec_per_sec:     0
+stat::new_units_added:          5
+stat::slowest_unit_time_sec:    0
+stat::peak_rss_mb:              34

@@ -1,0 +1,12 @@
+[+] Generate .proto (libclang parser)
+[+] Generate C++ protobuf (for original replay)
+[+] Generate Python protobuf helpers
+[+] Generate nanopb protobuf (for wrapper decode)
+[+] Generate wrapper with pin_wrapper_entry() and standalone main
+[+] Compile original object (instrumented) and plain object
+[+] Compile nanopb runtime and wrapper
+[+] Compile wrapper object (no main) for fuzz_bytes
+main.c:42:10: error: variable has incomplete type 'void'
+    void data_storage = 0;
+         ^
+1 error generated.

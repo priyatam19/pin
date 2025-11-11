@@ -1,0 +1,75 @@
+[+] Generate .proto (libclang parser)
+[i] Skipping C++ protobuf generation (reference decoder=nanopb)
+[+] Generate Python protobuf helpers
+[+] Generate nanopb protobuf (for wrapper decode)
+[+] Generate wrapper with pin_wrapper_entry() and standalone main
+[+] Compile original object (instrumented) and plain object
+[+] Compile nanopb runtime and wrapper
+[+] Compile wrapper object (no main) for fuzz_bytes
+main.c:28:5: error: unknown type name 'mg_connection'
+    mg_connection *data;
+    ^
+main.c:42:13: error: use of undeclared identifier 'mg_connection'
+            mg_connection *new_data = (mg_connection*)realloc(ctx->data, new_capacity * sizeof(mg_connection));
+            ^
+main.c:42:28: error: use of undeclared identifier 'new_data'
+            mg_connection *new_data = (mg_connection*)realloc(ctx->data, new_capacity * sizeof(mg_connection));
+                           ^
+main.c:42:54: error: expected expression
+            mg_connection *new_data = (mg_connection*)realloc(ctx->data, new_capacity * sizeof(mg_connection));
+                                                     ^
+main.c:42:40: error: use of undeclared identifier 'mg_connection'
+            mg_connection *new_data = (mg_connection*)realloc(ctx->data, new_capacity * sizeof(mg_connection));
+                                       ^
+main.c:43:18: error: use of undeclared identifier 'new_data'
+            if (!new_data) {
+                 ^
+main.c:46:25: error: use of undeclared identifier 'new_data'
+            ctx->data = new_data;
+                        ^
+main.c:49:35: error: use of undeclared identifier 'value'
+        ctx->data[ctx->count++] = value;
+                                  ^
+main.c:55:30: warning: declaration of 'struct mg_connection' will not be visible outside of this function [-Wvisibility]
+extern int mg_ws_wrap(struct mg_connection * c, size_t len, int op);
+                             ^
+main.c:65:13: error: no member named 'data' in 'struct pb_callback_s'
+    input.c.data.funcs.decode = decode_MgConnectionPtr_data;
+    ~~~~~~~ ^
+main.c:66:13: error: no member named 'data' in 'struct pb_callback_s'
+    input.c.data.arg = &c_ctx;
+    ~~~~~~~ ^
+main.c:73:37: error: no member named 'length' in 'struct pb_callback_s'
+    uint64_t c_length_raw = input.c.length;
+                            ~~~~~~~ ^
+main.c:75:5: error: use of undeclared identifier 'mg_connection'
+    mg_connection * c_storage = c_ctx.data;
+    ^
+main.c:75:21: error: use of undeclared identifier 'c_storage'
+    mg_connection * c_storage = c_ctx.data;
+                    ^
+main.c:78:9: error: use of undeclared identifier 'c_storage'
+    if (c_storage && c_len > 0) {
+        ^
+main.c:79:41: error: use of undeclared identifier 'c_storage'
+        c_ptr = (struct mg_connection *)c_storage;
+                                        ^
+main.c:81:11: error: no member named 'has_c' in 'struct _Input'
+    input.has_c = (c_len > 0);
+    ~~~~~ ^
+main.c:82:13: error: no member named 'length' in 'struct pb_callback_s'
+    input.c.length = (uint64_t)c_len;
+    ~~~~~~~ ^
+main.c:99:16: warning: incompatible pointer types passing 'struct mg_connection *' to parameter of type 'struct mg_connection *' [-Wincompatible-pointer-types]
+    mg_ws_wrap(c_ptr, (size_t)c_len, input.op);
+               ^~~~~
+main.c:55:46: note: passing argument to parameter 'c' here
+extern int mg_ws_wrap(struct mg_connection * c, size_t len, int op);
+                                             ^
+main.c:106:9: error: use of undeclared identifier 'c_storage'
+    if (c_storage) { free(c_storage); }
+        ^
+main.c:106:27: error: use of undeclared identifier 'c_storage'
+    if (c_storage) { free(c_storage); }
+                          ^
+2 warnings and 19 errors generated.

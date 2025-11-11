@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+message BytesScalarPtr {
+  bool has_value = 1;
+  bytes value = 2;
+}
+
+message Input {
+  BytesScalarPtr data = 1;
+  int32 data_type = 2;
+}

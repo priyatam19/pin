@@ -1,0 +1,1 @@
+{"name": "FILE*", "fgrep_headers": ["mqtt.h", "mg_mqtt_message"], "typedef": "typedef int __FILE;", "include": ["stddef.h"]}

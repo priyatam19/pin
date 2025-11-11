@@ -1,0 +1,6 @@
+Generated main.c for wrapper.
+Generated reference_runner.cc.
+DEBUG: pointer context {'values': {'name': 'values', 'pointer_type': 'const int *', 'kind': 'scalar_ptr', 'base_type': 'int', 'storage_type': 'int', 'qualifiers': ['const'], 'var_name': 'values_ptr', 'storage_var': 'values_storage', 'used': False, 'field_path': None, 'msg_accessor': None, 'msg_var': 'values_msg', 'is_slice': True, 'length_field': 'count', 'length_type': 'int', 'length_proto': 'int32', 'helper_name': 'Int32Slice', 'data_proto': 'int32', 'storage_ptr_type': 'int *', 'presence_field': 'has_value', 'include_header': None, 'typedef_target': None, 'external_handle': False, 'external_fn': None, 'external_call': None}}
+DEBUG: walk_decls called with 2 fields, prefix='', depth=0, parser=libclang
+DEBUG: Processing field ('const int *', 'values'), name=values, is_struct=False, is_ptr=True
+DEBUG: Processing field ('int', 'count'), name=count, is_struct=False, is_ptr=False

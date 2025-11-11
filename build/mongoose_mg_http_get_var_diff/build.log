@@ -1,0 +1,33 @@
+[+] Generate .proto (libclang parser)
+[i] Skipping C++ protobuf generation (reference decoder=nanopb)
+[+] Generate Python protobuf helpers
+[+] Generate nanopb protobuf (for wrapper decode)
+[+] Generate wrapper with pin_wrapper_entry() and standalone main
+[+] Compile original object (instrumented) and plain object
+[+] Compile nanopb runtime and wrapper
+[+] Compile wrapper object (no main) for fuzz_bytes
+main.c:64:41: warning: declaration of 'struct mg_str' will not be visible outside of this function [-Wvisibility]
+extern int mg_http_get_var(const struct mg_str * buf, const char * name, char * dst, size_t dst_len);
+                                        ^
+main.c:77:11: error: no member named 'name' in 'struct _Input'
+    input.name.arg = name_buf;
+    ~~~~~ ^
+main.c:78:11: error: no member named 'name' in 'struct _Input'
+    input.name.funcs.decode = &decode_name;
+    ~~~~~ ^
+main.c:81:11: error: no member named 'dst' in 'struct _Input'
+    input.dst.arg = dst_buf;
+    ~~~~~ ^
+main.c:82:11: error: no member named 'dst' in 'struct _Input'
+    input.dst.funcs.decode = &decode_dst;
+    ~~~~~ ^
+main.c:90:15: error: no member named 'buf' in 'struct _Input'
+    if (input.buf.present) {
+        ~~~~~ ^
+main.c:91:29: error: no member named 'buf' in 'struct _Input'
+        buf_storage = input.buf.value;
+                      ~~~~~ ^
+main.c:94:55: error: no member named 'dst_len' in 'struct _Input'
+    mg_http_get_var(buf_ptr, name_buf, dst_buf, input.dst_len);
+                                                ~~~~~ ^
+1 warning and 7 errors generated.

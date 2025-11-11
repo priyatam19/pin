@@ -1,0 +1,217 @@
+DEBUG: Starting main with file /home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/buffer_overrun_dynamic.c, func dynamic_buffer_overrun_017_func_001, parser libclang, headers /home/priyatam/pin/examples/itc-benchmarks/include
+DEBUG: Parsing file /home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/buffer_overrun_dynamic.c with libclang
+DEBUG: Libclang args: ['-I/home/priyatam/pin/examples/itc-benchmarks/include']
+DEBUG: Scanning for function dynamic_buffer_overrun_017_func_001
+DEBUG: Found target function dynamic_buffer_overrun_017_func_001
+DEBUG: Function has 1 arguments
+DEBUG: Param type: int
+DEBUG: Found called function calloc
+DEBUG: Found called function free
+DEBUG: Collecting structs from /home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/buffer_overrun_dynamic.c
+DEBUG: Skipped struct __fsid_t from /usr/include/x86_64-linux-gnu/bits/types.h (not in main file or headers dir)
+DEBUG: Skipped struct __fsid_t from /usr/include/x86_64-linux-gnu/bits/types.h (not in main file or headers dir)
+DEBUG: Skipped struct __mbstate_t from /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h (not in main file or headers dir)
+DEBUG: Skipped struct __mbstate_t from /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos64_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos64_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/__FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_marker from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_codecvt from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_wide_data from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct div_t from /usr/include/stdlib.h (not in main file or headers dir)
+DEBUG: Skipped struct div_t from /usr/include/stdlib.h (not in main file or headers dir)
+DEBUG: Skipped struct ldiv_t from /usr/include/stdlib.h (not in main file or headers dir)
+DEBUG: Skipped struct ldiv_t from /usr/include/stdlib.h (not in main file or headers dir)
+DEBUG: Skipped struct lldiv_t from /usr/include/stdlib.h (not in main file or headers dir)
+DEBUG: Skipped struct lldiv_t from /usr/include/stdlib.h (not in main file or headers dir)
+DEBUG: Skipped struct __sigset_t from /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h (not in main file or headers dir)
+DEBUG: Skipped struct __sigset_t from /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h (not in main file or headers dir)
+DEBUG: Skipped struct timeval from /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h (not in main file or headers dir)
+DEBUG: Skipped struct timespec from /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h (not in main file or headers dir)
+DEBUG: Skipped struct fd_set from /usr/include/x86_64-linux-gnu/sys/select.h (not in main file or headers dir)
+DEBUG: Skipped struct fd_set from /usr/include/x86_64-linux-gnu/sys/select.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3) from /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3) from /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3) from /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3) from /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_internal_list from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_internal_list from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_internal_slist from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_internal_slist from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_mutex_s from /usr/include/x86_64-linux-gnu/bits/struct_mutex.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_rwlock_arch_t from /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_cond_s from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct __once_flag from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct __once_flag from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct random_data from /usr/include/stdlib.h (not in main file or headers dir)
+DEBUG: Skipped struct drand48_data from /usr/include/stdlib.h (not in main file or headers dir)
+DEBUG: Skipped struct __locale_struct from /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h (not in main file or headers dir)
+DEBUG: Skipped struct __locale_data from /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h (not in main file or headers dir)
+DEBUG: Skipped struct sched_param from /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h (not in main file or headers dir)
+DEBUG: Skipped struct cpu_set_t from /usr/include/x86_64-linux-gnu/bits/cpu-set.h (not in main file or headers dir)
+DEBUG: Skipped struct cpu_set_t from /usr/include/x86_64-linux-gnu/bits/cpu-set.h (not in main file or headers dir)
+DEBUG: Skipped struct tm from /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h (not in main file or headers dir)
+DEBUG: Skipped struct itimerspec from /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h (not in main file or headers dir)
+DEBUG: Skipped struct sigevent from /usr/include/time.h (not in main file or headers dir)
+DEBUG: Skipped struct __jmp_buf_tag from /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h (not in main file or headers dir)
+DEBUG: Skipped struct _pthread_cleanup_buffer from /usr/include/pthread.h (not in main file or headers dir)
+DEBUG: Skipped struct __cancel_jmp_buf_tag from /usr/include/pthread.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_unwind_buf_t from /usr/include/pthread.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_unwind_buf_t from /usr/include/pthread.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_cleanup_frame from /usr/include/pthread.h (not in main file or headers dir)
+DEBUG: Found struct dynamic_buffer_overrun_010_s_001 in /home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/buffer_overrun_dynamic.c
+DEBUG: Added struct dynamic_buffer_overrun_010_s_001 with fields [('int32', 'a'), ('int32', 'b'), ('int32', 'c')]
+DEBUG: Found struct dynamic_buffer_overrun_010_s_001 in /home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/buffer_overrun_dynamic.c
+DEBUG: Added struct dynamic_buffer_overrun_010_s_001 with fields [('int32', 'a'), ('int32', 'b'), ('int32', 'c')]
+DEBUG: Found struct dynamic_buffer_overrun_011_s_001 in /home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/buffer_overrun_dynamic.c
+DEBUG: Added struct dynamic_buffer_overrun_011_s_001 with fields [('int32', 'a'), ('int32', 'b'), ('repeated int32', 'buf')]
+DEBUG: Found struct dynamic_buffer_overrun_011_s_001 in /home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/buffer_overrun_dynamic.c
+DEBUG: Added struct dynamic_buffer_overrun_011_s_001 with fields [('int32', 'a'), ('int32', 'b'), ('repeated int32', 'buf')]
+DEBUG: Found struct dynamic_buffer_overrun_s_005 in /home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/buffer_overrun_dynamic.c
+DEBUG: Added struct dynamic_buffer_overrun_s_005 with fields [('string', 'arr'), ('repeated int32', 'arri')]
+DEBUG: Found struct dynamic_buffer_overrun_s_005 in /home/priyatam/pin/examples/itc-benchmarks/01.w_Defects/buffer_overrun_dynamic.c
+DEBUG: Added struct dynamic_buffer_overrun_s_005 with fields [('string', 'arr'), ('repeated int32', 'arri')]
+DEBUG: Parsing headers in /home/priyatam/pin/examples/itc-benchmarks/include
+DEBUG: Parsing header /home/priyatam/pin/examples/itc-benchmarks/include/HeaderFile.h
+DEBUG: Found header struct __fsid_t
+DEBUG: Skipping header struct Struct___fsid_t to avoid duplication
+DEBUG: Found header struct __fsid_t
+DEBUG: Skipping header struct Struct___fsid_t to avoid duplication
+DEBUG: Found header struct __mbstate_t
+DEBUG: Skipping header struct Struct___mbstate_t to avoid duplication
+DEBUG: Found header struct __mbstate_t
+DEBUG: Skipping header struct Struct___mbstate_t to avoid duplication
+DEBUG: Found header struct _G_fpos_t
+DEBUG: Skipping header struct Struct__G_fpos_t to avoid duplication
+DEBUG: Found header struct _G_fpos_t
+DEBUG: Skipping header struct Struct__G_fpos_t to avoid duplication
+DEBUG: Found header struct _G_fpos64_t
+DEBUG: Skipping header struct Struct__G_fpos64_t to avoid duplication
+DEBUG: Found header struct _G_fpos64_t
+DEBUG: Skipping header struct Struct__G_fpos64_t to avoid duplication
+DEBUG: Found header struct _IO_FILE
+DEBUG: Skipping header struct Struct__IO_FILE to avoid duplication
+DEBUG: Found header struct _IO_FILE
+DEBUG: Skipping header struct Struct__IO_FILE to avoid duplication
+DEBUG: Found header struct _IO_FILE
+DEBUG: Skipping header struct Struct__IO_FILE to avoid duplication
+DEBUG: Found header struct _IO_marker
+DEBUG: Skipping header struct Struct__IO_marker to avoid duplication
+DEBUG: Found header struct _IO_codecvt
+DEBUG: Skipping header struct Struct__IO_codecvt to avoid duplication
+DEBUG: Found header struct _IO_wide_data
+DEBUG: Skipping header struct Struct__IO_wide_data to avoid duplication
+DEBUG: Found header struct _IO_FILE
+DEBUG: Skipping header struct Struct__IO_FILE to avoid duplication
+DEBUG: Found header struct div_t
+DEBUG: Found header struct div_t
+DEBUG: Found header struct ldiv_t
+DEBUG: Found header struct ldiv_t
+DEBUG: Found header struct lldiv_t
+DEBUG: Found header struct lldiv_t
+DEBUG: Found header struct __sigset_t
+DEBUG: Skipping header struct Struct___sigset_t to avoid duplication
+DEBUG: Found header struct __sigset_t
+DEBUG: Skipping header struct Struct___sigset_t to avoid duplication
+DEBUG: Found header struct timeval
+DEBUG: Found header struct timespec
+DEBUG: Found header struct fd_set
+DEBUG: Skipping header struct fd_set to avoid duplication
+DEBUG: Found header struct fd_set
+DEBUG: Skipping header struct fd_set to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3)
+DEBUG: Skipping header struct AnonymousStruct to avoid duplication
+DEBUG: Found header struct __pthread_internal_list
+DEBUG: Skipping header struct Struct___pthread_internal_list to avoid duplication
+DEBUG: Found header struct __pthread_internal_list
+DEBUG: Skipping header struct Struct___pthread_internal_list to avoid duplication
+DEBUG: Found header struct __pthread_internal_slist
+DEBUG: Skipping header struct Struct___pthread_internal_slist to avoid duplication
+DEBUG: Found header struct __pthread_internal_slist
+DEBUG: Skipping header struct Struct___pthread_internal_slist to avoid duplication
+DEBUG: Found header struct __pthread_mutex_s
+DEBUG: Skipping header struct Struct___pthread_mutex_s to avoid duplication
+DEBUG: Found header struct __pthread_rwlock_arch_t
+DEBUG: Skipping header struct Struct___pthread_rwlock_arch_t to avoid duplication
+DEBUG: Found header struct __pthread_cond_s
+DEBUG: Skipping header struct Struct___pthread_cond_s to avoid duplication
+DEBUG: Found header struct __once_flag
+DEBUG: Skipping header struct Struct___once_flag to avoid duplication
+DEBUG: Found header struct __once_flag
+DEBUG: Skipping header struct Struct___once_flag to avoid duplication
+DEBUG: Found header struct random_data
+DEBUG: Skipping header struct random_data to avoid duplication
+DEBUG: Found header struct drand48_data
+DEBUG: Skipping header struct drand48_data to avoid duplication
+DEBUG: Found header struct __locale_struct
+DEBUG: Skipping header struct Struct___locale_struct to avoid duplication
+DEBUG: Found header struct __locale_data
+DEBUG: Skipping header struct Struct___locale_data to avoid duplication
+DEBUG: Found header struct sched_param
+DEBUG: Skipping header struct sched_param to avoid duplication
+DEBUG: Found header struct cpu_set_t
+DEBUG: Skipping header struct cpu_set_t to avoid duplication
+DEBUG: Found header struct cpu_set_t
+DEBUG: Skipping header struct cpu_set_t to avoid duplication
+DEBUG: Found header struct tm
+DEBUG: Skipping header struct tm to avoid duplication
+DEBUG: Found header struct itimerspec
+DEBUG: Skipping header struct itimerspec to avoid duplication
+DEBUG: Found header struct sigevent
+DEBUG: Found header struct __jmp_buf_tag
+DEBUG: Skipping header struct Struct___jmp_buf_tag to avoid duplication
+DEBUG: Found header struct _pthread_cleanup_buffer
+DEBUG: Skipping header struct Struct__pthread_cleanup_buffer to avoid duplication
+DEBUG: Found header struct __cancel_jmp_buf_tag
+DEBUG: Skipping header struct Struct___cancel_jmp_buf_tag to avoid duplication
+DEBUG: Found header struct __pthread_unwind_buf_t
+DEBUG: Skipping header struct Struct___pthread_unwind_buf_t to avoid duplication
+DEBUG: Found header struct __pthread_unwind_buf_t
+DEBUG: Skipping header struct Struct___pthread_unwind_buf_t to avoid duplication
+DEBUG: Found header struct __pthread_cleanup_frame
+DEBUG: Skipping header struct Struct___pthread_cleanup_frame to avoid duplication
+DEBUG: Function dynamic_buffer_overrun_017_func_001 params: [('int', 'index')]
+DEBUG: CLI main function detected: False
+DEBUG: Mapping type for decl: ('int32', 'a')
+DEBUG: Mapping type for decl: ('int32', 'b')
+DEBUG: Mapping type for decl: ('int32', 'c')
+DEBUG: Mapping type for decl: ('int32', 'a')
+DEBUG: Mapping type for decl: ('int32', 'b')
+DEBUG: Mapping type for decl: ('repeated int32', 'buf')
+DEBUG: Unmapped type repeated int32, using bytes
+DEBUG: Mapping type for decl: ('string', 'arr')
+DEBUG: Mapping type for decl: ('repeated int32', 'arri')
+DEBUG: Unmapped type repeated int32, using bytes
+DEBUG: No primary input struct, using dynamic_buffer_overrun_s_005
+DEBUG: Mapping type for decl: ('int', 'index')
+Wrote proto to dynamic_buffer_overrun_s_005.proto:
+
+syntax = "proto3";
+
+message dynamic_buffer_overrun_s_005 {
+  int32 index = 1;
+}
+
+message dynamic_buffer_overrun_010_s_001 {
+  int32 a = 1;
+  int32 b = 2;
+  int32 c = 3;
+}
+
+message dynamic_buffer_overrun_011_s_001 {
+  int32 a = 1;
+  int32 b = 2;
+  bytes buf = 3;
+}
+

@@ -1,0 +1,42 @@
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 2132047863
+INFO: Loaded 1 modules   (2668 inline 8-bit counters): 2668 [0x557eb1897878, 0x557eb18982e4), 
+INFO: Loaded 1 PC tables (2668 PCs): 2668 [0x557eb18982e8,0x557eb18a29a8), 
+INFO:        0 files found in corpus
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 4096 bytes
+INFO: A corpus is not provided, starting from an empty corpus
+#2	INITED cov: 1 ft: 1 corp: 1/1b exec/s: 0 rss: 32Mb
+	NEW_FUNC[1/2]: 0x557eb181c8b0 in mg_base64_update (/home/priyatam/pin/build/mongoose_mg_base64_final_diff/fuzz_bytes+0x1308b0) (BuildId: 666820d00ccb1f995c826958cafe762cba3b566d)
+	NEW_FUNC[2/2]: 0x557eb181cc70 in mg_base64_final (/home/priyatam/pin/build/mongoose_mg_base64_final_diff/fuzz_bytes+0x130c70) (BuildId: 666820d00ccb1f995c826958cafe762cba3b566d)
+#29	NEW    cov: 7 ft: 24 corp: 2/3b lim: 4 exec/s: 0 rss: 33Mb L: 2/2 MS: 2 CrossOver-ChangeBinInt-
+#30	NEW    cov: 9 ft: 30 corp: 3/5b lim: 4 exec/s: 0 rss: 33Mb L: 2/2 MS: 1 ChangeBit-
+#111	NEW    cov: 11 ft: 39 corp: 4/7b lim: 4 exec/s: 0 rss: 33Mb L: 2/2 MS: 1 ChangeByte-
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==3099647==ERROR: AddressSanitizer: stack-overflow on address 0x7ffd4bf88dc3 (pc 0x557eb181cb0e bp 0x000000000000 sp 0x7ffd4bf85040 T0)
+    #0 0x557eb181cb0e in mg_base64_update (/home/priyatam/pin/build/mongoose_mg_base64_final_diff/fuzz_bytes+0x130b0e) (BuildId: 666820d00ccb1f995c826958cafe762cba3b566d)
+    #1 0x557eb181ccc9 in mg_base64_final (/home/priyatam/pin/build/mongoose_mg_base64_final_diff/fuzz_bytes+0x130cc9) (BuildId: 666820d00ccb1f995c826958cafe762cba3b566d)
+    #2 0x557eb181923b in pin_wrapper_entry (/home/priyatam/pin/build/mongoose_mg_base64_final_diff/fuzz_bytes+0x12d23b) (BuildId: 666820d00ccb1f995c826958cafe762cba3b566d)
+    #3 0x557eb18190e8 in LLVMFuzzerTestOneInput (/home/priyatam/pin/build/mongoose_mg_base64_final_diff/fuzz_bytes+0x12d0e8) (BuildId: 666820d00ccb1f995c826958cafe762cba3b566d)
+    #4 0x557eb173f413 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) (/home/priyatam/pin/build/mongoose_mg_base64_final_diff/fuzz_bytes+0x53413) (BuildId: 666820d00ccb1f995c826958cafe762cba3b566d)
+    #5 0x557eb173eb39 in fuzzer::Fuzzer::RunOne(unsigned char const*, unsigned long, bool, fuzzer::InputInfo*, bool, bool*) (/home/priyatam/pin/build/mongoose_mg_base64_final_diff/fuzz_bytes+0x52b39) (BuildId: 666820d00ccb1f995c826958cafe762cba3b566d)
+    #6 0x557eb1740299 in fuzzer::Fuzzer::MutateAndTestOne() (/home/priyatam/pin/build/mongoose_mg_base64_final_diff/fuzz_bytes+0x54299) (BuildId: 666820d00ccb1f995c826958cafe762cba3b566d)
+    #7 0x557eb1740e15 in fuzzer::Fuzzer::Loop(std::vector<fuzzer::SizedFile, std::allocator<fuzzer::SizedFile> >&) (/home/priyatam/pin/build/mongoose_mg_base64_final_diff/fuzz_bytes+0x54e15) (BuildId: 666820d00ccb1f995c826958cafe762cba3b566d)
+    #8 0x557eb172f282 in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) (/home/priyatam/pin/build/mongoose_mg_base64_final_diff/fuzz_bytes+0x43282) (BuildId: 666820d00ccb1f995c826958cafe762cba3b566d)
+    #9 0x557eb1758f92 in main (/home/priyatam/pin/build/mongoose_mg_base64_final_diff/fuzz_bytes+0x6cf92) (BuildId: 666820d00ccb1f995c826958cafe762cba3b566d)
+    #10 0x7f42de766249 in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #11 0x7f42de766304 in __libc_start_main csu/../csu/libc-start.c:360:3
+    #12 0x557eb1723ab0 in _start (/home/priyatam/pin/build/mongoose_mg_base64_final_diff/fuzz_bytes+0x37ab0) (BuildId: 666820d00ccb1f995c826958cafe762cba3b566d)
+
+SUMMARY: AddressSanitizer: stack-overflow (/home/priyatam/pin/build/mongoose_mg_base64_final_diff/fuzz_bytes+0x130b0e) (BuildId: 666820d00ccb1f995c826958cafe762cba3b566d) in mg_base64_update
+==3099647==ABORTING
+MS: 3 CrossOver-InsertByte-ChangeBit-; base unit: 9d1996cb2f705ac232aa433ece29827b7939f32d
+0x10,0x83,0x7a,
+\020\203z
+artifact_prefix='./'; Test unit written to ./crash-5bf14f80aa15214e88377054362c7e996802a45e
+Base64: EIN6
+stat::number_of_executed_units: 189
+stat::average_exec_per_sec:     0
+stat::new_units_added:          3
+stat::slowest_unit_time_sec:    0
+stat::peak_rss_mb:              34

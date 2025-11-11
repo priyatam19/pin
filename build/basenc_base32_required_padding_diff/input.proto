@@ -1,0 +1,5 @@
+syntax = "proto3";
+
+message Input {
+  int32 len = 1;
+}

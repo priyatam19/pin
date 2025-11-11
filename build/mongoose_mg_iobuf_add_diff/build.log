@@ -1,0 +1,36 @@
+[+] Generate .proto (libclang parser)
+[i] Skipping C++ protobuf generation (reference decoder=nanopb)
+[+] Generate Python protobuf helpers
+[+] Generate nanopb protobuf (for wrapper decode)
+[+] Generate wrapper with pin_wrapper_entry() and standalone main
+[+] Compile original object (instrumented) and plain object
+[+] Compile nanopb runtime and wrapper
+[+] Compile wrapper object (no main) for fuzz_bytes
+main.c:49:35: error: use of undeclared identifier 'value'
+        ctx->data[ctx->count++] = value;
+                                  ^
+main.c:55:32: warning: declaration of 'struct mg_iobuf' will not be visible outside of this function [-Wvisibility]
+extern int mg_iobuf_add(struct mg_iobuf * io, size_t ofs, const void * buf, size_t len);
+                               ^
+main.c:73:5: error: use of undeclared identifier 'mg_iobuf'
+    mg_iobuf io_storage = {0};
+    ^
+main.c:74:52: error: use of undeclared identifier 'io_storage'
+    struct mg_iobuf * io_ptr = (struct mg_iobuf *)&io_storage;
+                                                   ^
+main.c:75:18: error: no member named 'present' in 'struct pb_callback_s'
+    if (input.io.present) {
+        ~~~~~~~~ ^
+main.c:76:9: error: use of undeclared identifier 'io_storage'
+        io_storage = input.io.value;
+        ^
+main.c:76:31: error: no member named 'value' in 'struct pb_callback_s'
+        io_storage = input.io.value;
+                     ~~~~~~~~ ^
+main.c:104:18: warning: incompatible pointer types passing 'struct mg_iobuf *' to parameter of type 'struct mg_iobuf *' [-Wincompatible-pointer-types]
+    mg_iobuf_add(io_ptr, input.ofs, buf_ptr, (size_t)buf_len);
+                 ^~~~~~
+main.c:55:43: note: passing argument to parameter 'io' here
+extern int mg_iobuf_add(struct mg_iobuf * io, size_t ofs, const void * buf, size_t len);
+                                          ^
+2 warnings and 6 errors generated.

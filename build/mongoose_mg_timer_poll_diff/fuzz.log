@@ -1,0 +1,22 @@
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 4276126813
+INFO: Loaded 1 modules   (2668 inline 8-bit counters): 2668 [0x559f825f1828, 0x559f825f2294), 
+INFO: Loaded 1 PC tables (2668 PCs): 2668 [0x559f825f2298,0x559f825fc958), 
+INFO:        0 files found in corpus
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 4096 bytes
+INFO: A corpus is not provided, starting from an empty corpus
+#2	INITED cov: 1 ft: 1 corp: 1/1b exec/s: 0 rss: 34Mb
+	NEW_FUNC[1/1]: 0x559f82594ea0 in mg_timer_poll (/home/priyatam/pin/build/mongoose_mg_timer_poll_diff/fuzz_bytes+0x14eea0) (BuildId: 89c390e2b5fd53c46ad34e0180706a93496240cb)
+#62	NEW    cov: 3 ft: 4 corp: 2/3b lim: 4 exec/s: 0 rss: 35Mb L: 2/2 MS: 5 ChangeBinInt-CopyPart-InsertByte-ShuffleBytes-ChangeByte-
+#1048576	pulse  cov: 3 ft: 4 corp: 2/3b lim: 4096 exec/s: 349525 rss: 109Mb
+#2097152	pulse  cov: 3 ft: 4 corp: 2/3b lim: 4096 exec/s: 419430 rss: 184Mb
+#4194304	pulse  cov: 3 ft: 4 corp: 2/3b lim: 4096 exec/s: 381300 rss: 333Mb
+#8388608	pulse  cov: 3 ft: 4 corp: 2/3b lim: 4096 exec/s: 399457 rss: 629Mb
+#16777216	pulse  cov: 3 ft: 4 corp: 2/3b lim: 4096 exec/s: 399457 rss: 632Mb
+#24475392	DONE   cov: 3 ft: 4 corp: 2/3b lim: 4096 exec/s: 401235 rss: 632Mb
+Done 24475392 runs in 61 second(s)
+stat::number_of_executed_units: 24475392
+stat::average_exec_per_sec:     401235
+stat::new_units_added:          1
+stat::slowest_unit_time_sec:    0
+stat::peak_rss_mb:              632

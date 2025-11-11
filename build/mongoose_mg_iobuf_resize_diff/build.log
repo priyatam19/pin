@@ -1,0 +1,75 @@
+[+] Generate .proto (libclang parser)
+[i] Skipping C++ protobuf generation (reference decoder=nanopb)
+[+] Generate Python protobuf helpers
+[+] Generate nanopb protobuf (for wrapper decode)
+[+] Generate wrapper with pin_wrapper_entry() and standalone main
+[+] Compile original object (instrumented) and plain object
+[+] Compile nanopb runtime and wrapper
+[+] Compile wrapper object (no main) for fuzz_bytes
+main.c:28:5: error: unknown type name 'mg_iobuf'
+    mg_iobuf *data;
+    ^
+main.c:42:13: error: use of undeclared identifier 'mg_iobuf'
+            mg_iobuf *new_data = (mg_iobuf*)realloc(ctx->data, new_capacity * sizeof(mg_iobuf));
+            ^
+main.c:42:23: error: use of undeclared identifier 'new_data'
+            mg_iobuf *new_data = (mg_iobuf*)realloc(ctx->data, new_capacity * sizeof(mg_iobuf));
+                      ^
+main.c:42:44: error: expected expression
+            mg_iobuf *new_data = (mg_iobuf*)realloc(ctx->data, new_capacity * sizeof(mg_iobuf));
+                                           ^
+main.c:42:35: error: use of undeclared identifier 'mg_iobuf'
+            mg_iobuf *new_data = (mg_iobuf*)realloc(ctx->data, new_capacity * sizeof(mg_iobuf));
+                                  ^
+main.c:43:18: error: use of undeclared identifier 'new_data'
+            if (!new_data) {
+                 ^
+main.c:46:25: error: use of undeclared identifier 'new_data'
+            ctx->data = new_data;
+                        ^
+main.c:49:35: error: use of undeclared identifier 'value'
+        ctx->data[ctx->count++] = value;
+                                  ^
+main.c:55:35: warning: declaration of 'struct mg_iobuf' will not be visible outside of this function [-Wvisibility]
+extern int mg_iobuf_resize(struct mg_iobuf * io, size_t new_size);
+                                  ^
+main.c:65:14: error: no member named 'data' in 'struct pb_callback_s'
+    input.io.data.funcs.decode = decode_MgIobufPtr_data;
+    ~~~~~~~~ ^
+main.c:66:14: error: no member named 'data' in 'struct pb_callback_s'
+    input.io.data.arg = &io_ctx;
+    ~~~~~~~~ ^
+main.c:73:39: error: no member named 'length' in 'struct pb_callback_s'
+    uint64_t io_length_raw = input.io.length;
+                             ~~~~~~~~ ^
+main.c:75:5: error: use of undeclared identifier 'mg_iobuf'
+    mg_iobuf * io_storage = io_ctx.data;
+    ^
+main.c:75:16: error: use of undeclared identifier 'io_storage'
+    mg_iobuf * io_storage = io_ctx.data;
+               ^
+main.c:78:9: error: use of undeclared identifier 'io_storage'
+    if (io_storage && io_len > 0) {
+        ^
+main.c:79:37: error: use of undeclared identifier 'io_storage'
+        io_ptr = (struct mg_iobuf *)io_storage;
+                                    ^
+main.c:81:11: error: no member named 'has_io' in 'struct _Input'
+    input.has_io = (io_len > 0);
+    ~~~~~ ^
+main.c:82:14: error: no member named 'length' in 'struct pb_callback_s'
+    input.io.length = (uint64_t)io_len;
+    ~~~~~~~~ ^
+main.c:99:21: warning: incompatible pointer types passing 'struct mg_iobuf *' to parameter of type 'struct mg_iobuf *' [-Wincompatible-pointer-types]
+    mg_iobuf_resize(io_ptr, (size_t)io_len);
+                    ^~~~~~
+main.c:55:46: note: passing argument to parameter 'io' here
+extern int mg_iobuf_resize(struct mg_iobuf * io, size_t new_size);
+                                             ^
+main.c:106:9: error: use of undeclared identifier 'io_storage'
+    if (io_storage) { free(io_storage); }
+        ^
+main.c:106:28: error: use of undeclared identifier 'io_storage'
+    if (io_storage) { free(io_storage); }
+                           ^
+2 warnings and 19 errors generated.

@@ -1,0 +1,217 @@
+DEBUG: Starting main with file /home/priyatam/libtiff/libtiff/tif_dirread.c, func TIFFReadDirectory, parser libclang, headers /home/priyatam/libtiff
+DEBUG: Parsing file /home/priyatam/libtiff/libtiff/tif_dirread.c with libclang
+DEBUG: Libclang args: ['-I/home/priyatam/libtiff']
+DEBUG: Scanning for function TIFFReadDirectory
+DEBUG: Found target function TIFFReadDirectory
+DEBUG: Function has 1 arguments
+DEBUG: Param type: TIFF *
+DEBUG: Found target function TIFFReadDirectory
+DEBUG: Function has 1 arguments
+DEBUG: Param type: TIFF *
+DEBUG: Found called function TIFFCheckDirOffset
+DEBUG: Found called function 
+DEBUG: Found called function TIFFFetchDirectory
+DEBUG: Found called function TIFFErrorExt
+DEBUG: Found called function TIFFReadDirectoryCheckOrder
+DEBUG: Found called function TIFFFreeDirectory
+DEBUG: Found called function TIFFDefaultDirectory
+DEBUG: Found called function TIFFSetField
+DEBUG: Found called function TIFFReadDirectoryFindEntry
+DEBUG: Found called function TIFFFetchNormalTag
+DEBUG: Found called function TIFFReadDirectoryFindEntry
+DEBUG: Found called function TIFFReadDirEntryShort
+DEBUG: Found called function TIFFReadDirEntryPersampleShort
+DEBUG: Found called function TIFFReadDirEntryOutputErr
+DEBUG: Found called function TIFFSetField
+DEBUG: Found called function TIFFSetField
+DEBUG: Found called function TIFFReadDirectoryFindFieldInfo
+DEBUG: Found called function TIFFWarningExt
+DEBUG: Found called function _TIFFMergeFields
+DEBUG: Found called function _TIFFCreateAnonField
+DEBUG: Found called function TIFFWarningExt
+DEBUG: Found called function TIFFReadDirectoryFindFieldInfo
+DEBUG: Found called function __assert_fail
+DEBUG: Found called function TIFFFetchNormalTag
+DEBUG: Found called function _TIFFFillStriles
+DEBUG: Found called function TIFFReadDirectoryFindEntry
+DEBUG: Found called function TIFFReadDirectoryFindEntry
+DEBUG: Found called function TIFFWarningExt
+DEBUG: Found called function MissingRequired
+DEBUG: Found called function TIFFNumberOfStrips
+DEBUG: Found called function TIFFNumberOfTiles
+DEBUG: Found called function TIFFErrorExt
+DEBUG: Found called function MissingRequired
+DEBUG: Found called function TIFFReadDirEntryShort
+DEBUG: Found called function TIFFReadDirEntryPersampleShort
+DEBUG: Found called function TIFFFieldWithTag
+DEBUG: Found called function TIFFReadDirEntryOutputErr
+DEBUG: Found called function TIFFSetField
+DEBUG: Found called function TIFFReadDirEntryDoubleArray
+DEBUG: Found called function TIFFFieldWithTag
+DEBUG: Found called function TIFFReadDirEntryOutputErr
+DEBUG: Found called function TIFFSetField
+DEBUG: Found called function _TIFFfree
+DEBUG: Found called function TIFFFetchStripThing
+DEBUG: Found called function TIFFFetchStripThing
+DEBUG: Found called function TIFFFieldWithTag
+DEBUG: Found called function TIFFWarningExt
+DEBUG: Found called function TIFFReadDirEntryShortArray
+DEBUG: Found called function TIFFFieldWithTag
+DEBUG: Found called function TIFFReadDirEntryOutputErr
+DEBUG: Found called function TIFFSetField
+DEBUG: Found called function _TIFFfree
+DEBUG: Found called function TIFFReadDirEntryShort
+DEBUG: Found called function TIFFSetField
+DEBUG: Found called function TIFFFetchNormalTag
+DEBUG: Found called function TIFFWarningExt
+DEBUG: Found called function TIFFSetField
+DEBUG: Found called function TIFFWarningExt
+DEBUG: Found called function TIFFWarningExt
+DEBUG: Found called function TIFFSetField
+DEBUG: Found called function TIFFWarningExt
+DEBUG: Found called function TIFFSetField
+DEBUG: Found called function TIFFWarningExt
+DEBUG: Found called function TIFFSetField
+DEBUG: Found called function TIFFSetField
+DEBUG: Found called function MissingRequired
+DEBUG: Found called function MissingRequired
+DEBUG: Found called function TIFFWarningExt
+DEBUG: Found called function EstimateStripByteCounts
+DEBUG: Found called function _TIFFFillStriles
+DEBUG: Found called function 
+DEBUG: Found called function TIFFScanlineSize64
+DEBUG: Found called function TIFFWarningExt
+DEBUG: Found called function EstimateStripByteCounts
+DEBUG: Found called function TIFFWarningExt
+DEBUG: Found called function EstimateStripByteCounts
+DEBUG: Found called function _TIFFfree
+DEBUG: Found called function 
+DEBUG: Found called function _TIFFFillStriles
+DEBUG: Found called function ChopUpSingleUncompressedStrip
+DEBUG: Found called function TIFFScanlineSize
+DEBUG: Found called function TIFFErrorExt
+DEBUG: Found called function TIFFTileSize
+DEBUG: Found called function TIFFErrorExt
+DEBUG: Found called function TIFFStripSize
+DEBUG: Found called function TIFFErrorExt
+DEBUG: Found called function _TIFFfree
+DEBUG: Called func TIFFReadDirectoryCheckOrder param type: TIFF *
+DEBUG: Called func TIFFReadDirectoryCheckOrder param type: TIFFDirEntry *
+DEBUG: Called func TIFFReadDirectoryCheckOrder param type: uint16
+DEBUG: Called func TIFFReadDirectoryFindEntry param type: TIFF *
+DEBUG: Called func TIFFReadDirectoryFindEntry param type: TIFFDirEntry *
+DEBUG: Called func TIFFReadDirectoryFindEntry param type: uint16
+DEBUG: Called func TIFFReadDirectoryFindEntry param type: uint16
+DEBUG: Called func TIFFReadDirectoryFindFieldInfo param type: TIFF *
+DEBUG: Called func TIFFReadDirectoryFindFieldInfo param type: uint16
+DEBUG: Called func TIFFReadDirectoryFindFieldInfo param type: uint32 *
+DEBUG: Called func EstimateStripByteCounts param type: TIFF *
+DEBUG: Called func EstimateStripByteCounts param type: TIFFDirEntry *
+DEBUG: Called func EstimateStripByteCounts param type: uint16
+DEBUG: Called func MissingRequired param type: TIFF *
+DEBUG: Called func MissingRequired param type: const char *
+DEBUG: Called func TIFFCheckDirOffset param type: TIFF *
+DEBUG: Called func TIFFCheckDirOffset param type: uint64
+DEBUG: Called func TIFFFetchDirectory param type: TIFF *
+DEBUG: Called func TIFFFetchDirectory param type: uint64
+DEBUG: Called func TIFFFetchDirectory param type: TIFFDirEntry **
+DEBUG: Called func TIFFFetchDirectory param type: uint64 *
+DEBUG: Called func TIFFFetchNormalTag param type: TIFF *
+DEBUG: Called func TIFFFetchNormalTag param type: TIFFDirEntry *
+DEBUG: Called func TIFFFetchNormalTag param type: int
+DEBUG: Called func TIFFFetchStripThing param type: TIFF *
+DEBUG: Called func TIFFFetchStripThing param type: TIFFDirEntry *
+DEBUG: Called func TIFFFetchStripThing param type: uint32
+DEBUG: Called func TIFFFetchStripThing param type: uint64 **
+DEBUG: Called func ChopUpSingleUncompressedStrip param type: TIFF *
+DEBUG: Called func _TIFFFillStriles param type: TIFF *
+DEBUG: Collecting structs from /home/priyatam/libtiff/libtiff/tif_dirread.c
+DEBUG: Skipped struct __fsid_t from /usr/include/x86_64-linux-gnu/bits/types.h (not in main file or headers dir)
+DEBUG: Skipped struct __fsid_t from /usr/include/x86_64-linux-gnu/bits/types.h (not in main file or headers dir)
+DEBUG: Skipped struct flock from /usr/include/x86_64-linux-gnu/bits/fcntl.h (not in main file or headers dir)
+DEBUG: Skipped struct timespec from /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h (not in main file or headers dir)
+DEBUG: Skipped struct stat from /usr/include/x86_64-linux-gnu/bits/struct_stat.h (not in main file or headers dir)
+DEBUG: Skipped struct __sigset_t from /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h (not in main file or headers dir)
+DEBUG: Skipped struct __sigset_t from /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h (not in main file or headers dir)
+DEBUG: Skipped struct timeval from /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h (not in main file or headers dir)
+DEBUG: Skipped struct fd_set from /usr/include/x86_64-linux-gnu/sys/select.h (not in main file or headers dir)
+DEBUG: Skipped struct fd_set from /usr/include/x86_64-linux-gnu/sys/select.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3) from /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3) from /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3) from /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h (not in main file or headers dir)
+DEBUG: Skipped struct struct (unnamed at /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:28:3) from /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_internal_list from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_internal_list from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_internal_slist from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_internal_slist from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_mutex_s from /usr/include/x86_64-linux-gnu/bits/struct_mutex.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_rwlock_arch_t from /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h (not in main file or headers dir)
+DEBUG: Skipped struct __pthread_cond_s from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct __once_flag from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct __once_flag from /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h (not in main file or headers dir)
+DEBUG: Skipped struct __locale_struct from /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h (not in main file or headers dir)
+DEBUG: Skipped struct __locale_data from /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h (not in main file or headers dir)
+DEBUG: Skipped struct entry from /usr/include/search.h (not in main file or headers dir)
+DEBUG: Skipped struct entry from /usr/include/search.h (not in main file or headers dir)
+DEBUG: Skipped struct _ENTRY from /usr/include/search.h (not in main file or headers dir)
+DEBUG: Skipping header struct TIFFHeaderCommon from /home/priyatam/libtiff/libtiff/tiff.h
+DEBUG: Skipping header struct TIFFHeaderCommon from /home/priyatam/libtiff/libtiff/tiff.h
+DEBUG: Skipping header struct TIFFHeaderClassic from /home/priyatam/libtiff/libtiff/tiff.h
+DEBUG: Skipping header struct TIFFHeaderClassic from /home/priyatam/libtiff/libtiff/tiff.h
+DEBUG: Skipping header struct TIFFHeaderBig from /home/priyatam/libtiff/libtiff/tiff.h
+DEBUG: Skipping header struct TIFFHeaderBig from /home/priyatam/libtiff/libtiff/tiff.h
+DEBUG: Skipping header struct tiff from /home/priyatam/libtiff/libtiff/tiffio.h
+DEBUG: Skipping header struct TIFFDisplay from /home/priyatam/libtiff/libtiff/tiffio.h
+DEBUG: Skipping header struct TIFFDisplay from /home/priyatam/libtiff/libtiff/tiffio.h
+DEBUG: Skipping header struct TIFFYCbCrToRGB from /home/priyatam/libtiff/libtiff/tiffio.h
+DEBUG: Skipping header struct TIFFYCbCrToRGB from /home/priyatam/libtiff/libtiff/tiffio.h
+DEBUG: Skipping header struct TIFFCIELabToRGB from /home/priyatam/libtiff/libtiff/tiffio.h
+DEBUG: Skipping header struct TIFFCIELabToRGB from /home/priyatam/libtiff/libtiff/tiffio.h
+DEBUG: Skipping header struct _TIFFRGBAImage from /home/priyatam/libtiff/libtiff/tiffio.h
+DEBUG: Skipping header struct _TIFFRGBAImage from /home/priyatam/libtiff/libtiff/tiffio.h
+DEBUG: Skipping header struct TIFFCodec from /home/priyatam/libtiff/libtiff/tiffio.h
+DEBUG: Skipping header struct TIFFCodec from /home/priyatam/libtiff/libtiff/tiffio.h
+DEBUG: Skipped struct __mbstate_t from /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h (not in main file or headers dir)
+DEBUG: Skipped struct __mbstate_t from /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos64_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos64_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/__FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_marker from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_codecvt from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_wide_data from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipping header struct _TIFFField from /home/priyatam/libtiff/libtiff/tiffio.h
+DEBUG: Skipping header struct _TIFFFieldArray from /home/priyatam/libtiff/libtiff/tiffio.h
+DEBUG: Skipping header struct TIFFTagMethods from /home/priyatam/libtiff/libtiff/tiffio.h
+DEBUG: Skipping header struct TIFFTagMethods from /home/priyatam/libtiff/libtiff/tiffio.h
+DEBUG: Skipping header struct TIFFFieldInfo from /home/priyatam/libtiff/libtiff/tiffio.h
+DEBUG: Skipping header struct TIFFFieldInfo from /home/priyatam/libtiff/libtiff/tiffio.h
+DEBUG: Skipping header struct TIFFTagValue from /home/priyatam/libtiff/libtiff/tif_dir.h
+DEBUG: Skipping header struct TIFFTagValue from /home/priyatam/libtiff/libtiff/tif_dir.h
+DEBUG: Skipping header struct TIFFDirEntry from /home/priyatam/libtiff/libtiff/tif_dir.h
+DEBUG: Skipping header struct TIFFDirEntry from /home/priyatam/libtiff/libtiff/tif_dir.h
+DEBUG: Skipping header struct TIFFDirectory from /home/priyatam/libtiff/libtiff/tif_dir.h
+DEBUG: Skipping header struct TIFFDirectory from /home/priyatam/libtiff/libtiff/tif_dir.h
+DEBUG: Skipping header struct _TIFFFieldArray from /home/priyatam/libtiff/libtiff/tif_dir.h
+DEBUG: Skipping header struct _TIFFField from /home/priyatam/libtiff/libtiff/tif_dir.h
+DEBUG: Skipping header struct client_info from /home/priyatam/libtiff/libtiff/tiffiop.h
+DEBUG: Skipping header struct client_info from /home/priyatam/libtiff/libtiff/tiffiop.h
+DEBUG: Skipping header struct tiff from /home/priyatam/libtiff/libtiff/tiffiop.h
+DEBUG: Parsing headers in /home/priyatam/libtiff
+DEBUG: Function TIFFReadDirectory params: [('TIFF *', 'tif')]
+DEBUG: Recorded pointer metadata for param TIFFReadDirectory.tif: PointerMetadata(depth=1, base_type='struct tiff', qualifiers=[], kind='struct_ptr', proto_hint='bytes', raw='TIFF *', clean_base='tiff', wrapper_name=None, length_param=None, length_type=None, length_proto=None, typedef_target='TIFF', include_header='libtiff/tiffio.h', external=True)
+DEBUG: CLI main function detected: False
+DEBUG: Skipping external pointer param tif in proto fields
+DEBUG: Using function params for Input: []
+DEBUG: Skipping external pointer param tif in proto fields
+Wrote proto to input.proto:
+
+syntax = "proto3";
+
+message Input {
+}
+

@@ -1,0 +1,23 @@
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 2042438177
+INFO: Loaded 1 modules   (2668 inline 8-bit counters): 2668 [0x560470acf828, 0x560470ad0294), 
+INFO: Loaded 1 PC tables (2668 PCs): 2668 [0x560470ad0298,0x560470ada958), 
+INFO:        0 files found in corpus
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 4096 bytes
+INFO: A corpus is not provided, starting from an empty corpus
+#2	INITED cov: 1 ft: 1 corp: 1/1b exec/s: 0 rss: 32Mb
+	NEW_FUNC[1/1]: 0x560470a55b10 in mg_ntohs (/home/priyatam/pin/build/mongoose_mg_ntohs_diff/fuzz_bytes+0x131b10) (BuildId: 9e1f789b2bfbc63e24c70036861d8ed5cd38933b)
+#169	NEW    cov: 2 ft: 2 corp: 2/3b lim: 4 exec/s: 0 rss: 33Mb L: 2/2 MS: 2 CrossOver-InsertByte-
+#1048576	pulse  cov: 2 ft: 2 corp: 2/3b lim: 4096 exec/s: 524288 rss: 110Mb
+#2097152	pulse  cov: 2 ft: 2 corp: 2/3b lim: 4096 exec/s: 419430 rss: 187Mb
+#4194304	pulse  cov: 2 ft: 2 corp: 2/3b lim: 4096 exec/s: 349525 rss: 340Mb
+#8388608	pulse  cov: 2 ft: 2 corp: 2/3b lim: 4096 exec/s: 349525 rss: 615Mb
+#16777216	pulse  cov: 2 ft: 2 corp: 2/3b lim: 4096 exec/s: 372827 rss: 616Mb
+#33554432	pulse  cov: 2 ft: 2 corp: 2/3b lim: 4096 exec/s: 381300 rss: 617Mb
+#46237884	DONE   cov: 2 ft: 2 corp: 2/3b lim: 4096 exec/s: 382131 rss: 617Mb
+Done 46237884 runs in 121 second(s)
+stat::number_of_executed_units: 46237884
+stat::average_exec_per_sec:     382131
+stat::new_units_added:          1
+stat::slowest_unit_time_sec:    0
+stat::peak_rss_mb:              617

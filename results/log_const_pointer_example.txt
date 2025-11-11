@@ -1,0 +1,69 @@
+[+] Generate .proto (libclang parser)
+[+] Generate C++ protobuf (for original replay)
+[+] Generate Python protobuf helpers
+[+] Generate nanopb protobuf (for wrapper decode)
+[+] Generate wrapper with pin_wrapper_entry() and standalone main
+[+] Compile original object (instrumented) and plain object
+[+] Compile nanopb runtime and wrapper
+[+] Compile wrapper object (no main) for fuzz_bytes
+main.c:28:47: warning: declaration of 'struct Point' will not be visible outside of this function [-Wvisibility]
+extern double calculate_distance(const struct Point * p1, const struct Point * p2);
+                                              ^
+main.c:55:24: warning: incompatible pointer types passing 'const struct Point *' to parameter of type 'const struct Point *' [-Wincompatible-pointer-types]
+    calculate_distance(p1_ptr, p2_ptr);
+                       ^~~~~~
+main.c:28:55: note: passing argument to parameter 'p1' here
+extern double calculate_distance(const struct Point * p1, const struct Point * p2);
+                                                      ^
+main.c:55:32: warning: incompatible pointer types passing 'const struct Point *' to parameter of type 'const struct Point *' [-Wincompatible-pointer-types]
+    calculate_distance(p1_ptr, p2_ptr);
+                               ^~~~~~
+main.c:28:80: note: passing argument to parameter 'p2' here
+extern double calculate_distance(const struct Point * p1, const struct Point * p2);
+                                                                               ^
+3 warnings generated.
+[+] Compile C++ protobuf support
+[+] Compile reference runner (protobuf decode)
+[+] Build normalized standalone runner (reads bytes file)
+main.c:28:47: warning: declaration of 'struct Point' will not be visible outside of this function [-Wvisibility]
+extern double calculate_distance(const struct Point * p1, const struct Point * p2);
+                                              ^
+main.c:55:24: warning: incompatible pointer types passing 'const struct Point *' to parameter of type 'const struct Point *' [-Wincompatible-pointer-types]
+    calculate_distance(p1_ptr, p2_ptr);
+                       ^~~~~~
+main.c:28:55: note: passing argument to parameter 'p1' here
+extern double calculate_distance(const struct Point * p1, const struct Point * p2);
+                                                      ^
+main.c:55:32: warning: incompatible pointer types passing 'const struct Point *' to parameter of type 'const struct Point *' [-Wincompatible-pointer-types]
+    calculate_distance(p1_ptr, p2_ptr);
+                               ^~~~~~
+main.c:28:80: note: passing argument to parameter 'p2' here
+extern double calculate_distance(const struct Point * p1, const struct Point * p2);
+                                                                               ^
+3 warnings generated.
+[+] Build libFuzzer byte harness to call pin_wrapper_entry (Stage A)
+[+] Link fuzz_bytes
+[+] Stage A: libFuzzer discovery for 1s
+    Running: ./fuzz_bytes corpus -max_total_time=1 -use_value_profile=1 -print_final_stats=1 -artifact_prefix=/home/priyatam/pin/build/const_pointer_example_diff/artifacts/
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 857570906
+INFO: Loaded 1 modules   (5 inline 8-bit counters): 5 [0x559b656adea0, 0x559b656adea5), 
+INFO: Loaded 1 PC tables (5 PCs): 5 [0x559b656adea8,0x559b656adef8), 
+INFO:        1 files found in corpus
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 4096 bytes
+INFO: seed corpus: files: 1 min: 2b max: 2b total: 2b rss: 33Mb
+#2	INITED cov: 3 ft: 3 corp: 1/2b exec/s: 0 rss: 34Mb
+#879912	DONE   cov: 3 ft: 3 corp: 1/2b lim: 4096 exec/s: 439956 rss: 98Mb
+Done 879912 runs in 2 second(s)
+stat::number_of_executed_units: 879912
+stat::average_exec_per_sec:     439956
+stat::new_units_added:          0
+stat::slowest_unit_time_sec:    0
+stat::peak_rss_mb:              98
+[+] Stage B: differential replay
+[+] Stage B replay summary saved to /home/priyatam/pin/results/const_pointer_example_diff/stage_b/replay_summary.txt (inputs=1)
+[+] Stage B detailed outputs saved to /home/priyatam/pin/results/const_pointer_example_diff/stage_b/replay_outputs.txt
+[+] Ready. Next steps:
+    1) Stage A (discovery): cd /home/priyatam/pin/build/const_pointer_example_diff && ./fuzz_bytes corpus -max_total_time=60 -use_value_profile=1
+    2) Stage B (replay): add inputs under /home/priyatam/pin/build/const_pointer_example_diff/corpus and rerun to compare normalized vs original outputs
+       Replay artifacts stored under /home/priyatam/pin/results/const_pointer_example_diff/stage_b

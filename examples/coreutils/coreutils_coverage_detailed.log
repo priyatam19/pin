@@ -1,0 +1,1218 @@
+
+═══════════════════════════════════════════════════════════════════════
+[1/100] Testing: basenc:base32_required_padding (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+  [✓] Already extracted: /home/priyatam/pin/examples/coreutils/basenc_base32_required_padding.c
+  [*] Building with PIN...
+  [✓] Build succeeded
+  [*] Stage A: Fuzzing for 1 seconds...
+  [✓] Fuzzing completed
+  [i] Corpus: 7 inputs, 947911 executions,  exec/sec
+  [*] Collecting coverage data...
+  [✓] Coverage: 2/2 branches (100.00%), 4/4 lines (100.00%)
+  [*] Stage B: Differential replay...
+  [✓] Replay completed
+
+[Progress: 1/100 (1%)]
+
+═══════════════════════════════════════════════════════════════════════
+[2/100] Testing: basenc:base64_required_padding (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+  [✓] Already extracted: /home/priyatam/pin/examples/coreutils/basenc_base64_required_padding.c
+  [*] Building with PIN...
+  [✓] Build succeeded
+  [*] Stage A: Fuzzing for 1 seconds...
+  [✓] Fuzzing completed
+  [i] Corpus: 5 inputs, 793317 executions,  exec/sec
+  [*] Collecting coverage data...
+  [✓] Coverage: 2/2 branches (100.00%), 4/4 lines (100.00%)
+  [*] Stage B: Differential replay...
+  [✓] Replay completed
+
+[Progress: 2/100 (2%)]
+
+═══════════════════════════════════════════════════════════════════════
+[3/100] Testing: chcon:process_file (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+  [✓] Already extracted: /home/priyatam/pin/examples/coreutils/chcon_process_file.c
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/chcon_process_file_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[4/100] Testing: chmod:process_file (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+  [✓] Already extracted: /home/priyatam/pin/examples/coreutils/chmod_process_file.c
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/chmod_process_file_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[5/100] Testing: chown-core:gid_to_name (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+  [✓] Already extracted: /home/priyatam/pin/examples/coreutils/chown-core_gid_to_name.c
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/chown-core_gid_to_name_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[6/100] Testing: chown-core:gid_to_str (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+  [✓] Already extracted: /home/priyatam/pin/examples/coreutils/chown-core_gid_to_str.c
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/chown-core_gid_to_str_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[7/100] Testing: chown-core:uid_to_name (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+  [✓] Already extracted: /home/priyatam/pin/examples/coreutils/chown-core_uid_to_name.c
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/chown-core_uid_to_name_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[8/100] Testing: chown-core:uid_to_str (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+  [✓] Already extracted: /home/priyatam/pin/examples/coreutils/chown-core_uid_to_str.c
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/chown-core_uid_to_str_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[9/100] Testing: chroot:gid_unset (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+  [✓] Already extracted: /home/priyatam/pin/examples/coreutils/chroot_gid_unset.c
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/chroot_gid_unset_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[10/100] Testing: chroot:setgroups (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+  [✓] Already extracted: /home/priyatam/pin/examples/coreutils/chroot_setgroups.c
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/chroot_setgroups_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[11/100] Testing: chroot:uid_unset (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting uid_unset from chroot.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/chroot_uid_unset.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/chroot_uid_unset.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/chroot_uid_unset_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[12/100] Testing: cksum_vmull:bswap_neon (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting bswap_neon from cksum_vmull.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/cksum_vmull_bswap_neon.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/cksum_vmull_bswap_neon.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/cksum_vmull_bswap_neon_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[13/100] Testing: copy:clone_file (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting clone_file from copy.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/copy_clone_file.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/copy_clone_file.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/copy_clone_file_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[14/100] Testing: copy:copy_attr (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting copy_attr from copy.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/copy_copy_attr.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/copy_copy_attr.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/copy_copy_attr_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[15/100] Testing: copy:errno_unsupported (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting errno_unsupported from copy.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/copy_errno_unsupported.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/copy_errno_unsupported.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/copy_errno_unsupported_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[16/100] Testing: copy:is_CLONENOTSUP (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting is_CLONENOTSUP from copy.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/copy_is_CLONENOTSUP.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/copy_is_CLONENOTSUP.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/copy_is_CLONENOTSUP_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[17/100] Testing: copy:is_terminal_error (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting is_terminal_error from copy.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/copy_is_terminal_error.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/copy_is_terminal_error.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/copy_is_terminal_error_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[18/100] Testing: copy:punch_hole (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting punch_hole from copy.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/copy_punch_hole.c
+[*] Testing compilation...
+[+] Compilation successful
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/copy_punch_hole.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/copy_punch_hole_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[19/100] Testing: copy:write_zeros (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting write_zeros from copy.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/copy_write_zeros.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/copy_write_zeros.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/copy_write_zeros_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[20/100] Testing: csplit:find_line (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting find_line from csplit.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/csplit_find_line.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/csplit_find_line.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/csplit_find_line_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[21/100] Testing: csplit:get_new_buffer (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting get_new_buffer from csplit.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/csplit_get_new_buffer.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/csplit_get_new_buffer.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/csplit_get_new_buffer_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[22/100] Testing: csplit:interrupt_handler (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting interrupt_handler from csplit.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/csplit_interrupt_handler.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/csplit_interrupt_handler.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/csplit_interrupt_handler_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[23/100] Testing: csplit:make_filename (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting make_filename from csplit.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/csplit_make_filename.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/csplit_make_filename.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/csplit_make_filename_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[24/100] Testing: csplit:write_to_file (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting write_to_file from csplit.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/csplit_write_to_file.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/csplit_write_to_file.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/csplit_write_to_file_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[25/100] Testing: cut:is_range_start_index (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting is_range_start_index from cut.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/cut_is_range_start_index.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/cut_is_range_start_index.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/cut_is_range_start_index_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[26/100] Testing: cut:next_item (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting next_item from cut.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/cut_next_item.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/cut_next_item.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/cut_next_item_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[27/100] Testing: cut:print_kth (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting print_kth from cut.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/cut_print_kth.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/cut_print_kth.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/cut_print_kth_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[28/100] Testing: date:res_width (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting res_width from date.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/date_res_width.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/date_res_width.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/date_res_width_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[29/100] Testing: dd:ATTRIBUTE_FORMAT (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting ATTRIBUTE_FORMAT from dd.c
+[ERROR] Function 'ATTRIBUTE_FORMAT' not found in /home/priyatam/ws/coreutils/src/dd.c
+  [✗] Extraction failed
+
+═══════════════════════════════════════════════════════════════════════
+[30/100] Testing: dd:advance_input_after_read_error (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting advance_input_after_read_error from dd.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/dd_advance_input_after_read_error.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/dd_advance_input_after_read_error.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/dd_advance_input_after_read_error_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[31/100] Testing: dd:advance_input_offset (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting advance_input_offset from dd.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/dd_advance_input_offset.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/dd_advance_input_offset.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/dd_advance_input_offset_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[32/100] Testing: dd:cache_round (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting cache_round from dd.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/dd_cache_round.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/dd_cache_round.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/dd_cache_round_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[33/100] Testing: dd:iclose (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting iclose from dd.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/dd_iclose.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/dd_iclose.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/dd_iclose_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[34/100] Testing: dd:ifdatasync (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting ifdatasync from dd.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/dd_ifdatasync.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/dd_ifdatasync.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/dd_ifdatasync_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[35/100] Testing: dd:ifsync (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting ifsync from dd.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/dd_ifsync.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/dd_ifsync.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/dd_ifsync_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[36/100] Testing: dd:iftruncate (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting iftruncate from dd.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/dd_iftruncate.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/dd_iftruncate.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/dd_iftruncate_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[37/100] Testing: dd:interrupt_handler (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting interrupt_handler from dd.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/dd_interrupt_handler.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/dd_interrupt_handler.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/dd_interrupt_handler_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[38/100] Testing: dd:invalidate_cache (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting invalidate_cache from dd.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/dd_invalidate_cache.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/dd_invalidate_cache.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/dd_invalidate_cache_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[39/100] Testing: dd:multiple_bits_set (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting multiple_bits_set from dd.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/dd_multiple_bits_set.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/dd_multiple_bits_set.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/dd_multiple_bits_set_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[40/100] Testing: dd:print_xfer_stats (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting print_xfer_stats from dd.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/dd_print_xfer_stats.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/dd_print_xfer_stats.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/dd_print_xfer_stats_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[41/100] Testing: dd:quit (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting quit from dd.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/dd_quit.c
+[*] Testing compilation...
+[+] Compilation successful
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/dd_quit.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/dd_quit_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[42/100] Testing: dd:siginfo_handler (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting siginfo_handler from dd.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/dd_siginfo_handler.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/dd_siginfo_handler.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/dd_siginfo_handler_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[43/100] Testing: dd:static_assert (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting static_assert from dd.c
+[ERROR] Function 'static_assert' not found in /home/priyatam/ws/coreutils/src/dd.c
+  [✗] Extraction failed
+
+═══════════════════════════════════════════════════════════════════════
+[44/100] Testing: dd:static_assert (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting static_assert from dd.c
+[ERROR] Function 'static_assert' not found in /home/priyatam/ws/coreutils/src/dd.c
+  [✗] Extraction failed
+
+═══════════════════════════════════════════════════════════════════════
+[45/100] Testing: dd:static_assert (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting static_assert from dd.c
+[ERROR] Function 'static_assert' not found in /home/priyatam/ws/coreutils/src/dd.c
+  [✗] Extraction failed
+
+═══════════════════════════════════════════════════════════════════════
+[46/100] Testing: dd:static_assert (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting static_assert from dd.c
+[ERROR] Function 'static_assert' not found in /home/priyatam/ws/coreutils/src/dd.c
+  [✗] Extraction failed
+
+═══════════════════════════════════════════════════════════════════════
+[47/100] Testing: dd:static_assert (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting static_assert from dd.c
+[ERROR] Function 'static_assert' not found in /home/priyatam/ws/coreutils/src/dd.c
+  [✗] Extraction failed
+
+═══════════════════════════════════════════════════════════════════════
+[48/100] Testing: df:add_uint_with_neg_flag (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting add_uint_with_neg_flag from df.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/df_add_uint_with_neg_flag.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/df_add_uint_with_neg_flag.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/df_add_uint_with_neg_flag_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[49/100] Testing: df:filter_mount_list (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting filter_mount_list from df.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/df_filter_mount_list.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/df_filter_mount_list.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/df_filter_mount_list_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[50/100] Testing: df:known_value (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting known_value from df.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/df_known_value.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/df_known_value.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/df_known_value_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[51/100] Testing: dircolors:static_assert (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting static_assert from dircolors.c
+[ERROR] Function 'static_assert' not found in /home/priyatam/ws/coreutils/src/dircolors.c
+  [✗] Extraction failed
+
+═══════════════════════════════════════════════════════════════════════
+[52/100] Testing: du:mount_point_in_fts_cycle (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting mount_point_in_fts_cycle from du.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/du_mount_point_in_fts_cycle.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/du_mount_point_in_fts_cycle.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/du_mount_point_in_fts_cycle_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[53/100] Testing: du:print_only_size (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting print_only_size from du.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/du_print_only_size.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/du_print_only_size.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/du_print_only_size_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[54/100] Testing: du:process_file (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting process_file from du.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/du_process_file.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/du_process_file.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/du_process_file_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[55/100] Testing: echo:hextobin (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting hextobin from echo.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/echo_hextobin.c
+[*] Testing compilation...
+[+] Compilation successful
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/echo_hextobin.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/echo_hextobin_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[56/100] Testing: expr:eval (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting eval from expr.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/expr_eval.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/expr_eval.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/expr_eval_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[57/100] Testing: expr:eval1 (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting eval1 from expr.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/expr_eval1.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/expr_eval1.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/expr_eval1_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[58/100] Testing: expr:eval2 (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting eval2 from expr.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/expr_eval2.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/expr_eval2.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/expr_eval2_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[59/100] Testing: expr:eval3 (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting eval3 from expr.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/expr_eval3.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/expr_eval3.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/expr_eval3_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[60/100] Testing: expr:eval4 (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting eval4 from expr.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/expr_eval4.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/expr_eval4.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/expr_eval4_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[61/100] Testing: expr:eval5 (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting eval5 from expr.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/expr_eval5.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/expr_eval5.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/expr_eval5_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[62/100] Testing: expr:eval6 (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting eval6 from expr.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/expr_eval6.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/expr_eval6.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/expr_eval6_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[63/100] Testing: expr:eval7 (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting eval7 from expr.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/expr_eval7.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/expr_eval7.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/expr_eval7_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[64/100] Testing: expr:int_value (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting int_value from expr.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/expr_int_value.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/expr_int_value.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/expr_int_value_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[65/100] Testing: expr:static_assert (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting static_assert from expr.c
+[ERROR] Function 'static_assert' not found in /home/priyatam/ws/coreutils/src/expr.c
+  [✗] Extraction failed
+
+═══════════════════════════════════════════════════════════════════════
+[66/100] Testing: factor:hi (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting hi from factor.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/factor_hi.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/factor_hi.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/factor_hi_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[67/100] Testing: factor:hiset (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting hiset from factor.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/factor_hiset.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/factor_hiset.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/factor_hiset_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[68/100] Testing: factor:lbuf_putint (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting lbuf_putint from factor.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/factor_lbuf_putint.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/factor_lbuf_putint.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/factor_lbuf_putint_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[69/100] Testing: factor:lo (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting lo from factor.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/factor_lo.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/factor_lo.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/factor_lo_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[70/100] Testing: factor:make_uuint (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting make_uuint from factor.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/factor_make_uuint.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/factor_make_uuint.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/factor_make_uuint_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[71/100] Testing: factor:mulredc (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting mulredc from factor.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/factor_mulredc.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/factor_mulredc.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/factor_mulredc_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[72/100] Testing: factor:print_factors_single (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting print_factors_single from factor.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/factor_print_factors_single.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/factor_print_factors_single.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/factor_print_factors_single_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[73/100] Testing: factor:print_uuint (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting print_uuint from factor.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/factor_print_uuint.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/factor_print_uuint.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/factor_print_uuint_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[74/100] Testing: factor:uuset (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting uuset from factor.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/factor_uuset.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/factor_uuset.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/factor_uuset_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[75/100] Testing: fmt:put_space (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting put_space from fmt.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/fmt_put_space.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/fmt_put_space.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/fmt_put_space_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[76/100] Testing: fmt:put_space (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+  [✓] Already extracted: /home/priyatam/pin/examples/coreutils/fmt_put_space.c
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/fmt_put_space_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[77/100] Testing: fmt:same_para (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting same_para from fmt.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/fmt_same_para.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/fmt_same_para.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/fmt_same_para_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[78/100] Testing: fmt:same_para (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+  [✓] Already extracted: /home/priyatam/pin/examples/coreutils/fmt_same_para.c
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/fmt_same_para_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[79/100] Testing: fmt:set_other_indent (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting set_other_indent from fmt.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/fmt_set_other_indent.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/fmt_set_other_indent.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/fmt_set_other_indent_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[80/100] Testing: getlimits:print_DBL (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting print_DBL from getlimits.c
+[ERROR] Function 'print_DBL' not found in /home/priyatam/ws/coreutils/src/getlimits.c
+  [✗] Extraction failed
+
+═══════════════════════════════════════════════════════════════════════
+[81/100] Testing: getlimits:print_FLT (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting print_FLT from getlimits.c
+[ERROR] Function 'print_FLT' not found in /home/priyatam/ws/coreutils/src/getlimits.c
+  [✗] Extraction failed
+
+═══════════════════════════════════════════════════════════════════════
+[82/100] Testing: getlimits:print_LDBL (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting print_LDBL from getlimits.c
+[ERROR] Function 'print_LDBL' not found in /home/priyatam/ws/coreutils/src/getlimits.c
+  [✗] Extraction failed
+
+═══════════════════════════════════════════════════════════════════════
+[83/100] Testing: group-list:print_group (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting print_group from group-list.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/group-list_print_group.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/group-list_print_group.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/group-list_print_group_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[84/100] Testing: head:copy_fd (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting copy_fd from head.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/head_copy_fd.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/head_copy_fd.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/head_copy_fd_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[85/100] Testing: id:print_user (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting print_user from id.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/id_print_user.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/id_print_user.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/id_print_user_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[86/100] Testing: id:print_user (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+  [✓] Already extracted: /home/priyatam/pin/examples/coreutils/id_print_user.c
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/id_print_user_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[87/100] Testing: install:extra_mode (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting extra_mode from install.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/install_extra_mode.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/install_extra_mode.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/install_extra_mode_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[88/100] Testing: install:have_same_content (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting have_same_content from install.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/install_have_same_content.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/install_have_same_content.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/install_have_same_content_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[89/100] Testing: iopoll:fclose_wait (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting fclose_wait from iopoll.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/iopoll_fclose_wait.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/iopoll_fclose_wait.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/iopoll_fclose_wait_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[90/100] Testing: iopoll:fwait_for_nonblocking_write (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting fwait_for_nonblocking_write from iopoll.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/iopoll_fwait_for_nonblocking_write.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/iopoll_fwait_for_nonblocking_write.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/iopoll_fwait_for_nonblocking_write_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[91/100] Testing: iopoll:iopoll (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting iopoll from iopoll.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/iopoll_iopoll.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/iopoll_iopoll.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/iopoll_iopoll_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[92/100] Testing: iopoll:iopoll_input_ok (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting iopoll_input_ok from iopoll.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/iopoll_iopoll_input_ok.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/iopoll_iopoll_input_ok.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/iopoll_iopoll_input_ok_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[93/100] Testing: iopoll:iopoll_internal (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting iopoll_internal from iopoll.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/iopoll_iopoll_internal.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/iopoll_iopoll_internal.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/iopoll_iopoll_internal_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[94/100] Testing: iopoll:iopoll_output_ok (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting iopoll_output_ok from iopoll.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/iopoll_iopoll_output_ok.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/iopoll_iopoll_output_ok.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/iopoll_iopoll_output_ok_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[95/100] Testing: join:add_field (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting add_field from join.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/join_add_field.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/join_add_field.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/join_add_field_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[96/100] Testing: join:comma_or_blank (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting comma_or_blank from join.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/join_comma_or_blank.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/join_comma_or_blank.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/join_comma_or_blank_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[97/100] Testing: join:eq_tab (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting eq_tab from join.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/join_eq_tab.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/join_eq_tab.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/join_eq_tab_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[98/100] Testing: join:newline_or_blank (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting newline_or_blank from join.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/join_newline_or_blank.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/join_newline_or_blank.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/join_newline_or_blank_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[99/100] Testing: join:set_join_field (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting set_join_field from join.c
+[+] Extracted to: /home/priyatam/pin/examples/coreutils/join_set_join_field.c
+[*] Testing compilation...
+[WARNING] Compilation failed, but file was extracted
+[+] Extraction complete: /home/priyatam/pin/examples/coreutils/join_set_join_field.c
+  [✓] Extraction succeeded
+  [*] Building with PIN...
+  [✗] Build failed (see /home/priyatam/pin/build/join_set_join_field_diff/build.log)
+
+═══════════════════════════════════════════════════════════════════════
+[100/100] Testing: join:system_join (score: 5)
+═══════════════════════════════════════════════════════════════════════
+  [*] Extracting function...
+[*] Extracting system_join from join.c
+[ERROR] Function 'system_join' not found in /home/priyatam/ws/coreutils/src/join.c
+  [✗] Extraction failed
+
+
+╔════════════════════════════════════════════════════════════════════════╗
+║                        TESTING COMPLETE                                 ║
+╚════════════════════════════════════════════════════════════════════════╝
+
+═══════════════════════════════════════════════════════════════════════
+SUMMARY STATISTICS
+═══════════════════════════════════════════════════════════════════════
+
+Functions tested: 100
+Extraction success: 88 / 100 (88%)
+Build success: 2 / 100 (2%)
+Stage A (fuzzing) success: 2 / 100 (2%)
+Stage B (replay) success: 2 / 100 (2%)
+
+Top 10 by branch coverage:
+     1	base64_required_padding 2
+     2	base32_required_padding 2
+
+Top 10 by throughput (exec/sec):
+
+[+] Results saved to: /home/priyatam/pin/examples/coreutils/coreutils_top100_coverage.csv
+[+] Detailed log saved to: /home/priyatam/pin/examples/coreutils/coreutils_coverage_detailed.log
+

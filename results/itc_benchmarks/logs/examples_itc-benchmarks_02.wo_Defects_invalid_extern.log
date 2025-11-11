@@ -1,0 +1,31 @@
+[+] Generate .proto (libclang parser)
+[i] Skipping C++ protobuf generation (reference decoder=nanopb)
+[+] Generate Python protobuf helpers
+[+] Generate nanopb protobuf (for wrapper decode)
+[+] Generate wrapper with pin_wrapper_entry() and standalone main
+[+] Compile original object (instrumented) and plain object
+[+] Compile extra sources (1)
+[+] Compile nanopb runtime and wrapper
+[+] Compile wrapper object (no main) for fuzz_bytes
+[+] Build nanopb reference replay binary
+/usr/bin/ld: original_plain.o: in function `invalid_extern_001':
+invalid_extern.c:(.text+0x3): undefined reference to `invalid_extern_001_glb_buf'
+/usr/bin/ld: original_plain.o: in function `invalid_extern_002':
+invalid_extern.c:(.text+0x13): undefined reference to `invalid_extern_001_glb_float'
+/usr/bin/ld: original_plain.o: in function `invalid_extern_003':
+invalid_extern.c:(.text+0x23): undefined reference to `invalid_extern_001_glb_var3'
+/usr/bin/ld: original_plain.o: in function `invalid_extern_004':
+invalid_extern.c:(.text+0x33): undefined reference to `invalid_extern_001_glb_var4'
+/usr/bin/ld: original_plain.o: in function `invalid_extern_005':
+invalid_extern.c:(.text+0x43): undefined reference to `invalid_extern_001_glb_var5'
+/usr/bin/ld: original_plain.o: in function `invalid_extern_006':
+invalid_extern.c:(.text+0x5e): undefined reference to `invalid_extern_001_glb_006_str'
+/usr/bin/ld: original_plain.o: in function `invalid_extern_main':
+invalid_extern.c:(.text+0x8c): undefined reference to `invalid_extern_001_glb_buf'
+/usr/bin/ld: invalid_extern.c:(.text+0xab): undefined reference to `invalid_extern_001_glb_float'
+/usr/bin/ld: invalid_extern.c:(.text+0xca): undefined reference to `invalid_extern_001_glb_var3'
+/usr/bin/ld: invalid_extern.c:(.text+0xe9): undefined reference to `invalid_extern_001_glb_var4'
+/usr/bin/ld: invalid_extern.c:(.text+0x107): undefined reference to `invalid_extern_001_glb_var5'
+/usr/bin/ld: invalid_extern.c:(.text+0x12e): undefined reference to `invalid_extern_001_glb_006_str'
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+[-] Failed linking reference_nanopb_bin

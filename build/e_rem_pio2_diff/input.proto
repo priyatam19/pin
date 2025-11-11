@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+message Input {
+  double x = 1;
+  DoubleScalarPtr y = 2;
+}
+
+message DoubleScalarPtr {
+  bool has_value = 1;
+  double value = 2;
+}

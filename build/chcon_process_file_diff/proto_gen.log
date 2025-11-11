@@ -1,0 +1,68 @@
+DEBUG: Starting main with file /home/priyatam/pin/examples/coreutils/chcon_process_file.c, func process_file, parser libclang, headers /home/priyatam/pin/utils/coreutils_headers
+DEBUG: Parsing file /home/priyatam/pin/examples/coreutils/chcon_process_file.c with libclang
+DEBUG: Libclang args: ['-I/home/priyatam/pin/utils/coreutils_headers']
+DEBUG: Scanning for function process_file
+DEBUG: Found target function process_file
+DEBUG: Function has 2 arguments
+DEBUG: Param type: int *
+DEBUG: Param type: int *
+DEBUG: Found called function ROOT_DEV_INO_WARN
+DEBUG: Found called function ignore_value
+DEBUG: Found called function fts_read
+DEBUG: Found called function error
+DEBUG: Found called function _
+DEBUG: Found called function quoteaf
+DEBUG: Found called function error
+DEBUG: Found called function quotef
+DEBUG: Found called function error
+DEBUG: Found called function _
+DEBUG: Found called function quoteaf
+DEBUG: Found called function cycle_warning_required
+DEBUG: Found called function emit_cycle_warning
+DEBUG: Found called function ROOT_DEV_INO_WARN
+DEBUG: Found called function printf
+DEBUG: Found called function _
+DEBUG: Found called function quoteaf
+DEBUG: Collecting structs from /home/priyatam/pin/examples/coreutils/chcon_process_file.c
+DEBUG: Skipped struct __fsid_t from /usr/include/x86_64-linux-gnu/bits/types.h (not in main file or headers dir)
+DEBUG: Skipped struct __fsid_t from /usr/include/x86_64-linux-gnu/bits/types.h (not in main file or headers dir)
+DEBUG: Skipped struct __mbstate_t from /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h (not in main file or headers dir)
+DEBUG: Skipped struct __mbstate_t from /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos64_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _G_fpos64_t from /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/__FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_marker from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_codecvt from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_wide_data from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Skipped struct _IO_FILE from /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h (not in main file or headers dir)
+DEBUG: Found struct stat in /home/priyatam/pin/examples/coreutils/chcon_process_file.c
+DEBUG: Skipped struct stat (filtered out)
+DEBUG: Parsing headers in /home/priyatam/pin/utils/coreutils_headers
+DEBUG: Parsing header /home/priyatam/pin/utils/coreutils_headers/config.h
+DEBUG: Function process_file params: [('int *', 'fts'), ('int *', 'ent')]
+DEBUG: Recorded pointer metadata for param process_file.fts: PointerMetadata(depth=1, base_type='int', qualifiers=[], kind='scalar_ptr', proto_hint='Int32ScalarPtr', raw='int *', clean_base=None, wrapper_name='Int32ScalarPtr', length_param=None, length_type=None, length_proto=None, typedef_target=None, include_header=None, external=False)
+DEBUG: Recorded pointer metadata for param process_file.ent: PointerMetadata(depth=1, base_type='int', qualifiers=[], kind='scalar_ptr', proto_hint='Int32ScalarPtr', raw='int *', clean_base=None, wrapper_name='Int32ScalarPtr', length_param=None, length_type=None, length_proto=None, typedef_target=None, include_header=None, external=False)
+DEBUG: CLI main function detected: False
+DEBUG: Mapping type for decl: ('int *', 'fts')
+DEBUG: Mapping type for decl: ('int *', 'ent')
+DEBUG: Using function params for Input: [('Int32ScalarPtr', 'fts'), ('Int32ScalarPtr', 'ent')]
+DEBUG: Mapping type for decl: ('int *', 'fts')
+DEBUG: Mapping type for decl: ('int *', 'ent')
+Wrote proto to input.proto:
+
+syntax = "proto3";
+
+message Input {
+  Int32ScalarPtr fts = 1;
+  Int32ScalarPtr ent = 2;
+}
+
+message Int32ScalarPtr {
+  bool has_value = 1;
+  int32 value = 2;
+}
+

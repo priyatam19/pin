@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+message Int32ScalarPtr {
+  bool has_value = 1;
+  int32 value = 2;
+}
+
+message FloatSlice {
+  repeated float data = 1;
+  int32 length = 2;
+}
+
+message Input {
+  Int32ScalarPtr error_code = 1;
+  FloatSlice readings = 2;
+  int32 num_readings = 3;
+  string label = 4;
+}

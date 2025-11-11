@@ -1,0 +1,13 @@
+[+] Generate .proto (libclang parser)
+[i] Skipping C++ protobuf generation (reference decoder=nanopb)
+[+] Generate Python protobuf helpers
+[+] Generate nanopb protobuf (for wrapper decode)
+[+] Generate wrapper with pin_wrapper_entry() and standalone main
+[+] Compile original object (instrumented) and plain object
+[+] Compile nanopb runtime and wrapper
+[+] Compile wrapper object (no main) for fuzz_bytes
+[+] Build nanopb reference replay binary
+/usr/bin/ld: wrapper.o: in function `pin_wrapper_entry':
+main.c:(.text+0x42): undefined reference to `mg_mqtt_next_sub'
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+[-] Failed linking reference_nanopb_bin

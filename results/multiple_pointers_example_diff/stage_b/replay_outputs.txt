@@ -1,0 +1,8 @@
+=== 3f9be36fc76bda163746c6c2c79d1d27465ae9df ===
+[input decoded]
+{"error_code": {"has_value": false, "value": 0}, "label": "", "num_readings": 0, "readings": {"data": [], "length": 0}}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+

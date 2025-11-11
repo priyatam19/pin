@@ -1,2362 +1,4242 @@
-=== 0092974eb52c71afebb98e497a4c77b24a4c8549 ===
+=== 009788b7ab349d2f0b8319df69c0526f03738f7e ===
 [input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/ÿÿÿÿ secondary:ha
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb rc=0 stdout]
+primary:/ÿÿÿÿ secondary:ha
+[reference_npb stderr]
 
-=== 02078e328a1f8bd8a754dafa739065ced7fd65ad ===
+=== 0130042a66540801b1d4d84a8530b4e7f0840c42 ===
 [input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ÿÿÿÿ secondary:ha
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb rc=0 stdout]
+primary:ÿÿÿÿ secondary:ha
+[reference_npb stderr]
 
-=== 04054d97a1a744d1bcb6de99a0792ee46b1f02bc ===
+=== 01595e61b4abf8fe3e871c82f7c5191f9f0631a8 ===
 [input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/ha secondary:/heat
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb rc=0 stdout]
+primary:/ha secondary:/heat
+[reference_npb stderr]
 
-=== 053839c25a21796c63e24b30b13b6f3df42fe9fe ===
+=== 01934500d0e39385fa1834428621a2f37c789089 ===
+[input decoded]
+{"primary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0010\u0001\u0000\u0001\u0000\u0000\u0000\u0012\u0012\u0012\u0000\u0012\u0012\u0012]\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0000\u0000\u0012", "secondary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012t\u0012)e&"}
+[normalized rc=0 stdout]
+primary: secondary:t)e&
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:t)e&
+[reference_npb stderr]
+
+=== 023e2f2b6cb5f339cc5a97c14807c90e9a6b6601 ===
+[input decoded]
+{"primary": "", "secondary": "l"}
+[normalized rc=0 stdout]
+primary: secondary:l
+primary-empty
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:l
+primary-empty
+[reference_npb stderr]
+
+=== 0241d4dc2eb7a9b258aa77f09934138cdcf4d756 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/h@@ secondary:/,—
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/h@@ secondary:/,—
+[reference_npb stderr]
+
+=== 026720f63a6dc1137f9053f0fa8d520cdc6bbfef ===
+[input decoded]
+{"primary": "leae", "secondary": "jeat"}
+[normalized rc=0 stdout]
+primary:leae secondary:jeat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:leae secondary:jeat
+[reference_npb stderr]
+
+=== 02d4cdefe5a15d3b79af6a297a17cb733130cf8e ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/ÿÿÿÿha secondary:ha
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/ÿÿÿÿha secondary:ha
+[reference_npb stderr]
+
+=== 030c218aafb8c0dfb43c0ac25927bb4a725573ac ===
+[input decoded]
+{"primary": "le", "secondary": "jeat"}
+[normalized rc=0 stdout]
+primary:le secondary:jeat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:le secondary:jeat
+[reference_npb stderr]
+
+=== 0394cacac2ffe8a37e3619e75710a1ac5380183d ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:heap secondary:he‹
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:heap secondary:he‹
+[reference_npb stderr]
+
+=== 03c958589a89b362fd95cbcdf7230ce47f1f3892 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ieat secondary:–ÿa
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ieat secondary:–ÿa
+[reference_npb stderr]
+
+=== 04c0c13d1d27236fafe88601d6c5fddd1992d8a4 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary: secondary:ÿÿÿı
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:ÿÿÿı
+[reference_npb stderr]
+
+=== 058bc033403fc816313dde96977c90e662868b06 ===
+[input decoded]
+{"primary": "h^at", "secondary": "h\u0001\u0000t"}
+[normalized rc=0 stdout]
+primary:h^at secondary:h
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:h^at secondary:h
+[reference_npb stderr]
+
+=== 0680a2ac39b2bb7e44df2b05e13dab9e2ba2f35e ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:íÿh5ÿÿ secondary:îíí—aÿìhea
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:íÿh5ÿÿ secondary:îíí—aÿìhea
+[reference_npb stderr]
+
+=== 06c11e5ebdf937219586b796bfe0ff12e807fc26 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:*ÿõÿÿ secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:*ÿõÿÿ secondary:t
+[reference_npb stderr]
+
+=== 07349db59277e23dc83c99adb2490f1a25468890 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:i%atA secondary:ÿÿÿÿ
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:i%atA secondary:ÿÿÿÿ
+[reference_npb stderr]
+
+=== 082449065a30595c33f02049e5a2eb4a9ab1cebd ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:í secondary:î—aÿì
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:í secondary:î—aÿì
+[reference_npb stderr]
+
+=== 098103253e2b9fdd09b57591f13933e578869be3 ===
+[input decoded]
+{"primary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012[\u0012\u000ehe\u0004\u0012\u0012\u0012\u0012\u0012", "secondary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012t\u0012\u0012\u0012&"}
+[normalized rc=0 stdout]
+primary:[he secondary:t&
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:[he secondary:t&
+[reference_npb stderr]
+
+=== 09e0af381324edf338e4c5ce9424c79f3190356e ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary: secondary:ÿÿÿı
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:ÿÿÿı
+[reference_npb stderr]
+
+=== 0ae29fe525011710a01d0eac184ec7753bde51ee ===
 [input decoded]
 {"primary": "", "secondary": ""}
 [normalized rc=0 stdout]
-primary:	
- secondary:	#
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
+primary: secondary:
 secondary-empty
-modes:equal
-[original stderr]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:
+secondary-empty
+[reference_npb stderr]
 
-=== 05a79f06cf3f67f726dae68d18a2290f6c9a50c9 ===
+=== 0b979e3b3c88ebaaf7e4081e5414e200416d6f48 ===
 [input decoded]
 {"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
+[normalized rc=0 stdout]
+primary:ö secondary:t
 [normalized stderr]
-[original rc=1 stdout]
-[original stderr]
+[reference_npb rc=0 stdout]
+primary:ö secondary:t
+[reference_npb stderr]
 
-=== 0879c51573c54eb2b02fc0ec4d56701f760981da ===
+=== 0babf634c7bc0ccfb3bef743ef1b8f240e5f5ea2 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ha secondary:—a`ÿÿeat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ha secondary:—a`ÿÿeat
+[reference_npb stderr]
+
+=== 0bb483d0062f0db666facda48dc62c761d0ebd70 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:íöh secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:íöh secondary:t
+[reference_npb stderr]
+
+=== 0be530f5e2a63a54668801248c47374078ab7c63 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary: secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:t
+[reference_npb stderr]
+
+=== 0c77750abeec7dc58ad025fed4acd7df821b233c ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:i%atîíò secondary:ííííí
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:i%atîíò secondary:ííííí
+[reference_npb stderr]
+
+=== 0c9cd33eb7b9ddcdb0ede0c5e9a809eda81a815b ===
 [input decoded]
 {"primary": "", "secondary": ""}
 [normalized rc=0 stdout]
-primary: secondary:/
-primary-empty
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
+primary: secondary:
 secondary-empty
-modes:equal
-[original stderr]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:
+secondary-empty
+[reference_npb stderr]
 
-=== 09d2af8dd22201dd8d48e5dcfcaed281ff9422c7 ===
+=== 0d693b8a112b9447b4a4f85d2f122e75c2b731b7 ===
 [input decoded]
 {"primary": "", "secondary": ""}
 [normalized rc=0 stdout]
-primary: secondary:
+primary: secondary:û
 primary-empty
-secondary-empty
-modes:equal
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
+[reference_npb rc=0 stdout]
+primary: secondary:û
 primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb stderr]
 
-=== 0ac33804e20ef72b1409bfe911bc26264e957c01 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 0bc7090d0938225dbfca7a42150c640b97c6ab08 ===
+=== 0db239a51b0c63b754119ac11381016c129605e6 ===
 [input decoded]
 {"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.secondary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
-
-=== 0c1718e09ff4d5f934a9d444270445592de6248b ===
-[input decoded]
-{"primary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012", "secondary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u001a\u0012\u0012\u0012"}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-[original stderr]
-
-=== 0c3c47262d16301a49b164ab9605ffe63be2ffb7 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 0d2c02bf03c6d01595922a654b937a036e87708e ===
-[input decoded]
-{"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
-
-=== 0e30950823c752b23b0a155c18e329ab64f7d38b ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 10f8c81105c4b2215bd94329c7dc45f325bc7506 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 1153253c30afb34f48e4123c74417c558e422684 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 13617da7da0965e2d88daaf4ed261f725d4c3e32 ===
-[input decoded]
-{"primary": "", "secondary": ""}
 [normalized rc=0 stdout]
-primary:~ secondary:
-secondary-empty
+primary:÷ee secondary:Heeô
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb rc=0 stdout]
+primary:÷ee secondary:Heeô
+[reference_npb stderr]
 
-=== 16959a09fc309f7d51f00dc98a216d1637df07b5 ===
+=== 0e2a34d608ad68c66ad79a5f3267d492072fc96e ===
 [input decoded]
 {"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
+[normalized rc=0 stdout]
+primary:/îí secondary:/—
 [normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.secondary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+[reference_npb rc=0 stdout]
+primary:/îí secondary:/—
+[reference_npb stderr]
 
-=== 17fd7560390eeccdc15b231e68991976c468ef4d ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 18b03ba3b894c72b60349930eb7576f658a94b2b ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 192eacc253b6c9ce3d3f6f6f1d1694e5863edaac ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 1b6e8beff43ae4763b2fc5de23467dcca6f2202a ===
+=== 0f0a09583dfbcd82db8d2b440172951a1afacc17 ===
 [input decoded]
 {"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
+[normalized rc=0 stdout]
+primary:/i!eh¤aì]ÿ secondary:/
 [normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+[reference_npb rc=0 stdout]
+primary:/i!eh¤aì]ÿ secondary:/
+[reference_npb stderr]
+
+=== 0f22ab6a2fbbb6e9bc7a44312c8904517d89f1c4 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:h««««««««««««««««««««««««««««««««««««««««««««ÿÿÿ secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:h««««««««««««««««««««««««««««««««««««««««««««ÿÿÿ secondary:t
+[reference_npb stderr]
+
+=== 0f7640330c053360a25ecf73de7703b9213d8cab ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ÿha secondary:
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ÿha secondary:
+[reference_npb stderr]
+
+=== 0f9ca574f1cb2f0a1ae764a989a2cfc58a573a85 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:Hee secondary:Heeô
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:Hee secondary:Heeô
+[reference_npb stderr]
+
+=== 0ff24d71e993aae80a5798d8ec534ed75c329f50 ===
+[input decoded]
+{"primary": "?\u0000at", "secondary": ""}
+[normalized rc=0 stdout]
+primary:? secondary:
+secondary-empty
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:? secondary:
+secondary-empty
+[reference_npb stderr]
+
+=== 1018c18c5a711ac154b0017a30008d334348a4ea ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:öíh secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:öíh secondary:t
+[reference_npb stderr]
+
+=== 11152b479d87bbcc983b90d2c475bf81db04e8c2 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:òíh secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:òíh secondary:t
+[reference_npb stderr]
+
+=== 122bbc5fd7cdc990517de1cdbcb42b6cb8f80ccc ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:“šae secondary:heat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:“šae secondary:heat
+[reference_npb stderr]
+
+=== 1247089f8a496c7ad53d6bf67d77ba64adc4fe43 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:Mÿha secondary:îííÿìheat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:Mÿha secondary:îííÿìheat
+[reference_npb stderr]
+
+=== 1265e6a394dc85abf345dd9bd5b5b34e27c8796e ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ha secondary:ha
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ha secondary:ha
+[reference_npb stderr]
+
+=== 127310fd6f027376b4826003e6d206b1286fe0fd ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary: secondary:tR
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:tR
+[reference_npb stderr]
+
+=== 137cd7a3a38c84d7da58b5a179d404c51700fa35 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:[heI secondary:t&
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:[heI secondary:t&
+[reference_npb stderr]
+
+=== 141a0c2a7824fc35e33c19fb3d45bcafd6e60596 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/ha secondary:/ÿÿ
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/ha secondary:/ÿÿ
+[reference_npb stderr]
+
+=== 143d5e61c81e847bf8e1a1789ab84bb4c20ae994 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary: secondary:1[
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:1[
+[reference_npb stderr]
+
+=== 147e9e992c15a9320404aa66ee4885c8a04d5779 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/ha secondary:/eat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/ha secondary:/eat
+[reference_npb stderr]
+
+=== 14e3dc3505a09839a10b521b90a6a95c855e5a82 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:!’ÿÿÿÿ secondary:íí‹íííí
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:!’ÿÿÿÿ secondary:íí‹íííí
+[reference_npb stderr]
+
+=== 16222dd64e79adea34cc9170750c2bf4fe8be221 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:!ÿÏíÿ secondary:2ÿ
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:!ÿÏíÿ secondary:2ÿ
+[reference_npb stderr]
+
+=== 177ff112ce2a0415839f07ab4dbbc3e771abc440 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/ha secondary:&ha
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/ha secondary:&ha
+[reference_npb stderr]
+
+=== 18e3255d158b87e9fac78ee8672498a8e4afc004 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary: secondary:0
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:0
+[reference_npb stderr]
+
+=== 19cb6a4bf3c1530f23ca887c2b86a9d135382781 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/ÿÿÿÿI2ÿÿÿÿ secondary:ha
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/ÿÿÿÿI2ÿÿÿÿ secondary:ha
+[reference_npb stderr]
+
+=== 19e7cd5885d25ee5d1944939e0e4977fbda38944 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary: secondary:ÿÿÿÿ
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:ÿÿÿÿ
+[reference_npb stderr]
+
+=== 1aba31694f74195effaacbbcdc7d96c52fc7b67c ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:1 secondary:ÿÿÿı
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:1 secondary:ÿÿÿı
+[reference_npb stderr]
+
+=== 1b9cb0e686d6558e85897d926b0dab0c936ae912 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ÿÿÿÿ secondary:ÿ
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ÿÿÿÿ secondary:ÿ
+[reference_npb stderr]
 
 === 1bd40d6ffa7ecd58cd0724ef6abf1f8c96b88352 ===
 [input decoded]
 {"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 1c092f8921798ab3e07b30c268f336ccf9962816 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 1c2fd2d893949003c092faf442aa3179b218a4d1 ===
-[input decoded]
-{"primary": "", "secondary": ""}
 [normalized rc=0 stdout]
-primary:
-	 secondary::#
-[normalized stderr]
-[original rc=0 stdout]
 primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
 
-=== 1db5bb391c3b0bfa54fc1a694c3e8ebb224037a6 ===
+primary-empty
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:
+
+primary-empty
+[reference_npb stderr]
+
+=== 1c721383a59abaea485cb940e6158513f87f0e5a ===
 [input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
+{"primary": "he~\u0000", "secondary": "heat"}
+[normalized rc=0 stdout]
+primary:he~ secondary:heat
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb rc=0 stdout]
+primary:he~ secondary:heat
+[reference_npb stderr]
 
-=== 1fc978472998baa68d82eee43a500001213c7371 ===
+=== 1e0efb3cbf03c6f6c45ee8075fab1969a410a383 ===
 [input decoded]
 {"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
+[normalized rc=0 stdout]
+primary://ha secondary:/eat
 [normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+[reference_npb rc=0 stdout]
+primary://ha secondary:/eat
+[reference_npb stderr]
 
-=== 1fd7cf3c0122ae1a257fcd2fb73790ecbc3b7e4a ===
+=== 1e5590ef96a9e0110144401b578c724dcec732d6 ===
 [input decoded]
 {"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
+[normalized rc=0 stdout]
+primary: secondary:ha
 [normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.secondary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+[reference_npb rc=0 stdout]
+primary: secondary:ha
+[reference_npb stderr]
 
-=== 2083f186bae4fe51231190342e508a64233d5aa8 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 20cba6e567c494ac01e578a94cfde87139d55c03 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 222557ef9b66b9abd12ebb4cb30ea6471548db6d ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 23266b18e4d390e60482072a06a1642b7801d622 ===
+=== 1f75ed6ad24df2fc590bc754f7b0468b3a0a8d39 ===
 [input decoded]
 {"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
-
-=== 23b38354ecf693a582520fd5ea0734b6a626d521 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 25421cc33c3f9d101ee4ec9014c2339694eaf8e6 ===
-[input decoded]
-{"primary": "", "secondary": ""}
 [normalized rc=0 stdout]
-primary:~ secondary:	#
+primary:/ÿÿÿÿ secondary:/ñít
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb rc=0 stdout]
+primary:/ÿÿÿÿ secondary:/ñít
+[reference_npb stderr]
 
-=== 259f6bda4dd7f8446b07973b836ccd021af71483 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 25e4679386430759c949e62d8c80072a338afaa9 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=0 stdout]
-primary: secondary:
-primary-empty
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 27edbe5cfc113e24e76c0e165efb9b83cae649f4 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=0 stdout]
-primary: secondary:-
-primary-empty
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 29a926c15a0ff505af7577febae99a6515744b97 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 2d5216269e58b9e42233b2768221802d2002c413 ===
+=== 2051ab81b1d3c83aa16d657c26b19e36d60d05b5 ===
 [input decoded]
 {"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
-
-=== 2e5bbf011b797d3f9e03f42ba4561fb7374cda4c ===
-[input decoded]
-{"primary": "", "secondary": ""}
 [normalized rc=0 stdout]
-primary:	 secondary:	#
+primary:h secondary:t
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb rc=0 stdout]
+primary:h secondary:t
+[reference_npb stderr]
 
-=== 2f85c02954d55c9b27fd1fc642ec3cd9ecc72203 ===
-[input decoded]
-{"primary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012", "secondary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u00122\u0012\u0016\u0012\u0012\u0012"}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:2
-[original stderr]
-
-=== 30734163811321c1fccab04ad5103e3c21b4da1b ===
+=== 2135a01467b68a0e44e7d387e4dc7dd4549025d7 ===
 [input decoded]
 {"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.secondary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
-
-=== 32a002475474acd5944afeeb1276fcb2c2661979 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 331b599175f54a75f1c1565ac084bb80cdb3cb94 ===
-[input decoded]
-{"primary": "", "secondary": ""}
 [normalized rc=0 stdout]
-primary:- secondary:
-secondary-empty
+primary:hûÿ secondary:h
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb rc=0 stdout]
+primary:hûÿ secondary:h
+[reference_npb stderr]
 
-=== 33ae0350e423bac2cefc833bfe2e9c156a80f596 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 33d110bb0c5f41f43874d3240cead2624d72ba05 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=0 stdout]
-primary:, secondary:
-secondary-empty
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 3689bf0407ae14f226143a7592b2da3a57589f50 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 378c477a261c99dea26bee803a132e19b40e5476 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 37974106cc95f92b65ced454f4a07c6fe99b59df ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 379875034bfd7f6376fc2f07b25de3cc5a8f35d3 ===
+=== 21d4570562038cf445aad3a4701e2520797d9d94 ===
 [input decoded]
 {"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
-
-=== 3af78bc44ad5bc001f362b4b69e66b081e15aa7f ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 3afab0bf734f047b544ea560eba618ef93af1861 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 3b5417089cd4331859e9af03e0993ea9acfcea50 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 3c475dfd0dc510d4ef72265b72d919da5b006f94 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 3dea9ba293f8dcaac6c44331dcf0242a4e4eefdf ===
-[input decoded]
-{"primary": "", "secondary": ""}
 [normalized rc=0 stdout]
-primary: secondary:
-secondary-empty
+primary:[2heI1heeô1 secondary:t
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb rc=0 stdout]
+primary:[2heI1heeô1 secondary:t
+[reference_npb stderr]
 
-=== 3e7be738cebaf24720eb5ae770d08a0f8abb6427 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=0 stdout]
-primary:u
- secondary:	#
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 431bf05908899d850059a662978b3a0481391200 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 43e77f15adc3ec0941a75f811ba6d8d8e49cb57f ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=0 stdout]
-primary:/ secondary:
-secondary-empty
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 469004c1dec745932f943f3c59d1109f2376b40e ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 473364a72ec0bfa51e97f980a4ae61d1cfd55e4e ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=0 stdout]
-primary:	=
- secondary:	#
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 47ea90a3280cfd47b89df10a073ca83e27cc1d86 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 497d004dc265c2fee37a9663f1fd5ee7bd37635e ===
+=== 2294eb572ce8dda6535dcf92433bfc3c4bcf7fde ===
 [input decoded]
 {"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
+[normalized rc=0 stdout]
+primary:H’eş secondary:Heeô
 [normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+[reference_npb rc=0 stdout]
+primary:H’eş secondary:Heeô
+[reference_npb stderr]
 
-=== 4b8f3959ac3a391d99ef3ec87f9a3dadc25fced5 ===
+=== 232b8b1cd638721ca86dbf747ac0b7c7d1cbb2f0 ===
 [input decoded]
 {"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
+[normalized rc=0 stdout]
+primary:Mÿha secondary:îííÿìheat
 [normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+[reference_npb rc=0 stdout]
+primary:Mÿha secondary:îííÿìheat
+[reference_npb stderr]
 
-=== 4bd4523c24ea021558edb6fe661bd6cf3321df98 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 4e9ed469d59fda94a5c8002fd590c3da54fef345 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 502463dfbec076a1bd37230a93936afc66a5e66a ===
+=== 23415955f938c77a115068fcd219f62de1a82b56 ===
 [input decoded]
 {"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
+[normalized rc=0 stdout]
+primary:R secondary:t
 [normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+[reference_npb rc=0 stdout]
+primary:R secondary:t
+[reference_npb stderr]
 
-=== 50c7281fd2a3abfb9990db4c3dd55bdfc16e198c ===
+=== 24c02422ebbad94c063b0bb55268f4f2e907d372 ===
 [input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ÿÿÿÿ secondary:î—aÿíû˜eat
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb rc=0 stdout]
+primary:ÿÿÿÿ secondary:î—aÿíû˜eat
+[reference_npb stderr]
 
-=== 51622542d2789d52323bbcd0ec9ab631cf51f97c ===
+=== 24e22dac96c97c826a0415d920a5765e7f87de48 ===
 [input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
+{"primary": "heap", "secondary": "heo~"}
+[normalized rc=0 stdout]
+primary:heap secondary:heo~
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb rc=0 stdout]
+primary:heap secondary:heo~
+[reference_npb stderr]
 
-=== 51af68159bae0e1c0695358ef1ffc6f25315896f ===
+=== 264376eb37f0fc20c2907377a7916a05c2a31bd7 ===
 [input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:huap secondary:hÖaô
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb rc=0 stdout]
+primary:huap secondary:hÖaô
+[reference_npb stderr]
 
-=== 526590496e0caff097b910000f6b6be825f6f200 ===
+=== 265fc19990ed503e61bf99bbffde61c49ab56cd0 ===
 [input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:h? secondary:ô
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb rc=0 stdout]
+primary:h? secondary:ô
+[reference_npb stderr]
 
-=== 53e6edce7f9e3038ddba05c341f5cbfd2aeebdc7 ===
+=== 270ab82138706a0de48212bdd5890317b6e9e341 ===
 [input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ÿÿÿÿ’ secondary:ha
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb rc=0 stdout]
+primary:ÿÿÿÿ’ secondary:ha
+[reference_npb stderr]
 
-=== 53fe37edbb2744f4912f39a4765bf2f90d97a9d5 ===
+=== 281c082c66ab5b67499cabb97e6ea0ba59e3bba8 ===
 [input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary://ha secondary:/,—
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb rc=0 stdout]
+primary://ha secondary:/,—
+[reference_npb stderr]
 
-=== 56e8bbdb6362a8e8f359407cdc7f1ec1a40a7536 ===
+=== 28d439b708e762fcc2d7fd10b5334c30a2111303 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:şÿ
+ secondary:
+secondary-empty
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:şÿ
+ secondary:
+secondary-empty
+[reference_npb stderr]
+
+=== 2a26da60a889d9666c9ffa665fecb1388bbb9cbd ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ÿÿÿÿ2 secondary:
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ÿÿÿÿ2 secondary:
+[reference_npb stderr]
+
+=== 2a7494963b6b08a14e9896b036f34b08add10622 ===
+[input decoded]
+{"primary": "he:", "secondary": ""}
+[normalized rc=0 stdout]
+primary:he: secondary:
+secondary-empty
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:he: secondary:
+secondary-empty
+[reference_npb stderr]
+
+=== 2ac06c2d34941973549df8d71c3d2f1718cf6eb6 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:~ÿÿÿÿI1ÿÿÿ secondary:ha
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:~ÿÿÿÿI1ÿÿÿ secondary:ha
+[reference_npb stderr]
+
+=== 2b6e08db14dcc3f68638acbbbbcaabf5c9341e57 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/5 secondary:/ÿÿ
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/5 secondary:/ÿÿ
+[reference_npb stderr]
+
+=== 2c72d9a33a3b8d3d7fc2c6757541431551a8b9f9 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:h› secondary:hehEat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:h› secondary:hehEat
+[reference_npb stderr]
+
+=== 2d56212366310422d44e362ab5c0c7b4af1eb4ab ===
+[input decoded]
+{"primary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012[\u0012\u000ehe\u0004\u0012\u0012\u0012\u0012\u0012I\u0012\u0012\u0012\u0012\u0012\u0000\u0000\u0012\u0012\u0012\u0011\u0012\u0012!z0\u0012\u0012\u0012\u0012\u0012\u0012\u0002\u0002\u0012\u0012\u0012\u0002\u0002\u0012\u0012\u0012\u0012\u0011\u0012\u0000\u0012\u0012\u0012\u0012\u0011\u0012\u0012", "secondary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012t\u0012\u0012\u0012&"}
+[normalized rc=0 stdout]
+primary:[heI secondary:t&
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:[heI secondary:t&
+[reference_npb stderr]
+
+=== 3069aa4036f3552da6eb9cbd898f19b2aa584027 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:h2 secondary:haahat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:h2 secondary:haahat
+[reference_npb stderr]
+
+=== 306ab70d1aa1907d670398af8ce3cae26884727c ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ïííŞ secondary:ÿ
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ïííŞ secondary:ÿ
+[reference_npb stderr]
+
+=== 318d7e1b4057191473d324e2605e6344165feac7 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:
+heap1 secondary:ÿ
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:
+heap1 secondary:ÿ
+[reference_npb stderr]
+
+=== 31a15c5729d7a794a93df6b451e0cad3962eed16 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:Heåô secondary:He
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:Heåô secondary:He
+[reference_npb stderr]
+
+=== 32d985fae7b9026973d3355b9d8390b2c9026e92 ===
 [input decoded]
 {"primary": "", "secondary": ""}
 [normalized rc=0 stdout]
-primary: secondary:~
-primary-empty
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
+primary:ÿ` secondary:
 secondary-empty
-modes:equal
-[original stderr]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ÿ` secondary:
+secondary-empty
+[reference_npb stderr]
 
-=== 585475ca590eea0e8b6952beece19f4ecf2758bf ===
+=== 3309db4167c5ed966c88f2c694b1200cf3ab5847 ===
+[input decoded]
+{"primary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012[\u0012\u000ehe\u0012\u0012\u0012\u0011\u0012\u0012", "secondary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012t\u0012\u0012\u0012&"}
+[normalized rc=0 stdout]
+primary:[he secondary:t&
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:[he secondary:t&
+[reference_npb stderr]
+
+=== 3349c6802bdd012ebb11a59447dd0389a21a1d3d ===
 [input decoded]
 {"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
-
-=== 5aeb0d92e50c0deca7af2cbf77ed53bed579496a ===
-[input decoded]
-{"primary": "", "secondary": ""}
 [normalized rc=0 stdout]
-primary:	 secondary:	#
+primary: secondary:ÿÿÿÿ
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:ÿÿÿÿ
+[reference_npb stderr]
 
-=== 5ce55288714c149a4d1e27d97bf1a67134301d6b ===
-[input decoded]
-{"primary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012", "secondary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0016\u0012\u0012\u0012"}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-[original stderr]
-
-=== 5d19fddb66937a7f7a69f59276d094bd1c264db6 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=0 stdout]
-primary: secondary:
-secondary-empty
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 5d53b9b1129a127e059e3c89c5b7d5a78a97e14f ===
+=== 335fa71e2601b3a601793477faec1de3861ffcff ===
 [input decoded]
 {"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.secondary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
-
-=== 5da44a5736e547b34aa987c0f1e4465247b080cd ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 5dce06dbe30344711224fed3601f5369cb3ddc05 ===
-[input decoded]
-{"primary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012", "secondary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u00122\u0012\u0012\u0016\u0012\u0012\u0012\u0012"}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:2
-[original stderr]
-
-=== 5e07cceddd9b12af5366cc556fc9cf71da70947d ===
-[input decoded]
-{"primary": "", "secondary": ""}
 [normalized rc=0 stdout]
-primary:~ secondary:
-secondary-empty
+primary:hmat secondary:h’ap
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb rc=0 stdout]
+primary:hmat secondary:h’ap
+[reference_npb stderr]
 
-=== 61285d66352c21a024b39dd30e53c873bcc1bba0 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=0 stdout]
-primary:
-	 secondary:u#
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 6244b1017c9b095ba7183b51059fc4119c1b4de5 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 6260aad1142b355e9c95682d6355780c426fe64f ===
+=== 336c473603b00552be32737eae389438339a26b4 ===
 [input decoded]
 {"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
+[normalized rc=0 stdout]
+primary: secondary:ha
 [normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+[reference_npb rc=0 stdout]
+primary: secondary:ha
+[reference_npb stderr]
 
-=== 63701c9b136f5db84b4f727daeda17c4d108678e ===
+=== 359ad0bb9ad3919dc072418af45f2bae9e3c6b46 ===
+[input decoded]
+{"primary": "hep", "secondary": "he\u0000\f"}
+[normalized rc=0 stdout]
+primary:hep secondary:he
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:hep secondary:he
+[reference_npb stderr]
+
+=== 37d4cbbaeed8ef6dfea9bef103f369707e2e33fd ===
 [input decoded]
 {"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
+[normalized rc=0 stdout]
+primary:/ha secondary:/ÿÿ
 [normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+[reference_npb rc=0 stdout]
+primary:/ha secondary:/ÿÿ
+[reference_npb stderr]
 
-=== 63d6089e2ce2c48a8d64ebedc5935ecc83b6dfba ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 66fe65e27cae6f7e88dbfd03782ca23eca44c52c ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 6900585ce4dfa517d96ff63fd1f047dc842fe64c ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 697acaa7a22b1a48953613533ad714f2a0ac5dcf ===
+=== 38c6a39e546687fa3ff57a86ba42ee997136a5bd ===
 [input decoded]
 {"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
+[normalized rc=0 stdout]
+primary:!ÿÿ;ÿ secondary:åıíí
 [normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+[reference_npb rc=0 stdout]
+primary:!ÿÿ;ÿ secondary:åıíí
+[reference_npb stderr]
 
-=== 698263b61328bde5ff2045049478ac63b1a07bbf ===
+=== 394cd74b90c4ec500d560cac86cdafc10bad232b ===
 [input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:Ôš‹ secondary:coot
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb rc=0 stdout]
+primary:Ôš‹ secondary:coot
+[reference_npb stderr]
 
-=== 6ca0722d963ac2f832f7510dbdd61023091d23bb ===
+=== 39c026044d645b2a428e99df88e23b4a6be64a6e ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/ha secondary:/ÿaa
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/ha secondary:/ÿaa
+[reference_npb stderr]
+
+=== 39cdf2d558b35b549c7c8713e888abaa8dc5e07e ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:heØp secondary:heeô
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:heØp secondary:heeô
+[reference_npb stderr]
+
+=== 39dde9fd313e101b7c2127c0a1691b913a9ea70b ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:íÿh5ÿÿ secondary:îíí—aÿÿ€eat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:íÿh5ÿÿ secondary:îíí—aÿÿ€eat
+[reference_npb stderr]
+
+=== 39e48e9a7e504e6d8b704ff1b1581371ad6ce8e4 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:hea¿ secondary:hea@
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:hea¿ secondary:hea@
+[reference_npb stderr]
+
+=== 39f5a84d499e6b377464075f237bdc0bae57cb0b ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/ secondary:éath
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/ secondary:éath
+[reference_npb stderr]
+
+=== 3a0c61d914e7a778f3c1d607dd867d2cb0288e62 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:hea­ secondary:heaV
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:hea­ secondary:heaV
+[reference_npb stderr]
+
+=== 3b2f7d4c7930428a003e10c4674ff20905cb7176 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary: secondary:
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:
+[reference_npb stderr]
+
+=== 3ba70c12f3c401f6d063f8504b4c6e2c24645ef3 ===
+[input decoded]
+{"primary": "he\u0001\u0000", "secondary": "heat"}
+[normalized rc=0 stdout]
+primary:he secondary:heat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:he secondary:heat
+[reference_npb stderr]
+
+=== 3bf8979076ea68bf754ad4f34983e30a335d0a5f ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:l secondary:ÿ
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:l secondary:ÿ
+[reference_npb stderr]
+
+=== 3c47d6c065ca240df2bc728dc5a986094c11f686 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:’eae secondary:heè
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:’eae secondary:heè
+[reference_npb stderr]
+
+=== 3d61f2c5c081c154a94b55ef88efef14773bacea ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/ha secondary:/ìííìeat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/ha secondary:/ìííìeat
+[reference_npb stderr]
+
+=== 3d6769b88c7ac86037a9e05b5e9098bdd7b729be ===
+[input decoded]
+{"primary": "heae", "secondary": "he\u0012\u0004"}
+[normalized rc=0 stdout]
+primary:heae secondary:he
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:heae secondary:he
+[reference_npb stderr]
+
+=== 3df3a1dfd80af5cdf501135ab65560a0cd5e4a5c ===
+[input decoded]
+{"primary": "a", "secondary": ""}
+[normalized rc=0 stdout]
+primary:a secondary:
+secondary-empty
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:a secondary:
+secondary-empty
+[reference_npb stderr]
+
+=== 3e6c3942d0cb189b41a17dafb64b23021ca23801 ===
+[input decoded]
+{"primary": "]et", "secondary": "coot"}
+[normalized rc=0 stdout]
+primary:]et secondary:coot
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:]et secondary:coot
+[reference_npb stderr]
+
+=== 3ecf9ba313514c11fae859443bcbad019130646b ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/zÿ secondary:/
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/zÿ secondary:/
+[reference_npb stderr]
+
+=== 3f638253a04f86af61d302e19acefe84b69bd6f6 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:hûÿ secondary:heat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:hûÿ secondary:heat
+[reference_npb stderr]
+
+=== 3f7f1d50c4805154cea91fdf74e869951ad7ac78 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/ secondary:ha
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/ secondary:ha
+[reference_npb stderr]
+
+=== 3fb7fc3de2dfc919feafeae266ede8ca95d2c085 ===
 [input decoded]
 {"primary": "", "secondary": ""}
 [normalized rc=0 stdout]
-primary:	
- secondary:	#
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
+primary: secondary:e
 primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:e
+primary-empty
+[reference_npb stderr]
 
-=== 6e46398a093d2964aea2d869f567098629a9b469 ===
+=== 4032f1bd762f55b7d20ddd93aa6e635bb6e83cd7 ===
 [input decoded]
 {"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
+[normalized rc=0 stdout]
+primary:ha secondary:éhÿìh
 [normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+[reference_npb rc=0 stdout]
+primary:ha secondary:éhÿìh
+[reference_npb stderr]
 
-=== 7009e0d5bbd4abb0cbdeb99d3c38d1d5f22cd16a ===
+=== 4051aafff6e05422a0d37fef4f4613208cf7af6d ===
 [input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ÿÿÿÿ secondary:ha
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb rc=0 stdout]
+primary:ÿÿÿÿ secondary:ha
+[reference_npb stderr]
 
-=== 70480e21a212ad143e91eddbc0a07627774751c9 ===
+=== 40c865bf5911b0d8d2f58f8bc18fb08b7edde323 ===
 [input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
+{"primary": "heat", "secondary": "h/at"}
+[normalized rc=0 stdout]
+primary:heat secondary:h/at
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb rc=0 stdout]
+primary:heat secondary:h/at
+[reference_npb stderr]
 
-=== 7097a46ccfefce556e8a22bd04da1eff6065ca1a ===
+=== 41952d4cd541f247262fa916823c7316571ade53 ===
 [input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:!ÿÿÿÿÿÿÿootc secondary:Rha
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb rc=0 stdout]
+primary:!ÿÿÿÿÿÿÿootc secondary:Rha
+[reference_npb stderr]
 
-=== 72d45ca86c6da85d55fe53b458bc9d23d4707157 ===
+=== 426e1b4a8616665e20180159d1759de6e4397f0c ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:Heeş secondary:Heeô
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:Heeş secondary:Heeô
+[reference_npb stderr]
+
+=== 431a71d7ca750cfa72b3a7057b6149cfae019f3d ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ha secondary:éat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ha secondary:éat
+[reference_npb stderr]
+
+=== 43f7831b179cf1305e23033e0191798c48e94f16 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:hhû#ÿe secondary:h~h
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:hhû#ÿe secondary:h~h
+[reference_npb stderr]
+
+=== 4480ea00d75a6305e6f3e980b1f03b04b1fd5915 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ı secondary:
+secondary-empty
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ı secondary:
+secondary-empty
+[reference_npb stderr]
+
+=== 45a72a86ba03074a42be04624cb39910c5018d2f ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:heap secondary:heaô
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:heap secondary:heaô
+[reference_npb stderr]
+
+=== 46bef9bf2c8a559473d0c519b5ddf057963b2134 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:h,t secondary:î¿í—aÿìheat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:h,t secondary:î¿í—aÿìheat
+[reference_npb stderr]
+
+=== 46db37572a510f408b89589c7aa8520c022440bf ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:î/ secondary:eaìheat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:î/ secondary:eaìheat
+[reference_npb stderr]
+
+=== 47b563b5d255e5bd42b5fd75078b8c609e489d5b ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:i%h secondary:
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:i%h secondary:
+[reference_npb stderr]
+
+=== 4809506dc91860955e9721cf459b657454c7b5ad ===
+[input decoded]
+{"primary": "hea\u0000", "secondary": ""}
+[normalized rc=0 stdout]
+primary:hea secondary:heat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:hea secondary:heat
+[reference_npb stderr]
+
+=== 4987851fbd7ce5db48bd597cb7fb81b662f7cfe6 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:i% secondary:ÿÿÿÿ
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:i% secondary:ÿÿÿÿ
+[reference_npb stderr]
+
+=== 4a1ca90e5762d38359f59ab4630ed4c994071b01 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ÿÿÿÿÿÿ secondary:î—a³ÿíû˜eat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ÿÿÿÿÿÿ secondary:î—a³ÿíû˜eat
+[reference_npb stderr]
+
+=== 4a7d938de38a7496e6929e65cd602c8bfadb9c44 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:
+heap1 secondary:ÿ
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:
+heap1 secondary:ÿ
+[reference_npb stderr]
+
+=== 4c0f7f908d0b71493aa2f8ba68923af99019e549 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ha secondary:ha
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ha secondary:ha
+[reference_npb stderr]
+
+=== 4ca0f765cda2bdcf5ca1faeff1be94965d713942 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:R secondary:t’
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:R secondary:t’
+[reference_npb stderr]
+
+=== 4ca8b235cb37378a99c63ee97c2335b38107cea2 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:hea­ secondary:he–V
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:hea­ secondary:he–V
+[reference_npb stderr]
+
+=== 4cb414854eeab3ebf886280f5c4b6bc0dab6e9a3 ===
+[input decoded]
+{"primary": "\u0012\u0012\u0012\u0012/\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012", "secondary": "\u0012\u0012\u0012\u0012/\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0013\u0012at"}
+[normalized rc=0 stdout]
+primary:/ secondary:/at
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/ secondary:/at
+[reference_npb stderr]
+
+=== 4d5bd1580af92b146b4505c9efcf38422a90d20b ===
 [input decoded]
 {"primary": "", "secondary": ""}
 [normalized rc=0 stdout]
-primary:/ secondary:
-secondary-empty
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
+primary: secondary:
 primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:
+primary-empty
+[reference_npb stderr]
 
-=== 72f3810ac9736c73a22ad1873bda0a2c9969c2c0 ===
+=== 4d7501995fd8a25bdd9551fc933ac0e9ea63f239 ===
 [input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:+ÿÿÿÿÿÿ secondary:ÿ
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb rc=0 stdout]
+primary:+ÿÿÿÿÿÿ secondary:ÿ
+[reference_npb stderr]
 
-=== 7300eb7833f4f30d49273c9a4fda9a1b759e8295 ===
+=== 4dd42b52c6444410a38ef1ecefe1b6f6ba6b2a0a ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:íöh secondary:
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:íöh secondary:
+[reference_npb stderr]
+
+=== 4e1e150805589d11a2ae2265737d64753a51de26 ===
+[input decoded]
+{"primary": "tmat", "secondary": "heat"}
+[normalized rc=0 stdout]
+primary:tmat secondary:heat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:tmat secondary:heat
+[reference_npb stderr]
+
+=== 4e4dececdafdddd6120865f6635dd468f97d020d ===
 [input decoded]
 {"primary": "", "secondary": ""}
 [normalized rc=0 stdout]
-primary:
-	 secondary:#
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
+primary:ÿ
+ secondary:
 secondary-empty
-modes:equal
-[original stderr]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ÿ
+ secondary:
+secondary-empty
+[reference_npb stderr]
 
-=== 74300b5b72396511af8734f9ab684767a6252562 ===
+=== 4eb4a866eaddbecae8924e495efc2565e977dc1f ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:i%atîíò secondary:ííííí
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:i%atîíò secondary:ííííí
+[reference_npb stderr]
+
+=== 4f90c8d7696e8aa8d100f9ba74ee55610e168df7 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:h secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:h secondary:t
+[reference_npb stderr]
+
+=== 501d0cb515cd70fed6586e4c500f3c2fd2bcc5ae ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ht secondary:
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ht secondary:
+[reference_npb stderr]
+
+=== 502b394361694b9c55f79d73551d69c3db84040b ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/Ç5 secondary:/ÿÿ
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/Ç5 secondary:/ÿÿ
+[reference_npb stderr]
+
+=== 505faa72be7847bf17b06101304fa50ed1fd3426 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary: secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:t
+[reference_npb stderr]
+
+=== 50902a3b730d2431510ee7d2b8c045f8b7abb6a9 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:h2 secondary:haîíít
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:h2 secondary:haîíít
+[reference_npb stderr]
+
+=== 5187e600f8a93dc57be99ff0b1b67ac27b4467bb ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary: secondary:ha
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:ha
+[reference_npb stderr]
+
+=== 521cbeba539260a81e0c2ef289112795932a47f3 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:!ÿÿ;ÿ secondary:åıíí
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:!ÿÿ;ÿ secondary:åıíí
+[reference_npb stderr]
+
+=== 52585ab83e5a696282817e12301238bc23aaa8e2 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:he1ä secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:he1ä secondary:t
+[reference_npb stderr]
+
+=== 531cdfd8dd795e0f10503a69e6a90b493b10f3e7 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/5 secondary:/ÿÿ
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/5 secondary:/ÿÿ
+[reference_npb stderr]
+
+=== 5344a8941654bfe6a3d7141357e19d525fdfec28 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary: secondary:íííí
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:íííí
+[reference_npb stderr]
+
+=== 53c9de7dbf14cc3a336710dae18725854a50f725 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary://ha secondary:/,—
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary://ha secondary:/,—
+[reference_npb stderr]
+
+=== 55bd85f2ed2f59ecb84c134c0a76feadbaae9ab6 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ÿÿaÿ secondary:ÿ
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ÿÿaÿ secondary:ÿ
+[reference_npb stderr]
+
+=== 5601794412805556d5c01c554c8e2f412d576800 ===
 [input decoded]
 {"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
+[normalized rc=0 stdout]
+primary: secondary:_
 primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:_
+primary-empty
+[reference_npb stderr]
 
-=== 7515dd74665af5f944115a6cf2bd6be96f82434e ===
+=== 5655b332aa673a39069bbee8e0d4f96b2f7c22f4 ===
 [input decoded]
 {"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
+[normalized rc=0 stdout]
 primary: secondary:
 primary-empty
 secondary-empty
 modes:equal
-[original stderr]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[reference_npb stderr]
 
-=== 75e1d5e43f39c0867637e8a80fc91ea4b6915d78 ===
+=== 56d4f6c076bc8ce59fce448a0234dd41672c4d2e ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary: secondary:hŸÿíû—š‹
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:hŸÿíû—š‹
+[reference_npb stderr]
+
+=== 570c915acfd242d9a5bf77fd9a6a459032fd66ad ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/îí secondary:/—
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/îí secondary:/—
+[reference_npb stderr]
+
+=== 57619010fac0251037ce7e7b2c13f3780f23d7cb ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/h secondary:/ñí—
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/h secondary:/ñí—
+[reference_npb stderr]
+
+=== 57c7003728ec281d16d1172633b8c3f5efa2161a ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/ÿ/ secondary:/
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/ÿ/ secondary:/
+[reference_npb stderr]
+
+=== 588eea782ed387b39316b06996de45441a224e97 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:i% secondary:ÿÿÿÿ
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:i% secondary:ÿÿÿÿ
+[reference_npb stderr]
+
+=== 59268795a974f672eb07242bab7c9f41c7273137 ===
 [input decoded]
 {"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
+[normalized rc=0 stdout]
+primary: secondary:]
 primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:]
+primary-empty
+[reference_npb stderr]
 
-=== 77e2d86862b9d74eb4d8fde13b77c477c99134c9 ===
+=== 59a1769a7bb21966a59a5d78680a18a0e689f8b7 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/ÿÿÿÿha secondary:ha
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/ÿÿÿÿha secondary:ha
+[reference_npb stderr]
+
+=== 5a13d36b9b58bf8a5a4b94ffb0e9ccdf68a6a2da ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:!ÿÿÿÿha secondary:h’heat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:!ÿÿÿÿha secondary:h’heat
+[reference_npb stderr]
+
+=== 5c2960fc5ae682e851814d3ae6efcdf89e8a67c2 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary: secondary:ÿÿÿı
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:ÿÿÿı
+[reference_npb stderr]
+
+=== 5c7fb46e0b6c97f2fac01ca268d9cd926d4a7e84 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:a secondary:ha
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:a secondary:ha
+[reference_npb stderr]
+
+=== 5c97c735ef9e6e097711550650cff047ac2daad9 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:heaÿ secondary:heaÿ@
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:heaÿ secondary:heaÿ@
+[reference_npb stderr]
+
+=== 5d9bfa403ab55c29401a7e446304fb9ec867ec0e ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/ secondary:/at
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/ secondary:/at
+[reference_npb stderr]
+
+=== 5f238a03cd0651d91195df098e7cfb864f01365c ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ÿÿÿÿÿÿüÿÿÿÿÿşíha1’ÿÿÿÿ secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ÿÿÿÿÿÿüÿÿÿÿÿşíha1’ÿÿÿÿ secondary:t
+[reference_npb stderr]
+
+=== 5f24b88c4c480f2588729fab24c3b7f72180e6ea ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary: secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:t
+[reference_npb stderr]
+
+=== 5f5126da56b99177ca306beaf69de3529ba3f758 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/ha secondary:/at
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/ha secondary:/at
+[reference_npb stderr]
+
+=== 5f773a563d7ee93ff84b1cbe2ff5166c78bdea1b ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:îë secondary:t
+
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:îë secondary:t
+
+[reference_npb stderr]
+
+=== 5fcc957d642e5fe40d2f56311e1c13b35680bd0f ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:l secondary:haheat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:l secondary:haheat
+[reference_npb stderr]
+
+=== 61a19d02a9001b909a69e4485801f4c0d7252b4b ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:heat secondary:heaâ
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:heat secondary:heaâ
+[reference_npb stderr]
+
+=== 620d2e1c314eb7c6228c737e32a07982f2434a5e ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:
+he’aphe‹ secondary:ÿ
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:
+he’aphe‹ secondary:ÿ
+[reference_npb stderr]
+
+=== 63260be5ef0b4054f7515b52123c2fa61e34f87f ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:Heeşha secondary:Hee
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:Heeşha secondary:Hee
+[reference_npb stderr]
+
+=== 648e1072b1ce0ec8ebd21e51361f703660e63942 ===
+[input decoded]
+{"primary": "\u0012\u0012\u0012\u0012\u0012\u0012a\u0000\u0012\u0012\u0012\u0002\u0012\u0012\u0012\u0012\u0011\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012", "secondary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0004heat"}
+[normalized rc=0 stdout]
+primary:a secondary:heat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:a secondary:heat
+[reference_npb stderr]
+
+=== 64dff3dec52552818316bf764b8dd3d27ff7b773 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:Heeü secondary:Heeä
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:Heeü secondary:Heeä
+[reference_npb stderr]
+
+=== 65c9503752e3a741da864089433b0d944f6654cd ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:Heåô secondary:He
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:Heåô secondary:He
+[reference_npb stderr]
+
+=== 66a3007abe9195070186848d62844ebf2dffe188 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ÿÿÿÿÿÿüÿ1’ÿ secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ÿÿÿÿÿÿüÿ1’ÿ secondary:t
+[reference_npb stderr]
+
+=== 67121d93f9b14aa2d69d236541db8c436853f76d ===
+[input decoded]
+{"primary": "heae", "secondary": "heat"}
+[normalized rc=0 stdout]
+primary:heae secondary:heat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:heae secondary:heat
+[reference_npb stderr]
+
+=== 671d2a9cac8a07bac3142d89f67186a91b0c3c00 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:Heeô secondary:Hee
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:Heeô secondary:Hee
+[reference_npb stderr]
+
+=== 67b75967aabb64a3cbe60edf77c78ab25fc60a25 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ha secondary:hŸíÿÿat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ha secondary:hŸíÿÿat
+[reference_npb stderr]
+
+=== 681491b2b65a1eb887a4f2118f68c1a108ff122a ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:÷ee secondary:Heeô
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:÷ee secondary:Heeô
+[reference_npb stderr]
+
+=== 685da1f6655f36de7d96bb7e246c403049daabcf ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:Heeôÿÿ secondary:He
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:Heeôÿÿ secondary:He
+[reference_npb stderr]
+
+=== 6be094987c94131164fc347230c8ae627cf557dc ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:!ÿÿÿX secondary:ÿ
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:!ÿÿÿX secondary:ÿ
+[reference_npb stderr]
+
+=== 6be765e3b3a6dc6ac04ae321380f46c97c8435fb ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary: secondary:5
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:5
+[reference_npb stderr]
+
+=== 6c3547519f08eb275faa60bd4db4bcae37636ca5 ===
+[input decoded]
+{"primary": "heat", "secondary": "h$aa"}
+[normalized rc=0 stdout]
+primary:heat secondary:h$aa
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:heat secondary:h$aa
+[reference_npb stderr]
+
+=== 6c40a3b76e5ee491815457b2e3232614ffc7dfde ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:Heåô secondary:He
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:Heåô secondary:He
+[reference_npb stderr]
+
+=== 6d022f4d2863247cbaddc9589dd28d5742b1666a ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:Bha secondary:h0níít
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:Bha secondary:h0níít
+[reference_npb stderr]
+
+=== 6dff2ae491b9e3f788ccf54bb4578a2b080cbe5f ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/ha secondary:/ìííì—
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/ha secondary:/ìííì—
+[reference_npb stderr]
+
+=== 6e5eadce3845b8e14820340d0764e2edfa41e74a ===
+[input decoded]
+{"primary": "\u0012\u0012\u0012\u0012", "secondary": "\u0012\u0012\u0012\u00122\u0012\u0012\u0012\u0012\u0012\u0012h\u0004=heat"}
+[normalized rc=0 stdout]
+primary: secondary:2h=heat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:2h=heat
+[reference_npb stderr]
+
+=== 6e641c13859a49d805bb2b15140f5dc21b85219d ===
+[input decoded]
+{"primary": "heae", "secondary": "he\u0001\u0000"}
+[normalized rc=0 stdout]
+primary:heae secondary:he
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:heae secondary:he
+[reference_npb stderr]
+
+=== 6edf3a480bc18caeefd29f741a7dd7d53c75f325 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ÿÿÿÿ secondary:ha
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ÿÿÿÿ secondary:ha
+[reference_npb stderr]
+
+=== 6eec4230d9dde439eb86399e041847ee31171ccb ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:’ae secondary:mmae
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:’ae secondary:mmae
+[reference_npb stderr]
+
+=== 6fea9609c9b5b015d9bc57f22e85a294735e775d ===
+[input decoded]
+{"primary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u000e\u0001\u0000\u0000\u0000\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0000\u0000\u0012", "secondary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u00125\u0012\u0012\u0012\u0012\u0012\u0012"}
+[normalized rc=0 stdout]
+primary: secondary:5
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:5
+[reference_npb stderr]
+
+=== 71af0d62feca39f9723ee2733e6b4943137e149c ===
 [input decoded]
 {"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
+[normalized rc=0 stdout]
+primary: secondary:`t
 primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:`t
+primary-empty
+[reference_npb stderr]
+
+=== 724dc1aa891b073a629f1ca5419af2a434f5a863 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ÿÿÿÿ secondary:ha
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ÿÿÿÿ secondary:ha
+[reference_npb stderr]
+
+=== 72b2ac2f69a4e9c9dc23e6564111ad3a25547274 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary: secondary:ÿt
+primary-empty
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:ÿt
+primary-empty
+[reference_npb stderr]
+
+=== 72d322139d66ec16c786729baa4bc2c22259e10e ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:h secondary:hehEat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:h secondary:hehEat
+[reference_npb stderr]
+
+=== 7378288dc93eeea4c59a9c1fd20a9b201ad54052 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary: secondary:ííí‹íííí
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:ííí‹íííí
+[reference_npb stderr]
+
+=== 7383f1ea69c7138dc978a089c631910ff4c9f7bb ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ha secondary:Rha
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ha secondary:Rha
+[reference_npb stderr]
+
+=== 739dadcb49bd1c5a21e8e9c0f29969051272e2a9 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/]ha secondary:/ìèhea1
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/]ha secondary:/ìèhea1
+[reference_npb stderr]
+
+=== 768d96af40bd5ee34bac27d4d474eb0a5bd81e12 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:üÿÿ secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:üÿÿ secondary:t
+[reference_npb stderr]
+
+=== 77e60a9202854f12ba058d31857e3d7362ba0a24 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/ha secondary:/ñít
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/ha secondary:/ñít
+[reference_npb stderr]
+
+=== 784c0e3a93c5de7fb352896feea9af9612c5c54e ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:Hee secondary:Heeô
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:Hee secondary:Heeô
+[reference_npb stderr]
+
+=== 78c6d63563ac60a73f96127544b3e092b1112d6e ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary: secondary:Ÿ‹
+primary-empty
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:Ÿ‹
+primary-empty
+[reference_npb stderr]
+
+=== 7a9d0cd343d972aed92f727cda3f8e33c14213b7 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:öíh secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:öíh secondary:t
+[reference_npb stderr]
+
+=== 7aa265b4052ec106031e90d4aaf3acea33deb08b ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/ secondary:ha
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/ secondary:ha
+[reference_npb stderr]
 
 === 7b16eddef02379bc3f7ed9db6e6e1335a79eeb53 ===
 [input decoded]
 {"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 7f5379f1e89304b3f6be9a72a199f442da34e4b3 ===
-[input decoded]
-{"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.secondary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
-
-=== 80d66ad235660febd408d1ef462c92a7b154ba3d ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 8254cc9fffd844b0805635dd098f070da94677e9 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=0 stdout]
-primary:	
- secondary:	
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 8309d7a933dd0d017ac1914cc28d7ab8cd64d76a ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 87515028859db4a0ec67df3275f149260c5abbdb ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=0 stdout]
-primary: secondary:#
-primary-empty
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 8983c0bea97cda19b0f74ad32e7aef077ddbb172 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 8b8d7423aa8ef70d4bc91509a81ac13f086c15ea ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 8bf248a8db060ab96396d1d767e825b0ab9a11ca ===
-[input decoded]
-{"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.secondary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
-
-=== 8fd04c0eae0438279b92e0c023151aa18db3ec83 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 901aed3212ea6f3f48541c2d444eda69448612f2 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 91bca14e1bc238b77de986dd1e28aab18d479464 ===
-[input decoded]
-{"primary": "", "secondary": ""}
 [normalized rc=0 stdout]
 primary: secondary:
 primary-empty
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
+[reference_npb rc=0 stdout]
+primary: secondary:
 primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb stderr]
 
-=== 92c35bb2b31b72d781f327a3db82945801aaa461 ===
+=== 7b25255ac80e8414fded47117db2dc096bf0b85e ===
 [input decoded]
 {"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
+[normalized rc=0 stdout]
+primary:R secondary:t
 [normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+[reference_npb rc=0 stdout]
+primary:R secondary:t
+[reference_npb stderr]
 
-=== 932eab875fd17fa5b327c85b3e724d96887f3bc2 ===
+=== 7bc3c419067e057b14fbb282333bf207e9e6c182 ===
 [input decoded]
 {"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
+[normalized rc=0 stdout]
+primary:/ha secondary:/—
 [normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+[reference_npb rc=0 stdout]
+primary:/ha secondary:/—
+[reference_npb stderr]
 
-=== 940745ae1eb73ecd0a0f38a45d9f95f9f65e655a ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 947b12e78f8d6803e0f885c5d4a72c39a529900c ===
-[input decoded]
-{"primary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0010\u0012\u0012\u000b", "secondary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u000b\u0012\u0012\u0012"}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-[original stderr]
-
-=== 94be4dca28b369bc13b0e472a5c897b8811d985a ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 95b1c867b52c2b51b282001687ff87b13c02fc62 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 98fe01045574a2d14562a96226b92393c1e6de71 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 993a10dacab4096c74e05cb9d085b149fa7da724 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 994b0e9f0ef13cc2891a88ae6ba931857cdc90d7 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== 9d33e5e4a5764cce64d90354e0d619146135e7b8 ===
+=== 7db29d4ef8b9402e8b832842f9d07610f3533d79 ===
 [input decoded]
 {"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
+[normalized rc=0 stdout]
+primary: secondary:
 [normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+[reference_npb rc=0 stdout]
+primary: secondary:
+[reference_npb stderr]
 
-=== 9e5cafd7b71103ea1383528d25b57b8b6ca998fd ===
+=== 7df0d92bd92f2f92c965ef54a73aaec388d20007 ===
 [input decoded]
 {"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
+[normalized rc=0 stdout]
+primary:åå secondary:Vÿ
 [normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+[reference_npb rc=0 stdout]
+primary:åå secondary:Vÿ
+[reference_npb stderr]
 
-=== 9e667a7ee7813a5a97bb2eff6f19b726065a58ed ===
+=== 7e4efff5220325550506c8e75bcf19fec5ddc92f ===
 [input decoded]
 {"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
+[normalized rc=0 stdout]
+primary:heat secondary:heaô
 [normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.secondary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+[reference_npb rc=0 stdout]
+primary:heat secondary:heaô
+[reference_npb stderr]
 
-=== 9fc85957d7fcacc7d0d2749def25b60cfefd0c83 ===
+=== 7e959c60dc3283734c7ed2d94a017a89e6f32d5e ===
 [input decoded]
-{"primary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u000b", "secondary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u000b\u0012\u0012\u0012"}
-[normalized rc=1 stdout]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:Bha secondary:hÿìea+
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-[original stderr]
+[reference_npb rc=0 stdout]
+primary:Bha secondary:hÿìea+
+[reference_npb stderr]
 
-=== a085de82c402fceaf23a76f06d56392c555aae14 ===
+=== 7ed018dcb2dd3277f6ee6c7f75df26cd66169cf3 ===
 [input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/îííí secondary:/—
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb rc=0 stdout]
+primary:/îííí secondary:/—
+[reference_npb stderr]
 
-=== a093c2171f3d72f25b50aba5479262cc35c4d1d8 ===
+=== 7eefac4400686f4318cd8d0487411b62a67ba818 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary://h secondary:/t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary://h secondary:/t
+[reference_npb stderr]
+
+=== 7f64522e2a402e292fd3866673cdd2bd2730bd4c ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ha secondary:ha
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ha secondary:ha
+[reference_npb stderr]
+
+=== 7fc862dcbf4a408738cfa8199c0308a343ef9a34 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary: secondary:ííí‹íííí
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:ííí‹íííí
+[reference_npb stderr]
+
+=== 81231247f9ed16fbb8457de85f92dd34d0f45d67 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ha secondary:h¾aa
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ha secondary:h¾aa
+[reference_npb stderr]
+
+=== 8131aa0a667d7758a15c4fddab15c0922e56799f ===
+[input decoded]
+{"primary": "'eat", "secondary": "coot"}
+[normalized rc=0 stdout]
+primary:'eat secondary:coot
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:'eat secondary:coot
+[reference_npb stderr]
+
+=== 82319e7d477e3808642c8df7f93f5f45fd0c4c88 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:hea­ secondary:heaT
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:hea­ secondary:heaT
+[reference_npb stderr]
+
+=== 84be6fcf5d28a58713ae051b1fad3bb2f1ebd183 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:Hee secondary:Heeô
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:Hee secondary:Heeô
+[reference_npb stderr]
+
+=== 86074bd7c3fb5c59d065568ed164a5375fabffa3 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:Heeô secondary:Heeï
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:Heeô secondary:Heeï
+[reference_npb stderr]
+
+=== 865d41c8e6cfa8f5c48e53511905b88bc5338797 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:h¡eôÿÿÿÿîô secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:h¡eôÿÿÿÿîô secondary:t
+[reference_npb stderr]
+
+=== 8665229bc1cc8b782bae6e41f3aea8ca330acd47 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:öíh secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:öíh secondary:t
+[reference_npb stderr]
+
+=== 87668eae24427007228987a178a9cbd9b9aed1e7 ===
+[input decoded]
+{"primary": "heat", "secondary": "coot"}
+[normalized rc=0 stdout]
+primary:heat secondary:coot
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:heat secondary:coot
+[reference_npb stderr]
+
+=== 87d50848c1018ee710c29823738da764b8ee40fd ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:íha secondary:ha
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:íha secondary:ha
+[reference_npb stderr]
+
+=== 888b725d0ea80202f025e5c9dbfab90aeee1a0aa ===
+[input decoded]
+{"primary": "\u0012\u0012\u0012\u0012/\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012", "secondary": "\u0012\u0012\u0012\u0012/\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0013\u0012at"}
+[normalized rc=0 stdout]
+primary:/ secondary:/at
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/ secondary:/at
+[reference_npb stderr]
+
+=== 890952564c3757ceea44e3acd7f4d82d13459a5d ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/5ıeatÿ secondary:/ÿÿ
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/5ıeatÿ secondary:/ÿÿ
+[reference_npb stderr]
+
+=== 892fcbff67e23791cba9c20289fe69b7fb9e361c ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ha secondary:é
+íat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ha secondary:é
+íat
+[reference_npb stderr]
+
+=== 89ec143f94689ee96a602be0f141bfc11e0ad163 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:l secondary:ì—hìîeat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:l secondary:ì—hìîeat
+[reference_npb stderr]
+
+=== 8a5378c330606b33fd27518f663f566ed42e487d ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:h!a secondary:ìheat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:h!a secondary:ìheat
+[reference_npb stderr]
+
+=== 8a562cc3f162165c36cf24a385963ad14c95632f ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:h secondary:haîíat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:h secondary:haîíat
+[reference_npb stderr]
+
+=== 8bcc59fcc2b12d3b151f3fcce1a59261997a1b11 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:Heeô secondary:Heeô
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:Heeô secondary:Heeô
+[reference_npb stderr]
+
+=== 8c82014a896e83a6febf46bb64c740b456f7652b ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/ha secondary:/ñít
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/ha secondary:/ñít
+[reference_npb stderr]
+
+=== 8d02e0c63eae22089be9ac5b555814cb1230f7f0 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary: secondary:ííí‹íííí
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:ííí‹íííí
+[reference_npb stderr]
+
+=== 8d3f4c76159ff31f78d66074cf8c7ffd17d3b0a4 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:[hµue secondary:&
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:[hµue secondary:&
+[reference_npb stderr]
+
+=== 8dfaf04c76e3c23c73640087b5565767c729cf20 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:heap secondary:hdeô
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:heap secondary:hdeô
+[reference_npb stderr]
+
+=== 8e2fb3cc3e3e41f0549390567ddc5d4c0f075156 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ha secondary:ha
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ha secondary:ha
+[reference_npb stderr]
+
+=== 8e4745629a42384fcff211b65dbf351cd6a25234 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary: secondary:2
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:2
+[reference_npb stderr]
+
+=== 8e4858906076446acc4379d29b4bc07145947dff ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:h secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:h secondary:t
+[reference_npb stderr]
+
+=== 9022896b613b5f51e230b991bea497822869c9b4 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:heat secondary:heŸa
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:heat secondary:heŸa
+[reference_npb stderr]
+
+=== 90e8e7786ae957de10f419abf254ff08b227dd3e ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/i%atha secondary:/
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/i%atha secondary:/
+[reference_npb stderr]
+
+=== 92a271c90891bf6cafe95683327f3bb6dc2f3894 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary: secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:t
+[reference_npb stderr]
+
+=== 932b860403582b68dd5ecfc7fea3d61aec2d3fe4 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:íÿha secondary:îíí—aÿìhea
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:íÿha secondary:îíí—aÿìhea
+[reference_npb stderr]
+
+=== 93b10967e5b55def12a22f4f2276af50db8054d3 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:R secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:R secondary:t
+[reference_npb stderr]
+
+=== 93dade7b5172d597417b9a6bd5f2e55df81a8f56 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:i%atîíò secondary:ííííí
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:i%atîíò secondary:ííííí
+[reference_npb stderr]
+
+=== 93e792f3b69c90719d5e844662c8edf5add776ca ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:l secondary:ì—aîíat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:l secondary:ì—aîíat
+[reference_npb stderr]
+
+=== 94330862c01dcdccfd7827aacd0e374f4a550fc1 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:hea­ secondary:heat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:hea­ secondary:heat
+[reference_npb stderr]
+
+=== 94a5bd595889e27379f2d66fbd3eff7091881dfb ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:haíí®t secondary:
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:haíí®t secondary:
+[reference_npb stderr]
+
+=== 94a6bf8b6e3045c5139edb19f1258257bc8305fe ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:íha secondary:
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:íha secondary:
+[reference_npb stderr]
+
+=== 956cb4f6c843ae146394ee5382515eafbcc8bff3 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/ha secondary:/ñí—
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/ha secondary:/ñí—
+[reference_npb stderr]
+
+=== 9759650f62e6e326544576a883a2841c4bd93bcf ===
 [input decoded]
 {"primary": "", "secondary": ""}
 [normalized rc=0 stdout]
-primary: secondary:	
-primary-empty
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
+primary:w secondary:
 secondary-empty
-modes:equal
-[original stderr]
-
-=== a1ea676e42ea16d6f5afd74a26c8bcb7e5cbd89b ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
+[reference_npb rc=0 stdout]
+primary:w secondary:
 secondary-empty
-modes:equal
-[original stderr]
+[reference_npb stderr]
 
-=== a3b954a039abc0e36e6b9ec2c3c49a9ccf786ec7 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== a3c0948418be86355a7f505cf11a6818709dd149 ===
-[input decoded]
-{"primary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012", "secondary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u00125\u0012\u0012\u0016\u0012\u0012\u0012\u0012"}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:5
-[original stderr]
-
-=== a5e2b91c32b29eacaeb5cd91b42fc07575f7db55 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=0 stdout]
-primary: secondary:	
-primary-empty
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== a6bfb58aabcc7e928a811d2abe24f17f1e50ed3b ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== a74d3a65606054a809b24f6d0b6affe990db8a49 ===
+=== 976a22689d15d71c026c8c94acce046f53119083 ===
 [input decoded]
 {"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
+[normalized rc=0 stdout]
+primary:Bha secondary:haníít
 [normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+[reference_npb rc=0 stdout]
+primary:Bha secondary:haníít
+[reference_npb stderr]
 
-=== a75b049268c1ab4098b79af4246fab580ba2ead1 ===
+=== 98c585ac4ce4497aa70bb70e482fcab57562fdb0 ===
 [input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:a secondary:heat
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb rc=0 stdout]
+primary:a secondary:heat
+[reference_npb stderr]
 
-=== aa358453e3621c51cb491fdf57c4d872794d9834 ===
+=== 98fb97f26322a4b7a6f43198c262635e01388cbe ===
 [input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ííííí—aí secondary:t
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb rc=0 stdout]
+primary:ííííí—aí secondary:t
+[reference_npb stderr]
 
-=== ad00ad52812afe12415652a263df985b8e7bffe4 ===
+=== 9912ff61d982e17c5ddc3c6670e3ff9b79ef5639 ===
 [input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:!ÿÿ;ÿ secondary:åıíí
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb rc=0 stdout]
+primary:!ÿÿ;ÿ secondary:åıíí
+[reference_npb stderr]
 
-=== ae31870f61c3e16ef5260b860aabf5836bd98692 ===
+=== 9983186c4084d8ef88819e8aea9407a9d70c77df ===
 [input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:hep secondary:heaô
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb rc=0 stdout]
+primary:hep secondary:heaô
+[reference_npb stderr]
 
-=== b002c8d53fadf6db5600970562ba71334b9e9dc3 ===
+=== 9a333959b9656b55455337cb4aebb30a5ad0a5f8 ===
 [input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary: secondary:—
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:—
+[reference_npb stderr]
 
-=== b2aaf72c72c8d9edb69a9c6b17e1a3a5981da47e ===
+=== 9b125718e0c0e43f9a16e1fe359389aa999f2886 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:1ÿÿ secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:1ÿÿ secondary:t
+[reference_npb stderr]
+
+=== 9b1bbaa2dec7e8973dbde68f810de6100fe13323 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:h,t secondary:î¿í—aÿìheat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:h,t secondary:î¿í—aÿìheat
+[reference_npb stderr]
+
+=== 9e13c1597b3b97ae46c4b86766f9ed6b9ab36f08 ===
+[input decoded]
+{"primary": "h\f\u0000e", "secondary": "heat"}
+[normalized rc=0 stdout]
+primary:h secondary:heat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:h secondary:heat
+[reference_npb stderr]
+
+=== 9e1d2d10ddf30dc7a210c46070654fee6e30bc23 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ha secondary:ha
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ha secondary:ha
+[reference_npb stderr]
+
+=== 9e31844ec8346caf9039f23cac497de8c2063bfd ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/ÖI2½ÿÿÿÿ secondary:/ñí—
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/ÖI2½ÿÿÿÿ secondary:/ñí—
+[reference_npb stderr]
+
+=== 9e8c4f670df3ed658c05b0c753819f770912fda1 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:hfûÿ secondary:éat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:hfûÿ secondary:éat
+[reference_npb stderr]
+
+=== 9f3cbecfdc34447b5fa374a40a6165e855feb8b8 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:íöh secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:íöh secondary:t
+[reference_npb stderr]
+
+=== a01b9fad0d013c0ae3da75975b5e4a7b246ca493 ===
 [input decoded]
 {"primary": "", "secondary": ""}
 [normalized rc=0 stdout]
-primary: secondary:/
-primary-empty
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
+primary:N secondary:
 secondary-empty
-modes:equal
-[original stderr]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:N secondary:
+secondary-empty
+[reference_npb stderr]
 
-=== b46767c947a7efe0f7d65ac57954a5e45f1ce38e ===
+=== a0271a70372e97802d5539d85ccc2add866afce4 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary: secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:t
+[reference_npb stderr]
+
+=== a02d5ccce20033ce1e1e2b44720eb997a6dbb29c ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:í secondary:î—aÿìt
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:í secondary:î—aÿìt
+[reference_npb stderr]
+
+=== a1295dd9e32ee12253975166539ac0ff9d5d29b5 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ÿÿ secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ÿÿ secondary:t
+[reference_npb stderr]
+
+=== a1850ed466be0aac541a1028558b213f4cefdcd6 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/i%at secondary:/
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/i%at secondary:/
+[reference_npb stderr]
+
+=== a41074b7d9897717856744c0f38f2e33b5f5b9f2 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:hea‹ secondary:heat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:hea‹ secondary:heat
+[reference_npb stderr]
+
+=== a596df20095e5c0d77c2c206c8c4f84ec172f88d ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:i% secondary:ÿÿÿÿ
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:i% secondary:ÿÿÿÿ
+[reference_npb stderr]
+
+=== a5a365254d4cd3f1ac92de697002dd039295275e ===
 [input decoded]
 {"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
+[normalized rc=0 stdout]
+primary: secondary:ae1
 primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:ae1
+primary-empty
+[reference_npb stderr]
+
+=== a7659b6af04c90c2fb28ba9add57a5d52a88bb68 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:÷ee secondary:Heeô
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:÷ee secondary:Heeô
+[reference_npb stderr]
+
+=== a97cb280505842dcb3ab98b4678fbdac71ce5a3f ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ÿÿÿÿ2 secondary:
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ÿÿÿÿ2 secondary:
+[reference_npb stderr]
+
+=== aa70f6933d991d83c9df86f7016de43e8bcb032c ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ïíÿ secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ïíÿ secondary:t
+[reference_npb stderr]
+
+=== aaf2b1afe330c0563234f058de3c257cb070cb06 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:heat secondary:heaÂ
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:heat secondary:heaÂ
+[reference_npb stderr]
+
+=== ab13225ac59fd8a58dbe10507be1af3256c74e5c ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary: secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:t
+[reference_npb stderr]
+
+=== abd0e7860f6765c922bfac4bf827b1043dabce08 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/i%at secondary:/
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/i%at secondary:/
+[reference_npb stderr]
+
+=== ac9edf9cecb54fb09111e934d138e8cce82685c9 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:Heeş secondary:Heeğ
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:Heeş secondary:Heeğ
+[reference_npb stderr]
+
+=== acd3953391943322b65ee476718e68d81117b295 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:heae secondary:heù
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:heae secondary:heù
+[reference_npb stderr]
+
+=== ad53c119f15aae97594977c2b4a7556213172da2 ===
+[input decoded]
+{"primary": "heat", "secondary": "heaa"}
+[normalized rc=0 stdout]
+primary:heat secondary:heaa
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:heat secondary:heaa
+[reference_npb stderr]
+
+=== ad61e53909ae84a8c28fd1c2bf058c4ef6e90074 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:h secondary:ÿeat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:h secondary:ÿeat
+[reference_npb stderr]
+
+=== adeec3303c6e7bb75011149b07ee9632a3dde85b ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:’eae secondary:’’ae
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:’eae secondary:’’ae
+[reference_npb stderr]
+
+=== aeab15907e07310d41dcfc7397b59af5b3f2a445 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/#h secondary:/ñíat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/#h secondary:/ñíat
+[reference_npb stderr]
+
+=== af60fed5ca0b8d2d54bea6e49a43dd661660ed22 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:heat secondary:heaÃ
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:heat secondary:heaÃ
+[reference_npb stderr]
+
+=== b05a39ad2081b5a3acd8ec1f2c19003deb5e0e2c ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:hea secondary:heâ
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:hea secondary:heâ
+[reference_npb stderr]
+
+=== b0cc94cee39897efda91b5c90692b82bb1415cf2 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:l secondary:ì—aîìh
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:l secondary:ì—aîìh
+[reference_npb stderr]
+
+=== b0d5505c842b14c64276bbc89464a0a4f9768483 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ha secondary:haheat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ha secondary:haheat
+[reference_npb stderr]
+
+=== b19d3264626316d87dfe8cbb42590b195921700b ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/ha secondary:/heat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/ha secondary:/heat
+[reference_npb stderr]
+
+=== b20d312a690440c27c364e75cfa97111153bf574 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ÿÿÿÿ secondary:
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ÿÿÿÿ secondary:
+[reference_npb stderr]
+
+=== b29a61cb72fa30f3814a8e13f83b45e256b2ef7a ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary: secondary:
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:
+[reference_npb stderr]
+
+=== b32b30b2c1a3773f99b5b378ea3bcd16eef4be94 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary: secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:t
+[reference_npb stderr]
+
+=== b39a7bc57fd1849e05650ea19c97b6a2b01c871b ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:Heeô secondary:Heeô
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:Heeô secondary:Heeô
+[reference_npb stderr]
+
+=== b3e442c119a72d864405fedb7486c942a30ae666 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/ha secondary:/—
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/ha secondary:/—
+[reference_npb stderr]
+
+=== b3e859aed478a33e23c23e05c1ae6692040d31bc ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:öíh secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:öíh secondary:t
+[reference_npb stderr]
+
+=== b54dd3e37ed8491040f262a387abe4e40cdf7e65 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:heap secondary:heaÔ
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:heap secondary:heaÔ
+[reference_npb stderr]
+
+=== b60b1e89702a821fddccd9f646a572e73b49dbd3 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:l secondary:haíheat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:l secondary:haíheat
+[reference_npb stderr]
+
+=== b66fcf53a213bc8c4b46912246e5a09c84c20cc7 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:’eae secondary:heaè
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:’eae secondary:heaè
+[reference_npb stderr]
+
+=== b777677d38f2b513020223ac3f66ae49a75d7e5c ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ia secondary:A
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ia secondary:A
+[reference_npb stderr]
 
 === b79b4bb49b7aa9e5e5cc05785389f66e992b94c8 ===
 [input decoded]
 {"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
+[normalized rc=0 stdout]
+primary:/ secondary:
 secondary-empty
-modes:equal
-[original stderr]
-
-=== b7dc6c9e4900c6e9a34a917e2965cccebff8ff79 ===
-[input decoded]
-{"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
 [normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+[reference_npb rc=0 stdout]
+primary:/ secondary:
+secondary-empty
+[reference_npb stderr]
 
-=== b87f652750d83f4448a169fd75d08c48ebb00d9b ===
+=== b7a16523e109d5ee89de1184b0e89e8177b62e6a ===
+[input decoded]
+{"primary": "hmat", "secondary": "heat"}
+[normalized rc=0 stdout]
+primary:hmat secondary:heat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:hmat secondary:heat
+[reference_npb stderr]
+
+=== b7fff9a704370014a6ee4abb6d32fe22a474c1b1 ===
 [input decoded]
 {"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
+[normalized rc=0 stdout]
+primary:H secondary:
 secondary-empty
-modes:equal
-[original stderr]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:H secondary:
+secondary-empty
+[reference_npb stderr]
 
-=== b911a0c0457665f76001a4a3ccb9bd50536dfc5a ===
+=== b907aba0b12ef2534ac66cd07ada87210da352cf ===
 [input decoded]
 {"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
+[normalized rc=0 stdout]
+primary:şeH’ secondary:ha
 [normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
+[reference_npb rc=0 stdout]
+primary:şeH’ secondary:ha
+[reference_npb stderr]
 
-=== babd428809b52ffcd46f02cea79b99477bd799b5 ===
+=== b998909a502492fd6015e56a4bad6db24684c392 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ieat secondary:heaô
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ieat secondary:heaô
+[reference_npb stderr]
+
+=== b9f58eec43b605351e534ac9c5847c98ba76a9ec ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ÿÿÿÿ secondary:ÿ
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ÿÿÿÿ secondary:ÿ
+[reference_npb stderr]
+
+=== ba10252efe89025720d4627331c854a30f935d32 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:!’ÿ secondary:ÿÿÿÿha
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:!’ÿ secondary:ÿÿÿÿha
+[reference_npb stderr]
+
+=== ba7e1d43a928024b9ca2e45c865172616410b230 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:heeô secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:heeô secondary:t
+[reference_npb stderr]
+
+=== bc495b54af7dabd53d23f519bd58aa1e3d3b5f3d ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ÿÿt secondary:
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ÿÿt secondary:
+[reference_npb stderr]
+
+=== bd01d3fa1448c0a82048411d95bf3de1e72926eb ===
 [input decoded]
 {"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
+[normalized rc=0 stdout]
 primary: secondary:
 primary-empty
 secondary-empty
 modes:equal
-[original stderr]
-
-=== baf3d49bfb6ddf0d2c511f7f3c330d45d7be71bb ===
-[input decoded]
-{"primary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u00122\u0012\u0012", "secondary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012|\u0012\u0012"}
-[normalized rc=1 stdout]
 [normalized stderr]
-[original rc=0 stdout]
-primary:2 secondary:|
-[original stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[reference_npb stderr]
 
-=== bcc0657ee18e9611962c4a722512d7c03e4badf4 ===
+=== bf1ef0284a700afdebe5062e743674b52ac1ff83 ===
 [input decoded]
-{"primary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u00120\u0012\u0012", "secondary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012|\u0012\u0012"}
-[normalized rc=1 stdout]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/a secondary:/ÿÿ
 [normalized stderr]
-[original rc=0 stdout]
-primary:0 secondary:|
-[original stderr]
+[reference_npb rc=0 stdout]
+primary:/a secondary:/ÿÿ
+[reference_npb stderr]
 
-=== bd5d93d09cceff22b0ede4c881b370e11175873c ===
+=== bf79384183f9d2021e0b30bc7298693e706b47f9 ===
+[input decoded]
+{"primary": "`t", "secondary": ""}
+[normalized rc=0 stdout]
+primary:`t secondary:
+secondary-empty
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:`t secondary:
+secondary-empty
+[reference_npb stderr]
+
+=== c0ab567f7475ab84a75942c2fc39646e2dc4e131 ===
+[input decoded]
+{"primary": "]eat", "secondary": "go~t"}
+[normalized rc=0 stdout]
+primary:]eat secondary:go~t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:]eat secondary:go~t
+[reference_npb stderr]
+
+=== c0e480ec8f032d615d81f6bf2ba5ad0114937049 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/ha secondary:/ÿÿ
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/ha secondary:/ÿÿ
+[reference_npb stderr]
+
+=== c1a0a6550f1117f3a6f24ee59c100a8f19dc3d35 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ïííŞ secondary:ÿ
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ïííŞ secondary:ÿ
+[reference_npb stderr]
+
+=== c1d6ba25b88330c2cf4e374a99faef69fbea5f90 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:i% secondary:ÿÿÿÿ
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:i% secondary:ÿÿÿÿ
+[reference_npb stderr]
+
+=== c2d792db0ea5b840c609123d31036c2df75aab13 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:hÛÿ@ secondary:heat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:hÛÿ@ secondary:heat
+[reference_npb stderr]
+
+=== c39400044590c9819123ab0a8bc17309a25a1c9a ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:h2 secondary:haíít
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:h2 secondary:haíít
+[reference_npb stderr]
+
+=== c446f6567b6b7f2f7b2990622b4e748bf84f9f23 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:h secondary:ha|îat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:h secondary:ha|îat
+[reference_npb stderr]
+
+=== c48a8a067d4ef521a400c3d89f5ccb8aa9f93a1b ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:heat secondary:he’a
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:heat secondary:he’a
+[reference_npb stderr]
+
+=== c4fc30adb6c495c333f9d4b184bc41666b05aa2a ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[reference_npb stderr]
+
+=== c54c440ee50f69663de4cc7523af7a481b114fef ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[reference_npb stderr]
+
+=== c56b2090830add3b183bdd0ada35d85ce396c576 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary: secondary:ÿt
+primary-empty
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:ÿt
+primary-empty
+[reference_npb stderr]
+
+=== c59d3f03fc359e91c3e059a7818d5b19ecd32bd6 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary: secondary:
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:
+[reference_npb stderr]
+
+=== c5ec43c65bce628ca96a8a7fd905e944758ffef5 ===
+[input decoded]
+{"primary": "leae", "secondary": "heat"}
+[normalized rc=0 stdout]
+primary:leae secondary:heat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:leae secondary:heat
+[reference_npb stderr]
+
+=== c74bb5e9c1a7c18802773910b0fa9d9be85140e4 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:Heeô secondary:He
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:Heeô secondary:He
+[reference_npb stderr]
+
+=== c89bfc8406fcb86fd04d262e1800ed0aa5af5a7c ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/ha secondary:/ñít
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/ha secondary:/ñít
+[reference_npb stderr]
+
+=== c8e5429d8d70d3e5c177d82d91aa06c31458455f ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ÿÿÿÿÿÿüÿ1’ÿ secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ÿÿÿÿÿÿüÿ1’ÿ secondary:t
+[reference_npb stderr]
+
+=== c9631d193b61eea6eaacdded655b8911fd006027 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary://ha secondary:/,—
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary://ha secondary:/,—
+[reference_npb stderr]
+
+=== c9b6f2cf5681dacb40e4ac007569aee6fcd11769 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:í secondary:îíí—aÿìht
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:í secondary:îíí—aÿìht
+[reference_npb stderr]
+
+=== ca0ecde580896a2cde5fb0966cd7127aa5fdf51f ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:h! secondary:ha
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:h! secondary:ha
+[reference_npb stderr]
+
+=== ca96fe1fb2056feec1598b9381b3470104d76c85 ===
+[input decoded]
+{"primary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0000\u0000\u0012\u0012h\u0012\u0012\u0012\u0012\u0012\u0012\u0011\u0012\u0012\u0012\u0012I\u0012i%at\u0012\u0012\u0012\u0012I\u0012", "secondary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012t\u0012\u0012\u0012\u0012"}
+[normalized rc=0 stdout]
+primary: secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:t
+[reference_npb stderr]
+
+=== cabcf97fb02cf3ef6ffa2eb5d95fcb84e1d75e61 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:Heeü secondary:Heeô
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:Heeü secondary:Heeô
+[reference_npb stderr]
+
+=== caedace397f2f806e476fe46f9be2298f4c24324 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ÿha secondary:
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ÿha secondary:
+[reference_npb stderr]
+
+=== cc1899b24f8c57a9545b4769f63dedb0a1e32432 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:,=t secondary:îíí—aÿìheat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:,=t secondary:îíí—aÿìheat
+[reference_npb stderr]
+
+=== ccaa30da58423f07664d4866443e93198dbdaa3f ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary: secondary:€t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:€t
+[reference_npb stderr]
+
+=== ccd9c66bd3194053648a5170002dbf445ac3829f ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:Heeş secondary:Heeô
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:Heeş secondary:Heeô
+[reference_npb stderr]
+
+=== cdb50a5171cdcd2f6207136388c4b4a77433c649 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:i%at secondary:ÿÿÿÿ
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:i%at secondary:ÿÿÿÿ
+[reference_npb stderr]
+
+=== cec18d523766a7d3604d2d05d3a4e777bb7d1063 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:!ÿÿÿÿha secondary:hheat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:!ÿÿÿÿha secondary:hheat
+[reference_npb stderr]
+
+=== ceda4606e4d6fc29b6849c635954eb6a3c9181a4 ===
+[input decoded]
+{"primary": "heae", "secondary": "he\u0000\f"}
+[normalized rc=0 stdout]
+primary:heae secondary:he
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:heae secondary:he
+[reference_npb stderr]
+
+=== cef70f91deaba6721aed73646bde3ac975522a37 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:2õõõõõõõõõõõõõõõõõõõõõÿÿÿşì secondary:
+ha
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:2õõõõõõõõõõõõõõõõõõõõõÿÿÿşì secondary:
+ha
+[reference_npb stderr]
+
+=== d18b1dcc9403f1ebedd1b8934980e8ca9e12c4c9 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:h*:t secondary:heaâ
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:h*:t secondary:heaâ
+[reference_npb stderr]
+
+=== d1ec4aa55b6750f423ffbb5c65aecec17fe18f36 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:1ÿÿÿÿ secondary:ha
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:1ÿÿÿÿ secondary:ha
+[reference_npb stderr]
+
+=== d243d574d6b77e6ae79e9a1c803835ca260a35a3 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ÿÿÿÿ secondary:î—aÿíû˜eat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ÿÿÿÿ secondary:î—aÿíû˜eat
+[reference_npb stderr]
+
+=== d280d397201ff31620d6e151cc6a0f289cdc0ffb ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:i%atîíò secondary:ííííí
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:i%atîíò secondary:ííííí
+[reference_npb stderr]
+
+=== d31a35dd0daabb501e812a91dc6a9a2884894820 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ÿÿ secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ÿÿ secondary:t
+[reference_npb stderr]
+
+=== d32b6690a0a3b8c189a3fa317ddf18d5ffd9f880 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ha secondary:
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ha secondary:
+[reference_npb stderr]
+
+=== d3f76fee771487941caf152b4b9fb4146647db26 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:öíìíía secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:öíìíía secondary:t
+[reference_npb stderr]
+
+=== d44b69efe8780a7d8e6ef7a35074cbdd7519f578 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ha secondary:haheat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ha secondary:haheat
+[reference_npb stderr]
+
+=== d48cf8d5494d6eb728625e8ac8f914961c793c20 ===
+[input decoded]
+{"primary": "", "secondary": ""}
+[normalized rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:
+primary-empty
+secondary-empty
+modes:equal
+[reference_npb stderr]
+
+=== d53e354065f5cb22cfae7f99edb40f3e5cfc5dd6 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:h… secondary:
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:h… secondary:
+[reference_npb stderr]
+
+=== d5e625aadab1cba420d9a90ceb875f7cd4bc63f2 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:heap secondary:heeô
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:heap secondary:heeô
+[reference_npb stderr]
+
+=== d7d9504e0621ca5f7e077af1e9be489d58644163 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:-/ìèheathe secondary:’ha
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:-/ìèheathe secondary:’ha
+[reference_npb stderr]
+
+=== d7ea9671f3adfaa10163bf11c35727745cc1710c ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary: secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:t
+[reference_npb stderr]
+
+=== d8c5cac36f0939bad3eed1b4ecaf1ccb2577ae17 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:íhö secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:íhö secondary:t
+[reference_npb stderr]
+
+=== da5aadb79bbbfed1d47767cfe5fda1fba048c411 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/5$ıeat secondary:/ÿÿ
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/5$ıeat secondary:/ÿÿ
+[reference_npb stderr]
+
+=== ddbaa9ec1e5ae858d3e82bd2dcc8a9e4d69f3f18 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:h› secondary:het
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:h› secondary:het
+[reference_npb stderr]
+
+=== de0479d4f2dd0bf9f8c1bc101ffd4e22af7250d3 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:îë secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:îë secondary:t
+[reference_npb stderr]
+
+=== de33a4c6c59077f2548b878fbb23dbfa755dd852 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ÿÿÿÿ secondary:
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ÿÿÿÿ secondary:
+[reference_npb stderr]
+
+=== de445294eac98bb0b65ce9c26f18e95b63f6a0ed ===
+[input decoded]
+{"primary": "heAe", "secondary": "heat"}
+[normalized rc=0 stdout]
+primary:heAe secondary:heat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:heAe secondary:heat
+[reference_npb stderr]
+
+=== deb35e49ddd36108112680b0cae714331082c8f2 ===
+[input decoded]
+{"primary": "heaS", "secondary": "heat"}
+[normalized rc=0 stdout]
+primary:heaS secondary:heat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:heaS secondary:heat
+[reference_npb stderr]
+
+=== df8bbb77840c273485d91d5de88a449a3bd414f5 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:h secondary:ha+|îat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:h secondary:ha+|îat
+[reference_npb stderr]
+
+=== e06f2fce1ca6cf481143717e59d4197730114f1a ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:+ÿÿÿÿ# secondary:ÿ
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:+ÿÿÿÿ# secondary:ÿ
+[reference_npb stderr]
+
+=== e0cc24c0ff039cffd1f5e52923bbe2c6cf46f52a ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ñ12 secondary:ííí‹íííí
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ñ12 secondary:ííí‹íííí
+[reference_npb stderr]
+
+=== e173b9ef83f0e7b958ac5d30ca42627f193d7a25 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:öíìíía secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:öíìíía secondary:t
+[reference_npb stderr]
+
+=== e19c9eb3371a93c59057398d33e1ff22047efbc6 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:hûÿöíh secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:hûÿöíh secondary:t
+[reference_npb stderr]
+
+=== e19db01184268ef917ee5589d53ab236bb5cb6f8 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/ÿÿ secondary:h`
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/ÿÿ secondary:h`
+[reference_npb stderr]
+
+=== e2296fac649b3532b07e450ca6b64ac2c428bfbf ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:a secondary:ha
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:a secondary:ha
+[reference_npb stderr]
+
+=== e3cc4dd5059cdb2289a469ae2753381e6a6d4255 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ha secondary:ha
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ha secondary:ha
+[reference_npb stderr]
+
+=== e41ba60000fa8f5a5b1180fdb69214af4dbc5b31 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary: secondary:
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:
+[reference_npb stderr]
+
+=== e478a0d718d444c15812ac1c04c5b5d588f3dbfc ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ÿÿÿÿ secondary:ÿ
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ÿÿÿÿ secondary:ÿ
+[reference_npb stderr]
+
+=== e61700f16f7d63f74a290ed87e4aff5c94e148c6 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:öíh secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:öíh secondary:t
+[reference_npb stderr]
+
+=== e641a5a86acbda3875997253f0389fea5cbcfe9f ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary: secondary:ıeat
+primary-empty
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:ıeat
+primary-empty
+[reference_npb stderr]
+
+=== e710356b0838fac221a3c32860677ee6c3e2ce48 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ha secondary:haa
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ha secondary:haa
+[reference_npb stderr]
+
+=== e7265c9fb8b3228291ee035064b1ab6d29caebd7 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/ha secondary:’ha
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/ha secondary:’ha
+[reference_npb stderr]
+
+=== eaedf3f13d975d8e476e74dce4fd340fe36173b4 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/ÿÿ secondary:/
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/ÿÿ secondary:/
+[reference_npb stderr]
+
+=== eb0c5afa3b6f484344633aa389ccf72becf527ab ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/ha secondary:/
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/ha secondary:/
+[reference_npb stderr]
+
+=== eb5f0016c698e1f0be2302ea91143e89e5acce7e ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:’eae secondary:mmae
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:’eae secondary:mmae
+[reference_npb stderr]
+
+=== ec14d41fa0bb926742603b961b5f123539c1ffaf ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ha secondary:haÿìheat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ha secondary:haÿìheat
+[reference_npb stderr]
+
+=== ecaa367afdef3f41e9cc72f3f06f3cc0a94acbdd ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:h secondary:ha
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:h secondary:ha
+[reference_npb stderr]
+
+=== ed246eb3d8b7da2c83bbafa3f5d1211accd7a942 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ÿÿÿÿ secondary:ÿ
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ÿÿÿÿ secondary:ÿ
+[reference_npb stderr]
+
+=== ee63706a46658f895f18f335c2af3fef2a36faf6 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:Heeô secondary:Heeô
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:Heeô secondary:Heeô
+[reference_npb stderr]
+
+=== efdf485b570933fed6740aa3059058ad159ce006 ===
+[input decoded]
+{"primary": "\u0004hea", "secondary": "\u0004o~t"}
+[normalized rc=0 stdout]
+primary:hea secondary:o~t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:hea secondary:o~t
+[reference_npb stderr]
+
+=== eff9ab436e6e8340c1cf8b9256f125b680b06180 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ha secondary:ha
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ha secondary:ha
+[reference_npb stderr]
+
+=== empty_secondary.bin ===
+[input decoded]
+{"primary": "heat", "secondary": ""}
+[normalized rc=0 stdout]
+primary:heat secondary:
+secondary-empty
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:heat secondary:
+secondary-empty
+[reference_npb stderr]
+
+=== equal.bin ===
+[input decoded]
+{"primary": "heat", "secondary": "heat"}
+[normalized rc=0 stdout]
+primary:heat secondary:heat
+modes:equal
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:heat secondary:heat
+modes:equal
+[reference_npb stderr]
+
+=== f01638a304852a31634cc2248b34f0dad0403de0 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:heat secondary:h-aô
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:heat secondary:h-aô
+[reference_npb stderr]
+
+=== f02f9f22156c0bcd5036e3651739a3751c2e180d ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/ secondary:/
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/ secondary:/
+[reference_npb stderr]
+
+=== f09450a3133ca91c8219d6b3bdde86b4bc64ac4f ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary: secondary:t
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:t
+[reference_npb stderr]
+
+=== f0e82a83892a4158a1db61ae096faee022f39e8e ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ÿha secondary:îíí—aÿìhea
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ÿha secondary:îíí—aÿìhea
+[reference_npb stderr]
+
+=== f12d65fff25dea90c1e48a9e0224ce65f153f860 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/%haÿ secondary:/
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/%haÿ secondary:/
+[reference_npb stderr]
+
+=== f13678c15eaed22e86e45af439b6f18e9655aed0 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:heae secondary:heı
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:heae secondary:heı
+[reference_npb stderr]
+
+=== f17ae99505ba9a446af26981ab15518b1101f12f ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:
+heaphÿÿÿÿ secondary:ÿ
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:
+heaphÿÿÿÿ secondary:ÿ
+[reference_npb stderr]
+
+=== f1824f7433d40c8b2271a60b837065a09d7bf81a ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:~ÿÿÿÿI secondary:a
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:~ÿÿÿÿI secondary:a
+[reference_npb stderr]
+
+=== f29f7b8cbbc08afcaf69c12e9ab90fe821bac6dc ===
+[input decoded]
+{"primary": "heat", "secondary": "h/\u0001"}
+[normalized rc=0 stdout]
+primary:heat secondary:h/
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:heat secondary:h/
+[reference_npb stderr]
+
+=== f2e7b7ec0444b2a8bbd1891510674c14de191e3c ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:÷ee secondary:Heeô
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:÷ee secondary:Heeô
+[reference_npb stderr]
+
+=== f3a452fb798805f0f95872e44cbac58c3a98c61c ===
+[input decoded]
+{"primary": "at", "secondary": ""}
+[normalized rc=0 stdout]
+primary:at secondary:
+secondary-empty
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:at secondary:
+secondary-empty
+[reference_npb stderr]
+
+=== f5295df9c9bc7b3b73ec87eedd6e4a8e1500e847 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:/ secondary:ñí—aa
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:/ secondary:ñí—aa
+[reference_npb stderr]
+
+=== f5b6cf58d75be65fd87dfb19d0ac088fa79440f9 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:Heeô secondary:Hee	
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:Heeô secondary:Hee	
+[reference_npb stderr]
+
+=== f5bbeb66f81492748876aa02c637d685050f7263 ===
 [input decoded]
 {"primary": "", "secondary": ""}
 [normalized rc=0 stdout]
 primary: secondary:
 secondary-empty
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== be7da9287775f358b635e75d00d2386b69d3c6c3 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=0 stdout]
-primary: secondary:
-primary-empty
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== be8662000bd2275f8ea2738b5747e4af94be2d12 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== beab7e0e2cdb25dd0cfb2d3ba3a54194e5022f68 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== c0e01549c9c06e313e06d7215228ac2e5f78f4c5 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=0 stdout]
-primary:	 secondary:	%
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== c13130d225af43452bc085e6f7b789c49f0e68b3 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=0 stdout]
-primary:	6
- secondary:	#
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== c15be32f96dad974e2a31e03eca000aa1301824b ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== c185d2832bc194e44aee27d72fc45c3f736edb39 ===
-[input decoded]
-{"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
-
-=== c26abef9a0b284dda168b8b3371a382f473fa5cd ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=0 stdout]
-primary:	 secondary:	
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== c36db3f89de42be2b92faa885ca9c7e5739b0a80 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=0 stdout]
-primary:	
- secondary:	~
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== c4967e41e96b50ba7160ca44413e79ccbdcc1a56 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== c4cdad5ba34254a33dd91100e2a1346e1604e604 ===
-[input decoded]
-{"primary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012", "secondary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u00124\u0012\u0012\u0016\u0012\u0012\u0012\u0012"}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:4
-[original stderr]
-
-=== c60e5ef861382a45fdd30eafa2e65479144a03b1 ===
-[input decoded]
-{"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.secondary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
-
-=== c8dbe0137fd921763fd050f3f08a76334774748a ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== ca9d6f5f52a576111e175066dda25d4d8c66a6c7 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== cb0568d19fe21d2844a200dca56d15fe0f7bc1ca ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== cd862d2434f740c397b9f782fa6e0ec36e75e93a ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== ce12711ead460043058ba9b95b99ec6f22aa7d1f ===
-[input decoded]
-{"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
-
-=== ce3901a345a98955a13deea56d3343cee6f10c38 ===
-[input decoded]
-{"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.secondary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
-
-=== d19f5a49235219d84729befbedb10bcb84c96e8c ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== d26bd8797648928fef6677e1fa7501a7d2755bd8 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== d3b0da335a5d5ff17bdc1e1eb8979bb757c9ae90 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== d696ad1f2b7ec9b3e7ffd97b000b183a31395bad ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== d73b47daa1222825ed94179c9ef5fc396b2b69a3 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=0 stdout]
+[reference_npb rc=0 stdout]
 primary: secondary:
 secondary-empty
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb stderr]
 
-=== d758853853b1d97742e0acffb9f268dfd88d8ca8 ===
+=== f6455b3b9ac238661461094fac8e3bb0f3bc56ae ===
 [input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ha secondary:heat
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb rc=0 stdout]
+primary:ha secondary:heat
+[reference_npb stderr]
 
-=== d8a1f7645d0830c4eee7c81d3df0eee9317dd447 ===
+=== f6b9eddf5797f3b640c883e218fa149433fa348e ===
 [input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary: secondary:tR
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:tR
+[reference_npb stderr]
 
-=== da28a0333be96e4d52edfa0f7c51520cab69779c ===
+=== f79cd243bde8e04f72f925c52ec5b453a0e5e349 ===
 [input decoded]
 {"primary": "", "secondary": ""}
 [normalized rc=0 stdout]
-primary:	!* secondary:	#
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
+primary:h secondary:
 secondary-empty
-modes:equal
-[original stderr]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:h secondary:
+secondary-empty
+[reference_npb stderr]
 
-=== dae82d0ea461381014075e08c13b3fa6c465b01f ===
+=== f8db01e999275dfec600a01237cac4cbf5b53889 ===
 [input decoded]
 {"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
-
-=== dbedc83e089c21efef9be011bdf390c426e0a63a ===
-[input decoded]
-{"primary": "", "secondary": ""}
 [normalized rc=0 stdout]
-primary:	
- secondary:	#
+primary:2õõõõõõõõõõõõõõõõõõõõõÿÿÿşì secondary:
+ha
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb rc=0 stdout]
+primary:2õõõõõõõõõõõõõõõõõõõõõÿÿÿşì secondary:
+ha
+[reference_npb stderr]
 
-=== e0cafafc15792b83103274dc004f6b397ea43f56 ===
+=== f98ad51cd99ad65a497111b9d1376868be4bb3f2 ===
 [input decoded]
-{"primary": "", "secondary": ""}
+{"error": "decode failed (rc=1)"}
 [normalized rc=0 stdout]
-primary:	
- secondary:#
+primary:ÿÿÿ secondary:ÿÿÿÿ
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb rc=0 stdout]
+primary:ÿÿÿ secondary:ÿÿÿÿ
+[reference_npb stderr]
 
-=== e4883b2a8f210c668b27e743eb7d6eed9f9b2aaa ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== e7035ef59b58f15b6ff3c237f11f06676de34297 ===
+=== faee0eda741777fd23a47456baa9f85aa5c3ef6a ===
 [input decoded]
 {"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
-
-=== e869f8769e60c36be19a5894d46ce7a19b52eb21 ===
-[input decoded]
-{"primary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u000b\u0012\u0012\u0012", "secondary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u00005\u0012\u0012"}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-[original stderr]
-
-=== e8d5e59b05a737150b3a36a1503dda7c9b1e70aa ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== eb1c924c3f00a9778d69555e7e296888381a5304 ===
-[input decoded]
-{"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.secondary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
-
-=== ebe9c97b49d73c6fc89e3e3191f4ac9da430a0f6 ===
-[input decoded]
-{"primary": "", "secondary": ""}
 [normalized rc=0 stdout]
-primary:	
- secondary:	+
+primary:ha secondary:ha
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb rc=0 stdout]
+primary:ha secondary:ha
+[reference_npb stderr]
 
-=== ec8d1f33b1129043347bfa5669622081b040c53c ===
+=== fd1a81ac4739be18f0691f877a69180d6219c027 ===
 [input decoded]
 {"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.secondary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
-
-=== ec94d57527e0425fa2e3e2fa2197ed23f5fabae9 ===
-[input decoded]
-{"primary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012", "secondary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u00126\u0012\u0012\u0016\u0012\u0012\u0012\u0012"}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:6
-[original stderr]
-
-=== eeffb72b0cf938a77f5db284d2b9b20d977e88c7 ===
-[input decoded]
-{"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.secondary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
-
-=== ef16d42a39ec41b4b5c9f4f6becd49b4291716ce ===
-[input decoded]
-{"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
-
-=== ef3e0da184379ccf49d532acea3187fcadd5fac2 ===
-[input decoded]
-{"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
-
-=== f042fff91205d355ad5e97ea7589eac05c440dca ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== f07195e0afa1152042c0c6ae3e130ea532ec476c ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== f5651bda0abd49640bc8f172e4b7b7d9c7619a63 ===
-[input decoded]
-{"primary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u000b!\u0012\u0012", "secondary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0000\u0000\u00005\u0012\u0012"}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary:! secondary:
-[original stderr]
-
-=== f5aa35b1d8cf6327386e35626df852fdeafcbfd8 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== f5c4d81a2444f08477f95cb3e079b46d5916df32 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== f623f7571f305349be85dfc6c35f9ea2a37a08f1 ===
-[input decoded]
-{"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.primary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
-
-=== f68bc831d136e3b463417471b2d23192af72b981 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== f70150dbb34a7f960666c6f97bb1f8fa802d5f96 ===
-[input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== f7a49adb7d9629ad5f2f641ad0433f70d180dfe0 ===
-[input decoded]
-{"primary": "", "secondary": ""}
 [normalized rc=0 stdout]
-primary:	=
- secondary:	C#
+primary:Hee secondary:Heeô
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb rc=0 stdout]
+primary:Hee secondary:Heeô
+[reference_npb stderr]
 
-=== f84256111f77b86b9af279fa6976badf86e594c1 ===
+=== fd40074935dca5141ea5f328a5899f9cddc8405e ===
 [input decoded]
-{"primary": "", "secondary": ""}
+{"primary": "heaT", "secondary": "heat"}
 [normalized rc=0 stdout]
-primary:_
- secondary:	+
+primary:heaT secondary:heat
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb rc=0 stdout]
+primary:heaT secondary:heat
+[reference_npb stderr]
 
-=== fa64210838d05aef0ddc56aa1a5929b95ed50d28 ===
+=== fd4668562d36a5e1ef6f48fcf406204d893a8c8b ===
 [input decoded]
 {"error": "decode failed (rc=1)"}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=1 stdout]
-[original stderr]
-[libprotobuf ERROR google/protobuf/wire_format_lite.cc:577] String field 'Input.secondary' contains invalid UTF-8 data when parsing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
-
-=== faeb407c918a8e26aef6274a1169c044981fdd56 ===
-[input decoded]
-{"primary": "", "secondary": ""}
 [normalized rc=0 stdout]
-primary:	Z secondary:	%
+primary:ÿÿÿÿ secondary:ÿ
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb rc=0 stdout]
+primary:ÿÿÿÿ secondary:ÿ
+[reference_npb stderr]
 
-=== fce59a9c0fda0df6f062592333ef3d662ed0a3c3 ===
+=== fe55d0dbb9350b5ee910757e7c58d9afdbdc3295 ===
 [input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
-[normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
-
-=== fd4355dc66709479582c7913810b6610d701240c ===
-[input decoded]
-{"primary": "", "secondary": ""}
+{"primary": "heat", "secondary": "hea\u0000"}
 [normalized rc=0 stdout]
-primary: secondary:
-secondary-empty
+primary:heat secondary:hea
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
-primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[reference_npb rc=0 stdout]
+primary:heat secondary:hea
+[reference_npb stderr]
 
-=== fd60f0b46c38980dfc4226d5a7d31501b6e7c340 ===
+=== fed4332cdce7cb85deedf7adeab631be9417efac ===
 [input decoded]
-{"primary": "", "secondary": ""}
-[normalized rc=1 stdout]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:
+hehe‹ secondary:ÿ
 [normalized stderr]
-[original rc=0 stdout]
-primary: secondary:
+[reference_npb rc=0 stdout]
+primary:
+hehe‹ secondary:ÿ
+[reference_npb stderr]
+
+=== ff1562d685981b67f544dab8fde5808e07a0401f ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:Heeô secondary:ííí‹íí
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:Heeô secondary:ííí‹íí
+[reference_npb stderr]
+
+=== ff3d0ff6f0ba68129a81b07d722db084f37f444a ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary: secondary:5
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:5
+[reference_npb stderr]
+
+=== ffa28f94e0454a65c97bc68026538d958007c2a9 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ğÿÿÿÿ secondary:ha
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ğÿÿÿÿ secondary:ha
+[reference_npb stderr]
+
+=== ffbe96c17b8c0985370829bfb0838c17b8da21cd ===
+[input decoded]
+{"primary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u00124\u0012", "secondary": "\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u0012\u00122\u0012\u0012\u0012\u0012\u0012\u0012"}
+[normalized rc=0 stdout]
+primary:4 secondary:2
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:4 secondary:2
+[reference_npb stderr]
+
+=== ffcc1b8cbd82a7b951455ab9696620e10443773c ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:ha secondary:haìheat
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:ha secondary:haìheat
+[reference_npb stderr]
+
+=== fffa6dc1647b478911167498d26978e012b2fd21 ===
+[input decoded]
+{"error": "decode failed (rc=1)"}
+[normalized rc=0 stdout]
+primary:heaÿ secondary:hea@
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary:heaÿ secondary:hea@
+[reference_npb stderr]
+
+=== null_primary.bin ===
+[input decoded]
+{"primary": "", "secondary": "cool"}
+[normalized rc=0 stdout]
+primary: secondary:cool
 primary-empty
-secondary-empty
-modes:equal
-[original stderr]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+primary: secondary:cool
+primary-empty
+[reference_npb stderr]
 
