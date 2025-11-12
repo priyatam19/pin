@@ -1,0 +1,175 @@
+\begin{algorithm}[H]
+\caption{Input Mode Selection: Protocol Buffer vs Pass-Through}
+\label{alg:input_mode_selection}
+\begin{algorithmic}[1]
+\REQUIRE $f$ : Target C function with signature $\mathcal{F}$
+\REQUIRE $\mathcal{P}$ : Parameter list $\{p_1, ..., p_n\}$ from $\mathcal{F}$
+\ENSURE $\text{mode} \in \{\text{PROTO}, \text{RAW}\}$ : Selected input mode
+
+\PROCEDURE{SelectInputMode}{$\mathcal{F}$, $\mathcal{P}$}
+    \STATE $\text{has\_buffer} \leftarrow \textsc{false}$
+    \STATE $\text{has\_length} \leftarrow \textsc{false}$
+    \STATE $\text{complexity\_score} \leftarrow 0$
+
+    \STATE \COMMENT{Detect parser-style signature}
+    \FOR{each parameter $p_i \in \mathcal{P}$}
+        \IF{$\text{IsByteBuffer}(p_i)$}
+            \STATE $\text{has\_buffer} \leftarrow \textsc{true}$
+        \ENDIF
+
+        \IF{$\text{IsLengthParam}(p_i)$}
+            \STATE $\text{has\_length} \leftarrow \textsc{true}$
+        \ENDIF
+
+        \IF{$p_i.\tau$ is struct or pointer}
+            \STATE $\text{complexity\_score} \leftarrow \text{complexity\_score} + 1$
+        \ENDIF
+    \ENDFOR
+
+    \STATE \COMMENT{Decision logic}
+    \IF{$\text{has\_buffer} \land \text{has\_length} \land \text{complexity\_score} \leq 2$}
+        \RETURN $\text{RAW}$ \COMMENT{pass-through mode}
+    \ELSE
+        \RETURN $\text{PROTO}$ \COMMENT{protocol buffer mode}
+    \ENDIF
+\ENDPROCEDURE
+
+\vspace{0.3cm}
+
+\PROCEDURE{IsByteBuffer}{$p$}
+    \IF{$p.\tau.\text{kind} \neq \text{POINTER}$}
+        \RETURN $\textsc{false}$
+    \ENDIF
+
+    \STATE $\beta \leftarrow p.\tau.\text{pointee}$ \COMMENT{dereference pointer}
+    \STATE $\beta_{\text{clean}} \leftarrow \text{strip\_qualifiers}(\beta)$
+
+    \IF{$\beta_{\text{clean}} \in \{\text{uint8\_t}, \text{unsigned char}, \text{char}, \text{void}\}$}
+        \RETURN $\textsc{true}$
+    \ELSE
+        \RETURN $\textsc{false}$
+    \ENDIF
+\ENDPROCEDURE
+
+\vspace{0.3cm}
+
+\PROCEDURE{IsLengthParam}{$p$}
+    \STATE $\nu \leftarrow p.\text{name}.\text{to\_lower()}$
+    \STATE $\mathcal{K} \leftarrow \{\text{``len''}, \text{``length''}, \text{``size''}, \text{``count''}, \text{``n''}\}$
+
+    \IF{$\text{size\_t} \in p.\tau$}
+        \RETURN $\textsc{true}$
+    \ENDIF
+
+    \IF{$\exists k \in \mathcal{K} : k \subseteq \nu$}
+        \IF{$p.\tau \in \{\text{int}, \text{long}, \text{unsigned}, \text{size\_t}\}$}
+            \RETURN $\textsc{true}$
+        \ENDIF
+    \ENDIF
+
+    \RETURN $\textsc{false}$
+\ENDPROCEDURE
+
+\end{algorithmic}
+\end{algorithm}
+
+\vspace{0.5cm}
+
+\begin{algorithm}[H]
+\caption{Pass-Through Wrapper Generation}
+\label{alg:pass_through_wrapper}
+\begin{algorithmic}[1]
+\REQUIRE $f$ : Target C function
+\REQUIRE $\mathcal{P}$ : Parameter list with detected buffer/length
+\ENSURE $\mathcal{W}$ : Generated wrapper code (C source)
+
+\PROCEDURE{GeneratePassThroughWrapper}{$f$, $\mathcal{P}$}
+    \STATE $\mathcal{A} \leftarrow []$ \COMMENT{call arguments}
+    \STATE $p_{\text{buf}} \leftarrow \text{null}$, $p_{\text{len}} \leftarrow \text{null}$
+    \STATE $\text{buf\_bound} \leftarrow \textsc{false}$, $\text{len\_bound} \leftarrow \textsc{false}$
+
+    \STATE \COMMENT{Bind buffer and length parameters}
+    \FOR{each parameter $p_i \in \mathcal{P}$}
+        \IF{$\neg\text{buf\_bound} \land \text{IsByteBuffer}(p_i)$}
+            \STATE $\mathcal{A}.\text{append}(\text{``(} p_i.\tau \text{) data''})$
+            \STATE $p_{\text{buf}} \leftarrow p_i$
+            \STATE $\text{buf\_bound} \leftarrow \textsc{true}$
+
+        \ELSIF{$\text{buf\_bound} \land \neg\text{len\_bound} \land \text{IsLengthParam}(p_i)$}
+            \STATE $\mathcal{A}.\text{append}(\text{``(} p_i.\tau \text{) len''})$
+            \STATE $p_{\text{len}} \leftarrow p_i$
+            \STATE $\text{len\_bound} \leftarrow \textsc{true}$
+
+        \ELSE
+            \STATE $\text{default\_val} \leftarrow \text{GenerateDefaultValue}(p_i.\tau)$
+            \STATE $\mathcal{A}.\text{append}(\text{default\_val})$
+        \ENDIF
+    \ENDFOR
+
+    \STATE \COMMENT{Generate wrapper function}
+    \STATE $\mathcal{W} \leftarrow \text{``}$
+    \STATE \quad \texttt{int pin\_wrapper\_entry(const uint8\_t *data, size\_t len) \{}
+    \STATE \quad \quad $\text{arg\_str} \leftarrow \text{join}(\mathcal{A}, \text{``, ''})$
+    \STATE \quad \quad \texttt{return } $f.\text{name}$ \texttt{(} $\text{arg\_str}$ \texttt{);}
+    \STATE \quad \texttt{\}}
+    \STATE $\text{``}$
+
+    \RETURN $\mathcal{W}$
+\ENDPROCEDURE
+
+\vspace{0.3cm}
+
+\PROCEDURE{GenerateDefaultValue}{$\tau$}
+    \IF{$\tau$ is scalar}
+        \RETURN $\text{``0''}$
+    \ELSIF{$\tau$ is pointer (not buffer)}
+        \STATE $\beta \leftarrow \tau.\text{pointee}$
+        \RETURN $\text{``\&storage\_''} + \beta.\text{name}$ \COMMENT{stack-allocated}
+    \ELSIF{$\tau$ is struct}
+        \RETURN $\text{``\{0\}''}$ \COMMENT{zero-initialized}
+    \ELSE
+        \RETURN $\text{``NULL''}$
+    \ENDIF
+\ENDPROCEDURE
+
+\end{algorithmic}
+\end{algorithm}
+
+\vspace{0.5cm}
+
+\textbf{Notation:}
+\begin{itemize}
+    \item $\mathcal{F}$ : Function signature (return type + parameters)
+    \item $\mathcal{P}$ : Parameter list $\{p_1, ..., p_n\}$
+    \item $p_i.\tau$ : Type of parameter $p_i$
+    \item $\beta$ : Pointee type (after dereferencing)
+    \item $\nu$ : Parameter name (lowercase)
+    \item $\mathcal{K}$ : Set of length parameter name keywords
+    \item $\mathcal{W}$ : Generated wrapper code
+    \item $\mathcal{A}$ : Call argument list
+\end{itemize}
+
+\textbf{Mode Selection Criteria:}
+\begin{itemize}
+    \item \textbf{RAW (Pass-Through)}: Use when:
+    \begin{itemize}
+        \item Function has byte buffer parameter ($\text{uint8\_t*}$, $\text{char*}$, etc.)
+        \item Function has length/size parameter
+        \item Low complexity ($ \leq 2$ non-scalar parameters)
+        \item Example: $\texttt{mg\_mqtt\_parse(uint8\_t *buf, size\_t len, struct mg\_mqtt\_message *m)}$
+    \end{itemize}
+
+    \item \textbf{PROTO (Protocol Buffer)}: Use when:
+    \begin{itemize}
+        \item No obvious buffer+length pattern
+        \item High structural complexity (many struct/pointer parameters)
+        \item Need semantic field access
+        \item Example: $\texttt{processData(int id, const Sensor *sensor, Config cfg)}$
+    \end{itemize}
+\end{itemize}
+
+\textbf{Rationale:} Parser functions ($\text{buffer} + \text{length}$) benefit from raw byte fuzzing to detect parsing bugs (buffer overflows, malformed input handling). Structured functions benefit from protobuf normalization for semantic-aware fuzzing.
+
+\textbf{Complexity:} $O(n)$ where $n = |\mathcal{P}|$. Each parameter is examined once for buffer/length detection and classification.
+
+\textbf{Correctness:} The heuristics correctly identify parser-style signatures by detecting byte buffer pointers co-occurring with size parameters, enabling automatic mode selection without user annotation.

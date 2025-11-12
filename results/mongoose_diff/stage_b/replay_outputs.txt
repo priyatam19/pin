@@ -1,0 +1,1350 @@
+=== 00e1ca96206a5503984942e7578a3f230f35b911 ===
+[input decoded]
+{"len": 4, "preview_hex": "3f02ff7a"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 01a3f7ed2cde1e585271ce0b36c71863bd6b44e6 ===
+[input decoded]
+{"len": 5, "preview_hex": "3f0308002a"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 0659a9b9ba14a556f9af7591eb998e0d3c78268e ===
+[input decoded]
+{"len": 514, "preview_hex": "3fff03e4e3b2adadadadadadadadadadadadadadadadadadadadade7e7e7e7e7e7e7e7e7e7e7e7e7e4e7e7e75757575757575757575724575757575757575757"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 06b09f86aee006708e12cdc69b908bbaf7181c3c ===
+[input decoded]
+{"len": 4, "preview_hex": "3b02f0f0"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 07d7048b981ff814871ad6e1410db7075abd3f5c ===
+[input decoded]
+{"len": 2, "preview_hex": "5be6"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 08a9f9330cb4f204ce24f738c652f56dcfabad46 ===
+[input decoded]
+{"len": 62, "preview_hex": "2f3c030000000000000000000000000000002f3c03000000000000000000000000000000000000000060010000000000000400000000db00000000000000"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 0b75d774b312245504e8808577118c68779d2854 ===
+[input decoded]
+{"len": 5, "preview_hex": "2424a40800"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 0c4be47354acee929dd61dccd42ccd7ed226b1c2 ===
+[input decoded]
+{"len": 2, "preview_hex": "e400"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 0dfd135e5e497b654504d01bf7563da554447553 ===
+[input decoded]
+{"len": 4, "preview_hex": "3f020043"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 0f1d697053009c9495613dd1b965120bba4c70de ===
+[input decoded]
+{"len": 4, "preview_hex": "3f020005"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 1086c11763398b0b7c67a91e6fec42c3a6b530c1 ===
+[input decoded]
+{"len": 47, "preview_hex": "3b2d35353500fcb3b3b3b3b3b3b3b3b3b3ba3535353535353535355f35353535353535353535353535355b35353535"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 1871f42450c34461da49ffdd9e8f58ce76035567 ===
+[input decoded]
+{"len": 4, "preview_hex": "3f02f33f"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 190219a3bfda3f34e3191ad9ffa7d29503498a48 ===
+[input decoded]
+{"len": 2045, "preview_hex": "e4e3b2adadadadadadadadadadadadadadadadadadadadadadadadade7e7e7e7e7e7e7e7e7e7e7e7e7e4e7e7e757575757575757575757575757575757575757"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 1b21148eae4bfb9ccc50be6d497d8508db30d3c5 ===
+[input decoded]
+{"len": 7, "preview_hex": "fffaffffff002e"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 1dcb2492e1eb51bd1afd3274445754edafe62f02 ===
+[input decoded]
+{"len": 5, "preview_hex": "e4e4e3e3e3"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 214e1c90ceffc745605fc268e6ae381d6f9ee144 ===
+[input decoded]
+{"len": 29, "preview_hex": "317ba3a3317ba3a3a3a3a3a3a3a3a3a3a3a3a3002ea3a3a3a3a3a3a3a3"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 2162102703e22b82ef7767505ee75954632598a1 ===
+[input decoded]
+{"len": 1536, "preview_hex": "3ffd0b02000000000000000000000000000000005500000000000000000000000000000000000000000000000000000000000000000000000000000000000000"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 234d19acc97dbddb4c2351d9b583ddc8ad958380 ===
+[input decoded]
+{"len": 2, "preview_hex": "5a00"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 23963796573d158304c2a8c1a7ceec184ec04d7c ===
+[input decoded]
+{"len": 13, "preview_hex": "00fcb3b3b3b3b3b3b3b3b3b3ba"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 23abcf6cb1d3d2972453d9e313a3c3cfdc97cb7a ===
+[input decoded]
+{"len": 124, "preview_hex": "fffffffffff797979797979797979797979797979797979797973f97979797979797979797979797979797979797979797979797979797979797979797979797"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 2e0913405799f20b911e7ffaca05b22d589ea4d0 ===
+[input decoded]
+{"len": 64, "preview_hex": "bdbd0002bdbdbdbdafbcbcbcbcbcbcbc000000000000000000000000000000000000000000000000000000000000000000000000000000000000bcbcbcbcff01"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 2f1885cb5ca786941b33b036f40c8e7629d2b8df ===
+[input decoded]
+{"len": 4, "preview_hex": "3f025fbb"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 302f8c2b3a104c07deb837a73136cc9c433c36f2 ===
+[input decoded]
+{"len": 2, "preview_hex": "5bf0"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 3341fd735ee56b4f0fca0a4f68d4ebe7f9c848f5 ===
+[input decoded]
+{"len": 5, "preview_hex": "3f03000000"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 34c022bffb6ea6b56b92cdd0993c65147975f459 ===
+[input decoded]
+{"len": 3, "preview_hex": "220100"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 3c4fbfdd217606d3d864eb59ac766724cf942d90 ===
+[input decoded]
+{"len": 3, "preview_hex": "322e0a"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 3d3008bb73a7b0ae806d6b656532af27ff2b7d82 ===
+[input decoded]
+{"len": 2, "preview_hex": "bb40"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 3f4a1a705ac2bf3549b8114feb9deea0a93cc78e ===
+[input decoded]
+{"len": 4, "preview_hex": "3a022f50"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 3f55ed42b07d986b077c44141da7bdca56cda8b8 ===
+[input decoded]
+{"len": 1019, "preview_hex": "b2adadadadadadadadadadadadadadadadadadadadadadadadade7e7e7e7e7e7e7e7e7e7e7e7e7e7e7e757575757575757575757575757575757575757575701"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 41499f61291ee3f74d4bd4a0483d062816c6ff7c ===
+[input decoded]
+{"len": 61, "preview_hex": "252525252525252525252727272727272727ffffff27272727ff272727272725252525252525252525252525252525252525252525252525030affffff"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 42556f63f5f29d36ed6b4e86774bf2b9d52fd99a ===
+[input decoded]
+{"len": 60, "preview_hex": "b7b7b7ffffffffffffffffffffffffffffffffffffffffffffffb7b7b7b7b7b7b7b7b7b7b73ab7b7b7b7b7b7b7b7b7b7b7b7b7b7b7b7b73f030bbba6"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 4475116d14d0f13b8ad44b10cd1a78411ba9e199 ===
+[input decoded]
+{"len": 127, "preview_hex": "7d7d7d7d7d7d7d797d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d000000000000000000000000000000007d7d9d9d9d9d9d9d9d9db39d9d9d9d9d9d9d"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 4bb28530f49234022c33a9a53020019ff1729128 ===
+[input decoded]
+{"len": 2, "preview_hex": "00fc"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 4d18881d088bacb1e484bd9b32ee85ab1de72da5 ===
+[input decoded]
+{"len": 4093, "preview_hex": "e4e3b2adadadadadadadadadadadadadadadadadadadadadadadadade7e7e7e7e7e7e7e7e7e7e7e7e7e4e7e7e757575757575757575757575757575757575757"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 4d285cf5b4b2e38b5f400ee2cc0b571ad69607c0 ===
+[input decoded]
+{"len": 7, "preview_hex": "ffffd8d82e4100"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 4e9b6bd1859211d66989d6bd4c4a0d813c841d30 ===
+[input decoded]
+{"len": 5, "preview_hex": "3f03ff9219"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 50902ba1a44299921086bd7bb39864f0591b53c0 ===
+[input decoded]
+{"len": 2043, "preview_hex": "e4e3b2adadadadadadadadadadadadadadadadadadadadadadadadade7e7e7e7e7e7e7e7e7e7e7e7e7e4e7e7e757575757575757575757575757575757575757"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 514d705784a1b69b5df3791a06c4f634f48f870e ===
+[input decoded]
+{"len": 2, "preview_hex": "8f00"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 51a8c90bdb10f005856696f5dedad72f49453b55 ===
+[input decoded]
+{"len": 2, "preview_hex": "b200"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 54f4aae0436cbcc0163fcf662535d64f6e0bb00c ===
+[input decoded]
+{"len": 2, "preview_hex": "6000"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 5583c69f68310edd2dff9e64c87111114142d739 ===
+[input decoded]
+{"len": 4, "preview_hex": "e4e3e4e3"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 575f2a2aa0d638c434f7e78279a36fb7025f085f ===
+[input decoded]
+{"len": 5, "preview_hex": "3e03030029"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 586c34009c367e5e408a8608a9832c29d87315a2 ===
+[input decoded]
+{"len": 61, "preview_hex": "ffffffffffffffffffffffffffffffffffffffffffdaffffffffffffffffa3a3002ea3a3ffffffffffffffffffffffffffffffff24ffffffffb2fffffe"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 59dee2a346fb5aff9eea96d193d73d1c556aa3c8 ===
+[input decoded]
+{"len": 59, "preview_hex": "0892cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 5b7e5e1712d596f8b546a688bfef0557797d95dd ===
+[input decoded]
+{"len": 4, "preview_hex": "3f02013f"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 64a3af74df2b427c165c3b1aeafb7624ef5a888d ===
+[input decoded]
+{"len": 11, "preview_hex": "00fcb3b3b3b3b3b3b3b3ba"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 68b87687f799517307605f1e941f324146f20b46 ===
+[input decoded]
+{"len": 4, "preview_hex": "39020000"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 6966e6c37abca3bf3645064fc0587290a59b9394 ===
+[input decoded]
+{"len": 15, "preview_hex": "be0dbba60b08a65e4015ea15020201"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 6a0e9105dc283cce11e774c077d34ad609d9060b ===
+[input decoded]
+{"len": 4091, "preview_hex": "e4e3b2adadadadadadadadadadadadadadadadadadadadadadadadade7e7e7e7e7e7e7e7e7e7e7e7e7e4e7e7e757575757575757575757575757575757575757"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 6b32323a8b5ae7fc3f8b605059a98b8f47b0bcde ===
+[input decoded]
+{"len": 2, "preview_hex": "b0ef"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 6c023b650eb2044ba2fc089ad1f0139bf118f708 ===
+[input decoded]
+{"len": 3, "preview_hex": "7b0100"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 6d9c01b85c8cfcb492d326d3f93765a3498d92b9 ===
+[input decoded]
+{"len": 1536, "preview_hex": "48fd0b02000000000000000000000000000000005500000000000000000000000000000000000000000000000000000000000000000000000000000000000000"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 6e2a7452f8962522b9cf51e02ce825e7093e7195 ===
+[input decoded]
+{"len": 1536, "preview_hex": "25fd0b02000000000000000000000000000000005500000000000000000000000000000000000000000000000000000000000000000000000000000000000000"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 6f6eca396d9f91f172b15f351ec30d844ddb3748 ===
+[input decoded]
+{"len": 2, "preview_hex": "317b"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 70a27991614e8e377879ac17b94242d592bbd583 ===
+[input decoded]
+{"len": 2044, "preview_hex": "e4e3b2adadadadadadadadadadadadadadadadadadadadadadadadade7e7e7e7e7e7e7e7e7e7e7e7e7e4e7e7e757575757575757575757575757575757575757"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 7454695e25d304c65d0c1333d8008e862569cae9 ===
+[input decoded]
+{"len": 2, "preview_hex": "3400"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 75c6067346e997ee111f66031d940a187b329426 ===
+[input decoded]
+{"len": 125, "preview_hex": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff28eaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaea"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 7687e8709714ed8e29b7b67f4ba5a43199214956 ===
+[input decoded]
+{"len": 3, "preview_hex": "30980a"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 76b0de1899c123f6b4344b69388d91a7b3289ea8 ===
+[input decoded]
+{"len": 56, "preview_hex": "2f35030000000000000000000000000000002f3c0300000000000000000000000000000000000060010000000000000400000000db000000"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 7966b7df6229f5657272505170224b0feb9b575c ===
+[input decoded]
+{"len": 2, "preview_hex": "9298"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 7b04f0061fadad0a228aec5d0f0b729ba0af2201 ===
+[input decoded]
+{"len": 5, "preview_hex": "3f03000200"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 7dd8b1b22be94a921fa04e3b1a7193e75287790c ===
+[input decoded]
+{"len": 4, "preview_hex": "3f020b02"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 7df10310f718a14f5dea29d079731e7508cca695 ===
+[input decoded]
+{"len": 4, "preview_hex": "3d020023"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 7e5c0f7aba32cf3e22fd30c4513a21e6d1c3aeff ===
+[input decoded]
+{"len": 1, "preview_hex": "e4"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 81568770af12d7d41f4de8cb78303e8467601568 ===
+[input decoded]
+{"len": 5, "preview_hex": "bf03005b2a"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 8193194068a89f03bd6cb0806d45fb233f804c67 ===
+[input decoded]
+{"len": 253, "preview_hex": "0892cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc2020202020202020202020202020202020202020202020"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 84b3c8dd98e6c5d5e6f81c8bd53bee594bd2c28f ===
+[input decoded]
+{"len": 5, "preview_hex": "3f03fffae8"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 8607a75a5e9345c5409e7fd392b4491bae88fb10 ===
+[input decoded]
+{"len": 1538, "preview_hex": "2aff0b02000000000000000000000000000000005500000000000000000000000000000000000000000000000000000000000000000000000000000000000000"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 86cc64dbe934f7574057cdb71f1fa06f060cb325 ===
+[input decoded]
+{"len": 6, "preview_hex": "3f0400004aa6"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 86d6020ac28f14967148249c54ec704dbba7ebb4 ===
+[input decoded]
+{"len": 1538, "preview_hex": "3fff0b02000000000000000000000000000000005500000000000000000000000000000000000000000000000000000000000000000000000000000000000000"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 87ab7dc08126f43f3d77a1109678b2a49a71cdf2 ===
+[input decoded]
+{"len": 3, "preview_hex": "3101e6"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 88bc3404853bb032d01c203f2848a059cb4ed3d1 ===
+[input decoded]
+{"len": 2, "preview_hex": "9200"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 89b62429349d58701b2e0dd9c53746e2472e7ca7 ===
+[input decoded]
+{"len": 1021, "preview_hex": "b2adadadadadadadadadadadadadadadadadadadadadadadadade7e7e7e7e7e7e7e7e7e7e7e7e7e7e7e757575757575757575757575757575757575757575757"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 89f8d37ba54b77337d0021d20bfedae09a18395c ===
+[input decoded]
+{"len": 508, "preview_hex": "b2adadadadadadadadadadadadadadadadadadadadadadadadade7e7e7e7e7e7e7e7e7e7e7e7e7e7e7e757575757575757575757575757575757575757575757"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 8cede5f58f08ec04760771d7a7992ab0fc2517be ===
+[input decoded]
+{"len": 127, "preview_hex": "2f7d7d7d7d7d8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e733b8e8e8e3a0000008e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8ee3e48e8e8e8e8e8e8e03000000"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 8cf7cfe5336e40a9c4dd39a3158ea1f9a9dfcfeb ===
+[input decoded]
+{"len": 13, "preview_hex": "3f03000000000000000000003f"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 8f35055c09de0d4a95f3505ce4d12d145bf683c1 ===
+[input decoded]
+{"len": 58, "preview_hex": "2f35030000000000000000000000000000002f3c03000000000000000000000000000000000000000060010000000000000400000000db000000"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 957a68fe3a5db7639e6000b2e86978d49cf29971 ===
+[input decoded]
+{"len": 28, "preview_hex": "ffffffffffffffffffffffffffffffffffffffffffffffffffe4212e"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 95e8f47d6457d3cbc8d2b95ddaef8fa0653faf9c ===
+[input decoded]
+{"len": 509, "preview_hex": "b2adadadadadadadadadadadadadadadadadadadadadadadadade7e7e7e7e7e7e7e7e7e7e7e7e7e7e7e757575757575757575757575757575757575757575757"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 97d0e0a2ac0601e75b79501405b59953d899e01f ===
+[input decoded]
+{"len": 252, "preview_hex": "b2adadadadadadadadadadadadadadadadadadadadadadadadade7e7e7e7e7e7e7e7e7e7e7e7e7e7e7e757575757575757575757575757575757575757575757"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 999d934cf2324154cdeca1f8921b3e6494361876 ===
+[input decoded]
+{"len": 123, "preview_hex": "fffffffffff797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797979797"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 9a018bd9d362b42fd6ee6c4080186838df35cab1 ===
+[input decoded]
+{"len": 29, "preview_hex": "2488888888888888888888888888888888888888888888888834a40800"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 9cd7e3ec44a75870a082c431f937505cdcc13087 ===
+[input decoded]
+{"len": 2, "preview_hex": "b2fe"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== 9e6dea6e609fd74fd29a7e5bb6d900ccba5f3fbf ===
+[input decoded]
+{"len": 2, "preview_hex": "2400"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== a19f987b885f5a96069f4bc7f12b9e84ceba7dfa ===
+[input decoded]
+{"len": 2, "preview_hex": "ffff"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== a5d5b61aa8a61b7d9d765e1daf971a9a578f1cfa ===
+[input decoded]
+{"len": 2, "preview_hex": "2e0a"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== a72e6f601019810afd58d3b4974c04d20766d0db ===
+[input decoded]
+{"len": 4, "preview_hex": "3c021100"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== ad3a212ed1539e6fb033a30ce1efa25e2cc68e84 ===
+[input decoded]
+{"len": 5, "preview_hex": "01fa00b2fa"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== ae33e2d8154567c27d42ee539d3472ff2db31740 ===
+[input decoded]
+{"len": 15, "preview_hex": "3b0d7500eeff000700ff00002f4000"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== af9671fe7d58713e84f20b80b6a81a054a5d1dda ===
+[input decoded]
+{"len": 4, "preview_hex": "5dbbab40"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== afdef43111e217e6a8b46a15be60b45af5238802 ===
+[input decoded]
+{"len": 514, "preview_hex": "2fff03e4e3b2adadadadadadadadadadadadadadadadadadadadade7e7e7ffffffffffffffff00000002ffffffffffffffffffffffffffffffffffffffffffff"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== b326b86a13368d8f0afd597a17ed11e0c33aa4d5 ===
+[input decoded]
+{"len": 2048, "preview_hex": "3efd0f0f57575757575757575757575757575757575757b2f40e00000000000000f4000000e7e7e7e7e7e7e7e7e7e7e4e7e7e757575757575757575757575757"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== b798a0c328259cb76864ea8f464faae4dc77b405 ===
+[input decoded]
+{"len": 4, "preview_hex": "3f020000"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== b83e1eaf27d588be0a32869fad582250c09ca0a4 ===
+[input decoded]
+{"len": 3, "preview_hex": "929298"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== b97c42ee964984d80d3ff43dda14bc89458988b5 ===
+[input decoded]
+{"len": 4, "preview_hex": "3f02fff7"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== ba204c65c3fcfd3064913f7d371b278d48f0920b ===
+[input decoded]
+{"len": 2, "preview_hex": "2ee4"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== bb2a6edddc45f194e9aff8ff753bb879c06de313 ===
+[input decoded]
+{"len": 7, "preview_hex": "3f05ab3fffffff"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== be43cf7f6e54c134de0ce219da799938825095a8 ===
+[input decoded]
+{"len": 507, "preview_hex": "b2adadadadadadadadadadadadadadadadadadadadadadadadade7e7e7e7e7e7e7e7e7e7e7e7e7e7e7e757575757575757575757575757575757575757575701"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== bf51d53616b72b52b11a7b910a2665e09a290de2 ===
+[input decoded]
+{"len": 1020, "preview_hex": "b2adadadadadadadadadadadadadadadadadadadadadadadadade7e7e7e7e7e7e7e7e7e7e7e7e7e7e7e757575757575757575757575757575757575757575701"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== bfa0aeb40a92941ea69226ece1a2072c65cbe911 ===
+[input decoded]
+{"len": 15, "preview_hex": "250d02000031a6a6a6a6a6a62506ff"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== c0113949b2a25712d0d6150a0d905e09539487fc ===
+[input decoded]
+{"len": 5, "preview_hex": "3f030affff"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== c382044541f97b5caae6eaf825c36c9592c95666 ===
+[input decoded]
+{"len": 27, "preview_hex": "c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c5c53e03030000aa"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== c432d7e57c9397ca3498ce048874426d5bf94df3 ===
+[input decoded]
+{"len": 5, "preview_hex": "ffffffff00"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== c463b7754ab5258f906fb5bcc9c5a46e4db9997f ===
+[input decoded]
+{"len": 1911, "preview_hex": "b2f40e00000000000000f4000000e7e7e7e7e7e7e7e7e7e7e4e7e7e757575757575757575757575757575757575757575701005757575757575757575757dada"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== c61d3b250c01b8a1a060e503eee67327b406d184 ===
+[input decoded]
+{"len": 127, "preview_hex": "3f7d038f0000fffffffffff797979797979797979797979797979797973f97979797979797979797979797979797979797979797979797979797979797979797"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== c766289937a96be879c8cd04de4d61265e7d74a1 ===
+[input decoded]
+{"len": 5, "preview_hex": "3f0300f7ff"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== cb8472a147281d0ecce20f1698d05b72f16fe0fe ===
+[input decoded]
+{"len": 2, "preview_hex": "2ed5"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== d137901c6ee38afb2e7b228aa357078fc527d57f ===
+[input decoded]
+{"len": 4, "preview_hex": "3f0221fb"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== d2d0fad8c1adff1b5211ad8ce75e33d41f2989d1 ===
+[input decoded]
+{"len": 2048, "preview_hex": "befd0f0f57575757575757575757575757575757575757b2f40e00000000000000f4000000e7e7e7e7e7e7e7e7e7e7e4e7e7e757575757575757575757575757"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== d3b7c2d178cd2b0aed57ad122bce7d69523a15cb ===
+[input decoded]
+{"len": 2, "preview_hex": "b2fa"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== d4d30675057f57c812033e2d8f23fe98f361ce2c ===
+[input decoded]
+{"len": 4, "preview_hex": "3f02ff00"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== d5358dbb882a7291c415b259e90d365e98a8b57a ===
+[input decoded]
+{"len": 5, "preview_hex": "3f035f3ba6"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== d63380108f8cbaccd8415cd27033ec38833307e3 ===
+[input decoded]
+{"len": 2, "preview_hex": "27d0"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== db3ecb6e67e539e988f473318a4b11135a9673fe ===
+[input decoded]
+{"len": 12, "preview_hex": "ffffffff3d03000b0100002a"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== ddbe2718950167dc92b91e4125ad8358862351b1 ===
+[input decoded]
+{"len": 9, "preview_hex": "bba6a6a6a6a6a65e40"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== de1f59fdf4edc58c84c6d26d0f2fabc963f0c3a6 ===
+[input decoded]
+{"len": 4092, "preview_hex": "e4e3b2adadadadadadadadadadadadadadadadadadadadadadadadade7e7e7e7e7e7e7e7e7e7e7e7e7e4e7e7e757575757575757575757575757575757575757"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== e06ea6e101e5ae4724b1a05bea43870b47c7521a ===
+[input decoded]
+{"len": 7, "preview_hex": "be05ab238d5fc1"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== e12de1c1d954c5a39b08381d21606346fcf7c939 ===
+[input decoded]
+{"len": 63, "preview_hex": "283d2803ef0308080808ffffffff080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808f8"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== e14d7d57901a1ae085cb46e2e4feb6778199ac8f ===
+[input decoded]
+{"len": 4, "preview_hex": "3f02000b"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== e4dec7fe3b558e9bfb8b3d30ac53b7491fb03f39 ===
+[input decoded]
+{"len": 125, "preview_hex": "d5000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== e53a6f1b51532ce274290db38dd057aabc06d78e ===
+[input decoded]
+{"len": 251, "preview_hex": "0892cccccccccccccc20202020202020202020202020202020202020202020202020202020202020202020cccccc20202020202020202020cccccceccccccccc"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== e5887d1058f802f6aa29845dc50854a70b431b86 ===
+[input decoded]
+{"len": 4, "preview_hex": "3f020003"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== e75a31e464d1693cefad77509a725dbc58cc17e3 ===
+[input decoded]
+{"len": 5, "preview_hex": "3c03001501"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== e90dbb2a94c3b9ef4b716ed147035b1daddf4d54 ===
+[input decoded]
+{"len": 55, "preview_hex": "2f3503000000000000000000002f3c030000000000000000000000000000000000000000000000600100000000000000000000db000000"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== eb8a2e293fbdc3fefb25f42ef4f3d2c3cc8dcff7 ===
+[input decoded]
+{"len": 31, "preview_hex": "401d1d1d05000000000000001d1d1d1dd50500001d1d1d1d1dffffff011d00"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== ec8009abef2897dfa0f70d3a2adad62fbe786a4b ===
+[input decoded]
+{"len": 4, "preview_hex": "8102001c"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== ef420abfddbda7b9ee665d85ef62e4a437554003 ===
+[input decoded]
+{"len": 2, "preview_hex": "4100"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== effdf5e847dcf9b04701e6d0f850a04948ab7e32 ===
+[input decoded]
+{"len": 4, "preview_hex": "2802c1ef"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== f4383a073f4ca327e39f5a81e05755620021b350 ===
+[input decoded]
+{"len": 5, "preview_hex": "27033d0bd0"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== f50003eeea93b693db6683312321709cdaa9f720 ===
+[input decoded]
+{"len": 63, "preview_hex": "3c3d000000000000000000000000000000000000000000a0a0a0a0a0a0a0000000000000000000000000000000000000000000002b00000000003203110000"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== f723d54b90dbe2611946770f92478db82ea18553 ===
+[input decoded]
+{"len": 4, "preview_hex": "36023fa6"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== f7365db539b0073082ad257827929f360e904c4b ===
+[input decoded]
+{"len": 4, "preview_hex": "3f02ffa6"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== f8416d636f082e77a009b00025af7e20aadcec6f ===
+[input decoded]
+{"len": 2, "preview_hex": "a500"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== f95091d2a8d3aa5c8e3117ec2583d30c25ddf731 ===
+[input decoded]
+{"len": 7, "preview_hex": "2c050900000000"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+
+=== fa574ff865add01a65612ad9bc503b82783df4f3 ===
+[input decoded]
+{"len": 1919, "preview_hex": "b2fc0e00000000000000f4000000e7e7e7e7e7e7e7e7e7e7e4e7e7e757575757575757575757575757575757575757575701005757575757575757575757dada"}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference stdout]
+[pass-through reference skipped]
+[reference stderr]
+[pass-through reference skipped]
+

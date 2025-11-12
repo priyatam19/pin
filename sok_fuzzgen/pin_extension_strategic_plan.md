@@ -54,6 +54,17 @@
 - Deploy to OSS-Fuzz (like WildSync: 469 harnesses)
 - Publish at top-tier venue (S&P, CCS, USENIX Security)
 
+### Operational Checkpoints (rolling 6-week window)
+
+| Checkpoint | Scope | Owner | Exit Criteria | Tool Impact |
+|------------|-------|-------|---------------|-------------|
+| **A. Baseline Reproduction** (DONE) | Re-run `mg_mqtt_next_sub` experiment, archive corpora/artifacts, document that PIN misses AFL crashes even with structs. | Research (this doc) | `reports/PHASE1_EXPERIMENT_RESULTS.md` + crash archive reviewed, EXECUTIVE_SUMMARY updated. | Establishes “red” baseline for regression checks. |
+| **B. Pass-Through Mode** (ACTIVE) | Add CLI flag + wrapper changes that bypass protobuf and feed raw byte streams so parsers (MQTT, TIFF) can be fuzzed. | Core engineering | ✅ `mg_mqtt_parse` now fuzzes under `--input-mode=raw`, producing a 131-input corpus in 60 s (cov≈23, ft≈76) with Stage B replays logged as `ref=n/a`. Next: compare crashes/coverage vs AFL harness. | Unlocks parser-class targets and unblocks LPM upgrade. |
+| **C. Seed & Handle Bootstrapping** (QUEUED) | Integrate LLM/OSS-Fuzz-Gen seeds, automate handle glue (FILE*, TIFF*, mg_connection). | Tooling + LLM agents | Valid input rate ≥50% on cJSON/mongoose; Stage B replay success ≥90%. | Addresses uninitialized structs, external handles. |
+| **D. libprotobuf-mutator Swap** (PLANNED) | Replace raw libFuzzer mutations with LPM macros, add post-mutation fixups. | Core engineering + QA | Structured targets gain +10–20% coverage, no spike in protobuf decode diffs. | Delivers structure-aware fuzzing without rewriting the schema pipeline. |
+
+Each checkpoint feeds the next; we do not start C/D until B demonstrates parser reachability to avoid masking the root input-space gap. Progress is reviewed weekly using `git diff sok_fuzzgen/*.md` plus Stage-A/Stage-B dashboards.
+
 ---
 
 ## PART I: COMPETITIVE TOOL ANALYSIS & SETUP PLAN

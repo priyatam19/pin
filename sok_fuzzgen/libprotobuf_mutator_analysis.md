@@ -118,6 +118,47 @@ DEFINE_PROTO_FUZZER(const MyMessageType& input) {
 | **Coverage feedback** | Yes (but limited by invalid inputs) | Yes (effective on valid inputs) |
 | **Nested messages** | Hard to reach | Easy to mutate |
 | **Repeated fields** | Hard to mutate correctly | Easy (add/remove entries) |
+
+---
+
+## PART II: IMPLEMENTATION PLAN & CHECKPOINTS
+
+### Prerequisites (aligns with Strategic Plan Checkpoint B)
+1. **Pass-through mode** merged so parser entry points can be exercised (ensures we can A/B raw-byte vs protobuf-only paths).
+2. **Corpus preservation**: Stage A outputs stored under `build/*_diff/corpus_lpm/` for side-by-side comparison.
+3. **CI sanity target**: `examples/check_num.c` + `examples/cJSON/cjson_test.c` wired into `scripts/test_nanopb_decoder_fix.sh` to catch regressions.
+
+### Step-by-Step Integration
+1. **Dependency wiring**
+   - Add `libprotobuf-mutator` to `third_party/` (already cloned) and export headers/lib via CMake/Makefile fragments.
+   - Extend Docker image with `libprotobuf-mutator` build + install (mirrors OSS-Fuzz setup).
+2. **Harness macro swap**
+   - Generate `DEFINE_PROTO_FUZZER(const PinMessage& msg)` bodies instead of `extern "C" int LLVMFuzzerTestOneInput`.
+   - Provide shim so existing Stage B replay still runs the same wrapper binary (LPM is Stage A only).
+3. **Post-mutation fixups**
+   - Implement optional callback in `pin/generated_fixups.c` that enforces field relationships (length vs buffer size, pointer validity).
+   - Template pulled from `examples/mongoose_fixups.h`.
+4. **Flag gating & rollout**
+   - New CLI flag `--mutator=lpm|raw` (default: `raw` until Checkpoint D completes).
+   - Metrics output appended to `build/*/fuzz_stats.json` (`valid_inputs`, `unique_dict_entries`, etc.).
+5. **Testing**
+   - Unit: run `scripts/test_nanopb_decoder_fix.sh --mutator=lpm` for cJSON/fdlibm.
+   - System: MQTT parser harness with pass-through mode ensures LPM does not regress byte targets.
+
+### Measurements & Exit Criteria
+- **Valid input rate**: Stage A log shows ≥60% `VALID` decodes for cJSON benchmark (vs <1% today).
+- **Coverage delta**: `build/*/coverage_summary.json` indicates +10–20% basic-block coverage for structured benchmarks.
+- **Regression guard**: No new protobuf decode diffs in Stage B replays (`results/*/stage_b/replay_summary.txt`).
+
+### Risks & Mitigations
+- **Risk:** LPM requires proto descriptors at compile time; PIN currently generates `.pb.c` files on the fly.  
+  **Mitigation:** Emit a tiny `.proto.lpm` descriptor bundle per target and compile it into the harness alongside nanopb artifacts.
+- **Risk:** Build time and binary size increase.  
+  **Mitigation:** Add `--mutator=raw` fallback plus `BUNDLE_LPM=0` env flag for constrained environments.
+- **Risk:** Parser targets (pass-through mode) cannot use LPM.  
+  **Mitigation:** Keep raw-byte harness path and only enable LPM for structured-entry builds (auto-detect when `.proto` exists).
+
+These deliverables satisfy Checkpoint D in the strategic plan and provide the instrumentation needed for post-merge monitoring.
 | **Constraints** | None | Post-processing hooks |
 
 ---

@@ -1,0 +1,92 @@
+\contentsline {chapter}{List of Figures}{xii}{chapter*.4}%
+\contentsline {chapter}{List of Tables}{xiii}{chapter*.5}%
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Problem Statement}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Proposed Solution}{3}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Contributions}{5}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Thesis Organization}{8}{section.1.4}%
+\contentsline {chapter}{\numberline {2}Review of Literature}{9}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Methodology and Implementation}{10}{chapter.3}%
+\contentsline {section}{\numberline {3.1}System Architecture}{10}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Preprocessing and Parsing Strategy}{10}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Structure Analysis and Type Extraction}{10}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Pointer Classification and Metadata Extraction}{11}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Input Identification Strategy}{13}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Type System Mapping}{14}{subsection.3.3.3}%
+\contentsline {section}{\numberline {3.4}Protocol Buffer Schema Generation}{14}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Helper Message Generation Strategy}{17}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Message Definition Creation}{17}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Type Resolution and Validation}{17}{subsection.3.4.3}%
+\contentsline {section}{\numberline {3.5}Wrapper Code Generation}{18}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Nanopb Integration}{21}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Pointer Reconstruction Strategy}{22}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}Memory Management and Cleanup}{22}{subsection.3.5.3}%
+\contentsline {section}{\numberline {3.6}EMI Validation Policy}{23}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}EMI Guard Classification}{26}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.6.2}EMI Rejection Protocol}{26}{subsection.3.6.2}%
+\contentsline {subsection}{\numberline {3.6.3}EMI Policy Rationale}{27}{subsection.3.6.3}%
+\contentsline {section}{\numberline {3.7}Pass-Through Mode for Parser Functions}{27}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}Parser Detection Heuristics}{31}{subsection.3.7.1}%
+\contentsline {subsection}{\numberline {3.7.2}Pass-Through Wrapper Generation}{31}{subsection.3.7.2}%
+\contentsline {subsection}{\numberline {3.7.3}Use Cases and Evaluation}{32}{subsection.3.7.3}%
+\contentsline {section}{\numberline {3.8}Testing and Validation Framework}{32}{section.3.8}%
+\contentsline {subsection}{\numberline {3.8.1}Stage A: Corpus Discovery via libFuzzer}{36}{subsection.3.8.1}%
+\contentsline {subsection}{\numberline {3.8.2}Stage B: Differential Replay and Classification}{36}{subsection.3.8.2}%
+\contentsline {subsection}{\numberline {3.8.3}Classification Criteria}{37}{subsection.3.8.3}%
+\contentsline {subsection}{\numberline {3.8.4}Dual-Mode Architecture}{37}{subsection.3.8.4}%
+\contentsline {section}{\numberline {3.9}Build System and Compilation}{38}{section.3.9}%
+\contentsline {section}{\numberline {3.10}Implementation Challenges and Solutions}{38}{section.3.10}%
+\contentsline {subsection}{\numberline {3.10.1}String Buffer Initialization (Fixed August 2025)}{38}{subsection.3.10.1}%
+\contentsline {subsection}{\numberline {3.10.2}UTF-8 Validation Mismatch}{38}{subsection.3.10.2}%
+\contentsline {subsection}{\numberline {3.10.3}C Language Complexity}{39}{subsection.3.10.3}%
+\contentsline {chapter}{\numberline {4}Evaluation}{40}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Evaluation Methodology}{40}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Test Corpus}{40}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Experimental Setup}{41}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Nanopb Reference Decoder Results}{41}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}0\% False Positive Achievement}{41}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Comparison with C++ Protobuf Reference}{42}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}EMI Guard Validation Results}{43}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Slice Pointer Semantic Violations}{43}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}EMI Rejection Reasons Distribution}{44}{subsection.4.3.2}%
+\contentsline {section}{\numberline {4.4}Decoder Consistency Analysis}{44}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}DIFF Category Breakdown}{44}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Empirical Validation Timeline}{45}{subsection.4.4.2}%
+\contentsline {section}{\numberline {4.5}Pass-Through Mode Results}{46}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Parser Function Evaluation}{46}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Pass-Through vs Protobuf Comparison}{47}{subsection.4.5.2}%
+\contentsline {section}{\numberline {4.6}Pointer Fixture Coverage}{47}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Performance Overhead Analysis}{47}{section.4.7}%
+\contentsline {section}{\numberline {4.8}Summary of Evaluation Results}{48}{section.4.8}%
+\contentsline {chapter}{\numberline {5}Discussion}{50}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Pointer Management in Practice}{50}{section.5.1}%
+\contentsline {section}{\numberline {5.2}EMI as a Framing Device}{51}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Decoder Selection Implications}{51}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Tool Validation Mode (C++ Protobuf Reference)}{52}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Production Fuzzing Mode (Nanopb Reference, Default)}{52}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}Recommended Workflow}{53}{subsection.5.3.3}%
+\contentsline {section}{\numberline {5.4}Threats to Validity}{53}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}EMI Guard Heuristics}{53}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Deterministic Program Assumption}{54}{subsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.4.3}Benchmark Diversity}{54}{subsection.5.4.3}%
+\contentsline {subsection}{\numberline {5.4.4}External Library Integration}{54}{subsection.5.4.4}%
+\contentsline {section}{\numberline {5.5}Comparison with Related Work}{55}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}vs. Manual Harness Writing}{55}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}vs. FuzzGen / LLM-Based Approaches}{55}{subsection.5.5.2}%
+\contentsline {subsection}{\numberline {5.5.3}vs. Symbolic Execution (KLEE, DART)}{56}{subsection.5.5.3}%
+\contentsline {chapter}{\numberline {6}Conclusions}{57}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Summary}{59}{chapter.7}%
+\contentsline {chapter}{Bibliography}{61}{chapter*.16}%
+\contentsline {chapter}{Appendices}{62}{section*.17}%
+\contentsline {chapter}{Appendix \numberline {A}PIN Implementation Details}{63}{appendix.a.A}%
+\contentsline {section}{\numberline {A.1}Type Mapping Reference}{63}{section.a.A.1}%
+\contentsline {section}{\numberline {A.2}Command Line Interface}{63}{section.a.A.2}%
+\contentsline {chapter}{Appendix \numberline {B}Evaluation Data}{64}{appendix.a.B}%
+\contentsline {section}{\numberline {B.1}Complete Test Results}{64}{section.a.B.1}%
+\contentsline {section}{\numberline {B.2}Error Analysis}{64}{section.a.B.2}%
+\contentsline {section}{\numberline {B.3}Performance Profiling}{64}{section.a.B.3}%
+\contentsline {chapter}{Appendix \numberline {C}Generated Code Examples}{65}{appendix.a.C}%
+\contentsline {section}{\numberline {C.1}Sample Protocol Buffer Schema}{65}{section.a.C.1}%
+\contentsline {section}{\numberline {C.2}Sample Wrapper Code}{65}{section.a.C.2}%
+\contentsline {chapter}{Appendix \numberline {D}External Library Integration}{66}{appendix.a.D}%
+\contentsline {section}{\numberline {D.1}Handle Acquisition Patterns}{66}{section.a.D.1}%

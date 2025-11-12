@@ -1,0 +1,227 @@
+\begin{algorithm}[H]
+\caption{Nanopb Wrapper with Pointer Reconstruction}
+\label{alg:wrapper_reconstruction}
+\begin{algorithmic}[1]
+\REQUIRE $\mathcal{F}$ : Target function signature
+\REQUIRE $\Pi$ : Protocol Buffer schema
+\REQUIRE $\mathcal{M}$ : Pointer metadata map
+\ENSURE $\mathcal{W}$ : Complete wrapper source code (main.c)
+
+\PROCEDURE{GenerateNanopbWrapper}{$\mathcal{F}$, $\Pi$, $\mathcal{M}$}
+    \STATE $\mathcal{W} \leftarrow \text{EmitHeaders}()$ \COMMENT{includes and forward declarations}
+
+    \STATE \COMMENT{Generate nanopb callbacks for string/bytes fields}
+    \STATE $\mathcal{W} \leftarrow \mathcal{W} \cup \text{GenerateCallbacks}(\Pi)$
+
+    \STATE \COMMENT{Generate slice decoder callbacks}
+    \STATE $\mathcal{W} \leftarrow \mathcal{W} \cup \text{GenerateSliceDecoders}(\mathcal{M})$
+
+    \STATE \COMMENT{Main wrapper entry point}
+    \STATE $\mathcal{W} \leftarrow \mathcal{W} \cup \text{``}$
+    \STATE \quad \texttt{int pin\_wrapper\_entry(const uint8\_t *data, size\_t len) \{}
+
+    \STATE \COMMENT{Stage 1: Protobuf Decode}
+    \STATE $\mathcal{W} \leftarrow \mathcal{W} \cup \text{EmitDecodeLogic}(\Pi)$
+
+    \STATE \COMMENT{Stage 2: EMI Validation}
+    \STATE $\mathcal{W} \leftarrow \mathcal{W} \cup \text{EmitEMIGuards}(\mathcal{F}, \mathcal{M})$
+
+    \STATE \COMMENT{Stage 3: Pointer Reconstruction}
+    \STATE $\mathcal{W} \leftarrow \mathcal{W} \cup \text{EmitPointerReconstruction}(\mathcal{F}, \mathcal{M})$
+
+    \STATE \COMMENT{Stage 4: Function Call}
+    \STATE $\mathcal{W} \leftarrow \mathcal{W} \cup \text{EmitFunctionCall}(\mathcal{F})$
+
+    \STATE \COMMENT{Stage 5: Cleanup}
+    \STATE $\mathcal{W} \leftarrow \mathcal{W} \cup \text{EmitCleanupCode}(\mathcal{M})$
+
+    \STATE $\mathcal{W} \leftarrow \mathcal{W} \cup \text{``\quad \}}''$ \COMMENT{close wrapper function}
+
+    \RETURN $\mathcal{W}$
+\ENDPROCEDURE
+
+\vspace{0.3cm}
+
+\PROCEDURE{EmitDecodeLogic}{$\Pi$}
+    \STATE $\text{code} \leftarrow \text{``}$
+    \STATE \quad \texttt{Input input = Input\_init\_zero;}
+    \STATE \quad
+    \STATE \quad \texttt{// Setup string/bytes callbacks}
+    \FOR{each field $\phi \in \Pi.\text{fields}$ where $\phi.\tau \in \{\text{string}, \text{bytes}\}$}
+        \STATE \quad \texttt{char } $\phi.\text{name}$ \texttt{\_buf[128] = \{0\};}
+        \STATE \quad \texttt{input.} $\phi.\text{name}$ \texttt{.arg = } $\phi.\text{name}$ \texttt{\_buf;}
+        \STATE \quad \texttt{input.} $\phi.\text{name}$ \texttt{.funcs.decode = \&decode\_} $\phi.\text{name}$ \texttt{;}
+    \ENDFOR
+    \STATE \quad
+    \STATE \quad \texttt{// Setup slice callbacks}
+    \FOR{each field $\phi \in \mathcal{M}$ where $\mathcal{M}_{\phi}.\kappa = \text{slice}$}
+        \STATE \quad $\text{ctx\_name} \leftarrow \phi.\text{name} + \text{``\_ctx''}$
+        \STATE \quad \texttt{slice\_ctx } $\text{ctx\_name}$ \texttt{ = \{0\};}
+        \STATE \quad \texttt{input.} $\phi.\text{name}$ \texttt{.data.arg = \&} $\text{ctx\_name}$ \texttt{;}
+        \STATE \quad \texttt{input.} $\phi.\text{name}$ \texttt{.data.funcs.decode = \&decode\_} $\phi.\text{name}$ \texttt{\_slice;}
+    \ENDFOR
+    \STATE \quad
+    \STATE \quad \texttt{// Decode from byte stream}
+    \STATE \quad \texttt{pb\_istream\_t stream = pb\_istream\_from\_buffer(data, len);}
+    \STATE \quad \texttt{if (!pb\_decode(\&stream, Input\_fields, \&input)) \{}
+    \STATE \quad \quad \texttt{return 1; // Decode error}
+    \STATE \quad \texttt{\}}
+    \STATE $\text{``}$
+    \RETURN $\text{code}$
+\ENDPROCEDURE
+
+\vspace{0.3cm}
+
+\PROCEDURE{EmitPointerReconstruction}{$\mathcal{F}$, $\mathcal{M}$}
+    \STATE $\text{code} \leftarrow \text{``\quad // Reconstruct pointers''}$
+
+    \FOR{each parameter $p \in \mathcal{F}.\text{params}$}
+        \IF{$p.\text{name} \in \mathcal{M}$}
+            \STATE $\mathcal{M}_p \leftarrow \mathcal{M}[p.\text{name}]$
+
+            \IF{$\mathcal{M}_p.\kappa = \text{scalar\_ptr}$}
+                \STATE $\text{code} \leftarrow \text{code} \cup \text{``}$
+                \STATE \quad $\sigma \leftarrow \mathcal{M}_p.\beta$ \COMMENT{base type}
+                \STATE \quad \texttt{// Scalar pointer: } $p.\text{name}$
+                \STATE \quad $\sigma$ \texttt{ } $p.\text{name}$ \texttt{\_storage = 0;}
+                \STATE \quad $\sigma$ \texttt{* } $p.\text{name}$ \texttt{ = NULL;}
+                \STATE \quad \texttt{if (input.} $p.\text{name}$ \texttt{.has\_value) \{}
+                \STATE \quad \quad $p.\text{name}$ \texttt{\_storage = input.} $p.\text{name}$ \texttt{.value;}
+                \STATE \quad \quad $p.\text{name}$ \texttt{ = \&} $p.\text{name}$ \texttt{\_storage;}
+                \STATE \quad \texttt{\}}
+                \STATE $\text{``}$
+
+            \ELSIF{$\mathcal{M}_p.\kappa = \text{struct\_ptr}$}
+                \STATE $\text{code} \leftarrow \text{code} \cup \text{``}$
+                \STATE \quad $\nu \leftarrow \mathcal{M}_p.\beta$ \COMMENT{struct name}
+                \STATE \quad \texttt{// Struct pointer: } $p.\text{name}$
+                \STATE \quad $\nu$ \texttt{ } $p.\text{name}$ \texttt{\_storage = \{0\};}
+                \STATE \quad $\nu$ \texttt{* } $p.\text{name}$ \texttt{ = NULL;}
+                \STATE \quad \texttt{if (input.} $p.\text{name}$ \texttt{.has\_value) \{}
+                \STATE \quad \quad $p.\text{name}$ \texttt{\_storage = input.} $p.\text{name}$ \texttt{.value;}
+                \STATE \quad \quad $p.\text{name}$ \texttt{ = \&} $p.\text{name}$ \texttt{\_storage;}
+                \STATE \quad \texttt{\}}
+                \STATE $\text{``}$
+
+            \ELSIF{$\mathcal{M}_p.\kappa = \text{slice}$}
+                \STATE $\text{code} \leftarrow \text{code} \cup \text{``}$
+                \STATE \quad $\sigma \leftarrow \mathcal{M}_p.\beta$
+                \STATE \quad $\text{ctx} \leftarrow p.\text{name} + \text{``\_ctx''}$
+                \STATE \quad \texttt{// Slice pointer: } $p.\text{name}$
+                \STATE \quad $\sigma$ \texttt{* } $p.\text{name}$ \texttt{ = } $\text{ctx}$ \texttt{.data;}
+                \STATE \quad \texttt{// Length already decoded in ctx}
+                \STATE $\text{``}$
+            \ENDIF
+        \ENDIF
+    \ENDFOR
+
+    \RETURN $\text{code}$
+\ENDPROCEDURE
+
+\vspace{0.3cm}
+
+\PROCEDURE{EmitCleanupCode}{$\mathcal{M}$}
+    \STATE $\text{code} \leftarrow \text{``}$
+    \STATE \quad \texttt{emi\_cleanup:}
+    \FOR{each $(p, \mathcal{M}_p) \in \mathcal{M}$ where $\mathcal{M}_p.\kappa = \text{slice}$}
+        \STATE \quad \texttt{if (} $p$ \texttt{\_ctx.data != NULL) free(} $p$ \texttt{\_ctx.data);}
+    \ENDFOR
+    \STATE \quad \texttt{return 0;}
+    \STATE \quad
+    \STATE \quad \texttt{emi\_reject:}
+    \STATE \quad \texttt{fprintf(stderr, "[PIN\_EMI] reject reason=\%s\\n", emi\_reason);}
+    \STATE \quad \texttt{goto emi\_cleanup;}
+    \STATE $\text{``}$
+    \RETURN $\text{code}$
+\ENDPROCEDURE
+
+\vspace{0.3cm}
+
+\PROCEDURE{GenerateSliceDecoders}{$\mathcal{M}$}
+    \STATE $\mathcal{D} \leftarrow \emptyset$ \COMMENT{decoder set}
+    \STATE $\mathcal{G} \leftarrow \emptyset$ \COMMENT{generated types (dedup)}
+
+    \FOR{each $(p, \mathcal{M}_p) \in \mathcal{M}$ where $\mathcal{M}_p.\kappa = \text{slice}$}
+        \STATE $\sigma \leftarrow \mathcal{M}_p.\beta$ \COMMENT{element type}
+        \STATE $\pi \leftarrow \mathcal{M}_p.\text{proto\_hint}$ \COMMENT{proto type}
+
+        \IF{$\pi \notin \mathcal{G}$}
+            \STATE $\text{decoder} \leftarrow \text{``}$
+            \STATE \quad \texttt{// Slice decoder for } $\pi$
+            \STATE \quad \texttt{typedef struct \{}
+            \STATE \quad \quad $\sigma$ \texttt{* data;}
+            \STATE \quad \quad \texttt{size\_t count;}
+            \STATE \quad \quad \texttt{size\_t capacity;}
+            \STATE \quad \texttt{\} slice\_ctx;}
+            \STATE \quad
+            \STATE \quad \texttt{bool decode\_} $p$ \texttt{\_slice(pb\_istream\_t *stream, const pb\_field\_t *field, void **arg) \{}
+            \STATE \quad \quad \texttt{slice\_ctx *ctx = (slice\_ctx *)(*arg);}
+            \STATE \quad \quad \texttt{if (ctx->count >= ctx->capacity) \{}
+            \STATE \quad \quad \quad \texttt{ctx->capacity = (ctx->capacity == 0) ? 16 : ctx->capacity * 2;}
+            \STATE \quad \quad \quad \texttt{ctx->data = realloc(ctx->data, ctx->capacity * sizeof(} $\sigma$ \texttt{));}
+            \STATE \quad \quad \texttt{\}}
+            \STATE \quad \quad $\sigma$ \texttt{ value;}
+            \STATE \quad \quad \texttt{if (!pb\_decode\_} $\pi$ \texttt{(stream, \&value)) return false;}
+            \STATE \quad \quad \texttt{ctx->data[ctx->count++] = value;}
+            \STATE \quad \quad \texttt{return true;}
+            \STATE \quad \texttt{\}}
+            \STATE $\text{``}$
+
+            \STATE $\mathcal{D} \leftarrow \mathcal{D} \cup \{\text{decoder}\}$
+            \STATE $\mathcal{G} \leftarrow \mathcal{G} \cup \{\pi\}$
+        \ENDIF
+    \ENDFOR
+
+    \RETURN $\mathcal{D}$
+\ENDPROCEDURE
+
+\end{algorithmic}
+\end{algorithm}
+
+\vspace{0.5cm}
+
+\textbf{Notation:}
+\begin{itemize}
+    \item $\mathcal{F}$ : Function signature
+    \item $\Pi$ : Protocol Buffer schema
+    \item $\mathcal{M}$ : Pointer metadata map
+    \item $\mathcal{W}$ : Generated wrapper code
+    \item $\phi$ : Protocol Buffer field
+    \item $\sigma$ : C element/base type
+    \item $\pi$ : Protocol Buffer type
+    \item $\nu$ : Struct name
+    \item $\kappa$ : Pointer kind classification
+    \item $\text{ctx}$ : Context structure for slice decoding
+\end{itemize}
+
+\textbf{Wrapper Execution Flow:}
+\begin{enumerate}
+    \item \textbf{Decode}: Use nanopb to deserialize protobuf bytes into message struct
+    \item \textbf{Validate (EMI)}: Check semantic constraints (null checks, length matches)
+    \item \textbf{Reconstruct}: Materialize pointers from decoded data:
+    \begin{itemize}
+        \item Scalar/struct pointers: Stack storage + address-of
+        \item Slices: Heap allocation + memcpy from decoded repeated field
+        \item Strings: Buffers populated via callbacks
+    \end{itemize}
+    \item \textbf{Call}: Invoke original C function with reconstructed pointers
+    \item \textbf{Cleanup}: Free dynamically allocated slice data
+\end{enumerate}
+
+\textbf{Memory Management:}
+\begin{itemize}
+    \item \textbf{Scalar/struct pointers}: Stack-allocated (no cleanup needed)
+    \item \textbf{Slices}: Heap-allocated with explicit \texttt{free()} in cleanup
+    \item \textbf{Strings}: Fixed-size buffers (no cleanup needed)
+    \item \textbf{Cleanup tracking}: All heap allocations recorded and released via \texttt{emi\_cleanup} label
+\end{itemize}
+
+\textbf{Complexity:} $O(|\mathcal{F}.\text{params}| + \sum_{\phi \in \Pi} |\phi.\text{data}|)$ where the first term is parameter processing and the second term is protobuf decode time proportional to input data size.
+
+\textbf{Correctness:} The wrapper correctly reconstructs C function call semantics by:
+\begin{enumerate}
+    \item Zero-initializing all buffers and storage (prevents uninitialized memory bugs)
+    \item Validating semantic constraints before reconstruction (EMI policy)
+    \item Materializing pointers with correct lifetimes (stack for scalars, heap for slices)
+    \item Deterministic cleanup on both success and EMI rejection paths
+\end{enumerate}

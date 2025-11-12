@@ -22,6 +22,8 @@ Program analysis is complicated by diverse input interfaces (e.g., integers, str
 - **PIN vs AFL research trail**: The end-to-end hypothesis write-up (`reports/HYPOTHESIS_TESTING_SUMMARY.md`) plus the supporting analysis/solution guides (`reports/PIN_AFL_HYPOTHESIS_ANALYSIS.md`, `reports/PIN_AFL_SOLUTION_GUIDE.md`) and pointer design notes (`reports/POINTER_IMPLEMENTATION_ANALYSIS.md`, `reports/POINTER_TESTING_ANALYSIS.md`, `reports/POINTER_UPDATES_ANALYSIS.md`, `reports/ptr_mgmt.md`) capture the latest lessons learned.
 - **Automation scripts**: A new `scripts/` directory (see `scripts/README.md`) adds utilities such as `scripts/test_nanopb_decoder_fix.sh`, `scripts/test_coreutils_suite.sh`, `scripts/test_coreutils_100.sh`, and `scripts/fix_libfuzzer_crashes.sh`, along with companion experiment drivers like `examples/mongoose_coverage_test.sh` and `examples/fdlibm/run_top20.sh`.
 - **Container refresh**: The Docker assets moved under `docker/Dockerfile`, which now ships the nanopb checkout in `/opt/nanopb` and an entrypoint that auto-populates `./nanopb` inside the workspace.
+- **Raw pass-through mode**: `pin_diff.sh` now exposes `--input-mode=raw` so parser-style targets (e.g., `mg_mqtt_parse`) can be fuzzed byte-for-byte without going through protobuf normalization. See “Raw byte pass-through mode” below for usage and current limitations.
+- **Intelligent seed corpus**: Structured targets can opt into `--generate-seeds[=N]`, which runs a local generator to enumerate type-driven boundary cases before fuzzing. This keeps the entire seed workflow on-box while seeding libFuzzer with deterministic, constraint-aware inputs.
 
 ## Features
 
@@ -136,12 +138,51 @@ Run the differential pipeline to fuzz and replay normalized inputs:
 6. **Compilation & Execution**: Compile original as object, link with wrapper and nanopb to produce pin_test, run with random input.
 7. **Run & Results**: Execute with random input, store outputs.
 
+### Raw byte pass-through mode
+
+Some functions (e.g., network parsers) expect raw byte streams and never see the
+structured protobuf wrappers that PIN normally generates. For those cases, use:
+
+```bash
+./src/pin_diff.sh path/to/source.c target_func \
+    --input-mode=raw \
+    --pass-through-header=path/to/header.h \
+    --headers-dir=/absolute/path/to/includes \
+    --fuzz-seconds=60
+```
+
+- The wrapper generator binds the first `(uint8_t *, size_t)` pair in the
+  signature to the libFuzzer byte stream, initializes the remaining parameters
+  with zeroed structs, and calls the parser directly.
+- Stage B replay still runs so you can inspect decoded inputs, but no reference
+  binary is produced (the summary marks these entries as `ref=n/a`).
+- Use `scripts/test_pass_through_mode.sh` for a quick smoke test, and see
+  `build/mongoose_diff/` + `results/mongoose_diff/` for an end-to-end example
+  against `mg_mqtt_parse`.
+
 ## Utility Scripts & Experiment Automation
 
 - `scripts/README.md` indexes the helper scripts and the experiments they reproduce.
 - `scripts/test_nanopb_decoder_fix.sh` contrasts the default C++ protobuf decoder with nanopb to illustrate DIFF reductions.
 - `scripts/test_coreutils_suite.sh` and `scripts/test_coreutils_100.sh` drive large batches of normalization/fuzzing runs across curated Coreutils targets.
 - `scripts/fix_libfuzzer_crashes.sh` plus `examples/mongoose_coverage_test.sh` and `examples/fdlibm/run_top20.sh` provide repeatable fuzz triage flows (see `examples/mongoose_coverage_detailed.log` for sample coverage output).
+- `src/generate_intelligent_seeds.py` (wired via `pin_diff.sh --generate-seeds`) emits type-driven boundary corpora before Stage A so targets such as cJSON can start from hundreds of meaningful protobuf instances without sharing code externally.
+
+### Intelligent seed generation
+
+```bash
+./src/pin_diff.sh examples/cJSON/cJSON.c cJSON_Parse \
+    --headers-dir=examples/cJSON \
+    --fuzz-seconds=30 \
+    --fuzz-flags="-detect_leaks=0" \
+    --generate-seeds
+```
+
+- The flag runs `generate_intelligent_seeds.py` inside the build directory, populates `seed_corpus/`, and automatically copies those `.bin` files into the libFuzzer corpus before Stage A kicks off.
+- 30 s cJSON example (ASAN leak detection disabled):
+  - Without seeds: `cov: 184`, `ft: 1939`, Stage B valid inputs `1004/1004`.
+  - With seeds (default 512): `cov: 184`, `ft: 1874`, Stage B valid inputs `986/986`.
+- Even when the final coverage is similar, the seed corpus guarantees reproducible, constraint-aware starting points that will feed the upcoming libprotobuf-mutator pass.
 
 ## Current Status & Limitations
 

@@ -1,0 +1,125 @@
+\begin{algorithm}[H]
+\caption{Two-Stage Differential Testing Protocol}
+\label{alg:differential_testing}
+\begin{algorithmic}[1]
+\REQUIRE $f$ : Target C function
+\REQUIRE $\Pi$ : Generated Protocol Buffer schema
+\REQUIRE $T$ : Fuzzing time budget (seconds)
+\REQUIRE $\rho$ : Reference decoder type $\in \{\text{nanopb}, \text{cpp}\}$
+\ENSURE $(\mathcal{C}, \mathcal{R})$ : Corpus and differential testing report
+
+\STATE \textbf{Stage A: Corpus Discovery via Byte-Level Fuzzing}
+
+\PROCEDURE{StageFuzzing}{$f$, $\Pi$, $T$}
+    \STATE $\mathcal{B}_{\text{norm}} \leftarrow \text{CompileNormalizedBinary}(f, \Pi, \text{nanopb})$
+    \STATE $\mathcal{B}_{\text{fuzz}} \leftarrow \text{CompileFuzzHarness}(\mathcal{B}_{\text{norm}}, \text{libFuzzer})$
+    \STATE $\mathcal{C} \leftarrow \emptyset$ \COMMENT{initial empty corpus}
+
+    \STATE \COMMENT{LibFuzzer byte-level exploration}
+    \STATE $t_{\text{start}} \leftarrow \text{time()}$
+    \WHILE{$\text{time()} - t_{\text{start}} < T$}
+        \STATE $\iota \leftarrow \text{LibFuzzer.generate()}$ \COMMENT{mutate or generate bytes}
+        \STATE $(\text{rc}, \sigma) \leftarrow \mathcal{B}_{\text{fuzz}}.\text{execute}(\iota)$
+
+        \IF{$\text{rc} \neq \text{CRASH}$}
+            \STATE $\text{cov}_{\text{new}} \leftarrow \text{ComputeCoverage}(\mathcal{B}_{\text{fuzz}}, \iota)$
+            \IF{$\text{cov}_{\text{new}} \not\subseteq \text{cov}_{\text{total}}$}
+                \STATE $\mathcal{C} \leftarrow \mathcal{C} \cup \{\iota\}$ \COMMENT{interesting input}
+                \STATE $\text{cov}_{\text{total}} \leftarrow \text{cov}_{\text{total}} \cup \text{cov}_{\text{new}}$
+            \ENDIF
+        \ELSE
+            \STATE $\text{report\_crash}(\iota, \sigma)$ \COMMENT{save crash artifacts}
+        \ENDIF
+    \ENDWHILE
+
+    \RETURN $\mathcal{C}$
+\ENDPROCEDURE
+
+\vspace{0.5cm}
+
+\STATE \textbf{Stage B: Differential Replay and Validation}
+
+\PROCEDURE{StageReplay}{$f$, $\Pi$, $\mathcal{C}$, $\rho$}
+    \STATE $\mathcal{B}_{\text{norm}} \leftarrow \text{CompileNormalizedBinary}(f, \Pi, \text{nanopb})$
+    \STATE $\mathcal{B}_{\text{ref}} \leftarrow \text{CompileReferenceBinary}(f, \Pi, \rho)$
+
+    \STATE $\mathcal{R} \leftarrow \{\text{matches}: 0, \text{diffs}: 0, \text{emi}: 0, \text{decode\_err}: 0\}$
+    \STATE $\mathcal{D} \leftarrow \emptyset$ \COMMENT{detailed diff records}
+
+    \FOR{each input $\iota \in \mathcal{C}$}
+        \STATE \COMMENT{Execute normalized binary}
+        \STATE $(\text{rc}_{\text{norm}}, \sigma_{\text{norm}}^{\text{out}}, \sigma_{\text{norm}}^{\text{err}}) \leftarrow \mathcal{B}_{\text{norm}}.\text{execute}(\iota)$
+
+        \STATE \COMMENT{Execute reference binary}
+        \STATE $(\text{rc}_{\text{ref}}, \sigma_{\text{ref}}^{\text{out}}, \sigma_{\text{ref}}^{\text{err}}) \leftarrow \mathcal{B}_{\text{ref}}.\text{execute}(\iota)$
+
+        \STATE \COMMENT{Classify result}
+        \IF{$\text{rc}_{\text{norm}} = 86$} \COMMENT{PIN\_EMI\_REJECT\_RC}
+            \STATE $\mathcal{R}.\text{emi} \leftarrow \mathcal{R}.\text{emi} + 1$
+            \STATE $\text{reason} \leftarrow \text{extract\_emi\_reason}(\sigma_{\text{norm}}^{\text{err}})$
+            \STATE $\mathcal{D} \leftarrow \mathcal{D} \cup \{(\iota, \text{``emi-reject''}, \text{reason})\}$
+
+        \ELSIF{$\text{rc}_{\text{norm}} \neq 0 \lor \text{rc}_{\text{ref}} \neq 0$}
+            \STATE $\mathcal{R}.\text{decode\_err} \leftarrow \mathcal{R}.\text{decode\_err} + 1$
+            \STATE $\mathcal{D} \leftarrow \mathcal{D} \cup \{(\iota, \text{``decode-error''}, (\text{rc}_{\text{norm}}, \text{rc}_{\text{ref}}))\}$
+
+        \ELSIF{$\sigma_{\text{norm}}^{\text{out}} = \sigma_{\text{ref}}^{\text{out}} \land \sigma_{\text{norm}}^{\text{err}} = \sigma_{\text{ref}}^{\text{err}} \land \text{rc}_{\text{norm}} = \text{rc}_{\text{ref}}$}
+            \STATE $\mathcal{R}.\text{matches} \leftarrow \mathcal{R}.\text{matches} + 1$
+            \STATE $\mathcal{D} \leftarrow \mathcal{D} \cup \{(\iota, \text{``match''}, \emptyset)\}$
+
+        \ELSE
+            \STATE $\mathcal{R}.\text{diffs} \leftarrow \mathcal{R}.\text{diffs} + 1$
+            \STATE $\Delta \leftarrow \text{ComputeDiff}(\sigma_{\text{norm}}^{\text{out}}, \sigma_{\text{ref}}^{\text{out}}, \sigma_{\text{norm}}^{\text{err}}, \sigma_{\text{ref}}^{\text{err}})$
+            \STATE $\mathcal{D} \leftarrow \mathcal{D} \cup \{(\iota, \text{``diff''}, \Delta)\}$
+        \ENDIF
+    \ENDFOR
+
+    \STATE $\mathcal{R}.\text{details} \leftarrow \mathcal{D}$
+    \RETURN $\mathcal{R}$
+\ENDPROCEDURE
+
+\end{algorithmic}
+\end{algorithm}
+
+\vspace{0.5cm}
+
+\textbf{Notation:}
+\begin{itemize}
+    \item $f$ : Target C function to be normalized
+    \item $\Pi$ : Protocol Buffer schema
+    \item $T$ : Time budget for fuzzing (Stage A)
+    \item $\rho$ : Reference decoder ($\text{nanopb}$ or $\text{cpp}$)
+    \item $\mathcal{C}$ : Discovered corpus (set of interesting protobuf byte inputs)
+    \item $\mathcal{B}_{\text{norm}}$ : Normalized binary (nanopb-based wrapper)
+    \item $\mathcal{B}_{\text{ref}}$ : Reference binary (decoder $\rho$)
+    \item $\mathcal{B}_{\text{fuzz}}$ : Instrumented fuzzing harness
+    \item $\iota$ : Individual protobuf input (byte array)
+    \item $\sigma^{\text{out}}, \sigma^{\text{err}}$ : Standard output and error streams
+    \item $\text{rc}$ : Return code
+    \item $\mathcal{R}$ : Differential testing report
+    \item $\mathcal{D}$ : Detailed diff records
+    \item $\Delta$ : Computed difference (diff)
+\end{itemize}
+
+\textbf{Complexity:}
+\begin{itemize}
+    \item \textbf{Stage A}: $O(T \cdot \text{exec\_time})$ where $T$ is fuzzing budget and exec\_time is average execution time per input
+    \item \textbf{Stage B}: $O(|\mathcal{C}| \cdot \text{exec\_time})$ where $|\mathcal{C}|$ is corpus size
+    \item \textbf{Total}: $O(T \cdot \text{exec\_time} + |\mathcal{C}| \cdot \text{exec\_time})$
+\end{itemize}
+
+\textbf{Differential Classification:}
+\begin{enumerate}
+    \item \textbf{Match}: Both binaries produce identical outputs (stdout, stderr, return code) $\Rightarrow$ validation success
+    \item \textbf{EMI-Reject}: Normalized binary returns 86 (EMI guard rejection) $\Rightarrow$ semantically invalid input, not a bug
+    \item \textbf{Decode-Error}: Either binary fails to decode $\Rightarrow$ malformed protobuf, expected
+    \item \textbf{DIFF}: Outputs differ $\Rightarrow$ potential tool bug or semantic issue requiring investigation
+\end{enumerate}
+
+\textbf{EMI Policy:} Normalized binary includes guards that reject inputs violating semantic constraints (e.g., length mismatches, null pointer violations). Exit code 86 signals EMI rejection, distinguishing these from true bugs. Reference binary may omit such guards depending on decoder choice.
+
+\textbf{Decoder Tradeoffs:}
+\begin{itemize}
+    \item $\rho = \text{nanopb}$: Identical decoders $\Rightarrow$ 0\% artificial DIFFs, validates correctness for deterministic programs
+    \item $\rho = \text{cpp}$: Independent decoders $\Rightarrow$ 67-73\% artificial DIFFs from UTF-8 validation, useful for tool development
+\end{itemize}

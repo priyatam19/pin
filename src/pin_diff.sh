@@ -27,6 +27,10 @@ FUZZ_EXTRA_FLAGS=""
 REFERENCE_DECODER="nanopb"
 LIBS=""
 EXTRA_SOURCES_RAW=""
+INPUT_MODE="proto"
+PASS_THROUGH_HEADER=""
+GENERATE_SEEDS=0
+GENERATE_SEEDS_COUNT=512
 for arg in "$@"; do
   case "$arg" in
     --headers-dir=*) HEADERS_DIR="${arg#*=}" ;;
@@ -36,6 +40,12 @@ for arg in "$@"; do
     --reference-decoder=*) REFERENCE_DECODER="${arg#*=}" ;;
     --libs=*) LIBS="${arg#*=}" ;;
     --extra-sources=*) EXTRA_SOURCES_RAW="${arg#*=}" ;;
+    --input-mode=*) INPUT_MODE="${arg#*=}" ;;
+    --pass-through) INPUT_MODE="raw" ;;
+    --pass-through-header=*) PASS_THROUGH_HEADER="${arg#*=}" ;;
+    --generate-seeds) GENERATE_SEEDS=1 ;;
+    --generate-seeds=*) GENERATE_SEEDS=1; GENERATE_SEEDS_COUNT="${arg#*=}" ;;
+    --seed-count=*) GENERATE_SEEDS=1; GENERATE_SEEDS_COUNT="${arg#*=}" ;;
   esac
 done
 
@@ -53,8 +63,17 @@ if [[ "$REFERENCE_DECODER" != "cpp" && "$REFERENCE_DECODER" != "nanopb" ]]; then
   exit 1
 fi
 
+if [[ "$INPUT_MODE" != "proto" && "$INPUT_MODE" != "raw" ]]; then
+  echo "[-] Unsupported input mode: $INPUT_MODE (use proto or raw)"
+  exit 1
+fi
+PASS_THROUGH_ENABLED=0
+if [[ "$INPUT_MODE" == "raw" ]]; then
+  PASS_THROUGH_ENABLED=1
+fi
+
 if [[ -z "$CFILE" || -z "$FUNC" ]]; then
-  echo "Usage: pin/src/pin_diff.sh <c_file> <function_name> [--headers-dir=DIR] [--replay-dir=DIR] [--fuzz-seconds=N] [--fuzz-flags=FLAGS] [--reference-decoder={cpp|nanopb}] [--libs=LIBS] [--extra-sources=PATH[,PATH...]]"
+  echo "Usage: pin/src/pin_diff.sh <c_file> <function_name> [--headers-dir=DIR] [--replay-dir=DIR] [--fuzz-seconds=N] [--fuzz-flags=FLAGS] [--reference-decoder={cpp|nanopb}] [--libs=LIBS] [--extra-sources=PATH[,PATH...]] [--input-mode={proto|raw}] [--pass-through-header=HEADER] [--generate-seeds[=N]]"
   exit 1
 fi
 
@@ -203,91 +222,125 @@ calc_sha1() {
 mkdir -p "$BUILD_DIR/corpus" "$RESULTS_DIR"
 cd "$BUILD_DIR"
 
-echo "[+] Generate .proto (libclang parser)"
+if (( GENERATE_SEEDS == 1 )) && compgen -G "seed_corpus/*.bin" > /dev/null; then
+  SEED_COUNT_PRIME=$(find seed_corpus -maxdepth 1 -name '*.bin' | wc -l | tr -d ' ')
+  if (( SEED_COUNT_PRIME > 0 )); then
+    echo "[+] Priming corpus with ${SEED_COUNT_PRIME} intelligent seeds"
+    cp seed_corpus/*.bin corpus/ 2>/dev/null || true
+  fi
+fi
+
 PARSER_USED="libclang"
 PARSE_INPUT="$ORIGINAL_SRC"
-run_proto_generation "$PARSER_USED" "$PARSE_INPUT"
+PROTO_BASE=""
+PROTO_BASE_LOWER=""
+PROTO_MODULE=""
+CPP_PROTO_DIR=""
+PY_PROTO_DIR=""
 
-if (( PROTO_STATUS != 0 || ${#PROTO_FILES[@]} == 0 )); then
-  echo "[-] Proto generation failed (libclang). See proto_gen.log"
-  exit 2
-fi
-# if (( PROTO_STATUS != 0 || ${#PROTO_FILES[@]} == 0 )); then
-#   echo "[i] libclang proto generation failed, attempting pycparser fallback"
-#   PARSER_USED="pycparser"
-#   PARSE_INPUT="tmp_structs.c"
-#   prepare_pycparser_source "$ORIGINAL_SRC" "$PARSE_INPUT"
-#   run_proto_generation "$PARSER_USED" "$PARSE_INPUT"
-#   if (( PROTO_STATUS != 0 || ${#PROTO_FILES[@]} == 0 )); then
-#     echo "[-] Proto generation failed. See proto_gen.log"
-#     exit 2
-#   fi
-# fi
-if [[ -f input.proto ]]; then
-  PROTOFILE="input.proto"
+if (( PASS_THROUGH_ENABLED == 0 )); then
+  echo "[+] Generate .proto (libclang parser)"
+  run_proto_generation "$PARSER_USED" "$PARSE_INPUT"
+
+  if (( PROTO_STATUS != 0 || ${#PROTO_FILES[@]} == 0 )); then
+    echo "[-] Proto generation failed (libclang). See proto_gen.log"
+    exit 2
+  fi
+  if [[ -f input.proto ]]; then
+    PROTOFILE="input.proto"
+  else
+    PROTOFILE="${PROTO_FILES[0]}"
+  fi
+  PROTO_BASE=$(awk '/^message /{print $2; exit}' "$PROTOFILE")
+  [[ -z "$PROTO_BASE" ]] && PROTO_BASE=Input
+  if grep -q '^message Input ' "$PROTOFILE"; then
+    PROTO_BASE=Input
+  fi
+  PROTO_BASE_LOWER=$(echo "$PROTO_BASE" | tr '[:upper:]' '[:lower:]')
+  if [[ "$PROTOFILE" != "${PROTO_BASE_LOWER}.proto" ]]; then mv "$PROTOFILE" "${PROTO_BASE_LOWER}.proto"; PROTOFILE="${PROTO_BASE_LOWER}.proto"; fi
+
+  CPP_PROTO_DIR="cpp_proto"
+  PY_PROTO_DIR="py_proto"
+  [[ "$REFERENCE_DECODER" == "cpp" ]] && mkdir -p "$CPP_PROTO_DIR"
+  mkdir -p "$PY_PROTO_DIR"
+
+  rm -f *.pb.c *.pb.h
+  if [[ "$REFERENCE_DECODER" == "cpp" ]]; then
+    rm -f "$CPP_PROTO_DIR"/*.pb.cc "$CPP_PROTO_DIR"/*.pb.h
+  fi
+
+  if [[ "$REFERENCE_DECODER" == "cpp" ]]; then
+    echo "[+] Generate C++ protobuf (for original replay)"
+    protoc --cpp_out="$CPP_PROTO_DIR" "$PROTOFILE"
+  else
+    echo "[i] Skipping C++ protobuf generation (reference decoder=$REFERENCE_DECODER)"
+  fi
+
+  echo "[+] Generate Python protobuf helpers"
+  protoc --python_out="$PY_PROTO_DIR" "$PROTOFILE"
+
+  PROTO_MODULE="${PROTO_BASE_LOWER}_pb2"
+
+  echo "[+] Generate nanopb protobuf (for wrapper decode)"
+  set +e
+  PROTOC_GEN_NANOPB="$NANOPB_DIR/generator/protoc-gen-nanopb"
+  protoc --plugin=protoc-gen-nanopb="$PROTOC_GEN_NANOPB" --nanopb_out=. "$PROTOFILE"
+  NPB_RC=$?
+  set -e
+  if [[ $NPB_RC -ne 0 || ! -f ${PROTO_BASE_LOWER}.pb.h ]]; then
+    echo "[-] nanopb codegen failed (requires Python protobuf runtime)."
+    echo "    Please install: pip install protobuf"
+    exit 3
+  fi
+
+  if (( GENERATE_SEEDS == 1 )); then
+    echo "[+] Generating intelligent seed corpus (max ${GENERATE_SEEDS_COUNT})"
+    python3 "$ROOT_DIR/src/generate_intelligent_seeds.py" \
+      --py-proto-dir "$PY_PROTO_DIR" \
+      --module "$PROTO_MODULE" \
+      --message "$PROTO_BASE" \
+      --output seed_corpus \
+      --max-seeds "$GENERATE_SEEDS_COUNT" \
+      --clean-output
+  fi
 else
-  PROTOFILE="${PROTO_FILES[0]}"
-fi
-PROTO_BASE=$(awk '/^message /{print $2; exit}' "$PROTOFILE")
-[[ -z "$PROTO_BASE" ]] && PROTO_BASE=Input
-if grep -q '^message Input ' "$PROTOFILE"; then
-  PROTO_BASE=Input
-fi
-PROTO_BASE_LOWER=$(echo "$PROTO_BASE" | tr '[:upper:]' '[:lower:]')
-if [[ "$PROTOFILE" != "${PROTO_BASE_LOWER}.proto" ]]; then mv "$PROTOFILE" "${PROTO_BASE_LOWER}.proto"; PROTOFILE="${PROTO_BASE_LOWER}.proto"; fi
-
-CPP_PROTO_DIR="cpp_proto"
-PY_PROTO_DIR="py_proto"
-[[ "$REFERENCE_DECODER" == "cpp" ]] && mkdir -p "$CPP_PROTO_DIR"
-mkdir -p "$PY_PROTO_DIR"
-
-# Clean previous generated protobuf artifacts to avoid stale helpers
-rm -f *.pb.c *.pb.h
-if [[ "$REFERENCE_DECODER" == "cpp" ]]; then
-  rm -f "$CPP_PROTO_DIR"/*.pb.cc "$CPP_PROTO_DIR"/*.pb.h
-fi
-
-if [[ "$REFERENCE_DECODER" == "cpp" ]]; then
-  echo "[+] Generate C++ protobuf (for original replay)"
-  protoc --cpp_out="$CPP_PROTO_DIR" "$PROTOFILE"
-else
-  echo "[i] Skipping C++ protobuf generation (reference decoder=$REFERENCE_DECODER)"
-fi
-
-echo "[+] Generate Python protobuf helpers"
-protoc --python_out="$PY_PROTO_DIR" "$PROTOFILE"
-
-PROTO_MODULE="${PROTO_BASE_LOWER}_pb2"
-
-echo "[+] Generate nanopb protobuf (for wrapper decode)"
-set +e
-PROTOC_GEN_NANOPB="$NANOPB_DIR/generator/protoc-gen-nanopb"
-protoc --plugin=protoc-gen-nanopb="$PROTOC_GEN_NANOPB" --nanopb_out=. "$PROTOFILE"
-NPB_RC=$?
-set -e
-if [[ $NPB_RC -ne 0 || ! -f ${PROTO_BASE_LOWER}.pb.h ]]; then
-  echo "[-] nanopb codegen failed (requires Python protobuf runtime)."
-  echo "    Please install: pip install protobuf"
-  exit 3
+  echo "[+] Pass-through mode enabled: skipping protobuf generation"
 fi
 
 echo "[+] Generate wrapper with pin_wrapper_entry() and standalone main"
-if [[ "$FUNC" == "process_command" ]]; then
-  # Special-case: optimized wrapper for const char* command input
-  python3 "$ROOT_DIR/src/enhanced_wrapper_generator.py" "$PROTOFILE" "$FUNC" "$PROTO_BASE" > wrap_gen.log 2>&1 || {
-    echo "[-] Enhanced wrapper generation failed. See wrap_gen.log"; exit 4; }
-else
-  WRAPPER_CMD=(python3 "$ROOT_DIR/src/generate_wrapper_ast.py" "$PARSE_INPUT" "$FUNC" "$PROTO_BASE" "$PROTO_BASE" "--parser=$PARSER_USED")
+if (( PASS_THROUGH_ENABLED == 1 )); then
+  WRAPPER_CMD=(python3 "$ROOT_DIR/src/generate_pass_through_wrapper.py" "$PARSE_INPUT" "$FUNC")
   if [[ -n "$HEADERS_ABS" ]]; then
     WRAPPER_CMD+=("--headers-dir=$HEADERS_ABS")
+  fi
+  if [[ -n "$PASS_THROUGH_HEADER" ]]; then
+    WRAPPER_CMD+=("--include=$PASS_THROUGH_HEADER")
   fi
   set +e
   "${WRAPPER_CMD[@]}" > wrap_gen.log 2>&1
   WRAP_STATUS=$?
   set -e
   if (( WRAP_STATUS != 0 )); then
-    echo "[-] Wrapper generation failed. See wrap_gen.log"
+    echo "[-] Pass-through wrapper generation failed. See wrap_gen.log"
     exit 4
+  fi
+else
+  if [[ "$FUNC" == "process_command" ]]; then
+    python3 "$ROOT_DIR/src/enhanced_wrapper_generator.py" "$PROTOFILE" "$FUNC" "$PROTO_BASE" > wrap_gen.log 2>&1 || {
+      echo "[-] Enhanced wrapper generation failed. See wrap_gen.log"; exit 4; }
+  else
+    WRAPPER_CMD=(python3 "$ROOT_DIR/src/generate_wrapper_ast.py" "$PARSE_INPUT" "$FUNC" "$PROTO_BASE" "$PROTO_BASE" "--parser=$PARSER_USED")
+    if [[ -n "$HEADERS_ABS" ]]; then
+      WRAPPER_CMD+=("--headers-dir=$HEADERS_ABS")
+    fi
+    set +e
+    "${WRAPPER_CMD[@]}" > wrap_gen.log 2>&1
+    WRAP_STATUS=$?
+    set -e
+    if (( WRAP_STATUS != 0 )); then
+      echo "[-] Wrapper generation failed. See wrap_gen.log"
+      exit 4
+    fi
   fi
 fi
 
@@ -326,10 +379,14 @@ if (( ${#EXTRA_SOURCES[@]} > 0 )); then
   done
 fi
 
-echo "[+] Compile nanopb runtime and wrapper"
-clang -c "$NANOPB_DIR/pb_decode.c" -I"$NANOPB_DIR" "${PIN_EXTRA_CFLAGS_ARR[@]}" -O2 -o pb_decode.o
-clang -c "$NANOPB_DIR/pb_common.c" -I"$NANOPB_DIR" "${PIN_EXTRA_CFLAGS_ARR[@]}" -O2 -o pb_common.o
-clang -c "${PROTO_BASE_LOWER}.pb.c" -I"$NANOPB_DIR" "${PIN_EXTRA_CFLAGS_ARR[@]}" -O2 -o input.nanopb.o
+if (( PASS_THROUGH_ENABLED == 0 )); then
+  echo "[+] Compile nanopb runtime and wrapper"
+  clang -c "$NANOPB_DIR/pb_decode.c" -I"$NANOPB_DIR" "${PIN_EXTRA_CFLAGS_ARR[@]}" -O2 -o pb_decode.o
+  clang -c "$NANOPB_DIR/pb_common.c" -I"$NANOPB_DIR" "${PIN_EXTRA_CFLAGS_ARR[@]}" -O2 -o pb_common.o
+  clang -c "${PROTO_BASE_LOWER}.pb.c" -I"$NANOPB_DIR" "${PIN_EXTRA_CFLAGS_ARR[@]}" -O2 -o input.nanopb.o
+else
+  echo "[i] Pass-through mode: nanopb runtime not required"
+fi
 
 echo "[+] Compile wrapper object (no main) for fuzz_bytes"
 clang -DPIN_WRAPPER_NO_MAIN -I"$NANOPB_DIR" "${HEADERS_INCLUDES[@]}" "${PIN_EXTRA_CFLAGS_ARR[@]}" -O2 -c main.c -o wrapper.o
@@ -337,27 +394,28 @@ clang -DPIN_WRAPPER_NO_MAIN -I"$NANOPB_DIR" "${HEADERS_INCLUDES[@]}" "${PIN_EXTR
 REF_BIN=""
 REF_LABEL=""
 
-if [[ "$REFERENCE_DECODER" == "cpp" ]]; then
-  echo "[+] Compile C++ protobuf support"
-  CPP_OBJS=()
-  for cc in "$CPP_PROTO_DIR"/*.cc; do
-    obj="$(basename "$cc" .cc).o"
-    clang++ -std=c++17 -I"$CPP_PROTO_DIR" "${HEADERS_INCLUDES[@]}" "${PIN_EXTRA_CFLAGS_ARR[@]}" -O2 -c "$cc" -o "$obj"
-    CPP_OBJS+=("$obj")
-  done
+if (( PASS_THROUGH_ENABLED == 0 )); then
+  if [[ "$REFERENCE_DECODER" == "cpp" ]]; then
+    echo "[+] Compile C++ protobuf support"
+    CPP_OBJS=()
+    for cc in "$CPP_PROTO_DIR"/*.cc; do
+      obj="$(basename "$cc" .cc).o"
+      clang++ -std=c++17 -I"$CPP_PROTO_DIR" "${HEADERS_INCLUDES[@]}" "${PIN_EXTRA_CFLAGS_ARR[@]}" -O2 -c "$cc" -o "$obj"
+      CPP_OBJS+=("$obj")
+    done
 
-  echo "[+] Compile reference runner (protobuf decode)"
-  clang++ -std=c++17 -I"$CPP_PROTO_DIR" "${HEADERS_INCLUDES[@]}" "${PIN_EXTRA_CFLAGS_ARR[@]}" -O2 -c reference_runner.cc -o reference_runner.o
+    echo "[+] Compile reference runner (protobuf decode)"
+    clang++ -std=c++17 -I"$CPP_PROTO_DIR" "${HEADERS_INCLUDES[@]}" "${PIN_EXTRA_CFLAGS_ARR[@]}" -O2 -c reference_runner.cc -o reference_runner.o
 
-  PROTOBUF_LIBS=$(pkg-config --libs protobuf 2>/dev/null || echo "-lprotobuf -pthread")
+    PROTOBUF_LIBS=$(pkg-config --libs protobuf 2>/dev/null || echo "-lprotobuf -pthread")
 
-  clang++ -std=c++17 -O2 -o original_replay_bin reference_runner.o "${CPP_OBJS[@]}" original_plain.o "${EXTRA_PLAIN_OBJS[@]}" $PROTOBUF_LIBS "${PIN_EXTRA_LDFLAGS_ARR[@]}" $LIBS || {
-    echo "[-] Failed linking original_replay_bin"; exit 6; }
-  REF_BIN="./original_replay_bin"
-  REF_LABEL="original"
-else
-  echo "[+] Build nanopb reference replay binary"
-  cat > reference_nanopb_main.c <<'EOF'
+    clang++ -std=c++17 -O2 -o original_replay_bin reference_runner.o "${CPP_OBJS[@]}" original_plain.o "${EXTRA_PLAIN_OBJS[@]}" $PROTOBUF_LIBS "${PIN_EXTRA_LDFLAGS_ARR[@]}" $LIBS || {
+      echo "[-] Failed linking original_replay_bin"; exit 6; }
+    REF_BIN="./original_replay_bin"
+    REF_LABEL="original"
+  else
+    echo "[+] Build nanopb reference replay binary"
+    cat > reference_nanopb_main.c <<'EOF'
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
@@ -411,16 +469,24 @@ int main(int argc, char **argv) {
     return rc;
 }
 EOF
-  clang -I"$NANOPB_DIR" "${HEADERS_INCLUDES[@]}" -O2 -o reference_nanopb_bin reference_nanopb_main.c wrapper.o pb_decode.o pb_common.o input.nanopb.o original_plain.o "${EXTRA_PLAIN_OBJS[@]}" "${PIN_EXTRA_LDFLAGS_ARR[@]}" $LIBS || {
-    echo "[-] Failed linking reference_nanopb_bin"; exit 6; }
-  rm -f reference_nanopb_main.c
-  REF_BIN="./reference_nanopb_bin"
-  REF_LABEL="reference_npb"
+    clang -I"$NANOPB_DIR" "${HEADERS_INCLUDES[@]}" -O2 -o reference_nanopb_bin reference_nanopb_main.c wrapper.o pb_decode.o pb_common.o input.nanopb.o original_plain.o "${EXTRA_PLAIN_OBJS[@]}" "${PIN_EXTRA_LDFLAGS_ARR[@]}" $LIBS || {
+      echo "[-] Failed linking reference_nanopb_bin"; exit 6; }
+    rm -f reference_nanopb_main.c
+    REF_BIN="./reference_nanopb_bin"
+    REF_LABEL="reference_npb"
+  fi
+else
+  echo "[i] Pass-through mode: reference replay binary skipped"
 fi
 
 echo "[+] Build normalized standalone runner (reads bytes file)"
-clang -I"$NANOPB_DIR" "${HEADERS_INCLUDES[@]}" -O2 -o normalized_bin main.c pb_decode.o pb_common.o input.nanopb.o original_plain.o "${EXTRA_PLAIN_OBJS[@]}" "${PIN_EXTRA_LDFLAGS_ARR[@]}" $LIBS || {
-  echo "[-] Failed linking normalized_bin"; exit 6; }
+if (( PASS_THROUGH_ENABLED == 0 )); then
+  clang -I"$NANOPB_DIR" "${HEADERS_INCLUDES[@]}" -O2 -o normalized_bin main.c pb_decode.o pb_common.o input.nanopb.o original_plain.o "${EXTRA_PLAIN_OBJS[@]}" "${PIN_EXTRA_LDFLAGS_ARR[@]}" $LIBS || {
+    echo "[-] Failed linking normalized_bin"; exit 6; }
+else
+  clang "${HEADERS_INCLUDES[@]}" "${PIN_EXTRA_CFLAGS_ARR[@]}" -O2 -o normalized_bin main.c original_plain.o "${EXTRA_PLAIN_OBJS[@]}" "${PIN_EXTRA_LDFLAGS_ARR[@]}" $LIBS || {
+    echo "[-] Failed linking normalized_bin"; exit 6; }
+fi
 
 echo "[+] Build libFuzzer byte harness to call pin_wrapper_entry (Stage A)"
 cat > bytes_fuzz.cc <<EOF
@@ -435,12 +501,15 @@ EOF
 clang++ -fsanitize=fuzzer,address -std=c++17 -I. -I"$NANOPB_DIR" "${PIN_EXTRA_CFLAGS_ARR[@]}" -O2 -c bytes_fuzz.cc -o bytes_fuzz.o
 
 echo "[+] Link fuzz_bytes"
-# clang++ -fsanitize=fuzzer,address -O2 \
-#   -o fuzz_bytes bytes_fuzz.o pb_decode.o pb_common.o input.nanopb.o original.o \
-#   -lpthread
-clang++ -fsanitize=fuzzer,address -O2 \
-    -o fuzz_bytes bytes_fuzz.o wrapper.o pb_decode.o pb_common.o input.nanopb.o original.o "${EXTRA_INST_OBJS[@]}" \
-    -lpthread "${PIN_EXTRA_LDFLAGS_ARR[@]}" $LIBS
+if (( PASS_THROUGH_ENABLED == 0 )); then
+  clang++ -fsanitize=fuzzer,address -O2 \
+      -o fuzz_bytes bytes_fuzz.o wrapper.o pb_decode.o pb_common.o input.nanopb.o original.o "${EXTRA_INST_OBJS[@]}" \
+      -lpthread "${PIN_EXTRA_LDFLAGS_ARR[@]}" $LIBS
+else
+  clang++ -fsanitize=fuzzer,address -O2 \
+      -o fuzz_bytes bytes_fuzz.o wrapper.o original.o "${EXTRA_INST_OBJS[@]}" \
+      -lpthread "${PIN_EXTRA_LDFLAGS_ARR[@]}" $LIBS
+fi
 
 if [[ "$FUZZ_SECONDS" != "0" ]]; then
   echo "[+] Stage A: libFuzzer discovery for ${FUZZ_SECONDS}s"
@@ -496,8 +565,16 @@ else
       set +e
       ./normalized_bin "$input_path" >"$norm_out" 2>"$norm_err"
       norm_rc=$?
-      "$REF_BIN" "$input_path" >"$ref_out" 2>"$ref_err"
-      ref_rc=$?
+      if [[ -n "$REF_BIN" ]]; then
+        "$REF_BIN" "$input_path" >"$ref_out" 2>"$ref_err"
+        ref_rc=$?
+        has_reference=1
+      else
+        echo "[pass-through reference skipped]" > "$ref_out"
+        echo "[pass-through reference skipped]" > "$ref_err"
+        ref_rc=$norm_rc
+        has_reference=0
+      fi
       set -e
 
       status="match"
@@ -510,17 +587,26 @@ else
           reason_line=${reason_line//$'\n'/}
           reason_note=" reason=${reason_line}"
         fi
-      elif ! cmp -s "$norm_out" "$ref_out" || ! cmp -s "$norm_err" "$ref_err" || [[ $norm_rc -ne $ref_rc ]]; then
+      elif (( has_reference )) && { ! cmp -s "$norm_out" "$ref_out" || ! cmp -s "$norm_err" "$ref_err" || [[ $norm_rc -ne $ref_rc ]]; }; then
         status="DIFF"
       fi
-      printf "%s\tRC(norm=%d, ref=%d)%s\n" "$base:$status" "$norm_rc" "$ref_rc" "$reason_note" >> "$REPORT"
+      ref_display="$ref_rc"
+      if [[ -z "$REF_BIN" ]]; then
+        ref_display="n/a"
+      fi
+      printf "%s\tRC(norm=%d, ref=%s)%s\n" "$base:$status" "$norm_rc" "$ref_display" "$reason_note" >> "$REPORT"
 
       STAGE_B_STATUS["$base"]=$status
       STAGE_B_NORM_RC["$base"]=$norm_rc
-      STAGE_B_REF_RC["$base"]=$ref_rc
+      if [[ -z "$REF_BIN" ]]; then
+        STAGE_B_REF_RC["$base"]="n/a"
+      else
+        STAGE_B_REF_RC["$base"]=$ref_rc
+      fi
 
-      set +e
-      DECODED_JSON=$(PY_PROTO_DIR="$PY_PROTO_DIR" PROTO="$PROTO_BASE" MODULE="$PROTO_MODULE" INPUT_PATH="$input_path" python3 - <<'PY' 2>&1
+      if (( PASS_THROUGH_ENABLED == 0 )); then
+        set +e
+        DECODED_JSON=$(PY_PROTO_DIR="$PY_PROTO_DIR" PROTO="$PROTO_BASE" MODULE="$PROTO_MODULE" INPUT_PATH="$input_path" python3 - <<'PY' 2>&1
 import json
 import os
 import sys
@@ -559,10 +645,22 @@ def message_to_dict(message):
 print(json.dumps(message_to_dict(msg), sort_keys=True))
 PY
 )
-      DECODE_STATUS=$?
-      set -e
-      if (( DECODE_STATUS != 0 )); then
-        DECODED_JSON="{\"error\": \"decode failed (rc=$DECODE_STATUS)\"}"
+        DECODE_STATUS=$?
+        set -e
+        if (( DECODE_STATUS != 0 )); then
+          DECODED_JSON="{\"error\": \"decode failed (rc=$DECODE_STATUS)\"}"
+        fi
+      else
+        DECODED_JSON=$(python3 - "$input_path" <<'PY'
+import json
+import sys
+from pathlib import Path
+
+data = Path(sys.argv[1]).read_bytes()
+preview = data[:64].hex()
+print(json.dumps({"len": len(data), "preview_hex": preview}))
+PY
+)
       fi
 
       {
@@ -572,10 +670,17 @@ PY
         cat "$norm_out"
         printf "[normalized stderr]\n"
         cat "$norm_err"
-        printf "[%s rc=%d stdout]\n" "$REF_LABEL" "$ref_rc"
-        cat "$ref_out"
-        printf "[%s stderr]\n" "$REF_LABEL"
-        cat "$ref_err"
+        if [[ -n "$REF_LABEL" ]]; then
+          printf "[%s rc=%d stdout]\n" "$REF_LABEL" "$ref_rc"
+          cat "$ref_out"
+          printf "[%s stderr]\n" "$REF_LABEL"
+          cat "$ref_err"
+        else
+          printf "[reference stdout]\n"
+          cat "$ref_out"
+          printf "[reference stderr]\n"
+          cat "$ref_err"
+        fi
         printf "\n"
       } >> "$OUTPUT_LOG"
     done

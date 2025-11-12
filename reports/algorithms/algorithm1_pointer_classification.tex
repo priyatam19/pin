@@ -1,0 +1,93 @@
+\begin{algorithm}[H]
+\caption{Pointer Classification and Metadata Extraction}
+\label{alg:pointer_classification}
+\begin{algorithmic}[1]
+\REQUIRE $\tau$ : C type spelling string, $\Gamma$ : type context mapping
+\ENSURE $\mathcal{M}$ : PointerMetadata object with classification
+
+\PROCEDURE{AnalyzePointerSpelling}{$\tau$, $\Gamma$}
+    \STATE $\delta \leftarrow 0$ \COMMENT{pointer depth}
+    \STATE $\mathcal{Q} \leftarrow \emptyset$ \COMMENT{qualifiers set}
+    \STATE $\beta \leftarrow \tau$ \COMMENT{base type}
+
+    \STATE \COMMENT{Extract qualifiers}
+    \FOR{$q \in \{\text{const}, \text{volatile}, \text{restrict}\}$}
+        \IF{$q \in \tau$}
+            \STATE $\mathcal{Q} \leftarrow \mathcal{Q} \cup \{q\}$
+            \STATE $\beta \leftarrow \beta \setminus \{q\}$ \COMMENT{remove from base}
+        \ENDIF
+    \ENDFOR
+
+    \STATE \COMMENT{Count pointer depth}
+    \WHILE{$\text{'*'} \in \beta$}
+        \STATE $\delta \leftarrow \delta + 1$
+        \STATE $\beta \leftarrow \beta \setminus \{\text{'*'}\}$
+    \ENDWHILE
+
+    \STATE $\beta \leftarrow \text{normalize}(\beta)$ \COMMENT{trim whitespace}
+
+    \STATE \COMMENT{Classify pointer kind}
+    \STATE $\kappa \leftarrow \text{ClassifyPointerKind}(\beta, \delta)$
+
+    \STATE \COMMENT{Map to protobuf type}
+    \STATE $\pi \leftarrow \text{NormalizePointerProto}(\beta, \kappa)$
+
+    \STATE \COMMENT{Construct metadata}
+    \STATE $\mathcal{M} \leftarrow \text{PointerMetadata}(\delta, \beta, \mathcal{Q}, \kappa, \pi)$
+    \RETURN $\mathcal{M}$
+\ENDPROCEDURE
+
+\vspace{0.3cm}
+
+\PROCEDURE{ClassifyPointerKind}{$\beta$, $\delta$}
+    \IF{$\delta > 1$}
+        \RETURN $\text{pointer\_chain}$
+    \ELSIF{$\beta = \text{char}$}
+        \RETURN $\text{string\_ptr}$
+    \ELSIF{$\text{struct} \in \beta$}
+        \RETURN $\text{struct\_ptr}$
+    \ELSIF{$\beta \in \Gamma_{\text{primitives}}$}
+        \RETURN $\text{scalar\_ptr}$
+    \ELSIF{$\beta = \text{void}$}
+        \RETURN $\text{void\_ptr}$
+    \ELSE
+        \RETURN $\text{opaque\_ptr}$
+    \ENDIF
+\ENDPROCEDURE
+
+\vspace{0.3cm}
+
+\PROCEDURE{NormalizePointerProto}{$\beta$, $\kappa$}
+    \IF{$\kappa = \text{string\_ptr}$}
+        \RETURN $\text{string}$
+    \ELSIF{$\kappa = \text{scalar\_ptr} \land \beta \in \Gamma_{\text{TYPE\_MAP}}$}
+        \RETURN $\Gamma_{\text{TYPE\_MAP}}[\beta]$
+    \ELSIF{$\kappa = \text{void\_ptr}$}
+        \RETURN $\text{bytes}$
+    \ELSIF{$\kappa = \text{struct\_ptr}$}
+        \RETURN $\beta$ \COMMENT{use struct name}
+    \ELSE
+        \RETURN $\text{bytes}$ \COMMENT{opaque fallback}
+    \ENDIF
+\ENDPROCEDURE
+
+\end{algorithmic}
+\end{algorithm}
+
+\vspace{0.5cm}
+
+\textbf{Notation:}
+\begin{itemize}
+    \item $\tau$ : Type spelling string from C AST
+    \item $\Gamma$ : Global type context with primitive and typedef mappings
+    \item $\mathcal{M}$ : Structured metadata object $(\delta, \beta, \mathcal{Q}, \kappa, \pi)$
+    \item $\delta$ : Pointer depth (indirection level)
+    \item $\beta$ : Base type after qualifier/pointer removal
+    \item $\mathcal{Q}$ : Set of qualifiers $\{const, volatile, restrict\}$
+    \item $\kappa$ : Pointer kind classification
+    \item $\pi$ : Protocol buffer type hint
+\end{itemize}
+
+\textbf{Complexity:} $O(|\tau| + |\mathcal{Q}|)$ where $|\tau|$ is length of type string and $|\mathcal{Q}| = O(1)$ is constant (at most 3 qualifiers).
+
+\textbf{Correctness:} The algorithm correctly extracts pointer metadata by sequentially parsing qualifiers, counting indirection levels, and classifying the base type according to C type semantics. The classification is deterministic and covers all C pointer categories.

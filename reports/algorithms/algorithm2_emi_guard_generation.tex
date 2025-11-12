@@ -1,0 +1,107 @@
+\begin{algorithm}[H]
+\caption{EMI (Equivalence Modulo Input) Guard Generation}
+\label{alg:emi_guard_generation}
+\begin{algorithmic}[1]
+\REQUIRE $\mathcal{F}$ : Function signature with parameters $\{p_1, ..., p_n\}$
+\REQUIRE $\mathcal{M}$ : Pointer metadata map $\{p_i \mapsto \mathcal{M}_i\}$
+\ENSURE $\mathcal{G}$ : Set of validation guards and reconstruction code
+
+\PROCEDURE{GenerateEMIGuards}{$\mathcal{F}$, $\mathcal{M}$}
+    \STATE $\mathcal{G} \leftarrow \emptyset$ \COMMENT{guard set}
+    \STATE $\mathcal{R} \leftarrow \emptyset$ \COMMENT{reconstruction code}
+    \STATE $\mathcal{C} \leftarrow \emptyset$ \COMMENT{cleanup tracking}
+
+    \FOR{each parameter $p_i \in \mathcal{F}$}
+        \IF{$p_i \in \mathcal{M} \land \mathcal{M}_i.\kappa \in \{\text{scalar\_ptr}, \text{struct\_ptr}\}$}
+            \STATE $\mathcal{R} \leftarrow \mathcal{R} \cup \text{GenerateScalarReconstruction}(p_i, \mathcal{M}_i)$
+            \STATE $\mathcal{G} \leftarrow \mathcal{G} \cup \text{CreateNullGuard}(p_i, \mathcal{M}_i)$
+
+        \ELSIF{$\mathcal{M}_i.\kappa = \text{slice} \land \mathcal{M}_i.\lambda \neq \text{null}$}
+            \STATE $p_{\text{len}} \leftarrow \mathcal{M}_i.\lambda$ \COMMENT{associated length param}
+            \STATE $\mathcal{R} \leftarrow \mathcal{R} \cup \text{GenerateSliceReconstruction}(p_i, p_{\text{len}}, \mathcal{M}_i)$
+            \STATE $\mathcal{G} \leftarrow \mathcal{G} \cup \text{CreateLengthGuard}(p_i, p_{\text{len}})$
+            \STATE $\mathcal{C} \leftarrow \mathcal{C} \cup \{p_i\}$ \COMMENT{track for cleanup}
+
+        \ELSIF{$\mathcal{M}_i.\text{external} = \text{true}$}
+            \STATE $\mathcal{R} \leftarrow \mathcal{R} \cup \text{GenerateHandleAcquisition}(p_i, \mathcal{M}_i)$
+            \STATE $\mathcal{G} \leftarrow \mathcal{G} \cup \text{CreateHandleGuard}(p_i)$
+            \STATE $\mathcal{C} \leftarrow \mathcal{C} \cup \{p_i\}$ \COMMENT{track for release}
+        \ENDIF
+    \ENDFOR
+
+    \STATE $\mathcal{G}.\text{cleanup} \leftarrow \text{GenerateCleanupCode}(\mathcal{C})$
+    \RETURN $(\mathcal{G}, \mathcal{R})$
+\ENDPROCEDURE
+
+\vspace{0.3cm}
+
+\PROCEDURE{CreateLengthGuard}{$p_{\text{ptr}}$, $p_{\text{len}}$}
+    \STATE $\text{guard} \leftarrow \text{``}$
+    \STATE \quad \texttt{if (}\emph{decoded\_len}$(p_{\text{ptr}}) \neq p_{\text{len}})$ \texttt{\{}
+    \STATE \quad \quad \texttt{emi\_reason = PIN\_EMI\_REASON\_LENGTH\_MISMATCH;}
+    \STATE \quad \quad \texttt{goto emi\_reject;}
+    \STATE \quad \texttt{\}}
+    \STATE $\text{``}$
+    \RETURN $\text{guard}$
+\ENDPROCEDURE
+
+\vspace{0.3cm}
+
+\PROCEDURE{CreateNullGuard}{$p$, $\mathcal{M}$}
+    \STATE $\text{guard} \leftarrow \text{``}$
+    \STATE \quad \texttt{if (}$\mathcal{M}.\text{has\_value} = \text{false}$ \texttt{) \{}
+    \STATE \quad \quad $p \leftarrow \text{NULL};$
+    \STATE \quad \texttt{\} else \{}
+    \STATE \quad \quad $p \leftarrow \&\text{storage};$
+    \STATE \quad \texttt{\}}
+    \STATE $\text{``}$
+    \RETURN $\text{guard}$
+\ENDPROCEDURE
+
+\vspace{0.3cm}
+
+\PROCEDURE{GenerateSliceReconstruction}{$p_{\text{ptr}}$, $p_{\text{len}}$, $\mathcal{M}$}
+    \STATE $\text{code} \leftarrow \text{``}$
+    \STATE \quad $\sigma \leftarrow \mathcal{M}.\beta$ \COMMENT{element type}
+    \STATE \quad \texttt{size\_t array\_len = input.}$p_{\text{ptr}}$\texttt{.data\_count;}
+    \STATE \quad \texttt{if (array\_len > 0) \{}
+    \STATE \quad \quad $\tau \leftarrow \sigma$\texttt{*} \COMMENT{pointer type}
+    \STATE \quad \quad $p_{\text{ptr}} \leftarrow \texttt{malloc}(\text{array\_len} \times \texttt{sizeof}(\sigma));$
+    \STATE \quad \quad \texttt{if (!}$p_{\text{ptr}}$\texttt{) return PIN\_ERROR\_ALLOCATION;}
+    \STATE \quad \quad \texttt{memcpy(}$p_{\text{ptr}}$\texttt{, input.}$p_{\text{ptr}}$\texttt{.data, array\_len} $\times$ \texttt{sizeof}($\sigma$\texttt{));}
+    \STATE \quad \texttt{\} else \{}
+    \STATE \quad \quad $p_{\text{ptr}} \leftarrow \text{NULL};$
+    \STATE \quad \texttt{\}}
+    \STATE $\text{``}$
+    \RETURN $\text{code}$
+\ENDPROCEDURE
+
+\end{algorithmic}
+\end{algorithm}
+
+\vspace{0.5cm}
+
+\textbf{Notation:}
+\begin{itemize}
+    \item $\mathcal{F}$ : Function signature containing parameter list
+    \item $\mathcal{M}_i$ : Pointer metadata for parameter $p_i$
+    \item $\mathcal{G}$ : Generated guard set (validation checks)
+    \item $\mathcal{R}$ : Reconstruction code (pointer materialization)
+    \item $\mathcal{C}$ : Cleanup tracking set for deallocation
+    \item $\kappa$ : Pointer kind from metadata
+    \item $\lambda$ : Associated length parameter (if slice pointer)
+    \item $\sigma$ : Element type for array slices
+    \item $\tau$ : Pointer type for allocation
+\end{itemize}
+
+\textbf{Complexity:} $O(n)$ where $n$ is the number of parameters in $\mathcal{F}$. Each parameter is processed once with constant-time metadata lookup and guard generation.
+
+\textbf{EMI Policy:} Guards enforce semantic equivalence by rejecting inputs that:
+\begin{enumerate}
+    \item Violate null/non-null constraints inferred from C semantics
+    \item Have length mismatches between array data and size parameters
+    \item Contain invalid external handle acquisitions (e.g., failed TIFF* allocation)
+    \item Exceed slice bounds during indexed access
+\end{enumerate}
+
+The guard generation ensures that normalized execution is equivalent to original execution only on the subset of inputs satisfying these preconditions, implementing the EMI (Equivalence Modulo Input) principle.

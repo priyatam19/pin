@@ -64,6 +64,41 @@
 
 ---
 
+## PHASE 1 REALITY CHECK (Nov 4, 2025)
+
+- **Experiment**: PIN vs AFL on `mg_mqtt_next_sub` (structured input, 5 min run).
+- **Outcome**: PIN still found **0/11 crashes**, matching the parser failure seen in `mg_mqtt_parse`.
+- **Diagnosis**:
+  - Structs synthesized by protobuf never recreate the malformed MQTT buffer that AFL routes through `mg_mqtt_parse`.
+  - Empty protobuf inputs trigger new NULL derefs (e.g., crash-da39a3e...) instead of the CVE-mongoose-0001 overflow.
+  - Warnings about incompatible pointer types confirm headers are still incomplete in the standalone harness.
+- **Implication**: Even “correct” structured functions inherit parser-dependent bugs; fixing input-space mismatch is a **gateway requirement** before any of the other enhancements can matter.
+
+---
+
+## INTERIM CHECKPOINTS FOR PIN RESTORATION
+
+1. **Checkpoint A – Baseline Reproduction (DONE)**  
+   - Reproduce the Phase 1 run (`pin_diff.sh … mg_mqtt_next_sub`) and archive both corpora plus crash artifacts under `build/fuzz_mqtt_unified_diff`.  
+   - Deliverable: Verified mismatch report (this document) + stats table in `reports/PHASE1_EXPERIMENT_RESULTS.md`.
+
+2. **Checkpoint B – Pass-Through Mode Prototype (IN PROGRESS)**  
+   - Implement byte-for-byte forwarding option so parser entry points (e.g., `mg_mqtt_parse`) can be fuzzed without protobuf.  
+   - Status: `--input-mode=raw` landed and exercised on `mg_mqtt_parse` (60 s run → 131-input corpus, cov≈23). Stage B logs `ref=n/a` since no reference binary exists.  
+   - Next validation: compare crash overlap/coverage with the AFL baseline harness and ensure struct-mode targets regressions stay at zero.
+
+3. **Checkpoint C – Seed & Handle Initialization (QUEUED)**  
+   - Use LLM/OSS-Fuzz-Gen derived seeds + handle glue to lift valid-input rate above 50% on structured APIs.  
+   - Measured via Stage A `valid/%` counter and normalized replay success rate.
+
+4. **Checkpoint D – LPM Upgrade (PLANNED)**  
+   - Swap libFuzzer byte mutator with libprotobuf-mutator once Checkpoint B confirms parsers are reachable.  
+   - Success metric: structured benchmarks (cJSON, fdlibm) improve coverage by 10–20% without new diffs.
+
+These checkpoints will be mirrored in the detailed roadmap (`pin_extension_strategic_plan.md`) and revisited after each major experiment to ensure new work does not regress the now-documented baseline.
+
+---
+
 ## THE COMPETITIVE LANDSCAPE
 
 ### 9 Tools Selected for Study

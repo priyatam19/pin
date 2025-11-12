@@ -40,3 +40,26 @@ TOTAL                     |        220 |        138 |     37.3%
 - Architecture explanation: `docs/pin-architecture.md`
 - DIFF case studies: `docs/emi-case-studies.md`
 - Decoder recommendations: See "Decoder Choice and Recommendations" in `CLAUDE.md`
+
+## test_pass_through_mode.sh
+
+Smoke-tests the raw byte pass-through pipeline on a tiny parser target so CI can
+ensure the `--input-mode=raw` plumbing stays working.
+
+**Usage**:
+```bash
+./scripts/test_pass_through_mode.sh
+```
+
+The script points `pin_diff.sh` at `examples/simple_benchs/raw_passthrough_example.c`
+with pass-through mode enabled, fuzzes for one second, and verifies that Stage B
+produces a replay summary.
+
+## Intelligent seed generation (via `pin_diff.sh --generate-seeds`)
+
+When you pass `--generate-seeds[=N]` to `pin_diff.sh`, it invokes
+`src/generate_intelligent_seeds.py` inside the build directory to enumerate
+type-driven boundary corpora from the already-generated `.proto`. The resulting
+`.bin` files land in `build/<target>_diff/seed_corpus/` and are copied into the
+libFuzzer corpus before Stage A starts, giving structured targets a deterministic
+starting point without leaving the local machine.

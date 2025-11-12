@@ -1,0 +1,8 @@
+=== 48dad12865d1eb8b98d26723f2abda2f0a6d2409 ===
+[input decoded]
+{}
+[normalized rc=0 stdout]
+[normalized stderr]
+[reference_npb rc=0 stdout]
+[reference_npb stderr]
+

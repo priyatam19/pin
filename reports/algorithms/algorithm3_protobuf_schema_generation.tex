@@ -1,0 +1,170 @@
+\begin{algorithm}[H]
+\caption{Protocol Buffer Schema Generation from C Structures}
+\label{alg:protobuf_schema_generation}
+\begin{algorithmic}[1]
+\REQUIRE $\mathcal{S}$ : Set of C struct definitions from AST
+\REQUIRE $\Gamma$ : Type mapping context
+\REQUIRE $\mathcal{M}$ : Pointer metadata repository
+\ENSURE $\Pi$ : Protocol Buffer schema (.proto file)
+
+\PROCEDURE{GenerateProtoSchema}{$\mathcal{S}$, $\Gamma$, $\mathcal{M}$}
+    \STATE $\Pi \leftarrow \{\}$ \COMMENT{schema accumulator}
+    \STATE $\mathcal{H} \leftarrow \text{GeneratePointerHelpers}(\mathcal{M})$ \COMMENT{helper messages}
+    \STATE $\mathcal{V} \leftarrow \emptyset$ \COMMENT{visited struct names}
+
+    \STATE \COMMENT{Prepend helper messages}
+    \FOR{each helper $h \in \mathcal{H}$}
+        \STATE $\Pi \leftarrow \Pi \cup \{h\}$
+    \ENDFOR
+
+    \STATE \COMMENT{Process main structures}
+    \FOR{each struct $s \in \mathcal{S}$}
+        \IF{$s.\text{name} \notin \mathcal{V}$}
+            \STATE $\mu \leftarrow \text{TransformStruct}(s, \Gamma, \mathcal{M}, \mathcal{V})$
+            \STATE $\Pi \leftarrow \Pi \cup \{\mu\}$
+            \STATE $\mathcal{V} \leftarrow \mathcal{V} \cup \{s.\text{name}\}$
+        \ENDIF
+    \ENDFOR
+
+    \RETURN $\Pi$
+\ENDPROCEDURE
+
+\vspace{0.3cm}
+
+\PROCEDURE{TransformStruct}{$s$, $\Gamma$, $\mathcal{M}$, $\mathcal{V}$}
+    \STATE $\mu \leftarrow \text{Message}(s.\text{name})$ \COMMENT{create proto message}
+    \STATE $\phi \leftarrow 1$ \COMMENT{field number counter}
+
+    \FOR{each field $f \in s.\text{fields}$}
+        \IF{$f.\tau$ is primitive type}
+            \STATE $\pi \leftarrow \Gamma[f.\tau]$ \COMMENT{map to proto type}
+            \STATE $\mu.\text{fields} \leftarrow \mu.\text{fields} \cup \{(\pi, f.\text{name}, \phi)\}$
+            \STATE $\phi \leftarrow \phi + 1$
+
+        \ELSIF{$f.\tau$ is array $[n]$}
+            \STATE $\beta \leftarrow f.\tau.\text{base\_type}$
+            \STATE $\pi \leftarrow \Gamma[\beta]$
+            \STATE $\mu.\text{fields} \leftarrow \mu.\text{fields} \cup \{(\text{repeated } \pi, f.\text{name}, \phi)\}$
+            \STATE $\phi \leftarrow \phi + 1$
+
+        \ELSIF{$f.\tau$ is pointer}
+            \IF{$f.\text{name} \in \mathcal{M}$}
+                \STATE $\mathcal{M}_f \leftarrow \mathcal{M}[f.\text{name}]$ \COMMENT{get pointer metadata}
+                \IF{$\mathcal{M}_f.\kappa \in \{\text{scalar\_ptr}, \text{struct\_ptr}\}$}
+                    \STATE $\omega \leftarrow \mathcal{M}_f.\text{wrapper\_name}$ \COMMENT{helper message name}
+                    \STATE $\mu.\text{fields} \leftarrow \mu.\text{fields} \cup \{(\omega, f.\text{name}, \phi)\}$
+
+                \ELSIF{$\mathcal{M}_f.\kappa = \text{slice} \land \mathcal{M}_f.\lambda \neq \text{null}$}
+                    \STATE $\omega \leftarrow \mathcal{M}_f.\text{wrapper\_name}$ \COMMENT{slice helper}
+                    \STATE $\mu.\text{fields} \leftarrow \mu.\text{fields} \cup \{(\omega, f.\text{name}, \phi)\}$
+                    \STATE $\phi \leftarrow \phi + 1$
+                    \STATE \COMMENT{Add length field}
+                    \STATE $\lambda_{\tau} \leftarrow \mathcal{M}_f.\text{length\_proto}$
+                    \STATE $\mu.\text{fields} \leftarrow \mu.\text{fields} \cup \{(\lambda_{\tau}, \mathcal{M}_f.\lambda, \phi)\}$
+
+                \ELSIF{$\mathcal{M}_f.\kappa = \text{string\_ptr}$}
+                    \STATE $\mu.\text{fields} \leftarrow \mu.\text{fields} \cup \{(\text{bytes}, f.\text{name}, \phi)\}$
+
+                \ELSE
+                    \STATE $\mu.\text{fields} \leftarrow \mu.\text{fields} \cup \{(\text{bytes}, f.\text{name}, \phi)\}$ \COMMENT{opaque fallback}
+                \ENDIF
+            \ENDIF
+            \STATE $\phi \leftarrow \phi + 1$
+
+        \ELSIF{$f.\tau$ is nested struct}
+            \STATE $\nu \leftarrow f.\tau.\text{struct\_name}$
+            \IF{$\nu \notin \mathcal{V}$}
+                \STATE $\nu_{\mu} \leftarrow \text{TransformStruct}(f.\tau, \Gamma, \mathcal{M}, \mathcal{V})$ \COMMENT{recursive}
+                \STATE $\mathcal{V} \leftarrow \mathcal{V} \cup \{\nu\}$
+            \ENDIF
+            \STATE $\mu.\text{fields} \leftarrow \mu.\text{fields} \cup \{(\nu, f.\text{name}, \phi)\}$
+            \STATE $\phi \leftarrow \phi + 1$
+        \ENDIF
+    \ENDFOR
+
+    \RETURN $\mu$
+\ENDPROCEDURE
+
+\vspace{0.3cm}
+
+\PROCEDURE{GeneratePointerHelpers}{$\mathcal{M}$}
+    \STATE $\mathcal{H} \leftarrow \emptyset$ \COMMENT{helper message set}
+    \STATE $\mathcal{D} \leftarrow \emptyset$ \COMMENT{deduplication map}
+
+    \FOR{each $(\text{name}, \mathcal{M}_p) \in \mathcal{M}$}
+        \IF{$\mathcal{M}_p.\kappa = \text{scalar\_ptr}$}
+            \STATE $\beta \leftarrow \mathcal{M}_p.\beta$ \COMMENT{base type}
+            \STATE $\pi \leftarrow \Gamma[\beta]$ \COMMENT{proto type}
+            \STATE $\text{key} \leftarrow (\text{scalar}, \pi)$
+
+            \IF{$\text{key} \notin \mathcal{D}$}
+                \STATE $h \leftarrow \text{Message}(\text{to\_pascal}(\pi) + \text{``ScalarPtr''})$
+                \STATE $h.\text{fields} \leftarrow \{(\text{bool}, \text{``has\_value''}, 1), (\pi, \text{``value''}, 2)\}$
+                \STATE $\mathcal{H} \leftarrow \mathcal{H} \cup \{h\}$
+                \STATE $\mathcal{D}[\text{key}] \leftarrow h.\text{name}$
+            \ENDIF
+            \STATE $\mathcal{M}_p.\text{wrapper\_name} \leftarrow \mathcal{D}[\text{key}]$
+
+        \ELSIF{$\mathcal{M}_p.\kappa = \text{slice}$}
+            \STATE $\beta \leftarrow \mathcal{M}_p.\beta$
+            \STATE $\pi \leftarrow \Gamma[\beta]$
+            \STATE $\text{key} \leftarrow (\text{slice}, \pi)$
+
+            \IF{$\text{key} \notin \mathcal{D}$}
+                \STATE $h \leftarrow \text{Message}(\text{to\_pascal}(\pi) + \text{``Slice''})$
+                \STATE $h.\text{fields} \leftarrow \{(\text{repeated } \pi, \text{``data''}, 1), (\text{int32}, \text{``length''}, 2)\}$
+                \STATE $\mathcal{H} \leftarrow \mathcal{H} \cup \{h\}$
+                \STATE $\mathcal{D}[\text{key}] \leftarrow h.\text{name}$
+            \ENDIF
+            \STATE $\mathcal{M}_p.\text{wrapper\_name} \leftarrow \mathcal{D}[\text{key}]$
+
+        \ELSIF{$\mathcal{M}_p.\kappa = \text{struct\_ptr}$}
+            \STATE $\beta \leftarrow \mathcal{M}_p.\beta$ \COMMENT{struct name}
+            \STATE $\text{key} \leftarrow (\text{struct}, \beta)$
+
+            \IF{$\text{key} \notin \mathcal{D}$}
+                \STATE $h \leftarrow \text{Message}(\beta + \text{``Ptr''})$
+                \STATE $h.\text{fields} \leftarrow \{(\text{bool}, \text{``has\_value''}, 1), (\beta, \text{``value''}, 2)\}$
+                \STATE $\mathcal{H} \leftarrow \mathcal{H} \cup \{h\}$
+                \STATE $\mathcal{D}[\text{key}] \leftarrow h.\text{name}$
+            \ENDIF
+            \STATE $\mathcal{M}_p.\text{wrapper\_name} \leftarrow \mathcal{D}[\text{key}]$
+        \ENDIF
+    \ENDFOR
+
+    \RETURN $\mathcal{H}$
+\ENDPROCEDURE
+
+\end{algorithmic}
+\end{algorithm}
+
+\vspace{0.5cm}
+
+\textbf{Notation:}
+\begin{itemize}
+    \item $\mathcal{S}$ : Set of C struct definitions extracted from AST
+    \item $\Gamma$ : Type mapping from C primitives to Protocol Buffer types
+    \item $\mathcal{M}$ : Pointer metadata repository (parameter name $\mapsto$ PointerMetadata)
+    \item $\Pi$ : Generated Protocol Buffer schema
+    \item $\mu$ : Protocol Buffer message definition
+    \item $\phi$ : Field number (Protocol Buffer field tag)
+    \item $\mathcal{H}$ : Set of helper messages for pointer types
+    \item $\mathcal{D}$ : Deduplication map to prevent duplicate helper generation
+    \item $\mathcal{V}$ : Visited set for cycle detection in nested structs
+    \item $\beta$ : Base type from pointer metadata
+    \item $\pi$ : Protocol Buffer type
+    \item $\omega$ : Helper message name (wrapper)
+    \item $\lambda$ : Length parameter name for slice pointers
+    \item $\nu$ : Nested struct name
+\end{itemize}
+
+\textbf{Complexity:} $O(|\mathcal{S}| \cdot m + |\mathcal{M}|)$ where $m$ is the maximum number of fields per struct. Each struct is visited once, and each field is processed in constant time. Helper generation is $O(|\mathcal{M}|)$ with deduplication ensuring each unique helper is created only once.
+
+\textbf{Correctness:} The algorithm correctly transforms C structures to Protocol Buffer schema by:
+\begin{enumerate}
+    \item Prepending helper messages to ensure all referenced types are defined before use
+    \item Recursively processing nested structs with cycle detection via $\mathcal{V}$
+    \item Maintaining field ordering and correct field numbering
+    \item Deduplicating helper messages to avoid schema conflicts
+    \item Preserving semantic relationships (pointer+length, struct nesting)
+\end{enumerate}
